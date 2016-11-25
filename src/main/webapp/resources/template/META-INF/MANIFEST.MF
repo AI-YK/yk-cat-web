@@ -1,0 +1,5 @@
+Manifest-Version: 1.0-SNAPSHOT
+Built-By: gradle 2.2
+packageName: yc-ued-template
+Built-date: 2016-11-08 13:13:03
+

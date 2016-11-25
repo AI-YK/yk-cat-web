@@ -1,0 +1,132 @@
+import org.gradle.plugins.ide.eclipse.model.Facet
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: "APIJarProcess"
+
+sourceCompatibility = 1.7   // 设置 JDK 版本
+sourceSets.main.java.srcDir 'src'   // 设置 Java 源码所在目录
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    resolutionStrategy.cacheDynamicVersionsFor 0, 'seconds'
+    exclude group: 'log4j', module: 'log4j'
+    exclude group: "org.slf4j", module: "slf4j-log4j12"
+    exclude group: "org.slf4j", module: "log4j-over-slf4j"
+}
+
+configurations {
+    optUedTemplate
+    jsCommonLibs
+}
+
+repositories {
+   maven { url "http://10.1.228.199:18081/nexus/content/groups/public/" }
+}
+buildscript{
+    repositories {
+        maven { url "http://10.1.228.199:18081/nexus/content/groups/public/" }
+    }
+    dependencies {
+        classpath group: 'com.ai.runner.plugin', name: 'apijarprocessplugin', version: '1.0'
+    }
+}
+
+sourceSets {
+    main {
+        java { srcDirs = ['src/main/java'] }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+// 设置依赖
+dependencies {
+    compile "jstl:jstl:1.2"
+    compile "org.springframework:spring-web:4.1.7.RELEASE"
+    compile "org.springframework:spring-webmvc:4.1.7.RELEASE"
+    compile 'org.springframework:spring-context-support:4.1.7.RELEASE'
+    compile "com.fasterxml.jackson.core:jackson-databind:2.6.0"
+    compile "commons-fileupload:commons-fileupload:1.3.1"
+    compile "commons-io:commons-io:2.4"
+    compile 'opensymphony:sitemesh:2.4.2'
+
+    providedCompile "javax.servlet:javax.servlet-api:3.1.0"
+    providedCompile "javax.servlet.jsp:javax.servlet.jsp-api:2.3.1"
+
+    compile 'org.apache.curator:curator-framework:2.8.0'
+    compile 'org.apache.curator:curator-recipes:2.8.0'
+    compile "org.apache.zookeeper:zookeeper:3.4.6"
+    compile	'org.apache.commons:commons-email:1.4'
+    compile 'org.apache.commons:commons-compress:1.9'
+    compile 'joda-time:joda-time:2.9.4'
+	
+	optUedTemplate 'com.ai.opt.uniframe:yc-ued-template:1.0-SNAPSHOT'
+	jsCommonLibs 'com.ai.opt.uniframe:yc-jscommon-libs:1.0-SNAPSHOT'
+	
+    compile ("org.apache.hadoop:hadoop-common:2.7.1") {
+        exclude group: 'com.sun.jersey', module: 'jersey-core'
+        exclude group: 'com.sun.jersey', module: 'jersey-json'
+        exclude group: 'com.sun.jersey', module: 'jersey-server'
+    }
+
+    compile 'com.ai.opt.sdk:opt-sdk:2.2.1-SNAPSHOT'
+    compile 'com.ai.opt.xss.filter:opt-xss-firewall:1.0-SNAPSHOT'
+    compile 'com.ai.opt.uni.session:opt-uni-session:2.0-SNAPSHOT'
+    compile 'com.ai.opt.sso.client:opt-sso-client:1.0.2-SNAPSHOT'
+
+   
+	
+	compile 'org.dom4j:dom4j:2.0.0'
+	compile 'com.ai.yc.sms:focusSmsSDK:1.0'
+	
+	compile('org.apache.axis2:axis2-adb:1.5.1') {
+		exclude group: 'org.apache.geronimo.specs'
+	}
+	compile('org.apache.axis2:axis2-kernel:1.5.1') {
+		exclude group: 'org.apache.geronimo.specs'
+	}
+	compile('org.apache.axis2:axis2-transport-local:1.5.1') {
+		exclude group: 'org.apache.geronimo.specs'
+	}
+	compile('org.apache.axis2:axis2-transport-http:1.5.1') {
+		exclude group: 'org.apache.geronimo.specs'
+	}
+	
+    testCompile(
+            "org.springframework:spring-test:4.1.7.RELEASE",
+            "junit:junit:4.12"
+    )
+
+}
+
+def getUedTemplate=task("getUedTemplate",type:com.ai.runner.gradle.plugin.jar.APIJarProcessTask){
+	jarPaths=configurations.optUedTemplate.files.asType(List)
+    destinationDir file("src/main/webapp/resources/template") //这里面的路径建议保持默认
+}
+
+
+def getJsCommonLibs=task("getJsCommonLibs",type:com.ai.runner.gradle.plugin.jar.APIJarProcessTask){
+	jarPaths=configurations.jsCommonLibs.files.asType(List)
+    destinationDir file("src/main/webapp/resources/spm_modules") //这里面的路径建议保持默认
+}
+
+// 设置 Project Facets
+eclipse {
+    wtp {
+        facet {
+            facet name: 'jst.web', type: Facet.FacetType.fixed
+            facet name: 'wst.jsdt.web', type: Facet.FacetType.fixed
+            facet name: 'jst.java', type: Facet.FacetType.fixed
+            facet name: 'jst.web', version: '3.0'
+            facet name: 'jst.java', version: '1.7'
+            facet name: 'wst.jsdt.web', version: '1.0'
+        }
+    }
+}
+
+war {
+    baseName 'cat-web'
+}

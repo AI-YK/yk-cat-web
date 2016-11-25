@@ -1,0 +1,149 @@
+/**登录**/
+.login-body{background:#f0f2f5;}
+.login-big{width: 1200px;margin:0 auto;}
+.login-headr{width:100%;float:left;margin:60px 0 0 0;border-bottom:1px solid #cfd5e1; padding-bottom:10px;}
+.login-headr p{float:left}
+.login-headr .word{font-size:20px;color:#2361ea;padding:5px 0 0 20px;font-weight:bold;}
+.login-wrapper{width:100%;float:left}
+.login-left{width:500px;height:264px;float:left;margin:200px 0 0 0;}
+.login-right{width:460px;float:left;background:#fff;margin:50px 0 0 230px;padding:20px 30px;}
+.login-title{width:100%;float:left;border-bottom:1px solid #2361ea;padding-bottom:20px;text-align:center;font-size:18px;color:#2361ea;font-weight:bold;}
+.login-form-title{width:100%;float:left;padding:30px;}
+.login-form-title label{float:left;color:#fe6b6b;font-size:12px;}
+.login-form-title .right{float:right;font-size:12px;}
+.login-form-title .right a{color:#9ba3af;font-size:12px;}
+.login-form-title .right a i{color:#2361ea;font-size:14px;margin-right:10px;margin-top:2px;float:left}
+.login-form-title .icon-mt a i{margin-top:4px;}
+
+
+.login-form{width:100%;float:left;padding:0 30px;}
+.login-form ul,.login-form ul li{width:100%;float:left;}
+.login-form ul li{margin-bottom:20px;}
+.login-form ul li p{float:left}
+.login-form ul .int-border{width:100%;height:44px;border:1px solid #e6e6e6}
+.login-form ul .int-border:hover{border:1px solid #52dc90;}
+.logon-int{width:280px;height:42px;border:none;background:#fff;line-height:42px;}
+.logon-int:hover{border:none}
+.login-form ul .int-border .int-icon{width:53px;text-align:center;line-height:44px;}
+.logon-yz-int{width:200px;height:44px;border:1px solid #e6e6e6;padding-left:20px;}
+.login-form ul li a{color:#2361ea;font-size:12px;}
+.login-form ul li .right{float:right}
+.login-form ul li .line{width:233px;border-bottom:1px solid #e6e6e6;margin:10px 0 0 20px;}
+.login-form ul li .share{width:30px;height:30px;float:left;margin-right:20px;}
+.login-form ul li .none-ma{margin-right:0;}
+.login-form ul li .share1{background:url(../../images/icon-big.png) no-repeat left -243px;float:left;padding: 0}
+.login-form ul li .share1:hover{background:url(../../images/icon-big.png) no-repeat left -285px;}
+.login-form ul li .share2{background:url(../../images/icon-big.png) no-repeat -50px -243px;float:left;padding: 0}
+.login-form ul li .share2:hover{background:url(../../images/icon-big.png) no-repeat -50px -285px;}
+.login-form ul li .share3{background:url(../../images/icon-big.png) no-repeat -102px -243px;float:left;padding: 0}
+.login-form ul li .share3:hover{background:url(../../images/icon-big.png) no-repeat -102px -285px;}
+.login-form ul li .share4{background:url(../../images/icon-big.png) no-repeat -152px -243px;float:left;padding: 0}
+.login-form ul li .share4:hover{background:url(../../images/icon-big.png) no-repeat -152px -285px;}
+.login-form ul li .share5{background:url(../../images/icon-big.png) no-repeat -202px -243px;float:left;padding: 0}
+.login-form ul li .share5:hover{background:url(../../images/icon-big.png) no-repeat -202px -285px;}
+.login-form ul li .share6{background:url(../../images/icon-big.png) no-repeat -252px -243px;float:left;padding: 0}
+.login-form ul li .share6:hover{background:url(../../images/icon-big.png) no-repeat -252px -285px;}
+.login-form ul li .share7{background:url(../../images/icon-big.png) no-repeat -302px -243px;float:left;padding: 0}
+.login-form ul li .share7:hover{background:url(../../images/icon-big.png) no-repeat -302px -285px;}
+
+/**注册**/
+.register-right{width:586px;float:left;background:#fff;margin:50px 0 0 100px;padding:20px 30px;}
+.register-right ul{width:100%;float:left}
+.register-right ul li{width:100%;float:left;line-height:44px;margin-bottom:20px;}
+.register-right ul li p{float:left;}
+.register-right ul li .img{height:44px;margin:0;}
+.register-right ul li .word{width:70px;text-align: right;margin-right:20px;}
+.radio{width: 14px;height: 14px;margin-right:10px;}
+.register-right ul .ml-100{margin-left:90px;}
+.register-right ul .ml-70{margin-left:70px;}
+.register-right ul .alink,.register-right ul .alink a{font-size:12px}
+.register-right ul .alink a{color:#2361ea}
+.register-right ul .alink .right{float:right;margin-right:8px;}
+/**注册邮箱验证**/
+.verification{width:100%;float:left;padding-bottom:160px;}
+.verification ul{width:100%;float:left;margin-top:160px;}
+.verification ul li{text-align: center;line-height:20px;margin-bottom:20px;}
+.verification ul li a{color:#2865e6;font-size:14px;}
+.verification ul .word{font-size:16px;margin-bottom:40px;}
+.verification ul li span{color:#fa797b}
+
+/**找回密码**/
+.password-bj{width:1200px;background:#fff;min-height:630px;float:left;margin-top:20px;padding:40px 0;}
+.recharge-content{width:640px;margin:0 auto;}
+.recharge-form-label{width:640px;float:left;}
+.recharge-form-label ul{width:100%;float:left;}
+.recharge-form-label ul li{width:100%;float:left;line-height:48px;margin-bottom:20px;}
+.recharge-form-label ul li p{float:left;margin-right:20px;}
+.recharge-form-label ul li .word{width:120px;text-align:right;}
+.recharge-form-label ul .tishi{float:left;margin:40px 0 0 0;}
+.recharge-form-label ul .tishi p{width:100%;float:left;line-height:30px;padding-left:60px;color:#fe6b6b}
+.recharge-btn{width:100%;text-align: center;margin-top:90px;float:left}
+.btn40{margin-top:40px;}
+.recharge-form-label ul li p a{ color:#2361ea}
+.recharge-form-label ul li label{font-size:12px;width:100%;float:left;padding-left:140px;height:20px;line-height:20px;color:#fe6b6b}
+
+.back{margin-top:170px;}
+.int-in-big{height:48px;line-height:48px;}
+.int-large{height:48px;width:285px;line-height:48px;}
+.forget{width:530px;margin:0 auto;}
+.recharge-unionPay{width:100%;float:left;margin-top:40px;}
+.recharge-unionPay ul{}
+.recharge-unionPay ul a{width:230px;height:130px;background:#f8f8f8;border-radius:5px;float:left;}
+.recharge-unionPay ul .unicon{background:url(../../images/icon-big.png) no-repeat left 0px; width:140px;height:35px;margin:50px 0 0 50px;}
+.recharge-unionPay ul .zhifb{background:url(../../images/icon-big.png) no-repeat left -37px; width:118px;height:34px;margin:50px 0 0 50px;}
+.recharge-unionPay ul .current{background:#fff;-webkit-box-shadow: #3292f8 0px 0px 6px;-moz-box-shadow: #3292f8 0px 0px 6px;box-shadow: #3292f8 0px 0px 6px;}
+.set-up{text-align: center;}
+.set-up a{font-size:12px;color:#bfc5d2;padding-top:28px;position:relative;}
+.set-up .def{font-size:40px;color:#bfc5d2}
+.set-up .current{font-size:12px;color:#2361ea;padding-top:28px;}
+.set-up .current .def{font-size:40px;color:#2361ea}
+.set-up .current label{width:23px;height:23px;position:absolute;top:-10px;right:-6px;font-size:16px;background:url(../../images/icon-big.png) no-repeat left -2189px;}
+.set-up-step{width:100%;float:left;margin-top:80px;}
+.set-up-step{width:100%;float:left;margin-top:80px;}
+
+#back-pass1{display:none;}
+#next2{display:none;}
+#next3{display:none;}
+#next5{display:none;}
+#next6{display:none;}
+
+/**找回密码成功**/
+.recharge-success{width:100%;float:left;}
+.recharge-success ul{width:100%;float:left;}
+.recharge-success ul li{text-align: center;}
+.recharge-success ul .word{font-size:16px;margin-top:30px;}
+.recharge-success ul .list{font-size:14px}
+.recharge-success ul .list a{color:#3292f8;font-size:14px}
+.recharge-success ul .word .red{font-size:36px;color:#39d5b0;margin:10px;}
+
+/**步骤**/
+.place-step-none{width:33.333%;float:left;position:relative;}
+.place-step-none p{width:100%;float:left;position:absolute;top:25px;left:0;}
+.place-step-none ul{width:100px;position:relative;left:50%;top:0;margin-left:-50px;z-index:99;padding:0;}
+.place-step-none ul li{width:100%;text-align:center;line-height:30px;}
+
+.shezh-line p{top:18px;}
+/**进行中**/
+.adopt-stgreen-bj ul .circle{width:32px;height:32px;background:#39d5b0;border-radius:50%;line-height:32px;margin-left:36px;color:#fff;text-align: center;}
+.adopt-stgreen-bj ul .circle i{color:#fff;font-size:20px}
+.adopt-stgreen-bj ul .word{color:#39d5b0;font-size:12px;font-weight:bold;}
+.adopt-stgreen-bj .line{border-bottom:2px solid #39d5b0;}
+/**未进行**/
+.adopt-stash-bj ul .circle{width:32px;height:32px;border:1px solid #e6e6e6;background:#fff;border-radius:50%;line-height:32px;margin-left:36px;color:#e6e6e6;text-align: center;}
+.adopt-stash-bj ul .circle i{color:#fff;font-size:20px}
+.adopt-stash-bj ul .word{color:#e6e6e6;font-size:12px;}
+.adopt-stash-bj .line{border-bottom:2px solid #e3e6ed;}
+/**已经进行**/
+.adopt-lightgreen-bj ul .circle{width:32px;height:32px;background:#8eddce;border-radius:50%;line-height:32px;margin-left:36px;color:#fff;text-align: center;}
+.adopt-lightgreen-bj ul .circle i{color:#fff;font-size:20px}
+.adopt-lightgreen-bj ul .word{color:#8eddce;font-size:12px;}
+.adopt-lightgreen-bj .line{border-bottom:2px solid #8eddce;}
+
+/**没有绑定**/
+.recharge-success{width:100%;float:left;padding-top:100px;}
+.recharge-success ul{width:100%;float:left;}
+.recharge-success ul li{text-align: center;}
+.recharge-success ul .word{font-size:16px;margin-top:30px;}
+.recharge-success ul .list{font-size:14px}
+.recharge-success ul .list a{color:#3292f8;font-size:14px}
+.recharge-success ul .word .red{font-size:36px;color:#39d5b0;margin:10px;}

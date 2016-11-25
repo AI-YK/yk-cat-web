@@ -1,0 +1,84 @@
+/**头部**/
+.header-big{width:100%;height:60px;background:#2361ea;min-width:1170px;}
+.cloud-header{width:1170px;height:60px;margin:0 auto;}
+.logo{width:253px;height:34px;float:left;margin:10px 0 0 26px;}
+.cloud-nav{width:480px;float:left;margin:16px 0 0 64px;}
+.cloud-nav ul{width:100%;float:left;}
+.cloud-nav ul li{float:left;margin-right:22px;line-height:30px;}
+.cloud-nav ul li a{color:#fff;font-size:14px;padding:0 20px;}
+.cloud-nav ul li a:hover{height:30px;float:left;padding:0 20px;background:#eff1f4;color:#2361ea;border-radius:15px;}
+.cloud-nav ul .current a{height:30px;float:left;padding:0 20px;background:#eff1f4;color:#2361ea;border-radius:15px;}
+.cloud-breadcrumb{float:left;margin:15px 25px 0 0;;}
+.cloud-breadcrumb ul{display: inline-block;}
+.cloud-breadcrumb ul li{float:left;position: relative;margin-left:20px;}
+.none-select{background:none;border: none;color:#fff; outline:none;appearance:none;-moz-appearance:none;-webkit-appearance:none;}
+.cloud-breadcrumb ul li .icon-caret-down{position: absolute;top:10px;right:6px;color:#fff;}
+.cloud-breadcrumb ul li .btg{position: absolute;top:10px;right:-6px;color:#fff;}
+.cloud-breadcrumb ul li .message{width:16px;height:16px;position: absolute;top:-5px;right:-4px;font-size:12px;background:#fe6b6b;border-radius:50%;text-align:center;color:#fff;line-height:16px;}
+.cloud-breadcrumb ul .user{padding:0 16px;float:left}
+.cloud-breadcrumb ul .user a{font-size:14px;color:#fff;line-height:35px;}
+.cloud-breadcrumb ul .user a .icon-caret-down{font-size:14px;}
+.cloud-breadcrumb ul .user a .icon-caret-up{font-size:14px;}
+.cloud-breadcrumb ul .user .show{width:160px;height:140px;background:#fff;border:1px solid #e3e6ed;position:absolute;right:0;top:45px;border-radius:5px;display:none; z-index: 99;}
+.cloud-breadcrumb ul .user .show ul{width:100%;float:left}
+.cloud-breadcrumb ul .user .show ul li{width:100%;float:left;height:46px;border-bottom:1px solid #e3e6ed;margin-left:0;line-height:46px;padding-left:32px;}
+.cloud-breadcrumb ul .user .show ul li:hover{background:#e6e6e6;}
+.cloud-breadcrumb ul .user .show ul li a{color:#6a6c6f;font-size:14px;}
+.cloud-breadcrumb ul .user .show ul li a:hover{color:#2361ea;}
+.cloud-breadcrumb ul .user .show ul li i{color:#2361ea;margin-right: 6px;}
+
+
+/**下单头部**/
+/**下单面包屑导航**/
+.placeorder-breadcrumb-big{width:100%;height:38px;background:#f0f0f0;border-bottom:2px solid #f37075;min-width:1200px;}
+.placeorder-breadcrumb{width:1200px;margin:0 auto;}
+.placeorder-breadcrumb ul{width:100%;float:left}
+.placeorder-breadcrumb ul li{float:left}
+.placeorder-breadcrumb ul li p{float:left}
+.placeorder-breadcrumb ul li a{color:#333}
+.placeorder-breadcrumb ul .left{line-height:38px;}
+.placeorder-breadcrumb ul .left i{margin-right:10px;}
+.placeorder-breadcrumb ul .right{float:right;}
+.placeorder-breadcrumb ul .right p{margin-right:10px;border-right:1px solid #d3d3d3;height:18px;margin-top: 10px;position: relative;}
+.placeorder-breadcrumb ul .right p a{padding-right:10px;color:#333}
+.placeorder-breadcrumb ul .right p a:hover{color:#0083ff}
+.placeorder-breadcrumb ul .right .none-border{border-right:none;}
+.placeorder-breadcrumb ul .right .blue{color:#0083ff}
+.ash-select{color:#333;font-size:12px;}
+.placeorder-breadcrumb ul .right .none-top{margin-top:4px;}
+.placeorder-breadcrumb ul .right .icon-caret-down{position: absolute;top:10px;right:6px;color:#999;}
+/**下单主导航**/
+.placeorder-subnav-big{width:100%;height:60px;background:#2965e6;min-width:1200px;}
+.placeorder-subnav{width:1200px;margin:0 auto;}
+.placeorder-subnav ul{width:100%;float:left;height:60px;}
+.placeorder-subnav ul li{float:left}
+.placeorder-subnav ul .logo{margin-top:14px;margin-left:0;}
+.placeorder-subnav ul .right{float:right}
+.placeorder-subnav ul .right p{float:left;line-height:60px;margin-right:20px;}
+.placeorder-subnav ul .right p a{font-size:16px; color:#fff}
+
+/**首页底部**/
+.footer-wapper{width:100%;height:348px;background:#092e51;float:left;}
+.footer-container{width:1200px;margin:0 auto;}
+.footer-about{width:1200px;float:left;}
+.footer-about-left{width:720px;float:left;margin-top:40px;}
+.footer-about-left ul{float:left;margin-right:70px;}
+.footer-about-left ul li{line-height:25px;font-size:12px;color:#fff}
+.footer-about-left ul li a{font-size:12px;color:#5b96ed}
+.footer-about-left ul .title{margin-bottom:35px;}
+.footer-about-right{float:right;margin-top:50px;}
+.footer-about-right ul{float:left}
+.footer-about-right ul li{}
+.footer-about-right ul li .phone{width:158px;height:68px;background:url(../../images/icon-big.png) no-repeat left -983px;float:left;margin-right:20px;}
+.footer-about-right ul li p{float:left}
+.footer-about-right ul .shaw{float:right}
+.footer-about-right ul .shaw p{margin-left:12px;margin-top:32px;}
+.footer-about-right ul li .shaw-a a{width:38px;height:38px;background: url(../../images/icon-big.png) no-repeat left -841px;float:left;}
+.footer-about-right ul li .shaw-b a{width:38px;height:38px;background: url(../../images/icon-big.png) no-repeat left -886px;float:left;}
+.footer-about-right ul li .shaw-c a{width:38px;height:38px;background: url(../../images/icon-big.png) no-repeat left -930px;float:left;}
+.footer-list{width:100%;float:left;margin-top:40px;border-top:1px solid #528fea;padding-top:25px;}
+.footer-list ul li{text-align: center;line-height:30px;font-size:12px;color:#5b96ed}
+.footer-list ul li img{margin-left:10px;}
+
+/**客户中心底部**/
+.second-footer{width:100%;text-align:center;height:60px;line-height:60px;float:left}

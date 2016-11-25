@@ -1,0 +1,1716 @@
+{
+    "row": [
+      {
+        "ID": "1",
+        "COUNTRY_NAME_CN": "中国大陆",
+        "COUNTRY_NAME_EN": "China",
+        "COUNTRY_VALUE": "CN",
+        "COUNTRY_CODE": "86",
+        "REGULAR_EXPRESSION": "^1\\d{10}$"
+      },
+      {
+        "ID": "2",
+        "COUNTRY_NAME_CN": "台湾",
+        "COUNTRY_NAME_EN": "Taiwan",
+        "COUNTRY_VALUE": "TW",
+        "COUNTRY_CODE": "886",
+        "REGULAR_EXPRESSION": "^0{0,1}[6,7,9](?:\\d{7}|\\d{8}|\\d{10})$"
+      },
+      {
+        "ID": "3",
+        "COUNTRY_NAME_CN": "香港",
+        "COUNTRY_NAME_EN": "Hong Kong",
+        "COUNTRY_VALUE": "HK",
+        "COUNTRY_CODE": "852",
+        "REGULAR_EXPRESSION": "^0{0,1}[1,5,6,9](?:\\d{7}|\\d{8}|\\d{12})$"
+      },
+      {
+        "ID": "4",
+        "COUNTRY_NAME_CN": "马来西亚",
+        "COUNTRY_NAME_EN": "Malaysia",
+        "COUNTRY_VALUE": "MY",
+        "COUNTRY_CODE": "60",
+        "REGULAR_EXPRESSION": "^1\\d{8,9}$"
+      },
+      {
+        "ID": "5",
+        "COUNTRY_NAME_CN": "新加坡",
+        "COUNTRY_NAME_EN": "Singapore",
+        "COUNTRY_VALUE": "SG",
+        "COUNTRY_CODE": "65",
+        "REGULAR_EXPRESSION": "^[13689]\\d{6,7}$"
+      },
+      {
+        "ID": "6",
+        "COUNTRY_NAME_CN": "日本",
+        "COUNTRY_NAME_EN": "Japan",
+        "COUNTRY_VALUE": "JP",
+        "COUNTRY_CODE": "81",
+        "REGULAR_EXPRESSION": "^0{0,1}[7,8,9](?:\\d{8}|\\d{9})$"
+      },
+      {
+        "ID": "7",
+        "COUNTRY_NAME_CN": "韩国",
+        "COUNTRY_NAME_EN": "South Korea",
+        "COUNTRY_VALUE": "KR",
+        "COUNTRY_CODE": "82",
+        "REGULAR_EXPRESSION": "^0{0,1}[7,1](?:\\d{8}|\\d{9})$"
+      },
+      {
+        "ID": "8",
+        "COUNTRY_NAME_CN": "美国",
+        "COUNTRY_NAME_EN": "United States",
+        "COUNTRY_VALUE": "US",
+        "COUNTRY_CODE": "1",
+        "REGULAR_EXPRESSION": "^\\d{10,12}$"
+      },
+      {
+        "ID": "9",
+        "COUNTRY_NAME_CN": "加拿大",
+        "COUNTRY_NAME_EN": "Canada",
+        "COUNTRY_VALUE": "CA",
+        "COUNTRY_CODE": "1",
+        "REGULAR_EXPRESSION": "^\\d{10}$"
+      },
+      {
+        "ID": "10",
+        "COUNTRY_NAME_CN": "澳大利亚",
+        "COUNTRY_NAME_EN": "Australia",
+        "COUNTRY_VALUE": "AU",
+        "COUNTRY_CODE": "61",
+        "REGULAR_EXPRESSION": "^4\\d{8,9}$"
+      },
+      {
+        "ID": "11",
+        "COUNTRY_NAME_CN": "新西兰",
+        "COUNTRY_NAME_EN": "New Zealand",
+        "COUNTRY_VALUE": "NZ",
+        "COUNTRY_CODE": "64",
+        "REGULAR_EXPRESSION": "^[278]\\d{7,9}$"
+      },
+      {
+        "ID": "12",
+        "COUNTRY_NAME_CN": "阿根廷",
+        "COUNTRY_NAME_EN": "Argentina",
+        "COUNTRY_VALUE": "AR",
+        "COUNTRY_CODE": "54",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "13",
+        "COUNTRY_NAME_CN": "阿联酋",
+        "COUNTRY_NAME_EN": "United Arab Emirates",
+        "COUNTRY_VALUE": "AE",
+        "COUNTRY_CODE": "971",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "14",
+        "COUNTRY_NAME_CN": "爱尔兰",
+        "COUNTRY_NAME_EN": "Ireland",
+        "COUNTRY_VALUE": "IE",
+        "COUNTRY_CODE": "353",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "15",
+        "COUNTRY_NAME_CN": "埃及",
+        "COUNTRY_NAME_EN": "Egypt",
+        "COUNTRY_VALUE": "EG",
+        "COUNTRY_CODE": "20",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "16",
+        "COUNTRY_NAME_CN": "爱沙尼亚",
+        "COUNTRY_NAME_EN": "Estonia",
+        "COUNTRY_VALUE": "EE",
+        "COUNTRY_CODE": "372",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "17",
+        "COUNTRY_NAME_CN": "奥地利",
+        "COUNTRY_NAME_EN": "Austria",
+        "COUNTRY_VALUE": "AT",
+        "COUNTRY_CODE": "43",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "18",
+        "COUNTRY_NAME_CN": "澳门",
+        "COUNTRY_NAME_EN": "Macau",
+        "COUNTRY_VALUE": "MO",
+        "COUNTRY_CODE": "853",
+        "REGULAR_EXPRESSION": "^6\\d{7}$"
+      },
+      {
+        "ID": "19",
+        "COUNTRY_NAME_CN": "巴哈马",
+        "COUNTRY_NAME_EN": "Bahamas",
+        "COUNTRY_VALUE": "BS",
+        "COUNTRY_CODE": "1242",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "20",
+        "COUNTRY_NAME_CN": "巴拿马",
+        "COUNTRY_NAME_EN": "Panama",
+        "COUNTRY_VALUE": "PA",
+        "COUNTRY_CODE": "507",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "21",
+        "COUNTRY_NAME_CN": "巴西",
+        "COUNTRY_NAME_EN": "Brazil",
+        "COUNTRY_VALUE": "BR",
+        "COUNTRY_CODE": "55",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "22",
+        "COUNTRY_NAME_CN": "白俄罗斯",
+        "COUNTRY_NAME_EN": "Belarus",
+        "COUNTRY_VALUE": "BY",
+        "COUNTRY_CODE": "375",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "23",
+        "COUNTRY_NAME_CN": "保加利亚",
+        "COUNTRY_NAME_EN": "Bulgaria",
+        "COUNTRY_VALUE": "BG",
+        "COUNTRY_CODE": "359",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "25",
+        "COUNTRY_NAME_CN": "波兰",
+        "COUNTRY_NAME_EN": "Poland",
+        "COUNTRY_VALUE": "PL",
+        "COUNTRY_CODE": "48",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "26",
+        "COUNTRY_NAME_CN": "伯利兹",
+        "COUNTRY_NAME_EN": "Belize",
+        "COUNTRY_VALUE": "BZ",
+        "COUNTRY_CODE": "501",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "27",
+        "COUNTRY_NAME_CN": "丹麦",
+        "COUNTRY_NAME_EN": "Denmark",
+        "COUNTRY_VALUE": "DK",
+        "COUNTRY_CODE": "45",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "28",
+        "COUNTRY_NAME_CN": "德国",
+        "COUNTRY_NAME_EN": "Germany",
+        "COUNTRY_VALUE": "DE",
+        "COUNTRY_CODE": "49",
+        "REGULAR_EXPRESSION": "^1(\\d{5,6}|\\d{9,12})$"
+      },
+      {
+        "ID": "29",
+        "COUNTRY_NAME_CN": "俄罗斯",
+        "COUNTRY_NAME_EN": "Russia",
+        "COUNTRY_VALUE": "RU",
+        "COUNTRY_CODE": "7",
+        "REGULAR_EXPRESSION": "^[13489]\\d{9,11}$"
+      },
+      {
+        "ID": "30",
+        "COUNTRY_NAME_CN": "法国",
+        "COUNTRY_NAME_EN": "France",
+        "COUNTRY_VALUE": "FR",
+        "COUNTRY_CODE": "33",
+        "REGULAR_EXPRESSION": "^(\\d{6}|\\d{8,9})$"
+      },
+      {
+        "ID": "31",
+        "COUNTRY_NAME_CN": "菲律宾",
+        "COUNTRY_NAME_EN": "Philippines",
+        "COUNTRY_VALUE": "PH",
+        "COUNTRY_CODE": "63",
+        "REGULAR_EXPRESSION": "^[24579](\\d{7,9}|\\d{12})$"
+      },
+      {
+        "ID": "32",
+        "COUNTRY_NAME_CN": "芬兰",
+        "COUNTRY_NAME_EN": "Finland",
+        "COUNTRY_VALUE": "FI",
+        "COUNTRY_CODE": "358",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "33",
+        "COUNTRY_NAME_CN": "哥伦比亚",
+        "COUNTRY_NAME_EN": "Colombia",
+        "COUNTRY_VALUE": "CO",
+        "COUNTRY_CODE": "57",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "34",
+        "COUNTRY_NAME_CN": "荷兰",
+        "COUNTRY_NAME_EN": "Netherlands",
+        "COUNTRY_VALUE": "NL",
+        "COUNTRY_CODE": "31",
+        "REGULAR_EXPRESSION": "^6\\d{8}$"
+      },
+      {
+        "ID": "35",
+        "COUNTRY_NAME_CN": "吉尔吉斯斯坦",
+        "COUNTRY_NAME_EN": "Kyrgyzstan",
+        "COUNTRY_VALUE": "KG",
+        "COUNTRY_CODE": "996",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "36",
+        "COUNTRY_NAME_CN": "柬埔寨",
+        "COUNTRY_NAME_EN": "Cambodia",
+        "COUNTRY_VALUE": "KH",
+        "COUNTRY_CODE": "855",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "37",
+        "COUNTRY_NAME_CN": "卡塔尔",
+        "COUNTRY_NAME_EN": "Qatar",
+        "COUNTRY_VALUE": "QA",
+        "COUNTRY_CODE": "974",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "38",
+        "COUNTRY_NAME_CN": "立陶宛",
+        "COUNTRY_NAME_EN": "Lithuania",
+        "COUNTRY_VALUE": "LT",
+        "COUNTRY_CODE": "370",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "39",
+        "COUNTRY_NAME_CN": "卢森堡",
+        "COUNTRY_NAME_EN": "Luxembourg",
+        "COUNTRY_VALUE": "LU",
+        "COUNTRY_CODE": "352",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "40",
+        "COUNTRY_NAME_CN": "罗马尼亚",
+        "COUNTRY_NAME_EN": "Romania",
+        "COUNTRY_VALUE": "RO",
+        "COUNTRY_CODE": "40",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "41",
+        "COUNTRY_NAME_CN": "马尔代夫",
+        "COUNTRY_NAME_EN": "Maldives",
+        "COUNTRY_VALUE": "MV",
+        "COUNTRY_CODE": "960",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "42",
+        "COUNTRY_NAME_CN": "蒙古",
+        "COUNTRY_NAME_EN": "Mongolia",
+        "COUNTRY_VALUE": "MN",
+        "COUNTRY_CODE": "976",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "43",
+        "COUNTRY_NAME_CN": "秘鲁",
+        "COUNTRY_NAME_EN": "Peru",
+        "COUNTRY_VALUE": "PE",
+        "COUNTRY_CODE": "51",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "44",
+        "COUNTRY_NAME_CN": "摩洛哥",
+        "COUNTRY_NAME_EN": "Morocco",
+        "COUNTRY_VALUE": "MA",
+        "COUNTRY_CODE": "212",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "45",
+        "COUNTRY_NAME_CN": "墨西哥",
+        "COUNTRY_NAME_EN": "Mexico",
+        "COUNTRY_VALUE": "MX",
+        "COUNTRY_CODE": "52",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "46",
+        "COUNTRY_NAME_CN": "南非",
+        "COUNTRY_NAME_EN": "South Africa",
+        "COUNTRY_VALUE": "ZA",
+        "COUNTRY_CODE": "27",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "47",
+        "COUNTRY_NAME_CN": "尼日利亚",
+        "COUNTRY_NAME_EN": "Nigeria",
+        "COUNTRY_VALUE": "NG",
+        "COUNTRY_CODE": "234",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "48",
+        "COUNTRY_NAME_CN": "挪威",
+        "COUNTRY_NAME_EN": "Norway",
+        "COUNTRY_VALUE": "NO",
+        "COUNTRY_CODE": "47",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "49",
+        "COUNTRY_NAME_CN": "葡萄牙",
+        "COUNTRY_NAME_EN": "Portugal",
+        "COUNTRY_VALUE": "PT",
+        "COUNTRY_CODE": "351",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "50",
+        "COUNTRY_NAME_CN": "瑞典",
+        "COUNTRY_NAME_EN": "Sweden",
+        "COUNTRY_VALUE": "SE",
+        "COUNTRY_CODE": "46",
+        "REGULAR_EXPRESSION": "^[124-7](\\d{8}|\\d{10}|\\d{12})$"
+      },
+      {
+        "ID": "51",
+        "COUNTRY_NAME_CN": "瑞士",
+        "COUNTRY_NAME_EN": "Switzerland",
+        "COUNTRY_VALUE": "CH",
+        "COUNTRY_CODE": "41",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "52",
+        "COUNTRY_NAME_CN": "塞尔维亚",
+        "COUNTRY_NAME_EN": "Serbia and Montenegro",
+        "COUNTRY_VALUE": "RS",
+        "COUNTRY_CODE": "381",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "53",
+        "COUNTRY_NAME_CN": "塞舌尔",
+        "COUNTRY_NAME_EN": "Seychells",
+        "COUNTRY_VALUE": "SC",
+        "COUNTRY_CODE": "248",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "54",
+        "COUNTRY_NAME_CN": "沙特阿拉伯",
+        "COUNTRY_NAME_EN": "Saudi Arabia",
+        "COUNTRY_VALUE": "SA",
+        "COUNTRY_CODE": "966",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "55",
+        "COUNTRY_NAME_CN": "斯里兰卡",
+        "COUNTRY_NAME_EN": "Sri Lanka",
+        "COUNTRY_VALUE": "LK",
+        "COUNTRY_CODE": "94",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "56",
+        "COUNTRY_NAME_CN": "泰国",
+        "COUNTRY_NAME_EN": "Thailand",
+        "COUNTRY_VALUE": "TH",
+        "COUNTRY_CODE": "66",
+        "REGULAR_EXPRESSION": "^[13456789]\\d{7,8}$"
+      },
+      {
+        "ID": "57",
+        "COUNTRY_NAME_CN": "土耳其",
+        "COUNTRY_NAME_EN": "Turkey",
+        "COUNTRY_VALUE": "TR",
+        "COUNTRY_CODE": "90",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "58",
+        "COUNTRY_NAME_CN": "突尼斯",
+        "COUNTRY_NAME_EN": "Tunisia",
+        "COUNTRY_VALUE": "TN",
+        "COUNTRY_CODE": "216",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "59",
+        "COUNTRY_NAME_CN": "委内瑞拉",
+        "COUNTRY_NAME_EN": "Venezuela",
+        "COUNTRY_VALUE": "VE",
+        "COUNTRY_CODE": "58",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "60",
+        "COUNTRY_NAME_CN": "乌克兰",
+        "COUNTRY_NAME_EN": "Ukraine",
+        "COUNTRY_VALUE": "UA",
+        "COUNTRY_CODE": "380",
+        "REGULAR_EXPRESSION": "^[3-79]\\d{8,9}$"
+      },
+      {
+        "ID": "61",
+        "COUNTRY_NAME_CN": "西班牙",
+        "COUNTRY_NAME_EN": "Spain",
+        "COUNTRY_VALUE": "ES",
+        "COUNTRY_CODE": "34",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "62",
+        "COUNTRY_NAME_CN": "希腊",
+        "COUNTRY_NAME_EN": "Greece",
+        "COUNTRY_VALUE": "GR",
+        "COUNTRY_CODE": "30",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "63",
+        "COUNTRY_NAME_CN": "匈牙利",
+        "COUNTRY_NAME_EN": "Republic of Hungary",
+        "COUNTRY_VALUE": "HU",
+        "COUNTRY_CODE": "36",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "64",
+        "COUNTRY_NAME_CN": "意大利",
+        "COUNTRY_NAME_EN": "Republic of Italy",
+        "COUNTRY_VALUE": "IT",
+        "COUNTRY_CODE": "39",
+        "REGULAR_EXPRESSION": "^[37]\\d{8,11}$"
+      },
+      {
+        "ID": "65",
+        "COUNTRY_NAME_CN": "以色列",
+        "COUNTRY_NAME_EN": "Israel",
+        "COUNTRY_VALUE": "IL",
+        "COUNTRY_CODE": "972",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "66",
+        "COUNTRY_NAME_CN": "印度",
+        "COUNTRY_NAME_EN": "India",
+        "COUNTRY_VALUE": "IN",
+        "COUNTRY_CODE": "91",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "67",
+        "COUNTRY_NAME_CN": "印度尼西亚",
+        "COUNTRY_NAME_EN": "Indonesia",
+        "COUNTRY_VALUE": "ID",
+        "COUNTRY_CODE": "62",
+        "REGULAR_EXPRESSION": "^[2-9]\\d{7,11}$"
+      },
+      {
+        "ID": "68",
+        "COUNTRY_NAME_CN": "英国",
+        "COUNTRY_NAME_EN": "United Kingdom",
+        "COUNTRY_VALUE": "GB",
+        "COUNTRY_CODE": "44",
+        "REGULAR_EXPRESSION": "^[347-9](\\d{8,9}|\\d{11,12})$"
+      },
+      {
+        "ID": "69",
+        "COUNTRY_NAME_CN": "英属处女群岛",
+        "COUNTRY_NAME_EN": "Virgin Islands, British",
+        "COUNTRY_VALUE": "VG",
+        "COUNTRY_CODE": "1284",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "70",
+        "COUNTRY_NAME_CN": "约旦",
+        "COUNTRY_NAME_EN": "Jordan",
+        "COUNTRY_VALUE": "JO",
+        "COUNTRY_CODE": "962",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "71",
+        "COUNTRY_NAME_CN": "越南",
+        "COUNTRY_NAME_EN": "Vietnam",
+        "COUNTRY_VALUE": "VN",
+        "COUNTRY_CODE": "84",
+        "REGULAR_EXPRESSION": "^[1-9]\\d{6,9}$"
+      },
+      {
+        "ID": "72",
+        "COUNTRY_NAME_CN": "智利",
+        "COUNTRY_NAME_EN": "Chile",
+        "COUNTRY_VALUE": "CL",
+        "COUNTRY_CODE": "56",
+        "REGULAR_EXPRESSION": "^\\d{6,12}$"
+      },
+      {
+        "ID": "73",
+        "COUNTRY_NAME_CN": "乌兹别克斯坦",
+        "COUNTRY_NAME_EN": "Uzbekistan",
+        "COUNTRY_VALUE": "UZ",
+        "COUNTRY_CODE": "998",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "74",
+        "COUNTRY_NAME_CN": "科摩罗",
+        "COUNTRY_NAME_EN": "Comoros",
+        "COUNTRY_VALUE": "KM",
+        "COUNTRY_CODE": "269",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "75",
+        "COUNTRY_NAME_CN": "尼日尔",
+        "COUNTRY_NAME_EN": "Niger",
+        "COUNTRY_VALUE": "NE",
+        "COUNTRY_CODE": "227",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "76",
+        "COUNTRY_NAME_CN": "多明尼加共和国",
+        "COUNTRY_NAME_EN": "Dominican Republic",
+        "COUNTRY_VALUE": "DO",
+        "COUNTRY_CODE": "1809",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "77",
+        "COUNTRY_NAME_CN": "安圭拉",
+        "COUNTRY_NAME_EN": "Anguilla",
+        "COUNTRY_VALUE": "AI",
+        "COUNTRY_CODE": "1264",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "78",
+        "COUNTRY_NAME_CN": "开曼群岛",
+        "COUNTRY_NAME_EN": "Cayman Islands",
+        "COUNTRY_VALUE": "KY",
+        "COUNTRY_CODE": "1345",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "79",
+        "COUNTRY_NAME_CN": "瓜地马拉",
+        "COUNTRY_NAME_EN": "Guatemala",
+        "COUNTRY_VALUE": "GT",
+        "COUNTRY_CODE": "502",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "80",
+        "COUNTRY_NAME_CN": "莫桑比克",
+        "COUNTRY_NAME_EN": "Mozambique",
+        "COUNTRY_VALUE": "MZ",
+        "COUNTRY_CODE": "258",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "81",
+        "COUNTRY_NAME_CN": "苏里南",
+        "COUNTRY_NAME_EN": "Suriname",
+        "COUNTRY_VALUE": "SR",
+        "COUNTRY_CODE": "597",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "82",
+        "COUNTRY_NAME_CN": "马里",
+        "COUNTRY_NAME_EN": "Mali",
+        "COUNTRY_VALUE": "ML",
+        "COUNTRY_CODE": "223",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "83",
+        "COUNTRY_NAME_CN": "也门",
+        "COUNTRY_NAME_EN": "Yemen",
+        "COUNTRY_VALUE": "YE",
+        "COUNTRY_CODE": "967",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "84",
+        "COUNTRY_NAME_CN": "巴林",
+        "COUNTRY_NAME_EN": "Bahrain",
+        "COUNTRY_VALUE": "BH",
+        "COUNTRY_CODE": "973",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "85",
+        "COUNTRY_NAME_CN": "圣文森特和格林纳丁斯",
+        "COUNTRY_NAME_EN": "Saint Vincent and The Grenadines",
+        "COUNTRY_VALUE": "VC",
+        "COUNTRY_CODE": "1784",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "86",
+        "COUNTRY_NAME_CN": "圭亚那",
+        "COUNTRY_NAME_EN": "Guyana",
+        "COUNTRY_VALUE": "GY",
+        "COUNTRY_CODE": "592",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "87",
+        "COUNTRY_NAME_CN": "吉布提",
+        "COUNTRY_NAME_EN": "Djibouti",
+        "COUNTRY_VALUE": "DJ",
+        "COUNTRY_CODE": "253",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "89",
+        "COUNTRY_NAME_CN": "安提瓜和巴布达",
+        "COUNTRY_NAME_EN": "Antigua and Barbuda",
+        "COUNTRY_VALUE": "AG",
+        "COUNTRY_CODE": "1268",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "90",
+        "COUNTRY_NAME_CN": "密克罗尼西亚",
+        "COUNTRY_NAME_EN": "Micronesia",
+        "COUNTRY_VALUE": "FM",
+        "COUNTRY_CODE": "691",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "91",
+        "COUNTRY_NAME_CN": "帕劳",
+        "COUNTRY_NAME_EN": "Palau",
+        "COUNTRY_VALUE": "PW",
+        "COUNTRY_CODE": "680",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "92",
+        "COUNTRY_NAME_CN": "刚果民主共和国",
+        "COUNTRY_NAME_EN": "Democratic Republic of the Congo",
+        "COUNTRY_VALUE": "CD",
+        "COUNTRY_CODE": "243",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "93",
+        "COUNTRY_NAME_CN": "朝鲜",
+        "COUNTRY_NAME_EN": "North Korea",
+        "COUNTRY_VALUE": "KP",
+        "COUNTRY_CODE": "850",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "94",
+        "COUNTRY_NAME_CN": "波斯尼亚和黑塞哥维那",
+        "COUNTRY_NAME_EN": "Bosnia and Herzegovina",
+        "COUNTRY_VALUE": "BA",
+        "COUNTRY_CODE": "387",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "95",
+        "COUNTRY_NAME_CN": "刚果共和国",
+        "COUNTRY_NAME_EN": "Republic Of The Congo",
+        "COUNTRY_VALUE": "CG",
+        "COUNTRY_CODE": "242",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "96",
+        "COUNTRY_NAME_CN": "马其顿",
+        "COUNTRY_NAME_EN": "Macedonia",
+        "COUNTRY_VALUE": "MK",
+        "COUNTRY_CODE": "389",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "97",
+        "COUNTRY_NAME_CN": "东帝汶",
+        "COUNTRY_NAME_EN": "East Timor",
+        "COUNTRY_VALUE": "TL",
+        "COUNTRY_CODE": "670",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "98",
+        "COUNTRY_NAME_CN": "多哥",
+        "COUNTRY_NAME_EN": "Togo",
+        "COUNTRY_VALUE": "TG",
+        "COUNTRY_CODE": "228",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "99",
+        "COUNTRY_NAME_CN": "巴拉圭",
+        "COUNTRY_NAME_EN": "Paraguay",
+        "COUNTRY_VALUE": "PY",
+        "COUNTRY_CODE": "595",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "100",
+        "COUNTRY_NAME_CN": "关岛",
+        "COUNTRY_NAME_EN": "Guam",
+        "COUNTRY_VALUE": "GU",
+        "COUNTRY_CODE": "1671",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "101",
+        "COUNTRY_NAME_CN": "安哥拉",
+        "COUNTRY_NAME_EN": "Angola",
+        "COUNTRY_VALUE": "AO",
+        "COUNTRY_CODE": "244",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "102",
+        "COUNTRY_NAME_CN": "荷属安的列斯群岛",
+        "COUNTRY_NAME_EN": "Netherlands Antilles",
+        "COUNTRY_VALUE": "AN",
+        "COUNTRY_CODE": "599",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "103",
+        "COUNTRY_NAME_CN": "伊朗",
+        "COUNTRY_NAME_EN": "Iran",
+        "COUNTRY_VALUE": "IR",
+        "COUNTRY_CODE": "98",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "104",
+        "COUNTRY_NAME_CN": "亚美尼亚",
+        "COUNTRY_NAME_EN": "Armenia",
+        "COUNTRY_VALUE": "AM",
+        "COUNTRY_CODE": "374",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "105",
+        "COUNTRY_NAME_CN": "瓜德罗普岛",
+        "COUNTRY_NAME_EN": "Guadeloupe",
+        "COUNTRY_VALUE": "GP",
+        "COUNTRY_CODE": "590",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "106",
+        "COUNTRY_NAME_CN": "科威特",
+        "COUNTRY_NAME_EN": "Kuwait",
+        "COUNTRY_VALUE": "KW",
+        "COUNTRY_CODE": "965",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "107",
+        "COUNTRY_NAME_CN": "哥斯达黎加",
+        "COUNTRY_NAME_EN": "Costa Rica",
+        "COUNTRY_VALUE": "CR",
+        "COUNTRY_CODE": "506",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "108",
+        "COUNTRY_NAME_CN": "汤加",
+        "COUNTRY_NAME_EN": "Tonga",
+        "COUNTRY_VALUE": "TO",
+        "COUNTRY_CODE": "676",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "109",
+        "COUNTRY_NAME_CN": "叙利亚",
+        "COUNTRY_NAME_EN": "Syria",
+        "COUNTRY_VALUE": "SY",
+        "COUNTRY_CODE": "963",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "110",
+        "COUNTRY_NAME_CN": "安道尔",
+        "COUNTRY_NAME_EN": "Andorra",
+        "COUNTRY_VALUE": "AD",
+        "COUNTRY_CODE": "376",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "111",
+        "COUNTRY_NAME_CN": "蒙特塞拉特岛",
+        "COUNTRY_NAME_EN": "Montserrat",
+        "COUNTRY_VALUE": "MS",
+        "COUNTRY_CODE": "1664",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "112",
+        "COUNTRY_NAME_CN": "肯尼亚",
+        "COUNTRY_NAME_EN": "Kenya",
+        "COUNTRY_VALUE": "KE",
+        "COUNTRY_CODE": "254",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "113",
+        "COUNTRY_NAME_CN": "斯威士兰",
+        "COUNTRY_NAME_EN": "Swaziland",
+        "COUNTRY_VALUE": "SZ",
+        "COUNTRY_CODE": "268",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "114",
+        "COUNTRY_NAME_CN": "不丹",
+        "COUNTRY_NAME_EN": "Bhutan",
+        "COUNTRY_VALUE": "BT",
+        "COUNTRY_CODE": "975",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "115",
+        "COUNTRY_NAME_CN": "开普",
+        "COUNTRY_NAME_EN": "Cape Verde",
+        "COUNTRY_VALUE": "CV",
+        "COUNTRY_CODE": "238",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "116",
+        "COUNTRY_NAME_CN": "几内亚",
+        "COUNTRY_NAME_EN": "Guinea",
+        "COUNTRY_VALUE": "GN",
+        "COUNTRY_CODE": "224",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "117",
+        "COUNTRY_NAME_CN": "马达加斯加",
+        "COUNTRY_NAME_EN": "Madagascar",
+        "COUNTRY_VALUE": "MG",
+        "COUNTRY_CODE": "261",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "118",
+        "COUNTRY_NAME_CN": "利比亚",
+        "COUNTRY_NAME_EN": "Libya",
+        "COUNTRY_VALUE": "LY",
+        "COUNTRY_CODE": "218",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "119",
+        "COUNTRY_NAME_CN": "法罗群岛",
+        "COUNTRY_NAME_EN": "Faroe Islands",
+        "COUNTRY_VALUE": "FO",
+        "COUNTRY_CODE": "298",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "120",
+        "COUNTRY_NAME_CN": "尼泊尔",
+        "COUNTRY_NAME_EN": "Nepal",
+        "COUNTRY_VALUE": "NP",
+        "COUNTRY_CODE": "977",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "121",
+        "COUNTRY_NAME_CN": "古巴",
+        "COUNTRY_NAME_EN": "Cuba",
+        "COUNTRY_VALUE": "CU",
+        "COUNTRY_CODE": "53",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "122",
+        "COUNTRY_NAME_CN": "巴基斯坦",
+        "COUNTRY_NAME_EN": "Pakistan",
+        "COUNTRY_VALUE": "PK",
+        "COUNTRY_CODE": "92",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "123",
+        "COUNTRY_NAME_CN": "卢旺达",
+        "COUNTRY_NAME_EN": "Rwanda",
+        "COUNTRY_VALUE": "RW",
+        "COUNTRY_CODE": "250",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "124",
+        "COUNTRY_NAME_CN": "格鲁吉亚",
+        "COUNTRY_NAME_EN": "Georgia",
+        "COUNTRY_VALUE": "GE",
+        "COUNTRY_CODE": "995",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "125",
+        "COUNTRY_NAME_CN": "布基纳法索",
+        "COUNTRY_NAME_EN": "Burkina Faso",
+        "COUNTRY_VALUE": "BF",
+        "COUNTRY_CODE": "226",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "126",
+        "COUNTRY_NAME_CN": "老挝",
+        "COUNTRY_NAME_EN": "Laos",
+        "COUNTRY_VALUE": "LA",
+        "COUNTRY_CODE": "856",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "127",
+        "COUNTRY_NAME_CN": "摩纳哥",
+        "COUNTRY_NAME_EN": "Monaco",
+        "COUNTRY_VALUE": "MC",
+        "COUNTRY_CODE": "377",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "128",
+        "COUNTRY_NAME_CN": "牙买加",
+        "COUNTRY_NAME_EN": "Jamaica",
+        "COUNTRY_VALUE": "JM",
+        "COUNTRY_CODE": "1876",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "129",
+        "COUNTRY_NAME_CN": "塞浦路斯",
+        "COUNTRY_NAME_EN": "Cyprus",
+        "COUNTRY_VALUE": "CY",
+        "COUNTRY_CODE": "357",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "130",
+        "COUNTRY_NAME_CN": "阿尔及利亚",
+        "COUNTRY_NAME_EN": "Algeria",
+        "COUNTRY_VALUE": "DZ",
+        "COUNTRY_CODE": "213",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "131",
+        "COUNTRY_NAME_CN": "阿富汗",
+        "COUNTRY_NAME_EN": "Afghanistan",
+        "COUNTRY_VALUE": "AF",
+        "COUNTRY_CODE": "93",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "132",
+        "COUNTRY_NAME_CN": "伊拉克",
+        "COUNTRY_NAME_EN": "Iraq",
+        "COUNTRY_VALUE": "IQ",
+        "COUNTRY_CODE": "964",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "133",
+        "COUNTRY_NAME_CN": "塔吉克斯坦",
+        "COUNTRY_NAME_EN": "Tajikistan",
+        "COUNTRY_VALUE": "TJ",
+        "COUNTRY_CODE": "992",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "134",
+        "COUNTRY_NAME_CN": "圣露西亚",
+        "COUNTRY_NAME_EN": "Saint Lucia",
+        "COUNTRY_VALUE": "LC",
+        "COUNTRY_CODE": "1758",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "135",
+        "COUNTRY_NAME_CN": "列支敦士登",
+        "COUNTRY_NAME_EN": "Liechtenstein",
+        "COUNTRY_VALUE": "LI",
+        "COUNTRY_CODE": "423",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "136",
+        "COUNTRY_NAME_CN": "塞拉利昂",
+        "COUNTRY_NAME_EN": "Sierra Leone",
+        "COUNTRY_VALUE": "SL",
+        "COUNTRY_CODE": "232",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "137",
+        "COUNTRY_NAME_CN": "比利时",
+        "COUNTRY_NAME_EN": "Belgium",
+        "COUNTRY_VALUE": "BE",
+        "COUNTRY_CODE": "32",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "138",
+        "COUNTRY_NAME_CN": "巴勒斯坦领土",
+        "COUNTRY_NAME_EN": "Palestinian Territory",
+        "COUNTRY_VALUE": "PS",
+        "COUNTRY_CODE": "970",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "139",
+        "COUNTRY_NAME_CN": "洪都拉斯",
+        "COUNTRY_NAME_EN": "Honduras",
+        "COUNTRY_VALUE": "HN",
+        "COUNTRY_CODE": "504",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "140",
+        "COUNTRY_NAME_CN": "莱索托",
+        "COUNTRY_NAME_EN": "Lesotho",
+        "COUNTRY_VALUE": "LS",
+        "COUNTRY_CODE": "266",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "141",
+        "COUNTRY_NAME_CN": "塞内加尔",
+        "COUNTRY_NAME_EN": "Senegal",
+        "COUNTRY_VALUE": "SN",
+        "COUNTRY_CODE": "221",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "142",
+        "COUNTRY_NAME_CN": "新喀里多尼亚",
+        "COUNTRY_NAME_EN": "New Caledonia",
+        "COUNTRY_VALUE": "NC",
+        "COUNTRY_CODE": "687",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "143",
+        "COUNTRY_NAME_CN": "毛里塔尼亚",
+        "COUNTRY_NAME_EN": "Mauritania",
+        "COUNTRY_VALUE": "MR",
+        "COUNTRY_CODE": "222",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "144",
+        "COUNTRY_NAME_CN": "埃塞俄比亚",
+        "COUNTRY_NAME_EN": "Ethiopia",
+        "COUNTRY_VALUE": "ET",
+        "COUNTRY_CODE": "251",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "145",
+        "COUNTRY_NAME_CN": "几内亚比绍共和国",
+        "COUNTRY_NAME_EN": "Guinea-Bissau",
+        "COUNTRY_VALUE": "GW",
+        "COUNTRY_CODE": "245",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "146",
+        "COUNTRY_NAME_CN": "黑山",
+        "COUNTRY_NAME_EN": "Montenegro",
+        "COUNTRY_VALUE": "ME",
+        "COUNTRY_CODE": "382",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "147",
+        "COUNTRY_NAME_CN": "利比里亚",
+        "COUNTRY_NAME_EN": "Liberia",
+        "COUNTRY_VALUE": "LR",
+        "COUNTRY_CODE": "231",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "148",
+        "COUNTRY_NAME_CN": "冈比亚",
+        "COUNTRY_NAME_EN": "Gambia",
+        "COUNTRY_VALUE": "GM",
+        "COUNTRY_CODE": "220",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "149",
+        "COUNTRY_NAME_CN": "圣彼埃尔和密克隆岛",
+        "COUNTRY_NAME_EN": "Saint Pierre and Miquelon",
+        "COUNTRY_VALUE": "PM",
+        "COUNTRY_CODE": "508",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "150",
+        "COUNTRY_NAME_CN": "赤道几内亚",
+        "COUNTRY_NAME_EN": "Equatorial Guinea",
+        "COUNTRY_VALUE": "GQ",
+        "COUNTRY_CODE": "240",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "151",
+        "COUNTRY_NAME_CN": "法属波利尼西亚",
+        "COUNTRY_NAME_EN": "French Polynesia",
+        "COUNTRY_VALUE": "PF",
+        "COUNTRY_CODE": "689",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "152",
+        "COUNTRY_NAME_CN": "基里巴斯",
+        "COUNTRY_NAME_EN": "Kiribati",
+        "COUNTRY_VALUE": "KI",
+        "COUNTRY_CODE": "686",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "153",
+        "COUNTRY_NAME_CN": "毛里求斯",
+        "COUNTRY_NAME_EN": "Mauritius",
+        "COUNTRY_VALUE": "MU",
+        "COUNTRY_CODE": "230",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "154",
+        "COUNTRY_NAME_CN": "法属圭亚那",
+        "COUNTRY_NAME_EN": "French Guiana",
+        "COUNTRY_VALUE": "GF",
+        "COUNTRY_CODE": "594",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "155",
+        "COUNTRY_NAME_CN": "乌干达",
+        "COUNTRY_NAME_EN": "Uganda",
+        "COUNTRY_VALUE": "UG",
+        "COUNTRY_CODE": "256",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "156",
+        "COUNTRY_NAME_CN": "布隆迪",
+        "COUNTRY_NAME_EN": "Burundi",
+        "COUNTRY_VALUE": "BI",
+        "COUNTRY_CODE": "257",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "157",
+        "COUNTRY_NAME_CN": "加纳",
+        "COUNTRY_NAME_EN": "Ghana",
+        "COUNTRY_VALUE": "GH",
+        "COUNTRY_CODE": "233",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "158",
+        "COUNTRY_NAME_CN": "博茨瓦纳",
+        "COUNTRY_NAME_EN": "Botswana",
+        "COUNTRY_VALUE": "BW",
+        "COUNTRY_CODE": "267",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "159",
+        "COUNTRY_NAME_CN": "斯洛伐克",
+        "COUNTRY_NAME_EN": "Slovakia",
+        "COUNTRY_VALUE": "SK",
+        "COUNTRY_CODE": "421",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "160",
+        "COUNTRY_NAME_CN": "美属维尔京群岛",
+        "COUNTRY_NAME_EN": "Virgin Islands, US",
+        "COUNTRY_VALUE": "VI",
+        "COUNTRY_CODE": "1284",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "161",
+        "COUNTRY_NAME_CN": "斐济",
+        "COUNTRY_NAME_EN": "Fiji",
+        "COUNTRY_VALUE": "FJ",
+        "COUNTRY_CODE": "679",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "162",
+        "COUNTRY_NAME_CN": "马提尼克",
+        "COUNTRY_NAME_EN": "Martinique",
+        "COUNTRY_VALUE": "MQ",
+        "COUNTRY_CODE": "596",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "163",
+        "COUNTRY_NAME_CN": "乌拉圭",
+        "COUNTRY_NAME_EN": "Uruguay",
+        "COUNTRY_VALUE": "UY",
+        "COUNTRY_CODE": "598",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "164",
+        "COUNTRY_NAME_CN": "摩尔多瓦",
+        "COUNTRY_NAME_EN": "Moldova",
+        "COUNTRY_VALUE": "MD",
+        "COUNTRY_CODE": "373",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "165",
+        "COUNTRY_NAME_CN": "中非共和国",
+        "COUNTRY_NAME_EN": "Central African Republic",
+        "COUNTRY_VALUE": "CF",
+        "COUNTRY_CODE": "236",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "166",
+        "COUNTRY_NAME_CN": "贝宁",
+        "COUNTRY_NAME_EN": "Benin",
+        "COUNTRY_VALUE": "BJ",
+        "COUNTRY_CODE": "229",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "167",
+        "COUNTRY_NAME_CN": "阿塞拜疆",
+        "COUNTRY_NAME_EN": "Azerbaijan",
+        "COUNTRY_VALUE": "AZ",
+        "COUNTRY_CODE": "994",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "168",
+        "COUNTRY_NAME_CN": "圣基茨和尼维斯",
+        "COUNTRY_NAME_EN": "Saint Kitts and Nevis",
+        "COUNTRY_VALUE": "KN",
+        "COUNTRY_CODE": "1869",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "169",
+        "COUNTRY_NAME_CN": "缅甸",
+        "COUNTRY_NAME_EN": "Myanmar",
+        "COUNTRY_VALUE": "MM",
+        "COUNTRY_CODE": "95",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "170",
+        "COUNTRY_NAME_CN": "萨摩亚",
+        "COUNTRY_NAME_EN": "Samoa",
+        "COUNTRY_VALUE": "WS",
+        "COUNTRY_CODE": "685",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "171",
+        "COUNTRY_NAME_CN": "索马里",
+        "COUNTRY_NAME_EN": "Somalia",
+        "COUNTRY_VALUE": "SO",
+        "COUNTRY_CODE": "252",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "172",
+        "COUNTRY_NAME_CN": "直布罗陀",
+        "COUNTRY_NAME_EN": "Gibraltar",
+        "COUNTRY_VALUE": "GI",
+        "COUNTRY_CODE": "350",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "173",
+        "COUNTRY_NAME_CN": "萨尔瓦多",
+        "COUNTRY_NAME_EN": "El Salvador",
+        "COUNTRY_VALUE": "SV",
+        "COUNTRY_CODE": "503",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "174",
+        "COUNTRY_NAME_CN": "津巴布韦",
+        "COUNTRY_NAME_EN": "Zimbabwe",
+        "COUNTRY_VALUE": "ZW",
+        "COUNTRY_CODE": "263",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "175",
+        "COUNTRY_NAME_CN": "马拉维",
+        "COUNTRY_NAME_EN": "Malawi",
+        "COUNTRY_VALUE": "MW",
+        "COUNTRY_CODE": "265",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "176",
+        "COUNTRY_NAME_CN": "捷克",
+        "COUNTRY_NAME_EN": "Czech Republic",
+        "COUNTRY_VALUE": "CZ",
+        "COUNTRY_CODE": "420",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "177",
+        "COUNTRY_NAME_CN": "玻利维亚",
+        "COUNTRY_NAME_EN": "Bolivia",
+        "COUNTRY_VALUE": "BO",
+        "COUNTRY_CODE": "591",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "178",
+        "COUNTRY_NAME_CN": "斯洛文尼亚",
+        "COUNTRY_NAME_EN": "Slovenia",
+        "COUNTRY_VALUE": "SI",
+        "COUNTRY_CODE": "386",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "179",
+        "COUNTRY_NAME_CN": "库克群岛",
+        "COUNTRY_NAME_EN": "Cook Islands",
+        "COUNTRY_VALUE": "CK",
+        "COUNTRY_CODE": "682",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "180",
+        "COUNTRY_NAME_CN": "格陵兰岛",
+        "COUNTRY_NAME_EN": "Greenland",
+        "COUNTRY_VALUE": "GL",
+        "COUNTRY_CODE": "299",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "181",
+        "COUNTRY_NAME_CN": "南苏丹",
+        "COUNTRY_NAME_EN": "South Sudan",
+        "COUNTRY_VALUE": "SS",
+        "COUNTRY_CODE": "211",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "182",
+        "COUNTRY_NAME_CN": "巴布亚新几内亚",
+        "COUNTRY_NAME_EN": "Papua New Guinea",
+        "COUNTRY_VALUE": "PG",
+        "COUNTRY_CODE": "675",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "183",
+        "COUNTRY_NAME_CN": "厄瓜多尔",
+        "COUNTRY_NAME_EN": "Ecuador",
+        "COUNTRY_VALUE": "EC",
+        "COUNTRY_CODE": "593",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "184",
+        "COUNTRY_NAME_CN": "瓦努阿图",
+        "COUNTRY_NAME_EN": "Vanuatu",
+        "COUNTRY_VALUE": "VU",
+        "COUNTRY_CODE": "678",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "185",
+        "COUNTRY_NAME_CN": "所罗门群岛",
+        "COUNTRY_NAME_EN": "Solomon Islands",
+        "COUNTRY_VALUE": "SB",
+        "COUNTRY_CODE": "677",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "186",
+        "COUNTRY_NAME_CN": "文莱",
+        "COUNTRY_NAME_EN": "Brunei",
+        "COUNTRY_VALUE": "BN",
+        "COUNTRY_CODE": "673",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "187",
+        "COUNTRY_NAME_CN": "苏丹",
+        "COUNTRY_NAME_EN": "Sudan",
+        "COUNTRY_VALUE": "SD",
+        "COUNTRY_CODE": "249",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "188",
+        "COUNTRY_NAME_CN": "阿尔巴尼亚",
+        "COUNTRY_NAME_EN": "Albania",
+        "COUNTRY_VALUE": "AL",
+        "COUNTRY_CODE": "355",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "189",
+        "COUNTRY_NAME_CN": "巴巴多斯",
+        "COUNTRY_NAME_EN": "Barbados",
+        "COUNTRY_VALUE": "BB",
+        "COUNTRY_CODE": "1246",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "190",
+        "COUNTRY_NAME_CN": "圣多美和普林西比",
+        "COUNTRY_NAME_EN": "Sao Tome and Principe",
+        "COUNTRY_VALUE": "ST",
+        "COUNTRY_CODE": "239",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "191",
+        "COUNTRY_NAME_CN": "格林纳达",
+        "COUNTRY_NAME_EN": "Grenada",
+        "COUNTRY_VALUE": "GD",
+        "COUNTRY_CODE": "1473",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "192",
+        "COUNTRY_NAME_CN": "马耳他",
+        "COUNTRY_NAME_EN": "Malta",
+        "COUNTRY_VALUE": "MT",
+        "COUNTRY_CODE": "356",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "193",
+        "COUNTRY_NAME_CN": "纳米比亚",
+        "COUNTRY_NAME_EN": "Namibia",
+        "COUNTRY_VALUE": "NA",
+        "COUNTRY_CODE": "264",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "194",
+        "COUNTRY_NAME_CN": "乍得",
+        "COUNTRY_NAME_EN": "Chad",
+        "COUNTRY_VALUE": "TD",
+        "COUNTRY_CODE": "235",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "195",
+        "COUNTRY_NAME_CN": "象牙海岸",
+        "COUNTRY_NAME_EN": "Ivory Coast",
+        "COUNTRY_VALUE": "CI",
+        "COUNTRY_CODE": "225",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "196",
+        "COUNTRY_NAME_CN": "留尼汪",
+        "COUNTRY_NAME_EN": "Réunion Island",
+        "COUNTRY_VALUE": "RE",
+        "COUNTRY_CODE": "262",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "197",
+        "COUNTRY_NAME_CN": "加蓬",
+        "COUNTRY_NAME_EN": "Gabon",
+        "COUNTRY_VALUE": "GA",
+        "COUNTRY_CODE": "241",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "198",
+        "COUNTRY_NAME_CN": "多米尼加",
+        "COUNTRY_NAME_EN": "Dominica",
+        "COUNTRY_VALUE": "DM",
+        "COUNTRY_CODE": "1767",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "199",
+        "COUNTRY_NAME_CN": "特立尼达和多巴哥",
+        "COUNTRY_NAME_EN": "Trinidad and Tobago",
+        "COUNTRY_VALUE": "TT",
+        "COUNTRY_CODE": "1868",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "200",
+        "COUNTRY_NAME_CN": "坦桑尼亚",
+        "COUNTRY_NAME_EN": "Tanzania",
+        "COUNTRY_VALUE": "TZ",
+        "COUNTRY_CODE": "255",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "201",
+        "COUNTRY_NAME_CN": "土库曼斯坦",
+        "COUNTRY_NAME_EN": "Turkmenistan",
+        "COUNTRY_VALUE": "TM",
+        "COUNTRY_CODE": "993",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "202",
+        "COUNTRY_NAME_CN": "黎巴嫩",
+        "COUNTRY_NAME_EN": "Lebanon",
+        "COUNTRY_VALUE": "LB",
+        "COUNTRY_CODE": "961",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "203",
+        "COUNTRY_NAME_CN": "阿曼",
+        "COUNTRY_NAME_EN": "Oman",
+        "COUNTRY_VALUE": "OM",
+        "COUNTRY_CODE": "968",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "204",
+        "COUNTRY_NAME_CN": "克罗地亚",
+        "COUNTRY_NAME_EN": "Croatia",
+        "COUNTRY_VALUE": "HR",
+        "COUNTRY_CODE": "385",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "205",
+        "COUNTRY_NAME_CN": "波多黎各",
+        "COUNTRY_NAME_EN": "Puerto Rico",
+        "COUNTRY_VALUE": "PR",
+        "COUNTRY_CODE": "1787",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "206",
+        "COUNTRY_NAME_CN": "海地",
+        "COUNTRY_NAME_EN": "Haiti",
+        "COUNTRY_VALUE": "HT",
+        "COUNTRY_CODE": "509",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "207",
+        "COUNTRY_NAME_CN": "赞比亚",
+        "COUNTRY_NAME_EN": "Zambia",
+        "COUNTRY_VALUE": "ZM",
+        "COUNTRY_CODE": "260",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "208",
+        "COUNTRY_NAME_CN": "冰岛",
+        "COUNTRY_NAME_EN": "Iceland",
+        "COUNTRY_VALUE": "IS",
+        "COUNTRY_CODE": "354",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "209",
+        "COUNTRY_NAME_CN": "喀麦隆",
+        "COUNTRY_NAME_EN": "Cameroon",
+        "COUNTRY_VALUE": "CM",
+        "COUNTRY_CODE": "237",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "210",
+        "COUNTRY_NAME_CN": "哈萨克斯坦",
+        "COUNTRY_NAME_EN": "Kazakhstan",
+        "COUNTRY_VALUE": "KZ",
+        "COUNTRY_CODE": "7",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "211",
+        "COUNTRY_NAME_CN": "尼加拉瓜",
+        "COUNTRY_NAME_EN": "Nicaragua",
+        "COUNTRY_VALUE": "NI",
+        "COUNTRY_CODE": "505",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "212",
+        "COUNTRY_NAME_CN": "孟加拉国",
+        "COUNTRY_NAME_EN": "Bangladesh",
+        "COUNTRY_VALUE": "BD",
+        "COUNTRY_CODE": "880",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "213",
+        "COUNTRY_NAME_CN": "百慕大群岛",
+        "COUNTRY_NAME_EN": "Bermuda",
+        "COUNTRY_VALUE": "BM",
+        "COUNTRY_CODE": "1441",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "214",
+        "COUNTRY_NAME_CN": "阿鲁巴",
+        "COUNTRY_NAME_EN": "Aruba",
+        "COUNTRY_VALUE": "AW",
+        "COUNTRY_CODE": "297",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "215",
+        "COUNTRY_NAME_CN": "拉脱维亚",
+        "COUNTRY_NAME_EN": "Latvia",
+        "COUNTRY_VALUE": "LV",
+        "COUNTRY_CODE": "371",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      },
+      {
+        "ID": "216",
+        "COUNTRY_NAME_CN": "圣马力诺",
+        "COUNTRY_NAME_EN": "San Marino",
+        "COUNTRY_VALUE": "SM",
+        "COUNTRY_CODE": "378",
+        "REGULAR_EXPRESSION": "^[0-9]{4,15}$"
+      }
+    ]
+}
