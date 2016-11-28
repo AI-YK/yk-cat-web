@@ -1,7 +1,7 @@
-package com.ai.yc.portal.web.test.service;
+package com.ai.yk.portal.web.test.service;
 
-import com.ai.yc.protal.web.exception.HttpStatusException;
-import com.ai.yc.protal.web.service.YeekitService;
+import com.ai.yk.protal.web.exception.HttpStatusException;
+import com.ai.yk.protal.web.service.YeekitService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

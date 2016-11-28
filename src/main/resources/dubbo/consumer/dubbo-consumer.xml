@@ -22,47 +22,6 @@
 		address="${dubbo.registry.address}" id="ycRegistry" />
 	<dubbo:consumer timeout="${dubbo.provider.timeout}" />
 
-	<!-- 订单信息 -->
-	<dubbo:reference id="iOrderSubmissionSV" registry="ycRegistry"
-		interface="com.ai.yc.order.api.ordersubmission.interfaces.IOrderSubmissionSV" />
-	<dubbo:reference id="IQueryOrderDetailsSV" registry="ycRegistry"
-		interface="com.ai.yc.order.api.orderdetails.interfaces.IQueryOrderDetailsSV" />
-	<dubbo:reference id="IOrderCancelSV" registry="ycRegistry"
-		interface="com.ai.yc.order.api.orderclose.interfaces.IOrderCancelSV" />
-	<dubbo:reference id="IOrderStateUpdateSV" registry="ycRegistry"
-		interface="com.ai.yc.order.api.orderstate.interfaces.IOrderStateUpdateSV" />
-	<dubbo:reference id="IQueryAutoOfferSV" registry="ycRegistry"
-		interface="com.ai.yc.order.api.autooffer.interfaces.IQueryAutoOfferSV" />
-	<dubbo:reference id="ITranslateSaveSV" registry="ycRegistry"
-		interface="com.ai.yc.order.api.translatesave.interfaces.ITranslateSaveSV" />
-	<!-- 注册 -->
-	<dubbo:reference id="iYCUserServiceSV" registry="ycRegistry"
-		interface="com.ai.yc.user.api.userservice.interfaces.IYCUserServiceSV" />
-<!-- IUcMembersSV -->
-	<dubbo:reference id="iUcMembersSV" registry="ycRegistry"
-		interface="com.ai.yc.ucenter.api.members.interfaces.IUcMembersSV" />
-	<dubbo:reference id="iGnCountrySV" registry="ycRegistry"
-		interface="com.ai.yc.common.api.country.interfaces.IGnCountrySV" />
-	<dubbo:reference id="iOrderQuerySV" registry="ycRegistry"
-		interface="com.ai.yc.order.api.orderquery.interfaces.IOrderQuerySV" />
-  	<dubbo:reference id="iUcMembersOperationSV" registry="ycRegistry"
-		interface="com.ai.yc.ucenter.api.members.interfaces.IUcMembersOperationSV" />
-	<dubbo:reference id="iOrderFeeQuerySV" registry="ycRegistry"
-			interface="com.ai.yc.order.api.orderfee.interfaces.IOrderFeeQuerySV"/>
-	<dubbo:reference id="iOrderPayProcessedResultSV" registry="ycRegistry"
-			interface="com.ai.yc.order.api.orderpay.interfaces.IOrderPayProcessedResultSV"/>
-	<dubbo:reference id="iFundQuerySV" registry="ycRegistry"
-			interface="com.ai.slp.balance.api.fundquery.interfaces.IFundQuerySV "/>
-	<dubbo:reference id="iAccountQuerySV" registry="ycRegistry"
-			interface="com.ai.slp.balance.api.accountquery.interfaces.IAccountQuerySV"/>
-	<dubbo:reference id="iDeductSV" registry="ycRegistry"
-			interface="com.ai.slp.balance.api.deduct.interfaces.IDeductSV"/>
-	<dubbo:reference id="incomeOutQuerySV" registry="ycRegistry"
-	        interface="com.ai.slp.balance.api.incomeoutquery.interfaces.IncomeOutQuerySV"/>
-	<dubbo:reference id="iAccountMaintainSV" registry="ycRegistry"
-	        interface="com.ai.slp.balance.api.accountmaintain.interfaces.IAccountMaintainSV"/>
-	<dubbo:reference id="iOrderWaitReceiveSV" registry="ycRegistry"
-			interface="com.ai.yc.order.api.orderreceivesearch.interfaces.IOrderWaitReceiveSV"/>
-	<dubbo:reference id="IOrderReceiveSV" registry="ycRegistry"
-			interface="com.ai.yc.order.api.orderreceive.interfaces.IOrderReceiveSV"/>
+
+
 </beans>

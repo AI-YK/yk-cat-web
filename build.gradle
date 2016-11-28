@@ -74,13 +74,13 @@ dependencies {
 
     compile 'com.ai.opt.sdk:opt-sdk:2.2.1-SNAPSHOT'
     compile 'com.ai.opt.xss.filter:opt-xss-firewall:1.0-SNAPSHOT'
-    compile 'com.ai.opt.uni.session:opt-uni-session:2.0-SNAPSHOT'
-    compile 'com.ai.opt.sso.client:opt-sso-client:1.0.2-SNAPSHOT'
+    //compile 'com.ai.opt.uni.session:opt-uni-session:2.0-SNAPSHOT'
+    //compile 'com.ai.opt.sso.client:opt-sso-client:1.0.2-SNAPSHOT'
 
    
 	
 	compile 'org.dom4j:dom4j:2.0.0'
-	compile 'com.ai.yc.sms:focusSmsSDK:1.0'
+	compile 'com.ai.yk.sms:focusSmsSDK:1.0'
 	
 	compile('org.apache.axis2:axis2-adb:1.5.1') {
 		exclude group: 'org.apache.geronimo.specs'

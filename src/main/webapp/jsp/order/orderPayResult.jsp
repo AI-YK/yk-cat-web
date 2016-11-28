@@ -1,4 +1,4 @@
-<%@ page import="com.ai.yc.protal.web.model.pay.PayNotify" %>
+<%@ page import="com.ai.yk.protal.web.model.pay.PayNotify" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>

@@ -1,8 +1,8 @@
-package com.ai.yc.portal.web.test.service;
+package com.ai.yk.portal.web.test.service;
 
-import com.ai.yc.protal.web.model.pay.AccountBalanceInfo;
-import com.ai.yc.protal.web.service.BalanceService;
-import com.ai.yc.protal.web.utils.UserUtil;
+import com.ai.yk.protal.web.model.pay.AccountBalanceInfo;
+import com.ai.yk.protal.web.service.BalanceService;
+import com.ai.yk.protal.web.utils.UserUtil;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.ai.yc.portal.web.test.service;
+package com.ai.yk.portal.web.test.service;
 
-import com.ai.yc.common.api.cachekey.key.CacheKey;
-import com.ai.yc.protal.web.service.CacheServcie;
+import com.ai.yk.common.api.cachekey.key.CacheKey;
+import com.ai.yk.protal.web.service.CacheServcie;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

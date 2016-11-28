@@ -1,4 +1,4 @@
-package com.ai.yc.portal.web.test.utils;
+package com.ai.yk.portal.web.test.utils;
 
 import org.junit.Test;
 
