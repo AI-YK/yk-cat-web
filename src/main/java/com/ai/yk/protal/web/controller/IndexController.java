@@ -1,4 +1,4 @@
-package com.ai.yk.protal.web.controller.index;
+package com.ai.yk.protal.web.controller;
 
 import java.util.Locale;
 
