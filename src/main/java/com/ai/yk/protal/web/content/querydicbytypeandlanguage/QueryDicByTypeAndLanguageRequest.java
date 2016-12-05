@@ -1,7 +1,6 @@
 package com.ai.yk.protal.web.content.querydicbytypeandlanguage;
 
 import com.ai.yk.protal.web.content.YJBaseRequest;
-import com.ai.yk.protal.web.content.YJBaseResponse;
 /**
  * 根据类型和语言获取数据字典中的所有记录接口入参
  * @author mengbo 

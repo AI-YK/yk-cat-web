@@ -7,6 +7,14 @@ public class QueryEventDataListRequest extends YJBaseRequest{
 
 	private QueryEventDataListData data;
 
+	public QueryEventDataListData getData() {
+		return data;
+	}
+
+	public void setData(QueryEventDataListData data) {
+		this.data = data;
+	}
+
 	
 	
 }

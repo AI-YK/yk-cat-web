@@ -1,0 +1,28 @@
+package com.ai.yk.protal.web.content.getdatasourcelist;
+
+import com.ai.yk.protal.web.content.YJBaseRequest;
+/**
+ * 获取热门国家表出参
+ * @author mengbo 
+ *
+ */
+public class GetDataSourceListRequest extends YJBaseRequest {
+
+	private GetDataSourceListMessage message;
+
+	public GetDataSourceListMessage getMessage() {
+		return message;
+	}
+
+	public void setMessage(GetDataSourceListMessage message) {
+		this.message = message;
+	}
+	
+	
+
+
+
+	
+
+	
+}
