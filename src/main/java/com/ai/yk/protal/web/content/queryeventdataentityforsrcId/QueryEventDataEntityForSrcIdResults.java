@@ -1,6 +1,6 @@
 package com.ai.yk.protal.web.content.queryeventdataentityforsrcId;
 
-public class QueryEventDataEntityForSrcIdResultsResults {
+public class QueryEventDataEntityForSrcIdResults {
 
 	
 	private String id;

@@ -10,7 +10,7 @@ public class QueryEventDataEntityForSrcIdData{
 		private Integer totalRows;
 
 		
-		private List<QueryEventDataEntityForSrcIdResultsResults> results;
+		private List<QueryEventDataEntityForSrcIdResults> results;
 
 
 		public Integer getPageSize() {
@@ -53,12 +53,12 @@ public class QueryEventDataEntityForSrcIdData{
 		}
 
 
-		public List<QueryEventDataEntityForSrcIdResultsResults> getResults() {
+		public List<QueryEventDataEntityForSrcIdResults> getResults() {
 			return results;
 		}
 
 
-		public void setResults(List<QueryEventDataEntityForSrcIdResultsResults> results) {
+		public void setResults(List<QueryEventDataEntityForSrcIdResults> results) {
 			this.results = results;
 		}
 		

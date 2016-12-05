@@ -4,13 +4,13 @@ import java.util.List;
 
 public class QueryAreaOrEconomicOrganizationsData{
 
-		private List<QueryAreaOrEconomicOrganizationsDataResults> results;
+		private List<QueryAreaOrEconomicOrganizationsResults> results;
 
-		public List<QueryAreaOrEconomicOrganizationsDataResults> getResults() {
+		public List<QueryAreaOrEconomicOrganizationsResults> getResults() {
 			return results;
 		}
 
-		public void setResults(List<QueryAreaOrEconomicOrganizationsDataResults> results) {
+		public void setResults(List<QueryAreaOrEconomicOrganizationsResults> results) {
 			this.results = results;
 		}
 

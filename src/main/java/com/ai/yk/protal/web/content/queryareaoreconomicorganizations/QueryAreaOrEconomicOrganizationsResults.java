@@ -1,6 +1,6 @@
 package com.ai.yk.protal.web.content.queryareaoreconomicorganizations;
 
-public class QueryAreaOrEconomicOrganizationsDataResults {
+public class QueryAreaOrEconomicOrganizationsResults {
 
 	
 	private String language;

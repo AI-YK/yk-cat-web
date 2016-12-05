@@ -2,7 +2,7 @@ package com.ai.yk.protal.web.content.queryeventdataentityforsrcId;
 
 import com.ai.yk.protal.web.content.YJBaseRequest;
 /**
- * 查询srcId事件详情接口出参
+ * 查询事件列表接口入参
  * @author mengbo 
  *
  */

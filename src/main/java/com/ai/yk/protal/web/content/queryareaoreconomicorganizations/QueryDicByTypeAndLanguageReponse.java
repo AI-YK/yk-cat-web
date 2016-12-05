@@ -4,10 +4,10 @@ import com.ai.yk.protal.web.content.YJBaseResponse;
 
 /**
  * 获取热门国家表入参
- * @author Administrator
+ * @author mengbo
  *
  */
-public class QueryAreaOrEconomicOrganizationsReponse extends YJBaseResponse{
+public class QueryDicByTypeAndLanguageReponse extends YJBaseResponse{
 
 	private QueryAreaOrEconomicOrganizationsData data;
 
