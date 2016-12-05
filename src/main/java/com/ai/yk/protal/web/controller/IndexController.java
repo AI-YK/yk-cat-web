@@ -5,7 +5,6 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,13 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.ai.opt.sso.client.filter.SSOClientConstants;
-import com.ai.opt.sso.client.filter.SSOClientUtil;
 import com.ai.paas.ipaas.i18n.ResWebBundle;
-import com.ai.paas.ipaas.mcs.interfaces.ICacheClient;
-import com.ai.yk.protal.web.utils.AiPassUitl;
-import com.ai.yk.protal.web.utils.UserUtil;
-import com.alibaba.fastjson.JSON;
 
 /**
  * Created by mengbo on 28/11/5.
@@ -35,7 +28,7 @@ public class IndexController {
      */
     @RequestMapping("/home")
     public String indexView(Model uiModel){
-        //获取基础数据
+       /* //获取基础数据
         ICacheClient cacheClient = AiPassUitl.getCacheClient();
         String homeDataStr = cacheClient.get(CacheKey.HOME_DATA_CONFIG_KEY);
         //TODO... 模拟数据
@@ -48,7 +41,7 @@ public class IndexController {
         homeDataCon.setOrderNum("600892");//订单数量
         homeDataCon.setInterpreterNum("78239");//译员数量
         homeDataCon.setLanguageNum("60");//语种
-        uiModel.addAttribute("homeData",homeDataCon);
+        uiModel.addAttribute("homeData",homeDataCon);*/
         return "/home";
     }
 
@@ -69,7 +62,7 @@ public class IndexController {
      */
     @RequestMapping("/ssologout")
     public String ssoLogout(HttpServletRequest request,HttpSession session){
-        String logOutServerUrl = SSOClientUtil.getLogOutServerUrlRuntime(request);
+        /*String logOutServerUrl = SSOClientUtil.getLogOutServerUrlRuntime(request);
         String logOutBackUrl = SSOClientUtil.getLogOutBackUrlRuntime(request);
         try {
             if(UserUtil.getSsoUser()!=null){
@@ -78,8 +71,9 @@ public class IndexController {
             }
         } catch (Exception e) {
             LOGGER.error("用户登出失败",e);
-        }
-        return "redirect:"+logOutServerUrl + "?service=" + logOutBackUrl;
+        }*/
+    	//"redirect:"+logOutServerUrl + "?service=" + logOutBackUrl;
+        return null;
     }
 
     /**
