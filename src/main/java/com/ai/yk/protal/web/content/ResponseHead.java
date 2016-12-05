@@ -33,6 +33,15 @@ public class ResponseHead{
 	public void setVersion(String version) {
 		this.version = version;
 	}
+	public ResponseHead(String token, String client, String version) {
+		super();
+		this.token = token;
+		this.client = client;
+		this.version = version;
+	}
+	public ResponseHead() {
+		super();
+	}
 	
 	
 }

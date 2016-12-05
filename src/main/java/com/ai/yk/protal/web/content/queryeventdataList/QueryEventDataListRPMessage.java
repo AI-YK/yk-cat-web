@@ -35,7 +35,21 @@ public class QueryEventDataListRPMessage{
 		}
 		public void setSourceType(Integer sourceType) {
 			this.sourceType = sourceType;
+		}
+		public QueryEventDataListRPMessage(Integer pageSize, Integer pageNo, Integer type, Integer industryType,
+				Integer sourceType) {
+			super();
+			this.pageSize = pageSize;
+			this.pageNo = pageNo;
+			this.type = type;
+			this.industryType = industryType;
+			this.sourceType = sourceType;
+		}
+		public QueryEventDataListRPMessage() {
+			super();
 		}		
+		
+		
 		
 		
 	}

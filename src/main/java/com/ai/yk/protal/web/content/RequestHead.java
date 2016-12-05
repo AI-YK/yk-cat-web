@@ -16,6 +16,13 @@ public class RequestHead{
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+	public RequestHead(String result, String message) {
+		super();
+		this.result = result;
+		this.message = message;
+	}
+	public RequestHead() {
+		super();
+	}
 	
 }
