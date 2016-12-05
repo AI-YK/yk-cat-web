@@ -80,7 +80,7 @@ dependencies {
    
 	
 	compile 'org.dom4j:dom4j:2.0.0'
-	compile 'com.ai.yk.sms:focusSmsSDK:1.0'
+	compile 'com.ai.yc.sms:focusSmsSDK:1.0'
 	
 	compile('org.apache.axis2:axis2-adb:1.5.1') {
 		exclude group: 'org.apache.geronimo.specs'
