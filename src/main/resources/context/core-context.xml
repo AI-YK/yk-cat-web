@@ -52,6 +52,13 @@
           factory-bean="httpClientBuilder" factory-method="build" scope="prototype" />
     <!-- httpclient end-->
 
+	<!-- JedisUtils start-->
+	<bean id="JedisUtile" class="com.ai.yk.protal.web.utils.JedisUtils" >
+    	<property name="redisIp" value="${redis.ip}" />
+		<property name="redisPort" value="${redis.port}" />
+    </bean>
+	<!-- JedisUtils end-->
+	
     <!-- 启动注解扫描 -->
     <context:annotation-config/>
     <!-- 设定注解扫描基础包 -->
