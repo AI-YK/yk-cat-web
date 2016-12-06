@@ -17,7 +17,7 @@ public class EventDataService {
 	 * 查询事件列表
 	 */
 	public YJBaseResponse<QueryEventDataListReponse> queryEventDataList(YJBaseRequest<QueryEventDataListMessage> req) {
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_SEARCH_GETDATASOURCELIST);
+		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_EVENTDATA_QUERYEVENTDATALIST);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJBaseResponse<QueryEventDataListReponse>>(){});
