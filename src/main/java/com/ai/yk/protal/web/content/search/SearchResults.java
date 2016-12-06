@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class SearchResults {
 
-	private Date pubTime;
+	private Long pubTime;
 	private Date updated;
 	private Date created;
 	
@@ -75,10 +75,11 @@ public class SearchResults {
 	private String websiteId;
 	private String isOriginal;
 	private Integer isSensitive;
-	public Date getPubTime() {
+	
+	public Long getPubTime() {
 		return pubTime;
 	}
-	public void setPubTime(Date pubTime) {
+	public void setPubTime(Long pubTime) {
 		this.pubTime = pubTime;
 	}
 	public Date getUpdated() {
@@ -315,7 +316,8 @@ public class SearchResults {
 	public void setIsSensitive(Integer isSensitive) {
 		this.isSensitive = isSensitive;
 	}
-	public SearchResults(Date pubTime, Date updated, Date created, String countryNameZh, String countryNameEn,
+	
+	public SearchResults(Long pubTime, Date updated, Date created, String countryNameZh, String countryNameEn,
 			String[] keywordsEn, String titleEn, String abstractEn, String languageTname, String mediaNameSrc,
 			String mediaNameEn, String mediaNameZh, String[] keywordsZh, Integer mediaType, String titleSrc, String url,
 			String titleZh, String abstractZh, String languageCode, Integer docLength, String uuid, Integer mediaTname,

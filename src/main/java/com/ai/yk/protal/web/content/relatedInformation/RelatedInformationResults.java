@@ -5,7 +5,7 @@ import java.util.Date;
 public class RelatedInformationResults {
 
 
-	private Date pubTime;
+	private Long pubTime;
 	private Date updated;
 	private Date created;
 	private Date pubdate;
@@ -74,10 +74,11 @@ public class RelatedInformationResults {
 	private Integer pv;
 	private Integer isSensitive;
 	private String countryNameZh;
-	public Date getPubTime() {
+	
+	public Long getPubTime() {
 		return pubTime;
 	}
-	public void setPubTime(Date pubTime) {
+	public void setPubTime(Long pubTime) {
 		this.pubTime = pubTime;
 	}
 	public Date getUpdated() {
@@ -338,7 +339,8 @@ public class RelatedInformationResults {
 	public void setCountryNameZh(String countryNameZh) {
 		this.countryNameZh = countryNameZh;
 	}
-	public RelatedInformationResults(Date pubTime, Date updated, Date created, Date pubdate, String countryId,
+	
+	public RelatedInformationResults(Long pubTime, Date updated, Date created, Date pubdate, String countryId,
 			String mediaId, String countryName, String languageType, String keywordEn, String titleEn,
 			String abstractEn, String languageTname, String mediaName, String[] keywordsZh, Integer mediaType,
 			String titleSrc, String url, String titleZh, String abstractZh, String languageCode, Integer docLength,
