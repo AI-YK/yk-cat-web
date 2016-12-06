@@ -1,9 +1,9 @@
-package com.ai.yk.protal.web.content.queryeventdataList;
+package com.ai.yk.protal.web.content.event;
 
 import java.io.Serializable;
 import java.util.List;
 
-public class QueryEventDataListReponse implements Serializable{
+public class EventDataListReponse implements Serializable{
 		private static final long serialVersionUID = 3037496561666627522L;
 		private Integer pageSize;
 		private Integer pageNo;
@@ -11,7 +11,7 @@ public class QueryEventDataListReponse implements Serializable{
 		private Integer industryType;
 		private Integer sourceType;
 		
-		private List<QueryEventDataVo> results;
+		private List<EventDataVo> results;
 
 		public Integer getPageSize() {
 			return pageSize;
@@ -53,16 +53,16 @@ public class QueryEventDataListReponse implements Serializable{
 			this.sourceType = sourceType;
 		}
 
-		public List<QueryEventDataVo> getResults() {
+		public List<EventDataVo> getResults() {
 			return results;
 		}
 
-		public void setResults(List<QueryEventDataVo> results) {
+		public void setResults(List<EventDataVo> results) {
 			this.results = results;
 		}
 
-		public QueryEventDataListReponse(Integer pageSize, Integer pageNo, Integer type, Integer industryType,
-				Integer sourceType, List<QueryEventDataVo> results) {
+		public EventDataListReponse(Integer pageSize, Integer pageNo, Integer type, Integer industryType,
+				Integer sourceType, List<EventDataVo> results) {
 			super();
 			this.pageSize = pageSize;
 			this.pageNo = pageNo;
@@ -72,7 +72,7 @@ public class QueryEventDataListReponse implements Serializable{
 			this.results = results;
 		}
 
-		public QueryEventDataListReponse() {
+		public EventDataListReponse() {
 			super();
 		}
 		
