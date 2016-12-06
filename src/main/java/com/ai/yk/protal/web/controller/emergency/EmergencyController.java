@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
-import com.ai.yk.protal.web.content.queryeventdataList.QueryEventDataListReponse;
-import com.ai.yk.protal.web.content.queryeventdataList.QueryEventDataVo;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.alibaba.fastjson.JSONObject;
 
@@ -31,7 +29,7 @@ public class EmergencyController {
 	    @RequestMapping("/getEmergencyIndexList")
 	    @ResponseBody
 	    public ResponseData<String> getEmergencyIndexList(){ 
-	    	QueryEventDataVo queryEventDataVo =new QueryEventDataVo();
+	    	/*QueryEventDataVo queryEventDataVo =new QueryEventDataVo();
 	    	queryEventDataVo.setId(1);
 	    	queryEventDataVo.setZhCountry("中国");
 	    	queryEventDataVo.setZhCity("北京");
@@ -49,7 +47,7 @@ public class EmergencyController {
 	    	queryEventDataListReponse.setResults(results);
 	    	queryEventDataListReponse.setSourceType(1);
 	    	queryEventDataListReponse.setType(1);
-	    	String json = JSONObject.toJSONString(queryEventDataListReponse);
+	    	String json = JSONObject.toJSONString(queryEventDataListReponse);*/
 	    	return new ResponseData<String>("","","");
 	        
 	    }
