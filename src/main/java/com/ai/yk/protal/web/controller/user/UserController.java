@@ -28,16 +28,7 @@ public class UserController {
     @RequestMapping("/user/login")
     public String login(Model model){
     	
-    	RequestHead head1 = new RequestHead("","","V1");
-    	UserRPMessage message = new UserRPMessage();
-    	List<UserRPMessage> rpMessage = new ArrayList<>();
-    	message.setUserName("15343152333");
-    	message.setPassword("123414567");
-    	message.setLoginMode("4");
-    	rpMessage.add(message);
     	
-    	String json = userService.login(head1,rpMessage);
-    	model.addAttribute("login",json);
     	return "/login/";
     }
 	
