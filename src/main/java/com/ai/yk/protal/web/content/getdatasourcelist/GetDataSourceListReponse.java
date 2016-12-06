@@ -6,7 +6,7 @@ import com.ai.yk.protal.web.content.YJBaseRequest;
  * @author mengbo 
  *
  */
-public class GetDataSourceListReponse extends YJBaseRequest {
+public class GetDataSourceListReponse {
 
 	private GetDataSourceListMessage message;
 
