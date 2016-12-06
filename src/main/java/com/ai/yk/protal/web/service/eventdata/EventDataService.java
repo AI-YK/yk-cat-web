@@ -8,6 +8,7 @@ import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.event.EventListMessage;
 import com.ai.yk.protal.web.content.event.EventListResponse;
+import com.ai.yk.protal.web.content.event.EventVo;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -27,11 +28,11 @@ public class EventDataService {
 	/**
 	 * 查询事件详情
 	 */
-	public YJResponse<EventListResponse> queryEventDataEntityForSrcId(YJRequest<EventListMessage> req) {
+	public YJResponse<EventVo> queryEventDataEntityForSrcId(YJRequest<EventListMessage> req) {
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<EventListResponse>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<EventVo>>(){});
 		}
 		return null;
 	}
