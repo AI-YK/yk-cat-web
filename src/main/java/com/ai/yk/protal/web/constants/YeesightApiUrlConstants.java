@@ -17,8 +17,8 @@ public class YeesightApiUrlConstants {
 
 	// 搜索数据源列表url
 	public final static String API_SEARCH_GETDATASOURCELIST = "/api/search/getDataSourceList";
-	// 搜索数据源列表url
-	public final static String API_EVENTDATA_QUERYEVENTDATALIST = "/api/search/getDataSourceList";
+	// 查询事件列表url
+	public final static String API_EVENTDATA_QUERYEVENTDATALIST = "/api/eventData/queryEventDataList";
 
 	// 拼接头部信息url
 	public static String getApiUrl(String ulr) {
