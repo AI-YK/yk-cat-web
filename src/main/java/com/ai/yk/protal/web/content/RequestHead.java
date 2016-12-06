@@ -1,7 +1,13 @@
 package com.ai.yk.protal.web.content;
 
-public class RequestHead{
+import java.io.Serializable;
 
+public class RequestHead implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6892804554440244822L;
 	/**
 	 * 访问口令
 	 * 必填：N
