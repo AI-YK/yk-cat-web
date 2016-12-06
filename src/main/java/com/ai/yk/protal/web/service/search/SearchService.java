@@ -3,8 +3,6 @@
  */
 package com.ai.yk.protal.web.service.search;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.StringUtil;
@@ -26,28 +24,21 @@ import com.alibaba.fastjson.TypeReference;
  */
 @Service
 public class SearchService {
-	private static final Logger LOGGER = LoggerFactory
-			.getLogger(SearchService.class);
-
 	/**
 	 * 搜索数据源列表
 	 */
 	public YJBaseResponse<GetDataSourceListReponse> getDataSourceList(YJBaseRequest<GetDataSourceListMessage> req) {
-		try {
-			String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_SEARCH_GETDATASOURCELIST);
-			String result =HttpClientUtil.sendPostRequest(url,req);
-			if(!StringUtil.isBlank(result)){
-				return JSON.parseObject(result, new TypeReference<YJBaseResponse<GetDataSourceListReponse>>(){});
-			}
-		} catch (Exception e) {
-			LOGGER.error(e.getMessage(),e);
+		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_SEARCH_GETDATASOURCELIST);
+		String result =HttpClientUtil.getYJBaseResponse(url,req);
+		if(!StringUtil.isBlank(result)){
+			return JSON.parseObject(result, new TypeReference<YJBaseResponse<GetDataSourceListReponse>>(){});
 		}
-
 		return null;
 	}
 
 	public static void main(String[] args) throws Exception {
 		String str ="{'data':{'resultCount':10,'resultList':[{'mediaNameSrc':'中国结婚论坛-彩妆造型','mediaId':'10021','mediaNameZh':'中国结婚论坛-彩妆造型','mediaNameEn':'中国结婚论坛-彩妆造型','url':'chinajiehun.com'}]},'head':{'result':'true','message':'ok'}}";
 		YJBaseResponse<GetDataSourceListReponse> data =JSON.parseObject(str, new TypeReference<YJBaseResponse<GetDataSourceListReponse>>(){});
-		}
+		System.out.println(data.getData().getResultCount());
+	}
 }

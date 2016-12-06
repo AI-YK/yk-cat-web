@@ -11,17 +11,28 @@ import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.ai.yk.protal.web.content.YJBaseResponse;
 import com.alibaba.fastjson.JSON;
 
 public final class HttpClientUtil {
+	private static final Logger LOGGER = LoggerFactory
+			.getLogger(HttpClientUtil.class);
 	private HttpClientUtil() {
 	}
     private static final String DEFAULT_ENCODING="UTF-8";
-    public static String sendPostRequest(String url, @SuppressWarnings("rawtypes") YJBaseRequest req)
-			throws Exception {
-		return sendPostRequest(url, JSON.toJSONString(req));
+   
+    public static String getYJBaseResponse(String url, @SuppressWarnings("rawtypes") YJBaseRequest req){
+		try {
+			return sendPostRequest(url, JSON.toJSONString(req));
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(),e);
+		}
+		return null;
 	}
 
 	public static String sendPostRequest(String url, String data)
