@@ -2,7 +2,7 @@ package com.ai.yk.protal.web.content;
 
 import java.io.Serializable;
 
-public class YJBaseResponse<T> implements Serializable {
+public class YJResponse<T> implements Serializable {
 
 	/**
 	 * 

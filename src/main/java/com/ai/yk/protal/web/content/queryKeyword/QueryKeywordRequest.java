@@ -1,12 +1,12 @@
 package com.ai.yk.protal.web.content.queryKeyword;
 
-import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.ai.yk.protal.web.content.YJRequest;
 /**
  * 关键词热度接口入参
  * @author shancong 
  *
  */
-public class QueryKeywordRequest extends YJBaseRequest {
+public class QueryKeywordRequest extends YJRequest {
 
 	private QueryKeywordMessage message;
 

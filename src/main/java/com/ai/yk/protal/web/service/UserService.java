@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.ai.yk.protal.web.content.RequestHead;
-import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
 import com.ai.yk.protal.web.content.user.UserRPMessage;
 import com.ai.yk.protal.web.service.search.SearchService;
@@ -42,7 +42,7 @@ public class UserService {
 		return null;
 	}
 	public static void main(String[] args) {
-		YJBaseRequest<UserRPMessage> req = new YJBaseRequest<>();
+		YJRequest<UserRPMessage> req = new YJRequest<>();
 		UserRPMessage message = new UserRPMessage();
 		message.setUserName("admin");
 		RequestHead h = new RequestHead();

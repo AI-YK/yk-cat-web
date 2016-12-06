@@ -4,8 +4,8 @@ import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
-import com.ai.yk.protal.web.content.YJBaseRequest;
-import com.ai.yk.protal.web.content.YJBaseResponse;
+import com.ai.yk.protal.web.content.YJRequest;
+import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.queryeventdataList.QueryEventDataListMessage;
 import com.ai.yk.protal.web.content.queryeventdataList.QueryEventDataListReponse;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
@@ -16,11 +16,11 @@ public class EventDataService {
 	/**
 	 * 查询事件列表
 	 */
-	public YJBaseResponse<QueryEventDataListReponse> queryEventDataList(YJBaseRequest<QueryEventDataListMessage> req) {
+	public YJResponse<QueryEventDataListReponse> queryEventDataList(YJRequest<QueryEventDataListMessage> req) {
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_EVENTDATA_QUERYEVENTDATALIST);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJBaseResponse<QueryEventDataListReponse>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<QueryEventDataListReponse>>(){});
 		}
 		return null;
 	}
