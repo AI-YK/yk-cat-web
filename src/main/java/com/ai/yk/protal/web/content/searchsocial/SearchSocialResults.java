@@ -16,7 +16,7 @@ public class SearchSocialResults {
 	private String userType;
 	private String city;
 	private String id;
-	private String time;
+	private Long time;
 	private Integer sentimentOrient;
 	private String verifiedReason;
 	private Integer verified;
@@ -116,10 +116,10 @@ public class SearchSocialResults {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getTime() {
+	public Long getTime() {
 		return time;
 	}
-	public void setTime(String time) {
+	public void setTime(Long time) {
 		this.time = time;
 	}
 	public Integer getSentimentOrient() {
@@ -248,9 +248,10 @@ public class SearchSocialResults {
 	public void setRpsCnt(Integer rpsCnt) {
 		this.rpsCnt = rpsCnt;
 	}
+	
 	public SearchSocialResults(String provinceId, Integer isOri, Integer repostSince, Integer cmtCnt,
 			String sourceWeiboId, Integer cityId, Integer textLen, String userAvatar, String textEn, Integer staCnt,
-			String userType, String city, String id, String time, Integer sentimentOrient, String verifiedReason,
+			String userType, String city, String id, Long time, Integer sentimentOrient, String verifiedReason,
 			Integer verified, String name, String userId, String province, Integer flwCnt, Integer gender,
 			String updateTimeStr, String products, Integer commentSince, String text, Integer atdCnt, Integer frdCnt,
 			Long updateTime, String timeStr, String textZh, String companies, String myId, String languageCode,
