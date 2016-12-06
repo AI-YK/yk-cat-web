@@ -19,7 +19,7 @@ public final class HttpClientUtil {
 	private HttpClientUtil() {
 	}
     private static final String DEFAULT_ENCODING="UTF-8";
-	public static String sendPostRequest(String url, @SuppressWarnings("rawtypes") YJBaseRequest req)
+    public static String sendPostRequest(String url, @SuppressWarnings("rawtypes") YJBaseRequest req)
 			throws Exception {
 		return sendPostRequest(url, JSON.toJSONString(req));
 	}
