@@ -11,6 +11,7 @@ public class QueryEventDataListMessage implements Serializable{
 		//所属分类
 		private int type;
 		//行业类型
+		
 		private int industryType;
 		//数据类型
 		private int sourceType;
