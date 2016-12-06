@@ -10,7 +10,7 @@
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body class="homebody">
+<body>
 	<!--面包屑导航-->
 	<%@ include file="/inc/topHead.jsp"%>
 	<!--子导航-->
@@ -44,10 +44,16 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <%@ include file="/inc/incJs.jsp"%>
-<script type="text/javascript">
-	
-</script>
 <script type="text/javascript" src="${uedroot}/scripts/modular/index.js"></script>
+<script type="text/javascript">
+    var pager;
+    (function () {
+        seajs.use('app/jsp/home/home', function (homePage) {
+            pager = new homePage({element: document.body});
+            pager.render();
 
+        });
+    })();
+</script>
 
 </html>
