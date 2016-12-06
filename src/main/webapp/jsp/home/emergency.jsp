@@ -48,7 +48,7 @@
 						<div class="chart1-title">事件态势</div>
 						<div class="chart1-conter"></div>
 						<!--图表嵌套区域-->
-						<div class="chart1-main">2</div>
+						<div class="chart1-main" id="test1">2</div>
 						<!--/图表嵌套结束-->
 					</div>
 					<!--/图表2结束-->

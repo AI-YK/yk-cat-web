@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0041)http://localhost:8080/echartsWeb/line.jsp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base href="http://localhost:8080/echartsWeb/">--><base href=".">
+    
+    <title>折线图</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+
+  </head>
+  
+  <body>
+   <div id="line" style="height: 380px; width: 363px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1480930167427"><div></div></div> 
+<script src="echarts.min.js"></script>
+ <script type="text/javascript">
+  var option3 = {
+    tooltip : {
+        trigger: 'axis'
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            boundaryGap : false,
+            data : ['08-01','08-02','08-03','08-04'],
+			axisLine:{
+			  lineStyle:{
+			    color:'#2e8ad3',
+				width:3
+			  }
+			}
+        }
+    ],
+    yAxis : [
+        {
+            type : 'value',
+			axisLine:{
+			  lineStyle:{
+			    color:'#2c88db'
+			  }
+			},
+			splitLine:{
+			  lineStyle:{
+                color:'#1162a1',
+			    type:'dashed'
+			  }
+			}
+        }
+    ],
+    series : [
+        {
+            name:'成交',
+            type:'line',
+			symbol:'none',
+			width:0,
+            smooth:true,
+            itemStyle: {
+				normal: {
+					color:'#1687d7',
+					areaStyle: {
+						type: 'default'
+					}
+				}
+			},
+			areaStyle:{
+			  color:'#1687d7'
+			},
+            data:[100,80,180,50,200]
+        }
+    ]
+};
+		var myChart = echarts.init(document.getElementById('line'));
+        var option = option3;
+        myChart.setOption(option);
+  </script>                     
+  
+
+</body></html>
