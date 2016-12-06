@@ -27,7 +27,7 @@ public class SearchService {
 	/**
 	 * 搜索数据源列表
 	 */
-	public String getDataSourceList(GetDataSourceListMessage req) {
+	public String getDataSourceList(YJBaseRequest<GetDataSourceListMessage> req) {
 		
 		
 		
