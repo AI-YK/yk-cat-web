@@ -7,10 +7,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import com.ai.yk.protal.web.content.RequestHead;
+import com.ai.opt.sdk.util.StringUtil;
+import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
 import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.ai.yk.protal.web.content.YJBaseResponse;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
+import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListReponse;
+import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 
 /**
  * <br>
@@ -27,21 +32,22 @@ public class SearchService {
 	/**
 	 * 搜索数据源列表
 	 */
-	public String getDataSourceList(GetDataSourceListMessage req) {
-		
-		
-		
-		
+	public YJBaseResponse<GetDataSourceListReponse> getDataSourceList(YJBaseRequest<GetDataSourceListMessage> req) {
+		try {
+			String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_SEARCH_GETDATASOURCELIST);
+			String result =HttpClientUtil.sendPostRequest(url,req);
+			if(!StringUtil.isBlank(result)){
+				return JSON.parseObject(result, new TypeReference<YJBaseResponse<GetDataSourceListReponse>>(){});
+			}
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(),e);
+		}
+
 		return null;
 	}
-	public static void main(String[] args) {
-		YJBaseRequest<GetDataSourceListMessage> req = new YJBaseRequest<>();
-		GetDataSourceListMessage message = new GetDataSourceListMessage();
-		message.setKeyword("222");
-		RequestHead h = new RequestHead();
-		h.setVersion("v1.0");
-		req.setHead(h);
-		req.setMessage(message);
-		System.out.println(JSON.toJSON(req));
-	}
+
+	public static void main(String[] args) throws Exception {
+		String str ="{'data':{'resultCount':10,'resultList':[{'mediaNameSrc':'中国结婚论坛-彩妆造型','mediaId':'10021','mediaNameZh':'中国结婚论坛-彩妆造型','mediaNameEn':'中国结婚论坛-彩妆造型','url':'chinajiehun.com'}]},'head':{'result':'true','message':'ok'}}";
+		YJBaseResponse<GetDataSourceListReponse> data =JSON.parseObject(str, new TypeReference<YJBaseResponse<GetDataSourceListReponse>>(){});
+		}
 }

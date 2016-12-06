@@ -1,7 +1,13 @@
 package com.ai.yk.protal.web.content.getdatasourcelist;
 
+import java.io.Serializable;
 
-public class GetDataSourceListMessage{
+
+public class GetDataSourceListMessage implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6710894640456352326L;
 		/**
 		 * 关键字
 		 * 必填：Y
