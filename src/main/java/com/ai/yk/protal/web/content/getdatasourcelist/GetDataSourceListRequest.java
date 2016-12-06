@@ -2,7 +2,7 @@ package com.ai.yk.protal.web.content.getdatasourcelist;
 
 import com.ai.yk.protal.web.content.YJBaseRequest;
 /**
- * 获取热门国家表出参
+ * 搜索数据源列表出参
  * @author mengbo 
  *
  */
