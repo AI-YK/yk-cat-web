@@ -1,26 +1,25 @@
 package com.ai.yk.protal.web.content.queryareaoreconomicorganizations;
 
-import com.ai.yk.protal.web.content.YJBaseResponse;
+import java.io.Serializable;
+import java.util.List;
+
 
 /**
- * 获取热门国家表入参
+ * 获取热门国家表出参
  * @author mengbo
  *
  */
-public class QueryDicByTypeAndLanguageReponse extends YJBaseResponse{
+public class QueryDicByTypeAndLanguageReponse implements Serializable{
 
-	private QueryAreaOrEconomicOrganizationsData data;
+	private static final long serialVersionUID = 5992018656321787513L;
+	private List<QueryAreaOrEconomicOrganizationsResults> results;
 
-	public QueryAreaOrEconomicOrganizationsData getData() {
-		return data;
+	public List<QueryAreaOrEconomicOrganizationsResults> getResults() {
+		return results;
 	}
 
-	public void setData(QueryAreaOrEconomicOrganizationsData data) {
-		this.data = data;
+	public void setResults(List<QueryAreaOrEconomicOrganizationsResults> results) {
+		this.results = results;
 	}
-	
-	
 
-	
-	
 }

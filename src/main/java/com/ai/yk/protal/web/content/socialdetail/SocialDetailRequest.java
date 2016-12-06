@@ -1,12 +1,12 @@
 package com.ai.yk.protal.web.content.socialdetail;
 
-import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.ai.yk.protal.web.content.YJRequest;
 /**
  *社交详情接口入参
  * @author shancong
  *
  */
-public class SocialDetailRequest extends YJBaseRequest {
+public class SocialDetailRequest extends YJRequest {
 
 	private SocialDetailMessage message;
 

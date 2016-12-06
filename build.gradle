@@ -109,5 +109,5 @@ eclipse {
 }
 
 war {
-    baseName 'yc-ucenter-core'
+    baseName 'yk-pa-web'
 }

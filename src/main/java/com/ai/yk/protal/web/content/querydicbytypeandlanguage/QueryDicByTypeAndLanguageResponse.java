@@ -1,12 +1,12 @@
 package com.ai.yk.protal.web.content.querydicbytypeandlanguage;
 
-import com.ai.yk.protal.web.content.YJBaseResponse;
+import com.ai.yk.protal.web.content.YJResponse;
 /**
  * 根据类型和语言获取数据字典中的所有记录接口出参
  * @author mengbo 
  *
  */
-public class QueryDicByTypeAndLanguageResponse extends YJBaseResponse{
+public class QueryDicByTypeAndLanguageResponse extends YJResponse{
 
 	private QueryDicByTypeAndLanguageData data;
 

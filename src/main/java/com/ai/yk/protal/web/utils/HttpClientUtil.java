@@ -14,9 +14,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ai.opt.sdk.util.StringUtil;
-import com.ai.yk.protal.web.content.YJBaseRequest;
-import com.ai.yk.protal.web.content.YJBaseResponse;
+import com.ai.yk.protal.web.content.YJRequest;
 import com.alibaba.fastjson.JSON;
 
 public final class HttpClientUtil {
@@ -26,7 +24,7 @@ public final class HttpClientUtil {
 	}
     private static final String DEFAULT_ENCODING="UTF-8";
    
-    public static String getYJBaseResponse(String url, @SuppressWarnings("rawtypes") YJBaseRequest req){
+    public static String getYJBaseResponse(String url, @SuppressWarnings("rawtypes") YJRequest req){
 		try {
 			return sendPostRequest(url, JSON.toJSONString(req));
 		} catch (Exception e) {

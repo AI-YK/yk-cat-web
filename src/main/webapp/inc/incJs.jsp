@@ -1,4 +1,3 @@
-<%@page import="com.ai.opt.sso.client.filter.SSOClientUtil"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <c:set var="_base" value="${pageContext.request.contextPath}"/>
 <c:set var="_slpres" value="${_base}/resources/local"/>
@@ -6,10 +5,7 @@
 <c:set var="spmRes" value="${_base}/resources/spm_modules"/>
 <c:set var="accountBalanceLink" value="${_base}/account/balance/index"/>
 <c:set var="accountRechargeOneLink" value="${_base}/account/recharge/one"/>
-<%
-    String ssoLoginUrl=SSOClientUtil.getCasServerLoginUrlRuntime(request);
-    request.setAttribute("ssoLoginUrl", ssoLoginUrl);
-%>
+
 <script>
     var _base = "${_base}";
     var _i18n_res = "${i18nRes}";
@@ -40,7 +36,7 @@
 	$.post(_base+"/timezone.htm?offset="+today.stdTimezoneOffset());
 
 
-    //我的帐户页面要用到日期格式化
+    ��
     Date.prototype.format = function(format) {
         var date = {
                "M+": this.getMonth() + 1,

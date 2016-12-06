@@ -12,12 +12,11 @@
     response.setDateHeader("Expires", 0);
     response.setHeader("Pragma", "No-cache");
 %>
-<!-- <link rel="stylesheet" type="text/css" href="${_base}/resources/slpmall/styles/bootstrap.css"> -->
 
-<link href="${uedroot}/css/bootstrap/font-awesome.css" rel="stylesheet" type="text/css">
+
+
 <link href="${uedroot}/css/iconfont.css" rel="stylesheet" type="text/css">
 <link href="${uedroot}/css/modular/global.css" rel="stylesheet" type="text/css"/>
-<link href="${uedroot}/css/modular/frame.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/headr-footer.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 

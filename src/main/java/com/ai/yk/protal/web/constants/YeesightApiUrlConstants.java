@@ -17,9 +17,12 @@ public class YeesightApiUrlConstants {
 
 	// 搜索数据源列表url
 	public final static String API_SEARCH_GETDATASOURCELIST = "/api/search/getDataSourceList";
-	// 搜索数据源列表url
-	public final static String API_EVENTDATA_QUERYEVENTDATALIST = "/api/search/getDataSourceList";
-
+	// 查询事件列表url
+	public final static String API_EVENTDATA_QUERYEVENTDATALIST = "/api/eventData/queryEventDataList";
+	// 查询事件详情
+	public final static String API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID = "/api/eventData/queryEventDataEntityForSrcId";
+	// 查询个人定制详情
+	public final static String API_YEESIGHTFORNEWS_QUERYMYCUSTOMIZED = "/api/yeesightForNews/queryMyCustomized";
 	// 拼接头部信息url
 	public static String getApiUrl(String ulr) {
 		return "http://192.168.59.14:9300/yeesight" + ulr;
