@@ -1,25 +1,32 @@
 package com.ai.yk.protal.web.service;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.ai.yk.protal.web.content.RequestHead;
-import com.ai.yk.protal.web.content.ResponseHead;
-import com.ai.yk.protal.web.content.user.UserDataList;
+import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
 import com.ai.yk.protal.web.content.user.UserRPMessage;
-import com.alibaba.fastjson.JSONObject;
+import com.ai.yk.protal.web.service.search.SearchService;
+import com.alibaba.fastjson.JSON;
 
 /**
  * Created by liutong on 16/11/17.
  */
 @Service
 public class UserService {
-
-	public String login(RequestHead head1, List<UserRPMessage> rpMessage) {
-		
-		ResponseHead head = new ResponseHead("true","登录成功");
+	private static final Logger LOGGER = LoggerFactory.getLogger(SearchService.class);
+	
+	/**
+	 * 用户登录
+	 * @param head1
+	 * @param rpMessage
+	 * @return
+	 */
+	public String login(UserRPMessage req) {
+		/*ResponseHead head = new ResponseHead("true","登录成功");
 		UserDataList dataList = new UserDataList(99538, "15343152333", "测试7", "", 1,
 				"三鹿奶粉", null, null, null, null, 
 				null, null, null, null, null, "CN", 
@@ -31,8 +38,18 @@ public class UserService {
 		List data = new ArrayList<>();
 		data.add(head);
 		data.add(dataList);
-		String json= JSONObject.toJSONString(data);
-		return json;
+		String json= JSONObject.toJSONString(data);*/
+		return null;
 	}
-
+	public static void main(String[] args) {
+		YJBaseRequest<UserRPMessage> req = new YJBaseRequest<>();
+		UserRPMessage message = new UserRPMessage();
+		message.setUserName("admin");
+		RequestHead h = new RequestHead();
+		h.setVersion("v1.0");
+		req.setHead(h);
+		req.setMessage(message);
+		System.out.println(JSON.toJSON(req));
+	}
+	
 }

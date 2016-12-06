@@ -2,7 +2,7 @@ package com.ai.yk.protal.web.content.user;
 
 import com.ai.yk.protal.web.content.YJBaseResponse;
 
-public class UserResponse extends YJBaseResponse {
+public class UserRequest extends YJBaseResponse {
 
 	private UserRPMessage message;
 
