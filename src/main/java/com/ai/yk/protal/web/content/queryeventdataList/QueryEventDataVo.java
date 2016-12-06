@@ -1,9 +1,11 @@
 package com.ai.yk.protal.web.content.queryeventdataList;
 
-public class QueryEventDataListResults {
+import java.io.Serializable;
 
+public class QueryEventDataVo implements Serializable {
+    private static final long serialVersionUID = -931147144629978354L;
 	/**主键id**/
-	private Integer id;
+	private int id;
 	/**数据中心id**/
 	private String srcId;
 	/**事件创建时间**/
@@ -35,11 +37,11 @@ public class QueryEventDataListResults {
 	/**英文摘要**/
 	private String enSummary;
 	/**所属分类**/
-	private Integer type;
+	private int type;
 	/**行业类型**/
-	private Integer industryType;
+	private int industryType;
 	/**数据类型**/
-	private Integer sourceType;
+	private int sourceType;
 	/**经度**/
 	private String longitude;
 	/**纬度**/
@@ -48,10 +50,10 @@ public class QueryEventDataListResults {
 	private Long heatValue;
 	/**图片地址**/
 	private String imgUrl;
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getSrcId() {
@@ -144,22 +146,22 @@ public class QueryEventDataListResults {
 	public void setEnSummary(String enSummary) {
 		this.enSummary = enSummary;
 	}
-	public Integer getType() {
+	public int getType() {
 		return type;
 	}
-	public void setType(Integer type) {
+	public void setType(int type) {
 		this.type = type;
 	}
-	public Integer getIndustryType() {
+	public int getIndustryType() {
 		return industryType;
 	}
-	public void setIndustryType(Integer industryType) {
+	public void setIndustryType(int industryType) {
 		this.industryType = industryType;
 	}
-	public Integer getSourceType() {
+	public int getSourceType() {
 		return sourceType;
 	}
-	public void setSourceType(Integer sourceType) {
+	public void setSourceType(int sourceType) {
 		this.sourceType = sourceType;
 	}
 	public String getLongitude() {
@@ -186,10 +188,10 @@ public class QueryEventDataListResults {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public QueryEventDataListResults(Integer id, String srcId, String dayTime, String srcTitle, String zhTitle,
+	public QueryEventDataVo(int id, String srcId, String dayTime, String srcTitle, String zhTitle,
 			String enTitle, String zhCountry, String enCountry, String zhCity, String enCity, String srcSource,
-			String zhSource, String enSource, String srcSummary, String zhSummary, String enSummary, Integer type,
-			Integer industryType, Integer sourceType, String longitude, String latitude, Long heatValue,
+			String zhSource, String enSource, String srcSummary, String zhSummary, String enSummary, int type,
+			int industryType, int sourceType, String longitude, String latitude, Long heatValue,
 			String imgUrl) {
 		super();
 		this.id = id;
@@ -216,7 +218,7 @@ public class QueryEventDataListResults {
 		this.heatValue = heatValue;
 		this.imgUrl = imgUrl;
 	}
-	public QueryEventDataListResults() {
+	public QueryEventDataVo() {
 		super();
 	}
 	
