@@ -1,10 +1,11 @@
-define('app/jsp/home', function (require, exports, module) {
+define('app/jsp/home/home', function (require, exports, module) {
     'use strict';
     var $=require('jquery'),
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
     require("jsviews/jsrender.min");
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
+	require("echarts/echarts.min");
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
 
@@ -35,7 +36,25 @@ define('app/jsp/home', function (require, exports, module) {
 			
         },
         _load:function(){
-        	
+        	this._loadEventChart();
+        },
+        _initEventData:function(){
+        	var url = "";
+        	var param = {};
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var results = rs.data.results;
+					
+				}
+			});
+        },
+        _loadEventChart:function(){
+        	$("#test0").load("jsp/chart/bar.html");
         }
         
     });
