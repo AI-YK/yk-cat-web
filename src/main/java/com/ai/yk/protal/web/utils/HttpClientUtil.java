@@ -3,7 +3,6 @@ package com.ai.yk.protal.web.utils;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
-import java.util.Map;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -13,17 +12,23 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 
+import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.alibaba.fastjson.JSON;
+
 public final class HttpClientUtil {
 	private HttpClientUtil() {
 	}
+    private static final String DEFAULT_ENCODING="UTF-8";
+	public static String sendPostRequest(String url, @SuppressWarnings("rawtypes") YJBaseRequest req)
+			throws Exception {
+		return sendPostRequest(url, JSON.toJSONString(req));
+	}
 
-	public static String sendPostRequest(String url, String data,
-			Map<String, String> header) throws Exception {
+	public static String sendPostRequest(String url, String data)
+			throws Exception {
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		HttpPost httpPost = new HttpPost(new URL(url).toURI());
-		for (Map.Entry<String, String> entry : header.entrySet()) {
-			httpPost.setHeader(entry.getKey(), entry.getValue());
-		}
+
 		StringEntity dataEntity = new StringEntity(data,
 				ContentType.APPLICATION_JSON);
 		httpPost.setEntity(dataEntity);
@@ -42,7 +47,7 @@ public final class HttpClientUtil {
 							+ response.getStatusLine().getReasonPhrase());
 				}
 				reader = new BufferedReader(new InputStreamReader(
-						entity.getContent(), "UTF-8"));
+						entity.getContent(),DEFAULT_ENCODING));
 				StringBuilder buffer = new StringBuilder();
 				String tempStr;
 				while ((tempStr = reader.readLine()) != null) {

@@ -7,9 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
+import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
 import com.ai.yk.protal.web.content.RequestHead;
 import com.ai.yk.protal.web.content.YJBaseRequest;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
+import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 
 /**
@@ -28,20 +30,19 @@ public class SearchService {
 	 * 搜索数据源列表
 	 */
 	public String getDataSourceList(YJBaseRequest<GetDataSourceListMessage> req) {
-		
-		
-		
-		
+		try {
+			HttpClientUtil.sendPostRequest(
+							YeesightApiUrlConstants
+									.getApiUrl(YeesightApiUrlConstants.API_SEARCH_GETDATASOURCELIST),
+							req);
+		} catch (Exception e) {
+			LOGGER.error(e.getMessage(),e);
+		}
+
 		return null;
 	}
-	public static void main(String[] args) {
-		YJBaseRequest<GetDataSourceListMessage> req = new YJBaseRequest<>();
-		GetDataSourceListMessage message = new GetDataSourceListMessage();
-		message.setKeyword("222");
-		RequestHead h = new RequestHead();
-		h.setVersion("v1.0");
-		req.setHead(h);
-		req.setMessage(message);
-		System.out.println(JSON.toJSON(req));
+
+	public static void main(String[] args) throws Exception {
+		
 	}
 }
