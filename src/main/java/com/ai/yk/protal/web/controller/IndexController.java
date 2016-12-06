@@ -27,5 +27,14 @@ public class IndexController {
         return "/home/index";
     }
     
+    /**
+     * 配置页面
+     */
+    @RequestMapping("/config")
+    public String configView(Model model){
+        
+        return "/home/config";
+    }
+    
    
 }
