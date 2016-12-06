@@ -11,7 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.paas.ipaas.i18n.ResWebBundle;
 
 /**
@@ -106,5 +108,15 @@ public class IndexController {
 
     private String staticUrl(){
         return Locale.SIMPLIFIED_CHINESE.equals(rb.getDefaultLocale())?"/static":"/staticEs";
+    }
+    
+    @RequestMapping("/get")
+    @ResponseBody
+    public ResponseData<String> get(){
+        return new ResponseData<String>(ResponseData.AJAX_STATUS_SUCCESS, "", "1223");
+    }
+    
+    private void mockGet(){
+    	
     }
 }
