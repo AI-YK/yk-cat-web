@@ -17,7 +17,5 @@
 
 <link href="${uedroot}/css/iconfont.css" rel="stylesheet" type="text/css">
 <link href="${uedroot}/css/modular/global.css" rel="stylesheet" type="text/css"/>
-<link href="${uedroot}/css/modular/frame.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/headr-footer.css" rel="stylesheet" type="text/css"/>
-<link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 

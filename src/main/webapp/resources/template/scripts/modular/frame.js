@@ -117,7 +117,7 @@ $(function () {
 //设置密码
 $(function(){
   $("#next-bt1").click(function(){
-  $("#next1").hide();
+  $(this).hide();
   $("#next2").show();
   });
   $("#next-bt2").click(function(){
