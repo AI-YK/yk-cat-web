@@ -33,7 +33,7 @@
 <div class="yeesight-nav">
 	<div class="nav-main">
 		<div class="yeesight-logo">
-			<img src="images/logo.png" />
+			<img src="${uedroot}/images/logo.png" />
 		</div>
 		<div class="mainbav right">
 			<ul>

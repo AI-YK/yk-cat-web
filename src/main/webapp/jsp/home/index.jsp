@@ -7,8 +7,7 @@
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>首页</title>
 <%@ include file="/inc/inc.jsp"%>
-<link href="${uedroot}/css/modular/index.css" rel="stylesheet"
-	type="text/css" />
+<link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="homebody">
