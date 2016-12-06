@@ -17,9 +17,9 @@ import com.alibaba.fastjson.JSONObject;
 @Service
 public class UserService {
 
-	public String login(ResponseHead head1, List<UserRPMessage> rpMessage) {
+	public String login(RequestHead head1, List<UserRPMessage> rpMessage) {
 		
-		RequestHead head = new RequestHead("true","登录成功");
+		ResponseHead head = new ResponseHead("true","登录成功");
 		UserDataList dataList = new UserDataList(99538, "15343152333", "测试7", "", 1,
 				"三鹿奶粉", null, null, null, null, 
 				null, null, null, null, null, "CN", 

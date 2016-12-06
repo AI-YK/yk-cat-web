@@ -1,28 +1,50 @@
 package com.ai.yk.protal.web.content;
 
 public class RequestHead{
-	
-	private String result;
-	private String message;
-	public String getResult() {
-		return result;
+
+	/**
+	 * 访问口令
+	 * 必填：N
+	 */
+	private String token;
+	/**
+	 * 客户
+	 * 必填：N
+	 */
+	private String client;
+	/**
+	 * 版本号
+	 * 必填：N
+	 */
+	private String version;
+	public String getToken() {
+		return token;
 	}
-	public void setResult(String result) {
-		this.result = result;
+	public void setToken(String token) {
+		this.token = token;
 	}
-	public String getMessage() {
-		return message;
+	public String getClient() {
+		return client;
 	}
-	public void setMessage(String message) {
-		this.message = message;
+	public void setClient(String client) {
+		this.client = client;
 	}
-	public RequestHead(String result, String message) {
+	public String getVersion() {
+		return version;
+	}
+	public void setVersion(String version) {
+		this.version = version;
+	}
+	public RequestHead(String token, String client, String version) {
 		super();
-		this.result = result;
-		this.message = message;
+		this.token = token;
+		this.client = client;
+		this.version = version;
 	}
 	public RequestHead() {
 		super();
 	}
 	
+	
+
 }

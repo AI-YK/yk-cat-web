@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ai.yk.protal.web.content.RequestHead;
 import com.ai.yk.protal.web.content.ResponseHead;
 import com.ai.yk.protal.web.content.user.UserRPMessage;
 import com.ai.yk.protal.web.service.UserService;
@@ -27,7 +28,7 @@ public class UserController {
     @RequestMapping("/user/login")
     public String login(Model model){
     	
-    	ResponseHead head1 = new ResponseHead("","","V1");
+    	RequestHead head1 = new RequestHead("","","V1");
     	UserRPMessage message = new UserRPMessage();
     	List<UserRPMessage> rpMessage = new ArrayList<>();
     	message.setUserName("15343152333");
