@@ -1,4 +1,6 @@
 package com.ai.yk.protal.web.content.getdatasourcelist;
+
+
 public class GetDataSourceListMessage{
 		/**
 		 * 关键字
