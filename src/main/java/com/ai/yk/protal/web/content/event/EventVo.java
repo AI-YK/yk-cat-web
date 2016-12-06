@@ -2,7 +2,7 @@ package com.ai.yk.protal.web.content.event;
 
 import java.io.Serializable;
 
-public class EventDataVo implements Serializable {
+public class EventVo implements Serializable {
     private static final long serialVersionUID = -931147144629978354L;
 	/**主键id**/
 	private int id;
@@ -188,7 +188,7 @@ public class EventDataVo implements Serializable {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public EventDataVo(int id, String srcId, String dayTime, String srcTitle, String zhTitle,
+	public EventVo(int id, String srcId, String dayTime, String srcTitle, String zhTitle,
 			String enTitle, String zhCountry, String enCountry, String zhCity, String enCity, String srcSource,
 			String zhSource, String enSource, String srcSummary, String zhSummary, String enSummary, int type,
 			int industryType, int sourceType, String longitude, String latitude, Long heatValue,
@@ -218,7 +218,7 @@ public class EventDataVo implements Serializable {
 		this.heatValue = heatValue;
 		this.imgUrl = imgUrl;
 	}
-	public EventDataVo() {
+	public EventVo() {
 		super();
 	}
 	

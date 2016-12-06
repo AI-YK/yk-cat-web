@@ -2,7 +2,7 @@ package com.ai.yk.protal.web.content.event;
 
 import java.io.Serializable;
 
-public class EventDataListMessage implements Serializable{
+public class EventListMessage implements Serializable{
 	private static final long serialVersionUID = -2574883913197301738L;
 	    //页面大小 Y
 		private int pageSize;
@@ -45,7 +45,7 @@ public class EventDataListMessage implements Serializable{
 		public void setSourceType(int sourceType) {
 			this.sourceType = sourceType;
 		}
-		public EventDataListMessage(int pageSize, int pageNo, int type, int industryType,
+		public EventListMessage(int pageSize, int pageNo, int type, int industryType,
 				int sourceType) {
 			super();
 			this.pageSize = pageSize;
@@ -54,7 +54,7 @@ public class EventDataListMessage implements Serializable{
 			this.industryType = industryType;
 			this.sourceType = sourceType;
 		}
-		public EventDataListMessage() {
+		public EventListMessage() {
 			super();
 		}		
 		
