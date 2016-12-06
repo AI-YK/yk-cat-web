@@ -1,12 +1,12 @@
 package com.ai.yk.protal.web.content.queryeventdataentityforsrcId;
 
-import com.ai.yk.protal.web.content.YJBaseRequest;
+import com.ai.yk.protal.web.content.YJRequest;
 /**
  * 查询事件列表接口入参
  * @author mengbo 
  *
  */
-public class QueryEventDataEntityForSrcIdRequest extends YJBaseRequest {
+public class QueryEventDataEntityForSrcIdRequest extends YJRequest {
 
 	private QueryEventDataEntityForSrcIdMessage message;
 

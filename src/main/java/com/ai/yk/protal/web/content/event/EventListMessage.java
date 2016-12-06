@@ -1,8 +1,8 @@
-package com.ai.yk.protal.web.content.queryeventdataList;
+package com.ai.yk.protal.web.content.event;
 
 import java.io.Serializable;
 
-public class QueryEventDataListMessage implements Serializable{
+public class EventListMessage implements Serializable{
 	private static final long serialVersionUID = -2574883913197301738L;
 	    //页面大小 Y
 		private int pageSize;
@@ -11,6 +11,7 @@ public class QueryEventDataListMessage implements Serializable{
 		//所属分类
 		private int type;
 		//行业类型
+		
 		private int industryType;
 		//数据类型
 		private int sourceType;
@@ -44,7 +45,7 @@ public class QueryEventDataListMessage implements Serializable{
 		public void setSourceType(int sourceType) {
 			this.sourceType = sourceType;
 		}
-		public QueryEventDataListMessage(int pageSize, int pageNo, int type, int industryType,
+		public EventListMessage(int pageSize, int pageNo, int type, int industryType,
 				int sourceType) {
 			super();
 			this.pageSize = pageSize;
@@ -53,7 +54,7 @@ public class QueryEventDataListMessage implements Serializable{
 			this.industryType = industryType;
 			this.sourceType = sourceType;
 		}
-		public QueryEventDataListMessage() {
+		public EventListMessage() {
 			super();
 		}		
 		
