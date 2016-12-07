@@ -11,16 +11,8 @@
 				</ul>
 			</div>
 			<!--tab1-->
-			<div id="trendtab1">
-				<div class="trend-conter-list">1</div>
-			</div>
-			<!--tab2-->
-			<div id="trendtab2" style="display: none;">
-				<div class="trend-conter-list">2</div>
-			</div>
-			<!--tab3-->
-			<div id="trendtab3" style="display: none;">
-				<div class="trend-conter-list">3</div>
+			<div id="test2">
+				
 			</div>
 		</div>
 		<div class="trend-conter ml-20">
@@ -33,16 +25,8 @@
 				</ul>
 			</div>
 			<!--tab1-->
-			<div id="trendtab4">
-				<div class="trend-conter-list">4</div>
-			</div>
-			<!--tab2-->
-			<div id="trendtab5" style="display: none;">
-				<div class="trend-conter-list">5</div>
-			</div>
-			<!--tab3-->
-			<div id="trendtab6" style="display: none;">
-				<div class="trend-conter-list">6</div>
+			<div id="test3">
+				
 			</div>
 		</div>
 	</div>
