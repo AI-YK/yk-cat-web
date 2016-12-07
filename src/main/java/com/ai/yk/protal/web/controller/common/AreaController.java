@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
-import com.ai.yk.protal.web.content.YJRequest;
-import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
-import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListReponse;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 

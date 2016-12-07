@@ -1,5 +1,7 @@
 package com.ai.yk.protal.web.service.common;
 
+import org.springframework.stereotype.Service;
+
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
 import com.ai.yk.protal.web.content.YJRequest;
@@ -10,6 +12,7 @@ import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
+@Service
 public class QueryAreaListService {
 	/**
 	 * 国家城市列表
