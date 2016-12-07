@@ -1,4 +1,4 @@
-package com.ai.yk.protal.web.model.sso.emergency;
+package com.ai.yk.protal.web.model.emergency;
 
 import java.io.Serializable;
 import java.util.List;
@@ -10,7 +10,11 @@ public class HomeEventVo implements Serializable{
 	/**
 	 * 突发事件（列表和chart）
 	 */
-	private static final long serialVersionUID = 1L;
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5941119347654017254L;
 	/**
 	 *突发事件列表
 	 */

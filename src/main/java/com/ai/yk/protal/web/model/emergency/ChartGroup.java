@@ -1,7 +1,11 @@
-package com.ai.yk.protal.web.model.sso.emergency;
+package com.ai.yk.protal.web.model.emergency;
 
-public class ChartGroup {
+import java.io.Serializable;
+
+public class ChartGroup implements Serializable{
 	
+	private static final long serialVersionUID = 5483197492424868246L;
+
 	private ChartLeft chartLeft;
 	
 	private ChartRight chartRight;

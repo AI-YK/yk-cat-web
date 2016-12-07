@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.event.EventVo;
-import com.ai.yk.protal.web.model.sso.emergency.ChartGroup;
-import com.ai.yk.protal.web.model.sso.emergency.ChartLeft;
-import com.ai.yk.protal.web.model.sso.emergency.ChartRight;
-import com.ai.yk.protal.web.model.sso.emergency.HomeEventVo;
+import com.ai.yk.protal.web.model.emergency.ChartGroup;
+import com.ai.yk.protal.web.model.emergency.ChartLeft;
+import com.ai.yk.protal.web.model.emergency.ChartRight;
+import com.ai.yk.protal.web.model.emergency.HomeEventVo;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 /**
  * 突发事件	
