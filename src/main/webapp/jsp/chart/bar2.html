@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- saved from url=(0040)http://localhost:8080/echartsWeb/bar.jsp -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--<base href="http://localhost:8080/echartsWeb/">--><base href=".">
+    
+    <title>柱状图</title>
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<script src="echarts.min.js"></script>
+  </head>
+  
+  <body>
+     <div id="trend1" style="height: 400px; width: 600px; -webkit-tap-highlight-color: transparent; -webkit-user-select: none; position: relative; background: transparent;" _echarts_instance_="ec_1480901390492"><div style="position: relative; overflow: hidden; width: 600px; height: 400px; padding: 0px; margin: 0px; border-width: 0px; cursor: pointer;"><canvas width="600" height="400" data-zr-dom-id="zr_0" style="position: absolute; left: 0px; top: 0px; width: 600px; height: 400px; -webkit-user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div style="position: absolute; display: block; border: 0px solid rgb(51, 51, 51); white-space: nowrap; z-index: 9999999; transition: left 0.4s cubic-bezier(0.23, 1, 0.32, 1), top 0.4s cubic-bezier(0.23, 1, 0.32, 1); border-radius: 4px; color: rgb(255, 255, 255); font-style: normal; font-variant: normal; font-weight: normal; font-stretch: normal; font-size: 14px; font-family: &quot;Microsoft YaHei&quot;; line-height: 21px; padding: 5px; left: 488px; top: 216px; background-color: rgba(50, 50, 50, 0.701961);">负面<br>平均值 : 78.17</div></div>
+   <script>
+var option1= {
+ 	// backgroundColor: '#2f2f4f',//背景色
+	
+    title : {
+		show :false,
+        text: '正面和负面',
+        subtext: '纯属虚构'
+    },
+    tooltip : {
+        trigger: 'axis',
+		axisPointer: false,
+		show :false
+    },
+    legend: {
+		//orient: 'vertical',
+		show: true,
+       // data:[{name:'正面',color : '#eb6100'},{name:'负面',color:'#8fc31f'}],
+        data:['正面','负面'],
+		textStyle :{
+			color: '#1180d3'
+		},
+		x:'right'
+    },
+    toolbox: {
+        show : false,
+        feature : {
+            mark : {show: true},
+            dataView : {show: true, readOnly: false},
+            magicType : {show: true, type: ['line', 'bar']},
+            restore : {show: true},
+            saveAsImage : {show: true}
+        }
+    },
+    calculable : true,
+    xAxis : [
+        {
+            type : 'category',
+            data : ['北京','上海','广州','深圳','郑州','济南'],
+			axisLabel: { show: true, textStyle: { color: 'blue' } } 
+        }
+		
+    ],
+    yAxis : [
+        {
+            type : 'value',
+			axisLabel: { show: true, textStyle: { color: 'blue' } }
+        }
+    ],
+    series : [
+        {
+            name:'正面',
+            type:'bar',
+            barWidth : 20,//柱图宽度
+            barGap:'0.1px',
+            data:[100, 90, 110, 140, 60, 115 ]
+           /* markPoint : {
+                data : [
+                    {type : 'max', name: '最大值'},
+                    {type : 'min', name: '最小值'}
+                ]
+            },
+            markLine : {
+                data : [
+                    {type : 'average', name: '平均值'}
+                ]
+            }
+			*/
+			
+			/* itemStyle: {
+                    normal: {
+　　　　　　　　　　　　　　//好，这里就是重头戏了，定义一个list，然后根据所以取得不同的值，这样就实现了，
+                        color: function(params) {
+                            // build a color map as your need.
+                           var colorList = ['#eb6100'];
+                            return colorList[params.dataIndex]
+						}
+					}
+			} */
+			
+		},
+			
+        {
+            name:'负面',
+            type:'bar',
+            barWidth : 20,//柱图宽度
+            barGap:'0.1px',
+            data:[80, 79, 80, 85, 55, 90]
+            
+				/* markPoint : {
+                data : [
+                    {name : '最高', value : 90, xAxis: 5, yAxis: 90, symbolSize:50},
+                    {name : '最低', value : 55, xAxis: 4, yAxis: 55}
+                ]
+            }
+		
+			,
+            markLine : {
+                data : [
+                    {type : 'average', name : '平均值'}
+                ]
+            }
+			*/
+			
+			/* itemStyle: {
+                    normal: {
+　　　　　　　　　　　　　　//好，这里就是重头戏了，定义一个list，然后根据所以取得不同的值，这样就实现了，
+                        color: function(params) {
+                            // build a color map as your need.
+                           var colorList = ['#8fc31f'];
+                            return colorList[params.dataIndex]
+						}
+					}
+			} */
+        }
+    ]
+};
+                    
+        var myChart = echarts.init(document.getElementById('trend1'));
+        var option = option1;
+        myChart.setOption(option);
+        
+ 
+
+</script>
+ 
+  
+  
+
+</body></html>
