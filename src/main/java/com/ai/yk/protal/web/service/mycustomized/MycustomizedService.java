@@ -31,7 +31,7 @@ public class MycustomizedService {
 	/**
 	 * 创建/修改   个人定制接口
 	 */
-	public YJResponse<SaveMyCustomizedResponse> addMyCustomized(YJRequest<SaveMyCustomizedMessage> req) {
+	public YJResponse<SaveMyCustomizedResponse> saveMyCustomized(YJRequest<SaveMyCustomizedMessage> req) {
 		
 		String url = null;
 		
