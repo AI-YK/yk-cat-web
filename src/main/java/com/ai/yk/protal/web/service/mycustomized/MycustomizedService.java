@@ -15,8 +15,8 @@ import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
-import com.ai.yk.protal.web.content.savemyCustomized.AddMyCustomizedMessage;
-import com.ai.yk.protal.web.content.savemyCustomized.AddMyCustomizedResponse;
+import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
+import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
 import com.ai.yk.protal.web.content.savemyCustomized.City;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
@@ -31,7 +31,7 @@ public class MycustomizedService {
 	/**
 	 * 创建/修改   个人定制接口
 	 */
-	public YJResponse<AddMyCustomizedResponse> addMyCustomized(YJRequest<AddMyCustomizedMessage> req) {
+	public YJResponse<SaveMyCustomizedResponse> addMyCustomized(YJRequest<SaveMyCustomizedMessage> req) {
 		
 		String url = null;
 		
@@ -49,14 +49,14 @@ public class MycustomizedService {
 			
 		}
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<AddMyCustomizedResponse>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<SaveMyCustomizedResponse>>(){});
 			
 		}
 		return null;
 	}
 	
 	
-	private String change(YJRequest<AddMyCustomizedMessage> req){
+	private String change(YJRequest<SaveMyCustomizedMessage> req){
 		String json = JSON.toJSONString(req);
 		JSONObject all = JSON.parseObject(json);
 		JSONObject jsonObject = all.getJSONObject("message");
@@ -69,7 +69,7 @@ public class MycustomizedService {
 		country.put("zhCountry", "中国");
 		country.put("enCountry", "china");
 		country.put("countryCode", "zh");
-		AddMyCustomizedMessage message = req.getMessage();
+		SaveMyCustomizedMessage message = req.getMessage();
 		
 		List<Map<String,Object>> cityList = new ArrayList<>();
 		if(!CollectionUtil.isEmpty(message.getCityList())){
