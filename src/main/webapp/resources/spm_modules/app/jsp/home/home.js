@@ -56,6 +56,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         _loadEventChart:function(){
         	$("#test0").load("jsp/chart/bar.html");
         	$("#test1").load("jsp/chart/area.html");
+        	$("#test2").load("jsp/chart/bar2.html");
+        	$("#test3").load("jsp/chart/pie.html");
         }
         
     });

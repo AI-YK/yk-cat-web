@@ -122,3 +122,37 @@
 	</div>
 </div>
 <!-- / 图表结束-->
+<script id="emergencyTempl" type="text/x-jsrender">
+  {{for results}}
+     <li class="bot-none current">
+		<p>
+			<span>{{:zhCountry}}.{{:zhCity}}</span> <span>{{:dayTime}}</span>
+		</p>
+		<p>{{:zhTitle}}</p>
+	 </li>
+  {{/for}}
+</script>
+<script id="chartTempl" type="text/x-jsrender">
+  {{for results}}
+     <div id="chart-date{{:#index}}">
+		 <!--图表1-->
+         <div class="chart1">
+			<div class="chart1-title">传播态势</div>
+				<div class="chart1-conter"></div>
+				<!--图表嵌套区域-->
+				<div id="chart_0_{{:#index}}" class="chart1-main">1</div>
+				<!--/图表嵌套结束-->
+			</div>
+			<!--/图表1结束-->
+			<!--图表2-->
+			<div class="chart1 ml-20">
+				<div class="chart1-title">事件态势</div>
+				<div class="chart1-conter"></div>
+				<!--图表嵌套区域-->
+				<div id="chart_1_{{:#index}}" class="chart1-main" id="test1">2</div>
+				<!--/图表嵌套结束-->
+			</div>
+		    <!--/图表2结束-->
+	</div>
+  {{/for}}
+</script>
