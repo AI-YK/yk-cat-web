@@ -32,14 +32,34 @@ define('app/jsp/home/home', function (require, exports, module) {
 				mode: 'both',
 				language: currentLan,
 			});*/
+            $(document).on("mouseenter",".list-left ul li",function(){
+            	 $(".list-left ul li").each(function () {
+                     $(this).removeClass("current");
+                     var index=$('.list-left ul li').index(this);
+                     $("#chart-date"+index).hide();
+                 });
+                 $(this).addClass("current");
+                 var index=$('.list-left ul li').index(this);
+                 $("#chart-date"+index).show();
+			});
+            
+            $(document).on("mouseenter",".list-left ul li",function(){
+           	 $(".list-left ul li").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+			});
+            
 			this._load();
 			
         },
         _load:function(){
+        	this._initEventData();
         	this._loadEventChart();
+        	
         },
         _initEventData:function(){
-        	var url = "";
+        	var url = "/emergency/getEmergencyIndexList";
         	var param = {};
         	ajaxController.ajax({
 				type: "post",
@@ -48,16 +68,20 @@ define('app/jsp/home/home', function (require, exports, module) {
 				url: _base + url,
 				data: param,
 				success: function (rs) {
-					var results = rs.data.results;
-					
+					var data = rs.data;
+					var emergencyHtml = $("#emergencyTempl").render(data);
+					$("#eventList").html(emergencyHtml);
+					var chartHtml = $("#chartTempl").render(data);
+					$("#eventChartList").html(chartHtml);
+					$("#chart_0_0").load("../jsp/chart/bar.html");
+		        	$("#chart_1_0").load("../jsp/chart/area.html");
 				}
 			});
         },
         _loadEventChart:function(){
-        	$("#test0").load("jsp/chart/bar.html");
-        	$("#test1").load("jsp/chart/area.html");
-        	$("#test2").load("jsp/chart/bar2.html");
-        	$("#test3").load("jsp/chart/pie.html");
+        
+        	$("#test2").load("../jsp/chart/bar2.html");
+        	$("#test3").load("../jsp/chart/pie.html");
         }
         
     });

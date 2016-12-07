@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.event.EventVo;
-import com.ai.yk.protal.web.model.emergency.ChartGroup;
-import com.ai.yk.protal.web.model.emergency.ChartLeft;
-import com.ai.yk.protal.web.model.emergency.ChartRight;
 import com.ai.yk.protal.web.model.emergency.HomeEventVo;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 /**
@@ -50,14 +47,14 @@ public class EmergencyController {
 	    	HomeEventVo homeEventVo =new HomeEventVo();
 	    	homeEventVo.setEventList(results);
 	    	/**突发事件chart图数据**/
-	    	ChartLeft chartLeft  = new ChartLeft();
+	    	/*ChartLeft chartLeft  = new ChartLeft();
 	    	ChartRight chartRight = new ChartRight();
 	    	ChartGroup chartGroup = new ChartGroup();
 	    	chartGroup.setChartLeft(chartLeft);
 	    	chartGroup.setChartRight(chartRight);
 	    	List<ChartGroup> group = new ArrayList<ChartGroup>();
 	    	group.add(chartGroup);
-	    	homeEventVo.setGroup(group);
+	    	homeEventVo.setGroup(group);*/
 	    	return homeEventVo;
 	    }
 	    

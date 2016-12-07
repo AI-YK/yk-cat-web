@@ -9,28 +9,28 @@ $(".list-left ul li").mouseenter(function () {
 $('.list-left ul li').mouseenter(function(){
   var index=$('.list-left ul li').index(this);
      if(index==0){
-     $('#chart-date1').show();
+     $('#chart-date0').show();
+  	 $('#chart-date1').hide();
   	 $('#chart-date2').hide();
   	 $('#chart-date3').hide();
-  	 $('#chart-date4').hide();
    }
    if(index==1){
-   $('#chart-date2').show();
-   $('#chart-date1').hide();
+   $('#chart-date1').show();
+   $('#chart-date0').hide();
+   $('#chart-date2').hide();
    $('#chart-date3').hide();
-   $('#chart-date4').hide();
    }
    if(index==2){
-   $('#chart-date3').show();
+   $('#chart-date2').show();
+   $('#chart-date0').hide();
    $('#chart-date1').hide();
-   $('#chart-date2').hide();
-   $('#chart-date4').hide();
+   $('#chart-date3').hide();
    }
    if(index==3){
-   $('#chart-date4').show();
-   $('#chart-date3').hide();
+   $('#chart-date3').show();
    $('#chart-date2').hide();
    $('#chart-date1').hide();
+   $('#chart-date0').hide();
    }
   }); 
 });

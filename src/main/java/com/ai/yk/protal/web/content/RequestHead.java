@@ -17,7 +17,7 @@ public class RequestHead implements Serializable{
 	 * 客户
 	 * 必填：N
 	 */
-	private String client;
+	private String client="ForPublicAffairs";
 	/**
 	 * 版本号
 	 * 必填：N

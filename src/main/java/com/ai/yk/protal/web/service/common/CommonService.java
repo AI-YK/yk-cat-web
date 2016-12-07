@@ -16,8 +16,12 @@ import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListReponse;
  */
 @Service
 public class CommonService {
-	/* 查询国家时如果不传language，则查询所有语种的国家 */
-	private String queryCountry(GetDataSourceListReponse req) {
+	/**
+	 * 查询数据字典
+	 * @param req
+	 * @return
+	 */
+	private String queryDicByTypeAndLanguageForNews(GetDataSourceListReponse req) {
 
 		return null;
 	}
