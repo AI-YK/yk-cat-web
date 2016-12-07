@@ -1,4 +1,4 @@
-package com.ai.yk.protal.web.content.addmyCustomized;
+package com.ai.yk.protal.web.content.savemyCustomized;
 
 public class City {
     private String code;
