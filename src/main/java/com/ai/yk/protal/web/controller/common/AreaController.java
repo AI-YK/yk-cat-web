@@ -12,7 +12,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.content.YJRequest;
+import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.common.DicListResonse;
+import com.ai.yk.protal.web.content.common.DicMessage;
+import com.ai.yk.protal.web.content.common.DicVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
+import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 
 @Controller
@@ -24,6 +30,8 @@ public class AreaController {
 	@Autowired
 	QueryAreaListService queryAreaListService;
 	
+	@Autowired
+	CommonService commonService;
 	/**
 	 * 获得省列表
 	 * 
@@ -46,7 +54,7 @@ public class AreaController {
 		  */
 		  Map<String,List<QueryAreaListVo>> map = mockData();
 		  
-		  return new ResponseData(ResponseData.AJAX_STATUS_SUCCESS,"查询省市",map);
+		  return new ResponseData<Map<String,List<QueryAreaListVo>>>(ResponseData.AJAX_STATUS_SUCCESS,"查询所有省",map);
 	    }
 	    
 	  public Map<String,List<QueryAreaListVo>> mockData(){
@@ -182,4 +190,61 @@ public class AreaController {
 			  list.add(vo3);
 			  return list;
 		  }
+		  
+		  /**
+			 * 获得领域分类
+			 * 
+			 */
+		  @RequestMapping("/getDic")
+		  @ResponseBody
+		  public ResponseData<List<DicVo>> getDic(
+				  @RequestParam(value="type",defaultValue="YQFL") String type,
+				  @RequestParam(value="language",defaultValue="zh") String language
+				  ){
+			 /* DicMessage dicMessage = new DicMessage();
+			  dicMessage.setLanguage(language);
+			  dicMessage.setType(type);
+			  YJRequest<DicMessage> req = new YJRequest<DicMessage>();
+			  req.setMessage(dicMessage);
+			  YJResponse<DicListResonse> res =  commonService.queryDicByTypeAndLanguageForNews(req);
+			  List<DicVo> list = (List<DicVo>) res.getData();*/
+			  List<DicVo> list= mockDic();
+			  return new ResponseData<List<DicVo>>(ResponseData.AJAX_STATUS_SUCCESS,"获得领域分类",list);
+		  }
+		  
+		  public List<DicVo> mockDic(){
+			  DicVo dicVo = new DicVo();
+			  dicVo.setDicName("政治治理");
+			  dicVo.setDicValue("1");
+			  dicVo.setLanguage("zh");
+			  
+			  DicVo dicVo2 = new DicVo();
+			  dicVo.setDicName("官员腐败");
+			  dicVo.setDicValue("2");
+			  dicVo.setLanguage("zh");
+			  
+			  DicVo dicVo3 = new DicVo();
+			  dicVo.setDicName("公共安全");
+			  dicVo.setDicValue("3");
+			  dicVo.setLanguage("zh");
+			  
+			  DicVo dicVo4 = new DicVo();
+			  dicVo.setDicName("司法公正");
+			  dicVo.setDicValue("4");
+			  dicVo.setLanguage("zh");
+			  
+			  DicVo dicVo5 = new DicVo();
+			  dicVo.setDicName("伦理道德");
+			  dicVo.setDicValue("5");
+			  dicVo.setLanguage("zh");
+			  List<DicVo> list = new ArrayList<DicVo>();
+			  list.add(dicVo);
+			  list.add(dicVo2);
+			  list.add(dicVo3);
+			  list.add(dicVo4);
+			  list.add(dicVo5);
+			  return list;
+		  }
+		  
+		  
 }
