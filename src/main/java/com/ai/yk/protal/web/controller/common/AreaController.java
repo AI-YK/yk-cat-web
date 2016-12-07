@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.common.DicListResonse;
-import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
+import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
+import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
 import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
+import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
 
 @Controller
 @RequestMapping("/common")
@@ -32,6 +33,8 @@ public class AreaController {
 	
 	@Autowired
 	CommonService commonService;
+	@Autowired
+	MycustomizedService mycustomizedService;
 	/**
 	 * 获得省列表
 	 * 
@@ -246,5 +249,50 @@ public class AreaController {
 			  return list;
 		  }
 		  
+		  /**
+			 * 保存配置信息
+			 * 
+			 */
+		  @RequestMapping("/saveConf")
+		  @ResponseBody
+		  public ResponseData<SaveMyCustomizedResponse> saveMyCustomized(
+				  @RequestParam(value="createId",defaultValue="") String createId,
+				  @RequestParam(value="sourceSystem",defaultValue="") String sourceSystem,
+				  @RequestParam(value="provinceCode",defaultValue="") String provinceCode,
+				  @RequestParam(value="interestStr",defaultValue="") String interestStr,
+				  @RequestParam(value="cityStr",defaultValue="") String cityStr,
+				  @RequestParam(value="srcID",defaultValue="") String srcID
+				  
+				  ){
+			  
+			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
+			  
+			  List<String> interestList=new ArrayList<String>();
+			  String[] interestArr;
+			  if(interestStr.contains(",")){
+				  interestArr = interestStr.split(",");
+				  interestList = java.util.Arrays.asList(interestArr);
+			  }
+			  List<String> cityList=new ArrayList<String>();
+			  String[] cityArr;
+			  if(interestStr.contains(",")){
+				  cityArr = interestStr.split(",");
+				  cityList =java.util.Arrays.asList(cityArr);
+			  }
+			  saveMyCustomizedMessage.setCityList(cityList);
+			  saveMyCustomizedMessage.setCreateId(createId);
+			  saveMyCustomizedMessage.setInterestList(interestList);
+			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
+			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
+			  saveMyCustomizedMessage.setSrcID(srcID);
+			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
+			  req.setMessage(saveMyCustomizedMessage);
+//			  YJResponse<SaveMyCustomizedResponse> res= mycustomizedService.saveMyCustomized(req);
+			  YJResponse<SaveMyCustomizedResponse> res = new YJResponse<SaveMyCustomizedResponse>();
+			  SaveMyCustomizedResponse  saveMyCustomizedResponse =  res.getData();
+			  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_SUCCESS,"保存配置信息成功",null);
+				
+		  }
+				  
 		  
 }
