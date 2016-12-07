@@ -1,6 +1,12 @@
 package com.ai.yk.protal.web.content.queryInformation;
-public class QueryInformationMessage{
+
+import java.io.Serializable;
+/**
+ *查询资讯详情（新闻）
+ */
+public class QueryInformationMessage implements Serializable{
 		
+	private static final long serialVersionUID = -7564101976157362994L;
 	private String informationId;
 
 	public String getInformationId() {

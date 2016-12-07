@@ -16,7 +16,7 @@ import com.ai.yk.protal.web.content.addmyCustomized.AddMyCustomizedMessage;
 import com.ai.yk.protal.web.content.addmyCustomized.AddMyCustomizedResponse;
 import com.ai.yk.protal.web.content.addmyCustomized.City;
 import com.ai.yk.protal.web.content.area.AreaVo;
-import com.ai.yk.protal.web.content.event.EventListMessage;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
@@ -95,7 +95,7 @@ public class MycustomizedService {
 	/**
 	 * 查询个人定制详情
 	 */
-	public YJResponse<MyCustomizedVo> queryEventDataEntityForSrcId(YJRequest<EventListMessage> req) {
+	public YJResponse<MyCustomizedVo> queryEventDataEntityForSrcId(YJRequest<MyCustomizedMessage> req) {
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_QUERYMYCUSTOMIZED);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
