@@ -29,7 +29,7 @@ public class CommonService {
 	 * @param req
 	 * @return
 	 */
-	private YJResponse<DicListResonse> queryDicByTypeAndLanguageForNews(YJRequest<DicMessage> req) {
+		public YJResponse<DicListResonse> queryDicByTypeAndLanguageForNews(YJRequest<DicMessage> req) {
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
