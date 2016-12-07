@@ -2,6 +2,7 @@ package com.ai.yk.protal.web.controller.emergency;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.content.event.EventVo;
+import com.ai.yk.protal.web.model.sso.emergency.ChartGroup;
+import com.ai.yk.protal.web.model.sso.emergency.ChartLeft;
+import com.ai.yk.protal.web.model.sso.emergency.ChartRight;
+import com.ai.yk.protal.web.model.sso.emergency.HomeEventVo;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.alibaba.fastjson.JSONObject;
 
@@ -28,27 +34,36 @@ public class EmergencyController {
 	     */
 	    @RequestMapping("/getEmergencyIndexList")
 	    @ResponseBody
-	    public ResponseData<String> getEmergencyIndexList(){ 
-	    	/*QueryEventDataVo queryEventDataVo =new QueryEventDataVo();
-	    	queryEventDataVo.setId(1);
-	    	queryEventDataVo.setZhCountry("中国");
-	    	queryEventDataVo.setZhCity("北京");
-	    	queryEventDataVo.setDayTime("2016-12-06");
-	    	queryEventDataVo.setZhTitle("朴槿惠支持率暴跌至5%，就亲信干政事件道歉支");
-	    	List<QueryEventDataVo> results = new ArrayList<QueryEventDataVo>();
-	    	results.add(queryEventDataVo);
-	    	results.add(queryEventDataVo);
-	    	results.add(queryEventDataVo);
-	    	results.add(queryEventDataVo);
-	    	QueryEventDataListReponse queryEventDataListReponse =new QueryEventDataListReponse();
-	    	queryEventDataListReponse.setIndustryType(1);
-	    	queryEventDataListReponse.setPageNo(1);
-	    	queryEventDataListReponse.setPageSize(4);
-	    	queryEventDataListReponse.setResults(results);
-	    	queryEventDataListReponse.setSourceType(1);
-	    	queryEventDataListReponse.setType(1);
-	    	String json = JSONObject.toJSONString(queryEventDataListReponse);*/
-	    	return new ResponseData<String>("","","");
-	        
+	    public ResponseData<HomeEventVo> getEmergencyIndexList(){ 
+	    	EventVo eventVo =new EventVo();
+	    	eventVo.setId(1);
+	    	eventVo.setZhCountry("中国");
+	    	eventVo.setZhCity("北京");
+	    	eventVo.setDayTime("2016-12-06");
+	    	eventVo.setZhTitle("朴槿惠支持率暴跌至5%，就亲信干政事件道歉支");
+	    	List<EventVo> results = new ArrayList<EventVo>();
+	    	results.add(eventVo);
+	    	results.add(eventVo);
+	    	results.add(eventVo);
+	    	results.add(eventVo);
+	    	/**突发事件数据对象**/
+	    	HomeEventVo homeEventVo =new HomeEventVo();
+	    	homeEventVo.setEventList(results);
+	    	/**突发事件chart图数据**/
+	    	ChartLeft chartLeft  = new ChartLeft();
+	    	ChartRight chartRight = new ChartRight();
+	    	ChartGroup chartGroup = new ChartGroup();
+	    	chartGroup.setChartLeft(chartLeft);
+	    	chartGroup.setChartRight(chartRight);
+	    	List<ChartGroup> group = new ArrayList<ChartGroup>();
+	    	group.add(chartGroup);
+	    	homeEventVo.setGroup(group);
+	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",homeEventVo);
+	    }
+	    
+	    @RequestMapping("/getEmergencyIndexList2")
+	    @ResponseBody
+	    public ResponseData<Map<String,List<EventVo>>> getEmergencyIndexList2(){
+	    	return null;
 	    }
 }
