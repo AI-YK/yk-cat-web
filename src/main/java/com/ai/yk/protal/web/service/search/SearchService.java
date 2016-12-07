@@ -11,6 +11,8 @@ import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListReponse;
+import com.ai.yk.protal.web.content.searchnews.SearchNewsMessage;
+import com.ai.yk.protal.web.content.searchnews.SearchNewsResponse;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -32,6 +34,18 @@ public class SearchService {
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<GetDataSourceListReponse>>(){});
+		}
+		return null;
+	}
+	
+	/**
+	 * 搜索新闻列表
+	 */
+	public YJResponse<SearchNewsResponse> getNewsList(YJRequest<SearchNewsMessage> req) {
+		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_SEARCH_GETDATASOURCELIST);
+		String result =HttpClientUtil.getYJBaseResponse(url,req);
+		if(!StringUtil.isBlank(result)){
+			return JSON.parseObject(result, new TypeReference<YJResponse<SearchNewsResponse>>(){});
 		}
 		return null;
 	}
