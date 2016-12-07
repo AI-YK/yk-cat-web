@@ -5,48 +5,48 @@ import java.io.Serializable;
 public class EventListMessage implements Serializable{
 	private static final long serialVersionUID = -2574883913197301738L;
 	    //页面大小 Y
-		private int pageSize;
+		private Integer pageSize;
 		//第几页
-		private int pageNo;
+		private Integer pageNo;
 		//所属分类
-		private int type;
+		private Integer type;
 		//行业类型
 		
-		private int industryType;
+		private Integer industryType;
 		//数据类型
-		private int sourceType;
-		public int getPageSize() {
+		private Integer sourceType;
+		public Integer getPageSize() {
 			return pageSize;
 		}
-		public void setPageSize(int pageSize) {
+		public void setPageSize(Integer pageSize) {
 			this.pageSize = pageSize;
 		}
-		public int getPageNo() {
+		public Integer getPageNo() {
 			return pageNo;
 		}
-		public void setPageNo(int pageNo) {
+		public void setPageNo(Integer pageNo) {
 			this.pageNo = pageNo;
 		}
-		public int getType() {
+		public Integer getType() {
 			return type;
 		}
-		public void setType(int type) {
+		public void setType(Integer type) {
 			this.type = type;
 		}
-		public int getIndustryType() {
+		public Integer getIndustryType() {
 			return industryType;
 		}
-		public void setIndustryType(int industryType) {
+		public void setIndustryType(Integer industryType) {
 			this.industryType = industryType;
 		}
-		public int getSourceType() {
+		public Integer getSourceType() {
 			return sourceType;
 		}
-		public void setSourceType(int sourceType) {
+		public void setSourceType(Integer sourceType) {
 			this.sourceType = sourceType;
 		}
-		public EventListMessage(int pageSize, int pageNo, int type, int industryType,
-				int sourceType) {
+		public EventListMessage(Integer pageSize, Integer pageNo, Integer type, Integer industryType,
+				Integer sourceType) {
 			super();
 			this.pageSize = pageSize;
 			this.pageNo = pageNo;
