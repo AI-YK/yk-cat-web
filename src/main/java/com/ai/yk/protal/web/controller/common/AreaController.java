@@ -25,14 +25,14 @@ public class AreaController {
 	QueryAreaListService queryAreaListService;
 	
 	/**
-	 * 获得省市列表
+	 * 获得省列表
 	 * 
 	 */
 	  @RequestMapping("/getProvince")
 	  @ResponseBody
 	  public ResponseData<Map<String,List<QueryAreaListVo>>> getProvice(
-			  @RequestParam(value="parentCode",defaultValue="") String parentCode,
-			  @RequestParam(value="",defaultValue="") String classify
+			  @RequestParam(value="parentCode",defaultValue="as_100") String parentCode,
+			  @RequestParam(value="classify",defaultValue="province") String classify
 			  ){
 		  /*QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
 		  queryAreaListMessage.setParentCode(parentCode);
@@ -137,4 +137,49 @@ public class AreaController {
 		  map.put("4", list4);
 		  return map;
 	  }
+	  
+	  /**
+		 * 获得市列表
+		 * 
+		 */
+		  @RequestMapping("/getCity")
+		  @ResponseBody
+		  public ResponseData<List<QueryAreaListVo>> getCity(
+				  @RequestParam(value="parentCode",defaultValue="") String parentCode,
+				  @RequestParam(value="classify",defaultValue="city") String classify
+				  ){
+			 /* QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
+			  queryAreaListMessage.setParentCode(parentCode);
+			  queryAreaListMessage.setClassify(classify);
+			  YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
+			  req.setMessage(queryAreaListMessage);
+			  
+			  YJResponse<QueryAreaListReponse> res = queryAreaListService.queryEventDataList(req);
+			  List<QueryAreaListVo> list = (List<QueryAreaListVo>) res.getData();*/
+			  List<QueryAreaListVo> list = mockCity();
+			  return new ResponseData<List<QueryAreaListVo>>(ResponseData.AJAX_STATUS_SUCCESS,"获得所有城市",list);
+		  }
+		  
+		  public List<QueryAreaListVo> mockCity(){
+			  QueryAreaListVo vo = new QueryAreaListVo();
+			  QueryAreaListVo vo2 = new QueryAreaListVo();
+			  QueryAreaListVo vo3 = new QueryAreaListVo();
+			  vo.setId("1");
+			  vo.setCode("1");
+			  vo.setName("济南");
+			  
+			  vo2.setId("2");
+			  vo2.setCode("2");
+			  vo2.setName("青岛");
+			  
+			  vo3.setId("3");
+			  vo3.setCode("3");
+			  vo3.setName("临沂");
+			  
+			  List<QueryAreaListVo> list = new  ArrayList<QueryAreaListVo>();
+			  list.add(vo);
+			  list.add(vo2);
+			  list.add(vo3);
+			  return list;
+		  }
 }
