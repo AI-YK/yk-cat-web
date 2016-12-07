@@ -23,16 +23,18 @@ public class YeesightApiUrlConstants {
 	public final static String API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID = "/api/eventData/queryEventDataEntityForSrcId";
 	// 查询个人定制详情
 	public final static String API_YEESIGHTFORNEWS_QUERYMYCUSTOMIZED = "/api/yeesightForNews/queryMyCustomized";
-	// 查询个省份
+	// 查询省份
 	public final static String API_CONMMON_QUERYAREALIST = "/api/common/queryAreaList";
 	// 创建个人指定接口URL
 	public final static String API_YEESIGHTFORNEWS_ADDMYCUSTOMIZED = "/api/yeesightForNews/addMyCustomized";
-	// 创建个人指定接口URL
+	// 修改个人指定接口URL
 	public final static String API_YEESIGHTFORNEWS_UPDATEMYCUSTOMIZED = "/api/yeesightForNews/updateMyCustomized";
 	// 查询新闻详情
 	public final static String API_INFODETAIL_QUERYINFORMATION = "/api/infoDetail/queryInformation";
 	// 查询社交详情
 	public final static String API_INFODETAIL_SOCIALDETAIL = "/api/infoDetail/socialDetail";
+	// 查询数据字典
+	public final static String API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS = "/api/common/queryDicByTypeAndLanguageForNews";
 	// 拼接头部信息url
 	public static String getApiUrl(String ulr) {
 		return "http://192.168.59.14:9300/yeesight" + ulr;
