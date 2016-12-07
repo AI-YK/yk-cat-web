@@ -17,7 +17,6 @@ import com.ai.yk.protal.web.content.mycustomized.MyCustomizedMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
-import com.ai.yk.protal.web.content.savemyCustomized.City;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -60,8 +59,6 @@ public class MycustomizedService {
 		String json = JSON.toJSONString(req);
 		JSONObject all = JSON.parseObject(json);
 		JSONObject jsonObject = all.getJSONObject("message");
-		jsonObject.remove("zhProvince");
-		jsonObject.remove("enProvince");
 		jsonObject.remove("provinceCode");
 		jsonObject.remove("cityList");
 		List<Object> countryList = new ArrayList<>();
@@ -73,14 +70,11 @@ public class MycustomizedService {
 		
 		List<Map<String,Object>> cityList = new ArrayList<>();
 		if(!CollectionUtil.isEmpty(message.getCityList())){
-			for(City city :message.getCityList()){
+			for(String cid :message.getCityList()){
 				Map<String,Object> c = new HashMap<>();
-				c.put("provinceCode", message.getProvinceCode());
-				c.put("zhProvince", message.getZhProvince());
-				c.put("enProvince", message.getEnProvince());
-				c.put("code", city.getCode());
-				c.put("zhCity", city.getZhCity());
-				c.put("enCity",city.getEnCity());
+				c.put("provinceCode",message.getProvinceCode());
+				c.put("code", cid);
+				
 				cityList.add(c);
 			}
 			
@@ -133,6 +127,6 @@ public class MycustomizedService {
 		}
 	}
 	public static void main(String[] args) {
-		
+
 	}
 }
