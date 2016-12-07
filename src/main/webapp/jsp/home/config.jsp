@@ -505,7 +505,7 @@
 <script type="text/javascript">
   $(function(){
 	  $("#finish").click(function(){
-		  location.href = _base + '/home';
+		  location.href = _base + '/home/index';
 	  });
   });
 </script>
