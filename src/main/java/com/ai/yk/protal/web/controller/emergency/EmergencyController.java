@@ -20,6 +20,7 @@ import com.ai.yk.protal.web.service.eventdata.EventDataService;
  * 突发事件	
 	 */
 @Controller
+@RequestMapping("/emergency")
 public class EmergencyController {
 		    @Autowired
 		    EventDataService eventDataService;

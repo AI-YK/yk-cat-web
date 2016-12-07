@@ -42,7 +42,8 @@ public class IndexController {
      */
     @RequestMapping("/config")
     public String configView(Model model){
-        
+    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	model.addAttribute("user", clientUser);
         return "/home/config";
     }
     
