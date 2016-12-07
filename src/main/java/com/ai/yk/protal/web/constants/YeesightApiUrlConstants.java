@@ -27,6 +27,8 @@ public class YeesightApiUrlConstants {
 	public final static String API_CONMMON_QUERYAREALIST = "/api/common/queryAreaList";
 	// 查询新闻详情
 	public final static String API_INFODETAIL_QUERYINFORMATION = "/api/infoDetail/queryInformation";
+	// 查询社交详情
+	public final static String API_INFODETAIL_SOCIALDETAIL = "/api/infoDetail/socialDetail";
 	// 拼接头部信息url
 	public static String getApiUrl(String ulr) {
 		return "http://192.168.59.14:9300/yeesight" + ulr;

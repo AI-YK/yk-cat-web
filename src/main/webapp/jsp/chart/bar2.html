@@ -60,6 +60,7 @@ var option1= {
         {
             name:'正面',
             type:'bar',
+            clickable: false,
             barWidth : 20,//柱图宽度
             barGap:'0.1px',
             data:[100, 90, 110, 140, 60, 115 ],
@@ -78,12 +79,9 @@ var option1= {
 			
 			 itemStyle: {
                     normal: {
-　　　　　　　　　　　　　　//好，这里就是重头戏了，定义一个list，然后根据所以取得不同的值，这样就实现了，
-                        color: function(params) {
-                            // build a color map as your need.
-                           var colorList = ['#eb6100'];
-                            return colorList[params.dataIndex]
-						}
+　　　　　　　　　　　　　
+              			color:'#eb6100'
+                       
 					}
 			} 
 			
@@ -114,11 +112,8 @@ var option1= {
 			 itemStyle: {
                     normal: {
 　　　　　　　　　　　　　　//好，这里就是重头戏了，定义一个list，然后根据所以取得不同的值，这样就实现了，
-                        color: function(params) {
-                            // build a color map as your need.
-                           var colorList = ['#8fc31f'];
-                            return colorList[params.dataIndex]
-						}
+               					color:'#8fc31f'
+                        
 					}
 			} 
         }
