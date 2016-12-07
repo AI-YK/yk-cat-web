@@ -14,7 +14,7 @@ public class QueryAreaListService {
 	/**
 	 * 国家城市列表
 	 */
-	public YJResponse<QueryAreaListReponse> queryEventDataList(YJRequest<QueryAreaListMessage> req) {
+	public YJResponse<QueryAreaListReponse> QueryAreaList(YJRequest<QueryAreaListMessage> req) {
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_CONMMON_QUERYAREALIST);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){

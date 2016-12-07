@@ -1,5 +1,10 @@
 package com.ai.yk.protal.web.service.mycustomized;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.CollectionUtil;
@@ -7,6 +12,9 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.addmyCustomized.AddMyCustomizedMessage;
+import com.ai.yk.protal.web.content.addmyCustomized.AddMyCustomizedResponse;
+import com.ai.yk.protal.web.content.addmyCustomized.City;
 import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.event.EventListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
@@ -16,8 +24,74 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 
+
 @Service
 public class MycustomizedService {
+	
+	/**
+	 * 创建/修改   个人定制接口
+	 */
+	public YJResponse<AddMyCustomizedResponse> addMyCustomized(YJRequest<AddMyCustomizedMessage> req) {
+		
+		String url = null;
+		
+		if(StringUtil.isBlank(req.getMessage().getSrcID())){
+			url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_ADDMYCUSTOMIZED);
+		}else{
+			url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_UPDATEMYCUSTOMIZED);
+		}
+		
+		String json = change(req);
+		String result =null;
+		try {
+			result = HttpClientUtil.sendPostRequest(url,json);
+		} catch (Exception e) {
+			
+		}
+		if(!StringUtil.isBlank(result)){
+			return JSON.parseObject(result, new TypeReference<YJResponse<AddMyCustomizedResponse>>(){});
+			
+		}
+		return null;
+	}
+	
+	
+	private String change(YJRequest<AddMyCustomizedMessage> req){
+		String json = JSON.toJSONString(req);
+		JSONObject all = JSON.parseObject(json);
+		JSONObject jsonObject = all.getJSONObject("message");
+		jsonObject.remove("zhProvince");
+		jsonObject.remove("enProvince");
+		jsonObject.remove("provinceCode");
+		jsonObject.remove("cityList");
+		List<Object> countryList = new ArrayList<>();
+		Map<String,Object> country = new HashMap<>();
+		country.put("zhCountry", "中国");
+		country.put("enCountry", "china");
+		country.put("countryCode", "zh");
+		AddMyCustomizedMessage message = req.getMessage();
+		
+		List<Map<String,Object>> cityList = new ArrayList<>();
+		if(!CollectionUtil.isEmpty(message.getCityList())){
+			for(City city :message.getCityList()){
+				Map<String,Object> c = new HashMap<>();
+				c.put("provinceCode", message.getProvinceCode());
+				c.put("zhProvince", message.getZhProvince());
+				c.put("enProvince", message.getEnProvince());
+				c.put("code", city.getCode());
+				c.put("zhCity", city.getZhCity());
+				c.put("enCity",city.getEnCity());
+				cityList.add(c);
+			}
+			
+		}
+		country.put("cityList", cityList);
+		countryList.add(country);
+		jsonObject.put("countryList", countryList);
+		all.put("message", jsonObject);
+		return JSON.toJSONString(all);
+	}
+	
 	/**
 	 * 查询个人定制详情
 	 */
@@ -59,7 +133,6 @@ public class MycustomizedService {
 		}
 	}
 	public static void main(String[] args) {
-       //String result ="{'head':{'result':'true','message':'操作成功'},'data':{'id':16,'fieldType':'自然灾害','countryList':[{'id':22,'zhCountry':'中国','enCountry':'china','countryCode':'zh','longitude':'12.12','latitude':'13.13','pid':16,'businessId':null,'cityList':[{'id':52,'nameZh':'北京','nameEn':'beijing','type':2,'level':1,'code':'hunan','longitude':'12.12','latitude':'13.13','pid':22,'businessId':null,'cityList':[{'id':51,'nameZh':'长沙','nameEn':'changsha','type':2,'level':2,'code':'hunan','longitude':'12.12','latitude':'13.13','pid':50,'businessId':null,'cityList':null}]},{'id':50,'nameZh':'湖南','nameEn':'hunan','type':1,'level':1,'code':'hunan','longitude':'12.12','latitude':'13.13','pid':22,'businessId':null,'cityList':[{'id':51,'nameZh':'长沙','nameEn':'changsha','type':2,'level':2,'code':'hunan','longitude':'12.12','latitude':'13.13','pid':50,'businessId':null,'cityList':null}]}]}]}}";
 		
 	}
 }
