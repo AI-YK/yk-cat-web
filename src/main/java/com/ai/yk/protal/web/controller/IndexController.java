@@ -6,24 +6,34 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ai.paas.ipaas.i18n.ResWebBundle;
+import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.model.user.SSOClientUser;
+import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.utils.SessionUtil;
 
 /**
  * Created by mengbo on 28/11/5.
  */
 @Controller
+@RequestMapping("/home")
 public class IndexController {
 	
    // private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
     
     @Autowired
-    ResWebBundle rb;
+    private ResWebBundle rb;
+    
+    @Autowired
+    private MycustomizedService mycustomizedService;
     /**
      * 首页
      * @return
      */
-    @RequestMapping("/home")
+    @RequestMapping("/index")
     public String indexView(Model model){
-        
+    	MyCustomizedVo config = SessionUtil.getUserConfig();
+    	model.addAttribute("config", config);
         return "/home/index";
     }
     
@@ -32,8 +42,28 @@ public class IndexController {
      */
     @RequestMapping("/config")
     public String configView(Model model){
-        
+    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	model.addAttribute("user", clientUser);
         return "/home/config";
+    }
+    
+    /**
+     * 配置页面
+     */
+    @SuppressWarnings("unused")
+	@RequestMapping("/loginSuccess")
+    public String loginSuccess(Model model){
+    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	YJResponse<MyCustomizedVo> resp = null;
+    	/*YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
+    	resp = mycustomizedService.queryEventDataEntityForSrcId(req);*/
+    	if(resp==null){
+    		 return "redirect:/home/config";
+    	}else{
+    		 SessionUtil.setUserConfig(resp.getData());
+    		 return "redirect:/home/index";
+    	}
+       
     }
     
    

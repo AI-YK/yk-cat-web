@@ -1,4 +1,4 @@
-package com.ai.yk.protal.web.model.sso.hot;
+package com.ai.yk.protal.web.model.hot;
 
 public class HotItem {
 	
