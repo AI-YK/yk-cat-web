@@ -16,7 +16,7 @@ import com.ai.yk.protal.web.content.publicaffairs.PublicAffairsResponse;
 import com.ai.yk.protal.web.service.publicaffairs.PublicaffairsService;
 
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/trend")
 public class PublicOpinionTrendController {
 	/**
 	 * 舆情走势和媒体覆盖
@@ -24,13 +24,9 @@ public class PublicOpinionTrendController {
 	@Autowired
 	PublicaffairsService publicaffairsService;
 	
-	@RequestMapping("/trend")
+	@RequestMapping("/pubTrend")
 	@ResponseBody
 	public ResponseData<PublicAffairsResponse> getPubTrend(
-			  /**
-			   * type 0:舆情趋势，1：媒体覆盖
-			   */
-			  @RequestParam(value="type",defaultValue="") String type,
 			  @RequestParam(value="province",defaultValue="") String province,
 			  @RequestParam(value="city",defaultValue="") String city,
 			  	/**
@@ -40,7 +36,8 @@ public class PublicOpinionTrendController {
 				 */
 			  @RequestParam(value="modelNo",defaultValue="") String modelNo,
 			  @RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
-			  @RequestParam(value="beginTime",defaultValue="beginTime") String beginTime,
+			  @RequestParam(value="timeType",defaultValue="") String timeType,
+			  @RequestParam(value="beginTime",defaultValue="") String beginTime,
 			  @RequestParam(value="endTime",defaultValue="") String endTime
 			){
 		/*PublicAffairsMessage message =new PublicAffairsMessage();
@@ -57,10 +54,11 @@ public class PublicOpinionTrendController {
 		
 		PublicAffairsResponse publicAffairsResponse = res.getData();*/
 		PublicAffairsResponse publicAffairsResponse = new PublicAffairsResponse();
-		if(type.equals("0")){
+		if(modelNo.equals("locSentimentCount")){
 			publicAffairsResponse = mockTrendData();
+		}else if(modelNo.equals("mediaCoverage")){
+			publicAffairsResponse = mockMediaData();
 		}
-		   publicAffairsResponse = mockMediaData();
 		
 		return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询舆情趋势或媒体覆盖",publicAffairsResponse);
 	}
