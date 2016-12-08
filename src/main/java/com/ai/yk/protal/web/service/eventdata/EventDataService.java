@@ -6,6 +6,7 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.event.EventDetailsMessage;
 import com.ai.yk.protal.web.content.event.EventListMessage;
 import com.ai.yk.protal.web.content.event.EventListResponse;
 import com.ai.yk.protal.web.content.event.EventVo;
@@ -30,7 +31,7 @@ public class EventDataService {
 	/**
 	 * 查询事件详情
 	 */
-	public YJResponse<EventVo> queryEventDataEntityForSrcId(YJRequest<EventListMessage> req) {
+	public YJResponse<EventVo> queryEventDataEntityForSrcId(YJRequest<EventDetailsMessage> req) {
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){

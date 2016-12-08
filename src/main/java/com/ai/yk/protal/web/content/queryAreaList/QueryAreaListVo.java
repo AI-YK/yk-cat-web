@@ -24,6 +24,8 @@ public class QueryAreaListVo {
 	private String createTime;
 	/**修改时间**/
 	private String updateTime;
+	/**首字母**/
+	private String nameEnFirst;
 	public String getId() {
 		return id;
 	}
@@ -90,8 +92,15 @@ public class QueryAreaListVo {
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
+	public String getNameEnFirst() {
+		return nameEnFirst;
+	}
+	public void setNameEnFirst(String nameEnFirst) {
+		this.nameEnFirst = nameEnFirst;
+	}
 	public QueryAreaListVo(String id, String code, Integer busCod, String nameEn, String name, String classify,
-			String parentCode, String geoLat, String geoLong, String createTime, String updateTime) {
+			String parentCode, String geoLat, String geoLong, String createTime, String updateTime,
+			String nameEnFirst) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -104,6 +113,7 @@ public class QueryAreaListVo {
 		this.geoLong = geoLong;
 		this.createTime = createTime;
 		this.updateTime = updateTime;
+		this.nameEnFirst = nameEnFirst;
 	}
 	public QueryAreaListVo() {
 		super();
