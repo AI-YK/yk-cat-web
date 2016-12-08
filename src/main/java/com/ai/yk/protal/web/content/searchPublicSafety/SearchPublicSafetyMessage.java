@@ -11,10 +11,12 @@ public class SearchPublicSafetyMessage implements Serializable {
 		private String mediaType;
 		/**情感ID(1正面，0：中性 -1负面)**/
 		private String sentimentId;
+		
 		/**省份**/
-		private String province;
+		private String provincecityCode;
 		/**城市**/
-		private String city;
+		private String cityCode;
+		
 		/**舆情分类类型（多个用逗号隔开）**/
 		private String publicAffairsType;
 		/**数据源类型微信微博新闻等媒体**/
@@ -39,17 +41,17 @@ public class SearchPublicSafetyMessage implements Serializable {
 		public void setSentimentId(String sentimentId) {
 			this.sentimentId = sentimentId;
 		}
-		public String getProvince() {
-			return province;
+		public String getProvincecityCode() {
+			return provincecityCode;
 		}
-		public void setProvince(String province) {
-			this.province = province;
+		public void setProvincecityCode(String provincecityCode) {
+			this.provincecityCode = provincecityCode;
 		}
-		public String getCity() {
-			return city;
+		public String getCityCode() {
+			return cityCode;
 		}
-		public void setCity(String city) {
-			this.city = city;
+		public void setCityCode(String cityCode) {
+			this.cityCode = cityCode;
 		}
 		public String getPublicAffairsType() {
 			return publicAffairsType;
