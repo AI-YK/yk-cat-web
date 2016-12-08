@@ -222,24 +222,24 @@ public class AreaController {
 			  dicVo.setLanguage("zh");
 			  
 			  DicVo dicVo2 = new DicVo();
-			  dicVo.setDicName("官员腐败");
-			  dicVo.setDicValue("2");
-			  dicVo.setLanguage("zh");
+			  dicVo2.setDicName("官员腐败");
+			  dicVo2.setDicValue("2");
+			  dicVo2.setLanguage("zh");
 			  
 			  DicVo dicVo3 = new DicVo();
-			  dicVo.setDicName("公共安全");
-			  dicVo.setDicValue("3");
-			  dicVo.setLanguage("zh");
+			  dicVo3.setDicName("公共安全");
+			  dicVo3.setDicValue("3");
+			  dicVo3.setLanguage("zh");
 			  
 			  DicVo dicVo4 = new DicVo();
-			  dicVo.setDicName("司法公正");
-			  dicVo.setDicValue("4");
-			  dicVo.setLanguage("zh");
+			  dicVo4.setDicName("司法公正");
+			  dicVo4.setDicValue("4");
+			  dicVo4.setLanguage("zh");
 			  
 			  DicVo dicVo5 = new DicVo();
-			  dicVo.setDicName("伦理道德");
-			  dicVo.setDicValue("5");
-			  dicVo.setLanguage("zh");
+			  dicVo5.setDicName("伦理道德");
+			  dicVo5.setDicValue("5");
+			  dicVo5.setLanguage("zh");
 			  List<DicVo> list = new ArrayList<DicVo>();
 			  list.add(dicVo);
 			  list.add(dicVo2);

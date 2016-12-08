@@ -1,5 +1,7 @@
 package com.ai.yk.protal.web.utils;
 
+import java.util.Enumeration;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.context.request.RequestContextHolder;
@@ -33,4 +35,15 @@ public final class SessionUtil {
 		MyCustomizedVo config = (MyCustomizedVo) request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
 		return config;
 	}
+	
+	public static void print(){
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		Enumeration<?>   enumeration    =   request.getSession().getAttributeNames();   
+		while( enumeration.hasMoreElements())   {   
+		    String sessionName=(String)enumeration.nextElement();   
+		    System.out.println("\nsession item name="+sessionName);  
+		    System.out.println("\nsession item value="+request.getSession().getAttribute(sessionName));  
+		}   
+	}
+	
 }
