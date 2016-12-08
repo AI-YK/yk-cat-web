@@ -18,9 +18,11 @@ import com.ai.yk.protal.web.content.common.DicVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
+import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.utils.SessionUtil;
 
 @Controller
 @RequestMapping("/common")
@@ -256,17 +258,15 @@ public class AreaController {
 		  @RequestMapping("/saveConf")
 		  @ResponseBody
 		  public ResponseData<SaveMyCustomizedResponse> saveMyCustomized(
-				  @RequestParam(value="createId",defaultValue="") String createId,
 				  @RequestParam(value="sourceSystem",defaultValue="") String sourceSystem,
 				  @RequestParam(value="provinceCode",defaultValue="") String provinceCode,
 				  @RequestParam(value="interestStr",defaultValue="") String interestStr,
 				  @RequestParam(value="cityStr",defaultValue="") String cityStr,
-				  @RequestParam(value="srcID",defaultValue="") String srcID
-				  
+				  @RequestParam(value="srcID",defaultValue="") String srcID  
 				  ){
-			  
+			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
-			  
+			  saveMyCustomizedMessage.setCreateId(clientUser.getUserId());
 			  List<String> interestList=new ArrayList<String>();
 			  String[] interestArr;
 			  if(interestStr.contains(",")){
@@ -280,7 +280,6 @@ public class AreaController {
 				  cityList =java.util.Arrays.asList(cityArr);
 			  }
 			  saveMyCustomizedMessage.setCityList(cityList);
-			  saveMyCustomizedMessage.setCreateId(createId);
 			  saveMyCustomizedMessage.setInterestList(interestList);
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
 			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
