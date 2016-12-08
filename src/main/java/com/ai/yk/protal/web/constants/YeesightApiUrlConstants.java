@@ -3,6 +3,8 @@
  */
 package com.ai.yk.protal.web.constants;
 
+import com.ai.yk.protal.web.utils.ConfigUtil;
+
 /**
  * 译见api常量<br>
  * Date: 2016年12月6日 <br>
@@ -14,7 +16,10 @@ public class YeesightApiUrlConstants {
 	private YeesightApiUrlConstants() {
 
 	}
-
+    private static String remoteBaseUrl="";
+    static{
+    	remoteBaseUrl = ConfigUtil.getProperty("remoteBaseUrl");
+    }
 	// 搜索数据源列表url
 	public final static String API_SEARCH_GETDATASOURCELIST = "/api/search/getDataSourceList";
 	// 查询事件列表url
@@ -46,8 +51,8 @@ public class YeesightApiUrlConstants {
 	// 查询定制专题列表
 	public final static String API_MYTOPICS_QUERYMYTOPICSLIST = "/api/myTopics/queryMyTopicsList";
 	// 拼接头部信息url
-	public static String getApiUrl(String ulr) {
-		return "http://192.168.59.14:9300/yeesight" + ulr;
+	public static String getApiUrl(String url) {
+		return new StringBuilder(remoteBaseUrl).append(url).toString();
 	}
 
 }
