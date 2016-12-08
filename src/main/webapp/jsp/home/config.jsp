@@ -11,6 +11,7 @@
 
 <body class="configure-bj">
 	<div class="configure-main">
+	    <input id="userId" value="${user.userId}"/>
 		<div class="configure-title">
 			<img src="${uedroot}/images/logo.png">
 		</div>

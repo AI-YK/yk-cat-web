@@ -42,7 +42,7 @@ public class AreaController {
 	  @RequestMapping("/getProvince")
 	  @ResponseBody
 	  public ResponseData<Map<String,List<QueryAreaListVo>>> getProvice(
-			  @RequestParam(value="parentCode",defaultValue="as_100") String parentCode,
+			  @RequestParam(value="parentCode",defaultValue="as_100000") String parentCode,
 			  @RequestParam(value="classify",defaultValue="province") String classify
 			  ){
 		  /*QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
