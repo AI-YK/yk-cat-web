@@ -17,11 +17,11 @@
 	</bean>
 
 	<!-- 消费方 -->
-	<dubbo:application name="${dubbo.appname}" />
+	<!-- <dubbo:application name="${dubbo.appname}" />
 	<dubbo:registry protocol="${dubbo.registry.protocol}"
 		address="${dubbo.registry.address}" id="ycRegistry" />
 	<dubbo:consumer timeout="${dubbo.provider.timeout}" />
-
+ -->
 
 
 </beans>
