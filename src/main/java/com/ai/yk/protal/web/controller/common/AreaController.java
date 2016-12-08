@@ -197,12 +197,19 @@ public class AreaController {
 		  }
 		  
 		  /**
-			 * 获得领域分类
+			 * 获得数据字典信息
 			 * 
 			 */
 		  @RequestMapping("/getDic")
 		  @ResponseBody
 		  public ResponseData<List<DicVo>> getDic(
+				  	/**
+					 * 领域分类 YQFL
+					 * 行业分类 HYFL
+					 * 数据源影响力 SJYYX
+					 * 新闻热点 TJSJY 
+					 * 社交热点 SJLY 
+					 */
 				  @RequestParam(value="type",defaultValue="YQFL") String type,
 				  @RequestParam(value="language",defaultValue="zh") String language
 				  ){
