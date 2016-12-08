@@ -29,7 +29,7 @@ public class NewsHotAndSocialHotController {
 	@RequestMapping("/getHotInfoList")
 	@ResponseBody
 	public ResponseData<SearchPublicSafetyResponse> getHotInfoList(
-				/**媒体类型**/
+				/**媒体类型 新闻热点：news，社交热点：social **/
 			 	@RequestParam(value="mediaType",defaultValue="") String mediaType,
 			 	/**情感ID(1正面，0：中性 -1负面)**/
 			    @RequestParam(value="sentimentId",defaultValue="") String sentimentId,

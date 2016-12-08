@@ -220,7 +220,14 @@ public class AreaController {
 			  req.setMessage(dicMessage);
 			  YJResponse<DicListResonse> res =  commonService.queryDicByTypeAndLanguageForNews(req);
 			  List<DicVo> list = (List<DicVo>) res.getData();*/
-			  List<DicVo> list= mockDic();
+			  List<DicVo> list = new ArrayList<DicVo>();
+			  if(type.equals("YQFL")){
+				  list = mockDic();
+			  }else if(type.equals("TJSJY")){
+				  list = mockNewsDic();
+			  }else if(type.equals("SJLY")){
+				  list = mockNewsDic();
+		  }
 			  return new ResponseData<List<DicVo>>(ResponseData.AJAX_STATUS_SUCCESS,"获得领域分类",list);
 		  }
 		  
@@ -257,7 +264,83 @@ public class AreaController {
 			  list.add(dicVo5);
 			  return list;
 		  }
+		  /**新闻热点行业分类**/
+		  public List<DicVo> mockNewsDic(){
+			  DicVo dicVo = new DicVo();
+			  dicVo.setDicName("新浪");
+			  dicVo.setDicValue("1");
+			  dicVo.setLanguage("zh");
+			  
+			  DicVo dicVo2 = new DicVo();
+			  dicVo2.setDicName("搜狐");
+			  dicVo2.setDicValue("2");
+			  dicVo2.setLanguage("zh");
+			  
+			  DicVo dicVo3 = new DicVo();
+			  dicVo3.setDicName("网易");
+			  dicVo3.setDicValue("3");
+			  dicVo3.setLanguage("zh");
+			  
+			  DicVo dicVo4 = new DicVo();
+			  dicVo4.setDicName("腾讯");
+			  dicVo4.setDicValue("4");
+			  dicVo4.setLanguage("zh");
+			  
+			  DicVo dicVo5 = new DicVo();
+			  dicVo5.setDicName("南方网");
+			  dicVo5.setDicValue("5");
+			  dicVo5.setLanguage("zh");
+			  
+			  DicVo dicVo6 = new DicVo();
+			  dicVo6.setDicName("人民网");
+			  dicVo6.setDicValue("6");
+			  dicVo6.setLanguage("zh");
+			  
+			  DicVo dicVo7 = new DicVo();
+			  dicVo7.setDicName("央广网");
+			  dicVo7.setDicValue("7");
+			  dicVo7.setLanguage("zh");
+			  
+			  DicVo dicVo8 = new DicVo();
+			  dicVo8.setDicName("北青网");
+			  dicVo8.setDicValue("8");
+			  dicVo8.setLanguage("zh");
+			  
+			  List<DicVo> list = new ArrayList<DicVo>();
+			  list.add(dicVo);
+			  list.add(dicVo2);
+			  list.add(dicVo3);
+			  list.add(dicVo4);
+			  list.add(dicVo5);
+			  list.add(dicVo6);
+			  list.add(dicVo7);
+			  list.add(dicVo8);
+			  return list;
+		  }
 		  
+		  /**社交热点行业分类**/
+		  public List<DicVo> mockSocialDic(){
+			  DicVo dicVo = new DicVo();
+			  dicVo.setDicName("微信");
+			  dicVo.setDicValue("1");
+			  dicVo.setLanguage("zh");
+			  
+			  DicVo dicVo2 = new DicVo();
+			  dicVo2.setDicName("微博");
+			  dicVo2.setDicValue("2");
+			  dicVo2.setLanguage("zh");
+			  
+			  DicVo dicVo3 = new DicVo();
+			  dicVo3.setDicName("论坛");
+			  dicVo3.setDicValue("3");
+			  dicVo3.setLanguage("zh");
+			  
+			  List<DicVo> list = new ArrayList<DicVo>();
+			  list.add(dicVo);
+			  list.add(dicVo2);
+			  list.add(dicVo3);
+			  return list;
+		  }
 		  /**
 			 * 保存配置信息
 			 * 
