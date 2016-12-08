@@ -36,7 +36,7 @@ public class EmergencyController {
 	    @RequestMapping("/getEmergencyIndexList")
 	    @ResponseBody
 	    public ResponseData<HomeEventVo> getEmergencyIndexList(){ 
-	    	HomeEventVo homeEventVo = new HomeEventVo();
+	    	/*HomeEventVo homeEventVo = new HomeEventVo();
 	    	YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
 	    	YJResponse<EventListResponse> resp = eventDataService.queryEventDataList(req);
 	    	List<EventVo> eventList = resp.getData().getResults();
@@ -49,7 +49,7 @@ public class EmergencyController {
 	    		YJResponse<EventModelResponse> modelResp =eventDataService.queryEventModel(modelReq);
 	    		chartGroup.add(modelResp.getData());
 	    	}
-	    	homeEventVo.setGroups(chartGroup);
+	    	homeEventVo.setGroups(chartGroup);*/
 	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",mock());
 	    }
 	    
