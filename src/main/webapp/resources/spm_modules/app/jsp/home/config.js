@@ -83,7 +83,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         },
         _getCity:function(parent){
             if(!parent){
-            	var curr = $(".choice-list ul li current a");
+            	var curr = $(".choice-list .current");
             	if(curr){
             		 var next = curr.next();
                      parent = next.val();
@@ -139,8 +139,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	  interestStr = interestStr.substring(1,interestStr.length);
           }
           var provinceCode = "";
-          var province = $(".choice-list ul li current a");
-          console.log("province:"+province);
+          var province = $(".choice-list .current");
       	  if(province){
       		  var next = province.next();
       		  provinceCode = next.val();
