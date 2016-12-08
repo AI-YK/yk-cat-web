@@ -12,6 +12,8 @@ public class DicMessage implements Serializable {
 	 * 领域分类 YQFL
 	 * 行业分类 HYFL
 	 * 数据源影响力 SJYYX
+	 * 新闻热点 TJSJY 
+	 * 社交热点 SJLY 
 	 */
     private String type;
     /**
