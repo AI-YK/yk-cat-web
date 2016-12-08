@@ -4,6 +4,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
     require("jsviews/jsrender.min");
+    require("app/util/jsviews-yi");
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var HomeChart = require("app/jsp/home/charts");
     //实例化AJAX控制处理对象
@@ -69,6 +70,27 @@ define('app/jsp/home/home', function (require, exports, module) {
                 _this._loadPubTrend('mediaCoverage', $(this).attr("id"));
    			});
             
+            $(document).on("click","#hot-tab ul li a",function(){
+            	$("#hot-tab ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+   			});
+            
+            $(document).on("click","#news-tab ul li a",function(){
+            	$("#news-tab ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+   			});
+            
+            $(document).on("click","#social-tab ul li a",function(){
+            	$("#social-tab ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+   			});
+            
 			this._load();
 			
         },
@@ -76,6 +98,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._initEventData();
         	this._loadPubTrend('locSentimentCount', '0');
         	this._loadPubTrend('mediaCoverage', '0');
+        	this._getDics('TJSJY');
+        	this._getDics('SJLY');
         },
         _initEventData:function(){
         	var url = "/emergency/getEmergencyIndexList";
@@ -125,6 +149,33 @@ define('app/jsp/home/home', function (require, exports, module) {
 						homeChart._initMediaCoverageChart('mediaCoverage',data.mediaCoverage);
 					}else if(modelNo=='locSentimentCount'){
 						homeChart._initIocSentimentChart('locSentimentCount',data.locSentimentCount);
+					}
+				}
+			});
+        },
+        /**
+    	 * 新闻热点 TJSJY 
+    	 * 社交热点 SJLY 
+    	 */
+        _getDics:function(type){ 
+        	var url = "/common/getDic";
+        	var param = {};
+        	param.type = type;
+        	param.language = 'zh';
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var list = rs.data;
+					if(type=='TJSJY'){
+						var newsMediaHtml = $("#newsMediaTempl").render({'dics':list});
+						$("#news-media").html(newsMediaHtml);
+					}else if(type=='SJLY'){
+						var socialMediaHtml = $("#socialMediaTempl").render({'dics':list});
+						$("#social-media").html(socialMediaHtml);
 					}
 				}
 			});
