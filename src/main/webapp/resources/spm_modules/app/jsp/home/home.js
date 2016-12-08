@@ -9,7 +9,6 @@ define('app/jsp/home/home', function (require, exports, module) {
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
 
-	var sourYiWen="";
     var homePage = Widget.extend({
         //属性，使用时由类的构造函数传入
         attrs: {
@@ -18,7 +17,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 
         //事件代理
         events: {
-            
+            "click #login":"_login"
         },
 
         //重写父类
@@ -77,6 +76,14 @@ define('app/jsp/home/home', function (require, exports, module) {
 		        	$("#chart_1_0").load("../jsp/chart/area.html");
 				}
 			});
+        },
+        _login:function(){
+        	$("#loginJumpFormId").attr("action","http://buzz.yeesight.com/login");
+        	var end = window.location.href.indexOf(_base);
+        	var href = window.location.href.substring(0,end) + _base+"/home/loginSuccess";
+        	console.log(href);
+        	$("#loginSuccessUrl").val(href);
+        	//$('#loginJumpFormId').submit();
         },
         _loadEventChart:function(){
         

@@ -28,7 +28,7 @@
 			<div class="right-list">
 				<ul>
 					<li><a href="#">政治管理</a></li>
-					<li><a href="#">公共安全</a></li>
+					<li><a href="http://buzz.yeesight.com/login?url=http://localhost:8085/yk-pa-web/home/loginSuccess">公共安全</a></li>
 					<li><a href="#">修改</a></li>
 				</ul>
 			</div>

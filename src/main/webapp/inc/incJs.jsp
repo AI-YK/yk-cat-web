@@ -21,7 +21,7 @@
 <script src="${_base}/resources/spm_modules/app/core/config.js"></script>
 <script>
     
-    Date.prototype.stdTimezoneOffset = function() {
+  /*   Date.prototype.stdTimezoneOffset = function() {
         var jan = new Date(this.getFullYear(), 0, 1);
         var jul = new Date(this.getFullYear(), 6, 1);
         return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
@@ -33,11 +33,11 @@
     }
     var today = new Date();
 	//send to the back
-	$.post(_base+"/timezone.htm?offset="+today.stdTimezoneOffset());
+	$.post(_base+"/timezone.htm?offset="+today.stdTimezoneOffset()); */
 
 
     Œ–
-    Date.prototype.format = function(format) {
+   /*  Date.prototype.format = function(format) {
         var date = {
                "M+": this.getMonth() + 1,
                "d+": this.getDate(),
@@ -57,6 +57,6 @@
                }
         }
         return format;
-  }
+    } */
 
 </script>

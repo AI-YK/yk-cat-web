@@ -7,10 +7,10 @@
 		<ul>
 			<li class="left">
 				<p>
-					<a href="#">登录</a>|
+					<a id="login" href="javascript:void(0);">登录</a>|
 				</p>
 				<p>
-					<a href="#">注册</a>
+					<a id="regist" href="http://buzz.yeesight.com/register">注册</a>
 				</p>
 			</li>
 			<li class="right">
@@ -48,6 +48,6 @@
 		</div>
 	</div>
 </div>
-<script type="application/javascript">
-	
-</script>
+<form id="loginJumpFormId" method="post" style="visibility: hidden;">
+      <input type="hidden" name="url" id="loginSuccessUrl">
+</form>
