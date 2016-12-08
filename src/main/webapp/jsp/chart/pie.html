@@ -24,34 +24,55 @@
         subtext: '纯属虚构',
         x : 'center'
     },
-    tooltip : {
+   /*  tooltip : {
         trigger: 'item',
-        formatter: "{a} <br/>{b} : {c} ({d}%)"
-    },
+        formatter: "<span>{a} <br/>{b} : {c} ({d}%)</span>"
+    },  */
     legend: {
         orient: 'vertical',
 		x : 'right',
 		textStyle :{
 			color: '#1180d3'
 		},
-         data: ['微信','APP','新闻','问答','博客','论坛']
+        data: ['微信','APP','新闻','问答','博客','论坛']
     },
     series : [
         {
-            name: '访问来源',
-            type: 'pie',
-            radius : '55%',
-            center: ['50%', '60%'],
+           name: '访问来源',
+           type: 'pie',
+           roseType : 'radius',
            data:[
-                {value:20.5, name:'微信'},
-                {value:6.1, name:'APP'},
-                {value:41.1, name:'新闻'},
-                {value:2.5, name:'问答'},
-                {value:5.4, name:'博客'},
-                {value:24, name:'论坛'}
+                {value:100, name:'微信'},
+                {value:90, name:'APP'},
+                {value:80, name:'新闻'},
+                {value:60, name:'问答'},
+                {value:110, name:'博客'},
+                {value:70, name:'论坛'}
             ],
             itemStyle: {
+            	normal : {
+                     label : {
+                         show : false
+                     },
+                     labelLine : {
+                         show : false
+                     }
+                },
                 emphasis: {
+                	 label : {
+                         show : true,
+                         position:'outter',
+                         formatter: function(param){
+                        	console.log(JSON.stringify(param));
+                        	return param.name+"\n"+param.percent+"%";
+                         }
+                     },
+                     labelLine : {
+                         show : true,
+                         lineStyle:{
+                        	 color:'#ffffff'
+                         }
+                     },
                     shadowBlur : 10,
                     shadowOffsetX : 10,
                     shadowColor : 'rgba(0, 0, 0, 0.5)'
