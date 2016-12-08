@@ -1,6 +1,9 @@
 package com.ai.yk.protal.web.controller.trend;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ai.opt.sdk.util.DateUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.publicaffairs.IocSentimentVo;
 import com.ai.yk.protal.web.content.publicaffairs.MediaCoverageVo;
@@ -36,11 +40,29 @@ public class PublicOpinionTrendController {
 				 */
 			  @RequestParam(value="modelNo",defaultValue="") String modelNo,
 			  @RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
-			  @RequestParam(value="timeType",defaultValue="") String timeType,
-			  @RequestParam(value="beginTime",defaultValue="") String beginTime,
-			  @RequestParam(value="endTime",defaultValue="") String endTime
+			  /**
+			   * 今日：0，本周：1，本月：2
+			   **/
+			  @RequestParam(value="timeType",defaultValue="") String timeType
 			){
-		/*PublicAffairsMessage message =new PublicAffairsMessage();
+		
+		/*
+		 * Calendar calendar = Calendar.getInstance();
+		String beginTime;
+		String endTime;
+		int n = calendar.get(Calendar.DAY_OF_WEEK);
+		if(timeType.equals("0")){
+			beginTime = DateUtil.getDateString("yyyy-MM-dd 00:00:00");
+			endTime = DateUtil.getDateString("yyyy-MM-dd 23:59:59");
+		}else if(timeType.equals("1")){
+			endTime = DateUtil.getDateString("yyyy-MM-dd 00:00:00");
+			beginTime = getDateBefore(new Date(), -n);
+		}else if(timeType.equals("2")){
+			beginTime = DateUtil.getDateString("yyyy-MM-dd 00:00:00");
+			endTime = getDateBefore(new Date(), -30);
+		}
+		
+		PublicAffairsMessage message =new PublicAffairsMessage();
 		message.setCity(city);
 		message.setProvince(province);
 		message.setModelNo(modelNo);
@@ -62,6 +84,15 @@ public class PublicOpinionTrendController {
 		
 		return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询舆情趋势或媒体覆盖",publicAffairsResponse);
 	}
+	
+	public static String  getDateBefore(Date d, int day) {  
+        Calendar now = Calendar.getInstance();  
+        now.setTime(d);  
+        now.set(Calendar.DATE, now.get(Calendar.DATE) + day);
+        SimpleDateFormat dateFormater = new SimpleDateFormat("yyyy-MM-dd 00:00:00");
+        
+        return dateFormater.format(now.getTime());  
+    }
 	
 	/**
 	 * 模拟舆情趋势
