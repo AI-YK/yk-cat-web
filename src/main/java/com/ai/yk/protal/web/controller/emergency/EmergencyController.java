@@ -1,5 +1,6 @@
 package com.ai.yk.protal.web.controller.emergency;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,8 @@ import com.ai.yk.protal.web.service.eventdata.EventDataService;
 	 */
 @Controller
 @RequestMapping("/emergency")
-public class EmergencyController {
+public class EmergencyController{
+		
 	    @Autowired
 		private  EventDataService eventDataService;
 	   
@@ -35,9 +37,32 @@ public class EmergencyController {
 	     */
 	    @RequestMapping("/getEmergencyIndexList")
 	    @ResponseBody
-	    public ResponseData<HomeEventVo> getEmergencyIndexList(){ 
+	    public ResponseData<HomeEventVo> getEmergencyIndexList(
+	    		@RequestParam(value="pageSize",defaultValue="10") Integer pageSize,
+	    		@RequestParam(value="pageNo",defaultValue="1") Integer pageNo,
+	    		// 所属分类 舆情分类，根据字典表
+	    		@RequestParam(value="type",defaultValue="") Integer type,
+	    		// 行业类型（行业分类，根据字典表）
+	    		@RequestParam(value="industryType",defaultValue="") Integer industryType,
+	    		// 数据类型（ 1 : 新闻 2 : 社交）
+	    		@RequestParam(value="sourceType",defaultValue="") Integer sourceType,
+	    		@RequestParam(value="countryCode",defaultValue="") String countryCode,
+	    		@RequestParam(value="provinceCode",defaultValue="") String provinceCode,
+	    		@RequestParam(value="cityCode",defaultValue="") String cityCode
+	    		){ 
+	    	
 	    	/*HomeEventVo homeEventVo = new HomeEventVo();
 	    	YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
+	    	EventListMessage eventListMessage = new EventListMessage();
+	    	eventListMessage.setPageSize(pageSize);
+	    	eventListMessage.setPageNo(pageNo);
+	    	eventListMessage.setType(type);
+	    	eventListMessage.setIndustryType(industryType);
+	    	eventListMessage.setSourceType(sourceType);
+	    	eventListMessage.setCountryCode(countryCode);
+	    	eventListMessage.setProvinceCode(provinceCode);
+	    	eventListMessage.setCityCode(cityCode);
+	    	req.setData(eventListMessage);
 	    	YJResponse<EventListResponse> resp = eventDataService.queryEventDataList(req);
 	    	List<EventVo> eventList = resp.getData().getResults();
 	    	homeEventVo.setEventList(eventList);
@@ -50,6 +75,7 @@ public class EmergencyController {
 	    		chartGroup.add(modelResp.getData());
 	    	}
 	    	homeEventVo.setGroups(chartGroup);*/
+	    	
 	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",mock());
 	    }
 	    
