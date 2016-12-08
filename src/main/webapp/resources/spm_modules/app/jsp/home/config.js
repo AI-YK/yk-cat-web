@@ -134,7 +134,8 @@ define('app/jsp/home/config', function (require, exports, module) {
         	  }
           });
           if(interestStr ==""){
-        	  alert(1);
+        	  $("#tishiId").text("领域分类至少选择一个");
+        	  return;
           }else{
         	  interestStr = interestStr.substring(1,interestStr.length);
           }
@@ -143,11 +144,10 @@ define('app/jsp/home/config', function (require, exports, module) {
       	  if(province){
       		  var next = province.next();
       		  provinceCode = next.val();
-      		  alert(provinceCode);
       	  }else{
-      		alert(2);
+      		$("#tishiId").text("请选择省份");
+      		return;
       	  }
-      	  return;
    		  var cityStr="";
    		  $(".city").each(function(){
    			  if(this.checked){
@@ -155,7 +155,8 @@ define('app/jsp/home/config', function (require, exports, module) {
    			  }
    		  });
    		  if(cityStr==""){
-   			  alert(3);
+   			$("#tishiId").text("至少选择一个城市");
+   			return;
    		  }else{
    			  cityStr=cityStr.substring(1,cityStr.length);
    		  }
