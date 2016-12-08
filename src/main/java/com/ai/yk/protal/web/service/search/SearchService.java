@@ -41,7 +41,7 @@ public class SearchService {
 	/**
 	 * 公共安全事件检索
 	 */
-	public YJResponse<SearchPublicSafetyResponse> getNewsList(YJRequest<SearchPublicSafetyMessage> req) {
+	public YJResponse<SearchPublicSafetyResponse> getSearchPublicSafety(YJRequest<SearchPublicSafetyMessage> req) {
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){

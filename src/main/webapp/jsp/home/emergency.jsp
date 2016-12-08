@@ -29,7 +29,8 @@
 			<div class="chart1-title">传播态势</div>
 				<div class="chart1-conter"></div>
 				<!--图表嵌套区域-->
-				<div id="chart_0_{{:#index}}" class="chart1-main">chart_0_{{:#index}}</div>
+				
+                <img src="${uedroot}/images/chuanbo.png" class="chart1-main"/>
 				<!--/图表嵌套结束-->
 			</div>
 			<!--/图表1结束-->

@@ -19,8 +19,8 @@ public final class SessionUtil {
 	    SSOClientUser loginUser = (SSOClientUser) request.getSession().getAttribute(Constants.USER_SESSION_KEY);
         if(loginUser==null){
         	loginUser = new SSOClientUser();
-        	loginUser.setUserId("111");
-        	loginUser.setUsername("Roy");
+        	loginUser.setUserId("1");
+        	loginUser.setBalance("Houg");
         }
 	    return loginUser;
 	}

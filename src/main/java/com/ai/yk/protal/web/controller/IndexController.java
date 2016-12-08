@@ -51,7 +51,7 @@ public class IndexController {
      * 配置页面
      */
     @SuppressWarnings("unused")
-	@RequestMapping("/loginSuccess")
+	@RequestMapping("/success")
     public String loginSuccess(Model model){
     	SSOClientUser clientUser = SessionUtil.getLoginUser();
     	SessionUtil.print();
