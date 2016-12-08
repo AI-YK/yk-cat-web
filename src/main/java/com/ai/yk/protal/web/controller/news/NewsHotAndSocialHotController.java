@@ -19,7 +19,7 @@ import com.ai.yk.protal.web.service.search.SearchService;
 
 @Controller
 @RequestMapping("/news")
-public class NewsHotController {
+public class NewsHotAndSocialHotController {
 /**
  * 新闻热点和社交热点
  */
