@@ -1,22 +1,16 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-<!--图表-->
 <div class="yeesight-banner">
 	<div class="banner-main">
 		<div class="banner-title">突发事件</div>
 		<div class="banner-list">
 			<div class="list-left">
-				<ul id="eventList">
-				
-				</ul>
+				<ul id="eventList"></ul>
 			</div>
-			<div class="list-right" id="eventChartList">
-				
-			</div>
+			<div class="list-right" id="eventChartList"></div>
 		</div>
-
 	</div>
 </div>
-<!-- / 图表结束-->
+<!-- 图表结束-->
 <script id="emergencyTempl" type="text/x-jsrender">
   {{for eventList}}
      <li class="bot-none {{if #index==0}}current{{/if}}">

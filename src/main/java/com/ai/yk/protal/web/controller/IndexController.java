@@ -54,6 +54,7 @@ public class IndexController {
 	@RequestMapping("/loginSuccess")
     public String loginSuccess(Model model){
     	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	SessionUtil.print();
     	YJResponse<MyCustomizedVo> resp = null;
     	/*YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
     	resp = mycustomizedService.queryEventDataEntityForSrcId(req);*/

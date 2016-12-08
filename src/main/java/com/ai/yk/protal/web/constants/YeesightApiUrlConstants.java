@@ -35,9 +35,10 @@ public class YeesightApiUrlConstants {
 	public final static String API_INFODETAIL_SOCIALDETAIL = "/api/infoDetail/socialDetail";
 	// 查询数据字典
 	public final static String API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS = "/api/common/queryDicByTypeAndLanguageForNews";
-	// 查询数据字典
+	// 查询媒体覆盖，查询舆情走势
 	public final static String API_YEESIGHTFORPUBLICAFFAIRS_QUERYSHARECOUNT = "/api/ yeesightForPublicAffairs/queryShareCount";
-		
+	// 查询传播态势，事件态势
+	public final static String API_EVENTDATA_EVENTMODEL = "/api/eventData/eventModel";	
 	// 拼接头部信息url
 	public static String getApiUrl(String ulr) {
 		return "http://192.168.59.14:9300/yeesight" + ulr;

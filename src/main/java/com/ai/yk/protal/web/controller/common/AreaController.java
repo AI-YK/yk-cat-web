@@ -18,9 +18,11 @@ import com.ai.yk.protal.web.content.common.DicVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
+import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.utils.SessionUtil;
 
 @Controller
 @RequestMapping("/common")
@@ -42,7 +44,7 @@ public class AreaController {
 	  @RequestMapping("/getProvince")
 	  @ResponseBody
 	  public ResponseData<Map<String,List<QueryAreaListVo>>> getProvice(
-			  @RequestParam(value="parentCode",defaultValue="as_100") String parentCode,
+			  @RequestParam(value="parentCode",defaultValue="as_100000") String parentCode,
 			  @RequestParam(value="classify",defaultValue="province") String classify
 			  ){
 		  /*QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
@@ -222,24 +224,24 @@ public class AreaController {
 			  dicVo.setLanguage("zh");
 			  
 			  DicVo dicVo2 = new DicVo();
-			  dicVo.setDicName("官员腐败");
-			  dicVo.setDicValue("2");
-			  dicVo.setLanguage("zh");
+			  dicVo2.setDicName("官员腐败");
+			  dicVo2.setDicValue("2");
+			  dicVo2.setLanguage("zh");
 			  
 			  DicVo dicVo3 = new DicVo();
-			  dicVo.setDicName("公共安全");
-			  dicVo.setDicValue("3");
-			  dicVo.setLanguage("zh");
+			  dicVo3.setDicName("公共安全");
+			  dicVo3.setDicValue("3");
+			  dicVo3.setLanguage("zh");
 			  
 			  DicVo dicVo4 = new DicVo();
-			  dicVo.setDicName("司法公正");
-			  dicVo.setDicValue("4");
-			  dicVo.setLanguage("zh");
+			  dicVo4.setDicName("司法公正");
+			  dicVo4.setDicValue("4");
+			  dicVo4.setLanguage("zh");
 			  
 			  DicVo dicVo5 = new DicVo();
-			  dicVo.setDicName("伦理道德");
-			  dicVo.setDicValue("5");
-			  dicVo.setLanguage("zh");
+			  dicVo5.setDicName("伦理道德");
+			  dicVo5.setDicValue("5");
+			  dicVo5.setLanguage("zh");
 			  List<DicVo> list = new ArrayList<DicVo>();
 			  list.add(dicVo);
 			  list.add(dicVo2);
@@ -256,17 +258,15 @@ public class AreaController {
 		  @RequestMapping("/saveConf")
 		  @ResponseBody
 		  public ResponseData<SaveMyCustomizedResponse> saveMyCustomized(
-				  @RequestParam(value="createId",defaultValue="") String createId,
 				  @RequestParam(value="sourceSystem",defaultValue="") String sourceSystem,
 				  @RequestParam(value="provinceCode",defaultValue="") String provinceCode,
 				  @RequestParam(value="interestStr",defaultValue="") String interestStr,
 				  @RequestParam(value="cityStr",defaultValue="") String cityStr,
-				  @RequestParam(value="srcID",defaultValue="") String srcID
-				  
+				  @RequestParam(value="srcID",defaultValue="") String srcID  
 				  ){
-			  
+			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
-			  
+			  saveMyCustomizedMessage.setCreateId(clientUser.getUserId());
 			  List<String> interestList=new ArrayList<String>();
 			  String[] interestArr;
 			  if(interestStr.contains(",")){
@@ -280,7 +280,6 @@ public class AreaController {
 				  cityList =java.util.Arrays.asList(cityArr);
 			  }
 			  saveMyCustomizedMessage.setCityList(cityList);
-			  saveMyCustomizedMessage.setCreateId(createId);
 			  saveMyCustomizedMessage.setInterestList(interestList);
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
 			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
