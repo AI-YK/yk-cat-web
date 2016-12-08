@@ -61,11 +61,11 @@
 <script type="text/javascript"
 	src="${uedroot}/scripts/modular/configure.js"></script>
 <script type="text/javascript">
-	$(function() {
+	/* $(function() {
 		$("#finish").click(function() {
 			location.href = _base + '/home/index';
 		});
-	});
+	}); */
 </script>
 
 <script id="provinceTempl" type="text/x-jsrender">
@@ -111,7 +111,7 @@
 <script id="cityTempl" type="text/x-jsrender">
    <li>
 	  <p>
-		 <input type="checkbox" class="checkbox-fie" value="{{:code}}" />
+		 <input type="checkbox" class="checkbox-fie city"  value="{{:code}}" />
 	  </p>
 	  <p>{{:name}}</p>
    </li>
@@ -121,7 +121,7 @@
    {{for dics}}
    <li>
 	  <p>
-		 <input type="checkbox" class="checkbox-fie" value="{{:dicValue}}"/>
+		 <input type="checkbox" class="checkbox-fie dic"  value="{{:dicValue}}"/>
 	  </p>
 	  <p>{{:dicName}}</p>
    </li>

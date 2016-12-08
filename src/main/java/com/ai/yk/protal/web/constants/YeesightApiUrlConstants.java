@@ -21,6 +21,8 @@ public class YeesightApiUrlConstants {
 	public final static String API_EVENTDATA_QUERYEVENTDATALIST = "/api/eventData/queryEventDataList";
 	// 查询事件详情
 	public final static String API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID = "/api/eventData/queryEventDataEntityForSrcId";
+	// 查询个人定制列表
+	public final static String API_YEESIGHTFORNEWS_MYCUSTOMIZEDLIST = "/api/yeesightForNews/myCustomizedList";
 	// 查询个人定制详情
 	public final static String API_YEESIGHTFORNEWS_QUERYMYCUSTOMIZED = "/api/yeesightForNews/queryMyCustomized";
 	// 查询省份

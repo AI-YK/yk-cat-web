@@ -126,3 +126,32 @@ $('#city-one ul li a').click(function(){
    }
   }); 
 });
+
+/*$(function(){
+	  $("#finish").click(function(){
+		  var diccheckname=document.getElementsByName("diccheckname");
+		  var check_val = [];
+		      for(k in diccheckname){
+		          if(diccheckname[k].checked)
+		              check_val.push(diccheckname[k].value);
+		      }
+		  if( $(".choice-list ul li a").hasClass('current')){
+			  var hehe=$(this).next().attr("value");
+		  }
+		  var citycheckname=document.getElementsByName("citycheckname");
+		  var check_city=[];
+		  for(i in citycheckname){
+			  if(citycheckname[i].checked)
+				  check_city.push(citycheckname[i].value);
+		  }
+		  $.ajax({
+			  url:_base+"/common/saveConf",
+			  type:"POST",
+			  dataType:"json",
+			  data:{"interestStr":check_val,"cityStr":check_city,"provinceCode":"1"},
+			  success:function(){
+				  location.href = _base + '/home/index';
+			  }
+		  });
+	  });
+});*/

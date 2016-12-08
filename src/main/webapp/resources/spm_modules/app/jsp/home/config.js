@@ -17,7 +17,7 @@ define('app/jsp/home/config', function (require, exports, module) {
 
         //事件代理
         events: {
-            
+            "click #finish":"_saveConfig"
         },
 
         //重写父类
@@ -83,7 +83,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         },
         _getCity:function(parent){
             if(!parent){
-            	var curr = $(".choice-list ul li current a");
+            	var curr = $(".choice-list .current");
             	if(curr){
             		 var next = curr.next();
                      parent = next.val();
@@ -125,6 +125,56 @@ define('app/jsp/home/config', function (require, exports, module) {
 					
 				}
 			});
+        },
+        _saveConfig:function(){
+          var interestStr = "";
+          $(".dic").each(function(){
+        	  if(this.checked){
+        		  interestStr = interestStr + ","+$(this).val();
+        	  }
+          });
+          if(interestStr ==""){
+        	  alert(1);
+          }else{
+        	  interestStr = interestStr.substring(1,interestStr.length);
+          }
+          var provinceCode = "";
+          var province = $(".choice-list .current");
+      	  if(province){
+      		  var next = province.next();
+      		  provinceCode = next.val();
+      		  alert(provinceCode);
+      	  }else{
+      		alert(2);
+      	  }
+      	  return;
+   		  var cityStr="";
+   		  $(".city").each(function(){
+   			  if(this.checked){
+   				  cityStr=cityStr+","+$(this).val();
+   			  }
+   		  });
+   		  if(cityStr==""){
+   			  alert(3);
+   		  }else{
+   			  cityStr=cityStr.substring(1,cityStr.length);
+   		  }
+   		  var url="/common/saveConf";
+   		  var param={};
+   		  param.provinceCode=provinceCode;
+   		  param.interestStr=interestStr;
+   		  param.cityStr=cityStr;
+   		  ajaxController.ajax({
+   			  type:"POST",
+   			  processing: false,
+   			  message: "保存数据中，请等待...",
+   			  url: _base + url,
+   			  dataType:"json",
+   			  data:param,
+   			  success:function(rs){
+   				  location.href = _base + '/home/index';
+   			  }
+   		  });
         }
         
     });

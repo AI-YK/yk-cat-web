@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.CollectionUtil;
@@ -13,6 +15,8 @@ import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.area.AreaVo;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListResponse;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
@@ -26,7 +30,8 @@ import com.alibaba.fastjson.TypeReference;
 
 @Service
 public class MycustomizedService {
-	
+    private static final Logger LOGGER = LoggerFactory.getLogger(MycustomizedService.class);
+
 	/**
 	 * 创建/修改   个人定制接口
 	 */
@@ -87,11 +92,35 @@ public class MycustomizedService {
 	}
 	
 	/**
+	 * 查询个人定制列表
+	 */
+	public YJResponse<MyCustomizedListResponse> queryMyCustomizedList(YJRequest<MyCustomizedListMessage> req) {
+		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_MYCUSTOMIZEDLIST);
+		String result =HttpClientUtil.getYJBaseResponse(url,req);
+		if(!StringUtil.isBlank(result)){
+			YJResponse<MyCustomizedListResponse> res = 
+					JSON.parseObject(result, new TypeReference<YJResponse<MyCustomizedListResponse>>(){});
+			return res;
+		}
+		return null;
+	}
+	/**
 	 * 查询个人定制详情
 	 */
-	public YJResponse<MyCustomizedVo> queryEventDataEntityForSrcId(YJRequest<MyCustomizedMessage> req) {
+	public YJResponse<MyCustomizedVo> queryMyCustomized(YJRequest<MyCustomizedListMessage> req) {
+		YJResponse<MyCustomizedListResponse> myCustomizedList = queryMyCustomizedList(req);
+		if(myCustomizedList==null||myCustomizedList.getData()==null
+				||CollectionUtil.isEmpty(myCustomizedList.getData().getResults())){
+			LOGGER.info("查询个人定制列表为空");
+			return null;
+		}
+		String srcId = myCustomizedList.getData().getResults().get(0).getSrcId();
+		YJRequest<MyCustomizedMessage> req2 = new YJRequest<>();
+		MyCustomizedMessage m = new MyCustomizedMessage();
+		m.setSrcId(srcId);
+		req2.setMessage(m);
 		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_QUERYMYCUSTOMIZED);
-		String result =HttpClientUtil.getYJBaseResponse(url,req);
+		String result =HttpClientUtil.getYJBaseResponse(url,req2);
 		if(!StringUtil.isBlank(result)){
 			YJResponse<MyCustomizedVo> res = 
 					JSON.parseObject(result, new TypeReference<YJResponse<MyCustomizedVo>>(){});
