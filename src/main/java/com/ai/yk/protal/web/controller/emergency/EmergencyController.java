@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.content.YJRequest;
+import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.event.EventListMessage;
+import com.ai.yk.protal.web.content.event.EventListResponse;
 import com.ai.yk.protal.web.content.event.EventVo;
+import com.ai.yk.protal.web.content.event.chars.EventModelMessage;
 import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
 import com.ai.yk.protal.web.content.event.chars.TimeTrendVo;
 import com.ai.yk.protal.web.model.emergency.HomeEventVo;
@@ -21,8 +26,9 @@ import com.ai.yk.protal.web.service.eventdata.EventDataService;
 @Controller
 @RequestMapping("/emergency")
 public class EmergencyController {
-		    @Autowired
-		    EventDataService eventDataService;
+	    @Autowired
+		private  EventDataService eventDataService;
+	   
 	    /**
 	     * 突发事件前四条列表
 	     * @return
@@ -30,6 +36,20 @@ public class EmergencyController {
 	    @RequestMapping("/getEmergencyIndexList")
 	    @ResponseBody
 	    public ResponseData<HomeEventVo> getEmergencyIndexList(){ 
+	    	HomeEventVo homeEventVo = new HomeEventVo();
+	    	YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
+	    	YJResponse<EventListResponse> resp = eventDataService.queryEventDataList(req);
+	    	List<EventVo> eventList = resp.getData().getResults();
+	    	homeEventVo.setEventList(eventList);
+	    	List<EventModelResponse> chartGroup = new ArrayList<EventModelResponse>();
+	    	for(EventVo event:eventList){
+	    		YJRequest<EventModelMessage> modelReq = new YJRequest<EventModelMessage>();
+	    		EventModelMessage mesge = new EventModelMessage();
+	    		mesge.setEventId(String.valueOf(event.getId()));
+	    		YJResponse<EventModelResponse> modelResp =eventDataService.queryEventModel(modelReq);
+	    		chartGroup.add(modelResp.getData());
+	    	}
+	    	homeEventVo.setGroups(chartGroup);
 	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",mock());
 	    }
 	    

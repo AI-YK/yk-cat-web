@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import com.ai.yk.protal.web.content.event.EventVo;
+import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
 
 public class HomeEventVo implements Serializable{
 	
@@ -22,24 +23,20 @@ public class HomeEventVo implements Serializable{
 	/**
 	 * chart集合
 	 */
-	private List<ChartGroup> group;
+	private List<EventModelResponse> groups;
 	
 	public List<EventVo> getEventList() {
 		return eventList;
 	}
-
 	public void setEventList(List<EventVo> eventList) {
 		this.eventList = eventList;
 	}
-
-	public List<ChartGroup> getGroup() {
-		return group;
+	public List<EventModelResponse> getGroups() {
+		return groups;
 	}
-
-	public void setGroup(List<ChartGroup> group) {
-		this.group = group;
+	public void setGroups(List<EventModelResponse> groups) {
+		this.groups = groups;
 	}
 	
 	
-
 }
