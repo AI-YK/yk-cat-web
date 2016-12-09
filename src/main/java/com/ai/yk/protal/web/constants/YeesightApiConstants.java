@@ -48,7 +48,7 @@ public class YeesightApiConstants {
 	// 查询数据字典
 	public final static String API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS = "/api/common/queryDicByTypeAndLanguageForNews";
 	// 查询媒体覆盖，查询舆情走势
-	public final static String API_YEESIGHTFORPUBLICAFFAIRS_QUERYSHARECOUNT = "/api/yeesightForPublicAffairs/queryGeneralDate";
+	public final static String API_YEESIGHTFORPUBLICAFFAIRS_QUICKANALYZE = "/api/yeesightForPublicAffairs/quickAnalyze";
 	// 查询传播态势，事件态势
 	public final static String API_EVENTDATA_EVENTMODEL = "/api/eventData/eventModel";
 	// 公共安全事件检索接口
