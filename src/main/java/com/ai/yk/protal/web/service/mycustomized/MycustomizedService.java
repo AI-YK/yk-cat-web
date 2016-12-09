@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
-import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
+import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.area.AreaVo;
@@ -40,9 +40,9 @@ public class MycustomizedService {
 		String url = null;
 		
 		if(StringUtil.isBlank(req.getMessage().getSrcID())){
-			url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_ADDMYCUSTOMIZED);
+			url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORNEWS_ADDMYCUSTOMIZED);
 		}else{
-			url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_UPDATEMYCUSTOMIZED);
+			url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORNEWS_UPDATEMYCUSTOMIZED);
 		}
 		
 		String json = change(req);
@@ -95,7 +95,7 @@ public class MycustomizedService {
 	 * 查询个人定制列表
 	 */
 	public YJResponse<MyCustomizedListResponse> queryMyCustomizedList(YJRequest<MyCustomizedListMessage> req) {
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_MYCUSTOMIZEDLIST);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORNEWS_MYCUSTOMIZEDLIST);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			YJResponse<MyCustomizedListResponse> res = 
@@ -119,7 +119,7 @@ public class MycustomizedService {
 		MyCustomizedMessage m = new MyCustomizedMessage();
 		m.setSrcId(srcId);
 		req2.setMessage(m);
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORNEWS_QUERYMYCUSTOMIZED);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORNEWS_QUERYMYCUSTOMIZED);
 		String result =HttpClientUtil.getYJBaseResponse(url,req2);
 		if(!StringUtil.isBlank(result)){
 			YJResponse<MyCustomizedVo> res = 
