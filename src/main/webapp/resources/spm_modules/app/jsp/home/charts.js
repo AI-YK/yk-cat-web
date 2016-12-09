@@ -184,6 +184,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         },
         _initMediaCoverageChart:function(container,ul,data){
         	var colors = ['#eb4d38','#80c823','#0067b4','#af67ef','#f9983a'];	
+        	var series = [];
+        	for(var i=0;i<data.length;i++){
+        		series.push({'name':data[i].name,'value':data[i].count});
+        	}
         	if(data.length%5==1){
         		colors.splice(0,1);
         	}
@@ -196,7 +200,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		           name: '媒体覆盖',
         		           type: 'pie',
         		           roseType : 'radius',
-        		           data:data,
+        		           data:series,
         		            itemStyle: {
         		            	normal : {
         		                     label : {
