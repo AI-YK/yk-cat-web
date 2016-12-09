@@ -6,7 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ai.paas.ipaas.i18n.ResWebBundle;
+import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.event.EventListMessage;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
@@ -56,8 +59,10 @@ public class IndexController {
     	SSOClientUser clientUser = SessionUtil.getLoginUser();
     	SessionUtil.print();
     	YJResponse<MyCustomizedVo> resp = null;
-    	/*YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
-    	resp = mycustomizedService.queryEventDataEntityForSrcId(req);*/
+    	YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
+    	MyCustomizedListMessage myCustomizedListMessage = new MyCustomizedListMessage();
+    	myCustomizedListMessage.setCreateId(Integer.valueOf(clientUser.getUserId()));
+    	resp = mycustomizedService.queryMyCustomized(req);
     	if(resp==null){
     		 return "redirect:/home/config";
     	}else{

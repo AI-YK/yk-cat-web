@@ -38,7 +38,7 @@ public class EmergencyController{
 	    @RequestMapping("/getEmergencyIndexList")
 	    @ResponseBody
 	    public ResponseData<HomeEventVo> getEmergencyIndexList(
-	    		@RequestParam(value="pageSize",defaultValue="10") Integer pageSize,
+	    		@RequestParam(value="pageSize",defaultValue="4") Integer pageSize,
 	    		@RequestParam(value="pageNo",defaultValue="1") Integer pageNo,
 	    		// 所属分类 舆情分类，根据字典表
 	    		@RequestParam(value="type",defaultValue="") Integer type,
