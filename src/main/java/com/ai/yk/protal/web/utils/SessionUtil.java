@@ -107,11 +107,11 @@ public final class SessionUtil {
 		if(topics==null){
 			List<MyTopicsVo> list = new ArrayList<MyTopicsVo>();
 			MyTopicsVo myTopicsVo = new MyTopicsVo();
-			myTopicsVo.setSrcShortTitle("专题一");
+			myTopicsVo.setSrcShortTitle("中国航天");
 			MyTopicsVo myTopicsVo2 = new MyTopicsVo();
-			myTopicsVo2.setSrcShortTitle("专题二");
+			myTopicsVo2.setSrcShortTitle("时代");
 			MyTopicsVo myTopicsVo3 = new MyTopicsVo();
-			myTopicsVo3.setSrcShortTitle("专题三");
+			myTopicsVo3.setSrcShortTitle("生活");
 			list.add(myTopicsVo);
 			list.add(myTopicsVo2);
 			list.add(myTopicsVo3);
