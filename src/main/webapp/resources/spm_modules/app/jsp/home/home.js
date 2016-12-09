@@ -15,7 +15,8 @@ define('app/jsp/home/home', function (require, exports, module) {
     var homePage = Widget.extend({
         //属性，使用时由类的构造函数传入
         attrs: {
-            clickId:""
+            clickId:"",
+            chartGroups:{}
         },
 
         //事件代理
@@ -43,6 +44,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                  });
                  $(this).addClass("current");
                  var index=$('.list-left ul li').index(this);
+                 homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);
                  $("#chart-date"+index).show();
 			});
             
@@ -110,6 +112,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._getNegativeList("social");
         },
         _initEventData:function(){
+        	var _this = this;
         	var url = "/emergency/getEmergencyIndexList";
         	var param = {};
         	ajaxController.ajax({
@@ -122,12 +125,9 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var data = rs.data;
 					var emergencyHtml = $("#emergencyTempl").render(data);
 					$("#eventList").html(emergencyHtml);
-					var chartHtml = $("#chartTempl").render(data);
-					$("#eventChartList").html(chartHtml);
-					var groups = data.groups;
-					for(var i=0;i<groups.length;i++){
-						homeChart._initTimeTrendChart('chart_1_'+i,groups[i].timeTrend);
-					}
+					$("#chartGroup").show();
+					_this.chartGroups = data.groups;
+					homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
 				}
 			});
         },
