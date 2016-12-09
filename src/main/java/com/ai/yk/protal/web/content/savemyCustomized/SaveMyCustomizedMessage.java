@@ -20,7 +20,7 @@ public class SaveMyCustomizedMessage implements Serializable{
 	private List<String> interestList;
 	private List<String> cityList;
 	
-	private String srcID;
+	private String srcId;
 
 	public String getCreateId() {
 		return createId;
@@ -45,6 +45,7 @@ public class SaveMyCustomizedMessage implements Serializable{
 	public void setProvinceCode(String provinceCode) {
 		this.provinceCode = provinceCode;
 	}
+
 	public List<String> getInterestList() {
 		return interestList;
 	}
@@ -61,12 +62,12 @@ public class SaveMyCustomizedMessage implements Serializable{
 		this.cityList = cityList;
 	}
 
-	public String getSrcID() {
-		return srcID;
+	public String getSrcId() {
+		return srcId;
 	}
 
-	public void setSrcID(String srcID) {
-		this.srcID = srcID;
+	public void setSrcId(String srcId) {
+		this.srcId = srcId;
 	}
-	
+
 }
