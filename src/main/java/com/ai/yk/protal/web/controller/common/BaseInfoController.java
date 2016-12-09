@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +33,10 @@ import com.ai.yk.protal.web.utils.SessionUtil;
 
 @Controller
 @RequestMapping("/common")
-public class AreaController {
+public class BaseInfoController {
+	
+	private static final Logger log = LoggerFactory.getLogger(BaseInfoController.class);
+	
 	/**
 	 * 配置信息省市
 	 */
@@ -411,8 +416,18 @@ public class AreaController {
 			  saveMyCustomizedMessage.setCreateId(userId);
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
-			  YJResponse<SaveMyCustomizedResponse> res= mycustomizedService.saveMyCustomized(req);
+			  YJResponse<SaveMyCustomizedResponse> res = mycustomizedService.saveMyCustomized(req);
+			  if(res==null||res.getHead()==null){
+				  log.error("系统异常，请联系管理员");
+				  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_FAILURE,"系统异常，请联系管理员",null);
+			 
+			  }
+			  if("false".equals(res.getHead().getResult())){
+				  log.error(res.getHead().getMessage());
+				  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_FAILURE,res.getHead().getMessage(),null);
+			  }
 			  SaveMyCustomizedResponse  saveMyCustomizedResponse =  res.getData();
+			  
 			  //获取保存的配置信息
 			  YJRequest<MyCustomizedListMessage> customizedListMessageReq= new YJRequest<MyCustomizedListMessage>();
 			  MyCustomizedListMessage customizedListMessage = new MyCustomizedListMessage();
