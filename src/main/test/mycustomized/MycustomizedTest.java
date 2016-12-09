@@ -13,7 +13,7 @@ public class MycustomizedTest {
 		MycustomizedService service = new MycustomizedService();
 		YJRequest<MyCustomizedListMessage> req = new YJRequest<>();
 		MyCustomizedListMessage message = new MyCustomizedListMessage();
-		message.setCreateId(98875);
+		message.setCreateId(1);
 		req.setMessage(message);
 		System.out.println("请求参数:" + JSON.toJSONString(req));
 		YJResponse<MyCustomizedListResponse> res = service
@@ -33,8 +33,8 @@ public class MycustomizedTest {
 	}
 
 	public static void main(String[] args) {
-		//MycustomizedTest.testList();
-		MycustomizedTest.testDeatil();
+		MycustomizedTest.testList();
+		//MycustomizedTest.testDeatil();
 	}
 
 }

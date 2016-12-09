@@ -400,7 +400,7 @@ public class BaseInfoController {
 				  ){
 			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
-			  saveMyCustomizedMessage.setCreateId(clientUser.getUserId());
+			  saveMyCustomizedMessage.setCreateId(Integer.parseInt(clientUser.getUserId()));
 			  List<String> interestList=new ArrayList<String>();
 			  String[] interestArr = interestStr.split(",");
 				  interestList = java.util.Arrays.asList(interestArr);
@@ -413,7 +413,7 @@ public class BaseInfoController {
 			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
 			  String userId = clientUser.getUserId();
 			  saveMyCustomizedMessage.setSrcId(srcID);
-			  saveMyCustomizedMessage.setCreateId(userId);
+			  saveMyCustomizedMessage.setCreateId(Integer.parseInt(userId));
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
 			  YJResponse<SaveMyCustomizedResponse> res = mycustomizedService.saveMyCustomized(req);
