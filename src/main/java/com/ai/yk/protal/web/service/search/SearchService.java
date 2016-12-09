@@ -61,7 +61,7 @@ public class SearchService {
 		/*SearchService service = new SearchService();
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
 		SearchPublicSafetyMessage message = new SearchPublicSafetyMessage();
-		message.setMediaType("news");
+		message.setMediaType("social");
 		message.setProvincecityCode("吉林");
 		message.setCityCode("长春");
 		message.setPublicAffairsType("公共卫生");
@@ -73,8 +73,8 @@ public class SearchService {
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
 		YJResponse<SearchPublicSafetyResponse> res = service.getSearchPublicSafety(req);
-		System.out.println(JSON.toJSONString(res));*/
-		
+		System.out.println(JSON.toJSONString(res));
+		*/
 		
 		/*String str ="{'data':{'resultCount':10,'resultList':[{'mediaNameSrc':'中国结婚论坛-彩妆造型','mediaId':'10021','mediaNameZh':'中国结婚论坛-彩妆造型','mediaNameEn':'中国结婚论坛-彩妆造型','url':'chinajiehun.com'}]},'head':{'result':'true','message':'ok'}}";
 		YJResponse<GetDataSourceListReponse> data =JSON.parseObject(str, new TypeReference<YJResponse<GetDataSourceListReponse>>(){});
