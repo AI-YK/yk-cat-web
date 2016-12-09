@@ -122,7 +122,7 @@ public class EmergencyController{
 				    @RequestParam(value="beginDate",defaultValue="") String beginDate,
 				    @RequestParam(value="endDate",defaultValue="") String endDate
 	    		){
-	    	/*EventModelMessage eventModelMessage = new EventModelMessage();
+	    	EventModelMessage eventModelMessage = new EventModelMessage();
 	    	eventModelMessage.setEventId(eventId);
 	    	eventModelMessage.setModels(models);
 	    	eventModelMessage.setBeginDate(beginDate);
@@ -131,9 +131,9 @@ public class EmergencyController{
 	    	req.setMessage(eventModelMessage);
 	    	YJResponse<EventModelResponse> res = new YJResponse<EventModelResponse>();
 	    	res = eventDataService.queryEventModel(req);
-	    	EventModelResponse eventModelResponse = res.getData();*/
+	    	EventModelResponse eventModelResponse = res.getData();
 	    	
-	    	EventModelResponse eventModelResponse = mockEventState();
+	    	//EventModelResponse eventModelResponse = mockEventState();
 	    	return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询事件态势",eventModelResponse);
 	    }
 	    public EventModelResponse mockEventState(){
