@@ -161,7 +161,7 @@ public class PublicOpinionTrendController {
 		mediaCoverageVo2.setValue(18);
 		MediaCoverageVo mediaCoverageVo3 = new MediaCoverageVo();
 		mediaCoverageVo3.setName("新闻");
-		mediaCoverageVo3.setValue(25);
+		mediaCoverageVo3.setValue(22);
 		MediaCoverageVo mediaCoverageVo4 = new MediaCoverageVo();
 		mediaCoverageVo4.setName("问答");
 		mediaCoverageVo4.setValue(15);
