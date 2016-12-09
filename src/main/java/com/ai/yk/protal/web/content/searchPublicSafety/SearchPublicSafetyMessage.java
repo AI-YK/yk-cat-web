@@ -83,4 +83,20 @@ public class SearchPublicSafetyMessage implements Serializable {
 		public void setOrder(String order) {
 			this.order = order;
 		}
+		public SearchPublicSafetyMessage(String mediaType, String sentimentId, String provincecityCode, String cityCode,
+				String publicAffairsType, String mediaId, String mediaLevel, String fieldName, String order) {
+			super();
+			this.mediaType = mediaType;
+			this.sentimentId = sentimentId;
+			this.provincecityCode = provincecityCode;
+			this.cityCode = cityCode;
+			this.publicAffairsType = publicAffairsType;
+			this.mediaId = mediaId;
+			this.mediaLevel = mediaLevel;
+			this.fieldName = fieldName;
+			this.order = order;
+		}
+		public SearchPublicSafetyMessage() {
+			super();
+		}
 }
