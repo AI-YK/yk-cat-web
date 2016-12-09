@@ -95,14 +95,11 @@ public class EmergencyController{
 	    	HomeEventVo homeEventVo =new HomeEventVo();
 	    	homeEventVo.setEventList(results);
 	    	/**突发事件chart图数据**/
-	    	/*ChartLeft chartLeft  = new ChartLeft();
-	    	ChartRight chartRight = new ChartRight();
-	    	ChartGroup chartGroup = new ChartGroup();
-	    	chartGroup.setChartLeft(chartLeft);
-	    	chartGroup.setChartRight(chartRight);
-	    	List<ChartGroup> group = new ArrayList<ChartGroup>();
-	    	group.add(chartGroup);
-	    	homeEventVo.setGroup(group);*/
+	    	List<EventModelResponse> groups = new ArrayList<EventModelResponse>();
+	    	for(int i=0;i<results.size();i++){
+	    		groups.add(mockEventState());
+	    	}
+	    	homeEventVo.setGroups(groups);
 	    	return homeEventVo;
 	    }
 	    /**
