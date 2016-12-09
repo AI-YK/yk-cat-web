@@ -50,7 +50,7 @@ public class NewsHotAndSocialHotController {
 				**/
 			    @RequestParam(value="order",defaultValue="") String order
 			){
-		/*SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
+		SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
 		searchPublicSafetyMessage.setMediaType(mediaType);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
@@ -63,16 +63,16 @@ public class NewsHotAndSocialHotController {
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
 		req.setMessage(searchPublicSafetyMessage);
 		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
-		res = searchService.getNewsList(req);
+		res = searchService.getSearchPublicSafety(req);
 		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
-		searchPublicSafetyResponse = res.getData();*/
+		searchPublicSafetyResponse = res.getData();
 		
-		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
+		/*SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
 		if(mediaType.equals("news")){
 			searchPublicSafetyResponse = mockHotInfoList();
 		}else if(mediaType.equals("social")){
 			searchPublicSafetyResponse = mockHotInfoList();
-		}
+		}*/
 		return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询新闻热点和社交热点",searchPublicSafetyResponse);
 	}
 	/**
