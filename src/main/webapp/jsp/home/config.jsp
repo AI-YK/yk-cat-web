@@ -15,7 +15,7 @@
 			<img src="${uedroot}/images/logo.png">
 		</div>
 		<div class="configure-city-bj">
-			<div class="city-title">设置基本信息</div>
+			<div class="city-title">设置基本信息<span id="tishiId" style="color: red; font-size:12px;"></span></div>
 			<div class="field-title">
 				<ul id="dicUl">
 		
