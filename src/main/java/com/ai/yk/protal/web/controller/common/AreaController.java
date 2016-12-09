@@ -397,17 +397,11 @@ public class AreaController {
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 			  saveMyCustomizedMessage.setCreateId(clientUser.getUserId());
 			  List<String> interestList=new ArrayList<String>();
-			  String[] interestArr;
-			  if(interestStr.contains(",")){
-				  interestArr = interestStr.split(",");
+			  String[] interestArr = interestStr.split(",");
 				  interestList = java.util.Arrays.asList(interestArr);
-			  }
 			  List<String> cityList=new ArrayList<String>();
-			  String[] cityArr;
-			  if(interestStr.contains(",")){
-				  cityArr = interestStr.split(",");
+			  	  String[] cityArr = interestStr.split(",");
 				  cityList =java.util.Arrays.asList(cityArr);
-			  }
 			  saveMyCustomizedMessage.setCityList(cityList);
 			  saveMyCustomizedMessage.setInterestList(interestList);
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
