@@ -31,8 +31,8 @@
 						<div class="special-show" id="special-one">
 							<span><i class="icon iconfont">&#xe65a;</i></span>
 							<ul>
-								<a href="#" class="ahov1" onclick="javascript:selectDate();"><li>通用数据</li></a>
-								<a href="#" class="ahov2" onclick="javascript:selectDate();"><li>专题数据</li></a>
+								<a href="#" class="ahov1" ><li>通用数据</li></a>
+								<a href="#" class="ahov2" ><li>专题数据</li></a>
 								
 							</ul>
 						</div>
@@ -75,10 +75,7 @@
         });
     })();
     
-    
-    function selectDate(this){
-    	alert(this);
-    }
+
 </script>
 
 </html>
