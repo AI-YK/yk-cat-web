@@ -51,7 +51,7 @@ public class EmergencyController{
 	    		@RequestParam(value="cityCode",defaultValue="") String cityCode
 	    		){ 
 	    	
-	    	/*HomeEventVo homeEventVo = new HomeEventVo();
+	    	HomeEventVo homeEventVo = new HomeEventVo();
 	    	YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
 	    	EventListMessage eventListMessage = new EventListMessage();
 	    	eventListMessage.setPageSize(pageSize);
@@ -62,7 +62,7 @@ public class EmergencyController{
 	    	eventListMessage.setCountryCode(countryCode);
 	    	eventListMessage.setProvinceCode(provinceCode);
 	    	eventListMessage.setCityCode(cityCode);
-	    	req.setData(eventListMessage);
+	    	req.setMessage(eventListMessage);
 	    	YJResponse<EventListResponse> resp = eventDataService.queryEventDataList(req);
 	    	List<EventVo> eventList = resp.getData().getResults();
 	    	homeEventVo.setEventList(eventList);
@@ -74,9 +74,9 @@ public class EmergencyController{
 	    		YJResponse<EventModelResponse> modelResp =eventDataService.queryEventModel(modelReq);
 	    		chartGroup.add(modelResp.getData());
 	    	}
-	    	homeEventVo.setGroups(chartGroup);*/
+	    	homeEventVo.setGroups(chartGroup);
 	    	
-	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",mock());
+	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",homeEventVo);
 	    }
 	    
 	    private HomeEventVo mock(){

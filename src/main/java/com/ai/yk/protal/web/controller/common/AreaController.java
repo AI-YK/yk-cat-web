@@ -14,7 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.common.DicListResonse;
+import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
+import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
@@ -47,17 +50,43 @@ public class AreaController {
 			  @RequestParam(value="parentCode",defaultValue="as_100000") String parentCode,
 			  @RequestParam(value="classify",defaultValue="province") String classify
 			  ){
-		  /*QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
+		  QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
 		  queryAreaListMessage.setParentCode(parentCode);
 		  queryAreaListMessage.setClassify(classify);
 		  YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
 		  req.setMessage(queryAreaListMessage);
-		  YJResponse<QueryAreaListReponse> res = queryAreaListService.queryEventDataList(req);
-		  List<QueryAreaListVo> areaList = (List<QueryAreaListVo>) res.getData();
+		  YJResponse<List<QueryAreaListVo>> res = queryAreaListService.QueryAreaList(req);
 		  
 		  Map<String,List<QueryAreaListVo>> map = new HashMap<String,List<QueryAreaListVo>>();
-		  */
-		  Map<String,List<QueryAreaListVo>> map = mockData();
+		  
+		  List<QueryAreaListVo> areaListAll =  res.getData();
+		  
+		  List<QueryAreaListVo> areaListA = new ArrayList<QueryAreaListVo>();
+		  
+		  List<QueryAreaListVo> areaListH = new ArrayList<QueryAreaListVo>();
+		  
+		  List<QueryAreaListVo> areaListL = new ArrayList<QueryAreaListVo>();
+		  
+		  List<QueryAreaListVo> areaListT = new ArrayList<QueryAreaListVo>();
+		  
+		  for(QueryAreaListVo vo : areaListAll){
+			  String firstEn = vo.getNameEnFirst().toLowerCase();
+			  if("abcdefg".contains(firstEn)){
+				  areaListA.add(vo);
+			  }else if("hijk".contains(firstEn)){
+				  areaListH.add(vo);
+			  }else if("lmiopqrs".contains(firstEn)){
+				  areaListL.add(vo);
+			  }else if("tuvwxyz".contains(firstEn)){
+				  areaListT.add(vo);
+			  }
+		  }
+		  map.put("1", areaListA);
+		  map.put("2", areaListH);
+		  map.put("3",areaListH);
+		  map.put("4",areaListT);
+		  
+		//  Map<String,List<QueryAreaListVo>> map = mockData();
 		  
 		  return new ResponseData<Map<String,List<QueryAreaListVo>>>(ResponseData.AJAX_STATUS_SUCCESS,"查询所有省",map);
 	    }
@@ -158,18 +187,19 @@ public class AreaController {
 		  @RequestMapping("/getCity")
 		  @ResponseBody
 		  public ResponseData<List<QueryAreaListVo>> getCity(
+				  /**上级编码**/
 				  @RequestParam(value="parentCode",defaultValue="") String parentCode,
+				  /**所属分类（continent：大洲   country：国家   province：省份  city:城市   是否必填：Y**/
 				  @RequestParam(value="classify",defaultValue="city") String classify
 				  ){
-			 /* QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
+			  QueryAreaListMessage queryAreaListMessage = new  QueryAreaListMessage();
 			  queryAreaListMessage.setParentCode(parentCode);
 			  queryAreaListMessage.setClassify(classify);
 			  YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
 			  req.setMessage(queryAreaListMessage);
-			  
-			  YJResponse<QueryAreaListReponse> res = queryAreaListService.queryEventDataList(req);
-			  List<QueryAreaListVo> list = (List<QueryAreaListVo>) res.getData();*/
-			  List<QueryAreaListVo> list = mockCity();
+			  YJResponse<List<QueryAreaListVo>> res = queryAreaListService.QueryAreaList(req);
+			  List<QueryAreaListVo> list = (List<QueryAreaListVo>) res.getData();
+			 // List<QueryAreaListVo> list = mockCity();
 			  return new ResponseData<List<QueryAreaListVo>>(ResponseData.AJAX_STATUS_SUCCESS,"获得所有城市",list);
 		  }
 		  
@@ -210,24 +240,31 @@ public class AreaController {
 					 * 新闻热点 TJSJY 
 					 * 社交热点 SJLY 
 					 */
+				  /**
+					 * 类别（ HYFL 行业分类 SJYYXL 数据源影响力 QY 区域 GJ 国家 SJQYJJZZ 世界区域经济组织 YYTX 语言体系 ）
+					 */
 				  @RequestParam(value="type",defaultValue="YQFL") String type,
+				  /**
+					 * 语言（如zh、en）
+					 */
 				  @RequestParam(value="language",defaultValue="zh") String language
 				  ){
-			 /* DicMessage dicMessage = new DicMessage();
+			  DicMessage dicMessage = new DicMessage();
 			  dicMessage.setLanguage(language);
 			  dicMessage.setType(type);
 			  YJRequest<DicMessage> req = new YJRequest<DicMessage>();
 			  req.setMessage(dicMessage);
 			  YJResponse<DicListResonse> res =  commonService.queryDicByTypeAndLanguageForNews(req);
-			  List<DicVo> list = (List<DicVo>) res.getData();*/
-			  List<DicVo> list = new ArrayList<DicVo>();
+			  DicListResonse dicListResonse = res.getData();
+			  List<DicVo> list = dicListResonse.getResults();
+			  /*List<DicVo> list = new ArrayList<DicVo>();
 			  if(type.equals("YQFL")){
 				  list = mockDic();
 			  }else if(type.equals("TJSJY")){
 				  list = mockNewsDic();
 			  }else if(type.equals("SJLY")){
 				  list = mockNewsDic();
-		  }
+			  }*/
 			  return new ResponseData<List<DicVo>>(ResponseData.AJAX_STATUS_SUCCESS,"获得领域分类",list);
 		  }
 		  
