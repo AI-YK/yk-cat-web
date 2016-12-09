@@ -14,17 +14,31 @@
 				</p>
 			</li>
 			<li class="right">
-				<p>
-					<a href="#"> <span><i class="icon iconfont">&#xe613;</i></span>
+<p class="posi">
+						<a href="#">昵称<i class="icon iconfont">&#xe659;</i>
+						</a>|
+					</p>
+					<div class="user-show" id="user-show">
+						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<ul>
+							<a href="#" class="ahov1"><li><i class="icon iconfont">&#xe63b;</i>我的译见</li></a>
+							<a href="#" class="ahov2"><li><i class="icon iconfont">&#xe63b;</i>数据管理</li></a>
+							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe63d;</i>退出登录</li></a>
+						</ul>
+					</div>
+					<p class="iphone">
+						<a href="#">
+						<span><i class="icon iconfont">&#xe613;</i></span>
+
 						<span>手机版</span>
-					</a>
-				</p>
-				<p>
-					<a href="#">EN</a>|
-				</p>
-				<p>
-					<a href="#">中文</a>
-				</p>
+						</a>
+					</p>
+					<div class="erw-show" id="erw-show">
+						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<p><img src="images/erw.jpg"></p>
+					</div>
+					<!-- <p><a href="#">EN</a>|</p>
+					<p><a href="#">中文</a></p> -->
 			</li>
 		</ul>
 	</div>
@@ -36,15 +50,13 @@
 			<img src="${uedroot}/images/logo.png" />
 		</div>
 		<div class="mainbav right">
-			<ul>
-				<li><a href="#" class="current">首页</a></li>
-				<li><a href="#">专题</a></li>
-				<li><a href="#">热点</a></li>
-				<li><a href="#">预警</a></li>
-				<li><a href="#">简报</a></li>
-				<li><a href="#">海外媒体</a></li>
-				<li><a href="#"><i class="icon iconfont">&#xe658;</i></a></li>
-			</ul>
+				<ul>
+					<li><a href="#" class="current">首页</a></li>
+					<li><a href="#">专题分析</a></li>
+					<li><a href="#">热点发现</a></li>
+					<li><a href="#">舆情动态</a></li>
+					<li class="search"><input type="text" class="search-medium" placeholder="普京vs奥巴马"><a href="#"><i class="icon iconfont">&#xe658;</i></a></li>
+				</ul>
 		</div>
 	</div>
 </div>
