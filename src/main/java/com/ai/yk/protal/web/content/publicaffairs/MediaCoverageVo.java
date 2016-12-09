@@ -7,18 +7,18 @@ import java.io.Serializable;
 public class MediaCoverageVo implements Serializable {
 	private static final long serialVersionUID = -2642323675106612884L;
 	private String name;
-	private Integer value;
+	private Integer count;
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getValue() {
-		return value;
+	public Integer getCount() {
+		return count;
 	}
-	public void setValue(Integer value) {
-		this.value = value;
+	public void setCount(Integer count) {
+		this.count = count;
 	}
 	
 }
