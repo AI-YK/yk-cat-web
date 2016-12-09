@@ -6,7 +6,7 @@ package com.ai.yk.protal.web.service.search;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.StringUtil;
-import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
+import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
@@ -30,7 +30,7 @@ public class SearchService {
 	 * 搜索数据源列表
 	 */
 	public YJResponse<GetDataSourceListReponse> getDataSourceList(YJRequest<GetDataSourceListMessage> req) {
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_SEARCH_GETDATASOURCELIST);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_SEARCH_GETDATASOURCELIST);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<GetDataSourceListReponse>>(){});
@@ -42,7 +42,7 @@ public class SearchService {
 	 * 公共安全事件检索
 	 */
 	public YJResponse<SearchPublicSafetyResponse> getSearchPublicSafety(YJRequest<SearchPublicSafetyMessage> req) {
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<SearchPublicSafetyResponse>>(){});
