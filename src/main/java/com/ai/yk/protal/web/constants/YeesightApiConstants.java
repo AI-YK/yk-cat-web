@@ -12,8 +12,8 @@ import com.ai.yk.protal.web.utils.ConfigUtil;
  * 
  * @author xuyw
  */
-public class YeesightApiUrlConstants {
-	private YeesightApiUrlConstants() {
+public class YeesightApiConstants {
+	private YeesightApiConstants() {
 
 	}
     private static String remoteBaseUrl="";
