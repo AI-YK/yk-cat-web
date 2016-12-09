@@ -12,14 +12,19 @@ import com.ai.yk.protal.web.utils.ConfigUtil;
  * 
  * @author xuyw
  */
-public class YeesightApiUrlConstants {
-	private YeesightApiUrlConstants() {
+public class YeesightApiConstants {
+	private YeesightApiConstants() {
 
 	}
     private static String remoteBaseUrl="";
     static{
     	remoteBaseUrl = ConfigUtil.getProperty("remoteBaseUrl");
     }
+    //系统来源
+    public static final String API_SOURCE_SYSTEM="yeesightPublicSentiment";
+    
+    
+    
 	// 搜索数据源列表url
 	public final static String API_SEARCH_GETDATASOURCELIST = "/api/search/getDataSourceList";
 	// 查询事件列表url

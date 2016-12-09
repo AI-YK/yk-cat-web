@@ -3,7 +3,7 @@ package com.ai.yk.protal.web.service.eventdata;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.StringUtil;
-import com.ai.yk.protal.web.constants.YeesightApiUrlConstants;
+import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.event.EventDetailsMessage;
@@ -21,7 +21,7 @@ public class EventDataService {
 	 * 查询事件列表
 	 */
 	public YJResponse<EventListResponse> queryEventDataList(YJRequest<EventListMessage> req) {
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_EVENTDATA_QUERYEVENTDATALIST);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_QUERYEVENTDATALIST);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<EventListResponse>>(){});
@@ -32,7 +32,7 @@ public class EventDataService {
 	 * 查询事件详情
 	 */
 	public YJResponse<EventVo> queryEventDataEntityForSrcId(YJRequest<EventDetailsMessage> req) {
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<EventVo>>(){});
@@ -43,7 +43,7 @@ public class EventDataService {
 	 * 查询事件图表【传播态势，事件态势】
 	 */
 	public YJResponse<EventModelResponse> queryEventModel(YJRequest<EventModelMessage> req) {
-		String url = YeesightApiUrlConstants.getApiUrl(YeesightApiUrlConstants.API_EVENTDATA_EVENTMODEL);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_EVENTMODEL);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<EventModelResponse>>(){});
