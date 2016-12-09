@@ -163,22 +163,22 @@ public class PublicOpinionTrendController {
                 {value:24, name:'论坛'}
 		 */
 		mediaCoverageVo.setName("微信");
-		mediaCoverageVo.setValue(20);
+		mediaCoverageVo.setCount(20);
 		MediaCoverageVo mediaCoverageVo2 = new MediaCoverageVo();
 		mediaCoverageVo2.setName("APP");
-		mediaCoverageVo2.setValue(18);
+		mediaCoverageVo2.setCount(18);
 		MediaCoverageVo mediaCoverageVo3 = new MediaCoverageVo();
 		mediaCoverageVo3.setName("新闻");
-		mediaCoverageVo3.setValue(22);
+		mediaCoverageVo3.setCount(22);
 		MediaCoverageVo mediaCoverageVo4 = new MediaCoverageVo();
 		mediaCoverageVo4.setName("问答");
-		mediaCoverageVo4.setValue(15);
+		mediaCoverageVo4.setCount(15);
 		MediaCoverageVo mediaCoverageVo5 = new MediaCoverageVo();
 		mediaCoverageVo5.setName("博客");
-		mediaCoverageVo5.setValue(19);
+		mediaCoverageVo5.setCount(19);
 		MediaCoverageVo mediaCoverageVo6 = new MediaCoverageVo();
 		mediaCoverageVo6.setName("论坛");
-		mediaCoverageVo6.setValue(21);
+		mediaCoverageVo6.setCount(21);
 		List<MediaCoverageVo> mediaCoverage = new ArrayList<MediaCoverageVo>();
 		mediaCoverage.add(mediaCoverageVo);
 		mediaCoverage.add(mediaCoverageVo2);
