@@ -389,7 +389,7 @@ public class AreaController {
 				  @RequestParam(value="provinceCode",defaultValue="") String provinceCode,
 				  @RequestParam(value="interestStr",defaultValue="") String interestStr,
 				  @RequestParam(value="cityStr",defaultValue="") String cityStr,
-				  @RequestParam(value="srcID",defaultValue="") String srcID  
+				  @RequestParam(value="srcID",defaultValue="") String srcID
 				  ){
 			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
@@ -410,7 +410,9 @@ public class AreaController {
 			  saveMyCustomizedMessage.setInterestList(interestList);
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
 			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
+			  String userId = clientUser.getUserId();
 			  saveMyCustomizedMessage.setSrcID(srcID);
+			  saveMyCustomizedMessage.setCreateId(userId);
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
 			  YJResponse<SaveMyCustomizedResponse> res= mycustomizedService.saveMyCustomized(req);
