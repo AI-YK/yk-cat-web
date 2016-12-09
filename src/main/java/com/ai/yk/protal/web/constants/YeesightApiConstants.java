@@ -21,7 +21,7 @@ public class YeesightApiConstants {
     	remoteBaseUrl = ConfigUtil.getProperty("remoteBaseUrl");
     }
     //系统来源
-    private static final String API_SOURCE_SYSTEM="yeesightPublicSentiment";
+    public static final String API_SOURCE_SYSTEM="yeesightPublicSentiment";
     
     
     
