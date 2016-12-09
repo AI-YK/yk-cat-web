@@ -36,6 +36,9 @@ public final class SessionUtil {
 	public static MyCustomizedVo getUserConfig(){
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		MyCustomizedVo config = (MyCustomizedVo) request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
+		if(config==null){
+			
+		}
 		return config;
 	}
 	
@@ -43,6 +46,9 @@ public final class SessionUtil {
 	public static List<MyTopicsVo> getTopics(){
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		List<MyTopicsVo> topics = (ArrayList<MyTopicsVo>) request.getSession().getAttribute(Constants.TOPIC_SESSION_KEY);
+		if(topics==null){
+			
+		}
 		return topics;
 	}
 	
