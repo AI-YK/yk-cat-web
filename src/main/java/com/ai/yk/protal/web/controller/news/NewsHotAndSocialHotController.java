@@ -66,11 +66,20 @@ public class NewsHotAndSocialHotController {
 		res = searchService.getNewsList(req);
 		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
 		searchPublicSafetyResponse = res.getData();*/
-		SearchPublicSafetyResponse searchPublicSafetyResponse = mockHotInfoList();
+		
+		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
+		if(mediaType.equals("news")){
+			searchPublicSafetyResponse = mockHotInfoList();
+		}else if(mediaType.equals("social")){
+			searchPublicSafetyResponse = mockHotInfoList();
+		}
 		return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询新闻热点和社交热点",searchPublicSafetyResponse);
 	}
-	
-	public SearchPublicSafetyResponse mockHotInfoList(){
+	/**
+	 * 模拟新闻热点信息
+	 * @return
+	 */
+	public SearchPublicSafetyResponse mockHotNewsList(){
 		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
 		List<SearchPublicSafetyVo> resultList  = new ArrayList<SearchPublicSafetyVo>();
 		SearchPublicSafetyVo searchPublicSafetyVo = new SearchPublicSafetyVo();
@@ -129,10 +138,70 @@ public class NewsHotAndSocialHotController {
 		resultList.add(searchPublicSafetyVo4);
 		resultList.add(searchPublicSafetyVo5);
 		resultList.add(searchPublicSafetyVo6);
-		resultList.add(searchPublicSafetyVo7);
-		resultList.add(searchPublicSafetyVo8);
-		resultList.add(searchPublicSafetyVo9);
-		resultList.add(searchPublicSafetyVo10);
+		searchPublicSafetyResponse.setResultList(resultList);
+		return searchPublicSafetyResponse;
+	}
+	/**
+	 * 模拟社交热点
+	 * @return
+	 */
+	public SearchPublicSafetyResponse mockHotInfoList(){
+		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
+		List<SearchPublicSafetyVo> resultList  = new ArrayList<SearchPublicSafetyVo>();
+		SearchPublicSafetyVo searchPublicSafetyVo = new SearchPublicSafetyVo();
+		searchPublicSafetyVo.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo.setMediaNameZh("新浪网");
+		searchPublicSafetyVo.setTransfer(30);
+		SearchPublicSafetyVo searchPublicSafetyVo2 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo2.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo2.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo2.setMediaNameZh("新浪网");
+		searchPublicSafetyVo.setTransfer(60);
+		SearchPublicSafetyVo searchPublicSafetyVo3 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo3.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo3.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo3.setMediaNameZh("新浪网");
+		searchPublicSafetyVo.setTransfer(12);
+		SearchPublicSafetyVo searchPublicSafetyVo4 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo4.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo4.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo4.setMediaNameZh("新浪网");
+		searchPublicSafetyVo4.setTransfer(12);
+		SearchPublicSafetyVo searchPublicSafetyVo5 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo5.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo5.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo5.setMediaNameZh("新浪网");
+		searchPublicSafetyVo.setTransfer(12);
+		SearchPublicSafetyVo searchPublicSafetyVo6 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo6.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo6.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo6.setMediaNameZh("新浪网");
+		searchPublicSafetyVo6.setTransfer(12);
+		SearchPublicSafetyVo searchPublicSafetyVo7 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo7.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo7.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo7.setMediaNameZh("新浪网");
+		searchPublicSafetyVo7.setTransfer(12);
+		SearchPublicSafetyVo searchPublicSafetyVo8 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo8.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo8.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo8.setMediaNameZh("新浪网");
+		searchPublicSafetyVo8.setTransfer(12);
+		SearchPublicSafetyVo searchPublicSafetyVo9 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo9.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo9.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo9.setMediaNameZh("新浪网");
+		searchPublicSafetyVo9.setTransfer(12);
+		SearchPublicSafetyVo searchPublicSafetyVo10 = new SearchPublicSafetyVo();
+		searchPublicSafetyVo10.setTitleZh("运动员，一度只能自费在拥挤的小游泳馆");
+		searchPublicSafetyVo10.setPubdate("2016.8.23 10:09");
+		searchPublicSafetyVo10.setMediaNameZh("新浪网");
+		searchPublicSafetyVo10.setTransfer(12);
+		resultList.add(searchPublicSafetyVo);
+		resultList.add(searchPublicSafetyVo2);
+		resultList.add(searchPublicSafetyVo3);
+		resultList.add(searchPublicSafetyVo4);
 		searchPublicSafetyResponse.setResultList(resultList);
 		return searchPublicSafetyResponse;
 	}

@@ -33,34 +33,34 @@ public class NegativeController {
 	public ResponseData<SearchPublicSafetyResponse> getNegativeList(
 			@RequestParam(value="mediaType",defaultValue="") String mediaType,
 			@RequestParam(value="sentimentId",defaultValue="-1") String sentimentId,
-			@RequestParam(value="provincecityCode",defaultValue="") String provincecityCode,
-			@RequestParam(value="cityCode",defaultValue="") String cityCode,
+			@RequestParam(value="province",defaultValue="") String province,
+			@RequestParam(value="city",defaultValue="") String city,
 			@RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
 			@RequestParam(value="mediaId",defaultValue="") String mediaId,
 			@RequestParam(value="mediaLevel",defaultValue="") String mediaLevel,
 			@RequestParam(value="fieldName",defaultValue="") String fieldName,
 			@RequestParam(value="order",defaultValue="") String order
 			){
-//		SearchPublicSafetyResponse searchPublicSafetyResponse=get();
-		SearchPublicSafetyMessage searchPublicSafetyMessage=new SearchPublicSafetyMessage();
-		searchPublicSafetyMessage.setCityCode(cityCode);
+		SearchPublicSafetyResponse searchPublicSafetyResponse=get();
+		/*SearchPublicSafetyMessage searchPublicSafetyMessage=new SearchPublicSafetyMessage();
+		searchPublicSafetyMessage.setCity(city);
 		searchPublicSafetyMessage.setFieldName(fieldName);
 		searchPublicSafetyMessage.setMediaId(mediaId);
 		searchPublicSafetyMessage.setMediaLevel(mediaLevel);
 		searchPublicSafetyMessage.setMediaType(mediaType);
 		searchPublicSafetyMessage.setOrder(order);
-		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
+		searchPublicSafetyMessage.setProvince(province);
 		searchPublicSafetyMessage.setPublicAffairsType(publicAffairsType);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		YJRequest<SearchPublicSafetyMessage> req=new YJRequest<SearchPublicSafetyMessage>();
-		req.setMessage(searchPublicSafetyMessage);
-		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getSearchPublicSafety(req);
-		SearchPublicSafetyResponse searchPublicSafetyResponse=yjr.getData();
+		req.setMessage(searchPublicSafetyMessage);1昨天，结束了亚锦赛征
+		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getNewsList(req);
+		SearchPublicSafetyResponse searchPublicSafetyResponse=yjr.getData();*/
 		
 		return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询负面舆情成功！", searchPublicSafetyResponse);
 	}
 	
-	/*public SearchPublicSafetyResponse get(){
+	public SearchPublicSafetyResponse get(){
 		SearchPublicSafetyVo searchPublicSafetyVo;
 		List<SearchPublicSafetyVo> list=new ArrayList<SearchPublicSafetyVo>();
 		for(int i=1;i<10;i++){
@@ -72,5 +72,5 @@ public class NegativeController {
 		SearchPublicSafetyResponse searchPublicSafetyResponse=new SearchPublicSafetyResponse();
 		searchPublicSafetyResponse.setResultList(list);
 		return searchPublicSafetyResponse;
-	}*/
+	}
 }

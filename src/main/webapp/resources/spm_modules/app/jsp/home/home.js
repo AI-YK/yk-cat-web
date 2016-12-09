@@ -82,6 +82,8 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
+                var mediaId = $(this).next().val();
+                _this._getHotInfoList("news",mediaId);
    			});
             
             $(document).on("click","#social-tab ul li a",function(){
@@ -89,6 +91,8 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
+                var mediaId = $(this).next().val();
+                _this._getHotInfoList("social",mediaId);
    			});
             
 			this._load();
@@ -100,6 +104,10 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._loadPubTrend('mediaCoverage', '0');
         	this._getDics('TJSJY');
         	this._getDics('SJLY');
+        	this._getHotInfoList("news",null);
+        	this._getHotInfoList("social",null);
+        	this._getNegativeList("news");
+        	this._getNegativeList("social");
         },
         _initEventData:function(){
         	var url = "/emergency/getEmergencyIndexList";
@@ -177,6 +185,67 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var socialMediaHtml = $("#socialMediaTempl").render({'dics':list});
 						$("#social-media").html(socialMediaHtml);
 					}
+				}
+			});
+        },
+        /**媒体类型 新闻热点：news，社交热点：social **/
+        _getHotInfoList:function(mediaType,mediaId){ 
+        	var url = "/news/getHotInfoList";
+        	var param = {};
+        	param.mediaType = mediaType;
+        	if(mediaId){
+        		param.mediaId = mediaId;
+        	}
+        	param.provincecityCode = "";
+        	param.cityCode = "";
+        	param.publicAffairsType = "";
+        	param.fieldName="transfer"
+            param.order = "desc";
+        	param.language = 'zh';
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var data = rs.data;
+					if(mediaType=='news'){
+						var newsHotHtml = $("#newsHotTempl").render(data.resultList);
+						$("#news-div").html(newsHotHtml);
+		        	}else if(mediaType=='social'){
+		        		var socialHotHtml = $("#socialHotTempl").render(data.resultList);
+						$("#social-div").html(socialHotHtml);
+		        	}
+				}
+			});
+        },
+        /**媒体类型 新闻热点：news，社交热点：social **/
+        _getNegativeList:function(mediaType){ 
+        	var url = "/negative/getNegativeList";
+        	var param = {};
+        	param.mediaType = mediaType;
+        	param.provincecityCode = "";
+        	param.cityCode = "";
+        	param.publicAffairsType = "";
+        	param.fieldName="pubdate"
+            param.order = "desc";
+        	param.language = 'zh';
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var data = rs.data;
+					if(mediaType=='news'){
+						var newsHtml = $("#newsTempl").render(data.resultList);
+						$("#newsDiv").html(newsHtml);
+		        	}else if(mediaType=='social'){
+		        		var socialHtml = $("#socialTempl").render(data.resultList);
+						$("#socialDiv").html(socialHtml);
+		        	}
 				}
 			});
         }

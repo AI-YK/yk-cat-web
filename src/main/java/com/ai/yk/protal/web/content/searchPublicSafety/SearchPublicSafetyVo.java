@@ -94,359 +94,286 @@ public class SearchPublicSafetyVo implements Serializable {
 	private List<String> tags;
 	
 	private String similarityId;
-
+	/**用户名**/
+	private String name;
+	/**头像**/
+	private String userAvatar;
 	public int getLanguageCode() {
 		return languageCode;
 	}
-
 	public void setLanguageCode(int languageCode) {
 		this.languageCode = languageCode;
 	}
-
 	public BigDecimal getLatitudes() {
 		return latitudes;
 	}
-
 	public void setLatitudes(BigDecimal latitudes) {
 		this.latitudes = latitudes;
 	}
-
 	public BigDecimal getLongitude() {
 		return longitude;
 	}
-
 	public void setLongitude(BigDecimal longitude) {
 		this.longitude = longitude;
 	}
-
 	public String getUuid() {
 		return uuid;
 	}
-
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-
 	public String getTitleSrc() {
 		return titleSrc;
 	}
-
 	public void setTitleSrc(String titleSrc) {
 		this.titleSrc = titleSrc;
 	}
-
 	public String getTitleZh() {
 		return titleZh;
 	}
-
 	public void setTitleZh(String titleZh) {
 		this.titleZh = titleZh;
 	}
-
 	public String getTitleEn() {
 		return titleEn;
 	}
-
 	public void setTitleEn(String titleEn) {
 		this.titleEn = titleEn;
 	}
-
 	public String getAbstractZh() {
 		return abstractZh;
 	}
-
 	public void setAbstractZh(String abstractZh) {
 		this.abstractZh = abstractZh;
 	}
-
 	public String getAbstractEn() {
 		return abstractEn;
 	}
-
 	public void setAbstractEn(String abstractEn) {
 		this.abstractEn = abstractEn;
 	}
-
 	public Integer getSentimentId() {
 		return sentimentId;
 	}
-
 	public void setSentimentId(Integer sentimentId) {
 		this.sentimentId = sentimentId;
 	}
-
 	public String getLanguageTname() {
 		return languageTname;
 	}
-
 	public void setLanguageTname(String languageTname) {
 		this.languageTname = languageTname;
 	}
-
 	public List<String> getKeywordsEn() {
 		return keywordsEn;
 	}
-
 	public void setKeywordsEn(List<String> keywordsEn) {
 		this.keywordsEn = keywordsEn;
 	}
-
 	public String getMotorists() {
 		return motorists;
 	}
-
 	public void setMotorists(String motorists) {
 		this.motorists = motorists;
 	}
-
 	public String getSeptember() {
 		return September;
 	}
-
 	public void setSeptember(String september) {
 		September = september;
 	}
-
 	public List<String> getKeywordsZh() {
 		return keywordsZh;
 	}
-
 	public void setKeywordsZh(List<String> keywordsZh) {
 		this.keywordsZh = keywordsZh;
 	}
-
 	public String getCategoryId() {
 		return categoryId;
 	}
-
 	public void setCategoryId(String categoryId) {
 		this.categoryId = categoryId;
 	}
-
 	public String getCountryNameZh() {
 		return countryNameZh;
 	}
-
 	public void setCountryNameZh(String countryNameZh) {
 		this.countryNameZh = countryNameZh;
 	}
-
 	public String getCountryNameEn() {
 		return countryNameEn;
 	}
-
 	public void setCountryNameEn(String countryNameEn) {
 		this.countryNameEn = countryNameEn;
 	}
-
 	public String getProvinceNameZh() {
 		return provinceNameZh;
 	}
-
 	public void setProvinceNameZh(String provinceNameZh) {
 		this.provinceNameZh = provinceNameZh;
 	}
-
 	public String getProvinceNameEn() {
 		return provinceNameEn;
 	}
-
 	public void setProvinceNameEn(String provinceNameEn) {
 		this.provinceNameEn = provinceNameEn;
 	}
-
 	public String getDistrictNameZh() {
 		return districtNameZh;
 	}
-
 	public void setDistrictNameZh(String districtNameZh) {
 		this.districtNameZh = districtNameZh;
 	}
-
 	public String getDistrictNameEn() {
 		return districtNameEn;
 	}
-
 	public void setDistrictNameEn(String districtNameEn) {
 		this.districtNameEn = districtNameEn;
 	}
-
 	public String getPubdate() {
 		return pubdate;
 	}
-
 	public void setPubdate(String pubdate) {
 		this.pubdate = pubdate;
 	}
-
 	public String getCreated() {
 		return created;
 	}
-
 	public void setCreated(String created) {
 		this.created = created;
 	}
-
 	public String getUpdated() {
 		return updated;
 	}
-
 	public void setUpdated(String updated) {
 		this.updated = updated;
 	}
-
 	public Integer getIsOriginal() {
 		return isOriginal;
 	}
-
 	public void setIsOriginal(Integer isOriginal) {
 		this.isOriginal = isOriginal;
 	}
-
 	public String getMediaNameZh() {
 		return mediaNameZh;
 	}
-
 	public void setMediaNameZh(String mediaNameZh) {
 		this.mediaNameZh = mediaNameZh;
 	}
-
 	public String getMediaNameEn() {
 		return mediaNameEn;
 	}
-
 	public void setMediaNameEn(String mediaNameEn) {
 		this.mediaNameEn = mediaNameEn;
 	}
-
 	public String getMediaNameSrc() {
 		return mediaNameSrc;
 	}
-
 	public void setMediaNameSrc(String mediaNameSrc) {
 		this.mediaNameSrc = mediaNameSrc;
 	}
-
 	public Integer getMediaType() {
 		return mediaType;
 	}
-
 	public void setMediaType(Integer mediaType) {
 		this.mediaType = mediaType;
 	}
-
 	public String getMediaTname() {
 		return mediaTname;
 	}
-
 	public void setMediaTname(String mediaTname) {
 		this.mediaTname = mediaTname;
 	}
-
 	public String getMediaLevel() {
 		return mediaLevel;
 	}
-
 	public void setMediaLevel(String mediaLevel) {
 		this.mediaLevel = mediaLevel;
 	}
-
 	public String getWebsiteId() {
 		return websiteId;
 	}
-
 	public void setWebsiteId(String websiteId) {
 		this.websiteId = websiteId;
 	}
-
 	public Integer getDocLength() {
 		return docLength;
 	}
-
 	public void setDocLength(Integer docLength) {
 		this.docLength = docLength;
 	}
-
 	public String getUrl() {
 		return url;
 	}
-
 	public void setUrl(String url) {
 		this.url = url;
 	}
-
 	public Integer getTransfer() {
 		return transfer;
 	}
-
 	public void setTransfer(Integer transfer) {
 		this.transfer = transfer;
 	}
-
 	public String getTransFromM() {
 		return transFromM;
 	}
-
 	public void setTransFromM(String transFromM) {
 		this.transFromM = transFromM;
 	}
-
 	public Integer getIsPicture() {
 		return isPicture;
 	}
-
 	public void setIsPicture(Integer isPicture) {
 		this.isPicture = isPicture;
 	}
-
 	public Integer getPv() {
 		return pv;
 	}
-
 	public void setPv(Integer pv) {
 		this.pv = pv;
 	}
-
 	public Integer getIsHome() {
 		return isHome;
 	}
-
 	public void setIsHome(Integer isHome) {
 		this.isHome = isHome;
 	}
-
 	public Long getPubTime() {
 		return pubTime;
 	}
-
 	public void setPubTime(Long pubTime) {
 		this.pubTime = pubTime;
 	}
-
 	public Integer getIssensitive() {
 		return issensitive;
 	}
-
 	public void setIssensitive(Integer issensitive) {
 		this.issensitive = issensitive;
 	}
-
 	public List<String> getTags() {
 		return tags;
 	}
-
 	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
-
 	public String getSimilarityId() {
 		return similarityId;
 	}
-
 	public void setSimilarityId(String similarityId) {
 		this.similarityId = similarityId;
 	}
-
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getUserAvatar() {
+		return userAvatar;
+	}
+	public void setUserAvatar(String userAvatar) {
+		this.userAvatar = userAvatar;
+	}
 	public SearchPublicSafetyVo(int languageCode, BigDecimal latitudes, BigDecimal longitude, String uuid,
 			String titleSrc, String titleZh, String titleEn, String abstractZh, String abstractEn, Integer sentimentId,
 			String languageTname, List<String> keywordsEn, String motorists, String september, List<String> keywordsZh,
@@ -455,7 +382,7 @@ public class SearchPublicSafetyVo implements Serializable {
 			Integer isOriginal, String mediaNameZh, String mediaNameEn, String mediaNameSrc, Integer mediaType,
 			String mediaTname, String mediaLevel, String websiteId, Integer docLength, String url, Integer transfer,
 			String transFromM, Integer isPicture, Integer pv, Integer isHome, Long pubTime, Integer issensitive,
-			List<String> tags, String similarityId) {
+			List<String> tags, String similarityId, String name, String userAvatar) {
 		super();
 		this.languageCode = languageCode;
 		this.latitudes = latitudes;
@@ -501,8 +428,9 @@ public class SearchPublicSafetyVo implements Serializable {
 		this.issensitive = issensitive;
 		this.tags = tags;
 		this.similarityId = similarityId;
+		this.name = name;
+		this.userAvatar = userAvatar;
 	}
-
 	public SearchPublicSafetyVo() {
 		super();
 	}
