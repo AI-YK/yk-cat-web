@@ -70,7 +70,8 @@ public class EmergencyController{
 	    	for(EventVo event:eventList){
 	    		YJRequest<EventModelMessage> modelReq = new YJRequest<EventModelMessage>();
 	    		EventModelMessage mesge = new EventModelMessage();
-	    		mesge.setEventId(String.valueOf(event.getId()));
+	    		mesge.setEventId(String.valueOf(event.getSrcId()));
+	    		modelReq.setMessage(mesge);
 	    		YJResponse<EventModelResponse> modelResp =eventDataService.queryEventModel(modelReq);
 	    		chartGroup.add(modelResp.getData());
 	    	}

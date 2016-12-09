@@ -135,7 +135,6 @@ define('app/jsp/home/home', function (require, exports, module) {
         	$("#loginJumpFormId").attr("action","http://buzz.yeesight.com/login");
         	var end = window.location.href.indexOf(_base);
         	var href = window.location.href.substring(0,end) + _base+"/home/success";
-        	alert(href);
         	$("#loginSuccessUrl").val(href);
         	$('#loginJumpFormId').submit();
         },

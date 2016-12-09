@@ -17,6 +17,8 @@ import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.common.DicListResonse;
 import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
@@ -410,8 +412,16 @@ public class AreaController {
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
 			  YJResponse<SaveMyCustomizedResponse> res= mycustomizedService.saveMyCustomized(req);
-			//  YJResponse<SaveMyCustomizedResponse> res = new YJResponse<SaveMyCustomizedResponse>();
 			  SaveMyCustomizedResponse  saveMyCustomizedResponse =  res.getData();
+			  //获取保存的配置信息
+			  YJRequest<MyCustomizedListMessage> customizedListMessageReq= new YJRequest<MyCustomizedListMessage>();
+			  MyCustomizedListMessage customizedListMessage = new MyCustomizedListMessage();
+		      customizedListMessage.setCreateId(Integer.valueOf(clientUser.getUserId()));
+		      customizedListMessageReq.setMessage(customizedListMessage);
+		      YJResponse<MyCustomizedVo> resp = mycustomizedService.queryMyCustomized(customizedListMessageReq);
+			  if(resp!=null){
+				  SessionUtil.setUserConfig(resp.getData());
+			  }
 			  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_SUCCESS,"保存配置信息成功",saveMyCustomizedResponse);
 				
 		  }
