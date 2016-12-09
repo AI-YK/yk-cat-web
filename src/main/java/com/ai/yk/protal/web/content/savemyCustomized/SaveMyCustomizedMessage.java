@@ -13,7 +13,7 @@ public class SaveMyCustomizedMessage implements Serializable{
 	private static final long serialVersionUID = -2574883913197301738L;
 	
 	/**用户ID**/
-	private String createId;
+	private Integer createId;
 	private String sourceSystem = YeesightApiConstants.API_SOURCE_SYSTEM;
 	private String provinceCode;
 	
@@ -22,11 +22,11 @@ public class SaveMyCustomizedMessage implements Serializable{
 	
 	private String srcId;
 
-	public String getCreateId() {
+	public Integer getCreateId() {
 		return createId;
 	}
 
-	public void setCreateId(String createId) {
+	public void setCreateId(Integer createId) {
 		this.createId = createId;
 	}
 
