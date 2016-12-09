@@ -48,6 +48,7 @@
 </div>
 <!--/热点新闻-->
 <script id="newsHotTempl" type="text/x-jsrender">
+ {{if #getIndex()<6}}
   <ul>
 		<li>
 			<p>
@@ -59,8 +60,10 @@
 		</li>
 		<li class="right">{{:transfer}}</li>
 	</ul>
+  {{/if}}
 </script>
 <script id="socialHotTempl" type="text/x-jsrender">
+ {{if #getIndex()<4}}
  <div class="socialhot-list">
 			<div class="social-user">
                 {{if userAvatar==null}}
@@ -84,6 +87,7 @@
 				  <li class="right">{{:transfer}}</li>
 			</ul>
 </div>
+{{/if}}
 </script>
 <script id="newsMediaTempl" type="text/x-jsrender">
    <li><a href="javascript:void(0);" class="current">全部</a></li>
