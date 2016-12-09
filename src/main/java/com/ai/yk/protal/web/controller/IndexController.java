@@ -45,10 +45,10 @@ public class IndexController {
     	model.addAttribute("config", config);
     	List<MyTopicsVo> topics = SessionUtil.getTopics();
     	if(topics==null||topics.size()==0){
+    		model.addAttribute("hasTopic", false);
+    	}else{
     		model.addAttribute("hasTopic", true);
     		model.addAttribute("topics", topics);
-    	}else{
-    		model.addAttribute("hasTopic", false);
     	}
         return "/home/index";
     }
