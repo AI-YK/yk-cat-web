@@ -3,12 +3,26 @@ define('app/jsp/home/home', function (require, exports, module) {
     var $=require('jquery'),
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
+    var Dialog = require("optDialog/src/dialog");
     require("app/util/jsviews-yi");
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var HomeChart = require("app/jsp/home/charts");
 	require("jsviews/jsrender.min");
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
+    
+    var showErrorDialog = function(error){
+    	var d = Dialog({
+			content:error,
+			icon:'fail',
+			okValue: '确 定',
+			title: '提示',
+			ok:function(){
+				this.close();
+			}
+		});
+		d.showModal();
+    }
     
     var homeChart = new HomeChart();
 
@@ -21,7 +35,8 @@ define('app/jsp/home/home', function (require, exports, module) {
 
         //事件代理
         events: {
-            "click #login":"_login"
+            "click #login":"_login",
+            "click #regist":"_regist"
         },
 
         //重写父类
@@ -137,6 +152,10 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var href = window.location.href.substring(0,end) + _base+"/home/success";
         	$("#loginSuccessUrl").val(href);
         	$('#loginJumpFormId').submit();
+        },
+        _regist:function(){
+        	showErrorDialog("哈哈");
+        	//location.href= 'http://buzz.yeesight.com/register';
         },
         _loadPubTrend:function(modelNo,timeType){
         	var url = "/trend/pubTrend";
