@@ -29,7 +29,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         					axisLine:{
         					  lineStyle:{
         					    color:'#2e8ad3',
-        						width:3
+        						width:2
         					  }
         					}
         		        }
@@ -183,8 +183,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		chart.setOption(option);
         },
         _initMediaCoverageChart:function(container,ul,data){
-        	var colors = ['#eb4d38','#80c823','#0067b4','#af67ef','#f9983a'];
-        	
+        	var colors = ['#eb4d38','#80c823','#0067b4','#af67ef','#f9983a'];	
         	if(data.length%5==1){
         		colors.splice(0,1);
         	}
