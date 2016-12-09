@@ -27,9 +27,29 @@
 			</div>
 			<div class="right-list">
 				<ul>
-					<li><a href="#">政治管理</a></li>
-					<li><a href="http://buzz.yeesight.com/login?url=http://localhost:8085/yk-pa-web/home/loginSuccess">公共安全</a></li>
-					<li><a href="#">修改</a></li>
+					<li class="in-border" id="in-border1"><a href="#">通用数据<i class="icon iconfont">&#xe659;</i></a>
+						<div class="special-show" id="special-one">
+							<span><i class="icon iconfont">&#xe65a;</i></span>
+							<ul>
+								<a href="#" class="ahov1" ><li>通用数据</li></a>
+								<a href="#" class="ahov2" ><li>专题数据</li></a>
+								
+							</ul>
+						</div>
+					</li>
+					<li class="in-border" id="in-border2"><a href="#">专题一<i class="icon iconfont">&#xe659;</i></a>
+						<div class="special-show" id="special-tow">
+							<span><i class="icon iconfont">&#xe65a;</i></span>
+							<ul>
+								<a href="#" class="ahov1"><li>专题一</li></a>
+								<a href="#" class="ahov2"><li>专题二</li></a>
+								<a href="#" class="ahov3"><li>专题三</li></a>
+							</ul>
+						</div>
+					</li>
+					<li class="inbtn"><a href="#">政治管理</a></li>
+					<li class="inbtn"><a href="#">公共安全</a></li>
+					<li class="inbtn"><a href="#">修改</a></li>
 				</ul>
 			</div>
 		</div>
@@ -54,6 +74,8 @@
 
         });
     })();
+    
+
 </script>
 
 </html>
