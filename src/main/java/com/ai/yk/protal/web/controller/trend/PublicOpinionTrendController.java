@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.util.DateUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.content.YJRequest;
+import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.publicaffairs.IocSentimentVo;
 import com.ai.yk.protal.web.content.publicaffairs.MediaCoverageVo;
+import com.ai.yk.protal.web.content.publicaffairs.PublicAffairsMessage;
 import com.ai.yk.protal.web.content.publicaffairs.PublicAffairsResponse;
 import com.ai.yk.protal.web.service.publicaffairs.PublicaffairsService;
 
@@ -31,25 +34,24 @@ public class PublicOpinionTrendController {
 	@RequestMapping("/pubTrend")
 	@ResponseBody
 	public ResponseData<PublicAffairsResponse> getPubTrend(
-			  @RequestParam(value="province",defaultValue="") String province,
-			  @RequestParam(value="city",defaultValue="") String city,
+			  @RequestParam(value="idList",defaultValue="") String idList,
+//			  @RequestParam(value="city",defaultValue="") String city,
 			  	/**
 				 * 模型名称
 				 * 媒体覆盖出 mediaCoverage 
 				 * 舆情走势 locSentimentCount
 				 */
 			  @RequestParam(value="modelNo",defaultValue="") String modelNo,
-			  @RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
+			  @RequestParam(value="categoryId",defaultValue="") String categoryId,
 			  /**
 			   * 今日：0，本周：1，本月：2
 			   **/
 			  @RequestParam(value="timeType",defaultValue="") String timeType
 			){
 		
-		/*
-		 * Calendar calendar = Calendar.getInstance();
-		String beginTime;
-		String endTime;
+		Calendar calendar = Calendar.getInstance();
+		String beginTime="";
+		String endTime="";
 		int n = calendar.get(Calendar.DAY_OF_WEEK);
 		if(timeType.equals("0")){
 			beginTime = DateUtil.getDateString("yyyy-MM-dd 00:00:00");
@@ -63,10 +65,9 @@ public class PublicOpinionTrendController {
 		}
 		
 		PublicAffairsMessage message =new PublicAffairsMessage();
-		message.setCity(city);
-		message.setProvince(province);
+		message.setIdList(idList);
 		message.setModelNo(modelNo);
-		message.setPublicAffairsType(publicAffairsType);
+		message.setCategoryId(categoryId);
 		message.setBeginTime(beginTime);
 		message.setEndTime(endTime);
 		YJRequest<PublicAffairsMessage> req = new YJRequest<PublicAffairsMessage>();
@@ -74,17 +75,19 @@ public class PublicOpinionTrendController {
 		
 		YJResponse<PublicAffairsResponse> res = publicaffairsService.queryMediaCoverageList(req);
 		
-		PublicAffairsResponse publicAffairsResponse = res.getData();*/
-		PublicAffairsResponse publicAffairsResponse = new PublicAffairsResponse();
+		PublicAffairsResponse publicAffairsResponse = res.getData();
+		/*PublicAffairsResponse publicAffairsResponse = new PublicAffairsResponse();
 		if(modelNo.equals("locSentimentCount")){
 			publicAffairsResponse = mockTrendData();
 		}else if(modelNo.equals("mediaCoverage")){
 			publicAffairsResponse = mockMediaData();
-		}
+		}*/
 		
 		return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询舆情趋势或媒体覆盖",publicAffairsResponse);
 	}
-	
+	/**
+	 * 日期处理方法
+	 */
 	public static String  getDateBefore(Date d, int day) {  
         Calendar now = Calendar.getInstance();  
         now.setTime(d);  
