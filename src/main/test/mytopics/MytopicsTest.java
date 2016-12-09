@@ -11,7 +11,7 @@ public class MytopicsTest {
 	public static void main(String[] args) {
 		YJRequest<MyTopicsMessage> req = new YJRequest<>();
 		MyTopicsMessage message = new MyTopicsMessage();
-		message.setCreateId(98875);
+		message.setCreateId(99506);
 		message.setPageNo(1);
 		message.setPageSize(10);
 		req.setMessage(message);
