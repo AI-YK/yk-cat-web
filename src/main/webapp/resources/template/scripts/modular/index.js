@@ -293,3 +293,16 @@ $(function () {
         $('#special-tow').hide(1);
     });	
  }); 
+
+$(function(){
+	$(".ahov1").click(function(){
+		$("#in-border2").hide();
+		$(".left-list").show();
+		$(".inbtn").show();
+	});
+	$(".ahov2").click(function(){
+		$("#in-border2").show();
+		$(".left-list").hide();
+		$(".inbtn").hide();
+	});
+})
