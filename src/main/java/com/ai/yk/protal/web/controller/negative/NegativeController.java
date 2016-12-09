@@ -32,7 +32,7 @@ public class NegativeController {
 	@ResponseBody
 	public ResponseData<SearchPublicSafetyResponse> getNegativeList(
 			@RequestParam(value="mediaType",defaultValue="") String mediaType,
-			@RequestParam(value="sentimentId",defaultValue="") String sentimentId,
+			@RequestParam(value="sentimentId",defaultValue="-1") String sentimentId,
 			@RequestParam(value="province",defaultValue="") String province,
 			@RequestParam(value="city",defaultValue="") String city,
 			@RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
@@ -53,7 +53,7 @@ public class NegativeController {
 		searchPublicSafetyMessage.setPublicAffairsType(publicAffairsType);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		YJRequest<SearchPublicSafetyMessage> req=new YJRequest<SearchPublicSafetyMessage>();
-		req.setMessage(searchPublicSafetyMessage);
+		req.setMessage(searchPublicSafetyMessage);1昨天，结束了亚锦赛征
 		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getNewsList(req);
 		SearchPublicSafetyResponse searchPublicSafetyResponse=yjr.getData();*/
 		
@@ -63,9 +63,9 @@ public class NegativeController {
 	public SearchPublicSafetyResponse get(){
 		SearchPublicSafetyVo searchPublicSafetyVo;
 		List<SearchPublicSafetyVo> list=new ArrayList<SearchPublicSafetyVo>();
-		for(int i=0;i<10;i++){
+		for(int i=1;i<10;i++){
 			searchPublicSafetyVo=new SearchPublicSafetyVo();
-			searchPublicSafetyVo.setTitleZh("昨天。。。"+i);
+			searchPublicSafetyVo.setTitleZh("昨天，结束了亚锦赛征程的朴泰桓。");
 			searchPublicSafetyVo.setPubdate("2016-12-0"+i);
 			list.add(searchPublicSafetyVo);
 		}
