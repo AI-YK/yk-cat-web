@@ -164,9 +164,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var param = {};
         	param.modelNo = modelNo;
         	param.timeType = timeType;
-        	param.province = '';
-        	param.city = '';
-        	param.publicAffairsType = '';
+        	param.categoryId = '';
+        	param.idList = '';
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
