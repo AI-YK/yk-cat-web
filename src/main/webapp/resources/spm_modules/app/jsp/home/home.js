@@ -3,10 +3,10 @@ define('app/jsp/home/home', function (require, exports, module) {
     var $=require('jquery'),
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
-    require("jsviews/jsrender.min");
     require("app/util/jsviews-yi");
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var HomeChart = require("app/jsp/home/charts");
+	require("jsviews/jsrender.min");
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
     
@@ -84,7 +84,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
-                var mediaId = $(this).next().val();
+                var mediaId = $(this).next().attr("value");
                 _this._getHotInfoList("news",mediaId);
    			});
             
@@ -93,7 +93,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
-                var mediaId = $(this).next().val();
+                var mediaId = $(this).next().attr("value");
                 _this._getHotInfoList("social",mediaId);
    			});
             
