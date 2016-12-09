@@ -84,7 +84,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
-                var mediaId = $(this).next().val();
+                var mediaId = $(this).next().attr("value");
                 _this._getHotInfoList("news",mediaId);
    			});
             
@@ -93,7 +93,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
-                var mediaId = $(this).next().val();
+                var mediaId = $(this).next().attr("value");
                 _this._getHotInfoList("social",mediaId);
    			});
             
