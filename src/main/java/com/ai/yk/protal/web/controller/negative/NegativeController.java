@@ -41,8 +41,7 @@ public class NegativeController {
 			@RequestParam(value="fieldName",defaultValue="") String fieldName,
 			@RequestParam(value="order",defaultValue="") String order
 			){
-		SearchPublicSafetyResponse searchPublicSafetyResponse=get();
-		/*SearchPublicSafetyMessage searchPublicSafetyMessage=new SearchPublicSafetyMessage();
+		SearchPublicSafetyMessage searchPublicSafetyMessage=new SearchPublicSafetyMessage();
 		searchPublicSafetyMessage.setCityCode(cityCode);
 		searchPublicSafetyMessage.setFieldName(fieldName);
 		searchPublicSafetyMessage.setMediaId(mediaId);
@@ -55,8 +54,9 @@ public class NegativeController {
 		YJRequest<SearchPublicSafetyMessage> req=new YJRequest<SearchPublicSafetyMessage>();
 		req.setMessage(searchPublicSafetyMessage);
 		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getSearchPublicSafety(req);
-		SearchPublicSafetyResponse searchPublicSafetyResponse=yjr.getData();*/
+		SearchPublicSafetyResponse searchPublicSafetyResponse=yjr.getData();
 		
+		//SearchPublicSafetyResponse searchPublicSafetyResponse=get();
 		return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询负面舆情成功！", searchPublicSafetyResponse);
 	}
 	
