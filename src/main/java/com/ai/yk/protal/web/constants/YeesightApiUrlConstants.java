@@ -20,6 +20,11 @@ public class YeesightApiUrlConstants {
     static{
     	remoteBaseUrl = ConfigUtil.getProperty("remoteBaseUrl");
     }
+    //系统来源
+    private static final String API_SOURCE_SYSTEM="yeesightPublicSentiment";
+    
+    
+    
 	// 搜索数据源列表url
 	public final static String API_SEARCH_GETDATASOURCELIST = "/api/search/getDataSourceList";
 	// 查询事件列表url
