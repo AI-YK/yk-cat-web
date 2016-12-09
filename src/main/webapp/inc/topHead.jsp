@@ -35,10 +35,10 @@
 					</p>
 					<div class="erw-show" id="erw-show">
 						<span><i class="icon iconfont">&#xe65a;</i></span>
-						<p><img src="images/erw.jpg"></p>
+						<p><img src="${uedroot}/images/erw.jpg"></p>
 					</div>
-					<!-- <p><a href="#">EN</a>|</p>
-					<p><a href="#">中文</a></p> -->
+					<p><a href="#">&nbsp;&nbsp;</a>|</p>
+					<p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
 			</li>
 		</ul>
 	</div>

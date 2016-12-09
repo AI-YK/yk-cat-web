@@ -88,12 +88,14 @@
 <script id="newsMediaTempl" type="text/x-jsrender">
    <li><a href="javascript:void(0);" class="current">全部</a></li>
    {{for dics}}
-       <li><a href="javascript:void(0);">{{:dicName}}</a><intput type="hidden" value="{{:dicValue}}"/></li>
+       <li><a href="javascript:void(0);" style="text-align: center;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;cursor:hand;
+">{{:dicName}}</a><intput type="hidden" value="{{:dicValue}}"/></li>
    {{/for}}
 </script>
 <script id="socialMediaTempl" type="text/x-jsrender">
    <li><a href="javascript:void(0);" class="current">全部</a></li>
    {{for dics}}
-       <li><a href="javascript:void(0);">{{:dicName}}</a><intput type="hidden" value="{{:dicValue}}"/></li>
+       <li><a href="javascript:void(0);" style="text-align:center;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;cursor:hand;
+">{{:dicName}}</a><intput type="hidden" value="{{:dicValue}}"/></li>
    {{/for}}
 </script>
