@@ -15,7 +15,7 @@
 .chart1{width:406px;height:415px;border:1px solid #278cd7;float:left;border-radius:5px 5px 0 0;position:relative;}
 .chart1-title{width:100%;background:#278cd7;height:50px;border-radius:5px 5px 0 0;font-size:16px;color:#fff;padding-left:20px;line-height:50px;}
 .chart1-conter{width:100%;background:#000;height:363px;opacity:0.2;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity:0.2;}
-.chart1-main{width:100%;height:363px;position:absolute;left:0;top:50px;padding:16px 20px;}
+.chart1-main{width:100%;height:363px;position:absolute;left:0;top:50px;}
 /**舆情新闻**/
 .journalism-sentiment{width:100%;float:left;height:570px;background:#ebeef0;min-width:1200px;padding:60px 0;}
 .sentiment-main{width:1200px;margin:0 auto;}

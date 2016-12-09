@@ -147,6 +147,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
         },
         _login:function(){
+        	//http://192.168.59.17:8066/sso/login
         	$("#loginJumpFormId").attr("action","http://buzz.yeesight.com/login");
         	var end = window.location.href.indexOf(_base);
         	var href = window.location.href.substring(0,end) + _base+"/home/success";
@@ -174,7 +175,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 				success: function (rs) {
 					var data = rs.data;
 					if(modelNo=='mediaCoverage'){
-						homeChart._initMediaCoverageChart('mediaCoverage',data.mediaCoverage);
+						homeChart._initMediaCoverageChart('mediaCoverage','mediaCoverage-ul',data.mediaCoverage);
 					}else if(modelNo=='locSentimentCount'){
 						homeChart._initIocSentimentChart('locSentimentCount',data.locSentimentCount);
 					}

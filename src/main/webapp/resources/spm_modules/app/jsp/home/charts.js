@@ -115,14 +115,40 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		        {
         		            type : 'category',
         		            data : cities,
-        					axisLabel: { show: true, textStyle: { color: 'blue' } } 
+        					axisLabel: { 
+        						show: true, 
+        						textStyle: { 
+        							color: '#215198' 
+        						} 
+        		            },
+       		                axisLine:{
+    		            	    show: true,
+    		            	    lineStyle:{
+    		            	    	color:'#596593',
+    		            	    	width:2
+    		            	    }
+    		                }
         		        }
         				
         		    ],
         		    yAxis : [
         		        {
         		            type : 'value',
-        					axisLabel: { show: true, textStyle: { color: 'blue' } }
+        					axisLabel:{ 
+        						show: true, 
+        						textStyle: { 
+        							color: '#215198' 
+        						} 
+        		             },
+        		             axisLine:{
+        		            	 show: false
+        		             },
+        		             splitLine:{
+           					  lineStyle:{
+           		                color:'#596593',
+           					    type:'dashed'
+           					  }
+           					}
         		        }
         		    ],
         		    series : [
@@ -156,9 +182,16 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		var chart = echarts.init(document.getElementById(container));
         		chart.setOption(option);
         },
-        _initMediaCoverageChart:function(container,data){
+        _initMediaCoverageChart:function(container,ul,data){
+        	var colors = ['#eb4d38','#80c823','#0067b4','#af67ef','#f9983a'];
+        	
+        	if(data.length%5==1){
+        		colors.splice(0,1);
+        	}
+        	var cache = [];
             var option = {
         			animation:false,
+        			color:colors,
         		    series : [
         		        {
         		           name: '媒体覆盖',
@@ -178,7 +211,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		                	 label : {
         		                         show : true,
         		                         formatter: function(param){
-        		                        	//console.log(JSON.stringify(param));
+        		                        	cache.push(param);
         		                        	return param.name+"\n"+param.percent+"%";
         		                         }
         		                     },
@@ -198,6 +231,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		};
         		var chart = echarts.init(document.getElementById(container));
         		chart.setOption(option);
+        		var lis = "";
+        		for(var i=0;i<cache.length;i++){
+        			var li = "<li><p>"+cache[i].name+"：</p><p style='color:"+cache[i].color+";'>"+cache[i].percent+"%</p></li>";
+        			lis = lis + li;
+        		}
+        		$("#"+ul).html(lis);
+        	    //console.log(JSON.stringify(cache));
         }
         
     });
