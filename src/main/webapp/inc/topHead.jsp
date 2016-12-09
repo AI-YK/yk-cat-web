@@ -10,7 +10,7 @@
 					<a id="login" href="javascript:void(0);">登录</a>|
 				</p>
 				<p>
-					<a id="regist" href="http://buzz.yeesight.com/register">注册</a>
+					<a id="regist" href="javascript:void(0);">注册</a>
 				</p>
 			</li>
 			<li class="right">

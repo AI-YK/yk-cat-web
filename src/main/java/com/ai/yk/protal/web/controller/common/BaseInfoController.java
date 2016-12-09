@@ -412,7 +412,7 @@ public class BaseInfoController {
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
 			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
 			  String userId = clientUser.getUserId();
-			  saveMyCustomizedMessage.setSrcID(srcID);
+			  saveMyCustomizedMessage.setSrcId(srcID);
 			  saveMyCustomizedMessage.setCreateId(userId);
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
