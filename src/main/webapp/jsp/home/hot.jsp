@@ -63,12 +63,16 @@
 <script id="socialHotTempl" type="text/x-jsrender">
  <div class="socialhot-list">
 			<div class="social-user">
-				<img src="${uedroot}/images/user.jpg" />
+                {{if userAvatar==null}}
+				  <img src="${uedroot}/images/user.jpg" />
+                {{else}}
+                   <img src="{{:userAvatar}}" />
+                {{/if}}
 			</div>
 			<ul>
 				  <li>
 					 <p class="word">
-						<a href="#">好听的昵称</a>
+						<a href="#">{{:name}}</a>
 					 </p>
 					 <p>
 						<a href="#">{{:titleZh}}</a>

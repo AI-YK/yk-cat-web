@@ -7,8 +7,75 @@ define('app/jsp/home/charts', function (require, exports, module) {
     var HomeChart = Base.extend({
         //重写父类
         setup: function () {
-        	HomeChart.superclass.setup.call(this);
-           
+        	HomeChart.superclass.setup.call(this); 
+        },
+        _initTimeTrendChart:function(container,data){
+        	console.log(JSON.stringify(data));
+        	var times = [];
+        	var counts = [];
+        	for(var i=0;i<data.length;i++){
+        		times[i] = data[i].time;
+        		counts[i] = data[i].count;
+        	}
+        	var option = {
+        		    tooltip : {
+        		        trigger: 'axis'
+        		    },
+        		    calculable : true,
+        		    xAxis : [
+        		        {
+        		            type : 'category',
+        		            boundaryGap : false,
+        		            data : times,
+        					axisLine:{
+        					  lineStyle:{
+        					    color:'#2e8ad3',
+        						width:3
+        					  }
+        					}
+        		        }
+        		    ],
+        		    yAxis : [
+        		        {
+        		            type : 'value',
+        					axisLine:{
+        					  lineStyle:{
+        					    color:'#2c88db'
+        					  }
+        					},
+        					splitLine:{
+        					  lineStyle:{
+        		                color:'#1162a1',
+        					    type:'dashed'
+        					  }
+        					}
+        		        }
+        		    ],
+        		    series : [
+        		        {
+        		            name:'事件态势',
+        		            type:'line',
+        					symbol:'none',
+        					width:0,
+        		            smooth:true,
+        		            itemStyle: {
+        						normal: {
+        							color:'#1687d7',
+        							areaStyle: {
+        								type: 'default'
+        							}
+        						}
+        					},
+        					areaStyle:{
+        					  color:'#1687d7'
+        					},
+        		            data:counts
+        		        }
+        		    ]
+        		};
+        	    var chart = echarts.init(document.getElementById(container));
+        	    chart.setOption(option);
+        		 
         },
         _initIocSentimentChart:function(container,data){
         

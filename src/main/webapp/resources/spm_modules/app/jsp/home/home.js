@@ -124,8 +124,10 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#eventList").html(emergencyHtml);
 					var chartHtml = $("#chartTempl").render(data);
 					$("#eventChartList").html(chartHtml);
-					//$("#chart_0_0").load("../jsp/chart/bar.html");
-		        	//$("#chart_1_0").load("../jsp/chart/area.html");
+					var groups = data.groups;
+					for(var i=0;i<groups.length;i++){
+						homeChart._initTimeTrendChart('chart_1_'+i,groups[i].timeTrend);
+					}
 				}
 			});
         },
