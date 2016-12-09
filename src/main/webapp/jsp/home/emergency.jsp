@@ -6,7 +6,9 @@
 			<div class="list-left">
 				<ul id="eventList"></ul>
 			</div>
-			<div class="list-right" id="eventChartList"></div>
+			<div class="list-right" id="eventChartList">
+			
+			</div>
 		</div>
 	</div>
 </div>
@@ -22,7 +24,7 @@
   {{/for}}
 </script>
 <script id="chartTempl" type="text/x-jsrender">
-  {{for eventList}}
+  {{for groups}}
      <div id="chart-date{{:#index}}" {{if #index!=0}}style="display: none;"{{/if}}>
 		 <!--图表1-->
          <div class="chart1">
@@ -39,7 +41,7 @@
 				<div class="chart1-title">事件态势</div>
 				<div class="chart1-conter"></div>
 				<!--图表嵌套区域-->
-				<div id="chart_1_{{:#index}}" class="chart1-main" id="test1">chart_1_{{:#index}}</div>
+				<div id="chart_1_{{:#index}}" class="chart1-main" style="height:362px;"></div>
 				<!--/图表嵌套结束-->
 			</div>
 		    <!--/图表2结束-->

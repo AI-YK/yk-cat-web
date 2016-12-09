@@ -11,12 +11,12 @@
 .list-left ul .current{border:1px solid #39adf6;border-right:none;border-bottom:1px solid #39adf6;color:#e79003}
 .list-left ul li p span{float:left;color:#22a8e7;font-size:12px;}
 .list-right{width:874px;height:455px;border:1px solid #39adf6;border-left:none;float:left;padding:20px;}
-/**表1**/
+/**琛�**/
 .chart1{width:406px;height:415px;border:1px solid #278cd7;float:left;border-radius:5px 5px 0 0;position:relative;}
 .chart1-title{width:100%;background:#278cd7;height:50px;border-radius:5px 5px 0 0;font-size:16px;color:#fff;padding-left:20px;line-height:50px;}
 .chart1-conter{width:100%;background:#000;height:363px;opacity:0.2;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity:0.2;}
-.chart1-main{width:100%;height:363px;position:absolute;left:0;top:50px;padding:16px 20px;}
-/**舆情新闻**/
+.chart1-main{width:100%;height:363px;position:absolute;left:0;top:50px;}
+/**鑸嗘儏鏂伴椈**/
 .journalism-sentiment{width:100%;float:left;height:570px;background:#ebeef0;min-width:1200px;padding:60px 0;}
 .sentiment-main{width:1200px;margin:0 auto;}
 .sentiment-title{width:100%;height:58px;background:#2e344b;border-radius:5px 5px  0 0;float:left}
@@ -28,7 +28,7 @@
 .sentiment-list{width:100%;float:left;height:395px;background:#fff;border:1px solid #dcddde;border-top:none}
 .sentiment-list-conter{width:599px;float:left;}
 .border-right{border-right:1px solid #dcddde;height:395px;}
-/**新闻tab**/
+/**鏂伴椈tab**/
 .sentiment-list-conter-title{width:100%;float:left;height:38px;background:#f2f2f2;padding:9px 20px;font-size:14px}
 .sentiment-list-conter-news{width:100%;float:left;padding:0 20px;}
 .sentiment-list-conter-news ul{width:100%;float:left}
@@ -41,7 +41,7 @@
 .sentiment-list-conter-news ul .orange{background:#f3820b}
 .sentiment-list-conter-news ul .yellow{background:#fce630}
 .sentiment-list-conter-news ul .red{background:#cd2009}
-/**热点新闻**/
+/**鐑偣鏂伴椈**/
 .hot-news{width:100%;background:#fff;float:left;height:630px;padding:;min-width:1200px;padding:57px 0;}
 .hot-news-main{width:1200px;margin:0 auto;}
 .hot-news-main-left{width:587px;float:left;}
@@ -69,7 +69,7 @@
 .socialhot ul .word a{color:#0067b4;font-size:16px;}
 .social-user{width:36px;height:36px;float:left;margin:15px 10px 0 0;}
 .social-user img{width:36px;height:36px;border-radius:50%;float:left}
-/**走势**/
+/**璧板娍**/
 .trend{width:100%;float:left;background:#2e344b;height:470px;padding:60px 0;min-width:1200px;}
 .trend-main{width:1200px;margin:0 auto;}
 .trend-conter{width:590px;height:350px;border:1px solid #0067b4;border-radius:5px 5px 0 0;float:left}
@@ -79,5 +79,5 @@
 .trend-conter-title ul li{float:left;margin-left:10px;}
 .trend-conter-title ul li a{width:60px;height:28px;background:#3b4363;text-align:center;line-height:28px;border-radius:5px;color:#fff;font-size:14px;float:left}
 .trend-conter-title ul li .current{background:#0067b4;}
-/**走势图1**/
+/**璧板娍鍥�**/
 .trend-conter-list{width:100%;float:left;padding:0 20px;margin-top:18px;height:263px;}

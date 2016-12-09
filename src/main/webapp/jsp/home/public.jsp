@@ -29,16 +29,16 @@
 <!--/负面舆情结束-->
 <script id="newsTempl" type="text/x-jsrender">
   <ul>
-	 <li class="block {{:~getRankColor(#index)}}">{{:#index+1}}</li>
+	 <li class="block {{:~getRankByTransfer(transfer)}}">{{:#index+1}}</li>
 	 <li><a href="#">{{:titleZh}}</a></li>
-	 <li class="date">{{if updated==null}}{{:pubdate}}{{else}}{{:updated}}{{/if}}</li>
+	 <li class="date">{{:pubdate}}</li>
    </ul>
 </script>
 <script id="socialTempl" type="text/x-jsrender">
   <ul>
-	 <li class="block {{:~getRankColor(#index)}}">{{:#index+1}}</li>
-	 <li class="icon iconfont i-color">&#xe65e;</li>
+	 <li class="block {{:~getRankByTransfer(transfer)}}">{{:#index+1}}</li>
+	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
 	 <li><a href="#">{{:titleZh}}</a></li>
-	 <li class="date">{{if updated==null}}{{:pubdate}}{{else}}{{:updated}}{{/if}}</li>
+	 <li class="date">{{:pubdate}}</li>
   </ul>
 </script>
