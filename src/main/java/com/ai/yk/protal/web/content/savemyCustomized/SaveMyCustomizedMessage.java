@@ -2,6 +2,8 @@ package com.ai.yk.protal.web.content.savemyCustomized;
 
 import java.io.Serializable;
 import java.util.List;
+
+import com.ai.yk.protal.web.constants.YeesightApiConstants;
 /**
  * 创建个人定制接口入参
  * @author shancong
@@ -12,7 +14,7 @@ public class SaveMyCustomizedMessage implements Serializable{
 	
 	/**用户ID**/
 	private String createId;
-	private String sourceSystem;
+	private String sourceSystem = YeesightApiConstants.API_SOURCE_SYSTEM;
 	private String provinceCode;
 	
 	private List<String> interestList;

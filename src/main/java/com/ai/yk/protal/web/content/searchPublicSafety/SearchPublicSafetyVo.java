@@ -7,7 +7,7 @@ import java.util.List;
 public class SearchPublicSafetyVo implements Serializable {
     private static final long serialVersionUID = -931147144629978354L;
 	/**语言类别**/
-	private int languageCode;
+	private String languageCode;
 	/**纬度**/
 	private BigDecimal latitudes;
 	/**经度**/
@@ -98,10 +98,10 @@ public class SearchPublicSafetyVo implements Serializable {
 	private String name;
 	/**头像**/
 	private String userAvatar;
-	public int getLanguageCode() {
+	public String getLanguageCode() {
 		return languageCode;
 	}
-	public void setLanguageCode(int languageCode) {
+	public void setLanguageCode(String languageCode) {
 		this.languageCode = languageCode;
 	}
 	public BigDecimal getLatitudes() {
@@ -373,65 +373,5 @@ public class SearchPublicSafetyVo implements Serializable {
 	}
 	public void setUserAvatar(String userAvatar) {
 		this.userAvatar = userAvatar;
-	}
-	public SearchPublicSafetyVo(int languageCode, BigDecimal latitudes, BigDecimal longitude, String uuid,
-			String titleSrc, String titleZh, String titleEn, String abstractZh, String abstractEn, Integer sentimentId,
-			String languageTname, List<String> keywordsEn, String motorists, String september, List<String> keywordsZh,
-			String categoryId, String countryNameZh, String countryNameEn, String provinceNameZh, String provinceNameEn,
-			String districtNameZh, String districtNameEn, String pubdate, String created, String updated,
-			Integer isOriginal, String mediaNameZh, String mediaNameEn, String mediaNameSrc, Integer mediaType,
-			String mediaTname, String mediaLevel, String websiteId, Integer docLength, String url, Integer transfer,
-			String transFromM, Integer isPicture, Integer pv, Integer isHome, Long pubTime, Integer issensitive,
-			List<String> tags, String similarityId, String name, String userAvatar) {
-		super();
-		this.languageCode = languageCode;
-		this.latitudes = latitudes;
-		this.longitude = longitude;
-		this.uuid = uuid;
-		this.titleSrc = titleSrc;
-		this.titleZh = titleZh;
-		this.titleEn = titleEn;
-		this.abstractZh = abstractZh;
-		this.abstractEn = abstractEn;
-		this.sentimentId = sentimentId;
-		this.languageTname = languageTname;
-		this.keywordsEn = keywordsEn;
-		this.motorists = motorists;
-		September = september;
-		this.keywordsZh = keywordsZh;
-		this.categoryId = categoryId;
-		this.countryNameZh = countryNameZh;
-		this.countryNameEn = countryNameEn;
-		this.provinceNameZh = provinceNameZh;
-		this.provinceNameEn = provinceNameEn;
-		this.districtNameZh = districtNameZh;
-		this.districtNameEn = districtNameEn;
-		this.pubdate = pubdate;
-		this.created = created;
-		this.updated = updated;
-		this.isOriginal = isOriginal;
-		this.mediaNameZh = mediaNameZh;
-		this.mediaNameEn = mediaNameEn;
-		this.mediaNameSrc = mediaNameSrc;
-		this.mediaType = mediaType;
-		this.mediaTname = mediaTname;
-		this.mediaLevel = mediaLevel;
-		this.websiteId = websiteId;
-		this.docLength = docLength;
-		this.url = url;
-		this.transfer = transfer;
-		this.transFromM = transFromM;
-		this.isPicture = isPicture;
-		this.pv = pv;
-		this.isHome = isHome;
-		this.pubTime = pubTime;
-		this.issensitive = issensitive;
-		this.tags = tags;
-		this.similarityId = similarityId;
-		this.name = name;
-		this.userAvatar = userAvatar;
-	}
-	public SearchPublicSafetyVo() {
-		super();
 	}
 }
