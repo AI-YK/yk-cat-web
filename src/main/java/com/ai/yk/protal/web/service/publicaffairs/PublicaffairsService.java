@@ -18,7 +18,7 @@ public class PublicaffairsService {
 	 * 查询媒体覆盖，查询舆情走势
 	 */
 	public YJResponse<PublicAffairsResponse> queryMediaCoverageList(YJRequest<PublicAffairsMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_QUERYSHARECOUNT);
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_QUICKANALYZE);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
 			YJResponse<PublicAffairsResponse> res = 
