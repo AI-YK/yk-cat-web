@@ -1,5 +1,7 @@
 package com.ai.yk.protal.web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,8 +12,10 @@ import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.utils.SessionUtil;
 
 /**
@@ -28,6 +32,9 @@ public class IndexController {
     
     @Autowired
     private MycustomizedService mycustomizedService;
+    
+    @Autowired
+    private MytopicsService mytopicsService;
     /**
      * 首页
      * @return
@@ -36,6 +43,13 @@ public class IndexController {
     public String indexView(Model model){
     	MyCustomizedVo config = SessionUtil.getUserConfig();
     	model.addAttribute("config", config);
+    	List<MyTopicsVo> topics = SessionUtil.getTopics();
+    	if(topics==null||topics.size()==0){
+    		model.addAttribute("hasTopic", true);
+    		model.addAttribute("topics", topics);
+    	}else{
+    		model.addAttribute("hasTopic", false);
+    	}
         return "/home/index";
     }
     
