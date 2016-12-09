@@ -34,14 +34,19 @@ public class PublicOpinionTrendController {
 	@RequestMapping("/pubTrend")
 	@ResponseBody
 	public ResponseData<PublicAffairsResponse> getPubTrend(
+				/**
+				 * 城市列表（多个用逗号隔开）
+				 */
 			  @RequestParam(value="idList",defaultValue="") String idList,
-//			  @RequestParam(value="city",defaultValue="") String city,
 			  	/**
 				 * 模型名称
 				 * 媒体覆盖出 mediaCoverage 
 				 * 舆情走势 locSentimentCount
 				 */
 			  @RequestParam(value="modelNo",defaultValue="") String modelNo,
+			  /**
+				 * 舆情分类类型（多个用逗号隔开）
+				 */
 			  @RequestParam(value="categoryId",defaultValue="") String categoryId,
 			  /**
 			   * 今日：0，本周：1，本月：2
