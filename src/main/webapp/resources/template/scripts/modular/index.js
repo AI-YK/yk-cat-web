@@ -9,28 +9,28 @@ $(".list-left ul li").mouseenter(function () {
 $('.list-left ul li').mouseenter(function(){
   var index=$('.list-left ul li').index(this);
      if(index==0){
-     $('#chart-date0').show();
-  	 $('#chart-date1').hide();
+     $('#chart-date1').show();
   	 $('#chart-date2').hide();
   	 $('#chart-date3').hide();
+  	 $('#chart-date4').hide();
    }
    if(index==1){
-   $('#chart-date1').show();
-   $('#chart-date0').hide();
-   $('#chart-date2').hide();
+   $('#chart-date2').show();
+   $('#chart-date1').hide();
    $('#chart-date3').hide();
+   $('#chart-date4').hide();
    }
    if(index==2){
-   $('#chart-date2').show();
-   $('#chart-date0').hide();
+   $('#chart-date3').show();
    $('#chart-date1').hide();
-   $('#chart-date3').hide();
+   $('#chart-date2').hide();
+   $('#chart-date4').hide();
    }
    if(index==3){
-   $('#chart-date3').show();
+   $('#chart-date4').show();
+   $('#chart-date3').hide();
    $('#chart-date2').hide();
    $('#chart-date1').hide();
-   $('#chart-date0').hide();
    }
   }); 
 });
@@ -183,3 +183,113 @@ $('#social-tab ul li a').click(function(){
    }
   }); 
 });
+//走势 table
+$(function(){
+$("#trend ul li a").click(function () {
+                $("#trend ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#trend ul li a').click(function(){
+  var index=$('#trend ul li a').index(this);
+     if(index==0){
+     $('#trendtab1').show();
+  	 $('#trendtab2').hide();
+  	 $('#trendtab3').hide();
+   }
+   if(index==1){
+     $('#trendtab2').show();
+  	 $('#trendtab1').hide();
+  	 $('#trendtab3').hide();
+   }
+   if(index==2){
+     $('#trendtab3').show();
+  	 $('#trendtab2').hide();
+  	 $('#trendtab1').hide();
+   }
+  }); 
+});
+//走势 table
+$(function(){
+$("#trend1 ul li a").click(function () {
+                $("#trend1 ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#trend1 ul li a').click(function(){
+  var index=$('#trend1 ul li a').index(this);
+     if(index==0){
+     $('#trendtab4').show();
+  	 $('#trendtab5').hide();
+  	 $('#trendtab6').hide();
+   }
+   if(index==1){
+     $('#trendtab5').show();
+  	 $('#trendtab4').hide();
+  	 $('#trendtab6').hide();
+   }
+   if(index==2){
+     $('#trendtab6').show();
+  	 $('#trendtab5').hide();
+  	 $('#trendtab4').hide();
+   }
+  }); 
+});
+
+
+//昵称
+$(function () {
+    var st = 100;
+    $('.breadcrumb-main ul .right .posi').mouseenter(function () {
+		$('#user-show').show(1);
+    })
+		$("#user-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.breadcrumb-main').mouseleave(function () {
+        $('#user-show').hide(1);
+         $('#erw-show').hide(1);
+    });	
+ }); 
+//二维
+$(function () {
+    var st = 100;
+    $('.breadcrumb-main ul .iphone').mouseenter(function () {
+		$('#erw-show').show(1);
+    })
+		$("#erw-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.breadcrumb-main').mouseleave(function () {
+        $('#erw-show').hide(1);
+        $('#user-show').hide(1);
+    });	
+ }); 
+//专题
+$(function () {
+    var st = 100;
+    $('.right-list ul #in-border1').mouseenter(function () {
+		$('#special-one').show(1);
+    })
+		$("#special-one").click(function () {
+                $(this).hide(1);
+           });	
+		$('.right-list ul #in-border1').mouseleave(function () {
+        $('#special-one').hide(1);
+    });	
+ });  
+ //专题
+$(function () {
+    var st = 100;
+    $('.right-list ul #in-border2').mouseenter(function () {
+		$('#special-tow').show(1);
+    })
+		$("#special-tow").click(function () {
+                $(this).hide(1);
+           });	
+		$('.right-list ul #in-border2').mouseleave(function () {
+        $('#special-tow').hide(1);
+    });	
+ }); 

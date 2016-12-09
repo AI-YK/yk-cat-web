@@ -3,10 +3,10 @@ define('app/jsp/home/home', function (require, exports, module) {
     var $=require('jquery'),
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
-    require("jsviews/jsrender.min");
     require("app/util/jsviews-yi");
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var HomeChart = require("app/jsp/home/charts");
+	require("jsviews/jsrender.min");
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
     
@@ -15,7 +15,8 @@ define('app/jsp/home/home', function (require, exports, module) {
     var homePage = Widget.extend({
         //属性，使用时由类的构造函数传入
         attrs: {
-            clickId:""
+            clickId:"",
+            chartGroups:{}
         },
 
         //事件代理
@@ -43,6 +44,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                  });
                  $(this).addClass("current");
                  var index=$('.list-left ul li').index(this);
+                 homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);
                  $("#chart-date"+index).show();
 			});
             
@@ -82,7 +84,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
-                var mediaId = $(this).next().val();
+                var mediaId = $(this).next().attr("value");
                 _this._getHotInfoList("news",mediaId);
    			});
             
@@ -91,7 +93,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
-                var mediaId = $(this).next().val();
+                var mediaId = $(this).next().attr("value");
                 _this._getHotInfoList("social",mediaId);
    			});
             
@@ -110,6 +112,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._getNegativeList("social");
         },
         _initEventData:function(){
+        	var _this = this;
         	var url = "/emergency/getEmergencyIndexList";
         	var param = {};
         	ajaxController.ajax({
@@ -122,12 +125,9 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var data = rs.data;
 					var emergencyHtml = $("#emergencyTempl").render(data);
 					$("#eventList").html(emergencyHtml);
-					var chartHtml = $("#chartTempl").render(data);
-					$("#eventChartList").html(chartHtml);
-					var groups = data.groups;
-					for(var i=0;i<groups.length;i++){
-						homeChart._initTimeTrendChart('chart_1_'+i,groups[i].timeTrend);
-					}
+					$("#chartGroup").show();
+					_this.chartGroups = data.groups;
+					homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
 				}
 			});
         },
@@ -135,7 +135,6 @@ define('app/jsp/home/home', function (require, exports, module) {
         	$("#loginJumpFormId").attr("action","http://buzz.yeesight.com/login");
         	var end = window.location.href.indexOf(_base);
         	var href = window.location.href.substring(0,end) + _base+"/home/success";
-        	alert(href);
         	$("#loginSuccessUrl").val(href);
         	$('#loginJumpFormId').submit();
         },

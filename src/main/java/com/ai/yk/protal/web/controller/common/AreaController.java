@@ -17,6 +17,8 @@ import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.common.DicListResonse;
 import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
@@ -389,33 +391,37 @@ public class AreaController {
 				  @RequestParam(value="provinceCode",defaultValue="") String provinceCode,
 				  @RequestParam(value="interestStr",defaultValue="") String interestStr,
 				  @RequestParam(value="cityStr",defaultValue="") String cityStr,
-				  @RequestParam(value="srcID",defaultValue="") String srcID  
+				  @RequestParam(value="srcID",defaultValue="") String srcID
 				  ){
 			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 			  saveMyCustomizedMessage.setCreateId(clientUser.getUserId());
 			  List<String> interestList=new ArrayList<String>();
-			  String[] interestArr;
-			  if(interestStr.contains(",")){
-				  interestArr = interestStr.split(",");
+			  String[] interestArr = interestStr.split(",");
 				  interestList = java.util.Arrays.asList(interestArr);
-			  }
 			  List<String> cityList=new ArrayList<String>();
-			  String[] cityArr;
-			  if(interestStr.contains(",")){
-				  cityArr = interestStr.split(",");
+			  	  String[] cityArr = interestStr.split(",");
 				  cityList =java.util.Arrays.asList(cityArr);
-			  }
 			  saveMyCustomizedMessage.setCityList(cityList);
 			  saveMyCustomizedMessage.setInterestList(interestList);
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
 			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
+			  String userId = clientUser.getUserId();
 			  saveMyCustomizedMessage.setSrcID(srcID);
+			  saveMyCustomizedMessage.setCreateId(userId);
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
 			  YJResponse<SaveMyCustomizedResponse> res= mycustomizedService.saveMyCustomized(req);
-			//  YJResponse<SaveMyCustomizedResponse> res = new YJResponse<SaveMyCustomizedResponse>();
 			  SaveMyCustomizedResponse  saveMyCustomizedResponse =  res.getData();
+			  //获取保存的配置信息
+			  YJRequest<MyCustomizedListMessage> customizedListMessageReq= new YJRequest<MyCustomizedListMessage>();
+			  MyCustomizedListMessage customizedListMessage = new MyCustomizedListMessage();
+		      customizedListMessage.setCreateId(Integer.valueOf(clientUser.getUserId()));
+		      customizedListMessageReq.setMessage(customizedListMessage);
+		      YJResponse<MyCustomizedVo> resp = mycustomizedService.queryMyCustomized(customizedListMessageReq);
+			  if(resp!=null){
+				  SessionUtil.setUserConfig(resp.getData());
+			  }
 			  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_SUCCESS,"保存配置信息成功",saveMyCustomizedResponse);
 				
 		  }

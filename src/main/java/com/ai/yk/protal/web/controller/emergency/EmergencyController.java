@@ -38,7 +38,7 @@ public class EmergencyController{
 	    @RequestMapping("/getEmergencyIndexList")
 	    @ResponseBody
 	    public ResponseData<HomeEventVo> getEmergencyIndexList(
-	    		@RequestParam(value="pageSize",defaultValue="10") Integer pageSize,
+	    		@RequestParam(value="pageSize",defaultValue="4") Integer pageSize,
 	    		@RequestParam(value="pageNo",defaultValue="1") Integer pageNo,
 	    		// 所属分类 舆情分类，根据字典表
 	    		@RequestParam(value="type",defaultValue="") Integer type,
@@ -70,7 +70,8 @@ public class EmergencyController{
 	    	for(EventVo event:eventList){
 	    		YJRequest<EventModelMessage> modelReq = new YJRequest<EventModelMessage>();
 	    		EventModelMessage mesge = new EventModelMessage();
-	    		mesge.setEventId(String.valueOf(event.getId()));
+	    		mesge.setEventId(String.valueOf(event.getSrcId()));
+	    		modelReq.setMessage(mesge);
 	    		YJResponse<EventModelResponse> modelResp =eventDataService.queryEventModel(modelReq);
 	    		chartGroup.add(modelResp.getData());
 	    	}
@@ -122,7 +123,7 @@ public class EmergencyController{
 				    @RequestParam(value="beginDate",defaultValue="") String beginDate,
 				    @RequestParam(value="endDate",defaultValue="") String endDate
 	    		){
-	    	/*EventModelMessage eventModelMessage = new EventModelMessage();
+	    	EventModelMessage eventModelMessage = new EventModelMessage();
 	    	eventModelMessage.setEventId(eventId);
 	    	eventModelMessage.setModels(models);
 	    	eventModelMessage.setBeginDate(beginDate);
@@ -131,9 +132,9 @@ public class EmergencyController{
 	    	req.setMessage(eventModelMessage);
 	    	YJResponse<EventModelResponse> res = new YJResponse<EventModelResponse>();
 	    	res = eventDataService.queryEventModel(req);
-	    	EventModelResponse eventModelResponse = res.getData();*/
+	    	EventModelResponse eventModelResponse = res.getData();
 	    	
-	    	EventModelResponse eventModelResponse = mockEventState();
+	    	//EventModelResponse eventModelResponse = mockEventState();
 	    	return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询事件态势",eventModelResponse);
 	    }
 	    public EventModelResponse mockEventState(){
