@@ -413,8 +413,8 @@ public class AreaController {
 			  saveMyCustomizedMessage.setSrcID(srcID);
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
-//			  YJResponse<SaveMyCustomizedResponse> res= mycustomizedService.saveMyCustomized(req);
-			  YJResponse<SaveMyCustomizedResponse> res = new YJResponse<SaveMyCustomizedResponse>();
+			  YJResponse<SaveMyCustomizedResponse> res= mycustomizedService.saveMyCustomized(req);
+			//  YJResponse<SaveMyCustomizedResponse> res = new YJResponse<SaveMyCustomizedResponse>();
 			  SaveMyCustomizedResponse  saveMyCustomizedResponse =  res.getData();
 			  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_SUCCESS,"保存配置信息成功",saveMyCustomizedResponse);
 				
