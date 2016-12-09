@@ -83,7 +83,7 @@ public class AreaController {
 		  }
 		  map.put("1", areaListA);
 		  map.put("2", areaListH);
-		  map.put("3",areaListH);
+		  map.put("3",areaListL);
 		  map.put("4",areaListT);
 		  
 		//  Map<String,List<QueryAreaListVo>> map = mockData();
