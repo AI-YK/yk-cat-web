@@ -15,6 +15,7 @@ public class PublicaffairsTest {
 		PublicAffairsMessage message = new PublicAffairsMessage();
 		message.setModelNo("locSentimentCount");
 		req.setMessage(message);
+		System.out.println("param:"+JSON.toJSONString(req));
 		YJResponse<PublicAffairsResponse> res = service
 				.queryMediaCoverageList(req);
 		System.out.println("返回:"+JSON.toJSONString(res));
