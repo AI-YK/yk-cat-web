@@ -41,14 +41,20 @@
 						<div class="special-show" id="special-tow">
 							<span><i class="icon iconfont">&#xe65a;</i></span>
 							<ul>
-								<a href="#" class="ahov1"><li>专题一</li></a>
+								<!-- <a href="#" class="ahov1"><li>专题一</li></a>
 								<a href="#" class="ahov2"><li>专题二</li></a>
-								<a href="#" class="ahov3"><li>专题三</li></a>
+								<a href="#" class="ahov3"><li>专题三</li></a> -->
+								<c:forEach items="${topics }" var="topic">
+									<a href="#" class="ahov"><li>${topic.srcShortTitle }</li></a>
+								</c:forEach>
 							</ul>
 						</div>
 					</li>
-					<li class="inbtn"><a href="#">政治管理</a></li>
-					<li class="inbtn"><a href="#">公共安全</a></li>
+					<!-- <li class="inbtn"><a href="#">政治管理</a></li>
+					<li class="inbtn"><a href="#">公共安全</a></li> -->
+					<c:forEach items="${config.interestList }" var="interestVo">
+						<li class="inbtn"><a href="#">${interestVo.zhInterest }</a></li>
+					</c:forEach>
 					<li class="inbtn"><a href="#">修改</a></li>
 				</ul>
 			</div>
