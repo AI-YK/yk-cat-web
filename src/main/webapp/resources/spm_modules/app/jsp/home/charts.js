@@ -10,7 +10,6 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	HomeChart.superclass.setup.call(this); 
         },
         _initTimeTrendChart:function(container,data){
-        	console.log(JSON.stringify(data));
         	var times = [];
         	var counts = [];
         	for(var i=0;i<data.length;i++){

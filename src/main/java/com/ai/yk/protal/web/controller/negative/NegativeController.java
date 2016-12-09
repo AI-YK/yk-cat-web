@@ -33,8 +33,8 @@ public class NegativeController {
 	public ResponseData<SearchPublicSafetyResponse> getNegativeList(
 			@RequestParam(value="mediaType",defaultValue="") String mediaType,
 			@RequestParam(value="sentimentId",defaultValue="-1") String sentimentId,
-			@RequestParam(value="province",defaultValue="") String province,
-			@RequestParam(value="city",defaultValue="") String city,
+			@RequestParam(value="provincecityCode",defaultValue="") String provincecityCode,
+			@RequestParam(value="cityCode",defaultValue="") String cityCode,
 			@RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
 			@RequestParam(value="mediaId",defaultValue="") String mediaId,
 			@RequestParam(value="mediaLevel",defaultValue="") String mediaLevel,
@@ -43,18 +43,18 @@ public class NegativeController {
 			){
 		SearchPublicSafetyResponse searchPublicSafetyResponse=get();
 		/*SearchPublicSafetyMessage searchPublicSafetyMessage=new SearchPublicSafetyMessage();
-		searchPublicSafetyMessage.setCity(city);
+		searchPublicSafetyMessage.setCityCode(cityCode);
 		searchPublicSafetyMessage.setFieldName(fieldName);
 		searchPublicSafetyMessage.setMediaId(mediaId);
 		searchPublicSafetyMessage.setMediaLevel(mediaLevel);
 		searchPublicSafetyMessage.setMediaType(mediaType);
 		searchPublicSafetyMessage.setOrder(order);
-		searchPublicSafetyMessage.setProvince(province);
+		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
 		searchPublicSafetyMessage.setPublicAffairsType(publicAffairsType);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		YJRequest<SearchPublicSafetyMessage> req=new YJRequest<SearchPublicSafetyMessage>();
-		req.setMessage(searchPublicSafetyMessage);1昨天，结束了亚锦赛征
-		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getNewsList(req);
+		req.setMessage(searchPublicSafetyMessage);
+		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getSearchPublicSafety(req);
 		SearchPublicSafetyResponse searchPublicSafetyResponse=yjr.getData();*/
 		
 		return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询负面舆情成功！", searchPublicSafetyResponse);
