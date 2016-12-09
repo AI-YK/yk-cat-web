@@ -39,7 +39,7 @@ public class MycustomizedService {
 		
 		String url = null;
 		
-		if(StringUtil.isBlank(req.getMessage().getSrcID())){
+		if(StringUtil.isBlank(req.getMessage().getSrcId())){
 			url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORNEWS_ADDMYCUSTOMIZED);
 		}else{
 			url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORNEWS_UPDATEMYCUSTOMIZED);
