@@ -28,20 +28,20 @@
 </div>
 <!--/负面舆情结束-->
 <script id="newsTempl" type="text/x-jsrender">
-  {{if #getIndex()<11}}
+  {{if #getIndex()<9}}
   <ul>
 	 <li class="block {{:~getRankColor(transfer)}}">{{:~getRankIndex(transfer)}}</li>
-	 <li><a href="#">{{:titleZh}}</a></li>
+	 <li style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleZh}}</a></li>
 	 <li class="date">{{:pubdate}}</li>
    </ul>
  {{/if}}
 </script>
 <script id="socialTempl" type="text/x-jsrender">
-  {{if #getIndex()<11}}
+  {{if #getIndex()<9}}
   <ul>
 	 <li class="block {{:~getRankColor(transfer)}}">{{:~getRankIndex(transfer)}}</li>
 	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
-	 <li><a href="#">{{:titleZh}}</a></li>
+	 <li width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;><a href="javascript:void(0);">{{:titleZh}}</a></li>
 	 <li class="date">{{:pubdate}}</li>
   </ul>
   {{/if}}
