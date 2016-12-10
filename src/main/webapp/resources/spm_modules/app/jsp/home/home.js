@@ -205,7 +205,6 @@ define('app/jsp/home/home', function (require, exports, module) {
 				data: param,
 				success: function (rs) {
 					var data = rs.data;
-					data.size = eventList.length;
 					var emergencyHtml = $("#emergencyTempl").render(data);
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
@@ -332,7 +331,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var newsHtml = $("#newsTempl").render(data.resultList);
 						$("#newsDiv").html(newsHtml);
 		        	}else if(mediaType=='social'){
-		        		var socialHtml = $("#socialTempl").render(data.resultList);
+		        		var socialHtml = $("#socialTempl").render(data.resultSocialList);
 						$("#socialDiv").html(socialHtml);
 		        	}
 				}
