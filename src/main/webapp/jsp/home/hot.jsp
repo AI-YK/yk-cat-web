@@ -81,7 +81,7 @@
 						<a href="javascript:void(0);">{{:textZh}}</a>
 					 </p>
 					 <p>
-						<span>{{:updateTimeStr}}</span> <span>{{:sourceType}}</span>
+						<span>{{:updateTimeStr}}</span> <span>{{:~conventSource(sourceType)}}</span>
 					 </p>
 				  </li>
 				  <li class="right">{{:rpsCnt}}</li>
