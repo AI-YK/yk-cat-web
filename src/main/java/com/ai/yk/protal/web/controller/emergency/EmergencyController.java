@@ -55,7 +55,7 @@ public class EmergencyController{
 	    		){ 
 	    	
 	    	HomeEventVo homeEventVo = new HomeEventVo();
-	    	YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
+	    	/*YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
 	    	EventListMessage eventListMessage = new EventListMessage();
 	    	eventListMessage.setPageSize(pageSize);
 	    	eventListMessage.setPageNo(pageNo);
@@ -78,8 +78,8 @@ public class EmergencyController{
 	    		YJResponse<EventModelResponse> modelResp =eventDataService.queryEventModel(modelReq);
 	    		chartGroup.add(modelResp.getData());
 	    	}
-	    	homeEventVo.setGroups(chartGroup);
-	    	
+	    	homeEventVo.setGroups(chartGroup);*/
+	    	homeEventVo = mock();
 	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",homeEventVo);
 	    }
 	    
