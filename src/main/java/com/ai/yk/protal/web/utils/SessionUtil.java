@@ -23,12 +23,12 @@ public final class SessionUtil {
 	public static SSOClientUser getLoginUser() {
 	    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 	    SSOClientUser loginUser = (SSOClientUser) request.getSession().getAttribute(Constants.USER_SESSION_KEY);
-        if(loginUser==null){
-        	loginUser = new SSOClientUser();
-        	loginUser.setUserId("1");
-        	loginUser.setUserName("Houg");
-        }
 	    return loginUser;
+	}
+	
+	public static void setLoginUser(SSOClientUser clientUser) {
+	    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+	    request.getSession().setAttribute(Constants.USER_SESSION_KEY, clientUser);
 	}
 	
 	public static void setUserConfig(MyCustomizedVo config){

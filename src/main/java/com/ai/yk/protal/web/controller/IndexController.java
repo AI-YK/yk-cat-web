@@ -76,6 +76,13 @@ public class IndexController {
 	@RequestMapping("/success")
     public String loginSuccess(Model model){
     	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	if(clientUser==null){
+    		clientUser = new SSOClientUser();
+    		clientUser.setUserId("1");
+    		clientUser.setUserName("Houg");
+    		clientUser.setNickName("亚信人");
+    		SessionUtil.setLoginUser(clientUser);
+        }
     	SessionUtil.print();
     	YJResponse<MyCustomizedVo> resp = null;
     	YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();

@@ -18,7 +18,7 @@
 			<li class="right">
 					<c:if test="${isLogin}">
 					<p class="posi">
-						<a href="#">${user.userName}<i class="icon iconfont">&#xe659;</i>
+						<a href="#">${user.nickName}<i class="icon iconfont">&#xe659;</i>
 						</a>|
 					</p>
 					<div class="user-show" id="user-show">
