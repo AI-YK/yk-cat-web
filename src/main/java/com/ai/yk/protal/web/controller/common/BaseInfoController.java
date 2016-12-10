@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.common.DicListResonse;
 import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
+import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
@@ -436,9 +438,47 @@ public class BaseInfoController {
 		      YJResponse<MyCustomizedVo> resp = mycustomizedService.queryMyCustomized(customizedListMessageReq);
 			  if(resp!=null){
 				  SessionUtil.setUserConfig(resp.getData());
+			  }else{
+				  SessionUtil.setUserConfig(mock()); 
 			  }
 			  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_SUCCESS,"保存配置信息成功",saveMyCustomizedResponse);
 				
+		  }
+		  
+		  private MyCustomizedVo mock(){
+			  MyCustomizedVo myCustomizedVo = new MyCustomizedVo();
+				AreaVo province = new AreaVo();
+				province.setCode("as_100000_340000");
+				province.setNameZh("安徽");
+				province.setType(1);
+				AreaVo city = new AreaVo();
+				city.setCode("as_100000_340000_340800");
+				city.setNameZh("安庆市");
+				city.setType(2);
+				AreaVo city2 = new AreaVo();
+				city2.setCode("as_100000_340000_340300");
+				city2.setNameZh("蚌埠市");
+				city2.setType(2);
+				
+				InterestVo InterestVo = new InterestVo();
+				InterestVo.setZhInterest("自然灾害");
+				InterestVo InterestVo2 = new InterestVo();
+				InterestVo2.setZhInterest("事故灾难");
+				InterestVo InterestVo3 = new InterestVo();
+				InterestVo3.setZhInterest("公共卫生事件");
+				InterestVo InterestVo4 = new InterestVo();
+				InterestVo4.setZhInterest("社会安全事件");
+				List<InterestVo> interestList = new ArrayList<InterestVo>();
+				interestList.add(InterestVo);
+				interestList.add(InterestVo2);
+				interestList.add(InterestVo3);
+				interestList.add(InterestVo4);
+				myCustomizedVo.setId(1);
+				myCustomizedVo.setCreateId(1);
+				myCustomizedVo.setProvince(province);
+				myCustomizedVo.setCity(city);
+				myCustomizedVo.setInterestList(interestList);
+				return myCustomizedVo;
 		  }
 				  
 		  

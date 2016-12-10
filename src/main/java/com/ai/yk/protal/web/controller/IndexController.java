@@ -80,7 +80,7 @@ public class IndexController {
     		clientUser = new SSOClientUser();
     		clientUser.setUserId("1");
     		clientUser.setUserName("Houg");
-    		clientUser.setNickName("亚信人");
+    		clientUser.setNickName("译见");
     		SessionUtil.setLoginUser(clientUser);
         }
     	SessionUtil.print();
