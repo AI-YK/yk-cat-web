@@ -112,6 +112,20 @@ define('app/jsp/home/home', function (require, exports, module) {
                 _this._getHotInfoList("social",mediaId);
    			});
             
+            /*$(document).on("click",".ahov1",function{
+            	$("#in-border2").hide();
+        		$(".left-list").show();
+        		$(".inbtn").show();
+        		$("#border1Id").text($(".abov1 li").text());
+            });
+            
+            $(document).on("click",".ahov2",function{
+            	$("#in-border2").show();
+        		$(".left-list").hide();
+        		$(".inbtn").hide();
+        		$("#border1Id").text($(".abov2 li").text());
+            });*/
+            
 			this._load();
 			
         },
