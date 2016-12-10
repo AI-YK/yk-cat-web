@@ -34,7 +34,7 @@
 <!-- 图表结束-->
 <script id="emergencyTempl" type="text/x-jsrender">
   {{for eventList}}
-     <li class="bot-none {{if #index==0}}current{{/if}}">
+     <li class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
 		 <p>
 			<span>{{:zhCountry}}.{{:zhCity}}</span> <span>{{:dayTime}}</span>
 		 </p>
