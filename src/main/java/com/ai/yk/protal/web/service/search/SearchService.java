@@ -17,10 +17,13 @@ import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
+import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetySocialVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 
 /**
@@ -51,25 +54,28 @@ public class SearchService {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<SearchPublicSafetyResponse>>(){});
+			if("news".equals(req.getMessage().getMediaType())){
+				return JSON.parseObject(result, new TypeReference<YJResponse<SearchPublicSafetyResponse>>(){});
+			}else{
+				JSONObject jsonObject = JSON.parseObject(result);
+				if(jsonObject.containsKey("data")){
+					YJResponse<SearchPublicSafetyResponse> res =JSON.parseObject(result, new TypeReference<YJResponse<SearchPublicSafetyResponse>>(){});
+					jsonObject =(JSONObject) jsonObject.get("data");
+					String str =JSON.toJSONString(jsonObject.get("resultList"));
+					List<SearchPublicSafetySocialVo> resultSocialList = JSON.parseObject(str, new TypeReference<List<SearchPublicSafetySocialVo>>(){});
+					res.getData().setResultList(null);
+					res.getData().setResultSocialList(resultSocialList);
+					return res;
+				}
+			}
 		}
 		return null;
 	}
 
-	/**
-	 * 公共安全事件检索 社交检索
-	 */
-	public YJResponse<SearchPublicSafetyResponse> getSearchPublicSafetySocial(YJRequest<SearchPublicSafetyMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
-		String result =HttpClientUtil.getYJBaseResponse(url,req);
-		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<SearchPublicSafetyResponse>>(){});
-		}
-		return null;
-	}
+	
 	public static void main(String[] args) throws Exception {
 		
-		/*SearchService service = new SearchService();
+		SearchService service = new SearchService();
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
 		SearchPublicSafetyMessage message = new SearchPublicSafetyMessage();
 		message.setMediaType("social");
@@ -79,13 +85,13 @@ public class SearchService {
 		message.setMediaLevel("1");
 		message.setSentimentId("1");
 		message.setOrder("desc");
-		message.setFieldName("pubdate ");
+		message.setFieldName("pubdate");
 		
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
 		YJResponse<SearchPublicSafetyResponse> res = service.getSearchPublicSafety(req);
 		System.out.println(JSON.toJSONString(res));
-		*/
+		
 		
 		/*String str ="{'data':{'resultCount':10,'resultList':[{'mediaNameSrc':'中国结婚论坛-彩妆造型','mediaId':'10021','mediaNameZh':'中国结婚论坛-彩妆造型','mediaNameEn':'中国结婚论坛-彩妆造型','url':'chinajiehun.com'}]},'head':{'result':'true','message':'ok'}}";
 		YJResponse<GetDataSourceListReponse> data =JSON.parseObject(str, new TypeReference<YJResponse<GetDataSourceListReponse>>(){});
