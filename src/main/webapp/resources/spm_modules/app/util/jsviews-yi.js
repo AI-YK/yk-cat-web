@@ -73,7 +73,7 @@ define(function(require, exports, module) {
 					result = parseInt(hourC) + "小时前";
 				} else if (minC >= 1 && minC<60) {
 					result = parseInt(minC)+ "分钟前";
-				} else if (minC>0 && minC < 1) {
+				} else if (diffValue>0 && diffValue < 60) {
 					result = "刚刚";
 				}else{
 					result=date.format("yyyy-MM-dd")
