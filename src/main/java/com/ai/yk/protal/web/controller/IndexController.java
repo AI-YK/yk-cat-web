@@ -41,6 +41,13 @@ public class IndexController {
      */
     @RequestMapping("/index")
     public String indexView(Model model){
+    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	if(clientUser==null){
+    		model.addAttribute("isLogin", false);
+    	}else{
+    		model.addAttribute("isLogin", true);
+    		model.addAttribute("user", clientUser);
+    	}
     	MyCustomizedVo config = SessionUtil.getUserConfig();
     	model.addAttribute("config", config);
     	List<MyTopicsVo> topics = SessionUtil.getTopics();
