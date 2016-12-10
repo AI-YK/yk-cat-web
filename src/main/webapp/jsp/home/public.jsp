@@ -41,8 +41,8 @@
   <ul>
 	 <li class="block {{:~getRankColor(transfer)}}">{{:~getRankIndex(transfer)}}</li>
 	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
-	 <li width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;><a href="javascript:void(0);">{{:titleZh}}</a></li>
-	 <li class="date">{{:pubdate}}</li>
+	 <li width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;><a href="javascript:void(0);">{{:textZh}}</a></li>
+	 <li class="date">{{:updateTime}}</li>
   </ul>
   {{/if}}
 </script>
