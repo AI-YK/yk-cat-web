@@ -3,8 +3,12 @@ package com.ai.yk.protal.web.content.searchPublicSafety;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.List;
-
-public class SearchPublicSafetyVo implements Serializable {
+/**
+ * 新闻VO
+ * @author lenovo
+ *
+ */
+public class SearchPublicSafetyNewsVo implements Serializable {
     private static final long serialVersionUID = -931147144629978354L;
 	/**语言类别**/
 	private String languageCode;
@@ -94,10 +98,6 @@ public class SearchPublicSafetyVo implements Serializable {
 	private List<String> tags;
 	
 	private String similarityId;
-	/**用户名**/
-	private String name;
-	/**头像**/
-	private String userAvatar;
 	public String getLanguageCode() {
 		return languageCode;
 	}
@@ -361,17 +361,5 @@ public class SearchPublicSafetyVo implements Serializable {
 	}
 	public void setSimilarityId(String similarityId) {
 		this.similarityId = similarityId;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getUserAvatar() {
-		return userAvatar;
-	}
-	public void setUserAvatar(String userAvatar) {
-		this.userAvatar = userAvatar;
 	}
 }
