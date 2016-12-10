@@ -18,10 +18,20 @@ define(function(require, exports, module) {
 	socialIconMap.put("twitter", "&#xe65d;");
 	socialIconMap.put("facebook", "&#xe660;");
 
+	var sourceMap = new jMap();
+	sourceMap.put("weixin", "微信");
+	sourceMap.put("weibo", "微博");
+	sourceMap.put("twitter", "twitter");
+	sourceMap.put("facebook", "facebook");
+	
 	/**
 	 * 获取订单后厂状态名称
 	 */
 	$.views.helpers({
+		"conventSource": function(val){
+			return sourceMap.get(val);
+		},
+		
 		/* 自定义展示时间 */
 		"getCustomTime" : function(time) {
 			//time ='2016-12-10 14:00:00';
