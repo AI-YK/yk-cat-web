@@ -205,6 +205,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 				data: param,
 				success: function (rs) {
 					var data = rs.data;
+					data.size = eventList.length;
 					var emergencyHtml = $("#emergencyTempl").render(data);
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
