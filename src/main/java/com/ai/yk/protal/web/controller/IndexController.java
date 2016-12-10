@@ -98,6 +98,15 @@ public class IndexController {
     	}
        
     }
-    
+	/**
+     * 退出登录
+     * @param model
+     * @return
+     */
+	@RequestMapping("/logOut")
+	public String logOut(Model model){
+		SessionUtil.clearSession();
+		return "redirect:/home/index";
+	}
    
 }
