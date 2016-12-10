@@ -15,7 +15,7 @@ import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
-import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyVo;
+import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
 import com.ai.yk.protal.web.service.search.SearchService;
 
 /**
@@ -61,10 +61,10 @@ public class NegativeController {
 	}
 	
 	public SearchPublicSafetyResponse get(){
-		SearchPublicSafetyVo searchPublicSafetyVo;
-		List<SearchPublicSafetyVo> list=new ArrayList<SearchPublicSafetyVo>();
+		SearchPublicSafetyNewsVo searchPublicSafetyVo;
+		List<SearchPublicSafetyNewsVo> list=new ArrayList<SearchPublicSafetyNewsVo>();
 		for(int i=1;i<10;i++){
-			searchPublicSafetyVo=new SearchPublicSafetyVo();
+			searchPublicSafetyVo=new SearchPublicSafetyNewsVo();
 			searchPublicSafetyVo.setTitleZh("昨天，结束了亚锦赛征程的朴泰桓。");
 			searchPublicSafetyVo.setPubdate("2016-12-0"+i);
 			list.add(searchPublicSafetyVo);

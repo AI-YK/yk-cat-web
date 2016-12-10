@@ -11,7 +11,9 @@ public class SearchPublicSafetyResponse implements Serializable{
 		
 		private Integer resultCount;
 		
-		private List<SearchPublicSafetyVo> resultList;
+		private List<SearchPublicSafetyNewsVo> resultList;
+		
+		private List<SearchPublicSafetySocialVo> resultSocialList;
 
 		public Integer getResultCount() {
 			return resultCount;
@@ -21,12 +23,20 @@ public class SearchPublicSafetyResponse implements Serializable{
 			this.resultCount = resultCount;
 		}
 
-		public List<SearchPublicSafetyVo> getResultList() {
+		public List<SearchPublicSafetyNewsVo> getResultList() {
 			return resultList;
 		}
 
-		public void setResultList(List<SearchPublicSafetyVo> resultList) {
+		public void setResultList(List<SearchPublicSafetyNewsVo> resultList) {
 			this.resultList = resultList;
+		}
+
+		public List<SearchPublicSafetySocialVo> getResultSocialList() {
+			return resultSocialList;
+		}
+
+		public void setResultSocialList(List<SearchPublicSafetySocialVo> resultSocialList) {
+			this.resultSocialList = resultSocialList;
 		}
 		
 	}

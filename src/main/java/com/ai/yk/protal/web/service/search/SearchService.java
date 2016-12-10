@@ -17,7 +17,7 @@ import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
-import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyVo;
+import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
@@ -45,7 +45,7 @@ public class SearchService {
 	}
 	
 	/**
-	 * 公共安全事件检索
+	 * 公共安全事件检索 新闻检索
 	 */
 	public YJResponse<SearchPublicSafetyResponse> getSearchPublicSafety(YJRequest<SearchPublicSafetyMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
@@ -56,6 +56,17 @@ public class SearchService {
 		return null;
 	}
 
+	/**
+	 * 公共安全事件检索 社交检索
+	 */
+	public YJResponse<SearchPublicSafetyResponse> getSearchPublicSafetySocial(YJRequest<SearchPublicSafetyMessage> req) {
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
+		String result =HttpClientUtil.getYJBaseResponse(url,req);
+		if(!StringUtil.isBlank(result)){
+			return JSON.parseObject(result, new TypeReference<YJResponse<SearchPublicSafetyResponse>>(){});
+		}
+		return null;
+	}
 	public static void main(String[] args) throws Exception {
 		
 		/*SearchService service = new SearchService();
