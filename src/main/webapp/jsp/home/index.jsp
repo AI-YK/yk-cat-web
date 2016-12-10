@@ -16,7 +16,7 @@
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div class="left-list">
+			<div class="left-list" <c:if test="${hasTopic}">style="display: none;"</c:if> >
 				<p>
 					<i class="icon iconfont">&#xe657;</i>
 				</p>
@@ -27,35 +27,30 @@
 			</div>
 			<div class="right-list">
 				<ul>
-					<li class="in-border" id="in-border1"><a href="#">通用数据<i class="icon iconfont">&#xe659;</i></a>
+					<li class="in-border" id="in-border1"><a href="#"><label id="border1Id" style="font-size: 12px;">${hasTopic?'专题数据':'通用数据'}</label><i class="icon iconfont">&#xe659;</i></a>
 						<div class="special-show" id="special-one">
 							<span><i class="icon iconfont">&#xe65a;</i></span>
 							<ul>
-								<a href="#" class="ahov1" ><li>通用数据</li></a>
-								<a href="#" class="ahov2" ><li>专题数据</li></a>
-								
+								<a href="#" class="ahov1"><li id="ahov1Id">通用数据</li></a>
+								<a href="#" class="ahov2"><li id="ahov2Id">专题数据</li></a>
 							</ul>
 						</div>
 					</li>
-					<li class="in-border" id="in-border2"><a href="#">专题一<i class="icon iconfont">&#xe659;</i></a>
-						<div class="special-show" id="special-tow">
+					<li class="in-border" id="in-border2"><a href="#"><label id="border2Id" style="font-size: 12px;">${topics[0].srcShortTitle}</label><i class="icon iconfont">&#xe659;</i></a>
+						<div class="special-show" id="special-tow" <c:if test="${!hasTopic}">style="display: none;"</c:if>>
 							<span><i class="icon iconfont">&#xe65a;</i></span>
 							<ul>
-								<!-- <a href="#" class="ahov1"><li>专题一</li></a>
-								<a href="#" class="ahov2"><li>专题二</li></a>
-								<a href="#" class="ahov3"><li>专题三</li></a> -->
-								<c:forEach items="${topics }" var="topic">
-									<a href="#" class="ahov"><li>${topic.srcShortTitle }</li></a>
+								<c:forEach items="${topics}" var="topic">
+									<a href="javascript:void(0);" class="ahov"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
 								</c:forEach>
 							</ul>
 						</div>
 					</li>
-					<!-- <li class="inbtn"><a href="#">政治管理</a></li>
-					<li class="inbtn"><a href="#">公共安全</a></li> -->
-					<c:forEach items="${config.interestList }" var="interestVo">
-						<li class="inbtn"><a href="#">${interestVo.zhInterest }</a></li>
+					<c:forEach items="${config.interestList}" var="interestVo">
+						<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="inbtn"><a href="#">修改</a></li>
+					<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);">修改</a></li>
+					
 				</ul>
 			</div>
 		</div>

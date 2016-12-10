@@ -39,6 +39,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            type : 'value',
         					axisLine:{
         					  lineStyle:{
+        						width:0,
         					    color:'#2c88db'
         					  }
         					},

@@ -51,8 +51,8 @@
  {{if #getIndex()<6}}
   <ul>
 		<li>
-			<p>
-				<a href="#">{{:titleZh}}</a>
+			<p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+				<a href="javascript:void(0);">{{:titleZh}}</a>
 			</p>
 			<p>
 				<span>{{:pubdate}}</span> <span class="blue">{{:mediaNameZh}}</span>
@@ -77,8 +77,8 @@
 					 <p class="word">
 						<a href="#">{{:name}}</a>
 					 </p>
-					 <p>
-						<a href="#">{{:titleZh}}</a>
+					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+						<a href="javascript:void(0);">{{:titleZh}}</a>
 					 </p>
 					 <p>
 						<span>{{:pubdate}}</span> <span>{{:mediaNameZh}}</span>

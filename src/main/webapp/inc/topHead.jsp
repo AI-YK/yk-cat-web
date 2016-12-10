@@ -5,6 +5,7 @@
 <div class="heard-breadcrumb">
 	<div class="breadcrumb-main">
 		<ul>
+			<c:if test="${!isLogin}">
 			<li class="left">
 				<p>
 					<a id="login" href="javascript:void(0);">登录</a>|
@@ -13,9 +14,11 @@
 					<a id="regist" href="javascript:void(0);">注册</a>
 				</p>
 			</li>
+			</c:if>
 			<li class="right">
-<p class="posi">
-						<a href="#">昵称<i class="icon iconfont">&#xe659;</i>
+					<c:if test="${isLogin}">
+					<p class="posi">
+						<a href="#">${user.userName}<i class="icon iconfont">&#xe659;</i>
 						</a>|
 					</p>
 					<div class="user-show" id="user-show">
@@ -26,6 +29,7 @@
 							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe63d;</i>退出登录</li></a>
 						</ul>
 					</div>
+					</c:if>
 					<p class="iphone">
 						<a href="#">
 						<span><i class="icon iconfont">&#xe613;</i></span>

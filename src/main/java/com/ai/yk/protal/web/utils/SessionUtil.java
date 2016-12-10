@@ -15,6 +15,7 @@ import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
+import com.google.gson.Gson;
 
 public final class SessionUtil {
 	private SessionUtil(){}
@@ -25,7 +26,7 @@ public final class SessionUtil {
         if(loginUser==null){
         	loginUser = new SSOClientUser();
         	loginUser.setUserId("1");
-        	loginUser.setBalance("Houg");
+        	loginUser.setUserName("Houg");
         }
 	    return loginUser;
 	}
@@ -72,7 +73,7 @@ public final class SessionUtil {
 			myCustomizedVo.setCity(city);
 			myCustomizedVo.setInterestList(interestList);
 			config = myCustomizedVo;
-		}
+		}  
 		return config;
 	}
 	
@@ -107,7 +108,9 @@ public final class SessionUtil {
 		while( enumeration.hasMoreElements())   {   
 		    String sessionName=(String)enumeration.nextElement();   
 		    System.out.println("\nsession item name="+sessionName);  
-		    System.out.println("\nsession item value="+request.getSession().getAttribute(sessionName));  
+		    Object obj = request.getSession().getAttribute(sessionName);
+		    Gson gson = new Gson();
+		    System.out.println("\nsession item value="+gson.toJson(obj));  
 		}   
 	}
 	
