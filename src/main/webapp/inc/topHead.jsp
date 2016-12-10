@@ -5,6 +5,8 @@
 <div class="heard-breadcrumb">
 	<div class="breadcrumb-main">
 		<ul>
+			<c:if test="${user.userId!=null }"></c:if>
+			<c:if test="${user.userId==null }">
 			<li class="left">
 				<p>
 					<a id="login" href="javascript:void(0);">登录</a>|
@@ -13,6 +15,7 @@
 					<a id="regist" href="javascript:void(0);">注册</a>
 				</p>
 			</li>
+			</c:if>
 			<li class="right">
 					<c:if test="${user.userId==null }"></c:if>
 					<c:if test="${user.userId!=null }">
