@@ -1,11 +1,11 @@
 
 input[type="checkbox"] {
   -webkit-appearance: none;
-  background: url(../../images/blue.png) no-repeat;
+  background: url(../../images/unchecked.png) no-repeat;
   background-position: 0 0;
   vertical-align: middle;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   border: none;
   cursor: pointer;
   margin: 0;
@@ -15,14 +15,14 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  background-position: -22px 0;
+  background:url(../../images/checked.png) no-repeat;
 }
 
 
 input[type="checkbox"][disabled] {
-  background-position: -44px 0;
+  background:url(../../images/unchecked.png) no-repeat;
 }
 
 input[type="checkbox"][disabled]:checked {
-  background-position: -66px 0;
+  background:url(../../images/checked.png) no-repeat;
 }
