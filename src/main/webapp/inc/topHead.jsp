@@ -14,8 +14,10 @@
 				</p>
 			</li>
 			<li class="right">
-<p class="posi">
-						<a href="#">昵称<i class="icon iconfont">&#xe659;</i>
+					<c:if test="${user.userId==null }"></c:if>
+					<c:if test="${user.userId!=null }">
+					<p class="posi">
+						<a href="#">${user.userName }<i class="icon iconfont">&#xe659;</i>
 						</a>|
 					</p>
 					<div class="user-show" id="user-show">
@@ -26,6 +28,7 @@
 							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe63d;</i>退出登录</li></a>
 						</ul>
 					</div>
+					</c:if>
 					<p class="iphone">
 						<a href="#">
 						<span><i class="icon iconfont">&#xe613;</i></span>

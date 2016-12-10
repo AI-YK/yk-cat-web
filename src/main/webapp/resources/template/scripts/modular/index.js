@@ -299,10 +299,14 @@ $(function(){
 		$("#in-border2").hide();
 		$(".left-list").show();
 		$(".inbtn").show();
+		var abovalue=$("#ahov1Id").text();
+		$("#border1Id").text(abovalue);
 	});
 	$(".ahov2").click(function(){
 		$("#in-border2").show();
 		$(".left-list").hide();
 		$(".inbtn").hide();
+		var abovalue=$("#ahov2Id").text();
+		$("#border1Id").text(abovalue);
 	});
 })
