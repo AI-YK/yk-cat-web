@@ -25,7 +25,7 @@ define(function(require, exports, module) {
 		/* 自定义展示时间 */
 		"getCustomTime" : function(time) {
 			//time ='2016-12-10 14:00:00';
-			debugger;
+			//debugger;
 			try {
 				var date;
 				if(!isNaN(time)){//数字long类型
@@ -63,7 +63,7 @@ define(function(require, exports, module) {
 					result = parseInt(hourC) + "小时前";
 				} else if (minC >= 1 && minC<60) {
 					result = parseInt(minC)+ "分钟前";
-				} else if (minC < 1) {
+				} else if (minC>0 && minC < 1) {
 					result = "刚刚";
 				}else{
 					result=date.format("yyyy-MM-dd")
