@@ -302,7 +302,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var newsHotHtml = $("#newsHotTempl").render(data.resultList);
 						$("#news-div").html(newsHotHtml);
 		        	}else if(mediaType=='social'){
-		        		var socialHotHtml = $("#socialHotTempl").render(data.resultList);
+		        		var socialHotHtml = $("#socialHotTempl").render(data.resultSocialList);
 						$("#social-div").html(socialHotHtml);
 		        	}
 				}

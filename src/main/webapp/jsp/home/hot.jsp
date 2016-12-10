@@ -78,13 +78,13 @@
 						<a href="#">{{:name}}</a>
 					 </p>
 					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-						<a href="javascript:void(0);">{{:titleZh}}</a>
+						<a href="javascript:void(0);">{{:textZh}}</a>
 					 </p>
 					 <p>
-						<span>{{:pubdate}}</span> <span>{{:mediaNameZh}}</span>
+						<span>{{:updateTimeStr}}</span> <span>{{:sourceType}}</span>
 					 </p>
 				  </li>
-				  <li class="right">{{:transfer}}</li>
+				  <li class="right">{{:rpsCnt}}</li>
 			</ul>
 </div>
 {{/if}}

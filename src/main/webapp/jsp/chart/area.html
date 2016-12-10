@@ -14,7 +14,7 @@
   </head>
   
   <body>
-   <div id="line" style="height: 380px; width: 100%;"><div></div></div> 
+   <div id="line" style="height: 380px; width: 100%;"><div></div></div>
 <script src="echarts.min.js"></script>
  <script type="text/javascript">
   var option3 = {
@@ -26,7 +26,7 @@
         {
             type : 'category',
             boundaryGap : false,
-            data : ['08-01','08-02','08-03','08-04'],
+            data : ['08-01','08-02','08-03','08-04','08-05','08-06','08-07','08-08','08-09'],
 			axisLine:{
 			  lineStyle:{
 			    color:'#2e8ad3',
@@ -40,13 +40,16 @@
             type : 'value',
 			axisLine:{
 			  lineStyle:{
+				width:0,
 			    color:'#2c88db'
 			  }
 			},
 			splitLine:{
 			  lineStyle:{
-                color:'#1162a1',
-			    type:'dashed'
+           //     color:'#1162a1',
+			//    type:'dashed',
+                color:'#0d65a8',
+                type: 'dashed'
 			  }
 			}
         }
@@ -69,7 +72,7 @@
 			areaStyle:{
 			  color:'#1687d7'
 			},
-            data:[100,80,180,50,200]
+            data:[100,40,180,50,280,30,160,40,150]
         }
     ]
 };
