@@ -14,6 +14,9 @@
 		<div class="configure-title">
 			<img src="${uedroot}/images/logo.png">
 		</div>
+		<div class="icheckbox_flat-blue checked">
+		    <input type="checkbox" />
+		</div>
 		<div class="configure-city-bj">
 			<div class="city-title">设置基本信息&nbsp;<span id="tishiId" style="color: red; font-size:12px;"></span></div>
 			<div class="field-title">

@@ -14,15 +14,25 @@ public class SSOClientUser implements Serializable {
 
     //账号ID
     private String userId;
+    
+    private String userType;
 	
 	//登录名称
     private String userName;
     
+    private String nickName;
+    
     private String fullName;
 
-	private String phone;
+	private String mobile;
 	
 	private String companyName;
+	
+	private String saleCode;
+	
+	private String source;
+	
+	private String areaCode;
     
     private String balance;
     
@@ -60,12 +70,53 @@ public class SSOClientUser implements Serializable {
 		this.fullName = fullName;
 	}
 
-	public String getPhone() {
-		return phone;
+
+	public String getUserType() {
+		return userType;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getSaleCode() {
+		return saleCode;
+	}
+
+	public void setSaleCode(String saleCode) {
+		this.saleCode = saleCode;
+	}
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
+	public String getAreaCode() {
+		return areaCode;
+	}
+
+	public void setAreaCode(String areaCode) {
+		this.areaCode = areaCode;
 	}
 
 	public String getCompanyName() {
