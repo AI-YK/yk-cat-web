@@ -5,8 +5,7 @@
 <div class="heard-breadcrumb">
 	<div class="breadcrumb-main">
 		<ul>
-			<c:if test="${user.userId!=null }"></c:if>
-			<c:if test="${user.userId==null }">
+			<c:if test="${!isLogin}">
 			<li class="left">
 				<p>
 					<a id="login" href="javascript:void(0);">登录</a>|
@@ -17,10 +16,9 @@
 			</li>
 			</c:if>
 			<li class="right">
-					<c:if test="${user.userId==null }"></c:if>
-					<c:if test="${user.userId!=null }">
+					<c:if test="${isLogin}">
 					<p class="posi">
-						<a href="#">${user.userName }<i class="icon iconfont">&#xe659;</i>
+						<a href="#">${user.userName}<i class="icon iconfont">&#xe659;</i>
 						</a>|
 					</p>
 					<div class="user-show" id="user-show">

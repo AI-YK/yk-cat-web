@@ -112,22 +112,75 @@ define('app/jsp/home/home', function (require, exports, module) {
                 _this._getHotInfoList("social",mediaId);
    			});
             
-            /*$(document).on("click",".ahov1",function{
-            	$("#in-border2").hide();
-        		$(".left-list").show();
-        		$(".inbtn").show();
-        		$("#border1Id").text($(".abov1 li").text());
-            });
-            
-            $(document).on("click",".ahov2",function{
-            	$("#in-border2").show();
-        		$(".left-list").hide();
-        		$(".inbtn").hide();
-        		$("#border1Id").text($(".abov2 li").text());
-            });*/
-            
+            this._bindEvent();
 			this._load();
 			
+        },
+        _bindEvent:function(){
+        	//昵称
+        	 $('.breadcrumb-main ul .right .posi').mouseenter(function () {
+        			$('#user-show').show(1);
+        	 });
+            $("#user-show").click(function () {
+        	        $(this).hide(1);
+        	 });	
+        	 $('.breadcrumb-main').mouseleave(function () {
+        	        $('#user-show').hide(1);
+        	        $('#erw-show').hide(1);
+        	 });	
+        	 
+        	 //二维码
+        	 $('.breadcrumb-main ul .iphone').mouseenter(function () {
+        			$('#erw-show').show(1);
+        	 })
+        	 $("#erw-show").click(function () {
+        	         $(this).hide(1);
+        	  });	
+        	  $('.breadcrumb-main').mouseleave(function () {
+        	        $('#erw-show').hide(1);
+        	        $('#user-show').hide(1);
+        	 });	
+        	  
+        	 //专题
+        	  $('.right-list ul #in-border1').mouseenter(function () {
+        			$('#special-one').show(1);
+        	  })
+        	  $("#special-one").click(function () {
+        	                $(this).hide(1);
+        	  });	
+        	  $('.right-list ul #in-border1').mouseleave(function () {
+        	        $('#special-one').hide(1);
+        	  });	
+        	  
+        	  $('.right-list ul #in-border2').mouseenter(function () {
+        			$('#special-tow').show(1);
+        	    })
+        		$("#special-tow").click(function () {
+        	          $(this).hide(1);
+        	     });	
+        		$('.right-list ul #in-border2').mouseleave(function () {
+        	        $('#special-tow').hide(1);
+        	    });	
+        		
+        		$(".ahov1").click(function(){
+        			$("#in-border2").hide();
+        			$(".left-list").show();
+        			$(".inbtn").show();
+        			var abovalue=$("#ahov1Id").text();
+        			$("#border1Id").text(abovalue);
+        		});
+        		$(".ahov2").click(function(){
+        			$("#in-border2").show();
+        			$(".left-list").hide();
+        			$(".inbtn").hide();
+        			var abovalue=$("#ahov2Id").text();
+        			$("#border1Id").text(abovalue);
+        		});	
+        		
+        		$(".ahov").click(function(){
+        			var text =$(this).text();
+        			$("#border2Id").text(text);
+        		});
         },
         _load:function(){
         	this._initEventData();

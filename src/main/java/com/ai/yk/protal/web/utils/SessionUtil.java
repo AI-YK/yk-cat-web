@@ -26,7 +26,7 @@ public final class SessionUtil {
         if(loginUser==null){
         	loginUser = new SSOClientUser();
         	loginUser.setUserId("1");
-        	loginUser.setBalance("Houg");
+        	loginUser.setUserName("Houg");
         }
 	    return loginUser;
 	}
