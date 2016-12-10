@@ -117,6 +117,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 			
         },
         _bindEvent:function(){
+        	var _this = this;
         	//昵称
         	 $('.breadcrumb-main ul .right .posi').mouseenter(function () {
         			$('#user-show').show(1);
@@ -181,6 +182,24 @@ define('app/jsp/home/home', function (require, exports, module) {
         			var text =$(this).text();
         			$("#border2Id").text(text);
         		});
+        		
+        		$(".hov3").click(function(){
+        			_this._logOut();
+        		});
+        },
+        _logOut:function(){
+        	var url="/home/logOut"
+        	var param={};
+        	ajaxController.ajax({
+        		type:"post",
+        		processing:false,
+        		message:"保存数据中，请等待...",
+        		url:_base+url,
+        		data:param,
+        		success:function(rs){
+        			location.href=_base+"/home/index";
+        		}
+        	});
         },
         _load:function(){
         	this._initEventData();

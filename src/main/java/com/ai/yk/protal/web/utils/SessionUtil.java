@@ -114,4 +114,8 @@ public final class SessionUtil {
 		}   
 	}
 	
+	public static void clearSession(){
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		request.getSession().invalidate();
+	}
 }
