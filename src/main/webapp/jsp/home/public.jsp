@@ -32,7 +32,7 @@
   <ul>
 	 <li class="block {{:~getRankColor(transfer)}}">{{:~getRankIndex(transfer)}}</li>
 	 <li style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleZh}}</a></li>
-	 <li class="date">{{:pubdate}}</li>
+	 <li class="date">{{:~getCustomTime(pubdate)}}</li>
    </ul>
  {{/if}}
 </script>
@@ -42,7 +42,7 @@
 	 <li class="block {{:~getRankColor(rpsCnt)}}">{{:~getRankIndex(rpsCnt)}}</li>
 	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
 	 <li style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:textZh}}</a></li>
-	 <li class="date">{{:updateTime}}</li>
+	 <li class="date">{{:~getCustomTime(updateTime)}}</li>
   </ul>
   {{/if}}
 </script>
