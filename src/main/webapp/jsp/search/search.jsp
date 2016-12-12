@@ -109,15 +109,7 @@
 						<div id="news-message"></div>
 						<div class="biu-paging" >
 							<ul id="news-paging">
-								<li><a href="#">&lt;</a></li>
-								<li><a href="#">1</a></li>
-								<li class="active"><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">&gt;</a></li>
+								
 							</ul>
 						</div>
 					</div>
@@ -195,15 +187,6 @@
 						</div>
 						<div class="biu-paging">
 							<ul id="social-paging">
-								<li><a href="#">&lt;</a></li>
-								<li><a href="#">1</a></li>
-								<li class="active"><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">&gt;</a></li>
 							</ul>
 						</div>
 					</div>
@@ -227,8 +210,9 @@
 			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
-			<span>{{:languageTname}}</span> <span>{{:countryNameZh}}</span>
-            <span><img src="${uedroot}/images/cn.jpg" /></span> <span>转载：{{:transfer}}</span>
+			<span>{{:languageTname}}</span>
+            <span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span> 
+            <span>转载：{{:transfer}}</span>
 		</p>
 	</li>
 	<li class="news">
