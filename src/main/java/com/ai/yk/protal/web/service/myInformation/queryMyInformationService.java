@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
 @Service
-public class queryMyInformation {
+public class queryMyInformationService {
 	/**
 	 * 我的采编列表接口
 	 */
