@@ -101,7 +101,7 @@
 					<div class="level-news" >
 						<div class="level-news-title">
 							<p>共有相关数据</p>
-							<p class="blue" id="news-num" >3,572,560</p>
+							<p class="blue" id="news-num" >0</p>
 						</div>
 						<div class="level-news-list" id="news-list">
 							
@@ -180,11 +180,12 @@
 					<div class="level-news" >
 						<div class="level-news-title">
 							<p>共有相关数据</p>
-							<p class="blue" id="social-num">3,572,560</p>
+							<p class="blue" id="social-num">0</p>
 						</div>
 						<div class="level-news-list" id="social-list">
 							
 						</div>
+						<div id="social-message"></div>
 						<div class="biu-paging">
 							<ul id="social-paging">
 							</ul>
