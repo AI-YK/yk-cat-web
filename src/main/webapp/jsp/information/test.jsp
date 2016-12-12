@@ -9,7 +9,7 @@
 </head>
 <body>
 	<!-- 加载编辑器的容器 -->
-	<script id="container" name="content" type="text/plain"  style="width:1024px;height:500px;">
+	<script id="container" name="content" type="text/plain"  style="width:700px;height:400px;">
         这里写你的初始化内容
     </script>
 </body>
