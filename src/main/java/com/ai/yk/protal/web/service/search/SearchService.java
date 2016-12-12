@@ -13,16 +13,11 @@ import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListReponse;
-import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
-import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetySocialVo;
-import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
-import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.TypeReference;
 
@@ -75,10 +70,10 @@ public class SearchService {
 	
 	public static void main(String[] args) throws Exception {
 		
-	/*	SearchService service = new SearchService();
+		/*SearchService service = new SearchService();
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
 		SearchPublicSafetyMessage message = new SearchPublicSafetyMessage();
-		message.setMediaType("social");
+		message.setMediaType("news");
 		message.setProvincecityCode("吉林");
 		message.setCityCode("长春");
 		message.setCategoryId("公共卫生");
