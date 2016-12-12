@@ -17,6 +17,9 @@ public class EventListMessage implements Serializable {
 	private String countryCode ;
 	private String provinceCode;
 	private String cityCode;
+	/**0 :按照时间热度排序   1 : 按照时间排序**/
+	private Integer isTimeSort;
+	
 	public Integer getPageSize() {
 		return pageSize;
 	}
@@ -64,5 +67,11 @@ public class EventListMessage implements Serializable {
 	}
 	public void setCityCode(String cityCode) {
 		this.cityCode = cityCode;
+	}
+	public Integer getIsTimeSort() {
+		return isTimeSort;
+	}
+	public void setIsTimeSort(Integer isTimeSort) {
+		this.isTimeSort = isTimeSort;
 	}
 }

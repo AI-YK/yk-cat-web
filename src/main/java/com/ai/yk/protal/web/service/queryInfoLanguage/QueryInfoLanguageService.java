@@ -1,4 +1,5 @@
-package com.ai.yk.protal.web.service.myInformation;
+package com.ai.yk.protal.web.service.queryInfoLanguage;
+
 
 import org.springframework.stereotype.Service;
 
@@ -6,37 +7,45 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.queryMyInformation.QueryMyInformationMessage;
-import com.ai.yk.protal.web.content.queryMyInformation.QueryMyInformationResponse;
+import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageMessage;
+import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageReponse;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
+/**
+ * <br>
+ * 获取资讯语言接口service
+ * 
+ * @author shancong
+ */
 @Service
-public class QueryMyInformationService {
+public class QueryInfoLanguageService {
 	/**
-	 * 我的采编列表接口
+	 * 获取资讯语言接口
 	 */
-	public YJResponse<QueryMyInformationResponse> getQueryMyInformationList(YJRequest<QueryMyInformationMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_MYINFORMATION_QUERYMYINFORMATION);
+	public YJResponse<QueryInfoLanguageReponse> getQueryInfoLanguage(YJRequest<QueryInfoLanguageMessage> req) {
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_COMMON_QUERYINFOLANGUAGE);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<QueryMyInformationResponse>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<QueryInfoLanguageReponse>>(){});
 		}
 		return null;
 	}
 	
+	
 	public static void main(String[] args) throws Exception {
 		
-		QueryMyInformationService service = new QueryMyInformationService();
-		YJRequest<QueryMyInformationMessage> req = new YJRequest<QueryMyInformationMessage>();
-		QueryMyInformationMessage message = new QueryMyInformationMessage();
-		message.setCreateId(9887);
-		message.setPageSize("5");
-		message.setPageNo("1");
+		QueryInfoLanguageService service = new QueryInfoLanguageService();
+		YJRequest<QueryInfoLanguageMessage> req = new YJRequest<QueryInfoLanguageMessage>();
+		QueryInfoLanguageMessage message = new QueryInfoLanguageMessage();
+		message.setLanguage("zh");
+		message.setLanguageType("0");
+		
+		
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
-		YJResponse<QueryMyInformationResponse> res = service.getQueryMyInformationList(req);
+		YJResponse<QueryInfoLanguageReponse> res = service.getQueryInfoLanguage(req);
 		System.out.println(JSON.toJSONString(res));
 		
 		
@@ -44,6 +53,4 @@ public class QueryMyInformationService {
 		YJResponse<GetDataSourceListReponse> data =JSON.parseObject(str, new TypeReference<YJResponse<GetDataSourceListReponse>>(){});
 		System.out.println(data.getData().getResultCount());*/
 	}
-	
-	
 }

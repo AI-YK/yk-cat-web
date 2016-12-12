@@ -196,6 +196,7 @@ public class NewsHotAndSocialHotController {
 	@ResponseBody
 	public ResponseData<Object> getSearchPublicSafety(
 			@RequestParam(value="keyword",defaultValue="") String keyword,
+			@RequestParam(value="highlight",defaultValue="true") String highlight,
 		    @RequestParam(value="pageNo",defaultValue="") String pageNo,
 		    @RequestParam(value="pageSize",defaultValue="") String pageSize,
 		    /**媒体类型news/social**/
@@ -205,6 +206,7 @@ public class NewsHotAndSocialHotController {
 		searchPublicSafetyMessage.setPageNo(pageNo);
 		searchPublicSafetyMessage.setPageSize(pageSize);
 		searchPublicSafetyMessage.setMediaType(mediaType);
+		searchPublicSafetyMessage.setHighlight(highlight);
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
 		req.setMessage(searchPublicSafetyMessage);
 		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();

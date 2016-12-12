@@ -11,7 +11,7 @@ public class QueryMyInformationDetailsVo implements Serializable {
     private static final long serialVersionUID = -931147144629978354L;
    
     /**主键ID  是否必填：Y**/
-    private Integer id;
+    private String id;
     /**数据源ID（数据中心的token）  是否必填：Y**/
     private String srcId;
     /**源语言  是否必填：Y**/
@@ -92,10 +92,11 @@ public class QueryMyInformationDetailsVo implements Serializable {
     private Date cCreateTimeView;
     
     
-	public Integer getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getSrcId() {

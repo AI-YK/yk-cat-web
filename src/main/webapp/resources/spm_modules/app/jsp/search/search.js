@@ -65,10 +65,11 @@ define('app/jsp/search/search', function (require, exports, module) {
 				renderId:renderId,
 				data : param,
 				pageSize: 8,
-				visiblePages:5,
+				visiblePages:7,
+				first:false,
+				last:false,
 				message: "正在为您查询数据..",
 				render: function (data) {
-					//alert(JSON.stringify(data))
 					if('news'==mediaType){
 					   var listHtml = $("#levelNewsTempl").render(data);
 					   $("#news-list").html(listHtml);
