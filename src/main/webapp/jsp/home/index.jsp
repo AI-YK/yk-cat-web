@@ -25,7 +25,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="right-list">
+			<div class="right-list" <c:if test="${!isLogin}">style="display: none;"</c:if>>
 				<ul>
 					<li class="in-border" id="in-border1"><a href="#"><label id="border1Id" style="font-size: 12px;">${hasTopic?'专题数据':'通用数据'}</label><i class="icon iconfont">&#xe659;</i></a>
 						<div class="special-show" id="special-one">
