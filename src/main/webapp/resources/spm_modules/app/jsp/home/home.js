@@ -256,6 +256,13 @@ define('app/jsp/home/home', function (require, exports, module) {
         	param.fieldName="transfer"
             param.order = "desc";
         	param.language = 'zh';
+        	param.pageNo='1';
+        	if(mediaType=='news'){
+        		param.pageSize='6';
+        	}else if(mediaType =='social'){
+        		param.pageSize='4';
+        	}
+        	alert(param.pageSize);
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
