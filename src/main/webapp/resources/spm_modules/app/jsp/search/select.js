@@ -11,10 +11,10 @@ define('app/jsp/search/select', function (require, exports, module) {
         //重写父类
         setup: function () {
         	SelectUtil.superclass.setup.call(this); 
-        },
+        }/*,
         initMedi*(ids){
         	
-        }
+        }*/
         
     });
 
