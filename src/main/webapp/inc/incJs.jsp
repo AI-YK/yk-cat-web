@@ -33,11 +33,11 @@
     }
     var today = new Date();
 	//send to the back
-	$.post(_base+"/timezone.htm?offset="+today.stdTimezoneOffset()); */
+	$.post(_base+"/timezone.htm?offset="+today.stdTimezoneOffset()); 
 
 
     Œ–
-   /*  Date.prototype.format = function(format) {
+    Date.prototype.format = function(format) {
         var date = {
                "M+": this.getMonth() + 1,
                "d+": this.getDate(),
