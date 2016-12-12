@@ -74,7 +74,7 @@ public class IndexController {
      * 配置页面
      */
 	@RequestMapping("/success")
-    public String loginSuccess(Model model){
+    public String loginSuccess(Model model,String redirect){
     	SSOClientUser clientUser = SessionUtil.getLoginUser();
     	if(clientUser==null){
     		clientUser = new SSOClientUser();
@@ -94,7 +94,7 @@ public class IndexController {
     		 return "redirect:/home/config";
     	}else{
     		 SessionUtil.setUserConfig(resp.getData());
-    		 return "redirect:/home/index";
+    		 return "redirect:"+redirect;
     	}
        
     }

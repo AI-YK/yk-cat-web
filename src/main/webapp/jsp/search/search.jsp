@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>首页</title>
+<title>搜索结果</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet"
 	type="text/css" />
@@ -461,6 +461,5 @@
 	<!--底部-->
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
-<%@ include file="/inc/incJs.jsp"%>
 <script type="text/javascript" src="${uedroot}/scripts/modular/frame.js"></script>
 </html>
