@@ -4,13 +4,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>错误</title>
+    <title>404</title>
 	<%@ include file="/inc/inc.jsp" %>
 </head>
 <body>
 	<!--面包屑导航-->
 	<%@ include file="/inc/topHead.jsp" %>
-	<%@ include file="/inc/topMenu.jsp" %>
 		<!--主体-->
 		<div class="placeorder-container">
 		<div class="placeorder-wrapper">
