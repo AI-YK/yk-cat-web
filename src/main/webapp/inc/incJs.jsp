@@ -3,9 +3,6 @@
 <c:set var="_slpres" value="${_base}/resources/local"/>
 <c:set var="i18nRes" value="${_base}/resources/i18n/"/>
 <c:set var="spmRes" value="${_base}/resources/spm_modules"/>
-<c:set var="accountBalanceLink" value="${_base}/account/balance/index"/>
-<c:set var="accountRechargeOneLink" value="${_base}/account/recharge/one"/>
-
 <script>
     var _base = "${_base}";
     var _i18n_res = "${i18nRes}";
