@@ -39,7 +39,7 @@ public class NewsHotAndSocialHotController {
 			    /**城市**/
 			    @RequestParam(value="cityCode",defaultValue="") String cityCode,
 			    /**舆情分类类型（多个用逗号隔开）**/
-			    @RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
+			    @RequestParam(value="categoryId",defaultValue="") String categoryId,
 			    /**数据源类型微信微博新闻等媒体**/
 			    @RequestParam(value="mediaId",defaultValue="") String mediaId,
 			    /**媒体级别id**/
@@ -56,7 +56,7 @@ public class NewsHotAndSocialHotController {
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
 		searchPublicSafetyMessage.setCityCode(cityCode);
-		searchPublicSafetyMessage.setPublicAffairsType(publicAffairsType);
+		searchPublicSafetyMessage.setCategoryId(categoryId);
 		searchPublicSafetyMessage.setMediaId(mediaId);
 		searchPublicSafetyMessage.setMediaLevel(mediaLevel);
 		searchPublicSafetyMessage.setFieldName(fieldName);
