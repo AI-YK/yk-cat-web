@@ -130,5 +130,16 @@
 	</div>
 	<!--底部-->
 	<%@include file="/inc/indexFoot.jsp"%>
+		<%@include file="/inc/incJs.jsp"%>
+	<script type="text/javascript">
+    var pager;
+    (function () {
+        seajs.use('app/jsp/news/newsDetail', function (newsDetailPage) {
+            pager = new newsDetailPage({element: document.body});
+            pager.render();
+
+        });
+    })();
+</script>
 </body>
 </html>
