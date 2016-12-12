@@ -106,8 +106,9 @@
 						<div class="level-news-list" id="news-list">
 							
 						</div>
-						<div class="biu-paging" id="news-paging">
-							<ul>
+						<div id="news-message"></div>
+						<div class="biu-paging" >
+							<ul id="news-paging">
 								<li><a href="#">&lt;</a></li>
 								<li><a href="#">1</a></li>
 								<li class="active"><a href="#">2</a></li>
@@ -192,8 +193,8 @@
 						<div class="level-news-list" id="social-list">
 							
 						</div>
-						<div class="biu-paging" id="social-paging">
-							<ul>
+						<div class="biu-paging">
+							<ul id="social-paging">
 								<li><a href="#">&lt;</a></li>
 								<li><a href="#">1</a></li>
 								<li class="active"><a href="#">2</a></li>
@@ -234,5 +235,15 @@
         {{:abstractZh}}
 	</li>
 </ul>
+</script>
+<script type="text/javascript">
+    var pager;
+    (function () {
+        seajs.use('app/jsp/search/search', function (searchPage) {
+            pager = new searchPage({element: document.body});
+            pager.render();
+
+        });
+    })();
 </script>
 </html>

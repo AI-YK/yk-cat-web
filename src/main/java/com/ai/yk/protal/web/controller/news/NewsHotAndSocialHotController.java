@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -182,6 +183,7 @@ public class NewsHotAndSocialHotController {
 		return searchPublicSafetyResponse;
 	}
 	
+	
 	/**
 	 * 查询搜索列表页面
 	 * @param mediaType
@@ -192,13 +194,12 @@ public class NewsHotAndSocialHotController {
 	 */
 	@RequestMapping("/getSearchPublicSafety")
 	@ResponseBody
-	public ResponseData<SearchPublicSafetyResponse> getSearchPublicSafety(
-			
+	public ResponseData<Object> getSearchPublicSafety(
 			@RequestParam(value="keyword",defaultValue="") String keyword,
 		    @RequestParam(value="pageNo",defaultValue="") String pageNo,
 		    @RequestParam(value="pageSize",defaultValue="") String pageSize,
-		    @RequestParam(value="mediaType",defaultValue="") String mediaType
-			){
+		    /**媒体类型news/social**/
+		    @RequestParam(value="mediaType",defaultValue="") String mediaType){
 		SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
 		searchPublicSafetyMessage.setKeyword(keyword);
 		searchPublicSafetyMessage.setPageNo(pageNo);
@@ -208,10 +209,25 @@ public class NewsHotAndSocialHotController {
 		req.setMessage(searchPublicSafetyMessage);
 		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
 		res = searchService.getSearchPublicSafety(req);
-		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
-		searchPublicSafetyResponse = res.getData();
-		return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询搜索列表页面",searchPublicSafetyResponse);
+		if("news".equals(mediaType)){
+			PageInfo<SearchPublicSafetyNewsVo> resultPageInfo  = new PageInfo<SearchPublicSafetyNewsVo>();
+			List<SearchPublicSafetyNewsVo> resultList = res.getData().getResultList();
+			resultPageInfo.setResult(resultList);
+			resultPageInfo.setCount(res.getData().getResultCount());
+			resultPageInfo.setPageNo(Integer.valueOf(pageNo));
+			resultPageInfo.setPageSize(Integer.valueOf(pageSize));
+			return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询成功",resultPageInfo);
+		}else{
+			PageInfo<SearchPublicSafetySocialVo> resultPageInfo  = new PageInfo<SearchPublicSafetySocialVo>();
+			List<SearchPublicSafetySocialVo> resultSocialList = res.getData().getResultSocialList();
+			resultPageInfo.setCount(res.getData().getResultCount());
+			resultPageInfo.setResult(resultSocialList);
+			resultPageInfo.setPageNo(Integer.valueOf(pageNo));
+			resultPageInfo.setPageSize(Integer.valueOf(pageSize));
+			return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询成功",resultPageInfo);
+		}
 	}
+	
 	
 	
 }

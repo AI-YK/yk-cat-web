@@ -6,6 +6,9 @@ define('app/jsp/search/search', function (require, exports, module) {
     var Dialog = require("optDialog/src/dialog");
     require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	require("jsviews/jsrender.min");
+	require("bootstrap-paginator/bootstrap-paginator.min");
+	require("opt-paging/aiopt.pagination");
+	require("twbs-pagination/jquery.twbsPagination.min");
 	var SelectUtil = require("app/jsp/search/select");
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
@@ -25,8 +28,56 @@ define('app/jsp/search/search', function (require, exports, module) {
         //重写父类
         setup: function () {
         	var _this = this;
-            configPage.superclass.setup.call(this);
+        	searchPage.superclass.setup.call(this);
+            
+            _this.search("news");
            
+        },
+        _getSearchParams:function(mediaType){
+        	var param = {};
+        	param.mediaType = mediaType;
+        	return param;
+        },
+        /**媒体类型news/social**/
+        search:function(mediaType){
+        	var _this = this;
+			var url = _base +"/news/getSearchPublicSafety";
+			var param = null;
+			var pagination;
+			var renderId = null;
+			var messageId = null;
+			if('news'==mediaType){
+				param = _this._getSearchParams('news');
+				pagination = $("#news-paging");
+				renderId = 'news-list';
+				messageId = 'news-message';
+			}else{
+				param = _this._getSearchParams('social');
+				pagination = $("#social-paging");
+				renderId = 'social-list';
+				messageId = 'social-message';
+			}		
+			pagination.runnerPagination({
+				url:url,
+				method: "POST",
+				dataType: "json",
+				messageId:messageId,
+				renderId:renderId,
+				data : param,
+				pageSize: 8,
+				visiblePages:5,
+				message: "正在为您查询数据..",
+				render: function (data) {
+					//alert(JSON.stringify(data))
+					if('news'==mediaType){
+					   var listHtml = $("#levelNewsTempl").render(data);
+					   $("#news-list").html(listHtml);
+					}else if('social'==mediaType){
+						 var listHtml = $("#levelNewsTempl").render(data);	
+						 $("#social-list").html(listHtml);
+					}
+				}
+			});
         }
     });
 
