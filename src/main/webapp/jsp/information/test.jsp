@@ -9,12 +9,12 @@
 </head>
 <body>
 	<!-- 加载编辑器的容器 -->
-	<script id="container" name="content" type="text/plain"  style="width:700px;height:400px;">
+	<script id="container" name="content" type="text/plain"  style="width:800px;height:400px;">
         这里写你的初始化内容
     </script>
 </body>
 <%@ include file="/inc/incJs.jsp"%>
-<script src="${_base}/resources/spm_modules/ueditor/ueditor.config.js"></script>
+<script src="${_base}/resources/spm_modules/ueditor/ueditor.simple.config.js"></script>
 <script src="${_base}/resources/spm_modules/ueditor/ueditor.all.js"></script>
 <script src="${_base}/resources/spm_modules/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
