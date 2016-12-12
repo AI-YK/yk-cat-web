@@ -55,8 +55,12 @@ public class YeesightApiConstants {
 	public final static String API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY = "/api/yeesightForPublicAffairs/searchPublicSafety";	
 	// 查询定制专题列表
 	public final static String API_MYTOPICS_QUERYMYTOPICSLIST = "/api/myTopics/queryMyTopicsList";
-	// 1.12.	我的采编列表接口
+	// 我的采编列表接口
 	public final static String API_MYINFORMATION_QUERYMYINFORMATION = "/api/myInformation/queryMyInformation";
+	// 获取资讯语言接口
+	public final static String API_COMMON_QUERYINFOLANGUAGE = "/api/common/queryInfoLanguage";
+	// 获取资讯语言接口
+	public final static String API_COMMON_QUERYAREAOREO = "/api/common/queryAreaOrEconomicOrganizations";
 	// 拼接头部信息url
 	public static String getApiUrl(String url) {
 		return new StringBuilder(remoteBaseUrl).append(url).toString();
