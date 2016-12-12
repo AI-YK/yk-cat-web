@@ -228,6 +228,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
 					_this.chartGroups = data.groups;
+					homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
 					homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
 				}
 			});
