@@ -49,7 +49,9 @@ public class NewsHotAndSocialHotController {
 			    /**排序字段
 				_score：相关度,pubdate：时间，权重mediaLevel, 转载量transfer
 				**/
-			    @RequestParam(value="order",defaultValue="") String order
+			    @RequestParam(value="order",defaultValue="") String order,
+			    @RequestParam(value="pageNo",defaultValue="") String pageNo,
+			    @RequestParam(value="pageSize",defaultValue="") String pageSize
 			){
 		SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
 		searchPublicSafetyMessage.setMediaType(mediaType);
@@ -61,6 +63,8 @@ public class NewsHotAndSocialHotController {
 		searchPublicSafetyMessage.setMediaLevel(mediaLevel);
 		searchPublicSafetyMessage.setFieldName(fieldName);
 		searchPublicSafetyMessage.setOrder(order);
+		searchPublicSafetyMessage.setPageNo(pageNo);
+		searchPublicSafetyMessage.setPageSize(pageSize);
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
 		req.setMessage(searchPublicSafetyMessage);
 		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
