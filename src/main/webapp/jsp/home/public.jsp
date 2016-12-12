@@ -28,7 +28,7 @@
 </div>
 <!--/负面舆情结束-->
 <script id="newsTempl" type="text/x-jsrender">
-  {{if #getIndex()<8}}
+  {{if #getIndex()<9}}
   <ul>
 	 <li class="block {{:~getRankColor(transfer)}}">{{:~getRankIndex(transfer)}}</li>
 	 <li style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleZh}}</a></li>
@@ -37,7 +37,7 @@
  {{/if}}
 </script>
 <script id="socialTempl" type="text/x-jsrender">
-  {{if #getIndex()<8}}
+  {{if #getIndex()<9}}
   <ul>
 	 <li class="block {{:~getRankColor(rpsCnt)}}">{{:~getRankIndex(rpsCnt)}}</li>
 	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
