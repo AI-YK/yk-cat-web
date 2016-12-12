@@ -13,7 +13,7 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 
 @Service
-public class queryMyInformationService {
+public class QueryMyInformationService {
 	/**
 	 * 我的采编列表接口
 	 */
@@ -28,7 +28,7 @@ public class queryMyInformationService {
 	
 	public static void main(String[] args) throws Exception {
 		
-	/*queryMyInformationService service = new queryMyInformationService();
+		QueryMyInformationService service = new QueryMyInformationService();
 		YJRequest<QueryMyInformationMessage> req = new YJRequest<QueryMyInformationMessage>();
 		QueryMyInformationMessage message = new QueryMyInformationMessage();
 		message.setCreateId(9887);
@@ -38,7 +38,7 @@ public class queryMyInformationService {
 		System.out.println(JSON.toJSON(req));
 		YJResponse<QueryMyInformationResponse> res = service.getQueryMyInformationList(req);
 		System.out.println(JSON.toJSONString(res));
-		*/
+		
 		
 		/*String str ="{'data':{'resultCount':10,'resultList':[{'mediaNameSrc':'中国结婚论坛-彩妆造型','mediaId':'10021','mediaNameZh':'中国结婚论坛-彩妆造型','mediaNameEn':'中国结婚论坛-彩妆造型','url':'chinajiehun.com'}]},'head':{'result':'true','message':'ok'}}";
 		YJResponse<GetDataSourceListReponse> data =JSON.parseObject(str, new TypeReference<YJResponse<GetDataSourceListReponse>>(){});
