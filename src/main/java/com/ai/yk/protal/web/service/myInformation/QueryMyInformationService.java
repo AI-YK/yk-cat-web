@@ -20,7 +20,6 @@ public class QueryMyInformationService {
 	public YJResponse<QueryMyInformationResponse> getQueryMyInformationList(YJRequest<QueryMyInformationMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_MYINFORMATION_QUERYMYINFORMATION);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
-		System.out.println(result);
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<QueryMyInformationResponse>>(){});
 		}
