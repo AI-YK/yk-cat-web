@@ -454,85 +454,13 @@
 			<!--/tab2结束-->
 		</div>
 		<div class="levle-right">
-			<div class="levle-right-news">
-				<div class="levle-right-title">热点话题</div>
-				<div class="sentiment-list-conter-news">
-					<ul>
-						<li class="block orange">1</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block orange">2</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block orange">3</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block ash">4</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block ash">5</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block ash">6</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block ash">7</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block ash">8</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul>
-						<li class="block ash">9</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-					<ul class="bordernone">
-						<li class="block ash">10</li>
-						<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-						<li class="date">50分钟前</li>
-					</ul>
-
-				</div>
-			</div>
-			<div class="levle-right-chart">
-				<div class="levle-right-chart-title">
-					<p>时间趋势</p>
-					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
-				</div>
-				<!--图表嵌套区域-->
-				<div class="levle-right-chart-list">图表嵌套区域</div>
-				<!--/图表嵌套区域结束-->
-
-			</div>
-			<div class="levle-right-chart">
-				<div class="levle-right-chart-title">
-					<p>媒体统计</p>
-					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
-				</div>
-				<!--图表嵌套区域-->
-				<div class="levle-right-chart-list">图表嵌套区域</div>
-				<!--/图表嵌套区域结束-->
-
-			</div>
+			<%@include file="topic.jsp"%>
+			<%@include file="chart.jsp"%>
 		</div>
 	</div>
 	<!--底部-->
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
+<%@ include file="/inc/incJs.jsp"%>
+<script type="text/javascript" src="${uedroot}/scripts/modular/frame.js"></script>
 </html>

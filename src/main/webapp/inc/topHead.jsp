@@ -67,3 +67,16 @@
 <form id="loginJumpFormId" method="post" style="visibility: hidden;">
       <input type="hidden" name="url" id="loginSuccessUrl">
 </form>
+<script type="text/javascript">
+var topPage;
+(function () {
+    seajs.use('app/jsp/top/header', function (headerPage) {
+    	topPage = new headerPage({element: document.body});
+    	topPage.render();
+    });
+})();
+</script>
+<!--
+
+//-->
+</script>
