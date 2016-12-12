@@ -3,7 +3,7 @@ package com.ai.yk.protal.web.content.queryMyInformation;
 import java.io.Serializable;
 import java.util.List;
 /**
- * 公共安全事件检索接口出参
+ * 查询我的采编详情接口出参
  * @author shancong
  */
 public class QueryMyInformationResponse implements Serializable{

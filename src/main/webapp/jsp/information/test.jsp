@@ -10,23 +10,22 @@
 <body>
 	<div style="display: block;">
 		<script id="editor" type="text/plain"
-			style="width:800px;height:300px;"></script>
+			style="width:800px;height:300px;">22</script>
 	</div>
+	<div id="btns">
+	<input type="button" onclick="getContent()" value="获得内容"/>
+    
+</div>
+	
 </body>
 <%@ include file="/inc/incJs.jsp"%>
+<%@ include file="/inc/incUmeditor.jsp"%>
 
-<script
-	src="${_base}/resources/spm_modules/umeditor/third-party/jquery.min.js"></script>
-<script src="${_base}/resources/spm_modules/umeditor/umeditor.config.js"></script>
-<script src="${_base}/resources/spm_modules/umeditor/umeditor.min.js"></script>
-<script
-	src="${_base}/resources/spm_modules/umeditor/lang/zh-cn/zh-cn.js"></script>
-<link
-	href="${_base}/resources/spm_modules/umeditor/themes/default/css/umeditor.css"
-	rel="stylesheet" type="text/css"/>
 <script type="text/javascript">
 	var um = UM.getEditor('editor');
+	function getContent(){
+		 alert(um.getContent());
 
-	
+	}
 </script>
 </html>
