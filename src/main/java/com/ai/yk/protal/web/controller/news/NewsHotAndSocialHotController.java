@@ -178,5 +178,36 @@ public class NewsHotAndSocialHotController {
 		return searchPublicSafetyResponse;
 	}
 	
+	/**
+	 * 查询搜索列表页面
+	 * @param mediaType
+	 * @param cityCode
+	 * @param languageCode
+	 * @param fieldName
+	 * @return
+	 */
+	@RequestMapping("/getSearchPublicSafety")
+	@ResponseBody
+	public ResponseData<SearchPublicSafetyResponse> getSearchPublicSafety(
+			
+			@RequestParam(value="keyword",defaultValue="") String keyword,
+		    @RequestParam(value="pageNo",defaultValue="") String pageNo,
+		    @RequestParam(value="pageSize",defaultValue="") String pageSize,
+		    @RequestParam(value="mediaType",defaultValue="") String mediaType
+			){
+		SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
+		searchPublicSafetyMessage.setKeyword(keyword);
+		searchPublicSafetyMessage.setPageNo(pageNo);
+		searchPublicSafetyMessage.setPageSize(pageSize);
+		searchPublicSafetyMessage.setMediaType(mediaType);
+		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
+		req.setMessage(searchPublicSafetyMessage);
+		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
+		res = searchService.getSearchPublicSafety(req);
+		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
+		searchPublicSafetyResponse = res.getData();
+		return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询搜索列表页面",searchPublicSafetyResponse);
+	}
+	
 	
 }

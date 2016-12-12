@@ -8,26 +8,24 @@
 <%@ include file="/inc/inc.jsp"%>
 </head>
 <body>
-	<!-- 加载编辑器的容器 -->
-	<script id="container" name="content" type="text/plain"  style="width:800px;height:400px;">
-        这里写你的初始化内容
-    </script>
+	<div style="display: block;">
+		<script id="editor" type="text/plain"
+			style="width:800px;height:300px;">22</script>
+	</div>
+	<div id="btns">
+	<input type="button" onclick="getContent()" value="获得内容"/>
+    
+</div>
+	
 </body>
 <%@ include file="/inc/incJs.jsp"%>
-<script src="${_base}/resources/spm_modules/ueditor/ueditor.simple.config.js"></script>
-<script src="${_base}/resources/spm_modules/ueditor/ueditor.all.js"></script>
-<script src="${_base}/resources/spm_modules/ueditor/lang/zh-cn/zh-cn.js"></script>
-<script type="text/javascript">
-	var ue = UE.getEditor('container');
+<%@ include file="/inc/incUmeditor.jsp"%>
 
-	(function() {
-		var pager;
-		seajs.use('app/jsp/information/test', function(testPage) {
-			pager = new testPage({
-				element : document.body
-			});
-			pager.render();
-		});
-	})();
+<script type="text/javascript">
+	var um = UM.getEditor('editor');
+	function getContent(){
+		 alert(um.getContent());
+
+	}
 </script>
 </html>
