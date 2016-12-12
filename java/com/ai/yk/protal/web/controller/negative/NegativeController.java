@@ -35,7 +35,7 @@ public class NegativeController {
 			@RequestParam(value="sentimentId",defaultValue="-1") String sentimentId,
 			@RequestParam(value="provincecityCode",defaultValue="") String provincecityCode,
 			@RequestParam(value="cityCode",defaultValue="") String cityCode,
-			@RequestParam(value="publicAffairsType",defaultValue="") String publicAffairsType,
+			@RequestParam(value="categoryId",defaultValue="") String categoryId,
 			@RequestParam(value="mediaId",defaultValue="") String mediaId,
 			@RequestParam(value="mediaLevel",defaultValue="") String mediaLevel,
 			@RequestParam(value="fieldName",defaultValue="") String fieldName,
@@ -49,7 +49,7 @@ public class NegativeController {
 		searchPublicSafetyMessage.setMediaType(mediaType);
 		searchPublicSafetyMessage.setOrder(order);
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
-		searchPublicSafetyMessage.setPublicAffairsType(publicAffairsType);
+		searchPublicSafetyMessage.setCategoryId(categoryId);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		YJRequest<SearchPublicSafetyMessage> req=new YJRequest<SearchPublicSafetyMessage>();
 		req.setMessage(searchPublicSafetyMessage);
