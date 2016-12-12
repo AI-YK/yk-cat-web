@@ -17,7 +17,8 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	              '18', '19', '20', '21', '22', '23'];
         	/*var days = ['星期天', '星期一', '星期二',
         	        '星期三', '星期四', '星期五', '星期六'];*/
-        	 var days = ['2016-12-01','2016-12-02','2016-12-03','2016-12-04','2016-12-05','2016-12-06','2016-12-07'];
+        	 var days = ['','','','2016-12-05','2016-12-06','2016-12-07','2016-12-08'];
+//        	 var days = ['2016-12-01','2016-12-02','2016-12-03','2016-12-04','2016-12-05','2016-12-06','2016-12-07'];
         	//天，小时，数值
         	var data = [//[0,0,5],[0,1,1],[0,2,0],[0,3,0],[0,4,0],[0,5,0],[0,6,0],[0,7,0],[0,8,0],[0,9,0],[0,10,0],
         	         //   [0,11,2],[0,12,4],[0,13,1],[0,14,1],[0,15,3],[0,16,4],[0,17,6],[0,18,4],[0,19,4],[0,20,3],
@@ -45,7 +46,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	    legend: {
         	        show :true,
         	        data: ['权重高','权重中','权重低'],
-        	        y : 'bottom'
+        	        y : 'bottom',
+        	        textStyle:{
+        	        	color:'#2e9bed'
+        	        }
         	    },
         	    polar: {},
         	    tooltip: {
@@ -64,6 +68,11 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	                type: 'dashed'
         	            }
         	        },
+        	        axisLabel: {
+        	        	textStyle:{
+        	        		color : '#2791df'
+        	        	}
+        	        },
         	        axisLine: {
         	            show: false
         	        }
@@ -75,6 +84,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	            show: false
         	        },
         	        axisLabel: {
+        	        	textStyle:{
+        	        		color : '#2791df'
+        	        	},
         	            rotate: 45
         	        },
         	    splitArea:{
