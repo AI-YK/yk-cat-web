@@ -56,7 +56,7 @@ public class YeesightApiConstants {
 	// 查询定制专题列表
 	public final static String API_MYTOPICS_QUERYMYTOPICSLIST = "/api/myTopics/queryMyTopicsList";
 	// 1.12.	我的采编列表接口
-	public final static String API_MYINFORMATION_QUERYMYINFORMATION = "api/ myInformation/queryMyInformation";
+	public final static String API_MYINFORMATION_QUERYMYINFORMATION = "/api/myInformation/queryMyInformation";
 	// 拼接头部信息url
 	public static String getApiUrl(String url) {
 		return new StringBuilder(remoteBaseUrl).append(url).toString();
