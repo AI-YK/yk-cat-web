@@ -1,6 +1,6 @@
 define('app/jsp/home/home', function (require, exports, module) {
     'use strict';
-    var $=require('jquery'),
+    var $=require('jquery'),  
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
     var Dialog = require("optDialog/src/dialog");
@@ -35,8 +35,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 
         //事件代理
         events: {
-            "click #login":"_login",
-            "click #regist":"_regist"
+           
         },
 
         //重写父类
@@ -118,29 +117,6 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _bindEvent:function(){
         	var _this = this;
-        	//昵称
-        	 $('.breadcrumb-main ul .right .posi').mouseenter(function () {
-        			$('#user-show').show(1);
-        	 });
-            $("#user-show").click(function () {
-        	        $(this).hide(1);
-        	 });	
-        	 $('.breadcrumb-main').mouseleave(function () {
-        	        $('#user-show').hide(1);
-        	        $('#erw-show').hide(1);
-        	 });	
-        	 
-        	 //二维码
-        	 $('.breadcrumb-main ul .iphone').mouseenter(function () {
-        			$('#erw-show').show(1);
-        	 })
-        	 $("#erw-show").click(function () {
-        	         $(this).hide(1);
-        	  });	
-        	  $('.breadcrumb-main').mouseleave(function () {
-        	        $('#erw-show').hide(1);
-        	        $('#user-show').hide(1);
-        	 });	
         	  
         	 //专题
         	  $('.right-list ul #in-border1').mouseenter(function () {
@@ -183,23 +159,6 @@ define('app/jsp/home/home', function (require, exports, module) {
         			$("#border2Id").text(text);
         		});
         		
-        		$(".hov3").click(function(){
-        			_this._logOut();
-        		});
-        },
-        _logOut:function(){
-        	var url="/home/logOut"
-        	var param={};
-        	ajaxController.ajax({
-        		type:"post",
-        		processing:false,
-        		message:"保存数据中，请等待...",
-        		url:_base+url,
-        		data:param,
-        		success:function(rs){
-        			location.href=_base+"/home/index";
-        		}
-        	});
         },
         _load:function(){
         	this._initEventData();
@@ -232,19 +191,6 @@ define('app/jsp/home/home', function (require, exports, module) {
 					homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
 				}
 			});
-        },
-        _login:function(){
-        	//http://192.168.59.17:8066/sso/login
-        	//http://buzz.yeesight.com/login
-        	$("#loginJumpFormId").attr("action","http://192.168.59.17:8066/sso/login");
-        	var end = window.location.href.indexOf(_base);
-        	var href = window.location.href.substring(0,end) + _base+"/home/success";
-        	$("#loginSuccessUrl").val(href);
-        	$('#loginJumpFormId').submit();
-        },
-        _regist:function(){
-        	showErrorDialog("哈哈");
-        	//location.href= 'http://buzz.yeesight.com/register';
         },
         _loadPubTrend:function(modelNo,timeType){
         	var url = "/trend/pubTrend";

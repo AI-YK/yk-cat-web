@@ -1,7 +1,8 @@
 <%@page import="java.util.Locale"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!--面包屑－导航-->
+<%@ include file="/inc/incJs.jsp"%>
+<!--面包屑－导航--> 
 <div class="heard-breadcrumb">
 	<div class="breadcrumb-main">
 		<ul>
@@ -39,7 +40,7 @@
 					</p>
 					<div class="erw-show" id="erw-show">
 						<span><i class="icon iconfont">&#xe65a;</i></span>
-						<p><img src="${uedroot}/images/erw.jpg"></p>
+						<p><img src="${uedroot}/images/erwnew.jpg"></p>
 					</div>
 					<p><a href="#">&nbsp;&nbsp;</a></p>
 					<p><a href="#">&nbsp;&nbsp;&nbsp;&nbsp;</a></p>
@@ -67,3 +68,13 @@
 <form id="loginJumpFormId" method="post" style="visibility: hidden;">
       <input type="hidden" name="url" id="loginSuccessUrl">
 </form>
+<script type="text/javascript">
+ var topPage;
+(function () {
+    seajs.use('app/jsp/top/header', function (headerPage) {
+    	topPage = new headerPage({element: document.body});
+    	topPage.render();
+    });
+})(); 
+</script>
+

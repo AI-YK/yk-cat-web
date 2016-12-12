@@ -64,7 +64,6 @@
 	<!--底部-->
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
-<%@ include file="/inc/incJs.jsp"%>
 <script type="text/javascript" src="${uedroot}/scripts/modular/index.js"></script>
 <script type="text/javascript">
     var pager;
