@@ -418,15 +418,15 @@ pre ol.linenums li {
 .btn-230{width:236px;height:50px;}
 .btn-168{width:168px;height:50px;}
 /************************表单************************/
-.int-text{border:1px solid #e6e6e6;background:#fff; outline:none;line-height:26px;color:#6a6c6f;font-size:14px;resize:none;}
-.int-text:hover{border:1px solid #52dc90;}
+.int-text{border:1px solid #dcddde;background:#fff; outline:none;line-height:26px;color:#6a6c6f;font-size:14px;resize:none;}
+.int-text:hover{/*border:1px solid #52dc90;*/}
 .int-mini{width:102px;height:26px;padding:0 20px;line-height:26px;font-size:12px}
 .int-small{width:105px;height:26px;padding:0 10px;line-height:26px;font-size:12px;}
 .int-medium{width:160px;height:26px;padding:0 30px 0 20px;}
 
 .int-in{width:164px;height:44px;padding:0  20px;line-height:44px;}
 .int-in-bi{width:240px;height:44px;padding:0 20px;line-height:44px;}
-.int-large{width:268px;height:44px;padding:0 20px;line-height:44px;}
+.int-large{width:246px;height:32px;padding:0 20px;line-height:32px;background:#ecedf1;}
 .int-xlarge{width:360px;height:44px;padding:0 20px;line-height:44px;}
 .int-xxlarge{width:500px;height:44px;padding:0 20px;line-height:44px;}
 .int-xxxlarge{width:700px;height:44px;padding:0 20px;line-height:44px;}
@@ -445,14 +445,14 @@ pre ol.linenums li {
 .skin-minimal .checkbox-1,.checkbox-2,.checkbox-disabled,.checkbox-disabled-checked{width:16px;height:16px;float:left}
 .checkbox-disabled,.checkbox-disabled-checked{cursor:not-allowed;}
 /************************select************************/
-.select{border:1px solid #e6e6e6;background:#fff; outline:none;color:#6a6c6f;appearance:none;
+.select{border:1px solid #dcddde;background:#fff; outline:none;color:#6a6c6f;appearance:none;
 padding:0 10px;-moz-appearance:none;-webkit-appearance:none;
  background:url(../../images/icon-s.jpg) no-repeat scroll right  #fff;}
 select::-ms-expand { display: none; }
 /**.select:hover{border:1px solid #e6e6e6;}**/
 .select option{ padding-left:20px;}
-.select-mini{width:102px;height:32px;padding-left:4px;}
-.select-small{width:107px;height:26px;padding-left:4px;}
+.select-mini{width:74px;height:32px;text-align: center;}
+.select-small{width:114px;height:32px;padding-left:4px;}
 .select-medium{width:190px;height:44px;padding-left:20px;}
 
 .select-in-small{width:120px;height:44px;padding-left:20px;}
@@ -485,13 +485,13 @@ select::-ms-expand { display: none; }
 .active{animation:progress-bar-stripes 2s linear infinite;}
 
 /************************分页************************/
-.biu-paging{margin:0 auto;text-align:center;}
-.biu-paging ul{display:inline-block;vertical-align:middle;}
+.biu-paging{margin:0 auto;text-align:right;}
+.biu-paging ul{display:inline-block;vertical-align:middle;margin-top:20px;}
 .biu-paging ul li{display:inline;}
 .biu-paging ul p{display:inline;margin-left:12px;}
-.biu-paging ul li a{width:28px;height:28px;float:left;margin-left:12px;text-align:center;color:#6a6c6f;font-size:12px;line-height:28px;}
-.biu-paging ul li a:hover{border-radius:50%;width:28px;height:28px;background:#2361ea; color:#fff;}
-.biu-paging ul .active a{border-radius:50%;width:28px;height:28px;background:#2361ea; color:#fff;}
+.biu-paging ul li a{width:24px;height:24px;float:left;margin-left:12px;text-align:center;color:#6a6c6f;background:#ecedf1;border-radius:5px;font-size:12px;line-height:24px;}
+.biu-paging ul li a:hover{width:24px;height:24px;background:#3382ee; color:#fff;}
+.biu-paging ul .active a{width:24px;height:24px;background:#3382ee; color:#fff;}
 .biu-paging ul .prev-up a{border-radius:50%;width:28px;height:28px;background:#fff; color:#2361ea;border:1px solid #2361ea;line-height: 26px;}
 .biu-paging ul .next-down a{border-radius:50%;width:28px;height:28px;background:#fff; color:#2361ea;border:1px solid #2361ea;line-height: 24px;}
 .biu-paging ul li span{float:left;line-height:26px;margin:0 0 0 12px;font-size:12px;}
