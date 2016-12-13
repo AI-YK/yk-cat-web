@@ -2,10 +2,11 @@ define(
 		'app/jsp/search/search',
 		function(require, exports, module) {
 			'use strict';
+			require("jsviews/jsrender.min");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");
 			require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
-			require("jsviews/jsrender.min");
+			require("app/util/jsviews-yi");
 			require("bootstrap-paginator/bootstrap-paginator.min");
 			require("opt-paging/aiopt.pagination");
 			require("twbs-pagination/jquery.twbsPagination.min");
@@ -36,6 +37,7 @@ define(
 
 				},
 				_bindEvent : function() {
+					var _this = this;
 					$(".level-left-table ul li a").click(function() {
 						$(".level-left-table ul li a").each(function() {
 							$(this).removeClass("current");
@@ -51,17 +53,27 @@ define(
 							$('#le-tba1').hide();
 						}
 					});
+					
+					$("#keyword").click(function(){
+						alert(1);
+						_this.search("news");
+						_this.search("social");
+					});
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};
 					param.mediaType = mediaType;
+					var keyword = $("#keyword").val();
+					if(keyword!=''){
+						param.keyword = keyword;
+					}
 					return param;
 				},
 				/** 媒体类型news/social* */
 				search : function(mediaType) {
 					var _this = this;
 					var url = _base + "/news/getSearchPublicSafety";
-					var param = null;
+					var param = {};
 					var pagination;
 					var renderId = null;
 					var messageId = null;
@@ -76,6 +88,7 @@ define(
 						renderId = 'social-list';
 						messageId = 'social-message';
 					}
+					
 					pagination.runnerPagination({
 						url : url,
 						method : "POST",
@@ -102,7 +115,7 @@ define(
 								var listHtml = $("#levelNewsTempl").render(data);
 								$("#news-list").html(listHtml);
 							} else if ('social' == mediaType) {
-								var listHtml = $("#levelNewsTempl").render(data);
+								var listHtml = $("#levelSocialTempl").render(data);
 								$("#social-list").html(listHtml);
 							}
 						}
