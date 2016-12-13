@@ -19,17 +19,17 @@ public class QueryMyInformationDetailsService {
 	/**
 	 * 查询我的采编详情接口
 	 */
-	public YJResponse<List<QueryMyInformationDetailsVo>> queryMyInformationDetails(YJRequest<QueryMyInformationDetailsMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_CONMMON_QUERYAREALIST);
+	public YJResponse<QueryMyInformationDetailsVo> queryMyInformationDetails(YJRequest<QueryMyInformationDetailsMessage> req) {
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_MYINFORMATION_QUERYMYINFORMATIONDETAILS);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		System.out.println(result);
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<List<QueryMyInformationDetailsVo>>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<QueryMyInformationDetailsVo>>(){});
 		}
 		return null;
 	}
 	
-	/*public static void main(String[] args) {
+	public static void main(String[] args) {
 		QueryMyInformationDetailsService service = new QueryMyInformationDetailsService();
 		YJRequest<QueryMyInformationDetailsMessage> req = new YJRequest<QueryMyInformationDetailsMessage>();
 		QueryMyInformationDetailsMessage message = new QueryMyInformationDetailsMessage();
@@ -37,9 +37,9 @@ public class QueryMyInformationDetailsService {
 		message.setCreateId(99538);
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
-		YJResponse<List<QueryMyInformationDetailsVo>> res = service.queryMyInformationDetails(req);
+		YJResponse<QueryMyInformationDetailsVo> res = service.queryMyInformationDetails(req);
 		System.out.println(JSON.toJSONString(res));
-	}*/
+	}
 	
 	
 }

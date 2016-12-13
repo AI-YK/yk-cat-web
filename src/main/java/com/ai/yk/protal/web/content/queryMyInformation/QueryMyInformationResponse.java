@@ -11,7 +11,7 @@ public class QueryMyInformationResponse implements Serializable{
 		/**记录数   是否必填：Y**/
 		private Integer resultCount;
 		/**资讯list  是否必填：Y**/
-		private List<QueryMyInformationVo> resultList;
+		private List<QueryMyInformationVo> results;
 
 		public Integer getResultCount() {
 			return resultCount;
@@ -21,11 +21,13 @@ public class QueryMyInformationResponse implements Serializable{
 			this.resultCount = resultCount;
 		}
 
-		public List<QueryMyInformationVo> getResultList() {
-			return resultList;
+
+		public List<QueryMyInformationVo> getResults() {
+			return results;
 		}
 
-		public void setResultList(List<QueryMyInformationVo> resultList) {
-			this.resultList = resultList;
+		public void setResults(List<QueryMyInformationVo> results) {
+			this.results = results;
 		}
+
 	}

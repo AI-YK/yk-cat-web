@@ -101,22 +101,15 @@
 					<div class="level-news" >
 						<div class="level-news-title">
 							<p>共有相关数据</p>
-							<p class="blue" id="news-num" >3,572,560</p>
+							<p class="blue" id="news-num" >0</p>
 						</div>
 						<div class="level-news-list" id="news-list">
 							
 						</div>
-						<div class="biu-paging" id="news-paging">
-							<ul>
-								<li><a href="#">&lt;</a></li>
-								<li><a href="#">1</a></li>
-								<li class="active"><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">&gt;</a></li>
+						<div id="news-message"></div>
+						<div class="biu-paging" >
+							<ul id="news-paging">
+								
 							</ul>
 						</div>
 					</div>
@@ -187,22 +180,14 @@
 					<div class="level-news" >
 						<div class="level-news-title">
 							<p>共有相关数据</p>
-							<p class="blue" id="social-num">3,572,560</p>
+							<p class="blue" id="social-num">0</p>
 						</div>
 						<div class="level-news-list" id="social-list">
 							
 						</div>
-						<div class="biu-paging" id="social-paging">
-							<ul>
-								<li><a href="#">&lt;</a></li>
-								<li><a href="#">1</a></li>
-								<li class="active"><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">&gt;</a></li>
+						<div id="social-message"></div>
+						<div class="biu-paging">
+							<ul id="social-paging">
 							</ul>
 						</div>
 					</div>
@@ -226,13 +211,24 @@
 			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
-			<span>{{:languageTname}}</span> <span>{{:countryNameZh}}</span>
-            <span><img src="${uedroot}/images/cn.jpg" /></span> <span>转载：{{:transfer}}</span>
+			<span>{{:languageTname}}</span>
+            <span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span> 
+            <span>转载：{{:transfer}}</span>
 		</p>
 	</li>
 	<li class="news">
         {{:abstractZh}}
 	</li>
 </ul>
+</script>
+<script type="text/javascript">
+    var pager;
+    (function () {
+        seajs.use('app/jsp/search/search', function (searchPage) {
+            pager = new searchPage({element: document.body});
+            pager.render();
+
+        });
+    })();
 </script>
 </html>
