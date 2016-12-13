@@ -60,7 +60,10 @@
 					<li><a href="#">专题分析</a></li>
 					<li><a href="#">热点发现</a></li>
 					<li><a href="#">舆情动态</a></li>
-					<li class="search"><input type="text" class="search-medium" placeholder="普京vs奥巴马"><a href="#"><i class="icon iconfont">&#xe658;</i></a></li>
+					<c:if test="${!noSearch}">
+					  <li class="search"><input type="text" class="search-medium" placeholder="搜索"><a href="#"><i class="icon iconfont">&#xe658;</i></a></li>
+					</c:if>
+					
 				</ul>
 		</div>
 	</div>
