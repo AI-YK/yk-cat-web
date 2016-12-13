@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>舆情动态</title>
+<title>突发事件</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 
@@ -32,60 +32,9 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>地区</p>
 								<p>
-									<select id="orgnizationId1" class="select select-mini">
-										<option>全部</option>
-									</select>
-								</p>
-							</li>
-							<li>
-								<p>影响力</p>
-								<p>
-									<select id="dicId1" class="select select-mini">
-										<option>时间</option>
-									</select>
-								</p>
-							</li>
-							<li>
-								<p>时间</p>
-								<p>
-									<input id="timeId1" type="text" readonly class="select select-small calendar"/>
-								</p>
-							</li>
-							<li>
-								<p>媒体</p>
-								<p>
-									<input  type="text" class="int-text select-mini">
-								</p>
-							</li>
-							<li>
-								<p>排序</p>
-								<p>
-									<select class="select select-mini">
-										<option>全部</option>
-										<option value="score">相关度</option>
-										<option value="pubdate">时间</option>
-										<option value="mediaLevel">权重</option>
-										<option value="transfer">转载量</option>
-									</select>
-								</p>
-							</li>
-						</ul>
-						<ul>
-							<li>
-								<p>情感</p>
-								<p>
-									<select class="select select-mini">
-										<option>全部</option>
-										<option value="1">正面</option>
-										<option value="0">中性</option>
-										<option value="-1">负面</option>
-									</select>
-								</p>
-								<p>
-					              <input id="keyword1" type="text" class="int-text int-large radius">
-					              <a href="#"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
+					              <input id="keyword" type="text" class="int-text int-large radius">
+					              <a href="#"><i id="searchBtn" class="icon iconfont suos">&#xe658;</i></a>
 				                </p>
 							</li>
 						</ul>
@@ -111,7 +60,6 @@
 		</div>
 		<div class="levle-right">
 			<%@include file="topic.jsp"%>
-			<%@include file="chart.jsp"%>
 		</div>
 	</div>
 	<!--底部-->
@@ -119,49 +67,23 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul>
-	<li class="title">{{:titleZh}}</li>
+	<li class="title">{{:zhTitle}}</li>
 	<li class="list">
 		<p>
-			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="#">{{:zhSource}}</a></span><span>{{:dayTime}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
-            <span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span> 
-            <span>转载：{{:transfer}}</span>
+            <span>{{:zhCountry}}<img style="height:14px;" src="${uedroot}/images/country/{{:enCountry}}@2x.png" /></span> 
+            <span>转载：{{:heatValue}}</span>
 		</p>
 	</li>
 	<li class="news">
-        {{:abstractZh}}
+        {{:zhSummary}}
 	</li>
 </ul>
 </script>
-<script id="levelSocialTempl" type="text/x-jsrender">
-<div class="hot-list">
-   <div class="portrait">
-     {{if userAvatar==null}}
-        <img src="${uedroot}/images/user.jpg" />
-     {{else}}
-        <img src="{{:userAvatar}}" />
-     {{/if}}
-   </div>
-   <ul>
-	 <li class="title">{{:name}}</li>
-	 <li class="list">
-		<p>
-			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>
-			<span>{{:timeStr}}</span>
-		</p>
-			<p class="right">
-				<span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
-				<span>评论：{{:cmtCnt}}</span>
-				<span>点赞：{{:atdCnt}}</span>
-				<span>转载量：{{:rpsCnt}}</span>
-			</p>
-	  </li>
-	   <li class="news">{{:text}}</li>
-	</ul>
-</div>
-</script>
+
 <script type="text/javascript">
     var pager;
     (function () {

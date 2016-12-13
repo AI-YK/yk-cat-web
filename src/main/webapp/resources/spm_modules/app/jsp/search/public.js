@@ -115,14 +115,13 @@ define('app/jsp/search/public',function(require, exports, module) {
 						last : false,
 						message : "正在为您查询数据..",
 						callback:function(data){
-							//alert(JSON.stringify(data));
 							if ('news' == mediaType) {
 								$("#news-num").html(data.count);
 							}else if ('social' == mediaType) {
 								$("#social-num").html(data.count);
 							}
 						},
-						render : function(data,count) {
+						render : function(data) {
 							if ('news' == mediaType) {
 								$("#news-num").val();
 								var listHtml = $("#levelNewsTempl").render(data);
