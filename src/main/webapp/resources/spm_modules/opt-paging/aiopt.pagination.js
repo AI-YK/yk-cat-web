@@ -87,7 +87,7 @@ define("opt-paging/aiopt.pagination", ["jquery","twbs-pagination/jquery.twbsPagi
  	                //var totalPages=d.pageCount?d.pageCount:1;
  	                if(d.pageCount>0){
  	                	_this.setupTwbsPagination(d.pageCount);
-						_this.showGotoPage();
+						//_this.showGotoPage();
  	                }
  	            },
  	            failure:function(){
