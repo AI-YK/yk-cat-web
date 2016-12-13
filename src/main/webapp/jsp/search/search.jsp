@@ -96,9 +96,9 @@
 								<p>译文</p>
 								<p>
 									<select class="select select-small">
-										<option>仅现实译文</option>
-										<option>仅现实原文</option>
-										<option>现实译文和原文</option>
+										<option>仅显示译文</option>
+										<option>仅显示原文</option>
+										<option>显示译文和原文</option>
 									</select>
 								</p>
 							</li>
