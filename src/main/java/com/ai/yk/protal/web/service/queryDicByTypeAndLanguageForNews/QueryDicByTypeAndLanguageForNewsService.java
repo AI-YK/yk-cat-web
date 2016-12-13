@@ -1,4 +1,4 @@
-package com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNewsService;
+package com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNews;
 
 
 import org.springframework.stereotype.Service;
