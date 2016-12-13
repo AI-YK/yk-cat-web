@@ -54,8 +54,7 @@ define(
 						}
 					});
 					
-					$("#keyword").click(function(){
-						alert(1);
+					$("#searchBtn").click(function(){
 						_this.search("news");
 						_this.search("social");
 					});

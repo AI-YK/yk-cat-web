@@ -235,7 +235,7 @@
 	 <li class="list">
 		<p>
 			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>
-			<span>{{:pubdate}}</span>
+			<span>{{:timeStr}}</span>
 		</p>
 			<p class="right">
 				<span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
