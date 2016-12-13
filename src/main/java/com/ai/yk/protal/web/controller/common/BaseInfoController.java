@@ -25,12 +25,22 @@ import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
+import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsMessage;
+import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsReponse;
+import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageMessage;
+import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageReponse;
+import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsMessage;
+import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsReponse;
+import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsResults;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsService;
+import com.ai.yk.protal.web.service.queryInfoLanguage.QueryInfoLanguageService;
+import com.ai.yk.protal.web.service.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsService;
 import com.ai.yk.protal.web.utils.SessionUtil;
 
 @Controller
@@ -49,6 +59,15 @@ public class BaseInfoController {
 	CommonService commonService;
 	@Autowired
 	MycustomizedService mycustomizedService;
+	
+	@Autowired
+	QueryAreaOrEconomicOrganizationsService queryOrganizationsService;
+	
+	@Autowired
+	QueryInfoLanguageService queryInfoLanguageService;
+	
+	@Autowired
+	QueryDicByTypeAndLanguageForNewsService queryDicService;
 	/**
 	 * 获得省列表
 	 * 
@@ -481,5 +500,69 @@ public class BaseInfoController {
 				return myCustomizedVo;
 		  }
 				  
-		  
+		  /**
+			 * 获得热门国家列表
+			 * @param language
+			 * @param type
+			 * @param dicValue
+			 * @return
+			 */
+			@RequestMapping("/getQueryAreaOrEconomicOrganizations")
+			@ResponseBody
+			public ResponseData<List<QueryAreaOrEconomicOrganizationsResults>> getQueryAreaOrEconomicOrganizations(
+					@RequestParam(value="language",defaultValue="") String language,
+					@RequestParam(value="type",defaultValue="") String type,
+					@RequestParam(value="dicValue",defaultValue="") String dicValue
+					){
+				QueryAreaOrEconomicOrganizationsMessage queryMessage=new QueryAreaOrEconomicOrganizationsMessage();
+				queryMessage.setLanguage(language);
+				queryMessage.setType(type);
+				queryMessage.setDicValue(dicValue);
+				YJRequest<QueryAreaOrEconomicOrganizationsMessage> req=new YJRequest<QueryAreaOrEconomicOrganizationsMessage>();
+				req.setMessage(queryMessage);
+				YJResponse<QueryAreaOrEconomicOrganizationsReponse> yjr=queryOrganizationsService.getQueryAreaOrEconomicOrganizations(req);
+				List<QueryAreaOrEconomicOrganizationsResults> results = yjr.getData().getResults();
+				return new ResponseData<List<QueryAreaOrEconomicOrganizationsResults>>(ResponseData.AJAX_STATUS_SUCCESS,"查询热门国家成功",results);
+			}
+			
+			/**
+			 * 获取资讯语言列表
+			 * @param language
+			 * @param languageType
+			 * @return
+			 */
+			@RequestMapping("/getQueryInfoLanguage")
+			@ResponseBody
+			public ResponseData<Object> getQueryInfoLanguage(
+					@RequestParam(value="language",defaultValue="") String language,
+					@RequestParam(value="languageType",defaultValue="") String languageType
+					){
+				QueryInfoLanguageMessage queryInfoLanguageMessage=new QueryInfoLanguageMessage();
+				queryInfoLanguageMessage.setLanguage(languageType);
+				queryInfoLanguageMessage.setLanguageType(languageType);
+				YJRequest<QueryInfoLanguageMessage> req=new YJRequest<QueryInfoLanguageMessage>();
+				req.setMessage(queryInfoLanguageMessage);
+				YJResponse<QueryInfoLanguageReponse> yjr=queryInfoLanguageService.getQueryInfoLanguage(req);
+				return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询资讯语言成功",yjr.getData().getResults());
+			}
+			/**
+			 * 根据类型和语言获取数据字典中的所有记录
+			 * @param language
+			 * @param type
+			 * @return
+			 */
+			@RequestMapping("/getDicByTypeAndLanguage")
+			@ResponseBody
+			public ResponseData<Object> getDicByTypeAndLanguage(
+					@RequestParam(value="language",defaultValue="") String language,
+					@RequestParam(value="type",defaultValue="") String type
+					){
+				QueryDicByTypeAndLanguageForNewsMessage queryDicMessage=new QueryDicByTypeAndLanguageForNewsMessage();
+				queryDicMessage.setLanguage(language);
+				queryDicMessage.setType(type);
+				YJRequest<QueryDicByTypeAndLanguageForNewsMessage> req=new YJRequest<QueryDicByTypeAndLanguageForNewsMessage>();
+				req.setMessage(queryDicMessage);
+				YJResponse<QueryDicByTypeAndLanguageForNewsReponse> yjr= queryDicService.getQueryAreaOrEconomicOrganizations(req);
+				return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询数据字典中的所有记录成功",yjr.getData().getResults());
+			}
 }

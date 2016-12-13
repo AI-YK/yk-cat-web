@@ -33,7 +33,9 @@ define(
 					_this._bindEvent();
 					_this.search("news");
 					_this.search("social");
-
+					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
+					selectUtil.initLanguageSelect(['languageId1']);
+					selectUtil.initDicSelect(['dicId1','dicId2']);
 				},
 				_bindEvent : function() {
 					$(".level-left-table ul li a").click(function() {
@@ -107,8 +109,8 @@ define(
 							}
 						}
 					});
-				}
-			});
-
+			}
+	
+				
 			module.exports = searchPage;
 		});
