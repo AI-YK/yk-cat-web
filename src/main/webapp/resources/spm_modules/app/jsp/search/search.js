@@ -77,6 +77,11 @@ define(
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
+					if ('news' == mediaType) {
+						
+					}else if ('social' == mediaType) {
+						
+					}
 					return param;
 				},
 				/** 媒体类型news/social* */
