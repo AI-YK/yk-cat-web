@@ -8,12 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.queryInformation.QueryInformationMessage;
 import com.ai.yk.protal.web.content.queryInformation.QueryInformationResponse;
+import com.ai.yk.protal.web.content.share.ShareCountVo;
+import com.ai.yk.protal.web.content.share.ShareMessage;
 import com.ai.yk.protal.web.controller.BaseController;
 import com.ai.yk.protal.web.service.information.InformationService;
+import com.ai.yk.protal.web.service.share.ShareService;
 
 /**
  * 新闻<br>
@@ -31,6 +35,8 @@ public class NewsController extends BaseController {
 	private static final String NEWS_DETAILS_VIEW ="/news/newsDetail";
 	@Autowired
 	private InformationService informationService;
+	@Autowired
+	private ShareService shareService;
 
 	/**
 	 * 新闻详情
@@ -50,6 +56,17 @@ public class NewsController extends BaseController {
 		if(res!=null&&res.getData()!=null){
 			view.addObject("newsDetails", res.getData());
 		}
+		YJRequest<ShareMessage> req2 = new YJRequest<>();
+		ShareMessage message2 = new ShareMessage();
+		message2.setId(informationId);
+		req2.setMessage(message2);
+		YJResponse<ShareCountVo> res2=shareService.queryShareCount(req2);
+		//收藏数
+		String collCount = "0";
+		if(res2!=null&&res2.getData()!=null && !StringUtil.isBlank(res2.getData().getCollCount())){
+			collCount = res2.getData().getCollCount();
+		}
+		view.addObject("collCount",collCount);
 		return view;
 	}
 }
