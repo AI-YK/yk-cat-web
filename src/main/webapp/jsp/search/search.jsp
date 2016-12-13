@@ -86,7 +86,9 @@
 								<p>译文</p>
 								<p>
 									<select class="select select-small">
-										<option>仅现实译文</option>
+										<option>仅显示译文</option>
+										<option>仅显示原文</option>
+										<option>显示译文和原文</option>
 									</select>
 								</p>
 							</li>
@@ -162,6 +164,9 @@
 								<p>
 									<select class="select select-mini">
 										<option>全部</option>
+										<option value="1">正面</option>
+										<option value="0">中性</option>
+										<option value="-1">负面</option>
 									</select>
 								</p>
 							</li>
