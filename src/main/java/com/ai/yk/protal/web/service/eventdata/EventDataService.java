@@ -50,4 +50,24 @@ public class EventDataService {
 		}
 		return null;
 	}
+	
+	/*public static void main(String[] args) throws Exception {
+		
+		EventDataService service = new EventDataService();
+		YJRequest<EventListMessage> req = new YJRequest<EventListMessage>();
+		EventListMessage message = new EventListMessage();
+		message.setPageSize(10);
+		message.setPageNo(1);
+		message.setSourceType(1);
+		message.setIsTimeSort(1);
+		
+		req.setMessage(message);
+		System.out.println(JSON.toJSON(req));
+		YJResponse<EventListResponse> res = service.queryEventDataList(req);
+		System.out.println(JSON.toJSONString(res));
+		
+		
+	}*/
+	
+	
 }
