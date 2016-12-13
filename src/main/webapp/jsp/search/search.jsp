@@ -65,7 +65,7 @@
 							<li>
 								<p>语言</p>
 								<p>
-									<select id="languageId" class="select select-mini">
+									<select id="languageId1" class="select select-mini">
 										<option>全部</option>
 									</select>
 								</p>
