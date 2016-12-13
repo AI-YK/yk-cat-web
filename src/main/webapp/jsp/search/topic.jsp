@@ -55,3 +55,10 @@
 
 	</div>
 </div>
+<script id="levelNewsTempl" type="text/x-jsrender">
+   <ul class="bordernone">
+	   <li class="block {{if #index<3}}ash{{else}}orange{{/if}}">10</li>
+	   <li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
+	   <li class="date">50分钟前</li>
+   </ul>
+</script>
