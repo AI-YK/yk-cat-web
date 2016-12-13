@@ -1,4 +1,4 @@
-package com.ai.yk.protal.web.service.queryareaoreconomicorganizations;
+package com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNewsService;
 
 
 import org.springframework.stereotype.Service;
@@ -7,6 +7,8 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsMessage;
+import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsReponse;
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsMessage;
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsReponse;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
@@ -15,20 +17,20 @@ import com.alibaba.fastjson.TypeReference;
 
 /**
  * <br>
- * 获取热门国家表service
+ * 根据类型和语言获取数据字典中的所有记录接口Service
  * 
  * @author shancong
  */
 @Service
-public class QueryAreaOrEconomicOrganizationsService {
+public class QueryDicByTypeAndLanguageForNewsService {
 	/**
-	 * 获取热门国家表接口
+	 * 根据类型和语言获取数据字典中的所有记录
 	 */
-	public YJResponse<QueryAreaOrEconomicOrganizationsReponse> getQueryAreaOrEconomicOrganizations(YJRequest<QueryAreaOrEconomicOrganizationsMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_COMMON_QUERYAREAOREO);
+	public YJResponse<QueryDicByTypeAndLanguageForNewsReponse> getQueryAreaOrEconomicOrganizations(YJRequest<QueryDicByTypeAndLanguageForNewsMessage> req) {
+		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<QueryAreaOrEconomicOrganizationsReponse>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<QueryDicByTypeAndLanguageForNewsReponse>>(){});
 		}
 		return null;
 	}
@@ -36,16 +38,17 @@ public class QueryAreaOrEconomicOrganizationsService {
 	
 	public static void main(String[] args) throws Exception {
 		
-		QueryAreaOrEconomicOrganizationsService service = new QueryAreaOrEconomicOrganizationsService();
-		YJRequest<QueryAreaOrEconomicOrganizationsMessage> req = new YJRequest<QueryAreaOrEconomicOrganizationsMessage>();
-		QueryAreaOrEconomicOrganizationsMessage message = new QueryAreaOrEconomicOrganizationsMessage();
+		QueryDicByTypeAndLanguageForNewsService service = new QueryDicByTypeAndLanguageForNewsService();
+		YJRequest<QueryDicByTypeAndLanguageForNewsMessage> req = new YJRequest<QueryDicByTypeAndLanguageForNewsMessage>();
+		QueryDicByTypeAndLanguageForNewsMessage message = new QueryDicByTypeAndLanguageForNewsMessage();
+		message.setType("SJYYXL");
 		message.setLanguage("zh");
-		message.setType("3");
+		
 		
 		
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
-		YJResponse<QueryAreaOrEconomicOrganizationsReponse> res = service.getQueryAreaOrEconomicOrganizations(req);
+		YJResponse<QueryDicByTypeAndLanguageForNewsReponse> res = service.getQueryAreaOrEconomicOrganizations(req);
 		System.out.println(JSON.toJSONString(res));
 		
 		
