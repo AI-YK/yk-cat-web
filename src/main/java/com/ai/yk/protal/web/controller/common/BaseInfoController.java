@@ -27,8 +27,10 @@ import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsMessage;
 import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsReponse;
+import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsResults;
 import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageMessage;
 import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageReponse;
+import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageVo;
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsMessage;
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsReponse;
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsResults;
@@ -521,7 +523,10 @@ public class BaseInfoController {
 				YJRequest<QueryAreaOrEconomicOrganizationsMessage> req=new YJRequest<QueryAreaOrEconomicOrganizationsMessage>();
 				req.setMessage(queryMessage);
 				YJResponse<QueryAreaOrEconomicOrganizationsReponse> yjr=queryOrganizationsService.getQueryAreaOrEconomicOrganizations(req);
-				List<QueryAreaOrEconomicOrganizationsResults> results = yjr.getData().getResults();
+				List<QueryAreaOrEconomicOrganizationsResults> results =null;
+				if(yjr!=null){
+					results = yjr.getData().getResults();
+				}
 				return new ResponseData<List<QueryAreaOrEconomicOrganizationsResults>>(ResponseData.AJAX_STATUS_SUCCESS,"查询热门国家成功",results);
 			}
 			
@@ -543,7 +548,11 @@ public class BaseInfoController {
 				YJRequest<QueryInfoLanguageMessage> req=new YJRequest<QueryInfoLanguageMessage>();
 				req.setMessage(queryInfoLanguageMessage);
 				YJResponse<QueryInfoLanguageReponse> yjr=queryInfoLanguageService.getQueryInfoLanguage(req);
-				return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询资讯语言成功",yjr.getData().getResults());
+				List<QueryInfoLanguageVo> results =null;
+				if(yjr!=null){
+					results = yjr.getData().getResults();
+				}
+				return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询资讯语言成功",results);
 			}
 			/**
 			 * 根据类型和语言获取数据字典中的所有记录
@@ -563,6 +572,10 @@ public class BaseInfoController {
 				YJRequest<QueryDicByTypeAndLanguageForNewsMessage> req=new YJRequest<QueryDicByTypeAndLanguageForNewsMessage>();
 				req.setMessage(queryDicMessage);
 				YJResponse<QueryDicByTypeAndLanguageForNewsReponse> yjr= queryDicService.getQueryDicByTypeAndLanguageForNews(req);
-				return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询数据字典中的所有记录成功",yjr.getData().getResults());
+				List<QueryDicByTypeAndLanguageForNewsResults> results =null;
+				if(yjr!=null){
+					results = yjr.getData().getResults();
+				}
+				return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询数据字典中的所有记录成功",results);
 			}
 }
