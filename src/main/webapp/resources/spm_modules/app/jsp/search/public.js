@@ -32,7 +32,14 @@ define('app/jsp/search/public',function(require, exports, module) {
 					var _this = this;
 					publicPage.superclass.setup.call(this);
                     this.model = $("#model").val(); 
-                    
+                    if(this.model=='news'){
+                    	$("#le-tba1").show();
+                    }else if(this.model=='social'){
+                    	$("#le-tba2").show();
+                    }else{
+                    	$("#le-tba1").show();
+                    	$("#le-tba2").show();
+                    }
 					_this._bindEvent();
 					_this._search("news");
 					_this._search("social");
