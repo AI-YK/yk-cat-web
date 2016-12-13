@@ -12,6 +12,7 @@
 </head>
 <body>
 	<!--面包屑导航-->
+	<c:set var="noSearch" value="true"/>
 	<%@ include file="/inc/topHead.jsp"%>
 	<!--子导航-->
 	<div class="subnav">
