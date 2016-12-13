@@ -33,20 +33,29 @@ public class SearchPublicSafetyMessage implements Serializable {
 		private String cityCode;
 		/**媒体级别id**/
 		private String mediaLevel;
-		/**倒序或正序（desc/asc）**/
-		private String order;
 		/**排序字段
 		_score：相关度,pubdate：时间，权重mediaLevel, 转载量transfer
 		**/
 		private String fieldName;
+		/**是否高亮(true或false)**/
+		private String highlight;
+		/**倒序或正序（desc/asc）**/
+		private String order;
 		/**开始时间**/
 		private String beginTime;
 		/**结束时间**/
 		private String endTime;
-		/**是否高亮(true或false)**/
-		private String highlight;
 		/**数据源类型微信微博新闻等媒体**/
 		private String mediaId;
+		/**国别id数组**/
+		private String countryId;
+		/**语言id数组**/
+		private String languageId;
+		/**影响力**/
+		private String dicValue;
+		
+		
+		
 		public String getKeyword() {
 			return keyword;
 		}
@@ -161,4 +170,23 @@ public class SearchPublicSafetyMessage implements Serializable {
 		public void setMediaId(String mediaId) {
 			this.mediaId = mediaId;
 		}
+		public String getCountryId() {
+			return countryId;
+		}
+		public void setCountryId(String countryId) {
+			this.countryId = countryId;
+		}
+		public String getLanguageId() {
+			return languageId;
+		}
+		public void setLanguageId(String languageId) {
+			this.languageId = languageId;
+		}
+		public String getDicValue() {
+			return dicValue;
+		}
+		public void setDicValue(String dicValue) {
+			this.dicValue = dicValue;
+		}
+		
 }

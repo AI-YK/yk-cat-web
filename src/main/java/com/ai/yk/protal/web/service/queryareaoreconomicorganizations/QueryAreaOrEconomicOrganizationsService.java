@@ -7,10 +7,8 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageMessage;
-import com.ai.yk.protal.web.content.queryInfoLanguage.QueryInfoLanguageReponse;
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsMessage;
-import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryDicByTypeAndLanguageReponse;
+import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsReponse;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
@@ -26,11 +24,11 @@ public class QueryAreaOrEconomicOrganizationsService {
 	/**
 	 * 获取热门国家表接口
 	 */
-	public YJResponse<QueryDicByTypeAndLanguageReponse> getQueryAreaOrEconomicOrganizations(YJRequest<QueryAreaOrEconomicOrganizationsMessage> req) {
+	public YJResponse<QueryAreaOrEconomicOrganizationsReponse> getQueryAreaOrEconomicOrganizations(YJRequest<QueryAreaOrEconomicOrganizationsMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_COMMON_QUERYAREAOREO);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<QueryDicByTypeAndLanguageReponse>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<QueryAreaOrEconomicOrganizationsReponse>>(){});
 		}
 		return null;
 	}
@@ -47,7 +45,7 @@ public class QueryAreaOrEconomicOrganizationsService {
 		
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
-		YJResponse<QueryDicByTypeAndLanguageReponse> res = service.getQueryAreaOrEconomicOrganizations(req);
+		YJResponse<QueryAreaOrEconomicOrganizationsReponse> res = service.getQueryAreaOrEconomicOrganizations(req);
 		System.out.println(JSON.toJSONString(res));
 		
 		

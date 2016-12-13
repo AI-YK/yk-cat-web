@@ -1,6 +1,5 @@
 package com.ai.yk.protal.web.service.myInformation;
 
-import java.util.List;
 
 import org.springframework.stereotype.Service;
 

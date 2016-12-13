@@ -115,7 +115,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	                shadowOffsetY: 5,
         	                color:'#ec4040'
         	            }
-        			}
+        			},
+        			symbolSize: function (val) {
+    		            return val[2] * 0.7;
+    		        }
         	    },
         	    {
         	        name: '权重中',
@@ -132,7 +135,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	                shadowOffsetY: 5,
         	                color:'#ed8633'
         	            }
-        			}
+        			},
+        			symbolSize: function (val) {
+    		            return val[2] * 0.7;
+    		        }
         	    },
         	    {
         	        name: '权重低',
@@ -149,7 +155,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	                shadowOffsetY: 5,
         	                color: '#3dcce2'
         	            }
-        				}
+        			},
+        			symbolSize: function (val) {
+    		            return val[2] * 0.7;
+    		        }
         	    }
         	    
         	    ]

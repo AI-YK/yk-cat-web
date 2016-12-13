@@ -9,7 +9,7 @@ import java.util.List;
  * @author mengbo
  *
  */
-public class QueryDicByTypeAndLanguageReponse implements Serializable{
+public class QueryAreaOrEconomicOrganizationsReponse implements Serializable{
 
 	private static final long serialVersionUID = 5992018656321787513L;
 	private List<QueryAreaOrEconomicOrganizationsResults> results;
