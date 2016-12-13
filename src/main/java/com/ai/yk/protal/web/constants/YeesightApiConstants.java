@@ -65,6 +65,9 @@ public class YeesightApiConstants {
 	public final static String API_MYINFORMATION_QUERYMYINFORMATIONDETAILS = "/api/myInformation/queryMyInformationDetails";
 	//增加分享接口
 	public final static String API_MYINFORMATION_ADDSHAREMYINFORMATION = "/api/myInformation/addshareMyInformation";
+	//查询分享收藏次数
+	public final static String API_MYINFORMATION_QUERYSHARECOUNT = "/api/myInformation/queryShareCount";
+		
 	// 拼接头部信息url
 	public static String getApiUrl(String url) {
 		return new StringBuilder(remoteBaseUrl).append(url).toString();
