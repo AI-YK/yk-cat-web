@@ -18,8 +18,8 @@
 		<div class="subnav-main">
 			<div class="breadcrumb">
 				<p>
-					<input type="text" class="int-text int-large radius"><a
-						href="#"><i class="icon iconfont suos">&#xe658;</i></a>
+					<input id="keyword" type="text" class="int-text int-large radius"><a
+						href="#"><i id="searchBtn" class="icon iconfont suos">&#xe658;</i></a>
 				</p>
 			</div>
 		</div>
@@ -182,7 +182,7 @@
 							<p>共有相关数据</p>
 							<p class="blue" id="social-num">0</p>
 						</div>
-						<div class="level-news-list" id="social-list">
+						<div class="level-news-list  pl-40 user-por" id="social-list">
 							
 						</div>
 						<div id="social-message"></div>
@@ -220,6 +220,33 @@
         {{:abstractZh}}
 	</li>
 </ul>
+</script>
+<script id="levelSocialTempl" type="text/x-jsrender">
+<div class="hot-list">
+   <div class="portrait">
+     {{if userAvatar==null}}
+        <img src="${uedroot}/images/user.jpg" />
+     {{else}}
+        <img src="{{:userAvatar}}" />
+     {{/if}}
+   </div>
+   <ul>
+	 <li class="title">{{:name}}</li>
+	 <li class="list">
+		<p>
+			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>
+			<span>{{:timeStr}}</span>
+		</p>
+			<p class="right">
+				<span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
+				<span>评论：{{:cmtCnt}}</span>
+				<span>点赞：{{:atdCnt}}</span>
+				<span>转载量：{{:rpsCnt}}</span>
+			</p>
+	  </li>
+	  <li class="news">从乌镇讲起<b>创新</b>，讲到网络创客 、网络医疗、智慧<b>中国梦</b>旅游，讲到乌镇是一个传统文化<b>电动车</b>和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
+	</ul>
+</div>
 </script>
 <script type="text/javascript">
     var pager;
