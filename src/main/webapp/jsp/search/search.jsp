@@ -65,7 +65,13 @@
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId1" type="text" readonly class="int-text select-small calendar"/>
+									<input id="timeId1" type="text" readonly class="select select-small calendar"/>
+								</p>
+							</li>
+							<li>
+								<p>媒体</p>
+								<p>
+									<input  type="text" class="int-text select-mini">
 								</p>
 							</li>
 						</ul>
@@ -90,12 +96,6 @@
 										<option>仅显示原文</option>
 										<option>显示译文和原文</option>
 									</select>
-								</p>
-							</li>
-							<li>
-								<p>媒体</p>
-								<p>
-									<input  type="text" class="int-text select-small">
 								</p>
 							</li>
 						</ul>
@@ -154,7 +154,13 @@
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId2" readonly type="text" class="int-text select-small calendar">
+									<input id="timeId2" readonly type="text" class="select select-small calendar">
+								</p>
+							</li>
+							<li>
+								<p>媒体</p>
+								<p>
+									<input  type="text" class="int-text select-mini">
 								</p>
 							</li>
 						</ul>
@@ -170,12 +176,7 @@
 									</select>
 								</p>
 							</li>
-							<li>
-								<p>媒体</p>
-								<p>
-									<input  type="text" class="int-text select-small">
-								</p>
-							</li>
+							
 						</ul>
 					</div>
 					<div class="level-news" >
@@ -245,7 +246,7 @@
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>
 	  </li>
-	  <li class="news">从乌镇讲起<b>创新</b>，讲到网络创客 、网络医疗、智慧<b>中国梦</b>旅游，讲到乌镇是一个传统文化<b>电动车</b>和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
+	  <li class="news">{{:text}}</li>
 	</ul>
 </div>
 </script>
