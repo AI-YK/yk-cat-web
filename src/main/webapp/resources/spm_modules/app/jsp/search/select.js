@@ -34,7 +34,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 					
 					if(options!=""){
 						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).html(options);
+							$("#"+selectIds[j]).append(options);
 						}
 					}
 					
@@ -57,11 +57,11 @@ define('app/jsp/search/select', function (require, exports, module) {
 					var data = rs.data;
 					var options = "";
 					for(var i=0;i<data.length;i++){
-						options = options + "<option value='" + data[i].srcValue + "'>"+data[i].language+"</option>";
+						options = options + "<option value='" + data[i].srcValue + "'>"+data[i].name+"</option>";
 					}
 					if(options!=""){
 						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).html(options);
+							$("#"+selectIds[j]).append(options);
 						}
 					}
 					
@@ -88,7 +88,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 					}
 					if(options!=""){
 						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).html(options);
+							$("#"+selectIds[j]).append(options);
 						}
 					}
 					

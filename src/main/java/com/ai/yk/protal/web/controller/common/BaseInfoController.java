@@ -538,7 +538,7 @@ public class BaseInfoController {
 					@RequestParam(value="languageType",defaultValue="") String languageType
 					){
 				QueryInfoLanguageMessage queryInfoLanguageMessage=new QueryInfoLanguageMessage();
-				queryInfoLanguageMessage.setLanguage(languageType);
+				queryInfoLanguageMessage.setLanguage(language);
 				queryInfoLanguageMessage.setLanguageType(languageType);
 				YJRequest<QueryInfoLanguageMessage> req=new YJRequest<QueryInfoLanguageMessage>();
 				req.setMessage(queryInfoLanguageMessage);

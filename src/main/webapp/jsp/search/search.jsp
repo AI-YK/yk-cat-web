@@ -58,14 +58,14 @@
 								<p>地区</p>
 								<p>
 									<select id="orgnizationId1" class="select select-mini">
-										<!-- <option>全部</option> -->
+										<option>全部</option>
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>语言</p>
 								<p>
-									<select id="languageId" class="select select-mini">
+									<select id="languageId1" class="select select-mini">
 										<option>全部</option>
 									</select>
 								</p>
@@ -84,7 +84,11 @@
 								<p>排序</p>
 								<p>
 									<select class="select select-mini">
-										<option>时间</option>
+										<option>全部</option>
+										<option value="score">相关度</option>
+										<option value="pubdate">时间</option>
+										<option value="mediaLevel">权重</option>
+										<option value="transfer">转载量</option>
 									</select>
 								</p>
 							</li>
@@ -157,7 +161,11 @@
 								<p>排序</p>
 								<p>
 									<select class="select select-mini">
-										<option>时间</option>
+										<option>全部</option>
+										<option value="score">相关度</option>
+										<option value="pubdate">时间</option>
+										<option value="mediaLevel">权重</option>
+										<option value="transfer">转载量</option>
 									</select>
 								</p>
 							</li>
