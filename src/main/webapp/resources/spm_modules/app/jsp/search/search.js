@@ -34,6 +34,7 @@ define(
 					_this._bindEvent();
 					_this.search("news");
 					_this.search("social");
+					_this._loadTopics();
 					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
 					selectUtil.initLanguageSelect(['languageId1']);
 					selectUtil.initDicSelect(['dicId1','dicId2']);
@@ -122,7 +123,27 @@ define(
 							}
 						}
 					});
-				}
+				},
+				_loadTopics:function(){
+		        	var _this = this;
+		        	var url = "/emergency/getHotTopic";
+		        	var param = {};
+		        	param.pageSize= 10;
+		        	param.pageNo = 1;
+		        	ajaxController.ajax({
+						type: "post",
+						processing: false,
+						message: "保存数据中，请等待...",
+						url: _base + url,
+						data: param,
+						success: function (rs) {
+							var data = rs.data;
+							var topicHtml = $("#topicTempl").render(data);
+							$("#topic-list").html(topicHtml);
+							
+						}
+					});
+		        }
 			});
 
 			module.exports = searchPage;

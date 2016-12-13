@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -21,8 +20,6 @@ import com.ai.yk.protal.web.content.event.EventVo;
 import com.ai.yk.protal.web.content.event.chars.EventModelMessage;
 import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
 import com.ai.yk.protal.web.content.event.chars.TimeTrendVo;
-import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
-import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.model.emergency.HomeEventVo;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.ai.yk.protal.web.service.search.SearchService;
@@ -196,9 +193,9 @@ public class EmergencyController{
 	     * 获取热点话题列表
 	     * @return
 	     */
-	    @RequestMapping("/getHot")
+	    @RequestMapping("/getHotTopic")
 	    @ResponseBody
-	    public ResponseData<Object> getHot(
+	    public ResponseData<List<EventVo>> getHotTopic(
 	    		@RequestParam(value="pageSize",defaultValue="") Integer pageSize,
 	    		@RequestParam(value="pageNo",defaultValue="") Integer pageNo
 	    		){
@@ -206,15 +203,13 @@ public class EmergencyController{
 	    	eventMessage.setPageSize(pageSize);
 	    	eventMessage.setPageNo(pageNo);
 	    	YJRequest<EventListMessage> req=new YJRequest<EventListMessage>();
+	    	req.setMessage(eventMessage);
 	    	YJResponse<EventListResponse> yjr= eventDataService.queryEventDataList(req);
-	    	PageInfo<EventVo> resultPageInfo  = new PageInfo<EventVo>();
 	    	if(yjr!=null){
 		    	List<EventVo> eventList=yjr.getData().getResults();
-		    	resultPageInfo.setPageNo(pageNo);
-		    	resultPageInfo.setPageSize(pageSize);
-		    	resultPageInfo.setResult(eventList);
+		    	return new ResponseData<List<EventVo>>(ResponseData.AJAX_STATUS_SUCCESS,"查询热点话题成功",eventList);
 	    	}
-	    	return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询热点话题成功",resultPageInfo);
+	    	return new ResponseData<List<EventVo>>(ResponseData.AJAX_STATUS_FAILURE,"查询热点话题失败",null);
 	    }
 	    
 }
