@@ -40,5 +40,20 @@ public class SearchController {
     	}
         return "/search/public";
     }
+    
+    /**
+     * 舆情列表页
+     */
+    @RequestMapping("/event")
+    public String eventView(Model model){
+    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	if(clientUser==null){
+    		model.addAttribute("isLogin", false);
+    	}else{
+    		model.addAttribute("isLogin", true);
+    		model.addAttribute("user", clientUser);
+    	}
+        return "/search/event";
+    }
 
 }
