@@ -24,89 +24,43 @@ define('app/jsp/search/event',function(require, exports, module) {
 				events : {
 
 				},
-
 				// 重写父类
 				setup : function() {
 					var _this = this;
 					eventPage.superclass.setup.call(this);
 
 					_this._bindEvent();
-					_this.search("news");
+					_this.search();
 					_this._loadTopics();
-					selectUtil.initOrgSelect(['orgnizationId1']);
-					selectUtil.initLanguageSelect(['languageId1']);
-					selectUtil.initDicSelect(['dicId1']);
 
 				},
 				_bindEvent : function() {
 					var _this = this;
-					$(".level-left-table ul li a").click(function() {
-						$(".level-left-table ul li a").each(function() {
-							$(this).removeClass("current");
-						});
-						$(this).addClass("current");
-						var index = $('.level-left-table ul li a').index(this);
-						if (index == 0) {
-							$('#le-tba1').show();
-							$('#le-tba2').hide();
-						}
-						if (index == 1) {
-							$('#le-tba2').show();
-							$('#le-tba1').hide();
-						}
-					});
-					
-					//日期控件
-					$(document).on("click",".calendar",function(){
-						var timeId = $(this).attr('id');
-						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy-MM-dd'});
-					});
-					
+				
 					$("#searchBtn").click(function(){
-						_this.search("news");
-						_this.search("social");
+						_this.search();
 					});
 				},
-				_getSearchParams : function(mediaType) {
+				_getSearchParams : function() {
 					var param = {};
-					param.mediaType = mediaType;
+					
 					var keyword = $("#keyword").val();
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
-					if ('news' == mediaType) {
-						
-					}else if ('social' == mediaType) {
-						
-					}
+					
 					return param;
 				},
-				/** 媒体类型news/social* */
-				search : function(mediaType) {
+				search : function() {
 					var _this = this;
-					var url = _base + "/news/getSearchPublicSafety";
-					var param = {};
-					var pagination;
-					var renderId = null;
-					var messageId = null;
-					if ('news' == mediaType) {
-						param = _this._getSearchParams('news');
-						pagination = $("#news-paging");
-						renderId = 'news-list';
-						messageId = 'news-message';
-					} else {
-						param = _this._getSearchParams('social');
-						pagination = $("#social-paging");
-						renderId = 'social-list';
-						messageId = 'social-message';
-					}
-					
-					pagination.runnerPagination({
+					var url = _base + "/emergency/queryEmergencyPage";
+					var param = _this._getSearchParams();
+					$("#news-paging").runnerPagination({
 						url : url,
 						method : "POST",
 						dataType : "json",
-						messageId : messageId,
-						renderId : renderId,
+						messageId : 'news-message',
+						renderId : 'news-list',
 						data : param,
 						pageSize : 8,
 						visiblePages : 7,
@@ -114,22 +68,11 @@ define('app/jsp/search/event',function(require, exports, module) {
 						last : false,
 						message : "正在为您查询数据..",
 						callback:function(data){
-							//alert(JSON.stringify(data));
-							if ('news' == mediaType) {
-								$("#news-num").html(data.count);
-							}else if ('social' == mediaType) {
-								$("#social-num").html(data.count);
-							}
+							$("#news-num").html(data.count);
 						},
-						render : function(data,count) {
-							if ('news' == mediaType) {
-								$("#news-num").val();
-								var listHtml = $("#levelNewsTempl").render(data);
-								$("#news-list").html(listHtml);
-							} else if ('social' == mediaType) {
-								var listHtml = $("#levelSocialTempl").render(data);
-								$("#social-list").html(listHtml);
-							}
+						render : function(data) {
+							var listHtml = $("#levelNewsTempl").render(data);
+							$("#news-list").html(listHtml);
 						}
 					});
 				},

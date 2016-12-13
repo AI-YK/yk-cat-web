@@ -21,7 +21,6 @@ import com.ai.yk.protal.web.content.event.EventVo;
 import com.ai.yk.protal.web.content.event.chars.EventModelMessage;
 import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
 import com.ai.yk.protal.web.content.event.chars.TimeTrendVo;
-import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
 import com.ai.yk.protal.web.model.emergency.HomeEventVo;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.ai.yk.protal.web.service.search.SearchService;
@@ -41,7 +40,7 @@ public class EmergencyController{
 	    /**
 	     * 突发事件分页查询
 	     */
-	    @RequestMapping("/getEmergencyIndexList")
+	    @RequestMapping("/queryEmergencyPage")
 	    @ResponseBody
 	    public ResponseData<PageInfo<EventVo>> queryEmergencyPager(
 	    		@RequestParam(value="pageSize",defaultValue="4") Integer pageSize,
@@ -81,8 +80,8 @@ public class EmergencyController{
 			pageInfo.setResult(resp.getData().getResults());
 			pageInfo.setPageNo(pageNo);
     		pageInfo.setPageSize(pageSize);
-    		//pageInfo.setCount(resp.getData().get);
-	    	return null;
+    		pageInfo.setCount(resp.getData().getTotalRows());
+	        return new ResponseData<PageInfo<EventVo>>(ResponseData.AJAX_STATUS_SUCCESS,"查询成功",pageInfo);
 	    }
 	    
 	    /**

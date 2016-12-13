@@ -124,7 +124,7 @@ define(
 								$("#social-num").html(data.count);
 							}
 						},
-						render : function(data,count) {
+						render : function(data) {
 							if ('news' == mediaType) {
 								$("#news-num").val();
 								var listHtml = $("#levelNewsTempl").render(data);
