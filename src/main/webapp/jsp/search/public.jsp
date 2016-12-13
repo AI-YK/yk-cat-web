@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>搜索结果</title>
+<title>舆情动态</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 
@@ -17,10 +17,10 @@
 	<div class="subnav">
 		<div class="subnav-main">
 			<div class="breadcrumb">
-				<p>
-					<input id="keyword" type="text" class="int-text int-large radius"><a
-						href="#"><i id="searchBtn" class="icon iconfont suos">&#xe658;</i></a>
-				</p>
+				<p><i class="icon iconfont">&#xe600;</i></p>
+				<p>您当前的位置：</p>
+				<p><a href="${_base}/home/index">首页</a>&gt;</p>
+				<p>舆情动态</p>
 			</div>
 		</div>
 	</div>
@@ -47,14 +47,6 @@
 								</p>
 							</li>
 							<li>
-								<p>语言</p>
-								<p>
-									<select id="languageId1" class="select select-mini">
-										<option>全部</option>
-									</select>
-								</p>
-							</li>
-							<li>
 								<p>影响力</p>
 								<p>
 									<select id="dicId1" class="select select-mini">
@@ -74,8 +66,6 @@
 									<input  type="text" class="int-text select-mini">
 								</p>
 							</li>
-						</ul>
-						<ul>
 							<li>
 								<p>排序</p>
 								<p>
@@ -88,15 +78,22 @@
 									</select>
 								</p>
 							</li>
+						</ul>
+						<ul>
 							<li>
-								<p>译文</p>
+								<p>情感</p>
 								<p>
-									<select class="select select-small">
-										<option>仅显示译文</option>
-										<option>仅显示原文</option>
-										<option>显示译文和原文</option>
+									<select class="select select-mini">
+										<option>全部</option>
+										<option value="1">正面</option>
+										<option value="0">中性</option>
+										<option value="-1">负面</option>
 									</select>
 								</p>
+								<p>
+					              <input id="keyword1" type="text" class="int-text int-large radius">
+					              <a href="#"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
+				                </p>
 							</li>
 						</ul>
 					</div>
@@ -175,6 +172,10 @@
 										<option value="-1">负面</option>
 									</select>
 								</p>
+								<p>
+					              <input id="keyword2" type="text" class="int-text int-large radius">
+					              <a href="#"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a>
+				                </p>
 							</li>
 							
 						</ul>
@@ -246,15 +247,15 @@
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>
 	  </li>
-	  <li class="news">{{:text}}</li>
+	   <li class="news">{{:text}}</li>
 	</ul>
 </div>
 </script>
 <script type="text/javascript">
     var pager;
     (function () {
-        seajs.use('app/jsp/search/search', function (searchPage) {
-            pager = new searchPage({element: document.body});
+        seajs.use('app/jsp/search/public', function (publicPage) {
+            pager = new publicPage({element: document.body});
             pager.render();
 
         });
