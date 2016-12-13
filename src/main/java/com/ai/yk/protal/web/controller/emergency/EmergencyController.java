@@ -1,6 +1,5 @@
 package com.ai.yk.protal.web.controller.emergency;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -21,9 +21,11 @@ import com.ai.yk.protal.web.content.event.EventVo;
 import com.ai.yk.protal.web.content.event.chars.EventModelMessage;
 import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
 import com.ai.yk.protal.web.content.event.chars.TimeTrendVo;
-import com.ai.yk.protal.web.controller.common.BaseInfoController;
+import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
+import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.model.emergency.HomeEventVo;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
+import com.ai.yk.protal.web.service.search.SearchService;
 /**
  * 突发事件	
 	 */
@@ -33,7 +35,10 @@ public class EmergencyController{
 	private static final Logger log = LoggerFactory.getLogger(EmergencyController.class);
 	    @Autowired
 		private  EventDataService eventDataService;
-	   
+	    
+	    @Autowired
+	    private SearchService searchService;
+	    
 	    /**
 	     * 突发事件前四条列表
 	     * @return
@@ -186,6 +191,30 @@ public class EmergencyController{
 	    	timeTrend.add(timeTrendVo10);
 	    	eventModelResponse.setTimeTrend(timeTrend);
 	    	return eventModelResponse;
+	    }
+	    /**
+	     * 获取热点话题列表
+	     * @return
+	     */
+	    @RequestMapping("/getHot")
+	    @ResponseBody
+	    public ResponseData<Object> getHot(
+	    		@RequestParam(value="pageSize",defaultValue="") Integer pageSize,
+	    		@RequestParam(value="pageNo",defaultValue="") Integer pageNo
+	    		){
+	    	EventListMessage eventMessage=new EventListMessage();
+	    	eventMessage.setPageSize(pageSize);
+	    	eventMessage.setPageNo(pageNo);
+	    	YJRequest<EventListMessage> req=new YJRequest<EventListMessage>();
+	    	YJResponse<EventListResponse> yjr= eventDataService.queryEventDataList(req);
+	    	PageInfo<EventVo> resultPageInfo  = new PageInfo<EventVo>();
+	    	if(yjr!=null){
+		    	List<EventVo> eventList=yjr.getData().getResults();
+		    	resultPageInfo.setPageNo(pageNo);
+		    	resultPageInfo.setPageSize(pageSize);
+		    	resultPageInfo.setResult(eventList);
+	    	}
+	    	return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询热点话题成功",resultPageInfo);
 	    }
 	    
 }
