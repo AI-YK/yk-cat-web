@@ -24,7 +24,7 @@ public class QueryDicByTypeAndLanguageForNewsService {
 	/**
 	 * 根据类型和语言获取数据字典中的所有记录
 	 */
-	public YJResponse<QueryDicByTypeAndLanguageForNewsReponse> getQueryAreaOrEconomicOrganizations(YJRequest<QueryDicByTypeAndLanguageForNewsMessage> req) {
+	public YJResponse<QueryDicByTypeAndLanguageForNewsReponse> getQueryDicByTypeAndLanguageForNews(YJRequest<QueryDicByTypeAndLanguageForNewsMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){
@@ -46,7 +46,7 @@ public class QueryDicByTypeAndLanguageForNewsService {
 		
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
-		YJResponse<QueryDicByTypeAndLanguageForNewsReponse> res = service.getQueryAreaOrEconomicOrganizations(req);
+		YJResponse<QueryDicByTypeAndLanguageForNewsReponse> res = service.getQueryDicByTypeAndLanguageForNews(req);
 		System.out.println(JSON.toJSONString(res));
 		
 		
