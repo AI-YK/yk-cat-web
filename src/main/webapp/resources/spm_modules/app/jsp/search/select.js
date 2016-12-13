@@ -27,14 +27,14 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "";
+					var options = "<option value=''>全部</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
 					}
 					
 					if(options!=""){
 						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).append(options);
+							$("#"+selectIds[j]).html(options);
 						}
 					}
 					
@@ -55,13 +55,13 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "";
+					var options = "<option value=''>全部</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].srcValue + "'>"+data[i].name+"</option>";
 					}
 					if(options!=""){
 						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).append(options);
+							$("#"+selectIds[j]).html(options);
 						}
 					}
 					
@@ -82,13 +82,13 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "";
+					var options = "<option value=''>全部</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
 					}
 					if(options!=""){
 						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).append(options);
+							$("#"+selectIds[j]).html(options);
 						}
 					}
 					

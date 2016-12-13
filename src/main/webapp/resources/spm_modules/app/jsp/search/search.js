@@ -10,6 +10,7 @@ define(
 			require("bootstrap-paginator/bootstrap-paginator.min");
 			require("opt-paging/aiopt.pagination");
 			require("twbs-pagination/jquery.twbsPagination.min");
+			require("my97DatePicker/WdatePicker");
 			var SelectUtil = require("app/jsp/search/select");
 			// 实例化AJAX控制处理对象
 			var ajaxController = new AjaxController();
@@ -56,6 +57,12 @@ define(
 							$('#le-tba2').show();
 							$('#le-tba1').hide();
 						}
+					});
+					
+					//日期控件
+					$(document).on("click",".calendar",function(){
+						var timeId = $(this).attr('id');
+						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy-MM-dd'});
 					});
 					
 					$("#searchBtn").click(function(){

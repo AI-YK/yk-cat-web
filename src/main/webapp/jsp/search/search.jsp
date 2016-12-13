@@ -7,8 +7,8 @@
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>搜索结果</title>
 <%@ include file="/inc/inc.jsp"%>
-<link href="${uedroot}/css/modular/modular.css" rel="stylesheet"
-	type="text/css" />
+<link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<!--面包屑导航-->
@@ -39,22 +39,6 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>媒体</p>
-								<p>
-									<select class="select select-mini">
-										<option>全部</option>
-									</select>
-								</p>
-							</li>
-							<li>
-								<p>时间</p>
-								<p>
-									<select class="select select-small">
-										<option>2015.08.30</option>
-									</select>
-								</p>
-							</li>
-							<li>
 								<p>地区</p>
 								<p>
 									<select id="orgnizationId1" class="select select-mini">
@@ -78,6 +62,12 @@
 									</select>
 								</p>
 							</li>
+							<li>
+								<p>时间</p>
+								<p>
+									<input id="timeId1" type="text" readonly class="int-text select-small calendar"/>
+								</p>
+							</li>
 						</ul>
 						<ul>
 							<li>
@@ -98,6 +88,12 @@
 									<select class="select select-small">
 										<option>仅现实译文</option>
 									</select>
+								</p>
+							</li>
+							<li>
+								<p>媒体</p>
+								<p>
+									<input  type="text" class="int-text select-small">
 								</p>
 							</li>
 						</ul>
@@ -126,22 +122,6 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>媒体</p>
-								<p>
-									<select class="select select-mini">
-										<option>全部</option>
-									</select>
-								</p>
-							</li>
-							<li>
-								<p>时间</p>
-								<p>
-									<select class="select select-small">
-										<option>2015.08.30</option>
-									</select>
-								</p>
-							</li>
-							<li>
 								<p>地区</p>
 								<p>
 									<select id="orgnizationId2" class="select select-mini">
@@ -169,6 +149,12 @@
 									</select>
 								</p>
 							</li>
+							<li>
+								<p>时间</p>
+								<p>
+									<input id="timeId2" readonly type="text" class="int-text select-small calendar">
+								</p>
+							</li>
 						</ul>
 						<ul>
 							<li>
@@ -178,9 +164,11 @@
 										<option>全部</option>
 									</select>
 								</p>
+							</li>
+							<li>
+								<p>媒体</p>
 								<p>
-									<input type="text" class="int-text int-large radius"><a
-										href="#"><i class="icon iconfont">&#xe658;</i></a>
+									<input  type="text" class="int-text select-small">
 								</p>
 							</li>
 						</ul>
