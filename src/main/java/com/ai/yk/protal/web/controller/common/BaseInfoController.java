@@ -562,7 +562,7 @@ public class BaseInfoController {
 				queryDicMessage.setType(type);
 				YJRequest<QueryDicByTypeAndLanguageForNewsMessage> req=new YJRequest<QueryDicByTypeAndLanguageForNewsMessage>();
 				req.setMessage(queryDicMessage);
-				YJResponse<QueryDicByTypeAndLanguageForNewsReponse> yjr= queryDicService.getQueryAreaOrEconomicOrganizations(req);
+				YJResponse<QueryDicByTypeAndLanguageForNewsReponse> yjr= queryDicService.getQueryDicByTypeAndLanguageForNews(req);
 				return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询数据字典中的所有记录成功",yjr.getData().getResults());
 			}
 }
