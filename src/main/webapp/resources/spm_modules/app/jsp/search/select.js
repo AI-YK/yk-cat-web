@@ -13,6 +13,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	SelectUtil.superclass.setup.call(this); 
         },
         initOrgSelect(selectIds){
+        
         	var url = _base +"/common/getQueryAreaOrEconomicOrganizations";
         	var param={};
         	param.language="zh",
@@ -27,12 +28,16 @@ define('app/jsp/search/select', function (require, exports, module) {
 				success:function(rs){
 					var data = rs.data;
 					var options = "";
-					for(var i=0;i<rs.length;i++){
-						options = options + "<option value='" + rs[i].dicValue + "'>"+rs[i].dicName+"</option>";
+					for(var i=0;i<data.length;i++){
+						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
 					}
-					for(var j=0;i<selectIds.length;j++){
-						$("#"+selectIds[j]).html(options);
+					
+					if(options!=""){
+						for(var j=0;j<selectIds.length;j++){
+							$("#"+selectIds[j]).html(options);
+						}
 					}
+					
 				}
         	    
         	});
@@ -51,12 +56,15 @@ define('app/jsp/search/select', function (require, exports, module) {
 				success:function(rs){
 					var data = rs.data;
 					var options = "";
-					for(var i=0;i<rs.length;i++){
-						options = options + "<option value='" + rs[i].srcValue + "'>"+rs[i].language+"</option>";
+					for(var i=0;i<data.length;i++){
+						options = options + "<option value='" + data[i].srcValue + "'>"+data[i].language+"</option>";
 					}
-					for(var j=0;i<selectIds.length;j++){
-						$("#"+selectIds[j]).html(options);
+					if(options!=""){
+						for(var j=0;j<selectIds.length;j++){
+							$("#"+selectIds[j]).html(options);
+						}
 					}
+					
 				}
         	    
         	});
@@ -75,12 +83,15 @@ define('app/jsp/search/select', function (require, exports, module) {
 				success:function(rs){
 					var data = rs.data;
 					var options = "";
-					for(var i=0;i<rs.length;i++){
-						options = options + "<option value='" + rs[i].dicValue + "'>"+rs[i].dicName+"</option>";
+					for(var i=0;i<data.length;i++){
+						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
 					}
-					for(var j=0;i<selectIds.length;j++){
-						$("#"+selectIds[j]).html(options);
+					if(options!=""){
+						for(var j=0;j<selectIds.length;j++){
+							$("#"+selectIds[j]).html(options);
+						}
 					}
+					
 				}
         	    
         	});
