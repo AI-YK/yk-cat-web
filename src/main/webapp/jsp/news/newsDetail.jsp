@@ -90,17 +90,17 @@
 				 
 				</div>
 				<div class="news-detail-share">
-					<ul>
+					<ul class="bdsharebuttonbox">
 						<li>分享到：</li>
-						<li class="right">
+						<li id="bottom_share" class="right">
 							<p class="red">
-								<a href="#"><i class="icon iconfont">&#xe66b;</i></a>
+								<a style="background: none;" data-cmd="tsina" href="javascrpt:;"><i class="icon iconfont">&#xe66b;</i></a>
 							</p>
 							<p class="green">
-								<a href="#"><i class="icon iconfont">&#xe675;</i></a>
+								<a style="background: none;" data-cmd="weixin" href="javascrpt:;"><i class="icon iconfont">&#xe675;</i></a>
 							</p>
 							<p class="blue">
-								<a href="#"><i class="icon iconfont">&#xe668;</i></a>
+								<a style="background: none;" data-cmd="sqq" href="javascrpt:;"><i class="icon iconfont">&#xe668;</i></a>
 							</p>
 						</li>
 					</ul>
@@ -143,6 +143,23 @@
 
         });
     })();
+</script>
+<script>
+	window._bd_share_config = {
+		common : {
+			bdText : '自定义分享内容',	
+			bdDesc : '自定义分享摘要',	
+			bdUrl : '自定义分享url地址', 	
+			bdPic : '自定义分享图片'
+		},
+		share : [{}],
+		slide : [{}],
+		image : [{
+			 "viewList":["tsina","sqq","weixin"],
+			 "viewText":"分享到：","viewSize":"16"
+        }]
+	}
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 </script>
 </body>
 </html>

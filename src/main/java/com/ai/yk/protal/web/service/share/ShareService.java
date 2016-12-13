@@ -3,19 +3,34 @@ package com.ai.yk.protal.web.service.share;
 
 import org.springframework.stereotype.Service;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsMessage;
-import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsReponse;
+import com.ai.yk.protal.web.content.share.ShareCountVo;
 import com.ai.yk.protal.web.content.share.ShareMessage;
-import com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsService;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.TypeReference;
 
 @Service
 public class ShareService {
-
+	/**
+	 * 查询分享收藏次数
+	 * @return
+	 */
+   public YJResponse<ShareCountVo> queryShareCount(YJRequest<ShareMessage> req){
+	   String url = YeesightApiConstants
+				.getApiUrl(YeesightApiConstants.API_MYINFORMATION_QUERYSHARECOUNT);
+		String result = HttpClientUtil.getYJBaseResponse(url, req);
+		if (!StringUtil.isBlank(result)) {
+			YJResponse<ShareCountVo> res = JSON.parseObject(result,
+					new TypeReference<YJResponse<ShareCountVo>>() {
+					});
+			return res;
+		}
+		return null;
+   }
 	/**
 	 * 增加分享接口
 	 * @return shancong
@@ -24,9 +39,11 @@ public class ShareService {
 	public YJResponse saveMyCustomized(YJRequest<ShareMessage> req) {
 		
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_MYINFORMATION_ADDSHAREMYINFORMATION);
-		
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
-		return JSON.parseObject(result, YJResponse.class);
+		if (!StringUtil.isBlank(result)) {
+		   return JSON.parseObject(result, YJResponse.class);
+		}
+		return null;
 	}
 	
 	/*public static void main(String[] args) throws Exception {
