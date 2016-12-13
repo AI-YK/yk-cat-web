@@ -1,0 +1,74 @@
+.timeline {
+    position: relative;
+    height: 60px;
+}
+
+.timeline>canvas{
+    position:absolute;
+    bottom: 12px;
+}
+
+.timeline>.axis{
+    position:absolute;
+    bottom: 12px;
+    z-index: 1;
+}
+
+.select-hand{
+    position: absolute;
+    cursor: pointer;
+    top: -12.5px;
+    left: -12.5px;
+    width: 15px;
+    height: 15px;
+    border: 5px solid rgba(24,220,222,0.4);
+    border-radius: 100%;
+    background: #18dcde url("../../images/news/selectHand.png") no-repeat center;
+    background-clip: content-box;
+    z-index: 1;
+}
+
+.select-hand>.tip{
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    color: #ffffff;
+    height: 24px;
+    line-height: 24px;
+    bottom: 25px;
+    width: 100px;
+    text-align: center;
+}
+
+.select-hand>.tip>span{
+    display: inline-block;
+    background: #18dcde;
+    color: #ffffff;
+    border-radius: 4px;
+    padding: 0 6px;
+}
+
+.select-hand>.tip:after{
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -8px;
+    margin-left: -4px;
+    left: 50%;
+    border-top: 4px solid #18dcde;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
+.scale-value{
+    position: absolute;
+    bottom: 20px;
+    width: 100px;
+    text-align: center;
+    margin-left: -50px;
+    color: #1d78d2;
+    font-size: 14px;
+    line-height: 14px;
+    font-family: Arial;
+}

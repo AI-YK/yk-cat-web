@@ -47,7 +47,6 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 					        $('.news-detail-information ul #share1 .shareicon').css("color","#ddd");
 				});		
 			 }); 
-			debugger;
 			//解决样式冲突
 			$("#typesetting li").css("font-size","12px");
 			$("#share-show li").css("font-size","12px");
