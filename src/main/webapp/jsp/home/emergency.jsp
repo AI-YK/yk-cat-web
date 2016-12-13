@@ -1,7 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <div class="yeesight-banner">
 	<div class="banner-main">
-		<div class="banner-title">突发事件</div>
+		<div class="banner-title">
+		<ul>
+				<li style="font-size:24px">突发事件</li>
+				<li class="right"><a href="#"><i class="icon iconfont"  style="font-size:24px;color:white;">&#xe65b;</i></a></li>
+			</ul>
+		</div>
 		<div class="banner-list" id="chartGroup" style="display: none;">
 			<div class="list-left">
 				<ul id="eventList"></ul>
