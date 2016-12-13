@@ -8,7 +8,11 @@
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
-
+<style type="text/css">
+.anchorBL{  
+       display:none;  
+   } 
+</style>
 </head>
 <body>
 	<!--面包屑导航-->
@@ -111,7 +115,9 @@
 			</div>
 		</div>
 		<div class="levle-right">
-			<div class="levle-right-map">1</div>
+			<div class="levle-right-map" id="baiduContainer">
+		
+			</div>
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
 					<p>时间趋势</p>
@@ -136,7 +142,7 @@
 	</div>
 	<!--底部-->
 	<%@include file="/inc/indexFoot.jsp"%>
-		<%@include file="/inc/incJs.jsp"%>
+    <%@include file="/inc/incJs.jsp"%>
 	<script type="text/javascript">
     var pager;
     (function () {
@@ -146,8 +152,6 @@
 
         });
     })();
-</script>
-<script>
 	window._bd_share_config = {
 		common : {
 			bdText : '${news.zhContent}',	
@@ -159,6 +163,30 @@
 		slide : [{}]
 	}
 	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+	
+	function initialize() {  
+		var map = new BMap.Map("baiduContainer");          // 创建地图实例  
+		var point = new BMap.Point("${news.longitude}"*1, "${news.latItude}"*1);  // 创建点坐标  
+		map.centerAndZoom(point, 22);                 // 初始化地图，设置中心点坐标和地图级别  
+	} 
+
+	function loadScript() {
+		        var script = document.createElement("script");
+		        script.src = "http://api.map.baidu.com/api?v=1.4&callback=initialize";
+		        document.body.appendChild(script);
+	}
+	window.onload = loadScript;
+	$(document).ready(function(){
+		 var _res = setInterval(function(){
+			 var box = $(".bdshare-slide-button-box");
+            if(box.length > 0){
+            	box.hide();
+                clearInterval(_res);//清除setInterval
+             }
+         },500);
+		
+	});
+		
 </script>
 </body>
 </html>
