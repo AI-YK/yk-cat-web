@@ -2,11 +2,18 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%@ include file="/inc/inc.jsp"%>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>舆情动态</title>
-<%@ include file="/inc/inc.jsp"%>
+<title>
+<c:choose>
+    <c:when test="${'news'==model}">新闻热点</c:when>
+     <c:when test="${'social'==model}">社交热点</c:when>
+	<c:otherwise>舆情动态</c:otherwise>
+</c:choose>
+</title>
+
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -20,22 +27,32 @@
 				<p><i class="icon iconfont">&#xe600;</i></p>
 				<p>您当前的位置：</p>
 				<p><a href="${_base}/home/index">首页</a>&gt;</p>
-				<p>舆情动态</p>
+				<p>
+				   <c:choose>
+                        <c:when test="${'news'==model}">新闻热点</c:when>
+                        <c:when test="${'social'==model}">社交热点</c:when>
+	                    <c:otherwise>舆情动态</c:otherwise>
+                   </c:choose>
+				</p>
 			</div>
 		</div>
 	</div>
+	<input type="hidden" id="model" value="${model}"/>
 	<!--二级框架-->
 	<div class="level-wrapper">
 		<div class="level-left-conter">
-			<div class="level-left-table">
-				<ul>
-					<li><a href="#" class="current">媒体数据</a></li>
-					<li><a href="#">社交数据</a></li>
-				</ul>
-			</div>
+		    <c:if test="${'news'!=model && 'social'!=model}">
+		       <div class="level-left-table">
+				  <ul>
+					 <li><a href="#" class="current">媒体数据</a></li>
+					 <li><a href="#">社交数据</a></li>
+				  </ul>
+			   </div>
+		    </c:if>
+			
 			<!--tab1-->
-			<div id="le-tba1">
-				<div class="level-left-list">
+			<div id="le-tba1" style='display: none;' >
+				<div class="level-left-list"  >
 					<div class="list-form">
 						<ul>
 							<li>
@@ -69,8 +86,8 @@
 							<li>
 								<p>排序</p>
 								<p>
-									<select class="select select-mini">
-										<option>全部</option>
+									<select id="fieldName1" class="select select-mini">
+										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -83,11 +100,19 @@
 							<li>
 								<p>情感</p>
 								<p>
-									<select class="select select-mini">
+									<select id="sentimentId1" class="select select-mini">
 										<option>全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
-										<option value="-1">负面</option>
+										<c:choose>
+										   <c:when test="${'negative'==model}">
+										      <option value="-1" selected="selected">负面</option>
+										   </c:when>
+										   <c:otherwise>
+										      <option value="-1">负面</option>
+										   </c:otherwise>
+										</c:choose>
+										
 									</select>
 								</p>
 								<p>
@@ -116,7 +141,7 @@
 			</div>
 			<!--/tab1结束-->
 			<!--tab2-->
-			<div id="le-tba2" style="display: none;">
+			<div id="le-tba2" style='display: none;'>
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
@@ -139,8 +164,8 @@
 							<li>
 								<p>排序</p>
 								<p>
-									<select class="select select-mini">
-										<option>全部</option>
+									<select id="fieldName2" class="select select-mini">
+										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -165,11 +190,21 @@
 							<li>
 								<p>情感</p>
 								<p>
-									<select class="select select-mini">
+									<select id="sentimentId2" class="select select-mini">
 										<option>全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
-										<option value="-1">负面</option>
+										<c:if test="">
+										</c:if>
+										<c:choose>
+										   <c:when test="${'negative'==model}">
+										      <option value="-1" selected="selected">负面</option>
+										   </c:when>
+										   <c:otherwise>
+										      <option value="-1">负面</option>
+										   </c:otherwise>
+										</c:choose>
+										
 									</select>
 								</p>
 								<p>
@@ -241,8 +276,10 @@
 			<span>{{:timeStr}}</span>
 		</p>
 			<p class="right">
+                <!--
 				<span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
-				<span>评论：{{:cmtCnt}}</span>
+				 -->
+                <span>评论：{{:cmtCnt}}</span>
 				<span>点赞：{{:atdCnt}}</span>
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>

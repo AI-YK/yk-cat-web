@@ -240,7 +240,9 @@
 			<span>{{:timeStr}}</span>
 		</p>
 			<p class="right">
+				<!--
 				<span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
+				 -->
 				<span>评论：{{:cmtCnt}}</span>
 				<span>点赞：{{:atdCnt}}</span>
 				<span>转载量：{{:rpsCnt}}</span>

@@ -18,7 +18,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 			var publicPage = Widget.extend({
 				// 属性，使用时由类的构造函数传入
 				attrs : {
-					clickId : ""
+					clickId : "",
+					model:""
+						
 				},
 				// 事件代理
 				events : {
@@ -29,13 +31,13 @@ define('app/jsp/search/public',function(require, exports, module) {
 				setup : function() {
 					var _this = this;
 					publicPage.superclass.setup.call(this);
-
+                    this.model = $("#model").val(); 
+                    
 					_this._bindEvent();
-					_this.search("news");
-					_this.search("social");
+					_this._search("news");
+					_this._search("social");
 					_this._loadTopics();
 					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
-					selectUtil.initLanguageSelect(['languageId1']);
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 
 				},
@@ -63,27 +65,40 @@ define('app/jsp/search/public',function(require, exports, module) {
 						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy-MM-dd'});
 					});
 					
-					$("#searchBtn").click(function(){
-						_this.search("news");
-						_this.search("social");
+					$("#searchBtn1").click(function(){
+						_this._search("news");
+					});
+					$("#searchBtn2").click(function(){
+						_this._search("social");
 					});
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};
 					param.mediaType = mediaType;
-					var keyword = $("#keyword").val();
+					param.highlight = true;
+					var keyword='';
+					var fieldName='';
+					if ('news' == mediaType) {
+						param.sentimentId = $("#sentimentId1").val();
+						keyword = $("#keyword1").val();
+						fieldName = $("#fieldName1").val();
+						
+					}else if ('social' == mediaType) {
+						param.sentimentId = $("#sentimentId2").val();
+						keyword = $("#keyword2").val();
+						fieldName = $("#fieldName2").val();
+					}
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
-					if ('news' == mediaType) {
-						
-					}else if ('social' == mediaType) {
-						
+					if(fieldName&&fieldName!=''){
+						param.fieldName = fieldName;
+						param.order = 'desc';
 					}
 					return param;
 				},
 				/** 媒体类型news/social* */
-				search : function(mediaType) {
+				_search : function(mediaType) {
 					var _this = this;
 					var url = _base + "/news/getSearchPublicSafety";
 					var param = {};

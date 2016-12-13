@@ -16,9 +16,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         
         	var url = _base +"/common/getQueryAreaOrEconomicOrganizations";
         	var param={};
-        	param.language="zh",
-        	param.type="3",
-        	param.dicValue="",
+        	param.language="zh";
+        	param.type="3";
         	ajaxController.ajax({
         		type: "post",
 				processing: false,
@@ -45,8 +44,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         initLanguageSelect(selectIds){
         	var url = _base +"/common/getQueryInfoLanguage";
         	var param={};
-        	param.language="zh",
-        	param.languageType="0",
+        	param.language="zh";
+        	param.languageType="0";
         	ajaxController.ajax({
         		type: "post",
 				processing: false,
@@ -72,8 +71,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         initDicSelect(selectIds){
         	var url = _base +"/common/getDicByTypeAndLanguage";
         	var param={};
-        	param.language="zh",
-        	param.type="SJYYXL",
+        	param.language="zh";
+        	param.type="SJYYXL";
         	ajaxController.ajax({
         		type: "post",
 				processing: false,
