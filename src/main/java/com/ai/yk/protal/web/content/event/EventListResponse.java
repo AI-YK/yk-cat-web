@@ -5,12 +5,19 @@ import java.util.List;
 
 public class EventListResponse implements Serializable{
 		private static final long serialVersionUID = 3037496561666627522L;
+		/**当前页面大小**/
 		private Integer pageSize;
+		/**当前页数**/
 		private Integer pageNo;
-		private Integer type;
-		private Integer industryType;
+		/**总条数**/
+		private Integer totalRows;
+		/**总页数**/
+		private Integer totalPages;
+		/**列表内容**/
 		private Integer sourceType;
 		
+		private Integer type;
+		private Integer industryType;
 		private List<EventVo> results;
 
 		public Integer getPageSize() {
@@ -61,21 +68,20 @@ public class EventListResponse implements Serializable{
 			this.results = results;
 		}
 
-		public EventListResponse(Integer pageSize, Integer pageNo, Integer type, Integer industryType,
-				Integer sourceType, List<EventVo> results) {
-			super();
-			this.pageSize = pageSize;
-			this.pageNo = pageNo;
-			this.type = type;
-			this.industryType = industryType;
-			this.sourceType = sourceType;
-			this.results = results;
+		public Integer getTotalRows() {
+			return totalRows;
 		}
 
-		public EventListResponse() {
-			super();
+		public void setTotalRows(Integer totalRows) {
+			this.totalRows = totalRows;
 		}
-		
-		
-		
+
+		public Integer getTotalPages() {
+			return totalPages;
+		}
+
+		public void setTotalPages(Integer totalPages) {
+			this.totalPages = totalPages;
+		}
+
 	}
