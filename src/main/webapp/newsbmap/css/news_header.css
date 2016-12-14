@@ -1,0 +1,103 @@
+/*
+ * 新版头部信息
+ * 
+ * 
+ */
+
+.header_box{position: relative; clear: both; height: 59px; line-height: 59px;background-color: #0f161c; border-bottom: 1px solid #253749; font: 12px/1.5 "Helvetica Neue", arial, "Microsoft Yahei", "微软雅黑", 'Hiragino Sans GB', sans-serif; }
+.header_box .ico_logo{ background: url(../../images/head/logo.png) no-repeat; width: 110px; height: 37px; display: block; margin: 11px 0; overflow: hidden;}
+.header_box .ico_search{ background: url(../../images/head/search.png) no-repeat; width: 20px; height: 20px; display: inline-block; overflow: hidden;}
+
+.header_box .ico_menu1{background: url(../../images/head/menu1.png) no-repeat;width:34px; height: 34px; display: inline-block; overflow: hidden;}
+.header_box .ico_menu2{background: url(../../images/head/menu2.png) no-repeat;width:34px; height: 34px; display: inline-block; overflow: hidden;}
+.header_box .ico_menu3{background: url(../../images/head/menu3.png) no-repeat;width:34px; height: 34px; display: inline-block; overflow: hidden;}
+.header_box .ico_menu4{background: url(../../images/head/icon.png) no-repeat;width:34px; height: 34px; display: inline-block; overflow: hidden;}
+
+.header_box .ico_lan1{background: url(../../images/head/lan1.png) no-repeat;width:30px; height: 30px; display: inline-block; overflow: hidden; vertical-align: middle; margin-right: 10px;}
+.header_box .ico_lan2{background: url(../../images/head/lan2.png) no-repeat;width:30px; height: 30px; display: inline-block; overflow: hidden; vertical-align: middle;margin-right: 10px;}
+
+.header_box .left{float: left;height: 59px; line-height: 59px; padding: 0 20px;}
+.header_box .left a{display: block;}
+.header_box .left a:hover{}
+ 
+.header_box .right{float: right;height: 59px;position: relative; padding-right: 20px;}
+
+.header_box .right .menu_btn{margin-right:40px;overflow:hidden;position: relative;  height: 59px; display: inline-block; list-style: none; float: left; font-size: 16px;}
+.header_box .right .menu_btn li{ width:109px;cursor:pointer;float:left;height: 57px;position: relative; display: inline-block; text-align: center; color:#55739e;}
+.header_box .right .menu_btn li a{margin: 20px 0;width:100%;color:#55739e; height: 17px; line-height: 17px; display: inline-block;border-right: 1px solid #55739e;font-size: 16px;text-decoration: none;}
+.header_box .right .menu_btn li:hover{}
+.header_box .right .menu_btn li:hover a{ color: #1d78d2;}
+.header_box .right .menu_btn li.on{border-bottom: 2px solid #1d78d2;}
+.header_box .right .menu_btn li.on a{color: #1d78d2;}
+
+ /*用户菜单*/
+.header_box .right .menu_list{position: relative;  height: 60px; display: inline-block; list-style: none;  float: left;}
+.header_box .right .menu_list li{height: 60px; width: 60px; position: relative; display: inline-block; text-align: center;}
+.header_box .right .menu_list li .btn_menu{width:34px; height: 34px; display: inline-block; margin: 13px 0; overflow: hidden;}
+.header_box .right .menu_list li .ico_menu1{ background-position: 0 0;}
+.header_box .right .menu_list li .ico_menu2{ background-position: 0 0;}
+.header_box .right .menu_list li .ico_menu3{ background-position: 0 0;}
+
+.header_box .right .menu_list li:hover .ico_menu1{ background-position:-34px 0;}
+.header_box .right .menu_list li:hover .ico_menu2{background-position: -34px 0;}
+.header_box .right .menu_list li:hover .ico_menu3{background-position: -34px 0;}
+
+.header_box .right .menu_list li:hover .ico_menu4{background: url(../../images/head/login_hover.png) no-repeat;}
+
+.header_box .right .menu_list li .m_list{ position: absolute;right:-72px; top: 50px;  z-index: 9999; display: none; padding-top: 10px; background-color: transparent; }
+.header_box .right .menu_list li .m_list .m_list_up{ position: absolute; display: block; top: 0px; left: 50%; margin-left: -5px;width:0;height:0;border-width:0 10px 10px;border-style:solid;border-color:transparent transparent #257acf; }
+.header_box .right .menu_list li .m_list .m_list_up i{position: relative;top:2px; left:-9px; display: block; width:0;height:0;border-width:0 9px 9px;border-style:solid;border-color:transparent transparent #10161d; }
+.header_box .right .menu_list li .m_list .m_list_bg{background-color: #10161d; width: 210px; border:1px solid #257acf;}
+.header_box .right .menu_list li .m_list dl{font-family:"Microsoft Yahei"; display: block; text-align: center;padding: 10px 0;}
+.header_box .right .menu_list li .m_list dl dt{font-family:"Microsoft Yahei";color: #257acf; font-size: 18px;display: block;}
+.header_box .right .menu_list li .m_list dl dd{ font-size:14px;font-family:"Microsoft Yahei";height: 30px; line-height: 30px; display: block;  color:#273442 }
+.header_box .right .menu_list li .m_list dl dd a{font-family:"Microsoft Yahei";color: #4f657b;font-size:16px;}
+
+.header_box .right .menu_list li .m_list dl dd a:hover{ color: #3497f2;}
+.header_box .right .menu_list li .m_list dl dd.on{background: url(../../images/head/left_point.png) left 50px top 7px no-repeat ;}
+.header_box .right .menu_list li .m_list dl dd.on a{color: #3497f2;}
+	
+.header_box .right .menu_list li .m_list dl dd:hover{}
+.header_box .right .menu_list li:hover .m_list{display: block;}
+
+
+/*搜索*/
+.header_box .right .search_box{position: relative; display: inline-block; margin: 15px 0; margin-right: 20px;float: left;}
+/*下拉列表*/
+.select_box{position: absolute; left: 15px; top: 0;}
+.select_box span{ cursor:pointer;display: inline-block; height: 30px; line-height: 30px; font-size: 14px; color: #284156;}
+.select_box span b{ font-weight: normal;color:#284156;font-size:14px;}
+.select_box span i{ vertical-align: middle; margin-top: -2px; margin-left: 8px; display: inline-block; height: 0; width: 0; border-left:6px solid transparent;border-right:6px solid transparent;border-top: 6px solid #284156; overflow: hidden;}
+/*弹出层*/
+.select_box ul{ font-size: 14px; border-radius: 3px; overflow: hidden; width: 106px; display: none; position: absolute; top: 29px; left: -11px; z-index: 999; background-color: #050709; border-radius: 4px;overflow: hidden;}
+.select_box ul li{ display:block;overflow: hidden;height: 30px; line-height: 30px; text-align: center; color: #4c647f; cursor: pointer; width: 100%; text-align: center;}
+.select_box ul li:hover{ color: #FFFFFF; background-color: #1d78d2;}
+.select_box span.on i{border-bottom: 6px solid #284156;border-top:none;}
+
+.header_box .right .search_box .search_txt{ font-family:"Microsoft Yahei"; font-size:14px;width:200px; height: 30px; line-height: 30px; border:1px solid #284156;background: #050709; vertical-align: middle; border-radius: 15px; padding-left: 80px; padding-right: 35px; overflow: hidden; position: relative; color: #257acf; outline: none;}
+.header_box .right .search_box a{width: 20px; height: 20px;display: block; position: absolute; top: 6px; right:8px;}
+
+
+.header_box .clear{ clear: both;}
+.theme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;opacity: 0';}
+
+
+
+
+
+
+
+/*小图标*/
+/*.header_box .right .news_logo{float: left; padding: 12px 0;}
+.header_box .right .news_logo dd{width:32px; height: 32px; float: left;}
+.header_box .right .news_logo dd img{width:32px; height: 32px; overflow: hidden; border-radius: 50%; border:3px solid #202e3b; background-color: #0f161c;}*/
+
+/*.header_box .center{float: left;height: 50px; line-height: 50px; position: relative;}
+.header_box .center .title{height: 30px; line-height: 30px; overflow: hidden; display: inline-block; margin: 10px 0; padding-left:10px;border-left: 1px solid #253242;}
+.header_box .center .title h1{line-height: 30px;  color: #257acf; font-size: 24px; font-family: "microsoft yahei"; font-weight:lighter;display: inline-block;}
+.header_box .center .header_top_list{height:50px; display: inline-block; overflow: hidden; position: relative; margin-left: 25px;}
+.header_box .center .header_top_list li{height:50px;font-size: 14px;line-height: 50px;float: left;width: 100px;text-align: center;color: #fff;}
+.header_box .center .header_top_list li a{color: #D0CFD8; display: block;} 
+.header_box .center .header_top_list li.on{ background: #242a32;border-top: 2px solid #2e95f3;line-height: 48px;}
+.header_box .center .header_top_list li:hover{ background-color: #242a32;}*/
+

@@ -3,6 +3,8 @@ package com.ai.yk.protal.web.controller.news;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -22,6 +25,8 @@ import com.ai.yk.protal.web.service.search.SearchService;
 @Controller
 @RequestMapping("/news")
 public class NewsHotAndSocialHotController {
+	
+	private static final Logger log = LoggerFactory.getLogger(NewsHotAndSocialHotController.class);
 /**
  * 新闻热点和社交热点
  */
@@ -194,38 +199,40 @@ public class NewsHotAndSocialHotController {
 	 */
 	@RequestMapping("/getSearchPublicSafety")
 	@ResponseBody
-	public ResponseData<Object> getSearchPublicSafety(
-			@RequestParam(value="keyword",defaultValue="") String keyword,
-			@RequestParam(value="highlight",defaultValue="true") String highlight,
-		    @RequestParam(value="pageNo",defaultValue="") String pageNo,
-		    @RequestParam(value="pageSize",defaultValue="") String pageSize,
-		    /**媒体类型news/social**/
-		    @RequestParam(value="mediaType",defaultValue="") String mediaType){
-		SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
-		searchPublicSafetyMessage.setKeyword(keyword);
-		searchPublicSafetyMessage.setPageNo(pageNo);
-		searchPublicSafetyMessage.setPageSize(pageSize);
-		searchPublicSafetyMessage.setMediaType(mediaType);
-		searchPublicSafetyMessage.setHighlight(highlight);
+	public ResponseData<Object> getSearchPublicSafety(SearchPublicSafetyMessage message){
+		if(message==null){
+			return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"参数不能为空",null);
+		}
+		if(StringUtil.isBlank(message.getPageNo())||StringUtil.isBlank(message.getPageSize())){
+			return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"分页参数不能为空",null);
+		}
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
-		req.setMessage(searchPublicSafetyMessage);
+		req.setMessage(message);
 		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
 		res = searchService.getSearchPublicSafety(req);
-		if("news".equals(mediaType)){
+		if(res==null||res.getHead()==null){
+			  log.error("系统异常，请联系管理员");
+			  return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"系统异常，请联系管理员",null);
+		}
+		if("false".equals(res.getHead().getResult())){
+			  log.error(res.getHead().getMessage());
+			  return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,res.getHead().getMessage(),null);
+		}
+		if("news".equals(message.getMediaType())){
 			PageInfo<SearchPublicSafetyNewsVo> resultPageInfo  = new PageInfo<SearchPublicSafetyNewsVo>();
 			List<SearchPublicSafetyNewsVo> resultList = res.getData().getResultList();
 			resultPageInfo.setResult(resultList);
 			resultPageInfo.setCount(res.getData().getResultCount());
-			resultPageInfo.setPageNo(Integer.valueOf(pageNo));
-			resultPageInfo.setPageSize(Integer.valueOf(pageSize));
+			resultPageInfo.setPageNo(Integer.valueOf(message.getPageNo()));
+			resultPageInfo.setPageSize(Integer.valueOf(message.getPageSize()));
 			return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询成功",resultPageInfo);
 		}else{
 			PageInfo<SearchPublicSafetySocialVo> resultPageInfo  = new PageInfo<SearchPublicSafetySocialVo>();
 			List<SearchPublicSafetySocialVo> resultSocialList = res.getData().getResultSocialList();
 			resultPageInfo.setCount(res.getData().getResultCount());
 			resultPageInfo.setResult(resultSocialList);
-			resultPageInfo.setPageNo(Integer.valueOf(pageNo));
-			resultPageInfo.setPageSize(Integer.valueOf(pageSize));
+			resultPageInfo.setPageNo(Integer.valueOf(message.getPageNo()));
+			resultPageInfo.setPageSize(Integer.valueOf(message.getPageSize()));
 			return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询成功",resultPageInfo);
 		}
 	}

@@ -6,7 +6,7 @@
 			<div class="sentiment-title blue">
 				<ul>
 					<li>新闻热点</li>
-					<li class="right"><a href="#"><i class="icon iconfont">&#xe65b;</i></a></li>
+					<li class="right"><a target="_blank" href="${_base}/search/public?model=news"><i class="icon iconfont">&#xe65b;</i></a></li>
 				</ul>
 			</div>
 			<div class="news-tabtitle">
@@ -25,7 +25,7 @@
 			<div class="sentiment-title blue">
 				<ul>
 					<li>社交热点</li>
-					<li class="right"><a href="#"><i class="icon iconfont">&#xe65b;</i></a></li>
+					<li class="right"><a target="_blank" href="${_base}/search/public?model=social"><i class="icon iconfont">&#xe65b;</i></a></li>
 				</ul>
 			</div>
 			<div class="news-tabtitle">

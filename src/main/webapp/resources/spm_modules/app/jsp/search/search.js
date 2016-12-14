@@ -77,6 +77,11 @@ define(
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
+					if ('news' == mediaType) {
+						
+					}else if ('social' == mediaType) {
+						
+					}
 					return param;
 				},
 				/** 媒体类型news/social* */
@@ -119,7 +124,7 @@ define(
 								$("#social-num").html(data.count);
 							}
 						},
-						render : function(data,count) {
+						render : function(data) {
 							if ('news' == mediaType) {
 								$("#news-num").val();
 								var listHtml = $("#levelNewsTempl").render(data);

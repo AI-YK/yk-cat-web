@@ -1,4 +1,4 @@
-/**鐧籥bout:cehome褰曢厤缃�*/
+/**登about:cehome录配置**/
 .configure-bj{background:#0f1320 url(../../images/pz-bj.png) no-repeat center;}
 .configure-main{width:700px;position:absolute;left:50%;top:50%;margin-left:-350px;margin-top:-280px;}
 .configure-title{width:100%;text-align: center;float:left}
@@ -40,15 +40,15 @@
 .choice-right::-webkit-scrollbar-corner {  background: transparent;  }  
 .configure-btn{width:100%;float:left;margin-top:20px;text-align: center;}
 
-/**绐佸彂浜嬩欢**/
+/**突发事件**/
 .level-bj{background:#ebeef0;}
-/**闈㈠寘灞�*/
+/**面包屑**/
 .breadcrumb{width:100%;float:left;}
 .breadcrumb p{float:left;line-height:55px;color:#666;font-size:14px;margin-right:6px;position:relative;}
 .breadcrumb p a{font-size:14px;color:#999}
 .breadcrumb p i{color:#428bef}
 .breadcrumb p .suos{position:absolute;right:10px;top:0;color:#666}
-/**浜岀骇澶栦晶**/
+/**二级外侧**/
 .level-wrapper{width:1200px;margin:0 auto;padding-bottom:20px;}
 .level-left-conter{width:740px;float:left;margin-top:20px;padding-bottom:20px;}
 .level-left-table{width:100%;float:left}
@@ -89,7 +89,7 @@
 .portrait img{border-radius:50%;}
 .user-por ul .list{margin-top:6px;}
 .hot-list{width:100%;float:left;position:relative;}
-/**鍙充晶**/
+/**右侧**/
 .levle-right{width:440px;float:right;margin-top:20px;padding-bottom:20px;}
 .levle-right-news{width:100%;float:left;background:#fff;border:1px solid #dcddde;height:515px;padding:20px;}
 .levle-right-title{width:100%;float:left;border-bottom:1px solid #dcddde;padding-bottom:10px;color:#333;font-size:16px}
@@ -111,7 +111,7 @@
 .levle-right-chart-title p{float:left}
 .levle-right-chart-title .right{float:right;font-size:12px;color:#999}
 .levle-right-chart-list{width:100%;float:left;margin-top:20px;height:285px;}
-/**鏂伴椈璇︽儏**/
+/**新闻详情**/
 .levle-right-map{width:100%;float:left;background:#fff;border:1px solid #dcddde;height:318px;padding:4px;}
 .news-detail{width:100%;float:left;background:#fff;border:1px solid #dcddde;min-height:1200px;padding:30px;}
 .news-detail-title{width:100%;float:left;text-align: center;font-size:#333;font-size:28px;padding:20px;}
@@ -127,7 +127,7 @@
 .news-detail-information ul .x-red i:hover{color:#eb4d38}
 .news-detail-information ul .zhuanz span{color:#3382ee}
 .news-detail-information ul .x-red span{width:24px;height:18px;position:absolute;right:-18px;top:5px;background: url(../../images/dati1.jpg) no-repeat;line-height:16px;color:#fff;font-size:12px;text-align: center;}
-/**鍒囨崲**/
+/**切换**/
 .news-detail-information ul li .user-show{width:120px;height:100px;background:#fff;position:absolute;top:30px;right:-50px;border:1px solid #ddd;border-radius:8px;z-index:999;display: none;}
 .news-detail-information ul li .user-show ul{}
 .news-detail-information ul li .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
@@ -139,7 +139,7 @@
 .news-detail-information ul li .user-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;}
 .news-detail-information ul li .user-show  span{position:absolute;top:-27px;left:45px;}
 .news-detail-information ul li .user-show  span i{color:#999;font-size:24px}
-/**鍒嗕韩**/
+/**分享**/
 .news-detail-information ul li .share-show{width:120px;height:100px;background:#fff;position:absolute;top:45px;right:-50px;border:1px solid #ddd;display:none;border-radius:8px;z-index:999;}
 .news-detail-information ul li .share-show ul{}
 .news-detail-information ul li .share-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
@@ -157,9 +157,9 @@
 .news-detail-share ul li{float:left;font-size:16px;color:#999;line-height:48px;}
 .news-detail-share ul li p{float:left}
 .news-detail-share ul .right{float:right}
-.news-detail-share ul .right i{font-size:48px;float:left;margin-left:20px;}
-.news-detail-share ul .right .red i{color:#ea5d4d;font-size:51px;margin-top:3px;}
-.news-detail-share ul .right .green i{color:#59be5d}
-.news-detail-share ul .right .blue i{color:#12a7fc;font-size:42px;margin-top:4px;}
-.level-news-list ul em {font-weight: normal;color: #ff6600;}
+.news-detail-share ul .right a{float:left;margin-left:20px;}
+.news-detail-share ul .right .red a{width:48px;height:48px;float:left;background:url(../../images/weibo.png) no-repeat;}
+.news-detail-share ul .right .green a{width:48px;height:48px;float:left;background:url(../../images/weix.png) no-repeat;}
+.news-detail-share ul .right .blue a{width:48px;height:48px;float:left;background:url(../../images/qq.png) no-repeat;}
+
 
