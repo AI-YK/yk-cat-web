@@ -427,10 +427,10 @@ public class BaseInfoController {
 			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 			  MyCustomizedVo myVo= SessionUtil.getUserConfig();
-			  if(provinceCode==""){
+			  if(StringUtil.isBlank(provinceCode)){
 				  provinceCode=myVo.getProvince().getCode();
 			  }
-			  if(cityStr==""){
+			  if(StringUtil.isBlank(cityStr)){
 				  for(AreaVo vo:myVo.getCity()){
 					  cityList.add(vo.getCode());
 				  }

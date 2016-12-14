@@ -14,7 +14,7 @@
 <!--弹出-->
   <div class="eject-big">
 		<div class="eject-small" id="classification">
-			<div class="eject-small-title">选择领域分类<i  class="icon iconfont" id="i-close">&#xe618;</i></div>
+			<div class="eject-small-title">选择领域分类<i  class="icon iconfont" id="i-close">&#xe618;</i><span id="tishiDicId" style="color: red; font-size:12px;"></span></div>
 			<div class="eject-small-list">
 				<ul id="dicUl">
 					
@@ -23,7 +23,7 @@
 			<div class="index-city-btn btn-bottom">
 				<ul>
 					<li>
-						<input type="button" class="btn btn-120 radius btn-deepblue" value="提 交"/>
+						<input type="button" class="btn btn-120 radius btn-deepblue" id="saveDicId" value="提 交"/>
 						<input type="button" class="btn btn-120 radius btn-ash" id="eject-btn-close" value="取 消"/>
 					</li>
 				</ul>
@@ -177,7 +177,7 @@
 <script id="dicTempl" type="text/x-jsrender">
    {{for dics}}
    <li>
-		<a href="#">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/>
+		<a href="#" class="dic">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/>
    </li>
    {{/for}}
 </script>

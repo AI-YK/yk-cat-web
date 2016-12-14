@@ -35,7 +35,8 @@ define('app/jsp/home/home', function (require, exports, module) {
 
         //事件代理
         events: {
-           "click #saveId":"_saveProvinceAndCity"
+           "click #saveId":"_saveProvinceAndCity",
+           "click #saveDicId":"_saveDic"
         },
 
         //重写父类
@@ -450,6 +451,34 @@ define('app/jsp/home/home', function (require, exports, module) {
       				  location.href = _base + '/home/index';
       			  }
       		  });
+        },
+        _saveDic:function(){
+        	var interestStr = "";
+            $(".dic").each(function(){
+          	  if($(this).hasClass("current")){
+          		  interestStr = interestStr + ","+($(this).next()).val();
+          	  }
+            });
+            if(interestStr ==""){
+          	  $("#tishiDicId").text("领域分类至少选择一个");
+          	  return;
+            }else{
+          	  interestStr = interestStr.substring(1,interestStr.length);
+            }
+            var url="/common/saveConf";
+     		var param={};
+     		param.interestStr=interestStr;
+     		ajaxController.ajax({
+     			  type:"POST",
+     			  processing: false,
+     			  message: "保存数据中，请等待...",
+     			  url: _base + url,
+     			  dataType:"json",
+     			  data:param,
+     			  success:function(rs){
+     				  location.href = _base + '/home/index';
+     			  }
+     		  });
         }
         
     });
