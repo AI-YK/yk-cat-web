@@ -19,7 +19,7 @@
 		<div class="subnav-main">
 			<div class="breadcrumb">
 				<p>
-					<input id="keyword" type="text" class="int-text int-large radius"><a
+					<input id="keyword" type="text" value="${_keyword}" class="int-text int-large radius"><a
 						href="#"><i id="searchBtn" class="icon iconfont suos">&#xe658;</i></a>
 				</p>
 			</div>

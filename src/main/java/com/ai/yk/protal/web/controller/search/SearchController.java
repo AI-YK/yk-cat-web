@@ -16,7 +16,7 @@ public class SearchController {
      * 搜索页
      */
     @RequestMapping("/view")
-    public String searchView(Model model){
+    public String searchView(Model model,String _keyword){
     	SSOClientUser clientUser = SessionUtil.getLoginUser();
     	if(clientUser==null){
     		model.addAttribute("isLogin", false);
@@ -24,6 +24,7 @@ public class SearchController {
     		model.addAttribute("isLogin", true);
     		model.addAttribute("user", clientUser);
     	}
+    	model.addAttribute("_keyword", _keyword);
         return "/search/search";
     }
     

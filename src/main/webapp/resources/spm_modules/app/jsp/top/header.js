@@ -24,7 +24,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         //重写父类
         setup: function () {
         	var _this = this; 
-        	
+        	//初始化菜单选中状态
         	var current = $("#current").val();
         	var $a ;
         	if(current==''){
@@ -67,6 +67,14 @@ define('app/jsp/top/header', function (require, exports, module) {
         	 $(".ahov3").click(function(){
         		_this._logOut();
         	 });
+        	 
+        	 $("#_searchBtn").click(function(){
+         		var _keyword = $("#_keyword").val();
+         		if(_keyword!=''){
+         			location.href = _base + "/search/view?_keyword="+_keyword;
+         		}
+         		
+         	 });
         },
         _logOut:function(){
         	var url="/home/logOut"
