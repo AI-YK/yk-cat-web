@@ -13,6 +13,10 @@ public class InterestVo implements Serializable {
 	 */
     private String zhInterest;
     private Integer pid;
+    /**
+	 * 业务id（数据字典） 
+	 */
+    private String businessId;
 	public Integer getId() {
 		return id;
 	}
@@ -30,6 +34,12 @@ public class InterestVo implements Serializable {
 	}
 	public void setPid(Integer pid) {
 		this.pid = pid;
+	}
+	public String getBusinessId() {
+		return businessId;
+	}
+	public void setBusinessId(String businessId) {
+		this.businessId = businessId;
 	}
     
 }
