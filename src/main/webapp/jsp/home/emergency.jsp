@@ -18,10 +18,10 @@
 						<div class="chart1-title">传播态势</div>
 						<div class="chart1-conter"></div>
 						<!--图表嵌套区域-->
-						<%-- <img src="${uedroot}/images/chuanbo.png" class="chart1-main" /> --%>
+						 <img src="${uedroot}/images/chuan.png" class="chart1-main" />
 						<!-- <div style="height: 390px;"></div> -->
-							<div id="chart_left" class="chart1-main" style="height: 368px;"></div>
-						
+							<!-- <div id="chart_left" class="chart1-main" style="height: 368px;"></div>
+						 -->
 						<!--/图表嵌套结束-->
 					</div>
 					<!--/图表1结束-->
