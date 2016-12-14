@@ -421,13 +421,27 @@ public class BaseInfoController {
 				  @RequestParam(value="cityStr",defaultValue="") String cityStr,
 				  @RequestParam(value="srcID",defaultValue="") String srcID
 				  ){
+			  List<String> cityList=new ArrayList<String>();
+			  List<String> interestList=new ArrayList<String>();
 			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
+			  MyCustomizedVo myVo= SessionUtil.getUserConfig();
+			  if(provinceCode==""){
+				  provinceCode=myVo.getProvince().getCode();
+			  }
+			  if(cityStr==""){
+				  for(AreaVo vo:myVo.getCity()){
+					  cityList.add(vo.getCode());
+				  }
+			  }
+			  if(interestStr==""){
+				  for(InterestVo invo: myVo.getInterestList()){
+					  interestList.add(invo.getId().toString());
+				  }
+			  }
 			  saveMyCustomizedMessage.setCreateId(Integer.parseInt(clientUser.getUserId()));
-			  List<String> interestList=new ArrayList<String>();
 			  String[] interestArr = interestStr.split(",");
 				  interestList = java.util.Arrays.asList(interestArr);
-			  List<String> cityList=new ArrayList<String>();
 			  	  String[] cityArr = interestStr.split(",");
 				  cityList =java.util.Arrays.asList(cityArr);
 			  saveMyCustomizedMessage.setCityList(cityList);
@@ -480,6 +494,9 @@ public class BaseInfoController {
 				city2.setCode("as_100000_340000_340300");
 				city2.setNameZh("蚌埠市");
 				city2.setType(2);
+				List<AreaVo> citylist=new ArrayList<AreaVo>();
+				citylist.add(city);
+				citylist.add(city2);
 				
 				InterestVo InterestVo = new InterestVo();
 				InterestVo.setZhInterest("自然灾害");
@@ -497,7 +514,7 @@ public class BaseInfoController {
 				myCustomizedVo.setId(1);
 				myCustomizedVo.setCreateId(1);
 				myCustomizedVo.setProvince(province);
-				myCustomizedVo.setCity(city);
+				myCustomizedVo.setCity(citylist);
 				myCustomizedVo.setInterestList(interestList);
 				return myCustomizedVo;
 		  }
