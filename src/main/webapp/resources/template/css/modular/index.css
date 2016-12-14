@@ -84,7 +84,7 @@
 .piechart-left{width:420px;float:left;height:263px;}
 .piechart-right{width:120px;float:left}
 .piechart-right ul{width:100%;float:left;padding:38px 0;}
-.piechart-right ul li{width:100%;float:left;line-height:32px;}
+.piechart-right ul li{width:110%;float:left;line-height:32px;}
 .piechart-right ul li p{float:left;color:#6f7aa9}
 .piechart-right ul li .green{color:#80c823}
 .piechart-right ul li .blue{color:#0067b4}
