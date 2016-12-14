@@ -447,7 +447,6 @@ define('app/jsp/home/home', function (require, exports, module) {
       			  dataType:"json",
       			  data:param,
       			  success:function(rs){
-      				  alert(rs)
       				  location.href = _base + '/home/index';
       			  }
       		  });
