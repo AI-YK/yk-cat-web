@@ -35,7 +35,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 
         //事件代理
         events: {
-           
+           "click #saveId":"_saveProvinceAndCity"
         },
 
         //重写父类
@@ -412,6 +412,45 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#dicUl").html(dicHtml);
 				}
 			});
+        },
+        _saveProvinceAndCity:function(){
+        	var provinceCode = "";
+            var province = $(".choice-list .current");
+        	  if(province){
+        		  var next = province.next();
+        		  provinceCode = next.val();
+        	  }else{
+        		$("#tishiId").text("请选择省份");
+        		return;
+        	  }
+     		  var cityStr="";
+     		  $(".city").each(function(){
+     			  if(this.checked){
+     				  cityStr=cityStr+","+$(this).val();
+     			  }
+     		  });
+     		  if(cityStr==""){
+     			$("#tishiId").text("至少选择一个城市");
+     			return;
+     		  }else{
+     			  cityStr=cityStr.substring(1,cityStr.length);
+     		  }
+     		  var url="/common/saveConf";
+     		  var param={};
+     		  param.provinceCode=provinceCode;
+     		  param.cityStr=cityStr;
+     		 ajaxController.ajax({
+      			  type:"POST",
+      			  processing: false,
+      			  message: "保存数据中，请等待...",
+      			  url: _base + url,
+      			  dataType:"json",
+      			  data:param,
+      			  success:function(rs){
+      				  alert(rs)
+      				  location.href = _base + '/home/index';
+      			  }
+      		  });
         }
         
     });
