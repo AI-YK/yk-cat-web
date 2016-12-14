@@ -2,7 +2,8 @@
 //切换右侧新闻列表
 //获取右侧热点新闻数据  新 误删
 function get_event_point_data_new(){
-	var ajax_url='news/getNewsHeatPointListNewInteface';
+//	var ajax_url='news/getNewsHeatPointListNewInteface';
+	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
 	 var ajax_data={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
@@ -20,10 +21,10 @@ function get_event_point_data_new(){
 	 //console.log("------资讯------------",ajax_data);
 	 var cnum=1;
 	 $.post(ajax_url,ajax_data,function(data){
-	 	    var result=JSON.parse(data);
+//	 	    var result=JSON.parse(data);
 	 	    $('#newsVal li:not([class])').remove();
 	 	    var html='';
-	 	    $.each(result.data,function(i,o){
+	 	    $.each(data.data,function(i,o){
 	 	    	html+='<li>';
 	 	    	cnum=i;
 	 	    	if(i<3){
@@ -141,7 +142,8 @@ function promptwaring(){
 //result_heat_topic
 function get_event_point_data_zixun(){
 	 
-	 var ajax_url='news/getNewsHeatPointListInformationInteface';
+//	 var ajax_url='news/getNewsHeatPointListInformationInteface';
+	 var ajax_url=path + '/newsbmap/json/NewsHeatPointListInformationInteface.json';
 	 var ajax_data1={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
@@ -157,11 +159,11 @@ function get_event_point_data_zixun(){
 	 //}
 	// console.log("------专题------------",ajax_data1);
 	 $.post(ajax_url,ajax_data1,function(data){
-	 	    var result=JSON.parse(data);
+//	 	    var result=JSON.parse(data);
 	 	    $('#newsinfo li:not([class])').remove();
 	 	    //$('#newsinfo .more_box').empty();
 	 	    var html='';
-	 	    $.each(result.data.results,function(i,o){
+	 	    $.each(data.data.results,function(i,o){
 	 	    	html+='<li>';
 	 	    	if(i<3){
 	 	    		html+='<i class="hot">'+(i+1)+'</i><!--num-->';

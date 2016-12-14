@@ -149,7 +149,7 @@ public class MycustomizedService {
 				JSONArray cityList= provinceObject.getJSONArray("cityList");
 				if(!CollectionUtil.isEmpty(cityList)){
 					//城市
-					AreaVo city = JSON.parseObject(JSON.toJSONString(cityList.get(0)), AreaVo.class);
+					List<AreaVo> city = JSON.parseArray(JSON.toJSONString(cityList), AreaVo.class);
 					res.getData().setCity(city);
 				}
 			}

@@ -1,4 +1,4 @@
-/**闈㈠寘灞戝鑸�*/
+/**面包屑导航**/
 .heard-breadcrumb{width:100%;float:left;height:36px;background:#212532;min-width:1200px;}
 .breadcrumb-main{width:1200px;margin:0 auto;}
 .breadcrumb-main ul{width:100%;float:left;}
@@ -8,8 +8,8 @@
 .breadcrumb-main ul li p{display:inline-block;margin-left:18px;}
 .breadcrumb-main ul .right p a{padding-right:8px;}
 .breadcrumb-main ul .right p{margin-left:8px;}
-/**鏄电О**/
-.breadcrumb-main ul li .user-show{width:120px;height:100px;background:#fff;position:absolute;top:36px;right:110px;border:1px solid #ddd;display:none;border-radius:8px;z-index:999;}
+/**昵称**/
+.breadcrumb-main ul li .user-show{width:120px;height:100px;background:#fff;position:absolute;top:36px;right:50px;border:1px solid #ddd;display:none;border-radius:8px;z-index:999;}
 .breadcrumb-main ul li .user-show ul{}
 .breadcrumb-main ul li .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
 .breadcrumb-main ul li .user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
@@ -19,12 +19,12 @@
 .breadcrumb-main ul li .user-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;}
 .breadcrumb-main ul li .user-show  span{position:absolute;top:-20px;left:45px;}
 .breadcrumb-main ul li .user-show  span i{color:#fff;font-size:24px}
-/**浜岀淮鐮�*/
-.breadcrumb-main ul li .erw-show{width:120px;height:120px;background:#fff;position:absolute;top:36px;right:30px;border:1px solid #ddd;display: none;border-radius:8px;z-index:99;}
+/**二维码**/
+.breadcrumb-main ul li .erw-show{width:120px;height:120px;background:#fff;position:absolute;top:36px;right:-30px;border:1px solid #ddd;display: none;border-radius:8px;z-index:99;}
 .breadcrumb-main ul li .erw-show span{position:absolute;top:-20px;left:45px;}
 .breadcrumb-main ul li .erw-show span i{color:#fff;font-size:24px}
 .breadcrumb-main ul li .erw-show p{margin:10px;}
-/**涓诲鑸�*/
+/**主导航**/
 .nav-main{width:1200px;margin:0 auto;}
 .yeesight-nav{width:100%;background:#2e344b;height:90px;float:left;min-width:1200px;}
 .yeesight-logo{width:330px;height:51px;float:left;margin-top:26px;}
@@ -35,7 +35,7 @@
 .mainbav ul li .current{border-bottom:3px solid #3382ee;padding-bottom:27px;color:#3382ee}
 .mainbav ul .search{width:230px;height:36px;border:1px solid #3382ee;background:#212532;border-radius:20px;line-height:34px;margin-top:35px}
 .mainbav ul .search a{color:#3382ee;padding:0 12px 0 0;float:right;}
-/**瀛愬鑸�*/
+/**子导航**/
 .subnav{width:100%;float:left;height:55px;background:#fff;min-width:1200px;border-bottom:1px solid #e6e8ef}
 .subnav-main{width:1200px;margin:0 auto;}
 .left-list ul{display:inline-block;margin:20px 0 0 10px;position:relative;}
@@ -62,7 +62,7 @@
 .right-list ul li .special-show  span{position:absolute;top:-17px;left:45px;}
 .right-list ul li .special-show  span i{color:#DDD;font-size:24px}
 
-/**搴曢儴**/
+/**底部**/
 .footer{width:100%;float:left;height:60px;background:#212532;min-width:1200px;}
 .footer-main{width:1200px;margin:0 auto;}
 .footer-main ul li,.footer ul li a{line-height:60px;font-size:14px;color:#767fa2}

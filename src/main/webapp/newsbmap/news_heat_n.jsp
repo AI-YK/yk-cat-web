@@ -11,7 +11,7 @@
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 	String language = (String) session.getAttribute("language");
-
+	System.out.println(path+"====================");
 	String heatpath=path+"/newsbmap";
 	request.setAttribute("heatpath", heatpath);
     request.setAttribute("basePath", basePath);

@@ -5,7 +5,7 @@
 		<div class="sentiment-title">
 			<ul>
 				<li>负面舆情</li>
-				<li class="right"><a  href="${_base}/search/public?model=negative"><i class="icon iconfont">&#xe65b;</i></a></li>
+				<li class="right"><a target="_blank" href="${_base}/search/public?model=negative"><i class="icon iconfont">&#xe65b;</i></a></li>
 			</ul>
 		</div>
 		<div class="sentiment-list">

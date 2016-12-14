@@ -14,7 +14,7 @@ public class MyCustomizedVo implements Serializable {
 	/** 省 **/
 	private AreaVo province;
 	/** 城市 **/
-	private AreaVo city;
+	private List<AreaVo> city;
 	/**兴趣列表**/
 	private List<InterestVo> interestList;
 	/**数据源ID**/
@@ -39,10 +39,10 @@ public class MyCustomizedVo implements Serializable {
 	public void setProvince(AreaVo province) {
 		this.province = province;
 	}
-	public AreaVo getCity() {
+	public List<AreaVo> getCity() {
 		return city;
 	}
-	public void setCity(AreaVo city) {
+	public void setCity(List<AreaVo> city) {
 		this.city = city;
 	}
 	public List<InterestVo> getInterestList() {

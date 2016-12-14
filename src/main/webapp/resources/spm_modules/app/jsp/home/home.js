@@ -111,6 +111,14 @@ define('app/jsp/home/home', function (require, exports, module) {
                 _this._getHotInfoList("social",mediaId);
    			});
             
+            $(document).on("click",".eject-small-list ul li a",function(){
+            	if($(this).hasClass("current")){
+            		$(this).removeClass("current");
+            	}else{
+            		$(this).addClass("current");
+            	}
+            })
+            
             this._bindEvent();
 			this._load();
 			
@@ -191,7 +199,6 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._getNegativeList("news");
         	this._getNegativeList("social");
         	this._getProvince();
-        	this._getCity();
         	this._getDomains();
         },
         _initEventData:function(){

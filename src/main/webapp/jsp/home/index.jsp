@@ -16,14 +16,8 @@
 		<div class="eject-small" id="classification">
 			<div class="eject-small-title">选择领域分类<i  class="icon iconfont" id="i-close">&#xe618;</i></div>
 			<div class="eject-small-list">
-				<ul>
-					<li><a href="#" class="current">自然灾害</a></li>
-					<li><a href="#">事故灾难</a></li>
-					<li><a href="#">公共卫生</a></li>
-					<li><a href="#">社会安全</a></li>
-					<li><a href="#">群体性事件</a></li>
-					<li><a href="#">群体性事件</a></li>
-					<li><a href="#" class="current">其他</a></li>
+				<ul id="dicUl">
+					
 				</ul>
 			</div>
 			<div class="index-city-btn btn-bottom">
@@ -35,6 +29,7 @@
 				</ul>
 		 	</div>
 		</div>
+		
 		<div class="mask" id="eject-mask"></div>
   </div>
 <!--/弹出结束-->
@@ -43,11 +38,11 @@
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div class="left-list" <c:if test="${!isLogin}">style="display: none;"</c:if> >
+			<div class="left-list" <c:if test="${isLogin}">style="display: none;"</c:if> >
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
 					<li>
-						<a href="#" id="">北京.朝阳<i class="icon iconfont">&#xe659;</i></a>
+						<a href="#" id="choice-city">北京.朝阳<i class="icon iconfont">&#xe659;</i></a>
 					</li>
 					<div class="index-city" id="index-city">
 						<div class="city-sj"><img src="${uedroot}/images/city-sj.jpg" /></div>
@@ -91,7 +86,7 @@
 					</div>
 				</ul>
 			</div>
-			<div class="right-list" <c:if test="${!isLogin}">style="display: none;"</c:if>>
+			<div class="right-list" <c:if test="${isLogin}">style="display: none;"</c:if>>
 				<ul>
 					<li class="in-border" id="in-border1"><a href="#"><label id="border1Id" style="font-size: 12px;">${hasTopic?'专题数据':'通用数据'}</label><i class="icon iconfont">&#xe659;</i></a>
 						<div class="special-show" id="special-one">
@@ -115,7 +110,7 @@
 					<c:forEach items="${config.interestList}" var="interestVo">
 						<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);" id="">修改</a></li>
+					<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);" id="modify-btn">修改</a></li>
 					
 				</ul>
 			</div>
@@ -180,13 +175,9 @@
    </li>
 </script>
 <script id="dicTempl" type="text/x-jsrender">
-   <li class="blue">领域分类：</li>
    {{for dics}}
    <li>
-	  <p>
-		 <input type="checkbox" class="checkbox-fie dic"  value="{{:dicValue}}"/>
-	  </p>
-	  <p>{{:dicName}}</p>
+		<a href="#">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/>
    </li>
    {{/for}}
 </script>
