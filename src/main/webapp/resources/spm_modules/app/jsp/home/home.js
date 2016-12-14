@@ -218,7 +218,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
 					_this.chartGroups = data.groups;
-					homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
+					//homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
 					homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
 				}
 			});
@@ -411,6 +411,11 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var list = rs.data;
 					var dicHtml = $("#dicTempl").render({'dics':list});
 					$("#dicUl").html(dicHtml);
+					var interestList = eval('('+configInterestList+")");
+					for(var i=0;i<interestList.length;i++){
+						var id = interestList[i].businessId;
+						$("#dic_"+id).addClass("current");
+					}
 				}
 			});
         },
