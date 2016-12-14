@@ -6,9 +6,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
 <title>地图</title>  
 <style type="text/css">  
-/* html{height:100%}  
-body{height:100%;margin:0px;padding:0px}  */ 
-/* #container{height:100%}   */
+  html{height:100%}  
+body{height:100%;margin:0px;padding:0px}   
+ #container{height:100%}    
 </style>  
 </head>
 
@@ -18,7 +18,7 @@ body{height:100%;margin:0px;padding:0px}  */
 function initialize() {  
 	var map = new BMap.Map("container");          // 创建地图实例  
 	var point = new BMap.Point(121.2134, 31.0576);  // 创建点坐标  
-	map.centerAndZoom(point, 22);                 // 初始化地图，设置中心点坐标和地图级别  
+	map.centerAndZoom(point, 20);                 // 初始化地图，设置中心点坐标和地图级别  
 } 
 
 function loadScript() {
