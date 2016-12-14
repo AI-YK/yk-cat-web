@@ -11,21 +11,87 @@
 </head>
 
 <body>
+<!--弹出-->
+  <div class="eject-big">
+		<div class="eject-small" id="classification">
+			<div class="eject-small-title">选择领域分类<i  class="icon iconfont" id="i-close">&#xe618;</i></div>
+			<div class="eject-small-list">
+				<ul>
+					<li><a href="#" class="current">自然灾害</a></li>
+					<li><a href="#">事故灾难</a></li>
+					<li><a href="#">公共卫生</a></li>
+					<li><a href="#">社会安全</a></li>
+					<li><a href="#">群体性事件</a></li>
+					<li><a href="#">群体性事件</a></li>
+					<li><a href="#" class="current">其他</a></li>
+				</ul>
+			</div>
+			<div class="index-city-btn btn-bottom">
+				<ul>
+					<li>
+						<input type="button" class="btn btn-120 radius btn-deepblue" value="提 交"/>
+						<input type="button" class="btn btn-120 radius btn-ash" id="eject-btn-close" value="取 消"/>
+					</li>
+				</ul>
+		 	</div>
+		</div>
+		<div class="mask" id="eject-mask"></div>
+  </div>
+<!--/弹出结束-->
 	<!--面包屑导航-->
 	<%@ include file="/inc/topHead.jsp"%>
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div class="left-list" <c:if test="${!isLogin}">style="display: none;"</c:if> >
-				<p>
-					<i class="icon iconfont">&#xe657;</i>
-				</p>
+			<div class="left-list" <c:if test="${isLogin}">style="display: none;"</c:if> >
+				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
-					<li><a href="#">北京.朝阳<i class="icon iconfont">&#xe659;</i></a>
+					<li>
+						<a href="#" id="choice-city">北京.朝阳<i class="icon iconfont">&#xe659;</i></a>
 					</li>
+					<div class="index-city" id="index-city">
+						<div class="city-sj"><img src="${uedroot}/images/city-sj.jpg" /></div>
+						<div class="choice-city">
+						<div class="choice-title">
+							<ul>
+								<li class="word">城市地区：</li>
+								<li><input type="text" class="choice-int" value="请选择省市区"></li>
+							</ul>
+						</div>
+						<div class="choice-main">
+							<!--左侧-->
+							<div class="choice-left">
+								
+							</div>
+							<!--/左侧结束-->
+							<!--ABCDEFG 第一个-->
+							<div id="one">
+								<!--tab1-->
+								<div id="province1">
+								<div class="choice-right">
+									<ul id="cityList">
+										
+									</ul>
+								</div>
+							</div>
+								
+							</div>
+							<!--/ ABCDEFG 第一个结束-->
+						</div>
+						
+					</div>
+						<div class="index-city-btn">
+							<ul>
+								<li>
+									<input type="button" class="btn btn-120 radius btn-deepblue" value="提 交"/>
+									<input type="button" class="btn btn-120 radius btn-ash" id="btn-close" value="取 消"/>
+								</li>
+							</ul>
+						</div>
+					</div>
 				</ul>
 			</div>
-			<div class="right-list" <c:if test="${!isLogin}">style="display: none;"</c:if>>
+			<div class="right-list" <c:if test="${isLogin}">style="display: none;"</c:if>>
 				<ul>
 					<li class="in-border" id="in-border1"><a href="#"><label id="border1Id" style="font-size: 12px;">${hasTopic?'专题数据':'通用数据'}</label><i class="icon iconfont">&#xe659;</i></a>
 						<div class="special-show" id="special-one">
@@ -49,7 +115,7 @@
 					<c:forEach items="${config.interestList}" var="interestVo">
 						<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);">修改</a></li>
+					<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);" id="modify-btn">修改</a></li>
 					
 				</ul>
 			</div>
@@ -65,6 +131,65 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <script type="text/javascript" src="${uedroot}/scripts/modular/index.js"></script>
+<script id="provinceTempl" type="text/x-jsrender">
+  <!--左侧tab-->
+  <div class="choice-left-title">
+	  <ul>
+         {{for letters}}
+		    <li><a href="#" {{if #index==0}}class="current"{{/if}}>
+               {{if letter=='1'}}ABCDEFG{{/if}}
+               {{if letter=='2'}}HIJK{{/if}}
+               {{if letter=='3'}}LMIOPQRS{{/if}}
+               {{if letter=='4'}}TUVWXVZ{{/if}}
+           </a></li>
+         {{/for}}
+	  </ul>
+   </div>
+  
+  {{for provinces}}
+     <!--/左侧tab结束-->
+     {{if #index==0}}
+     <div id="citi-tab{{:#getIndex()+1}}">
+       <div class="choice-list" >
+		  <ul>
+             {{for list}}
+			    <li><a href="#"   {{if #getIndex()==0}}class="current"{{/if}}>{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+             {{/for}}
+		  </ul>
+       </div>
+     </div>
+    {{else}}
+      <div id="citi-tab{{:#getIndex()+1}}" style="display:none;">
+       <div class="choice-list" >
+		  <ul>
+             {{for list}}
+			    <li><a href="#">{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+             {{/for}}
+		  </ul>
+       </div>
+     </div>
+    {{/if}}
+   {{/for}}
+</script>
+<script id="cityTempl" type="text/x-jsrender">
+   <li>
+	  <p>
+		 <input type="checkbox" class="checkbox-fie city"  value="{{:code}}" />
+	  </p>
+	  <p>{{:name}}</p>
+   </li>
+</script>
+<script id="dicTempl" type="text/x-jsrender">
+   <li class="blue">领域分类：</li>
+   {{for dics}}
+   <li>
+	  <p>
+		 <input type="checkbox" class="checkbox-fie dic"  value="{{:dicValue}}"/>
+	  </p>
+	  <p>{{:dicName}}</p>
+   </li>
+   {{/for}}
+</script>
 <script type="text/javascript">
     var pager;
     (function () {

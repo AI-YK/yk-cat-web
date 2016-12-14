@@ -238,3 +238,82 @@ $('#trend1 ul li a').click(function(){
   }); 
 });
 
+//昵称
+$(function () {
+    var st = 100;
+    $('.breadcrumb-main ul .right .posi').mouseenter(function () {
+		$('#user-show').show(1);
+    })
+		$("#user-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.breadcrumb-main').mouseleave(function () {
+        $('#user-show').hide(1);
+         $('#erw-show').hide(1);
+    });	
+ }); 
+//二维
+$(function () {
+    var st = 100;
+    $('.breadcrumb-main ul .iphone').mouseenter(function () {
+		$('#erw-show').show(1);
+    })
+		$("#erw-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.breadcrumb-main').mouseleave(function () {
+        $('#erw-show').hide(1);
+        $('#user-show').hide(1);
+    });	
+ }); 
+//专题
+$(function () {
+    var st = 100;
+    $('.right-list ul #in-border1').mouseenter(function () {
+		$('#special-one').show(1);
+    })
+		$("#special-one").click(function () {
+                $(this).hide(1);
+           });	
+		$('.right-list ul #in-border1').mouseleave(function () {
+        $('#special-one').hide(1);
+    });	
+ });  
+ //专题
+$(function () {
+    var st = 100;
+    $('.right-list ul #in-border2').mouseenter(function () {
+		$('#special-tow').show(1);
+    })
+		$("#special-tow").click(function () {
+                $(this).hide(1);
+           });	
+		$('.right-list ul #in-border2').mouseleave(function () {
+        $('#special-tow').hide(1);
+    });	
+ }); 
+//选择城市
+$(function () {
+    var st = 100;
+    $('.left-list ul li #choice-city').click(function () {
+		$('#index-city').toggle();
+    })
+    $('#btn-close').click(function () {
+		$('#index-city').hide();
+    })	
+   }); 
+
+jQuery(document).ready(function($) {
+	$('#modify-btn').click(function(){
+	$('#eject-mask').fadeIn(100);
+	$('#classification').slideDown(100);
+	})
+	$('#i-close').click(function(){
+	$('#eject-mask').fadeOut(200);
+	$('#classification').slideUp(200);
+	})
+	$('#eject-btn-close').click(function(){
+	$('#eject-mask').fadeOut(200);
+	$('#classification').slideUp(200);
+	})
+})

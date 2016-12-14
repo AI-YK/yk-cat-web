@@ -159,6 +159,26 @@ define('app/jsp/home/home', function (require, exports, module) {
         			$("#border2Id").text(text);
         		});
         		
+        		$(document).on("click",".choice-left-title ul li a",function(){
+                	$(".choice-left-title ul li a").each(function () {
+                        $(this).removeClass("current");
+                        var index=$('.choice-left-title ul li a').index(this)+1;
+                        $("#citi-tab"+index).hide();
+                    });
+                    $(this).addClass("current");
+                    var index=$('.choice-left-title ul li a').index(this)+1;
+                    $("#citi-tab"+index).show();
+    			});
+                
+                $(document).on("click",".choice-list ul li a",function(){
+                	$(".choice-list ul li a").each(function () {
+                        $(this).removeClass("current");
+                    });
+                    $(this).addClass("current");
+                    var next = $(this).next();
+                    _this._getCity(next.val());
+    			});
+        		
         },
         _load:function(){
         	this._initEventData();
@@ -170,6 +190,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._getHotInfoList("social",null);
         	this._getNegativeList("news");
         	this._getNegativeList("social");
+        	this._getProvince();
+        	this._getCity();
+        	this._getDomains();
         },
         _initEventData:function(){
         	var _this = this;
@@ -306,6 +329,80 @@ define('app/jsp/home/home', function (require, exports, module) {
 		        		var socialHtml = $("#socialTempl").render(data.resultSocialList);
 						$("#socialDiv").html(socialHtml);
 		        	}
+				}
+			});
+        },
+        _getProvince:function(){
+        	var _this = this;
+        	var url = "/common/getProvince";
+        	var param = {};
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var map = rs.data;
+					var provinceInfo = {};
+					var letters = [];
+					var provinces = []
+					var i = 0;
+					for (var key in map){
+						letters[i] = {'letter':key};
+						provinces[i] = {'list':map[key]};
+						i = i + 1;
+					}
+					provinceInfo.letters = letters;
+					provinceInfo.provinces = provinces;
+					//alert(JSON.stringify(provinceInfo));
+					var provinceHtml = $("#provinceTempl").render(provinceInfo);
+					$(".choice-left").html(provinceHtml);
+					_this._getCity(null);
+				}
+			});
+        },
+        _getCity:function(parent){
+            if(!parent){
+            	var curr = $(".choice-list .current");
+            	if(curr){
+            		 var next = curr.next();
+                     parent = next.val();
+            	}else{
+            		return;
+            	}
+            }
+        	var url = "/common/getCity";
+        	var param = {};
+        	param.parentCode = parent;
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var list = rs.data;
+					var cityHtml = $("#cityTempl").render(list);
+					$("#cityList").html(cityHtml);
+					
+				}
+			});
+        },
+        _getDomains:function(){
+            
+        	var url = "/common/getDic";
+        	var param = {};
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var list = rs.data;
+					var dicHtml = $("#dicTempl").render({'dics':list});
+					$("#dicUl").html(dicHtml);
 				}
 			});
         }
