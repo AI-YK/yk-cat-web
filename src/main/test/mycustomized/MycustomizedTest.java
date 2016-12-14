@@ -33,8 +33,8 @@ public class MycustomizedTest {
 	}
 
 	public static void main(String[] args) {
-		MycustomizedTest.testList();
-		//MycustomizedTest.testDeatil();
+		//MycustomizedTest.testList();
+		MycustomizedTest.testDeatil();
 	}
 
 }
