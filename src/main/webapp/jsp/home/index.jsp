@@ -50,7 +50,7 @@
 						<div class="choice-title">
 							<ul>
 								<li class="word">城市地区：</li>
-								<li><input type="text" class="choice-int" value="请选择省市区"></li>
+								<li><input type="text" class="choice-int" value="请选择省市区"><span id="tishiId" style="color: red; font-size:12px;"></span></li>
 							</ul>
 						</div>
 						<div class="choice-main">
@@ -78,7 +78,7 @@
 						<div class="index-city-btn">
 							<ul>
 								<li>
-									<input type="button" class="btn btn-120 radius btn-deepblue" value="提 交"/>
+									<input type="button" class="btn btn-120 radius btn-deepblue" id="saveId" value="提 交"/>
 									<input type="button" class="btn btn-120 radius btn-ash" id="btn-close" value="取 消"/>
 								</li>
 							</ul>

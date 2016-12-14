@@ -19,8 +19,11 @@ import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListResponse;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
+import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
+import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -70,7 +73,7 @@ public class MycustomizedService {
 		Map<String,Object> country = new HashMap<>();
 		country.put("zhCountry", "中国");
 		country.put("enCountry", "china");
-		country.put("countryCode", "zh");
+		country.put("countryCode", YeesightApiConstants.API_CHINA_CODE);
 		SaveMyCustomizedMessage message = req.getMessage();
 		
 		List<Map<String,Object>> cityList = new ArrayList<>();
@@ -155,8 +158,14 @@ public class MycustomizedService {
 			}
 		}
 	}
-	
 	public static void main(String[] args) {
-	
+		/*MycustomizedService service = new MycustomizedService();
+		YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
+		MyCustomizedListMessage message = new MyCustomizedListMessage();
+		message.setCreateId(1);
+		req.setMessage(message);
+		System.out.println(JSON.toJSON(req));
+		YJResponse<MyCustomizedVo> res = service.queryMyCustomized(req);
+		System.out.println(JSON.toJSONString(res));*/
 	}
 }
