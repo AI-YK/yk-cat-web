@@ -38,7 +38,7 @@
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div class="left-list" <c:if test="${isLogin}">style="display: none;"</c:if> >
+			<div class="left-list" <c:if test="${!isLogin}">style="display: none;"</c:if> >
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
 					<li>
@@ -86,7 +86,7 @@
 					</div>
 				</ul>
 			</div>
-			<div class="right-list" <c:if test="${isLogin}">style="display: none;"</c:if>>
+			<div class="right-list" <c:if test="${!isLogin}">style="display: none;"</c:if>>
 				<ul>
 					<li class="in-border" id="in-border1"><a href="#"><label id="border1Id" style="font-size: 12px;">${hasTopic?'专题数据':'通用数据'}</label><i class="icon iconfont">&#xe659;</i></a>
 						<div class="special-show" id="special-one">
