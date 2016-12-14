@@ -165,6 +165,7 @@ var p_map_point=[];
 var count = 0;
 function get_event_point_data(){
 	 var ajax_url='news/getNewsHeatPointList';
+	
 	 var ajax_data={
 	 	'beginDate':start_datetime,
 	 	'endDate':end_datetime,
