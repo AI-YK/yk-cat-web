@@ -67,7 +67,12 @@ public class YeesightApiConstants {
 	public final static String API_MYINFORMATION_ADDSHAREMYINFORMATION = "/api/myInformation/addshareMyInformation";
 	//查询分享收藏次数
 	public final static String API_MYINFORMATION_QUERYSHARECOUNT = "/api/myInformation/queryShareCount";
-		
+	//查询是否收藏
+	public final static String API_MYCOLLECTION_ISCOLLECTION = "/api/myCollection/isCollection";
+	//删除收藏
+	public final static String API_MYCOLLECTION_DELETEMYCOLLECTION = "/api/myCollection/deleteMyCollection";
+	//添加收藏
+	public final static String API_MYCOLLECTION_COLLECTIONMYINFORMATION = "/api/myInformation/collectionMyInformation";
 	// 拼接头部信息url
 	public static String getApiUrl(String url) {
 		return new StringBuilder(remoteBaseUrl).append(url).toString();
