@@ -1,7 +1,16 @@
-.level-news-list ul em {
-    font-weight: normal;
+.level-news-list ul  em{
+	font-weight: normal;
+    font-size: 14px;
     color: #ff6600;
 }
+.level-news-list ul .title em{
+	font-weight: normal;
+    font-size: 16px;
+    color: #ff6600;
+}
+
+
+
 input[type="checkbox"] {
   -webkit-appearance: none;
   background: url(../../images/unchecked.png) no-repeat;
