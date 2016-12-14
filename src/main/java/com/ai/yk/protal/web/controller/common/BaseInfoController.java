@@ -433,23 +433,25 @@ public class BaseInfoController {
 				  for(AreaVo vo:myVo.getCity()){
 					  cityList.add(vo.getCode());
 				  }
+			  }else{
+				  String[] cityArr = cityStr.split(",");
+				  cityList =java.util.Arrays.asList(cityArr);
 			  }
 			  if(interestStr==""){
 				  for(InterestVo invo: myVo.getInterestList()){
 					  interestList.add(invo.getId().toString());
 				  }
+			  }else{
+				  String[] interestArr = interestStr.split(",");
+				  interestList = java.util.Arrays.asList(interestArr);
 			  }
 			  saveMyCustomizedMessage.setCreateId(Integer.parseInt(clientUser.getUserId()));
-			  String[] interestArr = interestStr.split(",");
-				  interestList = java.util.Arrays.asList(interestArr);
-			  	  String[] cityArr = interestStr.split(",");
-				  cityList =java.util.Arrays.asList(cityArr);
 			  saveMyCustomizedMessage.setCityList(cityList);
 			  saveMyCustomizedMessage.setInterestList(interestList);
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
 			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
 			  String userId = clientUser.getUserId();
-			  saveMyCustomizedMessage.setSrcId(srcID);
+			  saveMyCustomizedMessage.setSrcId(SessionUtil.getUserConfig().getSrcId());
 			  saveMyCustomizedMessage.setCreateId(Integer.parseInt(userId));
 			  YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 			  req.setMessage(saveMyCustomizedMessage);
