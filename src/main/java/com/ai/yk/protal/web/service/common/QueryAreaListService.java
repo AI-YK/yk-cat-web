@@ -22,8 +22,6 @@ public class QueryAreaListService {
 	public YJResponse<List<QueryAreaListVo>> QueryAreaList(YJRequest<QueryAreaListMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_CONMMON_QUERYAREALIST);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
-		//System.out.println(result);
-		System.out.println("1===");
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<List<QueryAreaListVo>>>(){});
 		}

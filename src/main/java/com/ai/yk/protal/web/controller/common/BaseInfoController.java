@@ -438,7 +438,7 @@ public class BaseInfoController {
 				  String[] cityArr = cityStr.split(",");
 				  cityList =java.util.Arrays.asList(cityArr);
 			  }
-			  if(StringUtil.isBlank(interestStr)){
+			  if(StringUtil.isBlank(interestStr)&& myVo!=null){
 				  for(InterestVo invo: myVo.getInterestList()){
 					  interestList.add(invo.getId().toString());
 				  }
