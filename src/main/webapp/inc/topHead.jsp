@@ -55,16 +55,16 @@
 			<img src="${uedroot}/images/logo.png" />
 		</div>
 		<div class="mainbav right">
-				<ul>
-					<li><a href="#" class="current">首页</a></li>
+		        <input id="current" type="hidden" value="${current}"/>
+				<ul id="menu">
+					<li><a href="${_base}/home/index">首页</a></li>
 					<li><a href="#">专题分析</a></li>
 					<li><a href="#">热点发现</a></li>
-					<li><a target="_blank" href="${_base}/search/public">舆情动态</a></li>
+					<li><a href="${_base}/search/public">舆情动态</a></li>
 					<c:if test="${!noSearch}">
 					 <li class="search">
 					 <input type="text" class="search-medium" placeholder="搜索"><a target="_blank" href="${_base}/search/view"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
-                    
 					</c:if>
 				</ul>
 		</div>

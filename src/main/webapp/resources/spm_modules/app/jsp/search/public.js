@@ -38,7 +38,6 @@ define('app/jsp/search/public',function(require, exports, module) {
                     	$("#le-tba2").show();
                     }else{
                     	$("#le-tba1").show();
-                    	$("#le-tba2").show();
                     }
 					_this._bindEvent();
 					

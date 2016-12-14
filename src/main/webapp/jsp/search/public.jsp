@@ -18,6 +18,9 @@
 
 </head>
 <body>
+    <c:if test="${model==null||model==''}">
+       <c:set var="current" value="3"/>
+    </c:if>
 	<!--面包屑导航-->
 	<%@ include file="/inc/topHead.jsp"%>
 	<!--子导航-->
@@ -243,7 +246,7 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul>
-	<li class="title">{{:titleZh}}</li>
+	<li class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
 			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
@@ -254,7 +257,7 @@
             <span>转载：{{:transfer}}</span>
 		</p>
 	</li>
-	<li class="news">
+	<li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">
         {{:abstractZh}}
 	</li>
 </ul>
@@ -284,7 +287,7 @@
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>
 	  </li>
-	   <li class="news">{{:text}}</li>
+	   <li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:text}}</li>
 	</ul>
 </div>
 </script>

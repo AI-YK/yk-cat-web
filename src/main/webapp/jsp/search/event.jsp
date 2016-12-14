@@ -67,7 +67,7 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul>
-	<li class="title">{{:zhTitle}}</li>
+	<li class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" >{{:zhTitle}}</li>
 	<li class="list">
 		<p>
 			<span><a href="#">{{:zhSource}}</a></span><span>{{:dayTime}}</span>
@@ -78,7 +78,7 @@
             <span>转载：{{:heatValue}}</span>
 		</p>
 	</li>
-	<li class="news">
+	<li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;" >
         {{:zhSummary}}
 	</li>
 </ul>

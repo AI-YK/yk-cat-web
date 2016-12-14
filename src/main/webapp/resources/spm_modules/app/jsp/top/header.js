@@ -23,7 +23,19 @@ define('app/jsp/top/header', function (require, exports, module) {
 
         //重写父类
         setup: function () {
-        	var _this = this;         
+        	var _this = this; 
+        	
+        	var current = $("#current").val();
+        	var $a ;
+        	if(current==''){
+        		$a = $("#menu").find("a").eq(0);
+        	}else{
+        		var index = parseInt(current);
+        		$a = $("#menu").find("a").eq(index);
+        	}
+        	$a.addClass("current");
+        	$a.attr("href","javascript:void(0);");
+        	
             this._bindEvent();
         },
         _bindEvent:function(){
