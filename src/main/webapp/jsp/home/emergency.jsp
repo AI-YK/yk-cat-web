@@ -4,7 +4,7 @@
 		<div class="banner-title">
 		<ul>
 				<li style="font-size:24px">突发事件</li>
-				<li class="right"><a  href="${_base}/search/event"><i class="icon iconfont"  style="font-size:24px;color:white;">&#xe65b;</i></a></li>
+				<li class="right"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:24px;color:white;">&#xe65b;</i></a></li>
 			</ul>
 		</div>
 		<div class="banner-list" id="chartGroup" style="display: none;">
