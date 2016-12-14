@@ -26,14 +26,19 @@ import com.alibaba.fastjson.TypeReference;
 public class CommonService {
 	/**
 	 * 查询数据字典
+	 * 
 	 * @param req
 	 * @return
 	 */
-		public YJResponse<DicListResonse> queryDicByTypeAndLanguageForNews(YJRequest<DicMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS);
-		String result =HttpClientUtil.getYJBaseResponse(url,req);
-		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<DicListResonse>>(){});
+	public YJResponse<DicListResonse> queryDicByTypeAndLanguageForNews(
+			YJRequest<DicMessage> req) {
+		String url = YeesightApiConstants
+				.getApiUrl(YeesightApiConstants.API_COMMON_QUERYDICBYTYPEANDLANGUAGEFORNEWS);
+		String result = HttpClientUtil.getYJBaseResponse(url, req);
+		if (!StringUtil.isBlank(result)) {
+			return JSON.parseObject(result,
+					new TypeReference<YJResponse<DicListResonse>>() {
+					});
 		}
 		return null;
 	}
