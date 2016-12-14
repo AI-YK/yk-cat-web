@@ -9,6 +9,7 @@
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
+/* 百度地图去logo */
 .anchorBL{  
        display:none;  
    } 
@@ -69,7 +70,7 @@
 								</ul>
 							</div></li>
 						<li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
-						<li class="x-red"><a href="#"><i class="icon iconfont">&#xe666;</i><span>${collCount}</span></a></li>
+						<li class="x-red"><a href="#"><i class="icon iconfont">&#xe666;</i><span id="collCount">0</span></a></li>
 						<li class="share" id="share1"><a href="#"><i
 								class="icon iconfont shareicon">&#xe667;</i></a>
 							<div class="share-show" id="share-show">
@@ -186,7 +187,7 @@
          },500);
 		
 	});
-		
+	var newsDetailsId ="${newsDetails.id}";	
 </script>
 </body>
 </html>

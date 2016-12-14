@@ -52,8 +52,27 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			$("#share-show li").css("font-size","12px");
 		});
 		},
+		/*查询分享收藏数*/
+		_queryCollOrShareCount:function(){
+			$.get(_base+"/news/collOrShareCount",{'id':newsDetailsId},function(json){
+				if(json.shareCount!=""){
+					$("#collCount").html(json.shareCount);
+				}
+			});
+		},
+		/*收藏操作*/
+		_collectionHandle:function(type){
+			$.get(_base+"/news/collectionHandle",{'id':newsDetailsId,"type":type},function(json){
+				if(3==type){
+				//查询是否收藏
+					console.log(JSON.stringify(json));
+				}
+			});
+		},
 		_init:function(){
 			this._initAnimation();
+			this._queryCollOrShareCount();
+			this._collectionHandle(3);
 		}
 		
 	});

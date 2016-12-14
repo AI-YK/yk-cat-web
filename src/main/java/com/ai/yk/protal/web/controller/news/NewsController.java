@@ -8,14 +8,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.collection.CollectionMessage;
+import com.ai.yk.protal.web.content.collection.CollectionResponse;
 import com.ai.yk.protal.web.content.queryInformation.QueryInformationMessage;
 import com.ai.yk.protal.web.content.queryInformation.QueryInformationResponse;
 import com.ai.yk.protal.web.content.share.ShareCountVo;
 import com.ai.yk.protal.web.content.share.ShareMessage;
 import com.ai.yk.protal.web.controller.BaseController;
+import com.ai.yk.protal.web.service.collection.CollectionService;
 import com.ai.yk.protal.web.service.information.InformationService;
 import com.ai.yk.protal.web.service.share.ShareService;
 
@@ -37,7 +39,53 @@ public class NewsController extends BaseController {
 	private InformationService informationService;
 	@Autowired
 	private ShareService shareService;
+	@Autowired
+	CollectionService collectionService;
+	/**
+	 * 查询收藏分享数
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/collOrShareCount")
+	public ShareCountVo collOrShareCount(YJRequest<ShareMessage> req,ShareMessage message){
+		req.setMessage(message);
+		YJResponse<ShareCountVo> res=shareService.queryShareCount(req);
+		if(res!=null&&res.getData()!=null){
+			return res.getData();
+		}else{
+			LOG.error("查询分享或收藏数失败");
+		}
+		return  new ShareCountVo();
+	}
+	/**
+	 * 收藏操作
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/collectionHandle")
+    public YJResponse<CollectionResponse> collectionHandle(YJRequest<CollectionMessage> req,CollectionMessage msg){
+    	//msg.setId(SessionUtil.getLoginUser().getUserId());
+    	req.setMessage(msg);
+    	YJResponse<CollectionResponse> res = null;
+    	int type = this.getInt("type");
+    	switch (type) {
+		case 1:
+			//添加收藏
+			res =collectionService.addCollection(req);
+			break;
+		case 2:
+			//删除收藏
+			res =collectionService.delCollection(req);
+			break;
+		case 3:
+			//查询是否搜藏
+			res =collectionService.queryIsCollection(req);
+			break;
 
+		}
+    	return res;
+    }
+	
 	/**
 	 * 新闻详情
 	 * 
@@ -56,17 +104,6 @@ public class NewsController extends BaseController {
 		if(res!=null&&res.getData()!=null){
 			view.addObject("newsDetails", res.getData());
 		}
-		YJRequest<ShareMessage> req2 = new YJRequest<>();
-		ShareMessage message2 = new ShareMessage();
-		message2.setId(informationId);
-		req2.setMessage(message2);
-		YJResponse<ShareCountVo> res2=shareService.queryShareCount(req2);
-		//收藏数
-		String collCount = "0";
-		if(res2!=null&&res2.getData()!=null && !StringUtil.isBlank(res2.getData().getCollCount())){
-			collCount = res2.getData().getCollCount();
-		}
-		view.addObject("collCount",collCount);
 		return view;
 	}
 }
