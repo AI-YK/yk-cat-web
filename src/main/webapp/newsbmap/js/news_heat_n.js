@@ -1,3 +1,5 @@
+var path="/yk-pa-web";
+
 var domain="";
 var myChart,myChart3,myBmapChart;
 var fg="1";//默认所有分类
@@ -812,11 +814,12 @@ function initBMap(){
 //初始化分类列表
 function init(){
 	$.ajax({
-	    url: "news/classify/selectAll",
+	   // url: "news/classify/selectAll",
+		url:path + "/bmap/getSelectAllData",
 	    data: '',
 	    dataType: "json",
 	    success: function(data){
-
+	    	var data =eval(data);
 	    	$("#type").empty();
 	    	var s="";
 	    	var html='<li class=" menu onnx" onclick="go(this,\''+s+'\')">'+$("#nhn7").val()+/*'全部'*/'</li>';
@@ -935,7 +938,11 @@ function get_event_point_data(){
 	 p_map_pointNews=[];
 	 $(".dialogLabel").hide();
 	 $(".dialogTitle").hide();
-	 var ajax_url='news/topicListInteface';//大框
+//	 var ajax_url='news/topicListInteface';//大框
+//	 var ajax_url=path + '/getTopicListIntefaceData';//大框
+	 //yk-pa-web\src\main\webapp\newsbmap\json
+	 var ajax_url=path + '/newsbmap/json/topicListIntefaceJson.json';//大框
+	// alert(ajax_url);
 	 var ajax_dataV={
 	 	'beginDate':start_datetime,
 	 	'endDate':end_datetime,
@@ -949,7 +956,8 @@ function get_event_point_data(){
 	 };
 	//热点 地图数据
 	 $.post(ajax_url,ajax_dataV,function(result){
-	 	    var result=JSON.parse(result);
+//	 	    var result=JSON.parse(result);
+	 	    var result=eval(result);
 	 	  //console.log('接口数据---=',result.data.results);
 	 	    $('.div0 .ul1').empty();
 	 	    $.each(result.data.results,function(i,o){
@@ -1009,7 +1017,10 @@ function get_event_point_data(){
 
 
 	function smilData(preCount){
-		var ajax_url='news/getNewsHeatPointListInteface';//小框
+//		var ajax_url='news/getNewsHeatPointListInteface';//小框
+//		var ajax_url=path + '/getNewsHeatPointListInteface';//小框
+		var ajax_url= path + '/newsbmap/json/NewsHeatPointListInteface.json';//小框
+		//alert(ajax_url);
 		var count=300;
 		if(fg=='1' && '1'==fg_1){
 			count=300;
@@ -1033,9 +1044,9 @@ function get_event_point_data(){
 			 };
 		 		//热点 地图数据
 				$.post(ajax_url,ajax_data,function(data){
-		 	    var result=JSON.parse(data);
+//		 	    var result=JSON.parse(data);
 		 	    $('.div0 .ul1').empty();
-		 	    $.each(result.data.results,function(i,o){
+		 	    $.each(data.data.results,function(i,o){
 		 	    	 if(o.topic && o.topic!='' && o.geoLat && o.geoLat!='' && o.geoLong && o.geoLong!=''){
 		 	    	    p_map_geo[o.topic]=[];
 		 	    	    p_map_geo[o.topic].push(o.geoLong);
@@ -1101,7 +1112,9 @@ function formatDate(date) {
 //百度地图 2.0 
 function getBMapData(){
 	//console.log(bs);
-	   var ajax_url='news/topicListInteface';//大框
+	
+	 //  var ajax_url='news/topicListInteface';//大框
+		var ajax_url ="";
 	  // var startTime=formatDate(start_datetime)+" 00:00:00";
 	  // var endTime=formatDate(end_datetime)+" 23:59:59";
 	
