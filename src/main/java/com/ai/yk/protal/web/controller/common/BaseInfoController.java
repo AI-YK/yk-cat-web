@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -426,10 +427,10 @@ public class BaseInfoController {
 			  SSOClientUser clientUser = SessionUtil.getLoginUser();
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 			  MyCustomizedVo myVo= SessionUtil.getUserConfig();
-			  if(provinceCode==""){
+			  if(StringUtil.isBlank(provinceCode)){
 				  provinceCode=myVo.getProvince().getCode();
 			  }
-			  if(cityStr==""){
+			  if(StringUtil.isBlank(cityStr)){
 				  for(AreaVo vo:myVo.getCity()){
 					  cityList.add(vo.getCode());
 				  }
@@ -437,7 +438,7 @@ public class BaseInfoController {
 				  String[] cityArr = cityStr.split(",");
 				  cityList =java.util.Arrays.asList(cityArr);
 			  }
-			  if(interestStr==""){
+			  if(StringUtil.isBlank(interestStr)&& myVo!=null){
 				  for(InterestVo invo: myVo.getInterestList()){
 					  interestList.add(invo.getId().toString());
 				  }
@@ -449,7 +450,7 @@ public class BaseInfoController {
 			  saveMyCustomizedMessage.setCityList(cityList);
 			  saveMyCustomizedMessage.setInterestList(interestList);
 			  saveMyCustomizedMessage.setProvinceCode(provinceCode);
-			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
+//			  saveMyCustomizedMessage.setSourceSystem(sourceSystem);
 			  String userId = clientUser.getUserId();
 			  saveMyCustomizedMessage.setSrcId(SessionUtil.getUserConfig().getSrcId());
 			  saveMyCustomizedMessage.setCreateId(Integer.parseInt(userId));

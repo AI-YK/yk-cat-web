@@ -6,7 +6,7 @@
 	</div> 
 	<!--图表嵌套区域-->
 	<div class="levle-right-chart-list">
-		<div align="center"><img style="width:398px;height:244px;"src="${uedroot}/images/timetr.png"/></div> 
+		<div align="center"><img style="width:398px;height:244px;"src="${uedroot}/images/timetr2.png"/></div> 
 	</div>
 	<!--/图表嵌套区域结束-->
 
@@ -18,7 +18,7 @@
 	</div> 
 	<!--图表嵌套区域-->
 	<div class="levle-right-chart-list">
-		<div align="center"><img style="width:398px;height:244px;"src="${uedroot}/images/mediatj.png"/></div>
+		<div align="center"><img style="width:398px;height:244px;"src="${uedroot}/images/mediatj2.png"/></div>
 	</div>
 	<!--/图表嵌套区域结束-->
 </div>

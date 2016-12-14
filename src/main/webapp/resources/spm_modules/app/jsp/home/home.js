@@ -35,7 +35,8 @@ define('app/jsp/home/home', function (require, exports, module) {
 
         //事件代理
         events: {
-           
+           "click #saveId":"_saveProvinceAndCity",
+           "click #saveDicId":"_saveDic"
         },
 
         //重写父类
@@ -217,7 +218,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
 					_this.chartGroups = data.groups;
-					homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
+					//homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
 					homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
 				}
 			});
@@ -412,6 +413,72 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#dicUl").html(dicHtml);
 				}
 			});
+        },
+        _saveProvinceAndCity:function(){
+        	var provinceCode = "";
+            var province = $(".choice-list .current");
+        	  if(province){
+        		  var next = province.next();
+        		  provinceCode = next.val();
+        	  }else{
+        		$("#tishiId").text("请选择省份");
+        		return;
+        	  }
+     		  var cityStr="";
+     		  $(".city").each(function(){
+     			  if(this.checked){
+     				  cityStr=cityStr+","+$(this).val();
+     			  }
+     		  });
+     		  if(cityStr==""){
+     			$("#tishiId").text("至少选择一个城市");
+     			return;
+     		  }else{
+     			  cityStr=cityStr.substring(1,cityStr.length);
+     		  }
+     		  var url="/common/saveConf";
+     		  var param={};
+     		  param.provinceCode=provinceCode;
+     		  param.cityStr=cityStr;
+     		 ajaxController.ajax({
+      			  type:"POST",
+      			  processing: false,
+      			  message: "保存数据中，请等待...",
+      			  url: _base + url,
+      			  dataType:"json",
+      			  data:param,
+      			  success:function(rs){
+      				  location.href = _base + '/home/index';
+      			  }
+      		  });
+        },
+        _saveDic:function(){
+        	var interestStr = "";
+            $(".dic").each(function(){
+          	  if($(this).hasClass("current")){
+          		  interestStr = interestStr + ","+($(this).next()).val();
+          	  }
+            });
+            if(interestStr ==""){
+          	  $("#tishiDicId").text("领域分类至少选择一个");
+          	  return;
+            }else{
+          	  interestStr = interestStr.substring(1,interestStr.length);
+            }
+            var url="/common/saveConf";
+     		var param={};
+     		param.interestStr=interestStr;
+     		ajaxController.ajax({
+     			  type:"POST",
+     			  processing: false,
+     			  message: "保存数据中，请等待...",
+     			  url: _base + url,
+     			  dataType:"json",
+     			  data:param,
+     			  success:function(rs){
+     				  location.href = _base + '/home/index';
+     			  }
+     		  });
         }
         
     });

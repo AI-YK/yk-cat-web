@@ -22,7 +22,8 @@ public class YeesightApiConstants {
     }
     //系统来源
     public static final String API_SOURCE_SYSTEM="yeesightPublicSentiment";
-    
+    //中国code
+    public static final String API_CHINA_CODE="as_100000";
     
     
 	// 搜索数据源列表url
