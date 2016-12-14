@@ -1,4 +1,7 @@
-
+.level-news-list ul em {
+    font-weight: normal;
+    color: #ff6600;
+}
 input[type="checkbox"] {
   -webkit-appearance: none;
   background: url(../../images/unchecked.png) no-repeat;
