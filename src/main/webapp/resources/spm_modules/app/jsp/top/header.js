@@ -34,7 +34,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         		$a = $("#menu").find("a").eq(index);
         	}
         	$a.addClass("current");
-        	$a.attr("href","javascript:void(0);");
+        	//$a.attr("href","javascript:void(0);");
         	
             this._bindEvent();
         },
@@ -71,7 +71,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         	 $("#_searchBtn").click(function(){
          		var _keyword = $("#_keyword").val();
          		if(_keyword!=''){
-         			location.href = _base + "/search/view?_keyword="+_keyword;
+         			location.href = _base + "/search/view?_keyword="+encodeURI(encodeURI(_keyword));
          		}
          		
          	 });
