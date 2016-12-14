@@ -37,9 +37,6 @@ define('app/jsp/search/event',function(require, exports, module) {
 				_bindEvent : function() {
 					var _this = this;
 				
-					$("#searchBtn").click(function(){
-						_this.search();
-					});
 				},
 				_getSearchParams : function() {
 					var param = {};

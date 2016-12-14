@@ -29,16 +29,6 @@
 		<div class="level-left-conter">
 			<div id="le-tba1">
 				<div class="level-left-list">
-					<div class="list-form">
-						<ul>
-							<li>
-								<p>
-					              <input id="keyword" type="text" class="int-text int-large radius">
-					              <a href="#"><i id="searchBtn" class="icon iconfont suos">&#xe658;</i></a>
-				                </p>
-							</li>
-						</ul>
-					</div>
 					<div class="level-news" >
 						<div class="level-news-title">
 							<p>共有相关数据</p>
