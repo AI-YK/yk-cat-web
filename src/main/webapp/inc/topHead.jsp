@@ -42,8 +42,7 @@
 						<span><i class="icon iconfont">&#xe65a;</i></span>
 						<p><img src="${uedroot}/images/erwnew.jpg"></p>
 					</div>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					<!--<p><a href="#">EN</a>|</p>
+						<!--<p><a href="#">EN</a>|</p>
 
 					<p><a href="#">中文</a></p>-->
 			</li>
