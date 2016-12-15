@@ -10,7 +10,7 @@
 					<li><a id="2" onclick="return false;" href="javascipt:void(0);">一个月</a></li>
 				</ul>
 			</div>
-			<div id="locSentimentCount" style="height: 295px; margin-top: 54px;">
+			<div id="locSentimentCount" class="trend-conter-list">
 			</div>
 		</div>
 		<div class="trend-conter ml-20">
@@ -22,11 +22,13 @@
 					<li><a id="2" onclick="return false;" href="javascipt:void(0);">一个月</a></li>
 				</ul>
 			</div>
+			<div class="trend-conter-list">
 			<div id="mediaCoverage" class="piechart-left" style="height: 295px;"></div>
 			<div class="piechart-right">
 				<ul id="mediaCoverage-ul">
 					
 				</ul>
+			</div>
 			</div>
 		</div>
 	</div>

@@ -10,7 +10,7 @@
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="index-bj">
 <!--弹出-->
   <div class="eject-big">
 		<div class="eject-small" id="classification">

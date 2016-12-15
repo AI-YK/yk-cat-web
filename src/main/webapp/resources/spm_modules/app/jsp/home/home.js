@@ -206,6 +206,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var _this = this;
         	var url = "/emergency/getEmergencyIndexList";
         	var param = {};
+        	param.pageSize=7;
         	ajaxController.ajax({
 				type: "post",
 				processing: false,

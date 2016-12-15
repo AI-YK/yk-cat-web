@@ -4,8 +4,8 @@
 		<div class="banner-title">
 		<ul>
 				<li style="font-size:24px">突发事件</li>
-				<li class="right"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:24px;color:white;">&#xe65b;</i></a></li>
-			</ul>
+<%-- 				<li class="right"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:24px;color:white;">&#xe65b;</i></a></li>
+ --%>			</ul>
 		</div>
 		<div class="banner-list" id="chartGroup" style="display: none;">
 			<div class="list-left">
@@ -46,7 +46,7 @@
 		 <p>
 			<span>{{:zhCountry}}.{{:zhCity}}</span> <span>{{:dayTime}}</span>
 		 </p>
-		 <p>{{:zhTitle}}</p>
+		 <p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
 	 </li>
   {{/for}}
 </script>
