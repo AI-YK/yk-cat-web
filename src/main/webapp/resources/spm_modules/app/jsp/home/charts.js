@@ -177,8 +177,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		counts[i] = data[i].count;
         	}
         	var interval = 1;
-        	if(times.length>0){
-        		interval  = parseInt(times.length/4)+times.length%4;
+        	var max = 6;
+        	if(times.length>max){
+        		interval  = parseInt(times.length/max)+times.length%max;
         	}
         	var option = {
         		    tooltip : {
@@ -214,13 +215,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						textStyle : {
         							color : '#697398',
         							fontSize : 13
-        						}/*,
+        						},
         						interval:function(index,value){
-        							if(index>0&&index%interval==0)
+        							if(index>0&&index+1<times.length&&index%interval==0)
         							  return true;
         							else
         								return false;	
-        						}*/
+        						}
         					}
         		        }
         		    ],
