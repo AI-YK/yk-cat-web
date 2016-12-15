@@ -33,7 +33,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 					x : 50,
 					y : 30,
 					x2 : 30,
-					y2 : 30
+					y2 : 50
 				},
 
 				xAxis : [ {

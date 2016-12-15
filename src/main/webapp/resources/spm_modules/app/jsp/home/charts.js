@@ -174,11 +174,19 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		times[i] = data[i].time;
         		counts[i] = data[i].count;
         	}
+        	var interval = 1;
+        	//times.length/
         	var option = {
         		    tooltip : {
         		        trigger: 'axis'
         		    },
         		    calculable : true,
+        		    grid : {
+    					x : 5,
+    					y : 15,
+    					x2 : 0,
+    					y2 : 25
+    				},
         		    xAxis : [
         		        {
         		            type : 'category',
@@ -186,9 +194,28 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            data : times,
         					axisLine:{
         					  lineStyle:{
-        					    color:'#2e8ad3',
+        					    color:'#314a5a',
         						width:2
         					  }
+        					},
+        					axisTick : {
+        						inside : true,
+        						length : 4
+        						/*lineStyle : {
+        							color : '#314a5a',
+        							width:2
+        						}*/
+        					},
+        					axisLabel : {
+        						margin:12,
+        						textStyle : {
+        							color : '#697398',
+        							fontSize : 13
+        						}/*,
+        						interval:function(index,value){
+        							alert(index+":"+value);
+        							return true;
+        						}*/
         					}
         		        }
         		    ],
@@ -201,9 +228,21 @@ define('app/jsp/home/charts', function (require, exports, module) {
         					    color:'#2c88db'
         					  }
         					},
+        					axisLabel : {
+        						margin : -20,
+        						textStyle : {
+        							color : '#697398',
+        							fontSize : 13,
+        							align:'right',
+        							baseline:'bottom'
+        						}
+        					},
+        					axisTick:{
+        						show:false
+        					},
         					splitLine:{
         					  lineStyle:{
-        		                color:'#1162a1',
+        		                color:'#3a415a',
         					    type:'dashed'
         					  }
         					}
@@ -218,14 +257,14 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            smooth:true,
         		            itemStyle: {
         						normal: {
-        							color:'#1687d7',
+        							color:'#2f6fc8',
         							areaStyle: {
         								type: 'default'
         							}
         						}
         					},
         					areaStyle:{
-        					  color:'#1687d7'
+        					  color:'#2f6fc8'
         					},
         		            data:counts
         		        }
@@ -251,6 +290,12 @@ define('app/jsp/home/charts', function (require, exports, module) {
         				axisPointer: false,
         				show :false
         		    },
+        		    grid : {
+    					x : 40,
+    					y : 30,
+    					x2 : 20,
+    					y2 : 20
+    				},
         		    legend: {
         				show: true,
         		        data:['正面','负面'],
@@ -354,6 +399,12 @@ define('app/jsp/home/charts', function (require, exports, module) {
             var option = {
         			animation:false,
         			color:colors,
+        			grid : {
+    					x : 50,
+    					y : 30,
+    					x2 : 30,
+    					y2 : 30
+    				},
         		    series : [
         		        {
         		           name: '媒体覆盖',
@@ -380,7 +431,8 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		                     labelLine : {
         		                         show : true,
         		                         lineStyle:{
-        		                        	 color:'#ffffff'
+        		                        	 color:'#ffffff',
+        		                        	 type:'solid'
         		                         }
         		                     },
         		                    shadowBlur : 10,

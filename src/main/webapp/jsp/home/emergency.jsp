@@ -30,7 +30,7 @@
 						<div class="chart1-title">事件态势</div>
 						<div class="chart1-conter"></div>
 						<!--图表嵌套区域-->
-						<div id="chart_right" class="chart1-main"style="height: 390px;"></div>
+						<div id="chart_right" class="chart1-main"></div>
 						<!--/图表嵌套结束-->
 					</div>
 					<!--/图表2结束-->

@@ -23,7 +23,7 @@
 				</ul>
 			</div>
 			<div class="trend-conter-list">
-			<div id="mediaCoverage" class="piechart-left" style="height: 295px;"></div>
+			<div id="mediaCoverage" class="piechart-left" style="height: 280px;"></div>
 			<div class="piechart-right">
 				<ul id="mediaCoverage-ul">
 					
