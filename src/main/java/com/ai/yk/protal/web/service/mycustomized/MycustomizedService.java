@@ -19,11 +19,8 @@ import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListResponse;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
-import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
-import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
-import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
@@ -149,12 +146,17 @@ public class MycustomizedService {
 				JSONObject provinceObject =  (JSONObject)provinceList.get(0);
 				AreaVo province = JSON.parseObject(JSON.toJSONString(provinceObject), AreaVo.class);
 				res.getData().setProvince(province);
-				JSONArray cityList= provinceObject.getJSONArray("cityList");
-				if(!CollectionUtil.isEmpty(cityList)){
-					//城市
-					List<AreaVo> city = JSON.parseArray(JSON.toJSONString(cityList), AreaVo.class);
-					res.getData().setCity(city);
+				List<AreaVo> allCityList = new ArrayList<>();
+				for(int i=0; i<provinceList.size();i++){
+					provinceObject =  (JSONObject)provinceList.get(i);
+					JSONArray cityList= provinceObject.getJSONArray("cityList");
+					if(!CollectionUtil.isEmpty(cityList)){
+						//城市
+						List<AreaVo> city = JSON.parseArray(JSON.toJSONString(cityList), AreaVo.class);
+						allCityList.addAll(city);
+					}
 				}
+				res.getData().setCity(allCityList);
 			}
 		}
 	}
