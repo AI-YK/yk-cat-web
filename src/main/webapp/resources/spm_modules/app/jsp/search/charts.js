@@ -56,7 +56,8 @@ define('app/jsp/search/charts', function(require, exports, module) {
 					axisLabel : {
 						textStyle : {
 							color : '#666666',
-							fontSize : 12
+							fontSize : 12,
+							align:'left'
 						}
 					}
 				} ],
