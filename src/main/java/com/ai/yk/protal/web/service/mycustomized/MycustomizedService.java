@@ -161,13 +161,14 @@ public class MycustomizedService {
 		}
 	}
 	public static void main(String[] args) {
-		/*MycustomizedService service = new MycustomizedService();
+		MycustomizedService service = new MycustomizedService();
 		YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
 		MyCustomizedListMessage message = new MyCustomizedListMessage();
 		message.setCreateId(1);
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
 		YJResponse<MyCustomizedVo> res = service.queryMyCustomized(req);
-		System.out.println(JSON.toJSONString(res));*/
+		System.out.println(res.getData().getInterestList());
+		System.out.println(JSON.toJSONString(res));
 	}
 }

@@ -12,10 +12,13 @@ define(
 			require("twbs-pagination/jquery.twbsPagination.min");
 			require("my97DatePicker/WdatePicker");
 			var SelectUtil = require("app/jsp/search/select");
+			var SearchChart = require("app/jsp/search/charts");
 			// 实例化AJAX控制处理对象
 			var ajaxController = new AjaxController();
 
 			var selectUtil = new SelectUtil();
+			
+			var searchChart = new SearchChart();
 
 			var searchPage = Widget.extend({
 				// 属性，使用时由类的构造函数传入
@@ -39,6 +42,9 @@ define(
 					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
 					selectUtil.initLanguageSelect(['languageId1']);
 					selectUtil.initDicSelect(['dicId1','dicId2']);
+					
+					searchChart._initTimeTrendChart('timeChart',null);
+					searchChart._initMediaChart('mediaChart',null);
 
 				},
 				_bindEvent : function() {

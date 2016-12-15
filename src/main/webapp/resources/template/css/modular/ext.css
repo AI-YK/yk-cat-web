@@ -9,7 +9,16 @@
     color: #ff6600;
 }
 
+.chart-bg{
+	background: url(../../images/chart-bg.png) no-repeat;
+	padding: 3px;
+}
 
+/****·ÖÒ³***/
+.biu-paging ul .prev a{}
+.biu-paging ul .next a{}
+.biu-paging ul .disabled a{cursor:not-allowed; }
+.biu-paging ul .disabled a:hover{width:24px;height:24px;float:left;margin-left:12px;text-align:center;color:#6a6c6f;background:#ecedf1;border-radius:5px;font-size:12px;line-height:24px;}
 
 input[type="checkbox"] {
   -webkit-appearance: none;

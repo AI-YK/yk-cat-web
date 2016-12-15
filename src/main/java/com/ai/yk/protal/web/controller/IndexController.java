@@ -17,6 +17,7 @@ import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
 import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.utils.SessionUtil;
+import com.alibaba.fastjson.JSON;
 
 /**
  * Created by mengbo on 28/11/5.
@@ -49,7 +50,12 @@ public class IndexController {
     		model.addAttribute("user", clientUser);
     	}
     	MyCustomizedVo config = SessionUtil.getUserConfig();
-    	model.addAttribute("config", config);
+    	if(config!=null){
+    		model.addAttribute("config", config);
+    		model.addAttribute("configInterestList", JSON.toJSONString(config.getInterestList()));
+        	model.addAttribute("provindeCode", config.getProvince().getCode());
+        	model.addAttribute("citylist", JSON.toJSONString(config.getCity()));
+    	}
     	List<MyTopicsVo> topics = SessionUtil.getTopics();
     	if(topics==null||topics.size()==0){
     		model.addAttribute("hasTopic", false);
@@ -57,6 +63,7 @@ public class IndexController {
     		model.addAttribute("hasTopic", true);
     		model.addAttribute("topics", topics);
     	}
+    	
         return "/home/index";
     }
     

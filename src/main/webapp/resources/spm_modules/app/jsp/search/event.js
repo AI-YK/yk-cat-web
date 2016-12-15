@@ -10,10 +10,13 @@ define('app/jsp/search/event',function(require, exports, module) {
 			require("twbs-pagination/jquery.twbsPagination.min");
 			require("my97DatePicker/WdatePicker");
 			var SelectUtil = require("app/jsp/search/select");
+			var SearchChart = require("app/jsp/search/charts");
 			// 实例化AJAX控制处理对象
 			var ajaxController = new AjaxController();
 
 			var selectUtil = new SelectUtil();
+			
+			var searchChart = new SearchChart();
 
 			var eventPage = Widget.extend({
 				// 属性，使用时由类的构造函数传入
@@ -32,6 +35,9 @@ define('app/jsp/search/event',function(require, exports, module) {
 					_this._bindEvent();
 					_this.search();
 					_this._loadTopics();
+					
+					searchChart._initTimeTrendChart('timeChart',null);
+					searchChart._initMediaChart('mediaChart',null);
 
 				},
 				_bindEvent : function() {
