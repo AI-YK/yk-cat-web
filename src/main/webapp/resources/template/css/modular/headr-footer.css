@@ -36,21 +36,21 @@
 .mainbav ul .search{width:230px;height:36px;border:1px solid #3382ee;background:#212532;border-radius:20px;line-height:34px;margin-top:35px}
 .mainbav ul .search a{color:#3382ee;padding:0 12px 0 0;float:right;}
 /**子导航**/
-.subnav{width:100%;float:left;height:55px;background:#fff;min-width:1200px;border-bottom:1px solid #e6e8ef}
+.subnav{width:100%;float:left;height:55px;background:#1b2031;min-width:1200px;border-bottom:1px solid #454d6b}
 .subnav-main{width:1200px;margin:0 auto;}
 .left-list ul{display:inline-block;margin:20px 0 0 10px;position:relative;}
 .left-list ul li{float:left}
-.left-list p{float:left;margin-top:20px;}
-.left-list ul li a{font-size:14px;color:#666}
-.left-list ul li a i{margin-left:8px;}
+.left-list p{float:left;margin-top:20px;color:#697398}
+.left-list ul li a{font-size:14px;color:#697398}
+.left-list ul li a i{margin-left:8px;color:#697398}
 .left-list{float:left}
 .right-list{float:right;margin-top:15px;}
 .right-list ul{width:100%;}
 .right-list ul li{display:inline-block;margin-left:10px;position:relative;}
-.right-list ul .inbtn a{width:80px;height:28px;background:#e3e6f1;float:left;border-radius:5px;text-align: center;line-height:28px;color:#666}
+.right-list ul .inbtn a{width:80px;height:28px;background:#2e344b;float:left;border-radius:5px;text-align: center;line-height:28px;color:#7c85a8}
 .right-list ul .inbtn a:hover{background:#3382ee;color:#fff}
-.right-list ul .in-border{width:120px;height:28px;float:left;border:1px solid #ddd;text-align: center;line-height:28px;border-radius:5px;}
-.right-list ul .in-border a{width:100%;float:left;color:#666}
+.right-list ul .in-border{width:120px;height:28px;float:left;border:1px solid #7c85a8;text-align: center;line-height:28px;border-radius:5px;}
+.right-list ul .in-border a{width:100%;float:left;color:#7c85a8}
 .right-list ul .in-border a i{float:right;padding-right:6px;}
 .right-list ul li .special-show{width:120px;height:100px;background:#fff;position:absolute;top:36px;right:0px;border:1px solid #ddd;border-radius:8px;display:none;z-index:99;}
 .right-list ul li .special-show ul{}
@@ -63,9 +63,9 @@
 .right-list ul li .special-show  span i{color:#DDD;font-size:24px}
 
 /**底部**/
-.footer{width:100%;float:left;height:60px;background:#212532;min-width:1200px;}
+.footer{width:100%;float:left;height:60px;background:#1d1f30;min-width:1200px;border-top:1px solid #454d6b}
 .footer-main{width:1200px;margin:0 auto;}
-.footer-main ul li,.footer ul li a{line-height:60px;font-size:14px;color:#767fa2}
+.footer-main ul li,.footer ul li a{line-height:60px;font-size:14px;color:#7b86b7}
 .footer-main ul li p{float:left;margin-left:15px;}
 .footer ul li a{padding-right:15px;}
 .footer ul li a:hover{color:#3382ee}

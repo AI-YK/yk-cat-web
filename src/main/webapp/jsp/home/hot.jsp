@@ -48,7 +48,7 @@
 </div>
 <!--/热点新闻-->
 <script id="newsHotTempl" type="text/x-jsrender">
- {{if #getIndex()<6}}
+ {{if #getIndex()<11}}
   <ul>
 		<li>
 			<p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
@@ -63,7 +63,7 @@
   {{/if}}
 </script>
 <script id="socialHotTempl" type="text/x-jsrender">
- {{if #getIndex()<4}}
+ {{if #getIndex()<7}}
  <div class="socialhot-list">
 			<div class="social-user">
                 {{if userAvatar==null}}

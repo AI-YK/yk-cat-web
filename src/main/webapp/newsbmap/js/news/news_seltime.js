@@ -242,7 +242,8 @@
 		});
 	});
 	function initCity(city){
-		 var ajax_url='news/searchCityInteface';
+//		 var ajax_url='news/searchCityInteface';
+		 var ajax_url=path + '/newsbmap/json/searchCityInteface.json';
 		 var ajax_data={
 		 	'countrychinaname':city,
 		 	'region':''

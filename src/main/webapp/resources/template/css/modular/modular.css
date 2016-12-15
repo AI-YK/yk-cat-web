@@ -33,17 +33,11 @@
 .choice-right ul li p{float:left;margin-right:10px;color:#7681b5}
 
 .choice-right::-webkit-scrollbar {width: 14px;  height: 14px;}  
-
 .choice-right::-webkit-scrollbar-track,  
-
 .choice-right::-webkit-scrollbar-thumb {  border-radius: 999px;  border: 5px solid transparent;  }  
-
 .choice-right::-webkit-scrollbar-track {  box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
-
 .choice-right::-webkit-scrollbar-thumb {  min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
-
 .choice-right::-webkit-scrollbar-corner {  background: transparent;  }  
-
 .configure-btn{width:100%;float:left;margin-top:20px;text-align: center;}
 
 /**突发事件**/
@@ -167,3 +161,5 @@
 .news-detail-share ul .right .red a{width:48px;height:48px;float:left;background:url(../../images/weibo.png) no-repeat;}
 .news-detail-share ul .right .green a{width:48px;height:48px;float:left;background:url(../../images/weix.png) no-repeat;}
 .news-detail-share ul .right .blue a{width:48px;height:48px;float:left;background:url(../../images/qq.png) no-repeat;}
+
+
