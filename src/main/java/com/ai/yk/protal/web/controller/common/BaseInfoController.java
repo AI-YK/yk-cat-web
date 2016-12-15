@@ -440,7 +440,7 @@ public class BaseInfoController {
 			  }
 			  if(StringUtil.isBlank(interestStr)&& myVo!=null){
 				  for(InterestVo invo: myVo.getInterestList()){
-					  interestList.add(invo.getId().toString());
+					  interestList.add(invo.getBusinessId());
 				  }
 			  }else{
 				  String[] interestArr = interestStr.split(",");
@@ -479,6 +479,7 @@ public class BaseInfoController {
 			  }else{
 				  SessionUtil.setUserConfig(mock()); 
 			  }
+			  System.out.println(resp.getData().getCity());
 			  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_SUCCESS,"保存配置信息成功",saveMyCustomizedResponse);
 				
 		  }
