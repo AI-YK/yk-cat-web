@@ -64,7 +64,7 @@
 					<li><a href="${_base}/search/public">舆情动态</a></li>
 					<c:if test="${!noSearch}">
 					 <li class="search">
-					 <input id="_keyword" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
+					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
 					</c:if>
 				</ul>
