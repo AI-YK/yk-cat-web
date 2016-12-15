@@ -67,7 +67,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         	 $(".ahov3").click(function(){
         		_this._logOut();
         	 });
-        	 
+        	
         	 $("#_searchBtn").click(function(){
          		var _keyword = $("#_keyword").val();
          		if(_keyword!=''){
@@ -75,6 +75,12 @@ define('app/jsp/top/header', function (require, exports, module) {
          		}
          		
          	 });
+        	 document.onkeydown = function(e){ 
+        		    var ev = document.all ? window.event : e;
+        		    if(ev.keyCode==13) {
+                    $("#_searchBtn").click();
+                    }
+        		}
         },
         _logOut:function(){
         	var url="/home/logOut"
