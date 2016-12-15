@@ -58,6 +58,7 @@
 		</div>
 	</div>
 </body>
+
 <%@ include file="/inc/incJs.jsp"%>
 <script type="text/javascript"
 	src="${uedroot}/scripts/modular/configure.js"></script>

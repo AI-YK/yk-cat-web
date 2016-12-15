@@ -206,6 +206,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var _this = this;
         	var url = "/emergency/getEmergencyIndexList";
         	var param = {};
+        	param.pageSize=7;
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
@@ -366,6 +367,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					//alert(JSON.stringify(provinceInfo));
 					var provinceHtml = $("#provinceTempl").render(provinceInfo);
 					$(".choice-left").html(provinceHtml);
+					$("#pro_"+provinceCodee).addClass("current");
 					_this._getCity(null);
 				}
 			});
@@ -393,7 +395,13 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var list = rs.data;
 					var cityHtml = $("#cityTempl").render(list);
 					$("#cityList").html(cityHtml);
-					
+					if(cityList!=""){
+						var citys = eval('('+cityList+")");
+						for(var i=0;i<citys.length;i++){
+							var id = citys[i].code;
+							$("#city_"+id).attr("checked","checked");
+						}
+					}
 				}
 			});
         },
@@ -411,11 +419,14 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var list = rs.data;
 					var dicHtml = $("#dicTempl").render({'dics':list});
 					$("#dicUl").html(dicHtml);
-					var interestList = eval('('+configInterestList+")");
-					for(var i=0;i<interestList.length;i++){
-						var id = interestList[i].businessId;
-						$("#dic_"+id).addClass("current");
+					if(configInterestList!=""){
+						var interestList = eval('('+configInterestList+")");
+						for(var i=0;i<interestList.length;i++){
+							var id = interestList[i].businessId;
+							$("#dic_"+id).addClass("current");
+						}
 					}
+					
 				}
 			});
         },

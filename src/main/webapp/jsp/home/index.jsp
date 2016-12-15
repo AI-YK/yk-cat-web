@@ -10,7 +10,7 @@
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 </head>
 
-<body>
+<body class="index-bj">
 <!--弹出-->
   <div class="eject-big">
 		<div class="eject-small" id="classification">
@@ -42,7 +42,11 @@
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
 					<li>
-						<a href="#" id="choice-city">北京.朝阳<i class="icon iconfont">&#xe659;</i></a>
+						<a href="#" id="choice-city">
+						<c:forEach items="${config.city }" var="city">
+							${city.nameZh }
+						</c:forEach>
+						<i class="icon iconfont">&#xe659;</i></a>
 					</li>
 					<div class="index-city" id="index-city">
 						<div class="city-sj"><img src="${uedroot}/images/city-sj.jpg" /></div>
@@ -148,7 +152,7 @@
        <div class="choice-list" >
 		  <ul>
              {{for list}}
-			    <li><a href="#"   {{if #getIndex()==0}}class="current"{{/if}}>{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+			    <li><a href="#" id="pro_{{:code}}" >{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
              {{/for}}
 		  </ul>
        </div>
@@ -169,7 +173,7 @@
 <script id="cityTempl" type="text/x-jsrender">
    <li>
 	  <p>
-		 <input type="checkbox" class="checkbox-fie city"  value="{{:code}}" />
+		 <input id="city_{{:code}}" type="checkbox" class="checkbox-fie city"  value="{{:code}}" />
 	  </p>
 	  <p>{{:name}}</p>
    </li>
@@ -177,11 +181,14 @@
 <script id="dicTempl" type="text/x-jsrender">
    {{for dics}}
    <li>
-		<a href="#" class="dic">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/>
+		<a id="dic_{{:dicValue}}" href="#" class="dic">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/>
    </li>
    {{/for}}
 </script>
 <script type="text/javascript">
+    var configInterestList = '${configInterestList}';
+    var provinceCodee='${provindeCode}';
+    var cityList='${citylist}';
     var pager;
     (function () {
         seajs.use('app/jsp/home/home', function (homePage) {
