@@ -177,10 +177,12 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		counts[i] = data[i].count;
         	}
         	var interval = 1;
-        	var max = 6;
+        	var max = 7;
+        	var g = parseInt(times.length/max);
         	if(times.length>max){
-        		interval  = parseInt(times.length/max)+times.length%max;
+        		interval  = g + times.length%max;
         	}
+        	
         	var option = {
         		    tooltip : {
         		        trigger: 'axis'
@@ -297,16 +299,17 @@ define('app/jsp/home/charts', function (require, exports, module) {
         				show :false
         		    },
         		    grid : {
-    					x : 40,
+    					x : 32,
     					y : 30,
-    					x2 : 20,
-    					y2 : 20
+    					x2 : 15,
+    					y2 : 22
     				},
         		    legend: {
         				show: true,
         		        data:['正面','负面'],
         				textStyle :{
-        					color: '#1180d3'
+        					color: '#697398',
+        					fontSize:13
         				},
         				x:'right'
         		    },
@@ -328,13 +331,17 @@ define('app/jsp/home/charts', function (require, exports, module) {
         					axisLabel: { 
         						show: true, 
         						textStyle: { 
-        							color: '#215198' 
+        							color: '#697398',
+        							fontSize:13
         						} 
         		            },
+        		            axisTick:{
+       		            	    show: false 
+       		                },
        		                axisLine:{
     		            	    show: true,
     		            	    lineStyle:{
-    		            	    	color:'#596593',
+    		            	    	color:'#3a415a',
     		            	    	width:2
     		            	    }
     		                }
@@ -347,16 +354,29 @@ define('app/jsp/home/charts', function (require, exports, module) {
         					axisLabel:{ 
         						show: true, 
         						textStyle: { 
-        							color: '#215198' 
-        						} 
+        							color: '#697398',
+        							fontSize:13
+        						},
+        						formatter:function(val){
+        							if(val>1000){
+        								return val/1000+"K";
+        							}else{
+        							    return val;	
+        							}
+        							
+        						}
+        		             },
+        		             axisTick:{
+        		            	 show: false 
         		             },
         		             axisLine:{
         		            	 show: false
         		             },
         		             splitLine:{
            					  lineStyle:{
-           		                color:'#596593',
-           					    type:'dashed'
+           		                color:'#2e344b',
+           					    type:'dashed',
+           					    width:0.8
            					  }
            					}
         		        }
