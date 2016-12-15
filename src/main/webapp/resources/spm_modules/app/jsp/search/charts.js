@@ -153,6 +153,14 @@ define('app/jsp/search/charts', function(require, exports, module) {
 						textStyle : {
 							color : '#666666',
 							fontSize : 12
+						},
+						formatter:function(val){
+							if(val>1000){
+								return val/1000+"K";
+							}else{
+							    return val;	
+							}
+							
 						}
 					}
 				} ],
