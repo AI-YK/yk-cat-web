@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,10 +43,13 @@
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
 					<li>
-						<a href="#" id="choice-city">
+						<a href="#" id="choice-city">${config.province.nameZh }.
+						<c:if test="${fn:length(config.city)>1 }"> 多城市</c:if>
+						<c:if test="${fn:length(config.city)==1}">
 						<c:forEach items="${config.city }" var="city">
 							${city.nameZh }
 						</c:forEach>
+						</c:if>
 						<i class="icon iconfont">&#xe659;</i></a>
 					</li>
 					<div class="index-city" id="index-city">
