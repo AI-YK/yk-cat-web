@@ -441,7 +441,8 @@ function selectCity(mc,jd,wd,gj,cs,start_datetime,end_datetime,classify){
 	 var ajax_url="";
 	 var ajax_data;
 	 if(pd=='1'){
-		 ajax_url='news/searchCountryInteface';//搜索国家
+//		 ajax_url='news/searchCountryInteface';//搜索国家
+		 ajax_url=path +'/newsbmap/json/searchCityInteface.json';//搜索国家
 		 ajax_data={
 		 	'countrychinaname':gj
 		 };
@@ -815,14 +816,15 @@ function initBMap(){
 function init(){
 	$.ajax({
 	   // url: "news/classify/selectAll",
-		url:path + "/bmap/getSelectAllData",
+		url:path + "/newsbmap/json/selectAllJson.json",
 	    data: '',
 	    dataType: "json",
 	    success: function(data){
 	    	var data =eval(data);
 	    	$("#type").empty();
 	    	var s="";
-	    	var html='<li class=" menu onnx" onclick="go(this,\''+s+'\')">'+$("#nhn7").val()+/*'全部'*/'</li>';
+//	    	var html='<li class=" menu onnx" onclick="go(this,\''+s+'\')">'+$("#nhn7").val()+/*'全部'*/'</li>';
+	    	var html='<li class=" menu onnx" onclick="go(this,\''+s+'\')">'+'全部'+'</li>';
 	    	$("#type").append(html);
 	    	if(data!=''){
 	    		var num=0;

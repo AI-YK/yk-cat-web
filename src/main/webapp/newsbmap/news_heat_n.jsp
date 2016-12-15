@@ -139,9 +139,11 @@
 	</head>
 	<body>
 	        <!--头部开始-->
-            <c:import url="http://news.yeesight.com/common/header/old">
-	            <c:param name="navType" value="newsBigData" />
-		    </c:import>
+	        <div style="display:none;">
+	            <c:import url="http://news.yeesight.com/common/header/old">
+		            <c:param name="navType" value="newsBigData" />
+			    </c:import>
+		    </div>
             <!--头部结束-->
  
             <!--时间轴开始-->
@@ -217,7 +219,9 @@
 			<!--筛选菜单结束-->
  
 		    <!--底部开始-->
-		    <c:import url="http://news.yeesight.com/common/news_footer"/>
+		    <div style="display:none;">
+		    	<c:import url="http://news.yeesight.com/common/news_footer"/>
+		    </div>
 		    <!--底部结束-->
  
             
