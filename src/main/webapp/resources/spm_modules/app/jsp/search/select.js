@@ -12,7 +12,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         setup: function () {
         	SelectUtil.superclass.setup.call(this); 
         },
-        initOrgSelect(selectIds){
+        initOrgSelect:function(selectIds){
         
         	var url = _base +"/common/getQueryAreaOrEconomicOrganizations";
         	var param={};
@@ -41,7 +41,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	    
         	});
         },
-        initLanguageSelect(selectIds){
+        initLanguageSelect:function(selectIds){
         	var url = _base +"/common/getQueryInfoLanguage";
         	var param={};
         	param.language="zh";
@@ -68,7 +68,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	    
         	});
         },
-        initDicSelect(selectIds){
+        initDicSelect:function(selectIds){
         	var url = _base +"/common/getDicByTypeAndLanguage";
         	var param={};
         	param.language="zh";
