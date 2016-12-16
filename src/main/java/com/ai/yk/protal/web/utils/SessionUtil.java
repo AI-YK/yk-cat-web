@@ -5,11 +5,13 @@ import java.util.Enumeration;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.ai.yk.protal.web.constants.Constants;
+import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
@@ -17,7 +19,14 @@ import com.google.gson.Gson;
 
 public final class SessionUtil {
 	private SessionUtil(){}
-	
+	static{
+		initUrlConfig();
+	}
+	public static void initUrlConfig(){
+		 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		 HttpSession session = request.getSession();
+		 session.setAttribute(Constants.SUBJECT_ANALYSIS_URL_KEY, YeesightApiConstants.subjectAnalysisUrl);
+	}
 	public static SSOClientUser getLoginUser() {
 	    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 	    SSOClientUser loginUser = (SSOClientUser) request.getSession().getAttribute(Constants.USER_SESSION_KEY);
