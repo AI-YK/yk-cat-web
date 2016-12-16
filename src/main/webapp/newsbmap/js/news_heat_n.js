@@ -1,5 +1,4 @@
-var path="/yk-pa-web";
-
+//var path="/yk-pa-web";
 var domain="";
 var myChart,myChart3,myBmapChart;
 var fg="1";//默认所有分类
@@ -9,6 +8,7 @@ var end_datetime='';//结束时间
 var event_code='';//事件分类表
 var country_class='';//国家种族分类
 var classify='';//新闻分类
+var sourceType ='';
 var imgs="images/temp/nopic.jpg";///zypublish-web/src/main/webapp/resources/images/news/nopic.jpg
 var imgszx="images/temp/nopic.jpg";///zypublish-web/src/main/webapp/resources/images/news/nopic.jpg
 var flags=true;//控制第一次
@@ -442,7 +442,7 @@ function selectCity(mc,jd,wd,gj,cs,start_datetime,end_datetime,classify){
 	 var ajax_data;
 	 if(pd=='1'){
 //		 ajax_url='news/searchCountryInteface';//搜索国家
-		 ajax_url=path +'/newsbmap/json/searchCityInteface.json';//搜索国家
+		 ajax_url='${path}' +'/newsbmap/json/searchCityInteface.json';//搜索国家
 		 ajax_data={
 		 	'countrychinaname':gj
 		 };
@@ -484,7 +484,7 @@ function selectCity(mc,jd,wd,gj,cs,start_datetime,end_datetime,classify){
 				 				if(isData=='1'){//存在
 				 					if($(".ssk").val()==''){
 				 						if($('.xz_bottom_left .xz_chengshi').text()!="城市"){
-				 						$('.nav_left .guojia').html(gj+$('.dian').html()+cs);
+				 						$('.nav_left .guojia').html(gj+$('.dian').html()+cs);/////////========
 				 					}else{
 				 						$('.nav_left .guojia').html(gj);
 				 					}
@@ -813,14 +813,19 @@ function initBMap(){
 	myBmapChart = echarts.init(document.getElementById('echatesq'));
 }
 //初始化分类列表
+/**
+ * lixiang 2016-12-15
+ * 舆情分类
+ */
 function init(){
 	$.ajax({
 	   // url: "news/classify/selectAll",
-		url:path + "/newsbmap/json/selectAllJson.json",
+//		url:path + "/newsbmap/json/selectAllJson.json",
+		url:path + "/common/getDic",
 	    data: '',
 	    dataType: "json",
 	    success: function(data){
-	    	var data =eval(data);
+	    	var data =eval(data.data);
 	    	$("#type").empty();
 	    	var s="";
 //	    	var html='<li class=" menu onnx" onclick="go(this,\''+s+'\')">'+$("#nhn7").val()+/*'全部'*/'</li>';
@@ -828,7 +833,8 @@ function init(){
 	    	$("#type").append(html);
 	    	if(data!=''){
 	    		var num=0;
-	    		$.each(data.data.results, function(commentIndex, dv){
+//	    		$.each(data.data.results, function(commentIndex, dv){
+	    		$.each(data, function(commentIndex, dv){
 	    			var htmlV='';
 	    			if(commentIndex < 10){
 	    				htmlV+='<li class="menu " onclick="go(this,\''+dv.dicName+'\')">'+(($("#language").val()=="en")? dv.dicNameEn : dv.dicName)+'</li>';
@@ -944,12 +950,14 @@ function get_event_point_data(){
 //	 var ajax_url=path + '/getTopicListIntefaceData';//大框
 	 //yk-pa-web\src\main\webapp\newsbmap\json
 	 var ajax_url=path + '/newsbmap/json/topicListIntefaceJson.json';//大框
+	// var ajax_url=path + '/bmap/getTopicListIntefaceData';//大框
 	// alert(ajax_url);
 	 var ajax_dataV={
 	 	'beginDate':start_datetime,
 	 	'endDate':end_datetime,
 	 	'countrychinaname':country_class,
 	 	'classify':classify,
+	 	'sourceType' : '1',//新闻热点
 	 	'pageSize':50,
 	 	'pageSizeBig':50,//所有
 	 	'flag':fg,
@@ -1672,6 +1680,7 @@ function getNewsHtml(currentPoint){
 			city=currentPoint.city;
 		}
 	}
+	//alert(123);
 	
 // '+'【'+$("#nhn3").val()+'】'+'
 	return $('<div class="echart_tip"><div class="dialog_title echart_content"><a title="'+currentPoint.name+'"  href="'+currentPoint.url+'" target="_blank" ><span style="color:#c82139;font-size:14px;"></span>'+valid(name)+'</a>'+valid(city)  +'&nbsp;&nbsp;'+strDate(currentPoint.newsdateview)+'</div>' +

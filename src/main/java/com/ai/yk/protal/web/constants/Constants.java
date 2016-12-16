@@ -10,5 +10,5 @@ public final class Constants {
 	
 	public final static String TOPIC_SESSION_KEY = "topic";
 	//专题url key
-	public final static String SUBJECT_ANALYSIS_URL_KEY = "subjectAnalysisUrl";
+	public final static String YEESIGHT_URL_KEY = "yeesightUrls";
 }

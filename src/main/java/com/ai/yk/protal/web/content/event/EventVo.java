@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class EventVo implements Serializable {
     private static final long serialVersionUID = -931147144629978354L;
 	/**主键id**/
-	private int id;
+	private Integer id;
 	/**数据中心id**/
 	private String srcId;
 	/**事件创建时间**/
@@ -37,11 +37,11 @@ public class EventVo implements Serializable {
 	/**英文摘要**/
 	private String enSummary;
 	/**所属分类**/
-	private int type;
+	private Integer type;
 	/**行业类型**/
-	private int industryType;
+	private Integer industryType;
 	/**数据类型**/
-	private int sourceType;
+	private Integer sourceType;
 	/**经度**/
 	private String longitude;
 	/**纬度**/
@@ -50,10 +50,14 @@ public class EventVo implements Serializable {
 	private Long heatValue;
 	/**图片地址**/
 	private String imgUrl;
-	public int getId() {
+	/**创建时间**/
+	private String createTimeView;
+	/**修改时间**/
+	private String updateTimeView;
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getSrcId() {
@@ -146,22 +150,22 @@ public class EventVo implements Serializable {
 	public void setEnSummary(String enSummary) {
 		this.enSummary = enSummary;
 	}
-	public int getType() {
+	public Integer getType() {
 		return type;
 	}
-	public void setType(int type) {
+	public void setType(Integer type) {
 		this.type = type;
 	}
-	public int getIndustryType() {
+	public Integer getIndustryType() {
 		return industryType;
 	}
-	public void setIndustryType(int industryType) {
+	public void setIndustryType(Integer industryType) {
 		this.industryType = industryType;
 	}
-	public int getSourceType() {
+	public Integer getSourceType() {
 		return sourceType;
 	}
-	public void setSourceType(int sourceType) {
+	public void setSourceType(Integer sourceType) {
 		this.sourceType = sourceType;
 	}
 	public String getLongitude() {
@@ -188,39 +192,17 @@ public class EventVo implements Serializable {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-	public EventVo(int id, String srcId, String dayTime, String srcTitle, String zhTitle,
-			String enTitle, String zhCountry, String enCountry, String zhCity, String enCity, String srcSource,
-			String zhSource, String enSource, String srcSummary, String zhSummary, String enSummary, int type,
-			int industryType, int sourceType, String longitude, String latitude, Long heatValue,
-			String imgUrl) {
-		super();
-		this.id = id;
-		this.srcId = srcId;
-		this.dayTime = dayTime;
-		this.srcTitle = srcTitle;
-		this.zhTitle = zhTitle;
-		this.enTitle = enTitle;
-		this.zhCountry = zhCountry;
-		this.enCountry = enCountry;
-		this.zhCity = zhCity;
-		this.enCity = enCity;
-		this.srcSource = srcSource;
-		this.zhSource = zhSource;
-		this.enSource = enSource;
-		this.srcSummary = srcSummary;
-		this.zhSummary = zhSummary;
-		this.enSummary = enSummary;
-		this.type = type;
-		this.industryType = industryType;
-		this.sourceType = sourceType;
-		this.longitude = longitude;
-		this.latitude = latitude;
-		this.heatValue = heatValue;
-		this.imgUrl = imgUrl;
+	public String getCreateTimeView() {
+		return createTimeView;
 	}
-	public EventVo() {
-		super();
+	public void setCreateTimeView(String createTimeView) {
+		this.createTimeView = createTimeView;
 	}
-	
+	public String getUpdateTimeView() {
+		return updateTimeView;
+	}
+	public void setUpdateTimeView(String updateTimeView) {
+		this.updateTimeView = updateTimeView;
+	}
 	
 }

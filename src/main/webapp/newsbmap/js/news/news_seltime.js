@@ -167,7 +167,7 @@
 			
 			
 	
-		/*function fun(curr){
+		function fun(curr){
 			
 			switch (curr){
 	 		case 1: return '&nbsp;'+'&nbsp;'+'<a style="color:#d0e7ff;">Jan</a>'+'&nbsp;'+'&nbsp;';break;
@@ -183,7 +183,7 @@
 	 		case 11: return '&nbsp;'+'&nbsp;'+'<a style="color:#d0e7ff;">Nov</a>'+'&nbsp;'+'&nbsp;';break;
 	 		case 12: return '&nbsp;'+'&nbsp;'+'<a style="color:#d0e7ff;">Dec</a>'+'&nbsp;'+'&nbsp;';break;
 			}
-		}*/
+		}
 
 		
 		timehtml+='<li class="time1 ts" style="width:3.22%;text-align:center;cursor:default;user-select:none;"><div class="time3" style="user-select:none;cursor:default;">'+timgNew(new Date().getMonth()+1)+'</div></li>';
@@ -262,6 +262,7 @@
 				 	    $.each(data.data,function(i,o){
 				 	    	html+='<dd><a href="javascript:" class="chengshi_a">'+(($("#language").val()=="en")?(o.nameEn) :( o.region)) +'</a><i class="cs_jd">'+o.geoLong+'</i><i class="cs_wd">'+o.geoLat+'</i></dd>';
 				 	    });
+				 	    alert(html);
 				 	    $('#city').html(html);
 				 	    $(".content").mCustomScrollbar({
 							autoHideScrollbar:true,

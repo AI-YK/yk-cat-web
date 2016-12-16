@@ -163,7 +163,7 @@ public final class HttpClientUtil {
         } catch (GeneralSecurityException e) {  
         	LOGGER.error(e.getMessage(),e);
         }  
-        return sslsf;  
+        return sslsf;   
     }
     private HttpServletRequest getRequest(){
     	HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

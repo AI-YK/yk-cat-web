@@ -2,13 +2,17 @@
 //切换右侧新闻列表
 //获取右侧热点新闻数据  新 误删
 function get_event_point_data_new(){
+//lixiang 2016-12-16 模拟数据
 //	var ajax_url='news/getNewsHeatPointListNewInteface';
-	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
+//	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
+	var ajax_url=path + '/bmap/NewsHeatPointListNewInteface';
+	
 	 var ajax_data={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
 	 	'countrychinaname':country_class,
 	 	'classify':classify,
+	 	'sourceType':2,//社交
 	 	'pageSize':5,
 	 	'gj':gj,
 	 	'cs':cs
@@ -109,7 +113,7 @@ function get_event_point_data_new(){
 	 	    	html+='<dl>';
 	 	    	html+='	<dt><a href="'+hf+'" target="_blank">'+topic+"&nbsp;&nbsp;"+'</a>'+sftj+'</dt>';
 	 	    	html+='<dd style="font-size:12px;color:#777;margin-bottom:12px;height:14px;">';
-	 	    	html+='<p style="float:left;">'+strDate(o.createTime)+'</p>';
+	 	    	html+='<p style="float:left;">'+o.dayTime+'</p>';
 	 	    	html+='<p style="display:none" title='+$("#nhn3").val()+' class="item3">'+$("#nhnl5").val()+'：'+isNull(o.refercountrynum)+$("#nhnl6").val()/*'个国家 '*/+isNull(o.refermedianum)+$("#nhnl7").val()+'</p>';/*"资讯"来源个媒体*/
 	 	    	html+='</dd>';
 	 	    	html+='	<dd class="info">';//images/temp/
@@ -141,14 +145,18 @@ function promptwaring(){
 //查询 话题  左侧 专题5条 
 //result_heat_topic
 function get_event_point_data_zixun(){
-	 
+// lixiang 2016-12-16 模拟数据	 
 //	 var ajax_url='news/getNewsHeatPointListInformationInteface';
-	 var ajax_url=path + '/newsbmap/json/NewsHeatPointListInformationInteface.json';
+//	 var ajax_url=path + '/newsbmap/json/NewsHeatPointListInformationInteface.json';
+//	alert(123);
+	 var ajax_url=path + '/bmap/getTopicListIntefaceData';
+	
 	 var ajax_data1={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
 	 	'countrychinaname':country_class,
 	 	'classify':classify,
+	 	'sourceType' : '1',//新闻热点
 	 	'gj':gj,
 	 	'cs':cs
 	 };
@@ -159,11 +167,13 @@ function get_event_point_data_zixun(){
 	 //}
 	// console.log("------专题------------",ajax_data1);
 	 $.post(ajax_url,ajax_data1,function(data){
-//	 	    var result=JSON.parse(data);
+//		 	alert(data);
+//	 	    var result=JSON.parse(data.data.result);
+	 	    var result=eval(data.data.result);
 	 	    $('#newsinfo li:not([class])').remove();
 	 	    //$('#newsinfo .more_box').empty();
 	 	    var html='';
-	 	    $.each(data.data.results,function(i,o){
+	 	    $.each(result,function(i,o){
 	 	    	html+='<li>';
 	 	    	if(i<3){
 	 	    		html+='<i class="hot">'+(i+1)+'</i><!--num-->';
@@ -175,19 +185,25 @@ function get_event_point_data_zixun(){
     			if(o.gnsource=='0'){
     				sftj="<span class='zt'>"+$("#nhnl1").val()+"</span>";/*推荐*/
     			}
-    			
-	 	    	var topic=isNull(o.topic);
-    			//if(topic!=null && topic.length>15){
-    				//topic=topic.substring(0,15);
-    			//}
-	 	    	var city=isNull(o.city);
-	 	    	var countryChinaName=isNull(o.countryChinaName);
-	 	    	var classify=isNull(o.classifyChinese);
-    			var topicDigest=isNull(o.topicDigest);
+	 	    	//var topic=isNull(o.topic);
+	 	    	//var city=isNull(o.city);
+	 	    	//var countryChinaName=isNull(o.countryChinaName);
+	 	    	//var classify=isNull(o.classifyChinese);
+    			//var topicDigest=isNull(o.topicDigest);
     			//console.log("----------",countryChinaName,classify,topicDigest);
-    			if(topicDigest!=null && topicDigest.length>35){
+    			/*if(topicDigest!=null && topicDigest.length>35){
     				topicDigest=topicDigest.substring(0,35)+"...";
-    			} 
+    			}*/ 
+    			//源标题
+    			var srcTitle = isNull(o.srcTitle);
+    			//中文标题
+    			var zhTitle = o.zhTitle;
+    			/**中文城市名称**/
+    			var city = isNull(o.zhCity);
+    			
+    			var zhCountry = isNull(o.zhCountry);
+    			
+    			var type = isNull(o.type);
     			
     			if($("#language").val()=="en"){
     				if(isNull(o.topicEnglish)!=''){
@@ -211,23 +227,23 @@ function get_event_point_data_zixun(){
     	    			topicDigest=o.summaryEnglish.substring(0,35)+"...";
     				}
     			}else{
-    				
-     		      if(isNull(o.topicChinese)!=''){
-     		    	 topic=o.topicChinese;
-   				  }
-     		      if(isNull(o.countryChinaName)!=''){
-     		    	 countryChinaName=o.countryChinaName;
+    			/*	
+     		      if(isNull(o.zhTitle)!=''){
+     		    	 topic=o.zhTitle;
+   				  }*/
+     		      if(isNull(o.zhCountry)!=''){
+     		    	 zhCountry=o.zhCountry;
   				  }
-     		      if(isNull(o.classifyChinese)!='' ){
-     		    	 classify=o.classifyChinese;
+     		      if(isNull(o.type)!='' ){
+     		    	 type=o.type;
   				  }
-     		      if(isNull(o.summaryChinese)!='' && o.summaryChinese.length>35){
+     		     /* if(isNull(o.summaryChinese)!='' && o.summaryChinese.length>35){
 	    				topicDigest=o.summaryChinese.substring(0,35)+"...";
-	    			} 
+	    			} */
      		      if(isNull(o.city)!=''){
    		        	city="."+o.city;
    		          }
-   		          if(countryChinaName==o.city && isNull(o.city)!=''){
+   		          if(zhCountry==o.city && isNull(o.city)!=''){
    		        	city="";
    		          }
     			}
@@ -236,39 +252,40 @@ function get_event_point_data_zixun(){
     			//special/topic/news?infoId=40288c9054710a790154710e357a0002
     			var hf="";
     			var viewhf = "";
-    			if(o.subjectId=='' || o.subjectId==null ||  o.subjectId==-1){
+    			if(o.id=='' || o.id==null ||  o.id==-1){
     				var top_ic="";
-    				if(null!=topic && "null"!=topic && ""!=topic){
-    					top_ic=topic;
+    				if(null!=zhTitle && "null"!=zhTitle && ""!=zhTitle){
+    					top_ic=zhTitle;
     				}
     				hf='<a href="javascript:promptwaring();" title="'+top_ic+'">'+top_ic+"&nbsp;&nbsp;"+'</a>'+sftj;
     				viewhf='<a href="javascript:promptwaring();" style="float: right;display:none">'+$("#nhnl4").val()+'&gt;</a>';/*查看详情*/
     			}else{
     				var top_ic="";
-    				if(null!=topic && "null"!=topic && ""!=topic){
-    					top_ic=topic;
+    				if(null!=zhTitle && "null"!=zhTitle && ""!=zhTitle){
+    					top_ic=zhTitle;
     				} 
     				//hf='<a href="special/topic/news?infoId='+o.subjectId+'&source=4" title="'+top_ic+'" target="_blank">'+top_ic+"&nbsp;&nbsp;"+sftj+'</a>';
     				//viewhf='<a href="special/topic/news?infoId='+o.subjectId+'&source=4" style="float: right;display:none" target="_blank">查看详情&gt;</a>';
     				//&keyWord='+encodeURIComponent(o.keyWord)+'
-    				hf='<a href="'+domain+'/analysis/topic/index?id='+o.subjectId+'&source=4&opType=&srcId=&newsFlag=-1" title="'+top_ic+'" target="_blank">'+top_ic+"&nbsp;&nbsp;"+'</a>'+sftj;
-    				viewhf='<a href="'+domain+'/analysis/topic/index?id='+o.subjectId+'&source=4&opType=&srcId=&newsFlag=-1" style="float: right;display:none" target="_blank">'+$("#nhnl4").val()+'&gt;</a>';/*查看详情*/
+    				hf='<a href="'+domain+'/analysis/topic/index?id='+o.id+'&source=4&opType=&srcId=&newsFlag=-1" title="'+top_ic+'" target="_blank">'+top_ic+"&nbsp;&nbsp;"+'</a>'+sftj;
+    				viewhf='<a href="'+domain+'/analysis/topic/index?id='+o.id+'&source=4&opType=&srcId=&newsFlag=-1" style="float: right;display:none" target="_blank">'+$("#nhnl4").val()+'&gt;</a>';/*查看详情*/
 
     			} 
     			var imgdis="none";
-    			if(o.picture!='' && null !=o.picture && "null"!=o.picture){
-    				imgs=o.picture;
+    			if(o.imgUrl!='' && null !=o.imgUrl && "null"!=o.imgUrl){
+    				imgs = o.imgUrl;
+    				imgs="";
     				imgdis="inline";
     			}
     			//alert(imgs);
     			var disgj="none";
-    			if(""!=o.referCountryNum || null !=o.referCountryNum || "null" !=o.referCountryNum){
+    			/*if(""!=o.referCountryNum || null !=o.referCountryNum || "null" !=o.referCountryNum){
     				disgj="inline";
-    			}
+    			}*/
     			var dismt="none";
-    			if(""!=o.referMediaNum || null !=o.referMediaNum || "null" !=o.referMediaNum){
+    			/*if(""!=o.referMediaNum || null !=o.referMediaNum || "null" !=o.referMediaNum){
     				dismt="inline";
-    			}
+    			}*/
     			var all="none";
     			if("none"!=disgj && "none"!=dismt){
     				all="inline";
@@ -278,16 +295,16 @@ function get_event_point_data_zixun(){
 	 	    	html+='<dl>';
 	 	    	html+='	<dt>'+hf+'</dt>';
 	 	    	html+='<dd style="font-size:12px;color:#777;margin-bottom:12px;height:14px;">';
-	 	    	html+='<p style="float:left;">'+strDate(o.newDate)+'</p>';
-	 	    	html+='<p class="item3" title='+$("#nhn3").val()+' id="ly" style="display:'+all+'">'/*+$("#nhnl5").val()*/+'<span id="gj" style="display:'+disgj+'">'+isNullOrNum(o.referCountryNum)+$("#nhnl6").val()+'</span>&nbsp;&nbsp;<span id="mt" style="display:'+dismt+'">'+isNullOrNum(o.referMediaNum)+$("#nhnl7").val()+'</span></p>';/*"专题"  来源个国家'个媒体
+	 	    	html+='<p style="float:left;">'+o.dayTime+'</p>';
+	 	    	html+='<p class="item3" title='+$("#nhn3").val()+' id="ly" style="display:'+all+'">'/*+$("#nhnl5").val()*/+'<span id="gj" style="display:'+disgj+'">'+$("#nhnl6").val()+'</span>&nbsp;&nbsp;<span id="mt" style="display:'+dismt+'">'+$("#nhnl7").val()+'</span></p>';/*"专题"  来源个国家'个媒体
 */	 	    	html+='</dd>';
 	 	    	html+='	<dd class="info">';//images/temp/
 	 	    	html+='<p class="img_p"><img alt=""  style="display:'+imgdis+'" src="'+imgs+'" onerror="this.src=\'images/temp/nopic.jpg\'" width="90" height="70"/></p>';
-	 	    	html+='<p class="txt_p">'+topicDigest+viewhf+'<p>';
+	 	    	html+='<p class="txt_p">'+zhTitle+viewhf+'<p>';
 	 	    	html+='</dd>';
 	 	    	html+='<dd class="item">';
-	 	    	html+='<p class="item1">'+classify+'</p>';
-	 	    	html+='<p class="item2">'+countryChinaName+""+city+'</p>';
+	 	    	html+='<p class="item1">'+type+'</p>';
+	 	    	html+='<p class="item2">'+zhCountry+""+city+'</p>';
 	 	    	html+='</dd>';
 	 	    	html+='</dl>';
 	 	    	html+='</li>';

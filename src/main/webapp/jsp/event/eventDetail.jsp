@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>新闻详情</title>
+<title>事件详情</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
@@ -29,7 +29,7 @@
 				<p>
 					<a href="#">首页</a>>
 				</p>
-				<p>${newsDetails.zhTitle}</p>
+				<p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.zhTitle}</p>
 			</div>
 		</div>
 	</div>
@@ -37,29 +37,29 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title">${newsDetails.zhTitle}</div>
+				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.zhTitle}</div>
 				<div class="news-detail-information">
 					<ul>
 						<li>
 						<c:choose>
-						  <c:when test="${newsDetails.zhSource!=null && _currentLan == 'zh_CN'}">
-						   ${newsDetails.zhSource}
+						  <c:when test="${eventDetail.zhSource!=null && _currentLan == 'zh_CN'}">
+						   ${eventDetail.zhSource}
 						  </c:when>
-						   <c:when test="${newsDetails.enSource!=null && _currentLan != 'zh_CN'}">
-						   ${newsDetails.enSource}
+						   <c:when test="${eventDetail.enSource!=null && _currentLan != 'zh_CN'}">
+						   ${eventDetail.enSource}
 						  </c:when>
 						  <c:otherwise>
-						  ${newsDetails.srcSource}
+						  ${eventDetail.srcSource}
 						  </c:otherwise>
 						  </c:choose>
 						</li>
 						<li>
-						<fmt:parseDate value="${newsDetails.pubdate}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
+						<fmt:parseDate value="${eventDetail.createTimeView}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
-						<li>${newsDetails.languageTName}</li>
-						<li>${newsDetails.countryNameZh}<img height="14px" src="${uedroot}/images/country/${newsDetails.countryNameEn}@2x.png" /></li>
-						<li class="zhuanz">转载量：<span>${newsDetails.view}</span></li>
+						<li></li>
+						<li>${eventDetail.zhCountry}<img height="14px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
+						<li class="zhuanz">转载量：<span>${eventDetail.heatValue}</span></li>
 						<li class="yuyan" id="yuyan"><a href="#"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
@@ -69,7 +69,7 @@
 									<a href="javascrpt:;" class="ahov3"><li>原译混排</li></a>
 								</ul>
 							</div></li>
-						<!-- <li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
+						<li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
 						<li class="x-red"><a href="#"><i class="icon iconfont">&#xe666;</i><span id="collCount">0</span></a></li>
 						<li class="share" id="share1"><a href="#"><i
 								class="icon iconfont shareicon">&#xe667;</i></a>
@@ -80,24 +80,24 @@
 									<a href="javascrpt:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
 									<a href="javascrpt:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
 								</ul>
-							</div></li> -->
+							</div></li>
 					</ul>
 				</div>
 				<div class="news-detail-news">
 				  <c:choose>
-				  <c:when test="${newsDetails.zhContent!=null && _currentLan == 'zh_CN'}">
-				   ${newsDetails.zhContent}
+				  <c:when test="${eventDetail.zhSummary!=null && _currentLan == 'zh_CN'}">
+				   ${eventDetail.zhSummary}
 				  </c:when>
-				   <c:when test="${newsDetails.enContent!=null && _currentLan != 'zh_CN'}">
-				   ${newsDetails.enContent}
+				   <c:when test="${eventDetail.enSummary!=null && _currentLan != 'zh_CN'}">
+				   ${eventDetail.enSummary}
 				  </c:when>
 				  <c:otherwise>
-				  ${newsDetails.srcContent}
+				  ${eventDetail.srcSummary}
 				  </c:otherwise>
 				  </c:choose>
 				 
 				</div>
-				<!-- <div class="news-detail-share">
+				<div class="news-detail-share">
 					<ul class="bdsharebuttonbox">
 						<li>分享到：</li>
 						<li id="bottom_share" class="right">
@@ -112,7 +112,7 @@
 							</p>
 						</li>
 					</ul>
-				</div> -->
+				</div>
 			</div>
 		</div>
 		<div class="levle-right">
@@ -125,7 +125,9 @@
 					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
 				</div>
 				<!--图表嵌套区域-->
-				<div class="levle-right-chart-list">图表嵌套区域</div>
+				<div class="levle-right-chart-list">
+				<img src="${uedroot}/images/chbo.png">
+				</div>
 				<!--/图表嵌套区域结束-->
 
 			</div>
@@ -153,7 +155,7 @@
 
         });
     })();
-	/* window._bd_share_config = {
+	window._bd_share_config = {
 		common : {
 			bdText : '${news.zhContent}',	
 			bdDesc : '${news.zhSummary}',	
@@ -164,10 +166,10 @@
 		slide : [{}]
 	}
 	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-	 */
+	
 	function initialize() {  
 		var map = new BMap.Map("baiduContainer");          // 创建地图实例  
-		var point = new BMap.Point("${news.longitude}"*1, "${news.latItude}"*1);  // 创建点坐标  
+		var point = new BMap.Point("${eventDetail.longitude}"*1, "${eventDetail.latitude}"*1);  // 创建点坐标  
 		map.centerAndZoom(point, 22);                 // 初始化地图，设置中心点坐标和地图级别  
 	} 
 
@@ -177,7 +179,7 @@
 		        document.body.appendChild(script);
 	}
 	window.onload = loadScript;
-	/* $(document).ready(function(){
+	$(document).ready(function(){
 		 var _res = setInterval(function(){
 			 var box = $(".bdshare-slide-button-box");
             if(box.length > 0){
@@ -186,8 +188,8 @@
              }
          },500);
 		
-	}); */
-	var newsDetailsId ="${newsDetails.id}";	
+	});
+	var eventDetailId ="${eventDetail.id}";	
 </script>
 </body>
 </html>

@@ -5,7 +5,7 @@
 html,body{ width: 100%; height: 100%; position: relative; clear: both;background-color:#0d1115;min-width: 1200px; overflow: auto;}
 
 /*echarts闂侀潻闄勫妯好归敓锟�*/
-.container{width:100%;position: absolute;left: 0;width: 100%;overflow: hidden;top: 95px; background: url(../../images/news/point_bg1.jpg) no-repeat center top;}
+.container{width:100%;left: 0;width: 100%;overflow: hidden;top: 95px; background: url(../../images/news/point_bg1.jpg) no-repeat center top;}
 #echates{height:100%;width:100%;}
 .container .echarts_name{position: absolute;top:44px; left: 38px; height: 30px; line-height: 30px;}
 .container .echarts_name h1{font-size: 32px; color: #ffffff; font-weight: bold;}
