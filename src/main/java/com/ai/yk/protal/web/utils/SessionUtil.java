@@ -11,7 +11,6 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.ai.yk.protal.web.constants.Constants;
-import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
@@ -25,7 +24,7 @@ public final class SessionUtil {
 	public static void initUrlConfig(){
 		 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		 HttpSession session = request.getSession();
-		 session.setAttribute(Constants.SUBJECT_ANALYSIS_URL_KEY, YeesightApiConstants.subjectAnalysisUrl);
+		 session.setAttribute(Constants.YEESIGHT_URL_KEY,ConfigUtil.config);
 	}
 	public static SSOClientUser getLoginUser() {
 	    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

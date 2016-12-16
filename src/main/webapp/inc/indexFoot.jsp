@@ -5,13 +5,13 @@
 		<ul>
 			<li>
 				<p>
-					<a href="#">关于我们</a>|
+					<a target="_bank" href="${yeesightUrls.yeesightAboutUrl}">关于我们</a>|
 				</p>
 				<p>
-					<a href="#">跨语言大数据</a>|
+					<a target="_bank" href="${yeesightUrls.yeesightBigDataUrl}">跨语言大数据</a>|
 				</p>
 				<p>
-					<a href="#">解决方案</a>
+					<a target="_bank" href="${yeesightUrls.yeesightSolutionUrl}">解决方案</a>
 				</p>
 			</li>
 			<li class="right">Copyright @2016 www.yeesight.com All rights

@@ -8,17 +8,17 @@ import java.util.Properties;
 
 public class ConfigUtil {
 
-	private static Properties mConfig;
+	public static Properties config;
 	private static String default_config_1 = "/config.properties";
 	static {
-		mConfig = new Properties();
+		config = new Properties();
 		InputStream is = null;
 		try {
 			@SuppressWarnings("rawtypes")
 			Class config_class = ConfigUtil.class;
 			is = new FileInputStream(new File(config_class.getResource(
 					default_config_1).toURI()));
-			mConfig.load(is);
+			config.load(is);
 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -35,6 +35,6 @@ public class ConfigUtil {
 	}
 
 	public static String getProperty(String key) {
-		return mConfig.getProperty(key);
+		return config.getProperty(key);
 	}
 }

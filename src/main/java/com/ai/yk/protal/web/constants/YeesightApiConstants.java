@@ -18,11 +18,8 @@ public class YeesightApiConstants {
 	}
 	//接口请求基础url
     private static String remoteBaseUrl="";
-    //专题url
-    public  static String subjectAnalysisUrl="";
     static{
     	remoteBaseUrl = ConfigUtil.getProperty("remoteBaseUrl");
-    	subjectAnalysisUrl = ConfigUtil.getProperty("subjectAnalysisUrl");
     }
     //系统来源
     public static final String API_SOURCE_SYSTEM="yeesightPublicSentiment";
