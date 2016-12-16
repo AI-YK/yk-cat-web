@@ -4,14 +4,15 @@
 function get_event_point_data_new(){
 //lixiang 2016-12-16 模拟数据
 //	var ajax_url='news/getNewsHeatPointListNewInteface';
-	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
-//	var ajax_url=path + '/bmap/NewsHeatPointListNewInteface';
+//	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
+	var ajax_url=path + '/bmap/NewsHeatPointListNewInteface';
 	
 	 var ajax_data={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
 	 	'countrychinaname':country_class,
 	 	'classify':classify,
+	 	'sourceType':2,//社交
 	 	'pageSize':5,
 	 	'gj':gj,
 	 	'cs':cs
