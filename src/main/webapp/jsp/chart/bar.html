@@ -1,265 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
+<meta charset="UTF-8">
+<title>Document</title>
 </head>
 <body>
-	
-
 <body>
-    <div id="main" style="height:400px;width: 100%;"></div>
+	<div id="main" style="height: 400px; width: 100%;"></div>
 
 
 
-<script src="echarts.min.js"></script>
+	<script src="echarts.min.js"></script>
 
-<script>
-	   var myChart = echarts.init(document.getElementById('main'));
-        var option = {
-    tooltip : {
-        show: true,
-        trigger: 'item'
-    },
-    legend: {
-		show:false,
-        data:['新浪网','BBC','CNN','人民网','搜狐网']
-    },
-    toolbox: {
-        show : false,
-        feature : {
-            mark : {show: true},
-            dataView : {show: true, readOnly: false},
-            magicType : {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-            restore : {show: true},
-            saveAsImage : {show: true}
-        }
-    },
-    calculable : true,
-    xAxis : [
-        {
-            type : 'category',
+	<script>
+		function echartsSpreadTread(elementId, edata2) {
 
-            data : ['08-01','08-02','08-03','08-04']
-        }
-    ],
-    yAxis : [
-        {
-           show:false
-        }
-		
-    ],
-    series : [
-        {
-            name:'新浪网',
-            type:'bar',
-            barGap: 10,
-            barMaxWidth:2,
-            itemStyle: {        // 系列级个性化样式，纵向渐变填充
-          		normal:{
-          			color:'#0d65a8',
-          			label: {
-	                    show: true,
-	                    position: 'top',
-	                    formatter: function(a) {
-	                    	var labelName = a.seriesName || '';
-	                    	return resetStr(labelName);
-	                    }
-                	}
-            	},
-                emphasis: {
-                    barBorderWidth: 1,
-                    barBorderColor:'#0d65a8',
-                    color: '#0d65a8',
-                    label : {
-                        show : true,
-                        position : 'top',
-                        formatter : "{a} {b} {c}",
-                        textStyle : {
-                            color: '#2e9bed',
-                            fontSize:12
-                        }
-                    }
-                }
-            },
-            data:[120, 150, 80, 60],
-			markLine:{
-               symbol:[],
-			   itemStyle:{
-				   normal:{
-					 color:"#2e9bed",  
-                     lineStyle:{
-					 
-					 },
-				     label:{
-                       show:true,
-					   position:'left',
-					   formatter:function(item){
-					     return item.name;
-					   }
-					 }
-				   }
-			   },
-			   data:[
-			     {name: '低', xAxis: '-1', yAxis: 50},
-				 {name: '中', xAxis: '-1', yAxis: 100}
-			   ]
-			}
-        },
-        {
-            name:'BBC',
-            type:'bar',
-            barGap: 10,
-            barMaxWidth:2,
-            itemStyle: {        // 系列级个性化样式，纵向渐变填充
-          		normal:{
-          			color:'#0d65a8',
-          			label: {
-	                    show: true,
-	                    position: 'top',
-	                    formatter: function(a) {
-	                    	var labelName = a.seriesName || '';
-	                    	return resetStr(labelName);
-	                    }
-                	}
-            	},
-            	 emphasis: {
-                     barBorderWidth: 1,
-                     barBorderColor:'#0d65a8',
-                     color: '#0d65a8',
-                     label : {
-                         show : true,
-                         position : 'top',
-                         formatter : "{a} {b} {c}",
-                         textStyle : {
-                             color: '#6ac1f7',
-                             fontSize:12
-                         }
-                     }
-                 }
-            },
-            data:[56, 88, 101, 125]
-        },
-        {
-            name:'CNN',
-            type:'bar',
-            barGap: 10,
-            barMaxWidth:2,
-             
-            itemStyle: {        // 系列级个性化样式，纵向渐变填充
-       			normal:{
-       				color:'#0d65a8',
-          			label: {
-	                    show: true,
-	                    position: 'top',
-	                    formatter: function(a) {
-	                    	var labelName = a.seriesName || '';
-	                    	return resetStr(labelName);
-	                    }
-                	}
-            	},
-            	 emphasis: {
-                     barBorderWidth: 1,
-                     barBorderColor:'#0d65a8',
-                     color: '#0d65a8',
-                     label : {
-                         show : true,
-                         position : 'top',
-                         formatter : "{a} {b} {c}",
-                         textStyle : {
-                             color: '#6ac1f7',
-                             fontSize:12
-                         }
-                     }
-                 }
-            },
-            data:[98, 25, 130, 78]
-        },
-        {
-            name:'人民网',
-            type:'bar',
-            barGap: 10,
-            barMaxWidth:2,
-            itemStyle: {        // 系列级个性化样式，纵向渐变填充
-          		normal:{
-          			color:'#0d65a8',
-          			label: {
-	                    show: true,
-	                    position: 'top',
-	                    formatter: function(a) {
-	                    	var labelName = a.seriesName || '';
-	                    	return resetStr(labelName);
-	                    }
-                	}
-            	},
-            	 emphasis: {
-                     barBorderWidth: 1,
-                     barBorderColor:'#0d65a8',
-                     color: '#0d65a8',
-                     label : {
-                         show : true,
-                         position : 'top',
-                         formatter : "{a} {b} {c}",
-                         textStyle : {
-                             color: '#6ac1f7',
-                             fontSize:12
-                         }
-                     }
-                 }
-            },
-            data:[24, 128, 56, 77]
-        },
-        {
-            name:'搜狐网',
-            type:'bar',
-            barGap: 10,
-            barMaxWidth:2,
-            itemStyle: {        // 系列级个性化样式，纵向渐变填充
-          		normal:{
-          			color:'#0d65a8',
-          			label: {
-	                    show: true,
-	                    position: 'top',
-	                    formatter: function(a) {
-	                    	var labelName = a.seriesName || '';
-	                    	return resetStr(labelName);
-	                    }
-                	}
-            	},
-            	 emphasis: {
-                     barBorderWidth: 1,
-                     barBorderColor:'#0d65a8',
-                     color: '#0d65a8',
-                     label : {
-                         show : true,
-                         position : 'top',
-                         formatter : "{a} {b} {c}",
-                         textStyle : {
-                             color: '#6ac1f7',
-                             fontSize:12
-                         }
-                     }
-                 }
-            },
-            data:[220, 232, 101, 234]
-        }
+			myChart2 = echarts.init(document.getElementById(elementId));
+			var option = {
+				color : [ '#174879' ],
+				title : {
+					show : false,
+					text : 'ddd',
+					subtext : ''
+				},
+				tooltip : {
+					show : true,
+					trigger : 'axis'
+				},
+				grid : {
+					/*width:'100%',*/
+					top : '20%',
+					left : '-40',
+					right : '0',
+					bottom : '4%',
+					containLabel : true
+				},
+				legend : {
+					show : false,
+					data : edata2.media
+				/*data:['网易','新华网','搜狐网','CNN']*/
+				},
+				toolbox : {
+					show : false
+				},
+				xAxis : [ {
+					axisLabel : {
+						textStyle : {
+							color : '#3386c0'
+						}
+					},
+					type : 'category',
+					/* data : ['10-08','10-09','10-10','10-11','10-12','10-13','10-14','10-15']*/
+					/*data : ['10-08','10-09']*/
+					data : edata2.time
+				} ],
+				yAxis : [ {
+					type : 'value',
+					splitNumber : 3,
+					/*max:20,*/
+					axisLabel : {
+						margin : 20,
+						textStyle : {
+							color : '#333'
+						},
+						formatter : function(value, index) {
+							switch (index) {
+							case 0:
+								return 0;
+							case 1:
+								return "低";
+							case 2:
+								return "中";
+							case 3:
+								return "高"
+							}
+						}
+					},
+					axisLine : {
+						show : false
+					},
+					axisTick : {
+						show : false
+					},
+					splitLine : {
+						lineStyle : {
+							/*color:'#202f3e'*/
+							color : '#ccc'
+						}
+					}
+				} ],
+				series : [ {
+					name : edata2.media[0],
+					type : 'bar',
+					barWidth : 1,
+					barGap : '20px',
+					label : {
+						normal : {
+							show : true,
+							position : 'top',
+							formatter : function(param) {
+								/*var arry=param.seriesName.split('');
+								return arry.join('\n')+'\n';*/
+								var arry = param.seriesName.split('');
+								var str = '';
+								if (arry.length > 3) {
+									for (var i = 0; i < 3; i++) {
+										str += arry[i] + '\n';
+									}
+								} else {
+									str = arry.join('\n') + '\n'
+								}
+								return str;
+							},
+							textStyle : {
+								color : '#55739e'
+							}
+						}
+					},
+					markPoint : {
+						symbol : 'circle',
+						symbolSize : 7,
+						label : {
+							normal : {
+								show : false
+							}
+						},
+						itemStyle : {
+							normal : {
+								color : '#b72f61'
+							}
+						},
+						data : [ {
+							yAxis : edata2.data[0][0],
+							xAxis : edata2.time[0]
+						}, {
+							yAxis : edata2.data[0][1],
+							xAxis : edata2.time[1]
+						}, {
+							yAxis : edata2.data[0][2],
+							xAxis : edata2.time[2]
+						}
+						/*  {yAxis:23.2,xAxis:'10-11'},
+						 {yAxis:25.6,xAxis:'10-12'},
+						 {yAxis:76.7,xAxis:'10-13'},
+						 {yAxis:105.6,xAxis:'10-14'},
+						 {yAxis:122.2,xAxis:'10-15'}*/
+						]
+					},
+					/*data:[52.0, 94.9, 7.0, 23.2, 25.6, 76.7, 105.6, 122.2]*/
+					data : edata2.data[0]
+				}, {
+					name : edata2.media[1],
+					type : 'bar',
+					barWidth : 1,
+					barGap : '20px',
+					label : {
+						normal : {
+							show : true,
+							position : 'top',
+							formatter : function(param) {
+								/*var arry=param.seriesName.split('');
+								return arry.join('\n')+'\n';*/
+								var arry = param.seriesName.split('');
+								var str = '';
+								if (arry.length > 5) {
+									for (var i = 0; i < 5; i++) {
+										str += arry[i] + '\n';
+									}
+								} else {
+									str = arry.join('\n') + '\n'
+								}
+								return str;
+							},
+							textStyle : {
+								color : '#55739e'
+							}
+						}
+					},
+					markPoint : {
+						symbol : 'circle',
+						symbolSize : 7,
+						label : {
+							normal : {
+								show : false
+							}
+						},
+						itemStyle : {
+							normal : {
+								color : '#ee9245'
+							}
+						},
+						data : [ {
+							yAxis : edata2.data[1][0],
+							xAxis : edata2.time[0]
+						}, {
+							yAxis : edata2.data[1][1],
+							xAxis : edata2.time[1]
+						}, {
+							yAxis : edata2.data[1][2],
+							xAxis : edata2.time[2]
+						}
+						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
+						/*{yAxis:86.0,xAxis:'10-08'},
+						 {yAxis:18.9,xAxis:'10-09'}
+						 {yAxis:4.0,xAxis:'10-10'},
+						 {yAxis:12.2,xAxis:'10-11'},
+						 {yAxis:125.6,xAxis:'10-12'},
+						 {yAxis:6.7,xAxis:'10-13'},
+						 {yAxis:135.6,xAxis:'10-14'},
+						 {yAxis:62.2,xAxis:'10-15'}*/
+						]
+					},
+					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
+					/*data:[86.0, 18.9]*/
+					data : edata2.data[1]
+				}, {
+					name : edata2.media[2],
+					type : 'bar',
+					barWidth : 1,
+					barGap : '20px',
+					label : {
+						normal : {
+							show : true,
+							position : 'top',
+							formatter : function(param) {
+								/*var arry=param.seriesName.split('');
+								return arry.join('\n')+'\n';*/
+								var arry = param.seriesName.split('');
+								var str = '';
+								if (arry.length > 5) {
+									for (var i = 0; i < 5; i++) {
+										str += arry[i] + '\n';
+									}
+								} else {
+									str = arry.join('\n') + '\n'
+								}
+								return str;
+							},
+							textStyle : {
+								color : '#55739e'
+							}
+						}
+					},
+					markPoint : {
+						symbol : 'circle',
+						symbolSize : 7,
+						label : {
+							normal : {
+								show : false
+							}
+						},
+						itemStyle : {
+							normal : {
+								color : '#edde53'
+							}
+						},
+						data : [ {
+							yAxis : edata2.data[2][0],
+							xAxis : edata2.time[0]
+						}, {
+							yAxis : edata2.data[2][1],
+							xAxis : edata2.time[1]
+						}, {
+							yAxis : edata2.data[2][2],
+							xAxis : edata2.time[2]
+						}
+						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
+						/*{yAxis:86.0,xAxis:'10-08'},
+						 {yAxis:18.9,xAxis:'10-09'}
+						 {yAxis:4.0,xAxis:'10-10'},
+						 {yAxis:12.2,xAxis:'10-11'},
+						 {yAxis:125.6,xAxis:'10-12'},
+						 {yAxis:6.7,xAxis:'10-13'},
+						 {yAxis:135.6,xAxis:'10-14'},
+						 {yAxis:62.2,xAxis:'10-15'}*/
+						]
+					},
+					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
+					/*data:[86.0, 18.9]*/
+					data : edata2.data[2]
+				}, {
+					name : edata2.media[3],
+					type : 'bar',
+					barWidth : 1,
+					barGap : '20px',
+					label : {
+						normal : {
+							show : true,
+							position : 'top',
+							formatter : function(param) {
+								/*var arry=param.seriesName.split('');
+								return arry.join('\n')+'\n';*/
+								var arry = param.seriesName.split('');
+								var str = '';
+								if (arry.length > 5) {
+									for (var i = 0; i < 5; i++) {
+										str += arry[i] + '\n';
+									}
+								} else {
+									str = arry.join('\n') + '\n'
+								}
+								return str;
+							},
+							textStyle : {
+								color : '#55739e'
+							}
+						}
+					},
+					markPoint : {
+						symbol : 'circle',
+						symbolSize : 7,
+						label : {
+							normal : {
+								show : false
+							}
+						},
+						itemStyle : {
+							normal : {
+								color : '#3caf5b'
+							}
+						},
+						data : [ {
+							yAxis : edata2.data[3][0],
+							xAxis : edata2.time[0]
+						}, {
+							yAxis : edata2.data[3][1],
+							xAxis : edata2.time[1]
+						}, {
+							yAxis : edata2.data[3][2],
+							xAxis : edata2.time[2]
+						}
+						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
+						/*{yAxis:86.0,xAxis:'10-08'},
+						 {yAxis:18.9,xAxis:'10-09'}
+						 {yAxis:4.0,xAxis:'10-10'},
+						 {yAxis:12.2,xAxis:'10-11'},
+						 {yAxis:125.6,xAxis:'10-12'},
+						 {yAxis:6.7,xAxis:'10-13'},
+						 {yAxis:135.6,xAxis:'10-14'},
+						 {yAxis:62.2,xAxis:'10-15'}*/
+						]
+					},
+					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
+					/*data:[86.0, 18.9]*/
+					data : edata2.data[3]
+				}, {
+					name : edata2.media[4],
+					type : 'bar',
+					barWidth : 1,
+					barGap : '20px',
+					label : {
+						normal : {
+							show : true,
+							position : 'top',
+							formatter : function(param) {
+								/*var arry=param.seriesName.split('');
+								return arry.join('\n')+'\n';*/
+								var arry = param.seriesName.split('');
+								var str = '';
+								if (arry.length > 5) {
+									for (var i = 0; i < 5; i++) {
+										str += arry[i] + '\n';
+									}
+								} else {
+									str = arry.join('\n') + '\n'
+								}
+								return str;
+							},
+							textStyle : {
+								color : '#55739e'
+							}
+						}
+					},
+					markPoint : {
+						symbol : 'circle',
+						symbolSize : 7,
+						label : {
+							normal : {
+								show : false
+							}
+						},
+						itemStyle : {
+							normal : {
+								color : '#9e2bbe'
+							}
+						},
+						data : [ {
+							yAxis : edata2.data[4][0],
+							xAxis : edata2.time[0]
+						}, {
+							yAxis : edata2.data[4][1],
+							xAxis : edata2.time[1]
+						}, {
+							yAxis : edata2.data[4][2],
+							xAxis : edata2.time[2]
+						}
+						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
+						/*{yAxis:86.0,xAxis:'10-08'},
+						 {yAxis:18.9,xAxis:'10-09'}
+						 {yAxis:4.0,xAxis:'10-10'},
+						 {yAxis:12.2,xAxis:'10-11'},
+						 {yAxis:125.6,xAxis:'10-12'},
+						 {yAxis:6.7,xAxis:'10-13'},
+						 {yAxis:135.6,xAxis:'10-14'},
+						 {yAxis:62.2,xAxis:'10-15'}*/
+						]
+					},
+					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
+					/*data:[86.0, 18.9]*/
+					data : edata2.data[4]
+				}
 
+				]
+			};
+			myChart2.setOption(option, true);
 
-    ]
-};
-                    
-        myChart.setOption(option);
-
-
-        function  resetStr(str) {
-        	var rlt = [];
-        	for(var i = 0, len = str.length; i < len; i++) {
-        		rlt.push(str.charAt(i));
-        	}
-        	return rlt.join('\r\n');
-        }
-
-</script>
+		}
+		var edata2 = {};
+		edata2.media=['网易','新华网','搜狐网','BBC','CNN'];
+		edata2.time=['10-08','10-09','10-10'];
+		edata2.data=[[52.0, 94.9, 94.9],[86.0, 18.9, 94.9],[112.0, 14.9, 94.9],[32.0, 154.9, 94.9],[32.0, 154.9, 94.9]];
+		echartsSpreadTread('main',edata2);
+	</script>
 
 </body>
 </html>

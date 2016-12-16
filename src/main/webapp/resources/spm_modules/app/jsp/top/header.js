@@ -83,7 +83,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         		}
         },
         _logOut:function(){
-        	var url="/home/logOut"
+        	var url="/user/logout"
         	var param={};
         	ajaxController.ajax({
         		type:"post",
@@ -104,7 +104,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         	var end = curr.indexOf(_base);
         	var redirect = curr.substring(end,curr.length);
         	redirect = redirect.replace(_base,"");
-        	var href = curr.substring(0,end) + _base+"/home/success?redirect="+redirect;
+        	var href = curr.substring(0,end) + _base+"/user/success?redirect="+redirect;
         	$("#loginSuccessUrl").val(href);
         	$('#loginJumpFormId').submit();
         },

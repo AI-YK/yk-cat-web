@@ -8,13 +8,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ai.paas.ipaas.i18n.ResWebBundle;
-import com.ai.yk.protal.web.content.YJRequest;
-import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
-import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
 import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.utils.SessionUtil;
 import com.alibaba.fastjson.JSON;
@@ -25,14 +21,9 @@ import com.alibaba.fastjson.JSON;
 @Controller
 @RequestMapping("/home")
 public class IndexController {
-	
-   // private static final Logger LOGGER = LoggerFactory.getLogger(IndexController.class);
     
     @Autowired
     private ResWebBundle rb;
-    
-    @Autowired
-    private MycustomizedService mycustomizedService;
     
     @Autowired
     private MytopicsService mytopicsService;
@@ -77,43 +68,5 @@ public class IndexController {
         return "/home/config";
     }
     
-    /**
-     * 配置页面
-     */
-	@RequestMapping("/success")
-    public String loginSuccess(Model model,String redirect){
-    	SSOClientUser clientUser = SessionUtil.getLoginUser();
-    	if(clientUser==null){
-    		clientUser = new SSOClientUser();
-    		clientUser.setUserId("1");
-    		clientUser.setUserName("Houg");
-    		clientUser.setNickName("译见");
-    		SessionUtil.setLoginUser(clientUser);
-        }
-    	SessionUtil.print();
-    	YJResponse<MyCustomizedVo> resp = null;
-    	YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
-    	MyCustomizedListMessage customizedListMessage = new MyCustomizedListMessage();
-    	customizedListMessage.setCreateId(Integer.valueOf(clientUser.getUserId()));
-    	req.setMessage(customizedListMessage);
-    	resp = mycustomizedService.queryMyCustomized(req);
-    	if(resp==null){
-    		 return "redirect:/home/config";
-    	}else{
-    		 SessionUtil.setUserConfig(resp.getData());
-    		 return "redirect:"+redirect;
-    	}
-       
-    }
-	/**
-     * 退出登录
-     * @param model
-     * @return
-     */
-	@RequestMapping("/logOut")
-	public String logOut(Model model){
-		SessionUtil.clearSession();
-		return "redirect:/home/index";
-	}
    
 }

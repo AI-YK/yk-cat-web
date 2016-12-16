@@ -109,7 +109,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 		_initMediaChart : function(container, data) {
 			var _this = this;
 			var categorys = [ '华龙网', '人民网', '新华网', '四川新闻网', '中国兰州网' ];
-			var values = [ 7893, 10040, 140, 4940, 4240 ];
+			var values = [ 7893, 11040, 140, 4940, 4240 ];
 			
 			var xData = [];
 			var option = {
