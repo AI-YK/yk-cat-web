@@ -419,7 +419,8 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		series.push({'name':data[i].name,'value':data[i].count});
         	}
         	if(data.length%5==1){
-        		colors.splice(0,1);
+        		//colors.splice(0,1);
+        		colors.push(colors[2]);
         	}
         	var cache = [];
             var option = {
@@ -452,6 +453,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		                         formatter: function(param){
         		                        	cache.push(param);
         		                        	return param.name+"\n"+param.percent+"%";
+        		                        	//return '<span style="color:#80c823;">15.34%</span>';
         		                         }
         		                     },
         		                     labelLine : {

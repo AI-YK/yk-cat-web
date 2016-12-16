@@ -33,7 +33,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 					x : 50,
 					y : 30,
 					x2 : 30,
-					y2 : 50
+					y2 : 30
 				},
 
 				xAxis : [ {
@@ -57,7 +57,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 						textStyle : {
 							color : '#666666',
 							fontSize : 12,
-							align:'left'
+							align : 'center'
 						}
 					}
 				} ],
@@ -109,7 +109,9 @@ define('app/jsp/search/charts', function(require, exports, module) {
 		_initMediaChart : function(container, data) {
 			var _this = this;
 			var categorys = [ '华龙网', '人民网', '新华网', '四川新闻网', '中国兰州网' ];
-			var values = [ 7893, 10040, 11640, 42940, 42940 ];
+			var values = [ 7893, 10040, 140, 4940, 4240 ];
+			
+			var xData = [];
 			var option = {
 				calculable : true,
 				backgroundColor : '#f2f2f2',
@@ -154,13 +156,14 @@ define('app/jsp/search/charts', function(require, exports, module) {
 							color : '#666666',
 							fontSize : 12
 						},
-						formatter:function(val){
-							if(val>1000){
-								return val/1000+"K";
-							}else{
-							    return val;	
+						formatter : function(val) {
+							xData.push(val);
+							if (val > 1000) {
+								return val / 1000 + "K";
+							} else {
+								return val;
 							}
-							
+
 						}
 					}
 				} ],
@@ -192,33 +195,68 @@ define('app/jsp/search/charts', function(require, exports, module) {
 							align : 'right'
 						}
 					}
-				} ],
+				}],
 				series : [ {
-					name : '媒体统计',
+					name:'媒体统计',
 					type : 'bar',
 					data : values,
-					barMaxWidth : 22,
+					barMaxWidth : 24,
 					itemStyle : {
 						normal : {
 							color : '#3a86ee',
-							barBorderRadius : [0,5,5,0],
-							barBorderWidth:1,
+							barBorderRadius : [ 0, 6, 6, 0 ],
+							barBorderWidth : 1,
 							label : {
 								show : true,
 								position : 'right',
-								formatter: function(p){				
+								formatter : function(p) {
 									return _this.formatNum(p.value);
 								},
 								textStyle : {
 									color : '#666666',
-									fontSize : 13
+									fontSize : 13,
+									align:'center'
 								}
 							}
 						}
 					}
 				} ]
 			};
+			
+			//$("#"+container).hide();
 			var chart = echarts.init(document.getElementById(container));
+			chart.setOption(option);
+			var diff = 0
+			if(xData.length>1){
+				diff = xData[1]-xData[0];
+			}
+			var max = xData[xData.length-1] + diff;
+			var temps = [];
+			for(var i=0;i<values.length;i++){
+				temps[i] = max;
+			}
+			option.series.push({
+				type : 'bar',
+				silent : true,
+				yAxisIndex : 1,
+				data : temps,
+				barMaxWidth : 24,
+				itemStyle : {
+					normal : {
+						color : '#d8d8d8',
+						barBorderRadius : [ 0, 6, 6, 0 ],
+						barBorderWidth : 1
+					}
+				}
+			});
+			option.series.reverse();
+			option.yAxis.push({
+				// 辅助 y 轴
+				show : false,
+				data : categorys
+			});
+			chart.clear();
+			//$("#"+container).show();
 			chart.setOption(option);
 		},
 		formatNum : function(strNum) {
