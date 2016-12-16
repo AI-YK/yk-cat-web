@@ -43,10 +43,10 @@
 <script id="emergencyTempl" type="text/x-jsrender">
   {{for eventList}}
      <li class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
-		 <p>
-			<span>{{:zhCountry}}.{{:zhCity}}</span> <span>{{:dayTime}}</span>
-		 </p>
 		 <p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
-	 </li>
+	     <p>
+			<span>{{:zhCountry}}.{{:zhCity}}</span> <span>{{:dayTime}}</span>
+		 </p> 
+   </li>
   {{/for}}
 </script>
