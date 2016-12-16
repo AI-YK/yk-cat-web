@@ -1541,8 +1541,9 @@ function getNewsHtml(currentPoint) {
     } else {
         city = currentPoint.countrychinaname;
     }
-
-    return $('<div class="echart_tip"><div class="dialog_title echart_content"><a title="' + currentPoint.name + '"  href="' + currentPoint.url + '" target="_blank" ><span style="color:#c82139;font-size:14px;">' +
+    var prefix = "http://news.yeesight.com/";
+    alert(prefix);
+    return $('<div class="echart_tip"><div class="dialog_title echart_content"><a title="' + currentPoint.name + '"  href="' + prefix + currentPoint.url + '" target="_blank" ><span style="color:#c82139;font-size:14px;">' +
     '【资讯】' + '</span>' + name + '</a>&nbsp;&nbsp;' + city + '&nbsp;&nbsp;' + strDate(currentPoint.newsdateview) + '</div>' +
     '<div class="echart_tip_arrow"><div class="echart_tip_line"></div><div class="echart_tip_head"></div></div></div>');
 }

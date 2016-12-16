@@ -2,6 +2,7 @@
 //切换右侧新闻列表
 //获取右侧热点新闻数据  新 误删
 function get_event_point_data_new(){
+//lixiang 2016-12-16 模拟数据
 //	var ajax_url='news/getNewsHeatPointListNewInteface';
 	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
 	 var ajax_data={
@@ -141,14 +142,18 @@ function promptwaring(){
 //查询 话题  左侧 专题5条 
 //result_heat_topic
 function get_event_point_data_zixun(){
-	 
+// lixiang 2016-12-16 模拟数据	 
 //	 var ajax_url='news/getNewsHeatPointListInformationInteface';
 	 var ajax_url=path + '/newsbmap/json/NewsHeatPointListInformationInteface.json';
+//	alert(123);
+//	 var ajax_url=path + '/bmap/getTopicListIntefaceData';
+	
 	 var ajax_data1={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
 	 	'countrychinaname':country_class,
 	 	'classify':classify,
+	 	'sourceType' : '1',//新闻热点
 	 	'gj':gj,
 	 	'cs':cs
 	 };

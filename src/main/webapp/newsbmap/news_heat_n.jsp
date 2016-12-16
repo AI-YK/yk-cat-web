@@ -21,12 +21,18 @@
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="renderer" content="webkit">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title><%-- <fmt:message key="news_heat_n.1"/> --%>全球热点</title><!-- 全球热点 -->
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/public.css" /><!--公共-->
-		<link rel="stylesheet" href="css/news_heat_n.css"/><!--新闻大数据-->
 		<script src="js/jquery-1.10.2.min.js"></script>
+		<!-- 时间轴样式引入开始 -->
+		<link rel="stylesheet" href="css/news/news_seltime.css" />
+		<link href="css/news/jquery.mCustomScrollbar.css" rel="stylesheet" />
+		<script type="text/javascript" src="js/news/news_seltime.js"></script>
+		<link rel="stylesheet" href="css/news_heat_n.css"/><!--新闻大数据-->
+		<script src="js/layer/layer.js"></script>
+		<!-- 时间轴样式引入结束 -->
 		<script src="js/map.js"></script>
 		<script src="js/layer.js"></script>
 		<script src="js/Scrollbar.js"></script>
@@ -116,8 +122,8 @@
 				.echart_tip_arrow>.echart_tip_line{height: 64px;left: 0;top: -80px;border-left: 1px solid #1f78d6;position: absolute;}
 		</style>
 		<script type="text/javascript">
-				function openDia(globaleventid){
-					var url = '<%=heatpath%>/search/articleDetail?id='+globaleventid;
+				//function openDia(globaleventid){
+				<%-- 	var url = '<%=heatpath%>/search/articleDetail?id='+globaleventid; --%>
 				  //官网欢迎页search/articleDetail?id=171463422778417CE0F1E5B5050E4F1
 					/* layer.open({
 						skin:'theme',
@@ -134,20 +140,16 @@
 							 
 						}
 				    }); */
-				}
+				//}
 		</script>
 	</head>
 	<body>
 	        <!--头部开始-->
-	        <div style="display:none;">
-	            <c:import url="http://news.yeesight.com/common/header/old">
-		            <c:param name="navType" value="newsBigData" />
-			    </c:import>
-		    </div>
+	        
             <!--头部结束-->
  
             <!--时间轴开始-->
-            <c:import url="http://news.yeesight.com/common/news_seltime"></c:import>
+            <%@include file="./news_seltime.jsp" %>
             <!--时间轴结束--> 
  
 		    <!--echarts开始-->
@@ -219,9 +221,17 @@
 			<!--筛选菜单结束-->
  
 		    <!--底部开始-->
-		    <div style="display:none;">
-		    	<c:import url="http://news.yeesight.com/common/news_footer"/>
-		    </div>
+		    <!--底部开始-->
+			<!-- <div class="footer_box">
+				<p class="footer_left">中译语通科技（北京）有限公司 版权所有</p>
+				<p class="footer_left">
+					<a title="关于我们"  href="http://buzz.yeesight.com/help/about" target="_blank">关于我们</a><span>|</span>
+					<a title="跨语言大数据"  href="http://buzz.yeesight.com/help/bigData" target="_blank">跨语言大数据</a><span>|</span>
+					<a title="解决方案" href="http://buzz.yeesight.com/help/solution" target="_blank">解决方案</a>
+				</p>
+				<p class="footer_right">Copyright @2016 www.yeesight.com All rights reserved.京ICP备13002826号-9</p>
+			</div> -->
+			<!--底部结束-->
 		    <!--底部结束-->
  
             
@@ -278,7 +288,8 @@
             <!-- 左侧列表结束-->
  
             <!--右侧悬浮按钮开始-->
-            <div class="right_btn">
+            <!-- lixiang 2016-12-15 隐藏右侧悬浮图标-->
+            <div class="right_btn" style="display:none;">
             	<div class="news_list">
             		<div class="news_list_bg"></div>
             		<div class="list_box">
