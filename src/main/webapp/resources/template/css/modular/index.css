@@ -9,7 +9,7 @@
 .list-left ul li{height:66px;border:1px solid #454d6b;border-right:1px solid #6c78a6;padding:10px;color:#7883ac;font-size:16px;line-height:25px;cursor:pointer;}
 /*.list-left ul li:hover{border:1px solid #39adf6;border-right:none;}*/
 .list-left ul .bot-none{border-bottom:none;}
-.list-left ul .current{border:1px solid #6c78a6;border-right:none;border-bottom:1px solid #6c78a6;color:#3382ee}
+.list-left ul .current{border:1px solid #6c78a6;border-right:none;border-bottom:1px solid #6c78a6;color:#3382ee;background:#2e344b;}
 .list-left ul li p span{float:left;color:#495274;font-size:12px;}
 .list-right{width:874px;height:462px;border:1px solid #6c78a6;border-left:none;float:left;padding:20px;}
 /**表1**/
@@ -31,13 +31,14 @@
 .border-right{border-right:1px solid #454d6b;height:395px;}
 /**新闻tab**/
 .sentiment-list-conter-title{width:100%;float:left;height:38px;padding:9px 20px;font-size:14px;background:#383f58;color:#cfd7f4}
-.sentiment-list-conter-news{width:100%;float:left;padding:0 20px;}
-.sentiment-list-conter-news ul{width:100%;float:left}
-.sentiment-list-conter-news ul li{float:left;font-size:14px;line-height:25px;margin-top:12px;margin-right:6px;}
+.sentiment-list-conter-news{width:100%;float:left;padding:10px 0 0 0 ;}
+.sentiment-list-conter-news ul{width:100%;float:left;padding:0 20px;}
+.sentiment-list-conter-news ul:hover{background:#253048;}
+.sentiment-list-conter-news ul li{float:left;font-size:14px;line-height:36px;margin-right:6px;}
 .sentiment-list-conter-news ul li a{font-size:14px;color:#7883ac}
 .sentiment-list-conter-news ul .i-color{color:#3c435f}
 .sentiment-list-conter-news ul .date{float:right;color:#495274}
-.sentiment-list-conter-news ul .block{width:16px;height:16px;text-align:center;line-height:16px;color:#fff;border-radius:3px;margin:15px 6px 0 0;font-size:12px;}
+.sentiment-list-conter-news ul .block{width:16px;height:16px;text-align:center;line-height:16px;color:#fff;border-radius:3px;margin:10px 10px 0 0;font-size:12px;}
 .sentiment-list-conter-news ul .blue{background:#3382ee;}
 .sentiment-list-conter-news ul .orange{background:#f3820b}
 .sentiment-list-conter-news ul .yellow{background:#fce630}

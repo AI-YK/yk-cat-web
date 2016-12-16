@@ -9,4 +9,6 @@ public final class Constants {
 	public final static String CONFIG_SESSION_KEY = "config";
 	
 	public final static String TOPIC_SESSION_KEY = "topic";
+	//专题url key
+	public final static String SUBJECT_ANALYSIS_URL_KEY = "subjectAnalysisUrl";
 }

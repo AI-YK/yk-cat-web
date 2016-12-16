@@ -360,6 +360,12 @@ define('app/jsp/home/home', function (require, exports, module) {
 					for (var key in map){
 						letters[i] = {'letter':key};
 						provinces[i] = {'list':map[key]};
+						var pro=map[key];
+						for(var j=0;j<pro.length;j++){
+							if(provinceCodee==pro[j].code){
+								$("#letter_1").addClass("current");
+							}
+						}
 						i = i + 1;
 					}
 					provinceInfo.letters = letters;
@@ -373,7 +379,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
         },
         _getCity:function(parent){
-            if(!parent){
+            if(!parent || parent==undefined){
             	var curr = $(".choice-list .current");
             	if(curr){
             		 var next = curr.next();
