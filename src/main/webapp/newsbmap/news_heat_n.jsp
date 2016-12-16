@@ -30,6 +30,7 @@
 		<link href="css/news/jquery.mCustomScrollbar.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/news/news_seltime.js"></script>
 		<link rel="stylesheet" href="css/news_heat_n.css"/><!--新闻大数据-->
+		<link href="${uedroot}/css/modular/headr-footer.css" rel="stylesheet" type="text/css" />
 		<script src="js/layer/layer.js"></script>
 		<!-- 时间轴样式引入结束 -->
 		<script src="js/map.js"></script>
@@ -119,6 +120,10 @@
 					width: 30px;height: 30px;border-radius: 100%;border: 2px solid #1f78d6;
 					position: absolute;top: -17px;left: -17px;}
 				.echart_tip_arrow>.echart_tip_line{height: 64px;left: 0;top: -80px;border-left: 1px solid #1f78d6;position: absolute;}
+		
+		
+
+
 		</style>
 		<script type="text/javascript">
 				//function openDia(globaleventid){
@@ -143,8 +148,8 @@
 		</script>
 	</head>
 	<body>
+	<%@ include file="/inc/inc.jsp"%>
 	        <!--头部开始-->
-	        
             <!--头部结束-->
  
             <!--时间轴开始-->
