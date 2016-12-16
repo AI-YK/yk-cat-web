@@ -1,5 +1,4 @@
-var path="/yk-pa-web";
-
+//var path="/yk-pa-web";
 var domain="";
 var myChart,myChart3,myBmapChart;
 var fg="1";//默认所有分类
@@ -443,7 +442,7 @@ function selectCity(mc,jd,wd,gj,cs,start_datetime,end_datetime,classify){
 	 var ajax_data;
 	 if(pd=='1'){
 //		 ajax_url='news/searchCountryInteface';//搜索国家
-		 ajax_url=path +'/newsbmap/json/searchCityInteface.json';//搜索国家
+		 ajax_url='${path}' +'/newsbmap/json/searchCityInteface.json';//搜索国家
 		 ajax_data={
 		 	'countrychinaname':gj
 		 };

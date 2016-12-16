@@ -53,8 +53,8 @@ public class MapController {
 	    @RequestMapping("/getTopicListIntefaceData")
 	    @ResponseBody
     	public ResponseData<PageInfo<EventVo>> getTopicListIntefaceData(
-	    		@RequestParam(value="pageSize",defaultValue="") Integer pageSize,
-	    		@RequestParam(value="pageNo",defaultValue="") Integer pageNo,
+	    		@RequestParam(value="pageSize",defaultValue="50") Integer pageSize,
+	    		@RequestParam(value="pageNo",defaultValue="1") Integer pageNo,
 	    		// 所属分类 舆情分类，根据字典表
 	    		@RequestParam(value="type",defaultValue="") Integer type,
 	    		// 行业类型（行业分类，根据字典表）
