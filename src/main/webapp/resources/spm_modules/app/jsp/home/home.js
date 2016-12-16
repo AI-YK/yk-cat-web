@@ -360,6 +360,12 @@ define('app/jsp/home/home', function (require, exports, module) {
 					for (var key in map){
 						letters[i] = {'letter':key};
 						provinces[i] = {'list':map[key]};
+						var pro=map[key];
+						for(var j=0;j<pro.length;j++){
+							if(provinceCodee==pro[j].code){
+								$("#letter_1").addClass("current");
+							}
+						}
 						i = i + 1;
 					}
 					provinceInfo.letters = letters;

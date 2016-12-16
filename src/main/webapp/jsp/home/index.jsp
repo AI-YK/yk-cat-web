@@ -139,7 +139,7 @@
   <div class="choice-left-title">
 	  <ul>
          {{for letters}}
-		    <li><a href="#" {{if #index==0}}class="current"{{/if}}>
+		    <li><a href="#" id="letter_{{:letter}}" {{if #index==0}}class="current"{{/if}}>
                {{if letter=='1'}}ABCDEFG{{/if}}
                {{if letter=='2'}}HIJK{{/if}}
                {{if letter=='3'}}LMIOPQRS{{/if}}
@@ -166,7 +166,7 @@
        <div class="choice-list" >
 		  <ul>
              {{for list}}
-			    <li><a href="#">{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+			    <li><a href="#" id="pro_{{:code}}">{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
              {{/for}}
 		  </ul>
        </div>

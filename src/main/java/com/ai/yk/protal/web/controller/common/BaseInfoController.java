@@ -425,6 +425,10 @@ public class BaseInfoController {
 			  List<String> cityList=new ArrayList<String>();
 			  List<String> interestList=new ArrayList<String>();
 			  SSOClientUser clientUser = SessionUtil.getLoginUser();
+			  if(clientUser==null){
+				  log.error("请重新登录");
+				  return new ResponseData<SaveMyCustomizedResponse>(ResponseData.AJAX_STATUS_FAILURE,"请重新登录",null);
+			  }
 			  SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 			  MyCustomizedVo myVo= SessionUtil.getUserConfig();
 			  if(StringUtil.isBlank(provinceCode)){
@@ -438,7 +442,7 @@ public class BaseInfoController {
 				  String[] cityArr = cityStr.split(",");
 				  cityList =java.util.Arrays.asList(cityArr);
 			  }
-			  if(StringUtil.isBlank(interestStr)&& myVo!=null){
+			  if(StringUtil.isBlank(interestStr)&& myVo.getInterestList()!=null){
 				  for(InterestVo invo: myVo.getInterestList()){
 					  interestList.add(invo.getBusinessId());
 				  }
