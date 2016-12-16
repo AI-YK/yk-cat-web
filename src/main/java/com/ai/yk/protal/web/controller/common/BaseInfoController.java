@@ -87,7 +87,9 @@ public class BaseInfoController {
 		  YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
 		  req.setMessage(queryAreaListMessage);
 		  YJResponse<List<QueryAreaListVo>> res = queryAreaListService.QueryAreaList(req);
-		  
+		  if(res==null){
+			  return new ResponseData<Map<String,List<QueryAreaListVo>>>(ResponseData.AJAX_STATUS_FAILURE,"查询不到省",null);
+		  }
 		  Map<String,List<QueryAreaListVo>> map = new HashMap<String,List<QueryAreaListVo>>();
 		  
 		  List<QueryAreaListVo> areaListAll =  res.getData();
@@ -219,7 +221,7 @@ public class BaseInfoController {
 		  @ResponseBody
 		  public ResponseData<List<QueryAreaListVo>> getCity(
 				  /**上级编码**/
-				  @RequestParam(value="parentCode",defaultValue="") String parentCode,
+				  @RequestParam(value="parentCode",defaultValue="as_100000") String parentCode,
 				  /**所属分类（continent：大洲   country：国家   province：省份  city:城市   是否必填：Y**/
 				  @RequestParam(value="classify",defaultValue="city") String classify
 				  ){
@@ -229,6 +231,9 @@ public class BaseInfoController {
 			  YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
 			  req.setMessage(queryAreaListMessage);
 			  YJResponse<List<QueryAreaListVo>> res = queryAreaListService.QueryAreaList(req);
+			  if(res==null){
+				  return new ResponseData<List<QueryAreaListVo>>(ResponseData.AJAX_STATUS_FAILURE,"获取不到城市",null);
+			  }
 			  List<QueryAreaListVo> list = (List<QueryAreaListVo>) res.getData();
 			 // List<QueryAreaListVo> list = mockCity();
 			  return new ResponseData<List<QueryAreaListVo>>(ResponseData.AJAX_STATUS_SUCCESS,"获得所有城市",list);
@@ -286,6 +291,9 @@ public class BaseInfoController {
 			  YJRequest<DicMessage> req = new YJRequest<DicMessage>();
 			  req.setMessage(dicMessage);
 			  YJResponse<DicListResonse> res =  commonService.queryDicByTypeAndLanguageForNews(req);
+			  if(res==null){
+				  return new ResponseData<List<DicVo>>(ResponseData.AJAX_STATUS_FAILURE,"获取不到领域分类",null);
+			  }
 			  DicListResonse dicListResonse = res.getData();
 			  List<DicVo> list = dicListResonse.getResults();
 			  /*List<DicVo> list = new ArrayList<DicVo>();

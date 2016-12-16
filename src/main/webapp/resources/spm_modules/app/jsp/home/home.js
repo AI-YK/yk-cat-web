@@ -379,7 +379,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
         },
         _getCity:function(parent){
-            if(!parent){
+            if(!parent || parent==undefined){
             	var curr = $(".choice-list .current");
             	if(curr){
             		 var next = curr.next();
