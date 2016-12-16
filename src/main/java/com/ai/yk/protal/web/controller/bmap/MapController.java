@@ -15,7 +15,6 @@ import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.event.EventListMessage;
 import com.ai.yk.protal.web.content.event.EventListResponse;
 import com.ai.yk.protal.web.content.event.EventVo;
-import com.ai.yk.protal.web.controller.common.BaseInfoController;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 
 

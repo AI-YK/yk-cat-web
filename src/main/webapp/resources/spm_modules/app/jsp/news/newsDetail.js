@@ -73,6 +73,9 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			this._initAnimation();
 			this._queryCollOrShareCount();
 			this._collectionHandle(3);
+			$("#gotsina").on("click",function(){
+				alert("aa");
+			});
 		}
 		
 	});

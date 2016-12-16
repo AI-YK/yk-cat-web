@@ -69,7 +69,7 @@
 									<a href="javascrpt:;" class="ahov3"><li>原译混排</li></a>
 								</ul>
 							</div></li>
-						<li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
+						<!-- <li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
 						<li class="x-red"><a href="#"><i class="icon iconfont">&#xe666;</i><span id="collCount">0</span></a></li>
 						<li class="share" id="share1"><a href="#"><i
 								class="icon iconfont shareicon">&#xe667;</i></a>
@@ -80,7 +80,7 @@
 									<a href="javascrpt:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
 									<a href="javascrpt:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
 								</ul>
-							</div></li>
+							</div></li> -->
 					</ul>
 				</div>
 				<div class="news-detail-news">
@@ -97,7 +97,7 @@
 				  </c:choose>
 				 
 				</div>
-				<div class="news-detail-share">
+				<!-- <div class="news-detail-share">
 					<ul class="bdsharebuttonbox">
 						<li>分享到：</li>
 						<li id="bottom_share" class="right">
@@ -112,7 +112,7 @@
 							</p>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 			</div>
 		</div>
 		<div class="levle-right">
@@ -153,7 +153,7 @@
 
         });
     })();
-	window._bd_share_config = {
+	/* window._bd_share_config = {
 		common : {
 			bdText : '${news.zhContent}',	
 			bdDesc : '${news.zhSummary}',	
@@ -164,7 +164,7 @@
 		slide : [{}]
 	}
 	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
-	
+	 */
 	function initialize() {  
 		var map = new BMap.Map("baiduContainer");          // 创建地图实例  
 		var point = new BMap.Point("${news.longitude}"*1, "${news.latItude}"*1);  // 创建点坐标  
@@ -177,7 +177,7 @@
 		        document.body.appendChild(script);
 	}
 	window.onload = loadScript;
-	$(document).ready(function(){
+	/* $(document).ready(function(){
 		 var _res = setInterval(function(){
 			 var box = $(".bdshare-slide-button-box");
             if(box.length > 0){
@@ -186,7 +186,7 @@
              }
          },500);
 		
-	});
+	}); */
 	var newsDetailsId ="${newsDetails.id}";	
 </script>
 </body>
