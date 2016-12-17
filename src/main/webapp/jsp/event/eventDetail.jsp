@@ -115,7 +115,7 @@
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
 					<p>传播态势</p>
-					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
+					<p class="right">选择时间：${begin} 至 ${end}</p>
 				</div>
 				<!--图表嵌套区域-->
 				<div class="levle-right-chart-list" id="spreadState">
@@ -127,7 +127,7 @@
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
 					<p>事件走势</p>
-					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
+					<p class="right">选择时间：${begin} 至 ${end}</p>
 				</div>
 				<!--图表嵌套区域-->
 				<div class="levle-right-chart-list" id="timeTrend">
