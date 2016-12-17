@@ -1,8 +1,10 @@
 /*
- *���ŵ�ʱ����ͨ����� 
+ *锟斤拷锟脚碉拷时锟斤拷锟斤拷通锟斤拷锟斤拷锟�
  * 
  * */
-.nav2{height:45px;background-color: #19212a;font-size:14px;width:100%;min-width: 1000px; position: absolute; z-index:999; top: 120px;}
+/*.nav2{height:45px;background-color: #19212a;font-size:14px;width:100%;min-width: 1000px; position: absolute; z-index:999; top: 120px;}
+*/
+.nav2{height:45px;background-color: #19212a;font-size:14px;width:100%;min-width: 1000px; position: absolute; z-index:999; }
 .nav2top{height:44px;line-height:45px;border-top: 1px solid #253545;position: absolute;}
 .s1{background-color: transparent;color:#41566e;}
 .guojia{background-color: transparent;color:#327acd;margin-right:10px;}
