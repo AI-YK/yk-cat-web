@@ -24,7 +24,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 				color : [ '#174879' ],
 				backgroundColor : '#212532',
 				tooltip : {
-					show : true,
+					show : false,
 					trigger : 'axis'
 				},
 				 grid : {
@@ -47,7 +47,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 					},
 					axisLine:{
   					  lineStyle:{
-  					    color:'#314a5a',
+  					    color:'#3a415a',
   						width:2
   					  }
   					},
@@ -88,8 +88,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 					splitLine : {
 						lineStyle : {
 							color : '#3a415a',
-							type: 'dashed',
-							width:0.8
+							type: 'dashed'
 						}
 					}
 				} ],
@@ -391,7 +390,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            data : times,
         					axisLine:{
         					  lineStyle:{
-        					    color:'#314a5a',
+        					    color:'#3a415a',
         						width:2
         					  }
         					},
