@@ -29,7 +29,7 @@
 				<p>
 					<a href="#">首页</a>>
 				</p>
-				<p>${newsDetails.zhTitle}</p>
+				<p>${newsDetails.srcTitle}</p>
 			</div>
 		</div>
 	</div>
@@ -37,28 +37,18 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title">${newsDetails.zhTitle}</div>
+				<div class="news-detail-title">${newsDetails.srcTitle}</div>
 				<div class="news-detail-information">
 					<ul>
 						<li>
-						<c:choose>
-						  <c:when test="${newsDetails.zhSource!=null && _currentLan == 'zh_CN'}">
-						   ${newsDetails.zhSource}
-						  </c:when>
-						   <c:when test="${newsDetails.enSource!=null && _currentLan != 'zh_CN'}">
-						   ${newsDetails.enSource}
-						  </c:when>
-						  <c:otherwise>
-						  ${newsDetails.srcSource}
-						  </c:otherwise>
-						  </c:choose>
+						${newsDetails.srcSource}
 						</li>
 						<li>
 						<fmt:parseDate value="${newsDetails.pubdate}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
 						<li>${newsDetails.languageTName}</li>
-						<li>${newsDetails.countryNameZh}<img height="14px" src="${uedroot}/images/country/${newsDetails.countryNameEn}@2x.png" /></li>
+						<li>${newsDetails.countryNameSrc}<img height="14px" src="${uedroot}/images/country/${newsDetails.countryNameEn}@2x.png" /></li>
 						<li class="zhuanz">转载量：<span>${newsDetails.view}</span></li>
 						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
@@ -83,19 +73,8 @@
 							</div></li> -->
 					</ul>
 				</div>
-				<div class="news-detail-news">
-				  <c:choose>
-				  <c:when test="${newsDetails.zhContent!=null && _currentLan == 'zh_CN'}">
-				   ${newsDetails.zhContent}
-				  </c:when>
-				   <c:when test="${newsDetails.enContent!=null && _currentLan != 'zh_CN'}">
-				   ${newsDetails.enContent}
-				  </c:when>
-				  <c:otherwise>
-				  ${newsDetails.srcContent}
-				  </c:otherwise>
-				  </c:choose>
-				 
+				<div class="news-detail-news" id="newDetailContent">
+				 ${newsDetails.srcContent}
 				</div>
 				<!-- <div class="news-detail-share">
 					<ul class="bdsharebuttonbox">
@@ -123,9 +102,7 @@
 						<p class="right"><i class="icon iconfont" id="deag-close">&#xe618;</i></p>
 					</div>
 					<div class="drag-list">
-						<div class="drag-list-bt">clinton as popular republican
-donald trump leading by 8
-percentage points</div>
+						<div class="drag-list-bt">${newsDetails.enTitle}</div>
 					<div class="drag-list-word" id="translateContent">
 					</div>
 					</div>
@@ -135,29 +112,40 @@ percentage points</div>
 			<div class="levle-right-map" id="baiduContainer">
 		
 			</div>
-			<div class="levle-right-chart">
+			<!-- <div class="levle-right-chart" >
 				<div class="levle-right-chart-title">
 					<p>时间趋势</p>
 					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
 				</div>
-				<!--图表嵌套区域-->
+				图表嵌套区域
 				<div class="levle-right-chart-list">图表嵌套区域</div>
-				<!--/图表嵌套区域结束-->
+				/图表嵌套区域结束
 
-			</div>
-			<div class="levle-right-chart">
+			</div> -->
+			<!-- <div class="levle-right-chart">
 				<div class="levle-right-chart-title">
 					<p>媒体统计</p>
 					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
 				</div>
-				<!--图表嵌套区域-->
+				图表嵌套区域
 				<div class="levle-right-chart-list">图表嵌套区域</div>
-				<!--/图表嵌套区域结束-->
+				/图表嵌套区域结束
 
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<!--底部-->
+	<input id="detailsId" type="hidden" value="${newsDetails.id}"/>
+	<input id="srcLanguage" type="hidden" value="${newsDetails.srcLanguage }"/>
+	<div id="srcContent" style="display: none;">
+	 ${newsDetails.srcContent}
+	</div>
+	<div id="zhContent" style="display: none;">
+	 ${newsDetails.zhContent}
+	</div>
+	<div id="enContent" style="display: none;">
+	 ${newsDetails.enContent}
+	</div>
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>
@@ -204,7 +192,6 @@ percentage points</div>
          },500);
 		
 	}); */
-	var newsDetailsId ="${newsDetails.id}";	
 </script>
 </body>
 </html>

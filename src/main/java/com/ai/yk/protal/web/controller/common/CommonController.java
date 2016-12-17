@@ -643,10 +643,19 @@ public class CommonController {
 	@RequestMapping("/translate")
 	@ResponseBody
 	public String translate(TranslateMessage req) {
+		String[] text = req.getText().split("<br />");
+		StringBuilder sbd = new StringBuilder();
+		for(int i=0;i<text.length;i++){
+			req.setText(text[i]);
+			sbd.append(getTranslateResult(req));
+			sbd.append("<br />");
+		}
+		return sbd.toString();
+	}
+	private String getTranslateResult(TranslateMessage req){
 		String result = "";
 		try {
 			result = translateService.translate(req);
-			System.out.println(result);
 			JSONObject jsonObject =JSON.parseObject(result);
 			if(!jsonObject.containsKey("translation")){
 				return "";
