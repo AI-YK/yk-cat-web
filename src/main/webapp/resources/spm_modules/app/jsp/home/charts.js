@@ -420,7 +420,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		    yAxis : [
         		        {
         		            type : 'value',
-        		            nameLocation:'start',
+        		            //offset:10,
         					axisLine:{
         					  lineStyle:{
         						width:0,
@@ -589,7 +589,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            data:positiveCnts,
         					itemStyle: {
         		               normal: {
-        		              	   color:'#eb6100'
+        		              	   color:'#eb4d38'
         					   }
         					} 
         					
@@ -601,7 +601,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            data:negativeCnts,
         					itemStyle: {
         		                normal: {
-        		               		color:'#8fc31f'
+        		               		color:'#90c823'
         						}
         					} 
         		        }
@@ -611,14 +611,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		chart.setOption(option);
         },
         _initMediaCoverageChart:function(container,ul,data){
-        	var colors = ['#eb4d38','#80c823','#0067b4','#af67ef','#f9983a'];	
+        	var colors = ['#80c823','#0067b4','#eb4d38','#f9983a','#1b84ed','#af67ef'];	
         	var series = [];
         	for(var i=0;i<data.length;i++){
         		series.push({'name':data[i].name,'value':data[i].count});
         	}
-        	if(data.length%5==1){
-        		//colors.splice(0,1);
-        		colors.push(colors[2]);
+        	if(data.length%colors.length==1){
+        		colors.push(colors[1]);
         	}
         	var cache = [];
             var option = {
