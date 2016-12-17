@@ -434,7 +434,7 @@ public class CommonController {
 	 */
 	@RequestMapping("/saveConf")
 	@ResponseBody
-	public ResponseData<SaveMyCustomizedResponse> saveMyCustomized(
+	public ResponseData<String> saveMyCustomized(
 			@RequestParam(value = "sourceSystem", defaultValue = "") String sourceSystem,
 			@RequestParam(value = "provinceCode", defaultValue = "") String provinceCode,
 			@RequestParam(value = "interestStr", defaultValue = "") String interestStr,
@@ -445,7 +445,7 @@ public class CommonController {
 		SSOClientUser clientUser = SessionUtil.getLoginUser();
 		if (clientUser == null) {
 			log.error("请重新登录");
-			return new ResponseData<SaveMyCustomizedResponse>(
+			return new ResponseData<String>(
 					ResponseData.AJAX_STATUS_FAILURE, "请重新登录", null);
 		}
 		SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
@@ -476,26 +476,27 @@ public class CommonController {
 		saveMyCustomizedMessage.setProvinceCode(provinceCode);
 		// saveMyCustomizedMessage.setSourceSystem(sourceSystem);
 		String userId = clientUser.getUserId();
-		saveMyCustomizedMessage
-				.setSrcId(SessionUtil.getUserConfig().getSrcId());
+		if(myVo!=null){
+			saveMyCustomizedMessage.setSrcId(myVo.getSrcId());
+		}
 		saveMyCustomizedMessage.setCreateId(Integer.parseInt(userId));
 		YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 		req.setMessage(saveMyCustomizedMessage);
-		YJResponse<SaveMyCustomizedResponse> res = mycustomizedService
+		YJResponse<String> res = mycustomizedService
 				.saveMyCustomized(req);
 		if (res == null || res.getHead() == null) {
 			log.error("系统异常，请联系管理员");
-			return new ResponseData<SaveMyCustomizedResponse>(
+			return new ResponseData<String>(
 					ResponseData.AJAX_STATUS_FAILURE, "系统异常，请联系管理员", null);
 
 		}
 		if ("false".equals(res.getHead().getResult())) {
 			log.error(res.getHead().getMessage());
-			return new ResponseData<SaveMyCustomizedResponse>(
+			return new ResponseData<String>(
 					ResponseData.AJAX_STATUS_FAILURE, res.getHead()
 							.getMessage(), null);
 		}
-		SaveMyCustomizedResponse saveMyCustomizedResponse = res.getData();
+		String saveMyCustomizedResponse = res.getData();
 
 		// 获取保存的配置信息
 		YJRequest<MyCustomizedListMessage> customizedListMessageReq = new YJRequest<MyCustomizedListMessage>();
@@ -511,7 +512,7 @@ public class CommonController {
 			SessionUtil.setUserConfig(mock());
 		}
 		System.out.println(resp.getData().getCity());
-		return new ResponseData<SaveMyCustomizedResponse>(
+		return new ResponseData<String>(
 				ResponseData.AJAX_STATUS_SUCCESS, "保存配置信息成功",
 				saveMyCustomizedResponse);
 
@@ -643,14 +644,29 @@ public class CommonController {
 	@RequestMapping("/translate")
 	@ResponseBody
 	public String translate(TranslateMessage req) {
+		String[] text = req.getText().split("<br />");
+		StringBuilder sbd = new StringBuilder();
+		for(int i=0;i<text.length;i++){
+			req.setText(text[i]);
+			sbd.append(getTranslateResult(req));
+			sbd.append("<br />");
+		}
+		return sbd.toString();
+	}
+	private String getTranslateResult(TranslateMessage req){
 		String result = "";
 		try {
 			result = translateService.translate(req);
 			JSONObject jsonObject =JSON.parseObject(result);
-			if(!jsonObject.containsKey("translated")){
+			if(!jsonObject.containsKey("translation")){
 				return "";
 			}
-			JSONArray array = jsonObject.getJSONArray("translated");
+			JSONArray array = jsonObject.getJSONArray("translation");
+			if(CollectionUtil.isEmpty(array)){
+				return "";
+			}
+			jsonObject = (JSONObject) array.get(0);
+			array = jsonObject.getJSONArray("translated");
 			if(CollectionUtil.isEmpty(array)){
 				return "";
 			}
