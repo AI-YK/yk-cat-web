@@ -41,6 +41,9 @@
 		</div>
 	</div>
 	<input type="hidden" id="model" value="${model}"/>
+	<input type="hidden" id="province" value="${province}"/>
+	<input type="hidden" id="cities" value="${cities}"/>
+	<input type="hidden" id="interestes" value="${interestes}"/>
 	<!--二级框架-->
 	<div class="level-wrapper">
 		<div class="level-left-conter">

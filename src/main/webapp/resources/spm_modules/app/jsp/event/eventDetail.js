@@ -1,17 +1,17 @@
-define("app/jsp/news/newsDetail", function(require, exports, module) {
+define("app/jsp/event/eventDetail", function(require, exports, module) {
 	var $ = require('jquery'), 
 	Widget = require('arale-widget/1.2.0/widget'), 
 	Dialog = require("optDialog/src/dialog"), 
 	AjaxController = require('opt-ajax/1.0.0/index');
 	var ajaxController = new AjaxController();
-	var newsDetailPage = Widget.extend({
+	var eventDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
 			 
 		},
 		/* 重写父类 */
 		setup : function() {
-			newsDetailPage.superclass.setup.call(this);
+			eventDetailPage.superclass.setup.call(this);
 			this._init();
 		},
 		/* 初始化动画 */
@@ -55,15 +55,15 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		/*显示译文*/
 		showTranslation:function(){
 			this.queryTranslation(function(){
-				 $("#newsDetailContent").html('');
+				 $("#eventDetailContent").html('');
 				},function(json){
-				 $("#newsDetailContent").html(json);
+				 $("#eventDetailContent").html(json);
 				});
 		},
 		/*显示原文*/
 		showOriginal:function(){
 			var text =$("#srcContent").html();
-			$("#newsDetailContent").html(text);
+			$("#eventDetailContent").html(text);
 		},
 		/*显示混合*/
 		showSynchysis:function(){
@@ -71,7 +71,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			this.queryTranslation(function(){
 			 $("#translateContent").html('');
 			},function(json){
-			 $("#newsDetailContent").html($("#srcContent").html());
+			 $("#eventDetailContent").html($("#srcContent").html());
 			 $("#translateContent").html(json);
 			 $('#drag').show();
 			});
@@ -104,7 +104,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		},
 		/*查询分享收藏数*/
 		_queryCollOrShareCount:function(){
-			/*$.get(_base+"/news/collOrShareCount",{'id':newsDetailsId},function(json){
+			/*$.get(_base+"/news/collOrShareCount",{'id':eventDetailsId},function(json){
 				if(json.shareCount!=""){
 					$("#collCount").html(json.shareCount);
 				}
@@ -112,7 +112,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		},
 		/*收藏操作*/
 		_collectionHandle:function(type){
-			/*$.get(_base+"/news/collectionHandle",{'id':newsDetailsId,"type":type},function(json){
+			/*$.get(_base+"/news/collectionHandle",{'id':eventDetailsId,"type":type},function(json){
 				if(3==type){
 				//查询是否收藏
 					console.log(JSON.stringify(json));
@@ -142,5 +142,5 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		}
 		
 	});
-	module.exports = newsDetailPage;
+	module.exports = eventDetailPage;
 });

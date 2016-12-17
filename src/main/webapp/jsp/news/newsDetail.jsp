@@ -73,7 +73,7 @@
 							</div></li> -->
 					</ul>
 				</div>
-				<div class="news-detail-news" id="newDetailContent">
+				<div class="news-detail-news" id="newsDetailContent">
 				 ${newsDetails.srcContent}
 				</div>
 				<!-- <div class="news-detail-share">
