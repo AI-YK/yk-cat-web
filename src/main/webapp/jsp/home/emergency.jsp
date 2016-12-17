@@ -3,7 +3,7 @@
 	<div class="banner-main">
 		<div class="banner-title">
 		<ul>
-		   <li style="float:left;">突发事件</li>
+		   <li style="font-size:30px;float:left;">突发事件</li>
            <li class="right" style="float:right;"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:30px;color:white;">&#xe65b;</i></a></li>
 			</ul>
 		</div>
