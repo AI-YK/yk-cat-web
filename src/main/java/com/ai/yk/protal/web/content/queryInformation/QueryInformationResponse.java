@@ -117,7 +117,10 @@ public class QueryInformationResponse implements Serializable {
 	 * 转载量
 	 */
 	private String view;
-
+	/**
+	 * 语言 en zh
+	 */
+	private String srcLanguage;
 	public String getId() {
 		return id;
 	}
@@ -332,6 +335,14 @@ public class QueryInformationResponse implements Serializable {
 
 	public void setView(String view) {
 		this.view = view;
+	}
+
+	public String getSrcLanguage() {
+		return srcLanguage;
+	}
+
+	public void setSrcLanguage(String srcLanguage) {
+		this.srcLanguage = srcLanguage;
 	}
 
 }
