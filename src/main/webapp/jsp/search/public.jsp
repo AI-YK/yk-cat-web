@@ -64,7 +64,7 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId1" class="select select-mini">
+									<select id="orgnizationId1" class="select select-mini" style="width: 85px">
 										<option>全部</option>
 									</select>
 								</p>
@@ -72,7 +72,7 @@
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId1" class="select select-mini">
+									<select id="dicId1" class="select select-mini" style="width: 100px">
 										<option>时间</option>
 									</select>
 								</p>
@@ -89,10 +89,12 @@
 									<input  type="text" class="int-text select-mini">
 								</p>
 							</li>
-							<li>
+						</ul>
+						<ul>
+						<li>
 								<p>排序</p>
 								<p>
-									<select id="fieldName1" class="select select-mini">
+									<select id="fieldName1" class="select select-mini" style="width: 85px">
 										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
@@ -101,8 +103,6 @@
 									</select>
 								</p>
 							</li>
-						</ul>
-						<ul>
 							<li>
 								<p>情感</p>
 								<p>
@@ -154,7 +154,7 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId2" class="select select-mini">
+									<select id="orgnizationId2" class="select select-mini"  style="width: 85px">
 										<option>全部</option>
 									</select>
 								</p>
@@ -162,7 +162,7 @@
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId2" class="select select-mini">
+									<select id="dicId2" class="select select-mini"  style="width: 100px">
 										<option>全部</option>
 									</select>
 								</p>
@@ -170,7 +170,7 @@
 							<li>
 								<p>排序</p>
 								<p>
-									<select id="fieldName2" class="select select-mini">
+									<select id="fieldName2" class="select select-mini"  style="width: 85px">
 										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
@@ -185,14 +185,14 @@
 									<input id="timeId2" readonly type="text" class="select select-small calendar">
 								</p>
 							</li>
-							<li>
+						</ul>
+						<ul>
+						<li>
 								<p>媒体</p>
 								<p>
 									<input  type="text" class="int-text select-mini">
 								</p>
 							</li>
-						</ul>
-						<ul>
 							<li>
 								<p>情感</p>
 								<p>
