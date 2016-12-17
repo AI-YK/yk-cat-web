@@ -43,7 +43,7 @@
      <li class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
 		 <p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
 	     <p>
-			<span>{{:zhCountry}}.{{:zhCity}}</span> <span>{{:dayTime}}</span>
+			<span>{{:zhCountry}}.{{:zhCity}}</span> <span class="eventSpan">{{:dayTime}}</span>
 		 </p> 
    </li>
   {{/for}}

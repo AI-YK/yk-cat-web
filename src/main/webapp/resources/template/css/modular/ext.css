@@ -14,7 +14,7 @@
 	padding: 3px;
 }
 
-/****·ÖÒ³***/
+/****ï¿½ï¿½Ò³***/
 .biu-paging ul .prev a{}
 .biu-paging ul .next a{}
 .biu-paging ul .disabled a{cursor:not-allowed; }
@@ -46,4 +46,7 @@ input[type="checkbox"][disabled] {
 
 input[type="checkbox"][disabled]:checked {
   background:url(../../images/checked.png) no-repeat;
+}
+.eventSpan{
+	margin-left:19px;
 }
