@@ -4,6 +4,8 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 	Dialog = require("optDialog/src/dialog"), 
 	AjaxController = require('opt-ajax/1.0.0/index');
 	var ajaxController = new AjaxController();
+	var Charts = require("app/jsp/home/charts");
+	var charts = new Charts();
 	var eventDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -102,22 +104,22 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 				}
 			});
 		},
-		/*查询分享收藏数*/
-		_queryCollOrShareCount:function(){
-			/*$.get(_base+"/news/collOrShareCount",{'id':eventDetailsId},function(json){
-				if(json.shareCount!=""){
-					$("#collCount").html(json.shareCount);
+		/*图表*/
+		_initChart:function(){
+			var param ={};
+			param.models="timeTrend";
+			param.eventId=$("#srcId").val();
+			$.get(_base+"/common/queryEventModel",param,function(json){
+				if(json.data&&json.data.timeTrend){
+					var configParam ={};
+					configParam.backgroundColor='#f2f2f2';
+					charts._initTimeTrendChart("timeTrend",json.data.timeTrend,configParam);
+					var data = [];
+					
+					charts._initSpreadStateChart("spreadState",data,configParam);
 				}
-			});*/
-		},
-		/*收藏操作*/
-		_collectionHandle:function(type){
-			/*$.get(_base+"/news/collectionHandle",{'id':eventDetailsId,"type":type},function(json){
-				if(3==type){
-				//查询是否收藏
-					console.log(JSON.stringify(json));
-				}
-			});*/
+			});
+			
 		},
 		_bindEvent:function(){
 			var _this = this;
@@ -134,11 +136,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		_init:function(){
 			this._initAnimation();
 			this._bindEvent();
-			//this._queryCollOrShareCount();
-			//this._collectionHandle(3);
-			/*$("#gotsina").on("click",function(){
-				alert("aa");
-			});*/
+			this._initChart();
 		}
 		
 	});

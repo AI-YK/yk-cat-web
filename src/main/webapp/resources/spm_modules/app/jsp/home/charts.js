@@ -10,7 +10,15 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	HomeChart.superclass.setup.call(this); 
         },
         // 传播态势
-        _initSpreadStateChart:function(container,data){
+        _initSpreadStateChart:function(container,data,configParam){
+        	if(!configParam){
+        		configParam ={};
+        	}
+        	//背景色
+        	var backgroundColor ='#212532';
+        	if(configParam.backgroundColor){
+        		backgroundColor =configParam.backgroundColor;
+        	}
         	var edata2 = {};
     		edata2.media = [ '网易', '新华网', '搜狐网', 'BBC', 'CNN' ];
     		edata2.time = [ '10-08', '10-09', '10-10', '10-11' ];
@@ -22,7 +30,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         
 			var option = {
 				color : [ '#174879' ],
-				backgroundColor : '#212532',
+				backgroundColor : backgroundColor,
 				tooltip : {
 					show : false,
 					trigger : 'axis'
@@ -358,7 +366,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
 			chart.setOption(option, true);
         },
         // 时间态势
-        _initTimeTrendChart:function(container,data){
+        _initTimeTrendChart:function(container,data,configParam){
+        	if(!configParam){
+        		configParam ={};
+        	}
         	var times = [];
         	var counts = [];
         	for(var i=0;i<data.length;i++){
@@ -476,6 +487,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		        }
         		    ]
         		};
+        	
+	        	if(configParam.backgroundColor){//设置背景色
+	        		option.backgroundColor =configParam.backgroundColor;
+	        	}
         	    var chart = echarts.init(document.getElementById(container));
         	    chart.setOption(option);
         		 
