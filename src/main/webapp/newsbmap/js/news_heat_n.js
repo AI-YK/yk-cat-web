@@ -2265,7 +2265,7 @@ function echart2(){
 		        triggerOn:'mousemove',
 		        enterable:true,
 		        position: 'top',
-		        padding:[10,20,10,20],
+		        padding:[50,70,30,80],
 		        backgroundColor: 'rgba(45,99,161,0.7)',
 		        borderColor:'rgba(45,99,161,0.7)',
 		        formatter : function (params) {

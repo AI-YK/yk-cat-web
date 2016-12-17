@@ -16,12 +16,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.content.ResponseHead;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.common.DicListResonse;
 import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
+import com.ai.yk.protal.web.content.event.chars.EventModelMessage;
+import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
 import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
@@ -42,6 +45,7 @@ import com.ai.yk.protal.web.content.translate.TranslateMessage;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
+import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
 import com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsService;
 import com.ai.yk.protal.web.service.queryInfoLanguage.QueryInfoLanguageService;
@@ -80,7 +84,8 @@ public class CommonController {
 	QueryDicByTypeAndLanguageForNewsService queryDicService;
 	@Autowired
 	TranslateService translateService;
-
+	@Autowired
+	private  EventDataService eventDataService;
 	/**
 	 * 获得省列表
 	 * 
@@ -434,7 +439,7 @@ public class CommonController {
 	 */
 	@RequestMapping("/saveConf")
 	@ResponseBody
-	public ResponseData<SaveMyCustomizedResponse> saveMyCustomized(
+	public ResponseData<String> saveMyCustomized(
 			@RequestParam(value = "sourceSystem", defaultValue = "") String sourceSystem,
 			@RequestParam(value = "provinceCode", defaultValue = "") String provinceCode,
 			@RequestParam(value = "interestStr", defaultValue = "") String interestStr,
@@ -445,7 +450,7 @@ public class CommonController {
 		SSOClientUser clientUser = SessionUtil.getLoginUser();
 		if (clientUser == null) {
 			log.error("请重新登录");
-			return new ResponseData<SaveMyCustomizedResponse>(
+			return new ResponseData<String>(
 					ResponseData.AJAX_STATUS_FAILURE, "请重新登录", null);
 		}
 		SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
@@ -476,26 +481,27 @@ public class CommonController {
 		saveMyCustomizedMessage.setProvinceCode(provinceCode);
 		// saveMyCustomizedMessage.setSourceSystem(sourceSystem);
 		String userId = clientUser.getUserId();
-		saveMyCustomizedMessage
-				.setSrcId(SessionUtil.getUserConfig().getSrcId());
+		if(myVo!=null){
+			saveMyCustomizedMessage.setSrcId(myVo.getSrcId());
+		}
 		saveMyCustomizedMessage.setCreateId(Integer.parseInt(userId));
 		YJRequest<SaveMyCustomizedMessage> req = new YJRequest<SaveMyCustomizedMessage>();
 		req.setMessage(saveMyCustomizedMessage);
-		YJResponse<SaveMyCustomizedResponse> res = mycustomizedService
+		YJResponse<String> res = mycustomizedService
 				.saveMyCustomized(req);
 		if (res == null || res.getHead() == null) {
 			log.error("系统异常，请联系管理员");
-			return new ResponseData<SaveMyCustomizedResponse>(
+			return new ResponseData<String>(
 					ResponseData.AJAX_STATUS_FAILURE, "系统异常，请联系管理员", null);
 
 		}
 		if ("false".equals(res.getHead().getResult())) {
 			log.error(res.getHead().getMessage());
-			return new ResponseData<SaveMyCustomizedResponse>(
+			return new ResponseData<String>(
 					ResponseData.AJAX_STATUS_FAILURE, res.getHead()
 							.getMessage(), null);
 		}
-		SaveMyCustomizedResponse saveMyCustomizedResponse = res.getData();
+		String saveMyCustomizedResponse = res.getData();
 
 		// 获取保存的配置信息
 		YJRequest<MyCustomizedListMessage> customizedListMessageReq = new YJRequest<MyCustomizedListMessage>();
@@ -511,7 +517,7 @@ public class CommonController {
 			SessionUtil.setUserConfig(mock());
 		}
 		System.out.println(resp.getData().getCity());
-		return new ResponseData<SaveMyCustomizedResponse>(
+		return new ResponseData<String>(
 				ResponseData.AJAX_STATUS_SUCCESS, "保存配置信息成功",
 				saveMyCustomizedResponse);
 
@@ -651,6 +657,19 @@ public class CommonController {
 			sbd.append("<br />");
 		}
 		return sbd.toString();
+	}
+	@RequestMapping("/queryEventModel")
+	@ResponseBody
+	public ResponseData<EventModelResponse> queryEventModel(YJRequest<EventModelMessage> req,EventModelMessage msg){
+		req.setMessage(msg);
+		YJResponse<EventModelResponse> res =eventDataService.queryEventModel(req);
+		ResponseHead responseHead =res==null?null:res.getHead();
+		String result = responseHead==null?null:responseHead.getResult();
+		String resultMsg = responseHead==null?"查询事件模型失败":responseHead.getMessage();
+		if(StringUtil.isBlank(result) || "false".equals(result)){
+			return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_SUCCESS,resultMsg,null);
+		}
+		return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_SUCCESS,resultMsg,res.getData());
 	}
 	private String getTranslateResult(TranslateMessage req){
 		String result = "";

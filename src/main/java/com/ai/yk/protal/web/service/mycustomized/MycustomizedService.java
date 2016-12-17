@@ -35,7 +35,7 @@ public class MycustomizedService {
 	/**
 	 * 创建/修改   个人定制接口
 	 */
-	public YJResponse<SaveMyCustomizedResponse> saveMyCustomized(YJRequest<SaveMyCustomizedMessage> req) {
+	public YJResponse<String> saveMyCustomized(YJRequest<SaveMyCustomizedMessage> req) {
 		
 		String url = null;
 		
@@ -53,7 +53,7 @@ public class MycustomizedService {
 			
 		}
 		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<SaveMyCustomizedResponse>>(){});
+			return JSON.parseObject(result, new TypeReference<YJResponse<String>>(){});
 			
 		}
 		return null;
@@ -160,15 +160,14 @@ public class MycustomizedService {
 			}
 		}
 	}
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		MycustomizedService service = new MycustomizedService();
 		YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
 		MyCustomizedListMessage message = new MyCustomizedListMessage();
 		message.setCreateId(1);
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
-		YJResponse<MyCustomizedVo> res = service.queryMyCustomized(req);
-		System.out.println(res.getData().getInterestList());
+		YJResponse<MyCustomizedListResponse> res = service.queryMyCustomizedList(req);
 		System.out.println(JSON.toJSONString(res));
-	}
+	}*/
 }
