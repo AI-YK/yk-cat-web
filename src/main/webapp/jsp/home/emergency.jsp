@@ -3,8 +3,8 @@
 	<div class="banner-main">
 		<div class="banner-title">
 		<ul>
-		   <li style="font-size:18px;float:left;">突发事件</li>
-           <li class="right" style="float:right;"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:24px;color:white;">&#xe65b;</i></a></li>
+		   <li style="font-size:24px;float:left;">突发事件</li>
+           <li class="right" style="font-size:33px;float:right;"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:33px;color:white;">&#xe65b;</i></a></li>
 			</ul>
 		</div>
 		<div class="banner-list" id="chartGroup" style="display: none;">
@@ -43,7 +43,7 @@
      <li class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
 		 <p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
 	     <p>
-			<span>{{:zhCountry}}.{{:zhCity}}</span> <span>{{:dayTime}}</span>
+			<span>{{:zhCountry}}.{{:zhCity}}</span> <span class="eventSpan">{{:dayTime}}</span>
 		 </p> 
    </li>
   {{/for}}

@@ -10,7 +10,15 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	HomeChart.superclass.setup.call(this); 
         },
         // 传播态势
-        _initSpreadStateChart:function(container,data){
+        _initSpreadStateChart:function(container,data,configParam){
+        	if(!configParam){
+        		configParam ={};
+        	}
+        	//背景色
+        	var backgroundColor ='#212532';
+        	if(configParam.backgroundColor){
+        		backgroundColor =configParam.backgroundColor;
+        	}
         	var edata2 = {};
     		edata2.media = [ '网易', '新华网', '搜狐网', 'BBC', 'CNN' ];
     		edata2.time = [ '10-08', '10-09', '10-10', '10-11' ];
@@ -22,7 +30,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         
 			var option = {
 				color : [ '#174879' ],
-				backgroundColor : '#212532',
+				backgroundColor : backgroundColor,
 				tooltip : {
 					show : false,
 					trigger : 'axis'
@@ -358,7 +366,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
 			chart.setOption(option, true);
         },
         // 时间态势
-        _initTimeTrendChart:function(container,data){
+        _initTimeTrendChart:function(container,data,configParam){
+        	if(!configParam){
+        		configParam ={};
+        	}
         	var times = [];
         	var counts = [];
         	for(var i=0;i<data.length;i++){
@@ -420,7 +431,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		    yAxis : [
         		        {
         		            type : 'value',
-        		            nameLocation:'start',
+        		            //offset:10,
         					axisLine:{
         					  lineStyle:{
         						width:0,
@@ -476,6 +487,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		        }
         		    ]
         		};
+        	
+	        	if(configParam.backgroundColor){//设置背景色
+	        		option.backgroundColor =configParam.backgroundColor;
+	        	}
         	    var chart = echarts.init(document.getElementById(container));
         	    chart.setOption(option);
         		 
@@ -589,7 +604,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            data:positiveCnts,
         					itemStyle: {
         		               normal: {
-        		              	   color:'#eb6100'
+        		              	   color:'#eb4d38'
         					   }
         					} 
         					
@@ -601,7 +616,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		            data:negativeCnts,
         					itemStyle: {
         		                normal: {
-        		               		color:'#8fc31f'
+        		               		color:'#90c823'
         						}
         					} 
         		        }
@@ -611,14 +626,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		chart.setOption(option);
         },
         _initMediaCoverageChart:function(container,ul,data){
-        	var colors = ['#eb4d38','#80c823','#0067b4','#af67ef','#f9983a'];	
+        	var colors = ['#80c823','#0067b4','#eb4d38','#f9983a','#1b84ed','#af67ef'];	
         	var series = [];
         	for(var i=0;i<data.length;i++){
         		series.push({'name':data[i].name,'value':data[i].count});
         	}
-        	if(data.length%5==1){
-        		//colors.splice(0,1);
-        		colors.push(colors[2]);
+        	if(data.length%colors.length==1){
+        		colors.push(colors[1]);
         	}
         	var cache = [];
             var option = {

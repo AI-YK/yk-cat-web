@@ -114,23 +114,25 @@
 			</div>
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
-					<p>时间趋势</p>
+					<p>传播态势</p>
 					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
 				</div>
 				<!--图表嵌套区域-->
-				<div class="levle-right-chart-list">
-				<img src="${uedroot}/images/chbo.png">
+				<div class="levle-right-chart-list" id="spreadState">
+				
 				</div>
 				<!--/图表嵌套区域结束-->
 
 			</div>
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
-					<p>媒体统计</p>
+					<p>事件走势</p>
 					<p class="right">选择时间：2016-11-15 至 2016-11-19</p>
 				</div>
 				<!--图表嵌套区域-->
-				<div class="levle-right-chart-list">图表嵌套区域</div>
+				<div class="levle-right-chart-list" id="timeTrend">
+				
+				</div>
 				<!--/图表嵌套区域结束-->
 
 			</div>
@@ -138,6 +140,7 @@
 	</div>
 	<!--底部-->
 	<input id="srcLanguage" type="hidden" value="zh"/>
+	<input id="srcId" type="hidden" value="${eventDetail.srcId}"/>
 	<div id="srcContent" style="display: none;">
 	  ${eventDetail.srcSummary}
 	</div>
