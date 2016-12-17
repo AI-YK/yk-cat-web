@@ -113,7 +113,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 		</ul> -->
 		
 	</div>
-	<div class="right">
+	
+	
+	
+	<div class="right" style="display:none;">
 		<span class="search_box">
 			   <input type="text" class="search_txt" name="keyword" placeholder="">
 			   <a title="点击搜索" class="btn_search" href="javascript:;"><i class="ico_search"></i></a>

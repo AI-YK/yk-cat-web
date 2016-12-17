@@ -974,7 +974,7 @@ function get_event_point(){
 	//热点 地图数据
 	 $.post(ajax_url,ajax_dataV,function(result){
 //	 	    var result=JSON.parse(result.data.resultList);
-		 alert(result);
+//		 alert(result);
 	 	    var result=eval(result.data.result);
 	 	  //console.log('接口数据---=',result.data.results);
 	 	    $('.div0 .ul1').empty();
@@ -1081,7 +1081,7 @@ function get_event_point(){
 		 	    	    p_map_geo[o.zhTitle].push(o.longitude);
 		 	    	    p_map_geo[o.zhTitle].push(o.latitude);
 
-		 	    	    var url = "javascript:;;";
+		 	    	    var url = "";
 		    		   /* if(o.uuid!=null && o.globaleventId!=null && o.id!="" && o.globaleventId!=""){
 			 	    	    url = 'news/detail/info?globaleventid='+o.globaleventId;
 		    		    }*/
@@ -2486,7 +2486,7 @@ function echart2(){
 		        triggerOn:'mousemove',
 		        enterable:true,
 		        position: 'top',
-		        padding:[50,70,30,80],
+		        padding:[10,20,10,20],
 		        backgroundColor: 'rgba(45,99,161,0.7)',
 		        borderColor:'rgba(45,99,161,0.7)',
 		        formatter : function (params) {
