@@ -6,8 +6,7 @@
 <script src="js/layer/layer.js"></script>
 </head>
 <body>
-<!--新的头部-->
-<!-- 
+<!--新的头部--> 
 <style type="text/css">
 	.header_box .right .menu_list li .m_list .m_list_bg .m_list_bg_no{color: #1C232B;cursor: default;}
 	.header_box{ position: relative;z-index: 1001;clear: both; height: 50px; line-height: 50px;background-color: #0f161c;  font: 12px/1.5 "Helvetica Neue", arial, "Microsoft Yahei", "微软雅黑", 'Hiragino Sans GB', sans-serif;}
@@ -95,21 +94,19 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 .layui-layer-load{background:url(images/article/loading-0.gif) center center no-repeat #000;filter:alpha(opacity=50);-moz-opacity:0.50;opacity:0.50;}
 .layui-layer-content {
 	position:absolute;
-	width: 100%;
+	width: 100%; 
 } 
 </style>
--->
 <div class="header_box">
 	<div class="left">
 		<a title="返回首页" href="http://www.yeesight.com"><i class="ico_logo"></i></a>
 	</div>
 	<div class="center">
 		<span class="title"><h1>
-        
-        
-        
-        
-        </h1></span>
+		
+		热点发现</h1>
+        	
+        </span>
 		<!-- <ul class="header_top_list">
 			<li class="on"><a href="analysisMap/dataIndex">地图</a></li>
 			<li><a href="javascript:;">列表</a></li>

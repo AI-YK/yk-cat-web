@@ -18,17 +18,12 @@
 			myChart2 = echarts.init(document.getElementById(elementId));
 			var option = {
 				color : [ '#174879' ],
-				title : {
-					show : false,
-					text : 'ddd',
-					subtext : ''
-				},
+				backgroundColor : '#212532',
 				tooltip : {
 					show : true,
 					trigger : 'axis'
 				},
 				grid : {
-					/*width:'100%',*/
 					top : '20%',
 					left : '-40',
 					right : '0',
@@ -38,30 +33,34 @@
 				legend : {
 					show : false,
 					data : edata2.media
-				/*data:['网易','新华网','搜狐网','CNN']*/
-				},
-				toolbox : {
-					show : false
 				},
 				xAxis : [ {
 					axisLabel : {
 						textStyle : {
-							color : '#3386c0'
+							color : '#697398',
+							fontSize:13
 						}
 					},
+					axisLine:{
+  					  lineStyle:{
+  					    color:'#314a5a',
+  						width:2
+  					  }
+  					},
+  					axisTick : {
+						show:false
+					},
 					type : 'category',
-					/* data : ['10-08','10-09','10-10','10-11','10-12','10-13','10-14','10-15']*/
-					/*data : ['10-08','10-09']*/
 					data : edata2.time
 				} ],
 				yAxis : [ {
 					type : 'value',
 					splitNumber : 3,
-					/*max:20,*/
 					axisLabel : {
-						margin : 20,
+						margin : 10,
 						textStyle : {
-							color : '#333'
+							color : '#697398',
+							fontSize:13
 						},
 						formatter : function(value, index) {
 							switch (index) {
@@ -84,8 +83,9 @@
 					},
 					splitLine : {
 						lineStyle : {
-							/*color:'#202f3e'*/
-							color : '#ccc'
+							color : '#3a415a',
+							type: 'dashed',
+							width:0.8
 						}
 					}
 				} ],
@@ -97,10 +97,9 @@
 					label : {
 						normal : {
 							show : true,
+							color:'#3382ee',
 							position : 'top',
 							formatter : function(param) {
-								/*var arry=param.seriesName.split('');
-								return arry.join('\n')+'\n';*/
 								var arry = param.seriesName.split('');
 								var str = '';
 								if (arry.length > 3) {
@@ -139,15 +138,8 @@
 						}, {
 							yAxis : edata2.data[0][2],
 							xAxis : edata2.time[2]
-						}
-						/*  {yAxis:23.2,xAxis:'10-11'},
-						 {yAxis:25.6,xAxis:'10-12'},
-						 {yAxis:76.7,xAxis:'10-13'},
-						 {yAxis:105.6,xAxis:'10-14'},
-						 {yAxis:122.2,xAxis:'10-15'}*/
-						]
+						} ]
 					},
-					/*data:[52.0, 94.9, 7.0, 23.2, 25.6, 76.7, 105.6, 122.2]*/
 					data : edata2.data[0]
 				}, {
 					name : edata2.media[1],
@@ -159,8 +151,6 @@
 							show : true,
 							position : 'top',
 							formatter : function(param) {
-								/*var arry=param.seriesName.split('');
-								return arry.join('\n')+'\n';*/
 								var arry = param.seriesName.split('');
 								var str = '';
 								if (arry.length > 5) {
@@ -199,20 +189,8 @@
 						}, {
 							yAxis : edata2.data[1][2],
 							xAxis : edata2.time[2]
-						}
-						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
-						/*{yAxis:86.0,xAxis:'10-08'},
-						 {yAxis:18.9,xAxis:'10-09'}
-						 {yAxis:4.0,xAxis:'10-10'},
-						 {yAxis:12.2,xAxis:'10-11'},
-						 {yAxis:125.6,xAxis:'10-12'},
-						 {yAxis:6.7,xAxis:'10-13'},
-						 {yAxis:135.6,xAxis:'10-14'},
-						 {yAxis:62.2,xAxis:'10-15'}*/
-						]
+						} ]
 					},
-					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
-					/*data:[86.0, 18.9]*/
 					data : edata2.data[1]
 				}, {
 					name : edata2.media[2],
@@ -224,8 +202,6 @@
 							show : true,
 							position : 'top',
 							formatter : function(param) {
-								/*var arry=param.seriesName.split('');
-								return arry.join('\n')+'\n';*/
 								var arry = param.seriesName.split('');
 								var str = '';
 								if (arry.length > 5) {
@@ -265,19 +241,9 @@
 							yAxis : edata2.data[2][2],
 							xAxis : edata2.time[2]
 						}
-						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
-						/*{yAxis:86.0,xAxis:'10-08'},
-						 {yAxis:18.9,xAxis:'10-09'}
-						 {yAxis:4.0,xAxis:'10-10'},
-						 {yAxis:12.2,xAxis:'10-11'},
-						 {yAxis:125.6,xAxis:'10-12'},
-						 {yAxis:6.7,xAxis:'10-13'},
-						 {yAxis:135.6,xAxis:'10-14'},
-						 {yAxis:62.2,xAxis:'10-15'}*/
+
 						]
 					},
-					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
-					/*data:[86.0, 18.9]*/
 					data : edata2.data[2]
 				}, {
 					name : edata2.media[3],
@@ -289,8 +255,6 @@
 							show : true,
 							position : 'top',
 							formatter : function(param) {
-								/*var arry=param.seriesName.split('');
-								return arry.join('\n')+'\n';*/
 								var arry = param.seriesName.split('');
 								var str = '';
 								if (arry.length > 5) {
@@ -329,20 +293,8 @@
 						}, {
 							yAxis : edata2.data[3][2],
 							xAxis : edata2.time[2]
-						}
-						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
-						/*{yAxis:86.0,xAxis:'10-08'},
-						 {yAxis:18.9,xAxis:'10-09'}
-						 {yAxis:4.0,xAxis:'10-10'},
-						 {yAxis:12.2,xAxis:'10-11'},
-						 {yAxis:125.6,xAxis:'10-12'},
-						 {yAxis:6.7,xAxis:'10-13'},
-						 {yAxis:135.6,xAxis:'10-14'},
-						 {yAxis:62.2,xAxis:'10-15'}*/
-						]
+						} ]
 					},
-					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
-					/*data:[86.0, 18.9]*/
 					data : edata2.data[3]
 				}, {
 					name : edata2.media[4],
@@ -354,8 +306,6 @@
 							show : true,
 							position : 'top',
 							formatter : function(param) {
-								/*var arry=param.seriesName.split('');
-								return arry.join('\n')+'\n';*/
 								var arry = param.seriesName.split('');
 								var str = '';
 								if (arry.length > 5) {
@@ -395,32 +345,23 @@
 							yAxis : edata2.data[4][2],
 							xAxis : edata2.time[2]
 						}
-						/*{yAxis:edata2.data[1][1],xAxis:edata2.time[1]}*/
-						/*{yAxis:86.0,xAxis:'10-08'},
-						 {yAxis:18.9,xAxis:'10-09'}
-						 {yAxis:4.0,xAxis:'10-10'},
-						 {yAxis:12.2,xAxis:'10-11'},
-						 {yAxis:125.6,xAxis:'10-12'},
-						 {yAxis:6.7,xAxis:'10-13'},
-						 {yAxis:135.6,xAxis:'10-14'},
-						 {yAxis:62.2,xAxis:'10-15'}*/
+
 						]
 					},
-					/*data:[86.0, 18.9, 4.0, 12.2, 125.6, 6.7, 135.6, 62.2]*/
-					/*data:[86.0, 18.9]*/
-					data : edata2.data[4]
-				}
 
-				]
+					data : edata2.data[4]
+				}]
 			};
 			myChart2.setOption(option, true);
 
 		}
 		var edata2 = {};
-		edata2.media=['网易','新华网','搜狐网','BBC','CNN'];
-		edata2.time=['10-08','10-09','10-10'];
-		edata2.data=[[52.0, 94.9, 94.9],[86.0, 18.9, 94.9],[112.0, 14.9, 94.9],[32.0, 154.9, 94.9],[32.0, 154.9, 94.9]];
-		echartsSpreadTread('main',edata2);
+		edata2.media = [ '网易', '新华网', '搜狐网', 'BBC', 'CNN' ];
+		edata2.time = [ '10-08', '10-09', '10-10' ];
+		edata2.data = [ [ 52.0, 94.9, 94.9 ], [ 86.0, 18.9, 94.9 ],
+				[ 112.0, 14.9, 94.9 ], [ 32.0, 154.9, 94.9 ],
+				[ 32.0, 154.9, 94.9 ] ];
+		echartsSpreadTread('main', edata2);
 	</script>
 
 </body>

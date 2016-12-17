@@ -21,7 +21,8 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><%-- <fmt:message key="news_heat_n.1"/> --%>全球热点</title><!-- 全球热点 -->
+		<%-- <title><fmt:message key="news_heat_n.1"/>全球热点</title> --%><!-- 全球热点 -->
+		<title>热点发现</title>
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/public.css" /><!--公共-->
 		<script src="js/jquery-1.10.2.min.js"></script>
@@ -30,8 +31,8 @@
 		<link href="css/news/jquery.mCustomScrollbar.css" rel="stylesheet" />
 		<script type="text/javascript" src="js/news/news_seltime.js"></script>
 		<link rel="stylesheet" href="css/news_heat_n.css"/><!--新闻大数据-->
-		<link href="${uedroot}/css/modular/headr-footer.css" rel="stylesheet" type="text/css" />
-		<script src="js/layer/layer.js"></script>
+		<!-- <link href="${pageContext.request.contextPath}/resources/template/css/modular/headr-footer.css" rel="stylesheet" type="text/css" />
+		 --><script src="js/layer/layer.js"></script>
 		<!-- 时间轴样式引入结束 -->
 		<script src="js/map.js"></script>
 		<script src="js/layer.js"></script>
@@ -148,8 +149,8 @@
 		</script>
 	</head>
 	<body>
-	<%@ include file="/inc/inc.jsp"%>
 	        <!--头部开始-->
+	        <%@ include file="./news_header.jsp" %>
             <!--头部结束-->
  
             <!--时间轴开始-->

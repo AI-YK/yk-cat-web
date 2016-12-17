@@ -59,7 +59,9 @@ define('app/jsp/home/home', function (require, exports, module) {
                  });
                  $(this).addClass("current");
                  var index=$('.list-left ul li').index(this);
-                 homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);
+                 if(_this.chartGroups[index]){
+                	  homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);
+                 }
                  $("#chart-date"+index).show();
 			});
             
@@ -67,6 +69,10 @@ define('app/jsp/home/home', function (require, exports, module) {
            	 $(".list-left ul li").each(function () {
                     $(this).removeClass("current");
                 });
+           	    var index=$('.list-left ul li').index(this);
+             	if(_this.chartGroups[index]){
+				   homeChart._initSpreadStateChart("chart_left",_this.chartGroups[index].spreadTrend);
+			    }
                 $(this).addClass("current");
 			});
             
@@ -219,8 +225,11 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
 					_this.chartGroups = data.groups;
-					//homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
-					homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
+					if(_this.chartGroups[0]){
+						homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
+						homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
+					}
+					
 				}
 			});
         },
