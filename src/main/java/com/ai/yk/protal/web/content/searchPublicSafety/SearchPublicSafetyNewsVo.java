@@ -13,9 +13,9 @@ public class SearchPublicSafetyNewsVo implements Serializable {
 	/**语言类别**/
 	private String languageCode;
 	/**纬度**/
-	private BigDecimal latitudes;
+	private String latitude;
 	/**经度**/
-	private BigDecimal longitude;
+	private String longitude;
 	/**主键id**/
 	private String uuid;
 	/**源标题**/
@@ -104,16 +104,16 @@ public class SearchPublicSafetyNewsVo implements Serializable {
 	public void setLanguageCode(String languageCode) {
 		this.languageCode = languageCode;
 	}
-	public BigDecimal getLatitudes() {
-		return latitudes;
+	public String getLatitude() {
+		return latitude;
 	}
-	public void setLatitudes(BigDecimal latitudes) {
-		this.latitudes = latitudes;
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
 	}
-	public BigDecimal getLongitude() {
+	public String getLongitude() {
 		return longitude;
 	}
-	public void setLongitude(BigDecimal longitude) {
+	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
 	public String getUuid() {
