@@ -42,7 +42,7 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId1" class="select select-mini">
+									<select id="orgnizationId1" class="select select-mini"  style="width: 85px">
 										<option>全部</option>
 									</select>
 								</p>
@@ -50,7 +50,7 @@
 							<li>
 								<p>语言</p>
 								<p>
-									<select id="languageId1" class="select select-mini">
+									<select id="languageId1" class="select select-mini" style="width: 100px">
 										<option>全部</option>
 									</select>
 								</p>
@@ -58,7 +58,7 @@
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId1" class="select select-mini">
+									<select id="dicId1" class="select select-mini" style="width: 100px">
 										<option>时间</option>
 									</select>
 								</p>
@@ -69,14 +69,14 @@
 									<input id="timeId1" type="text" readonly class="select select-small calendar"/>
 								</p>
 							</li>
+						</ul>
+						<ul>
 							<li>
 								<p>媒体</p>
 								<p>
 									<input  type="text" class="int-text select-mini">
 								</p>
 							</li>
-						</ul>
-						<ul>
 							<li>
 								<p>排序</p>
 								<p>
