@@ -31,6 +31,10 @@ public class SearchPublicSafetyMessage implements Serializable {
 		private String provincecityCode;
 		/**城市**/
 		private String cityCode;
+		/**国家**/
+		private String countryCode;
+		
+		
 		/**媒体级别id**/
 		private String mediaLevel;
 		/**排序字段
@@ -56,6 +60,12 @@ public class SearchPublicSafetyMessage implements Serializable {
 		
 		
 		
+		public String getCountryCode() {
+			return countryCode;
+		}
+		public void setCountryCode(String countryCode) {
+			this.countryCode = countryCode;
+		}
 		public String getKeyword() {
 			return keyword;
 		}
