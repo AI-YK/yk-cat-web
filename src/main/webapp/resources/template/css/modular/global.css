@@ -335,11 +335,11 @@ pre ol.linenums li {
 .btn-deepblue:active,
 .btn-deepblue.active{color:#fff;background-color:#0067b4;}
 /*颜色 蓝色*/
-.btn-blue{color:#fff;background-color:#2361ea;}
+.btn-blue{color:#fff;background-color:#3382ee;}
 .btn-blue:hover,
 .btn-blue:focus,
 .btn-blue:active,
-.btn-blue.active{color:#fff;background-color:#608ff9;}
+.btn-blue.active{color:#fff;background-color:#3382ee;}
 /*颜色 绿色*/
 .btn-green{color:#fff;background-color:#39d5b0;}
 .btn-green:hover,
@@ -377,8 +377,8 @@ pre ol.linenums li {
 .border-default{border:1px solid #c7c7c7;background:#fff;}
 .border-default:hover{background:#c7c7c7;}
 /**边框按钮蓝色**/
-.border-blue{border:2px solid #2361ea;background:#fff;}
-.border-blue:hover{background:#2361ea;color:#fff;}
+.border-blue{border:1px solid #3382ee;background:#fff;color:#3382ee}
+.border-blue:hover{background:#3382ee;color:#fff;}
 /**细边框按钮蓝色**/
 .border-blue-small{border:1px solid #2361ea;background:#fff;color:#2361ea;font-size:12px;font-weight:normal;}
 .border-blue-small:hover{background:#2361ea;color:#fff;}
@@ -422,7 +422,7 @@ pre ol.linenums li {
 .place-btn-none{width:132px;height:40px;font-size:18px;margin-top:50px;margin-left:20px;color:#2965e6}
 .banner-place-btn{width:132px;height:40px;font-size:18px;color:#fff;-webkit-box-shadow: #3292f8 0px 0px 6px;-moz-box-shadow: #3292f8 0px 0px 6px;box-shadow: #3292f8 0px 0px 6px;margin-left:5px;}
 .btn-230{width:236px;height:50px;}
-.btn-168{width:168px;height:50px;}
+.btn-168{width:168px;height:44px;}
 /************************表单************************/
 .int-text{border:1px solid #dcddde;background:#fff; outline:none;line-height:26px;color:#6a6c6f;font-size:14px;resize:none;}
 .int-text:hover{/*border:1px solid #52dc90;*/}
@@ -438,7 +438,7 @@ pre ol.linenums li {
 .int-xxxlarge{width:700px;height:44px;padding:0 20px;line-height:44px;}
 .textarea-xlarge{width:350px;height:80px;padding:0 20px;}
 .int-in-big{width:425px;height:44px;padding:0 20px;line-height:44px;}
-.int-in-280{width:280px;height:44px;padding:0 20px;line-height:44px;}
+.int-in-280{width:280px;height:32px;padding:0 20px;line-height:32px;}
 .int-in-200{width:180px;height:40px;padding:0 10px;line-height:40px;}
 .border-sma{border:1px solid #39d5b0}
 .border-sma:hover{border:1px solid #39d5b0}

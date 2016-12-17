@@ -60,13 +60,13 @@
 						<li>${newsDetails.languageTName}</li>
 						<li>${newsDetails.countryNameZh}<img height="14px" src="${uedroot}/images/country/${newsDetails.countryNameEn}@2x.png" /></li>
 						<li class="zhuanz">转载量：<span>${newsDetails.view}</span></li>
-						<li class="yuyan" id="yuyan"><a href="#"></a>
+						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul>
-									<a href="javascrpt:;" class="ahov1"><li>译文排版</li></a>
-									<a href="javascrpt:;" class="ahov2"><li>原文排版</li></a>
-									<a href="javascrpt:;" class="ahov3"><li>原译混排</li></a>
+									<a id="showTranslation" href="javascrpt:;" class="ahov1"><li>译文排版</li></a>
+									<a id="showOriginal"  href="javascrpt:;" class="ahov2"><li>原文排版</li></a>
+									<a id="showSynchysis" href="javascrpt:;" class="ahov3"><li>原译混排</li></a>
 								</ul>
 							</div></li>
 						<!-- <li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
@@ -116,6 +116,22 @@
 			</div>
 		</div>
 		<div class="levle-right">
+		    <!--拖拽-->
+				<div id="drag" style="z-index: 999;">
+					<div class="drag-title">
+						<p><img src="${uedroot}/images/drag-yw.jpg"></p>
+						<p class="right"><i class="icon iconfont" id="deag-close">&#xe618;</i></p>
+					</div>
+					<div class="drag-list">
+						<div class="drag-list-bt">clinton as popular republican
+donald trump leading by 8
+percentage points</div>
+					<div class="drag-list-word" id="translateContent">
+					</div>
+					</div>
+					 <div id="coor"></div>
+				</div>
+			<!-- / 拖拽结束-->
 			<div class="levle-right-map" id="baiduContainer">
 		
 			</div>
@@ -144,6 +160,7 @@
 	<!--底部-->
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
+    <script src="${uedroot}/scripts/modular/drag.js"></script>
 	<script type="text/javascript">
     var pager;
     (function () {

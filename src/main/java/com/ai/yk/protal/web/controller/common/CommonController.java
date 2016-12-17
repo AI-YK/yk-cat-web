@@ -646,11 +646,17 @@ public class CommonController {
 		String result = "";
 		try {
 			result = translateService.translate(req);
+			System.out.println(result);
 			JSONObject jsonObject =JSON.parseObject(result);
-			if(!jsonObject.containsKey("translated")){
+			if(!jsonObject.containsKey("translation")){
 				return "";
 			}
-			JSONArray array = jsonObject.getJSONArray("translated");
+			JSONArray array = jsonObject.getJSONArray("translation");
+			if(CollectionUtil.isEmpty(array)){
+				return "";
+			}
+			jsonObject = (JSONObject) array.get(0);
+			array = jsonObject.getJSONArray("translated");
 			if(CollectionUtil.isEmpty(array)){
 				return "";
 			}
