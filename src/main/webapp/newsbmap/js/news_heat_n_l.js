@@ -2,7 +2,6 @@
 //切换右侧新闻列表
 //获取右侧热点新闻数据  新 误删
 function get_event_point_data_new(){
-	alert(222);
 //lixiang 2016-12-16 模拟数据
 //	var ajax_url='news/getNewsHeatPointListNewInteface';
 //	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
@@ -30,9 +29,10 @@ function get_event_point_data_new(){
 	 var cnum=1;
 	 $.post(ajax_url,ajax_data,function(data){
 //	 	    var result=JSON.parse(data);
+		 	var result = eval(data.data.resultSocialList);
 	 	    $('#newsVal li:not([class])').remove();
 	 	    var html='';
-	 	    $.each(data.data,function(i,o){
+	 	    $.each(result,function(i,o){
 	 	    	html+='<li>';
 	 	    	cnum=i;
 	 	    	if(i<3){
@@ -41,10 +41,10 @@ function get_event_point_data_new(){
 	 	    		html+='<i class="num">'+(i+1)+'</i><!--num-->';
 	 	    	}
 	 	    	var sftj="";
-    			if(o.source=='0'){//推荐
+    			/*if(o.source=='0'){//推荐
     				sftj="<span class='zt'>"+$("#nhnl1").val()+"</span>";
     				
-    			}
+    			}*/
 	 	    	var topic=o.srcTitle;//原标题
     			//if(topic!=null && topic.length>20){
     				//topic=o.srcTitle.substring(0,20);
@@ -126,7 +126,7 @@ function get_event_point_data_new(){
 	 	    	html+='</dd>';
 	 	    	html+='<dd class="item">';
 	 	    	html+='<p class="item1">'+type+'</p>';
-	 	    	html+='<p class="item2">'+zhCountryName+""+city+'</p>';
+	 	    	html+='<p class="item2">'+zhCountry+""+city+'</p>';
 	 	    	
 	 	    	html+='</dd>';
 	 	    	html+='</dl>';
@@ -161,6 +161,7 @@ function get_event_point_data_zixun(){
 	 	'countrychinaname':country_class,
 	 	'classify':classify,
 	 //	'mediaType' : 'news',//事件热点
+	 	'type':'1',
 	 	'pageNo':1,
 	 	'pageSize':50,
 	 	'gj':gj,
@@ -176,7 +177,7 @@ function get_event_point_data_zixun(){
 //		 	alert(data);
 //	 	    var result=JSON.parse(data.data.result);
 	 	    var result=eval(data.data.result);
-	 	    alert(result);
+	 	    
 	 	    $('#newsinfo li:not([class])').remove();
 	 	    //$('#newsinfo .more_box').empty();
 	 	    var html='';
@@ -230,8 +231,8 @@ function get_event_point_data_zixun(){
     				if(isNull(o.classifyEnglish)!=''){
     					classify=o.classifyEnglish;
     				}
-    				if(isNull(o.summaryEnglish)!='' && o.summaryEnglish.length>35){
-    	    			topicDigest=o.summaryEnglish.substring(0,35)+"...";
+    				if(isNull(o.zhSummary)!='' && o.zhSummary.length>35){
+    	    			topicDigest=o.zhSummary.substring(0,35)+"...";
     				}
     			}else{
     				

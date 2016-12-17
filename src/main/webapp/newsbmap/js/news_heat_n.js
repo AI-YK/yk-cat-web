@@ -1340,7 +1340,7 @@ function formatDate(date) {
 //百度地图 2.0 
 function getBMapData(){
 	//console.log(bs);
-	alert(123);
+	//alert(123);
 	 //  var ajax_url='news/topicListInteface';//大框
 		var ajax_url ="";
 	  // var startTime=formatDate(start_datetime)+" 00:00:00";
