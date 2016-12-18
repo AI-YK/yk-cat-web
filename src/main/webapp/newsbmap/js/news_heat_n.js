@@ -14,13 +14,15 @@ var imgszx="images/temp/nopic.jpg";///zypublish-web/src/main/webapp/resources/im
 var flags=true;//控制第一次
 var flagszt=true;//控制第一次
 var timeId;
-
 var bmap = null;//百度地图数据
 
 //临时经纬度
 var lang="";//经度
 var lat="";//维度
-
+/**2016-12-17 新加字段*/
+var categoryId;
+var provincecityCode;
+var cityCode;
 
 
 function fmoney(s, n) {
@@ -210,9 +212,10 @@ $(function(){
     });
     //$(".echart_tip").remove();
 	init();//加载分类
-	get_event_point_data();//地图数据
-	get_event_point_data_zixun();//资讯
-	get_event_point_data_new();//右侧新闻数据
+	get_event_point();//地图数据
+//	get_event_point_data();//地图数据
+	//get_event_point_data_zixun();//资讯
+	//get_event_point_data_new();//右侧新闻数据
 	//全球选择鼠标离开隐藏
 	$(document).on('mouseleave','.xzzhou',function(){
 		//移除国家城市滚动条
@@ -409,7 +412,7 @@ function trinkFunc(){
 			    	getBMapData();
 			    }
 			    get_event_point_data_zixun();//资讯
-				get_event_point_data_new();//右侧新闻数据
+			//	get_event_point_data_new();//右侧新闻数据
 				return false;
 	});
 }
@@ -515,7 +518,7 @@ function selectCity(mc,jd,wd,gj,cs,start_datetime,end_datetime,classify){
 						 		    	//$(".echart_tip").remove();//清空所有提示框
 						 		    	getBMapData();
 						 		    	get_event_point_data_zixun();//资讯
-						 		    	get_event_point_data_new();//右侧新闻数据
+						 		    	//get_event_point_data_new();//右侧新闻数据
 					    		 }
 				 			 }
 				 		 })
@@ -938,8 +941,8 @@ var bigData = [];
 var count = 0;
 var isBig=0;
 
-//echart 2.0 地图数据
-function get_event_point_data(){
+//事件显示 lixiang
+function get_event_point(){
 	 p_map_geo={};
 	 p_map_point = [];
 	 p_map_pointTop=[];
@@ -949,71 +952,79 @@ function get_event_point_data(){
 //	 var ajax_url='news/topicListInteface';//大框
 //	 var ajax_url=path + '/getTopicListIntefaceData';//大框
 	 //yk-pa-web\src\main\webapp\newsbmap\json
-	 var ajax_url=path + '/newsbmap/json/topicListIntefaceJson.json';//大框
-	// var ajax_url=path + '/bmap/getTopicListIntefaceData';//大框
-	// alert(ajax_url);
+//	 var ajax_url=path + '/newsbmap/json/topicListIntefaceJson.json';//大框
+	 var ajax_url=path + '/emergency/queryEmergencyPage';
+//	 alert(ajax_url);
 	 var ajax_dataV={
 	 	'beginDate':start_datetime,
 	 	'endDate':end_datetime,
-	 	'countrychinaname':country_class,
-	 	'classify':classify,
-	 	'sourceType' : '1',//新闻热点
-	 	'pageSize':50,
-	 	'pageSizeBig':50,//所有
+//	 	'countrychinaname':country_class,
+	 	'provincecityCode':provincecityCode,//省份code
+	 	'cityCode':cityCode,//城市code
+//	 	'classify':classify,
+//	 	'mediaType':'news',//新闻热点
+//	 	'categoryId' : categoryId,//舆情分类
+	 	'type':'1',
+	 	'pageSize':'50',
+	 	'pageNo':'1',//所有
 	 	'flag':fg,
 	 	'gj':gj,
 	 	'cs':cs
 	 };
 	//热点 地图数据
 	 $.post(ajax_url,ajax_dataV,function(result){
-//	 	    var result=JSON.parse(result);
-	 	    var result=eval(result);
+//	 	    var result=JSON.parse(result.data.resultList);
+//		 alert(result);
+	 	    var result=eval(result.data.result);
 	 	  //console.log('接口数据---=',result.data.results);
 	 	    $('.div0 .ul1').empty();
-	 	    $.each(result.data.results,function(i,o){
-
-	 	    	 if(o.topic && o.topic!='' && o.geoLat && o.geoLat!='' && o.geoLong && o.geoLong!=''){
-	 	    	    p_map_geo[o.topic]=[];
-	 	    	    p_map_geo[o.topic].push(o.geoLong);
-	 	    	    p_map_geo[o.topic].push(o.geoLat);
+	 	    $.each(result,function(i,o){
+	 	    	 if(o.zhTitle && o.zhTitle!='' && o.latitude && o.latitude!='' && o.longitude && o.longitude!=''){
+	 	    	    p_map_geo[o.zhTitle]=[];
+	 	    	    p_map_geo[o.zhTitle].push(o.longitude);
+	 	    	    p_map_geo[o.zhTitle].push(o.latitudes);
 	 	    	    var url = "javascript:promptwaring();";/*'暂无生成专题'*/ //javascript:layer.alert("+$('#nhn5').val()+");
-	    		    if(o.id!=null && o.subjectId!=null && o.id!="" && o.subjectId!=""){
+	    		    /*if(o.id!=null && o.subjectId!=null && o.id!="" && o.subjectId!=""){
 	    		    	//url = 'special/topic/news?infoId='+o.subjectId;
 	    		    	//url=domain+'/analysis/topic/index?id='+o.subjectId+'&source=4&opType=&srcId=';&keyWord='+encodeURIComponent(o.keyWord)+'
 	    		    	url=domain+'/analysis/topic/index?id='+o.subjectId+'&source=4&opType=&srcId=&newsFlag=-1';
 	    		    	//
-	    		    }
+	    		    }*/
+	 	    	    if(o.id !="" && o.id != null){
+	 	    	    	url = path+'/news/detail/'+o.id;
+	 	    	    }
 	 	    	    var data_list={
-	 		 	    	 	 'name': valid(o.topic),
-	 		 	    	     'value': Math.abs(o.avgtoneNum),//9,o.avgtoneNum//---A
-	 		 	    	 	 'geoLat': o.geoLat,
-	 		 	    	 	 'geoLong': o.geoLong,
-	 		 	    	 	 'eventchinaname': valid(o.topic),//eventchinaname
-	 		 	    	 	 'eventcode': o.eventcode,//---A
-	 		 	    	 	 'globaleventid':o.globaleventid,//---A
-	 		 	    	 	 'sourceurl':valid(o.sourceurl),//---A
-	 		 	    	 	 'countryengname': valid(o.topic),
-	 		 	    	 	 'avgtone_num':valid(o.avgtoneNum),
-	 		 	    	 	 'newsdateview':valid(o.newDate),
-	 		 	    	 	 'heatnum':valid(fmoney(o.referInformationNum,2)),
-	 		 	    	 	 'lat':o.geoLat,
-	 		 	    	 	 'lng':o.geoLong,
-	 		 	    	 	 'source':valid(o.source),
-	 		 	    	 	 'chineseTopic':valid(o.topic),
-	 		 	    	 	 'chineseKeywords':valid(o.keyWord),
-	 		 	    	 	 'topicId':o.subjectId,//---A
+	 		 	    	 	 'name': valid(o.zhTitle),
+//	 		 	    	     'value': Math.abs(o.avgtoneNum),//9,o.avgtoneNum//---A
+	 		 	    	 	 'value': 4,
+	 		 	    	 	 'geoLat': o.latitudes,
+	 		 	    	 	 'geoLong': o.longitude,
+	 		 	    	 	 'eventchinaname': valid(o.zhTitle),//eventchinaname
+//	 		 	    	 	 'eventcode': o.eventcode,//---A
+//	 		 	    	 	 'globaleventid':o.globaleventid,//---A
+	 		 	    	 	 'sourceurl':valid(o.url),//---A
+	 		 	    	 	 'countryengname': valid(o.zhTitle),
+//	 		 	    	 	 'avgtone_num':valid(o.avgtoneNum),
+	 		 	    	 	 'newsdateview':valid(o.dayTime),
+	 		 	    	 	 'heatnum':valid(fmoney(o.heatValue,2)),///**转载量**/
+	 		 	    	 	 'lat':o.latitudes,
+	 		 	    	 	 'lng':o.longitude,
+//	 		 	    	 	 'source':valid(o.source),
+	 		 	    	 	 'chineseTopic':valid(o.zhTitle),
+//	 		 	    	 	 'chineseKeywords':valid(o.keywordsZh[0]),
+//	 		 	    	 	 'topicId':o.subjectId,//---A //事件ID  srcId
 	 		 	    	 	 'id':o.id,
-	 		 	    	 	 'url':url,
+	 		 	    	 	 'url':o.imgUrl,
 	 		 	    	 	 'type':"1",
-	 		 	    	 	 'classifyChinese':o.classifyChinese,//中文分类
-	 		 	    	 	 'countrychinaname':valid(o.countryChinaName),//中文国家
-	 		 	    	 	 'city':o.city, //中文城市
-	 		 	    	 	 'cityEnglish':o.cityEnglish,//英文城市	
-	 		 	    	 	 'topicChinese':valid(o.topicChinese),//中文主题
-	 		 	    	 	 'topicEnglish':valid(o.topicEnglish),//英文主题
-	 		 	    	 	 'classifyEnglish':valid(o.classifyEnglish),//英文分类
-	 		 	    	 	 'countryNameEn':valid(o.countryEnName),//英文国家
-	 		 	    	 	 'summaryChinese':valid(o.summaryChinese)//中文摘要
+//	 		 	    	 	 'classifyChinese':o.classifyChinese,//中文分类
+	 		 	    	 	 'countrychinaname':valid(o.zhCountry),//中文国家
+	 		 	    	 	 'city':o.zhCity, //中文城市
+	 		 	    	 	 'cityEnglish':o.enCity,//英文城市	
+	 		 	    	 	 'topicChinese':valid(o.zhTitle),//中文主题
+	 		 	    	 	 'topicEnglish':valid(o.enTitle),//英文主题
+//	 		 	    	 	 'classifyEnglish':valid(o.classifyEnglish),//英文分类
+	 		 	    	 	 'countryNameEn':valid(o.enSummary),//英文国家
+	 		 	    	 	 'summaryChinese':valid(o.zhSummary)//中文摘要
 	 		 	    	 	 
 
 	 		 	     }
@@ -1022,14 +1033,16 @@ function get_event_point_data(){
 	 	    	 }
 
 	 	    });
-	 	   smilData(result.data.pageSize);
+	 	   smilDataEvent(result.length);
 	 });
 
 
-	function smilData(preCount){
+	function smilDataEvent(preCount){
 //		var ajax_url='news/getNewsHeatPointListInteface';//小框
 //		var ajax_url=path + '/getNewsHeatPointListInteface';//小框
-		var ajax_url= path + '/newsbmap/json/NewsHeatPointListInteface.json';//小框
+//		var ajax_url= path + '/newsbmap/json/NewsHeatPointListInteface.json';//小框
+//		var ajax_url= path + '/bmap/getTopicListIntefaceData';//小框
+		var ajax_url=path + '/emergency/queryEmergencyPage'
 		//alert(ajax_url);
 		var count=300;
 		if(fg=='1' && '1'==fg_1){
@@ -1045,8 +1058,13 @@ function get_event_point_data(){
 		var ajax_data={
 			 	'beginDate':start_datetime,
 			 	'endDate':end_datetime,
-			 	'countrychinaname':country_class,
-			 	'classify':classify,
+//			 	'countrychinaname':country_class,
+//			 	'classify':classify,
+//			 	'provincecityCode':provincecityCode,//省份code
+			 	'cityCode':cityCode,//城市code
+//			 	'mediaType':'news',//新闻热点
+			 	'categoryId' : categoryId,//舆情分类
+			 	'pageNo':'1',
 			 	'pageSize':vresult,
 			 	'fg':fg,
 			 	'gj':gj,
@@ -1055,48 +1073,248 @@ function get_event_point_data(){
 		 		//热点 地图数据
 				$.post(ajax_url,ajax_data,function(data){
 //		 	    var result=JSON.parse(data);
+				var result = eval(data.data.result);
 		 	    $('.div0 .ul1').empty();
-		 	    $.each(data.data.results,function(i,o){
-		 	    	 if(o.topic && o.topic!='' && o.geoLat && o.geoLat!='' && o.geoLong && o.geoLong!=''){
-		 	    	    p_map_geo[o.topic]=[];
-		 	    	    p_map_geo[o.topic].push(o.geoLong);
-		 	    	    p_map_geo[o.topic].push(o.geoLat);
+		 	    $.each(result,function(i,o){
+		 	    	 if(o.zhTitle && o.zhTitle!='' && o.latitude && o.latitude!='' && o.longitude && o.longitude!=''){
+		 	    	    p_map_geo[o.zhTitle]=[];
+		 	    	    p_map_geo[o.zhTitle].push(o.longitude);
+		 	    	    p_map_geo[o.zhTitle].push(o.latitude);
+
+		 	    	    var url = "";
+		    		   /* if(o.uuid!=null && o.globaleventId!=null && o.id!="" && o.globaleventId!=""){
+			 	    	    url = 'news/detail/info?globaleventid='+o.globaleventId;
+		    		    }*/
+		 	    	    if(o.id !=null && o.id !=""){
+		 	    	    	url = path + '/news/detail/'+o.id;
+		 	    	    }
+		 	    	    var data_list={
+		 		 	    	 	 'name': valid(o.zhTitle),
+		 		 	    	   //  'value':o.avgtoneNum, //o.avgtone_num<30?o.avgtone_num:14,
+		 		 	    	 	 'geoLat': o.latitude,
+		 		 	    	 	 'geoLong': o.longitude,
+		 		 	    	 	 'eventchinaname': valid(o.zhTitle),
+//		 		 	    	 	 'eventcode': o.eventcode,
+//		 		 	    	 	 'globaleventid':o.globaleventId,
+		 		 	    	 	 'globaleventid':o.id,
+//		 		 	    	 	 'sourceurl':valid(o.url),
+		 		 	    	 	 'countryengname': valid(o.zhTitle),
+//		 		 	    	 	 'avgtone_num':valid(o.avgtoneNum),
+		 		 	    	 	 'newsdateview':valid(o.dayTime),
+//		 		 	    	 	 'heatnum':valid(fmoney(o.heatNum,2)),
+		 		 	    	 	 'lat':o.latitude,
+		 		 	    	 	 'lng':o.longitude,
+//		 		 	    	 	 'source':valid(o.source),
+		 		 	    	 	 'chineseTopic':valid(o.zhTitle),
+//		 		 	    	 	 'chineseKeywords':valid(o.chineseKeyWords),
+//		 		 	    	 	 'topicId':o.categoryId,
+		 		 	    	 	 'countrychinaname':valid(o.zhCountry),//countrychinaname中文国家
+		 		 	    	 	 'id':o.id,
+//		 		 	    	 	 'url':url,
+		 		 	    	 	 'type':"0",
+		 		 	    	 	 'city':o.zhCity,//中文城市
+		 		 	    	 	 'cityEnglish':o.enCity,//英文城市
+		 		 	    	 	 'topicChinese':valid(o.zhTitle),//中文主题
+		 		 	    	 	 'topicEnglish':valid(o.enTitle),//英文主题
+//		 		 	    	 	 'classifyChinese':valid(o.classify),//中文分类
+//		 		 	    	 	 'classifyEnglish':valid(o.classifyEnglish),//英文分类
+		 		 	    	 	 'countryNameEn':valid(o.enCountry),//英文国家
+		 		 	    	 	 'summaryChinese':valid(o.zhCountry)//中文摘要
+		 		 	     }
+		 	    	   //console.log("data_list-----小框----",data_list);
+		 		 	     p_map_point.push(data_list);
+		 	    	   p_map_pointNews.push(data_list);
+		 	    	 }
+
+		 	    });
+		 	    echart1();
+		 	});
+	}
+}
+//echart 2.0 地图数据
+//新闻 searchService
+function get_event_point_data(){
+	 p_map_geo={};
+	 p_map_point = [];
+	 p_map_pointTop=[];
+	 p_map_pointNews=[];
+	 $(".dialogLabel").hide();
+	 $(".dialogTitle").hide();
+//	 var ajax_url='news/topicListInteface';//大框
+//	 var ajax_url=path + '/getTopicListIntefaceData';//大框
+	 //yk-pa-web\src\main\webapp\newsbmap\json
+//	 var ajax_url=path + '/newsbmap/json/topicListIntefaceJson.json';//大框
+	 var ajax_url=path + '/bmap/getTopicListIntefaceData';//大框
+//	 alert(ajax_url);
+	 var ajax_dataV={
+	 	'beginDate':start_datetime,
+	 	'endDate':end_datetime,
+//	 	'countrychinaname':country_class,
+	 	'provincecityCode':provincecityCode,//省份code
+	 	'cityCode':cityCode,//城市code
+//	 	'classify':classify,
+	 	'mediaType':'news',//新闻热点
+	 	'categoryId' : categoryId,//舆情分类
+	 	'pageSize':'50',
+	 	'pageNo':'1',//所有
+	 	'flag':fg,
+	 	'gj':gj,
+	 	'cs':cs
+	 };
+	//热点 地图数据
+	 $.post(ajax_url,ajax_dataV,function(result){
+//	 	    var result=JSON.parse(result.data.resultList);
+//		 alert(12);
+	 	    var result=eval(result.data.resultList);
+	 	  //console.log('接口数据---=',result.data.results);
+	 	    $('.div0 .ul1').empty();
+//	 	    alert(3333);
+	 	    $.each(result,function(i,o){
+	 	    		//alert(o.titleZh);
+//	 	    		alert(o.latitude);
+	 	    		//alert(o.longitude);
+	 	    	 if(o.titleZh && o.titleZh!='' && o.latitude && o.latitude!='' && o.longitude && o.longitude!=''){
+	 	    	    p_map_geo[o.titleZh]=[];
+	 	    	  //  alert(o.latitudes);
+	 	    	  //  alert(o.longitude);
+	 	    	    p_map_geo[o.titleZh].push(o.longitude);
+	 	    	    p_map_geo[o.titleZh].push(o.latitudes);
+	 	    	    var url = "javascript:promptwaring();";/*'暂无生成专题'*/ //javascript:layer.alert("+$('#nhn5').val()+");
+	    		    /*if(o.id!=null && o.subjectId!=null && o.id!="" && o.subjectId!=""){
+	    		    	//url = 'special/topic/news?infoId='+o.subjectId;
+	    		    	//url=domain+'/analysis/topic/index?id='+o.subjectId+'&source=4&opType=&srcId=';&keyWord='+encodeURIComponent(o.keyWord)+'
+	    		    	url=domain+'/analysis/topic/index?id='+o.subjectId+'&source=4&opType=&srcId=&newsFlag=-1';
+	    		    	//
+	    		    }*/
+	 	    	    if(o.uuid !="" && o.uuid != null){
+	 	    	    	url = path+'/news/detail/'+o.uuid;
+	 	    	    }
+	 	    	    var data_list={
+	 		 	    	 	 'name': valid(o.titleZh),
+//	 		 	    	     'value': Math.abs(o.avgtoneNum),//9,o.avgtoneNum//---A
+	 		 	    	 	 'value': 4,
+	 		 	    	 	 'geoLat': o.latitudes,
+	 		 	    	 	 'geoLong': o.longitude,
+	 		 	    	 	 'eventchinaname': valid(o.titleZh),//eventchinaname
+//	 		 	    	 	 'eventcode': o.eventcode,//---A
+//	 		 	    	 	 'globaleventid':o.globaleventid,//---A
+	 		 	    	 	 'sourceurl':valid(o.url),//---A
+	 		 	    	 	 'countryengname': valid(o.titleZh),
+//	 		 	    	 	 'avgtone_num':valid(o.avgtoneNum),
+	 		 	    	 	 'newsdateview':valid(o.pubdate),
+//	 		 	    	 	 'heatnum':valid(fmoney(o.referInformationNum,2)),///**转载量**/
+	 		 	    	 	 'lat':o.latitudes,
+	 		 	    	 	 'lng':o.longitude,
+//	 		 	    	 	 'source':valid(o.source),
+	 		 	    	 	 'chineseTopic':valid(o.titleZh),
+//	 		 	    	 	 'chineseKeywords':valid(o.keywordsZh[0]),
+//	 		 	    	 	 'topicId':o.subjectId,//---A //事件ID  srcId
+	 		 	    	 	 'id':o.uuid,
+	 		 	    	 	 'url':url,
+	 		 	    	 	 'type':"1",
+//	 		 	    	 	 'classifyChinese':o.classifyChinese,//中文分类
+	 		 	    	 	 'countrychinaname':valid(o.countryNameZh),//中文国家
+	 		 	    	 	 'city':o.districtNameZh, //中文城市
+	 		 	    	 	 'cityEnglish':o.districtNameEn,//英文城市	
+	 		 	    	 	 'topicChinese':valid(o.titleZh),//中文主题
+	 		 	    	 	 'topicEnglish':valid(o.titleEn),//英文主题
+//	 		 	    	 	 'classifyEnglish':valid(o.classifyEnglish),//英文分类
+	 		 	    	 	 'countryNameEn':valid(o.countryNameEn),//英文国家
+	 		 	    	 	 'summaryChinese':valid(o.abstractZh)//中文摘要
+	 		 	    	 	 
+
+	 		 	     }
+	 	    	   p_map_point.push(data_list);
+	 	    	   p_map_pointTop.push(data_list);
+	 	    	 }
+
+	 	    });
+	 	   smilData(result.length);
+	 });
+
+
+	function smilData(preCount){
+//		var ajax_url='news/getNewsHeatPointListInteface';//小框
+//		var ajax_url=path + '/getNewsHeatPointListInteface';//小框
+//		var ajax_url= path + '/newsbmap/json/NewsHeatPointListInteface.json';//小框
+		var ajax_url= path + '/bmap/getTopicListIntefaceData';//小框
+		//alert(ajax_url);
+		var count=300;
+		if(fg=='1' && '1'==fg_1){
+			count=300;
+		}
+		if(fg=='0' && '0'==fg_1){
+			count=300;
+		}
+		if(fg=='1' && '0'==fg_1){
+			count=300;
+		}
+		vresult =count-preCount;
+		var ajax_data={
+			 	'beginDate':start_datetime,
+			 	'endDate':end_datetime,
+//			 	'countrychinaname':country_class,
+//			 	'classify':classify,
+			 	'provincecityCode':provincecityCode,//省份code
+			 	'cityCode':cityCode,//城市code
+			 	'mediaType':'news',//新闻热点
+			 	'categoryId' : categoryId,//舆情分类
+			 	'pageNo':1,
+			 	'pageSize':vresult,
+			 	'fg':fg,
+			 	'gj':gj,
+			 	'cs':cs
+			 };
+		 		//热点 地图数据
+				$.post(ajax_url,ajax_data,function(data){
+//		 	    var result=JSON.parse(data);
+				var result = eval(data.data.resultList);
+		 	    $('.div0 .ul1').empty();
+		 	    $.each(result,function(i,o){
+		 	    	 if(o.titleZh && o.titleZh!='' && o.latitudes && o.latitudes!='' && o.longitude && o.longitude!=''){
+		 	    	    p_map_geo[o.titleZh]=[];
+		 	    	    p_map_geo[o.titleZh].push(o.longitude);
+		 	    	    p_map_geo[o.titleZh].push(o.latitudes);
 
 		 	    	    var url = "javascript:;;";
-		    		    if(o.id!=null && o.globaleventId!=null && o.id!="" && o.globaleventId!=""){
-		    		    	url = 'news/detail/info?globaleventid='+o.globaleventId;
-		    		    }
+		    		   /* if(o.uuid!=null && o.globaleventId!=null && o.id!="" && o.globaleventId!=""){
+			 	    	    url = 'news/detail/info?globaleventid='+o.globaleventId;
+		    		    }*/
+		 	    	    if(o.uuid !=null && o.uuid !=""){
+		 	    	    	url = path + '/news/detail/'+o.uuid;
+		 	    	    }
 		 	    	    var data_list={
-		 		 	    	 	 'name': valid(o.topic),
-		 		 	    	     'value':o.avgtoneNum, //o.avgtone_num<30?o.avgtone_num:14,
-		 		 	    	 	 'geoLat': o.geoLat,
-		 		 	    	 	 'geoLong': o.geoLong,
-		 		 	    	 	 'eventchinaname': valid(o.topic),
-		 		 	    	 	 'eventcode': o.eventcode,
-		 		 	    	 	 'globaleventid':o.globaleventId,
-		 		 	    	 	 'sourceurl':valid(o.sourceUrl),
-		 		 	    	 	 'countryengname': valid(o.topic),
-		 		 	    	 	 'avgtone_num':valid(o.avgtoneNum),
-		 		 	    	 	 'newsdateview':valid(o.newsDate),
-		 		 	    	 	 'heatnum':valid(fmoney(o.heatNum,2)),
-		 		 	    	 	 'lat':o.geoLat,
-		 		 	    	 	 'lng':o.geoLong,
-		 		 	    	 	 'source':valid(o.source),
-		 		 	    	 	 'chineseTopic':valid(o.topicChinese),
-		 		 	    	 	 'chineseKeywords':valid(o.chineseKeyWords),
-		 		 	    	 	 'topicId':o.topicId,
-		 		 	    	 	 'countrychinaname':valid(o.countryName),//countrychinaname中文国家
-		 		 	    	 	 'id':o.id,
+		 		 	    	 	 'name': valid(o.titleZh),
+		 		 	    	   //  'value':o.avgtoneNum, //o.avgtone_num<30?o.avgtone_num:14,
+		 		 	    	 	 'geoLat': o.latitudes,
+		 		 	    	 	 'geoLong': o.longitude,
+		 		 	    	 	 'eventchinaname': valid(o.titleZh),
+//		 		 	    	 	 'eventcode': o.eventcode,
+//		 		 	    	 	 'globaleventid':o.globaleventId,
+		 		 	    	 	 'globaleventid':o.uuid,
+		 		 	    	 	 'sourceurl':valid(o.url),
+		 		 	    	 	 'countryengname': valid(o.titleZh),
+//		 		 	    	 	 'avgtone_num':valid(o.avgtoneNum),
+		 		 	    	 	 'newsdateview':valid(o.pubdate),
+//		 		 	    	 	 'heatnum':valid(fmoney(o.heatNum,2)),
+		 		 	    	 	 'lat':o.latitudes,
+		 		 	    	 	 'lng':o.longitude,
+//		 		 	    	 	 'source':valid(o.source),
+		 		 	    	 	 'chineseTopic':valid(o.titleZh),
+//		 		 	    	 	 'chineseKeywords':valid(o.chineseKeyWords),
+		 		 	    	 	 'topicId':o.categoryId,
+		 		 	    	 	 'countrychinaname':valid(o.countryNameZh),//countrychinaname中文国家
+		 		 	    	 	 'id':o.uuid,
 		 		 	    	 	 'url':url,
 		 		 	    	 	 'type':"0",
-		 		 	    	 	 'city':o.region,//中文城市
-		 		 	    	 	 'cityEnglish':o.cityEnglish,//英文城市
-		 		 	    	 	 'topicChinese':valid(o.topicChinese),//中文主题
-		 		 	    	 	 'topicEnglish':valid(o.topicEnglish),//英文主题
-		 		 	    	 	 'classifyChinese':valid(o.classify),//中文分类
-		 		 	    	 	 'classifyEnglish':valid(o.classifyEnglish),//英文分类
+		 		 	    	 	 'city':o.districtNameZh,//中文城市
+		 		 	    	 	 'cityEnglish':o.districtNameEn,//英文城市
+		 		 	    	 	 'topicChinese':valid(o.titleZh),//中文主题
+		 		 	    	 	 'topicEnglish':valid(o.titleEn),//英文主题
+//		 		 	    	 	 'classifyChinese':valid(o.classify),//中文分类
+//		 		 	    	 	 'classifyEnglish':valid(o.classifyEnglish),//英文分类
 		 		 	    	 	 'countryNameEn':valid(o.countryNameEn),//英文国家
-		 		 	    	 	 'summaryChinese':valid(o.summaryChinese)//中文摘要
+		 		 	    	 	 'summaryChinese':valid(o.abstractZh)//中文摘要
 		 		 	     }
 		 	    	   //console.log("data_list-----小框----",data_list);
 		 		 	     p_map_point.push(data_list);
@@ -1122,7 +1340,7 @@ function formatDate(date) {
 //百度地图 2.0 
 function getBMapData(){
 	//console.log(bs);
-	
+	//alert(123);
 	 //  var ajax_url='news/topicListInteface';//大框
 		var ajax_url ="";
 	  // var startTime=formatDate(start_datetime)+" 00:00:00";
@@ -1170,7 +1388,8 @@ function getBMapData(){
 			    		    	 name: valid(o.topic),
 			    		    	 value:[o.geoLong,o.geoLat, o.avgtoneNum],
 		 		 	    	 	 geoLat: o.geoLat,
-		 		 	    	 	 geoLong: o.geoLong,
+//		 		 	    	 	 geoLong: o.geoLong,
+		 		 	    	 	 geoLong: "120.343000",
 		 		 	    	 	 eventchinaname: valid(o.topic),
 		 		 	    	 	 eventcode: o.eventcode,
 		 		 	    	 	 globaleventid:o.globaleventid,
@@ -1202,11 +1421,12 @@ function getBMapData(){
 			    		    }); 
 			 	    	 }
 			 	    });
-			 	   smilBMapData(result.data.pageSize)
+			 	   smilBMapData(result.length)
 			 });
 				  
 			
 			function smilBMapData(preCount){
+//				var ajax_url='news/getNewsHeatPointListInteface';//小框
 				var ajax_url='news/getNewsHeatPointListInteface';//小框
 				/*if(''==mc){//控制显示个数，是否全球  
 					count=300;
@@ -1252,7 +1472,8 @@ function getBMapData(){
 				    		    	 name: valid(o.topic),
 				    		    	 value:[o.geoLong,o.geoLat,o.avgtoneNum],
 			 		 	    	 	 geoLat: o.geoLat,
-			 		 	    	 	 geoLong: o.geoLong,
+			 		 	    	 	 geoLong: "120.343000",
+//			 		 	    	 	 geoLong: o.geoLong,
 			 		 	    	 	 eventchinaname: valid(o.topic),
 			 		 	    	 	 eventcode: o.eventcode,
 			 		 	    	 	 globaleventid:o.globaleventId,
@@ -2265,7 +2486,7 @@ function echart2(){
 		        triggerOn:'mousemove',
 		        enterable:true,
 		        position: 'top',
-		        padding:[50,70,30,80],
+		        padding:[10,20,10,20],
 		        backgroundColor: 'rgba(45,99,161,0.7)',
 		        borderColor:'rgba(45,99,161,0.7)',
 		        formatter : function (params) {

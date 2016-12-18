@@ -1,5 +1,7 @@
 package com.ai.yk.protal.web.controller.event;
 
+import java.util.Date;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ai.opt.sdk.util.DateUtil;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.event.EventDetailsMessage;
@@ -34,6 +37,10 @@ public class EventController extends BaseController {
 		if(res!=null&&res.getData()!=null){
 			view.addObject("eventDetail", res.getData());
 		}
+		String end = DateUtil.getDateString(DateUtil.DATE_FORMAT);
+		String begin =  DateUtil.getDateString(DateUtil.getOffsetDaysDate(new Date(),-3),DateUtil.DATE_FORMAT);
+		view.addObject("begin", begin);
+		view.addObject("end", end);
 		return view;
 	}
 }

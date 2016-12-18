@@ -60,7 +60,7 @@
 				<ul id="menu">
 					<li><a href="${_base}/home/index">首页</a></li>
 					<li><a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a></li>
-					<li><a href="#">热点发现</a></li>
+					<li><a href="${_base}/newsbmap/news_heat_n.jsp">热点发现</a></li>
 					<li><a href="${_base}/search/public">舆情动态</a></li>
 					<c:if test="${!noSearch}">
 					 <li class="search">

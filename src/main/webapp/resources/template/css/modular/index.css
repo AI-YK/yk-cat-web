@@ -11,7 +11,7 @@
 .list-left ul .bot-none{border-bottom:none;}
 .list-left ul .current{border-top:1px solid #6c78a6;border-left:1px solid #6c78a6;border-right:none;border-bottom:1px solid #6c78a6;color:#3382ee;background:#2e344b;padding-top:-1px;}
 .list-left ul li p span{float:left;color:#495274;font-size:12px;}
-.list-right{width:874px;height:462px;border:1px solid #6c78a6;border-left:none;float:left;padding:20px;}
+.list-right{width:874px;height:462px;border:1px solid #6c78a6;border-left:none;float:left;padding:20px;background:#2e344b;}
 /**表1**/
 .chart1{width:406px;height:415px;border:1px solid #454d6b;float:left;border-radius:5px 5px 0 0;position:relative;}
 .chart1-title{width:100%;background:#404865;height:50px;border-radius:5px 5px 0 0;font-size:16px;color:#cfd7f4;padding-left:20px;line-height:50px;}
@@ -25,7 +25,7 @@
 .sentiment-title ul li{line-height:58px;font-size:18px;color:#fff;float:left}
 .sentiment-title ul li a{color:#fff}
 .sentiment-title ul .right{float:right;margin-top:3px;}
-.sentiment-title ul .right i{font-size:30px}
+.sentiment-title ul .right i{font-size:33px}
 .sentiment-list{width:100%;float:left;height:395px;background:#212532;border:1px solid #454d6b;border-top:none}
 .sentiment-list-conter{width:599px;float:left;}
 .border-right{border-right:1px solid #454d6b;height:395px;}

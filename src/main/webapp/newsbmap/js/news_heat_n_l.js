@@ -5,14 +5,17 @@ function get_event_point_data_new(){
 //lixiang 2016-12-16 模拟数据
 //	var ajax_url='news/getNewsHeatPointListNewInteface';
 //	var ajax_url=path + '/newsbmap/json/NewsHeatPointListNewInteface.json';
-	var ajax_url=path + '/bmap/NewsHeatPointListNewInteface';
+//	var ajax_url=path + '/bmap/NewsHeatPointListNewInteface';
+	var ajax_url=path + '/bmap/getTopicListIntefaceData';
 	
 	 var ajax_data={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
-	 	'countrychinaname':country_class,
-	 	'classify':classify,
-	 	'sourceType':2,//社交
+//	 	'countrychinaname':country_class,
+	 	'countryCode':country_class,
+	 //	'classify':classify,
+	 	'mediaType':'social',//社交
+	 	'pageNo':1,
 	 	'pageSize':5,
 	 	'gj':gj,
 	 	'cs':cs
@@ -26,9 +29,10 @@ function get_event_point_data_new(){
 	 var cnum=1;
 	 $.post(ajax_url,ajax_data,function(data){
 //	 	    var result=JSON.parse(data);
+		 	var result = eval(data.data.resultSocialList);
 	 	    $('#newsVal li:not([class])').remove();
 	 	    var html='';
-	 	    $.each(data.data,function(i,o){
+	 	    $.each(result,function(i,o){
 	 	    	html+='<li>';
 	 	    	cnum=i;
 	 	    	if(i<3){
@@ -37,18 +41,18 @@ function get_event_point_data_new(){
 	 	    		html+='<i class="num">'+(i+1)+'</i><!--num-->';
 	 	    	}
 	 	    	var sftj="";
-    			if(o.source=='0'){
+    			/*if(o.source=='0'){//推荐
     				sftj="<span class='zt'>"+$("#nhnl1").val()+"</span>";
     				
-    			}
-	 	    	var topic=o.srcTitle;
+    			}*/
+	 	    	var topic=o.srcTitle;//原标题
     			//if(topic!=null && topic.length>20){
     				//topic=o.srcTitle.substring(0,20);
     			//}
-    			var summary=isNull(o.srcSummary);
-    			var type=isNull(o.type);
-    			var city=isNull(o.city);
-    			var zhCountryName=isNull(o.zhCountryName);
+    			var summary=isNull(o.srcSummary);//摘要
+    			var type=isNull(o.type);//舆情分类
+    			var city=isNull(o.city);//城市名称
+    			var zhCountry=isNull(o.zhCountry);//国家名称
     			
     			if(summary!=null && summary.length>35){
     				summary=o.srcSummary.substring(0,35)+"...";
@@ -83,16 +87,16 @@ function get_event_point_data_new(){
 			        if(o.zhCountryName==o.city && isNull(o.city)!=''){
 			        	city="";
 			        }
-			        if(isNull(o.topicChinese)!=''){
+			        if(isNull(o.topicChinese)!=''){//中文标题
     					topic=o.topicChinese;
     				}
-			        if(isNull(o.summaryChinese)!='' && o.summaryChinese.length>35){
+			        if(isNull(o.summaryChinese)!='' && o.summaryChinese.length>35){//中文摘要
 			        	summary=o.summaryChinese.substring(0,35)+"...";
 			        }
 			        if(isNull(o.type)!=''){
 			        	type=o.type;
     				}
-			        if(isNull(o.topicChinese)!=''){
+			        if(isNull(o.topicChinese)!=''){//中文标题
     					topic=o.topicChinese;
     				}
 			        if(isNull(o.zhCountryName)!=''){
@@ -100,10 +104,10 @@ function get_event_point_data_new(){
     				}
     			}
     			var hf="javascript:;;";//javascript:layer.alert('暂无生成专题');
-    			if(o.srcId!='' && o.srcId!=null){
+    			if(o.srcId!='' && o.srcId!=null){//新闻ID
     				hf="news/detail/info?globaleventid="+o.srcId;
     			}
-    			var imgdis="none";
+    			var imgdis="none";//图片地址（没有）
     			if(o.imgurl!='无'  && "null"!=o.imgurl && null!=o.imgurl  && ""!=o.imgurl){
     				imgszx=o.imgurl;
     				imgdis="inline";
@@ -122,7 +126,7 @@ function get_event_point_data_new(){
 	 	    	html+='</dd>';
 	 	    	html+='<dd class="item">';
 	 	    	html+='<p class="item1">'+type+'</p>';
-	 	    	html+='<p class="item2">'+zhCountryName+""+city+'</p>';
+	 	    	html+='<p class="item2">'+zhCountry+""+city+'</p>';
 	 	    	
 	 	    	html+='</dd>';
 	 	    	html+='</dl>';
@@ -149,14 +153,17 @@ function get_event_point_data_zixun(){
 //	 var ajax_url='news/getNewsHeatPointListInformationInteface';
 //	 var ajax_url=path + '/newsbmap/json/NewsHeatPointListInformationInteface.json';
 //	alert(123);
-	 var ajax_url=path + '/bmap/getTopicListIntefaceData';
-	
+//	 var ajax_url=path + '/bmap/getTopicListIntefaceData';
+	 var ajax_url=path + '/emergency/queryEmergencyPage';
 	 var ajax_data1={
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
 	 	'countrychinaname':country_class,
 	 	'classify':classify,
-	 	'sourceType' : '1',//新闻热点
+	 //	'mediaType' : 'news',//事件热点
+	 	'type':'1',
+	 	'pageNo':1,
+	 	'pageSize':50,
 	 	'gj':gj,
 	 	'cs':cs
 	 };
@@ -170,6 +177,7 @@ function get_event_point_data_zixun(){
 //		 	alert(data);
 //	 	    var result=JSON.parse(data.data.result);
 	 	    var result=eval(data.data.result);
+	 	    
 	 	    $('#newsinfo li:not([class])').remove();
 	 	    //$('#newsinfo .more_box').empty();
 	 	    var html='';
@@ -186,14 +194,14 @@ function get_event_point_data_zixun(){
     				sftj="<span class='zt'>"+$("#nhnl1").val()+"</span>";/*推荐*/
     			}
 	 	    	//var topic=isNull(o.topic);
-	 	    	//var city=isNull(o.city);
+	 	    	var city=isNull(o.city);
 	 	    	//var countryChinaName=isNull(o.countryChinaName);
 	 	    	//var classify=isNull(o.classifyChinese);
-    			//var topicDigest=isNull(o.topicDigest);
+    			var topicDigest="";
     			//console.log("----------",countryChinaName,classify,topicDigest);
-    			/*if(topicDigest!=null && topicDigest.length>35){
+    			if(topicDigest!=null && topicDigest.length>35){
     				topicDigest=topicDigest.substring(0,35)+"...";
-    			}*/ 
+    			} 
     			//源标题
     			var srcTitle = isNull(o.srcTitle);
     			//中文标题
@@ -223,27 +231,27 @@ function get_event_point_data_zixun(){
     				if(isNull(o.classifyEnglish)!=''){
     					classify=o.classifyEnglish;
     				}
-    				if(isNull(o.summaryEnglish)!='' && o.summaryEnglish.length>35){
-    	    			topicDigest=o.summaryEnglish.substring(0,35)+"...";
+    				if(isNull(o.zhSummary)!='' && o.zhSummary.length>35){
+    	    			topicDigest=o.zhSummary.substring(0,35)+"...";
     				}
     			}else{
-    			/*	
+    				
      		      if(isNull(o.zhTitle)!=''){
      		    	 topic=o.zhTitle;
-   				  }*/
+   				  }
      		      if(isNull(o.zhCountry)!=''){
      		    	 zhCountry=o.zhCountry;
   				  }
      		      if(isNull(o.type)!='' ){
      		    	 type=o.type;
   				  }
-     		     /* if(isNull(o.summaryChinese)!='' && o.summaryChinese.length>35){
-	    				topicDigest=o.summaryChinese.substring(0,35)+"...";
-	    			} */
-     		      if(isNull(o.city)!=''){
-   		        	city="."+o.city;
+     		      if(isNull(o.srcTitle)!='' && o.srcTitle.length>35){
+	    				topicDigest=o.srcTitle.substring(0,35)+"...";
+	    			}
+     		      if(isNull(o.zhCity)!=''){
+   		        	city="."+o.zhCity;
    		          }
-   		          if(zhCountry==o.city && isNull(o.city)!=''){
+   		          if(city==o.zhCity && isNull(o.zhCity)!=''){
    		        	city="";
    		          }
     			}
