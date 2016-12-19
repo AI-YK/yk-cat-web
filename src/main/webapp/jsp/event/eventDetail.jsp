@@ -166,16 +166,8 @@
 		map.centerAndZoom(point, 22);                 // 初始化地图，设置中心点坐标和地图级别  
 		map.enableScrollWheelZoom(true); 
 		
-		var myGeo = new BMap.Geocoder();
-		// 将地址解析结果显示在地图上,并调整地图视野
-		myGeo.getPoint("北京市海淀区上地10街", function(point){
-			if (point) {
-				map.centerAndZoom(point, 16);
-				map.addOverlay(new BMap.Marker(point));
-			}else{
-				alert("您选择地址没有解析到结果!");
-			}
-		}, "北京市");
+		var marker = new BMap.Marker(point); // 创建点
+		map.addOverlay(marker);    //增加点
 	} 
 
 	function loadScript() {
