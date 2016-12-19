@@ -27,9 +27,9 @@
 				</p>
 				<p>您当前的位置：</p>
 				<p>
-					<a href="#">首页</a>>
+					<a href="${_base}">首页</a>>
 				</p>
-				<p>${newsDetails.srcTitle}</p>
+				<p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${newsDetails.srcTitle}</p>
 			</div>
 		</div>
 	</div>
@@ -37,19 +37,19 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title">${newsDetails.srcTitle}</div>
-				<div class="news-detail-information">
+				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${newsDetails.srcTitle}</div>
+				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
-						<li>
-						${newsDetails.srcSource}
+						<%-- <li class="zhuanz">
+						<span>${newsDetails.srcSource}</span>
 						</li>
-						<li>
+ --%>						<li>
 						<fmt:parseDate value="${newsDetails.pubdate}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
 						<li>${newsDetails.languageTName}</li>
-						<li>${newsDetails.countryNameSrc}<img height="14px" src="${uedroot}/images/country/${newsDetails.countryNameEn}@2x.png" /></li>
-						<li class="zhuanz">转载量：<span>${newsDetails.view}</span></li>
+						<li>${newsDetails.countryNameSrc}&nbsp;&nbsp;<img  height="20px" width="30px" src="${uedroot}/images/country/${newsDetails.countryNameEn}@2x.png" /></li>
+						<li class="zhuanz">热度：<span>${newsDetails.view}</span></li>
 						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
@@ -73,8 +73,8 @@
 							</div></li> -->
 					</ul>
 				</div>
-				<div class="news-detail-news" id="newsDetailContent">
-				 ${newsDetails.srcContent}
+				<div class="news-detail-news">
+				 <ul id="newsDetailContent"></ul>
 				</div>
 				<!-- <div class="news-detail-share">
 					<ul class="bdsharebuttonbox">
@@ -102,7 +102,7 @@
 						<p class="right"><i class="icon iconfont" id="deag-close">&#xe618;</i></p>
 					</div>
 					<div class="drag-list">
-						<div class="drag-list-bt">${newsDetails.enTitle}</div>
+						<div class="drag-list-bt" id="translateTitle">${newsDetails.enTitle}</div>
 					<div class="drag-list-word" id="translateContent">
 					</div>
 					</div>

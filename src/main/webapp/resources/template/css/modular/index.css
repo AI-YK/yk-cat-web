@@ -10,13 +10,20 @@
 /*.list-left ul li:hover{border:1px solid #39adf6;border-right:none;}*/
 .list-left ul .bot-none{border-bottom:none;}
 .list-left ul .current{border-top:1px solid #6c78a6;border-left:1px solid #6c78a6;border-right:none;border-bottom:1px solid #6c78a6;color:#3382ee;background:#2e344b;padding-top:-1px;}
-.list-left ul li p span{float:left;color:#495274;font-size:12px;}
+.list-left ul li p span{float:left;color:#495274;font-size:12px;margin-right:20px;}
 .list-right{width:874px;height:462px;border:1px solid #6c78a6;border-left:none;float:left;padding:20px;background:#2e344b;}
 /**表1**/
 .chart1{width:406px;height:415px;border:1px solid #454d6b;float:left;border-radius:5px 5px 0 0;position:relative;}
 .chart1-title{width:100%;background:#404865;height:50px;border-radius:5px 5px 0 0;font-size:16px;color:#cfd7f4;padding-left:20px;line-height:50px;}
 .chart1-conter{width:100%;background:#212532;height:363px;opacity:0.2;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity:0.2;}
 .chart1-main{width:100%;height:363px;position:absolute;left:0;top:50px;padding:16px 20px;}
+/**合并tabl**/
+.merge{width:100%;float:left;}
+.merge ul{width:100%;float:left;}
+.merge ul li{float:left;}
+.merge ul li a{width:116px;height:45px;background:#282d40;text-align:center;line-height:45px;float:left;border-radius:10px 10px 0 0;color:#616b91;font-size:16px;cursor:pointer;}
+.merge ul li .current{width:116px;height:45px;background:#454d6b;text-align:center;line-height:45px;float:left;border-radius:10px 10px 0 0;color:#cfd7f4;font-size:16px}
+.merge-list{width:100%;float:left;border:1px solid #454d6b;height:370px;padding:35px 20px;}
 /**舆情新闻**/
 .journalism-sentiment{width:100%;float:left;min-width:1200px;padding:20px 0 0 0;}
 .sentiment-main{width:1200px;margin:0 auto;}
@@ -58,7 +65,7 @@
 .hot-news-main-tab ul li .current{border-bottom:1px solid #212532;background:#212532;color:#0067b4}
 .hot-news-main-tab ul li.none-border a{border-right:none}
 
-.hot-news-main-list{width:100%;float:left;padding:5px 20px;}
+.hot-news-main-list{width:100%;float:left;padding:5px 18px;}
 .hot-news-main-list ul{border-bottom:1px dashed #454d6b;height:50px;padding:5px 0;}
 .hot-news-main-list ul li{display:inline-block;line-height:22px;}
 .hot-news-main-list ul li p span{float:left;font-size:12px;color:#495274;margin-right:20px;}
@@ -66,7 +73,7 @@
 .hot-news-main-list ul .right{font-size:24px;color:#e79003;margin-top:8px;}
 .hot-news-main-list ul li .blue{color:#0067b4}
 .hot-news-main-list .none-border{border:none}
-.socialhot ul{width:499px;float:left;height:79px;}
+.socialhot ul{width:501px;float:left;height:79px;}
 .socialhot ul .right{margin-top:0;font-size:18px}
 .socialhot ul .word {margin-bottom:1px;}
 .socialhot ul .word a{color:#0067b4;font-size:16px;}

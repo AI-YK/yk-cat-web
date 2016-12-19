@@ -54,6 +54,20 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			//解决样式冲突
 			$("#typesetting li").css("font-size","12px");
 			$("#share-show li").css("font-size","12px");
+			 var $xiding = $("#xuanf1");
+			    $(window).on("scroll",function(){
+			        var $this = $(this);
+			        var st = $this.scrollTop();
+			        if(st>100){
+				       $('#xuanf1').css("background","#fff");
+				       $('#xuanf1').addClass("additional");
+				       $xiding.stop(true,true).show();   
+			        }  else {
+				       $('#xuanf1').css("background","#fff");
+				       $xiding.stop(true,true).show();
+				       $('#xuanf1').removeClass("additional");
+			        }
+			    });
 		});
 		},
 		/*处理原文格式*/
@@ -70,6 +84,8 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		},
 		/*显示译文*/
 		showTranslation:function(){
+			//终止上一次
+			translate.stopTranslate();
 			$("#eventDetailContent").html('');
 			this.queryTranslation($("#srcContent").html(),function(json){
 				json ="<li>"+json+"</li>";
@@ -78,10 +94,14 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		},
 		/*显示原文*/
 		showOriginal:function(){
+			//终止上一次
+			translate.stopTranslate();
 			this.showSrcContent();
 		},
 		/*显示混合*/
 		showSynchysis:function(){
+			//终止上一次
+			translate.stopTranslate();
 			$("#translateContent").html('');
 			$("#translateTitle").html('');
 			this.showSrcContent();
@@ -96,7 +116,6 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		},
 		//翻译
 		queryTranslation:function(text,callBack){
-			//text ="我是中国人<BR/>你是那个国家的?<BR/>全国高校思想政治工作会议12月7日至8日在北京召开。";
 			//目标语言
 			var tgtl ="zh";
 			var srcLanguage = $("#srcLanguage").val();
