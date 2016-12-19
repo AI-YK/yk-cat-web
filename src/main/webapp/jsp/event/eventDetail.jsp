@@ -48,7 +48,7 @@
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
 						<li></li>
-						<li>${eventDetail.zhCountry}&nbsp;&nbsp;<img height="14px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
+						<li>${eventDetail.zhCountry}&nbsp;&nbsp;<img height="20px" widht="30px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
 						<li class="zhuanz">转载量：<span>${eventDetail.heatValue}</span></li>
 						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
