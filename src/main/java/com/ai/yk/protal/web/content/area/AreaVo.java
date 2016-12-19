@@ -27,6 +27,16 @@ public class AreaVo implements Serializable {
 	 * 1 一级地区 2二级地区
 	 **/
 	private int level;
+	/** 业务 Code**/
+	private String busCode;
+	
+	
+	public String getBusCode() {
+		return busCode;
+	}
+	public void setBusCode(String busCode) {
+		this.busCode = busCode;
+	}
 	public int getId() {
 		return id;
 	}

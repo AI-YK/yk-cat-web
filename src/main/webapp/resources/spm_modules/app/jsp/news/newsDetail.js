@@ -4,6 +4,8 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 	Dialog = require("optDialog/src/dialog"), 
 	AjaxController = require('opt-ajax/1.0.0/index');
 	var ajaxController = new AjaxController();
+	var translatePage = require("app/jsp/translate/translate");
+	var translate = new translatePage();
 	var newsDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -50,36 +52,70 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			//解决样式冲突
 			$("#typesetting li").css("font-size","12px");
 			$("#share-show li").css("font-size","12px");
+			 var $xiding = $("#xuanf1");
+			    $(window).on("scroll",function(){
+			        var $this = $(this);
+			        var st = $this.scrollTop();
+			        if(st>100){
+				       $('#xuanf1').css("background","#fff");
+				       $('#xuanf1').addClass("additional");
+				       $xiding.stop(true,true).show();   
+			        }  else {
+				       $('#xuanf1').css("background","#fff");
+				       $xiding.stop(true,true).show();
+				       $('#xuanf1').removeClass("additional");
+			        }
+			    });
 		});
+		},
+		/*处理原文格式*/
+		showSrcContent:function(){
+			var srcContent = $("#srcContent").html();
+			if(srcContent){
+				srcContent= srcContent.replace("<BR/>","<br>").split("<br>");
+				var html = [];
+				for(var i=0;i<srcContent.length;i++){
+					html.push("<li>"+srcContent[i]+"</li>");
+				}
+				$("#newsDetailContent").html(html.join(""));
+			}
 		},
 		/*显示译文*/
 		showTranslation:function(){
-			this.queryTranslation(function(){
-				 $("#newsDetailContent").html('');
-				},function(json){
-				 $("#newsDetailContent").html(json);
+			//终止上一次
+			translate.stopTranslate();
+			$("#newsDetailContent").html('');
+			this.queryTranslation(function(json){
+				json ="<li>"+json+"</li>";
+				$("#newsDetailContent").append(json);
 				});
 		},
 		/*显示原文*/
 		showOriginal:function(){
-			var text =$("#srcContent").html();
-			$("#newsDetailContent").html(text);
+			//终止上一次
+			translate.stopTranslate();
+			this.showSrcContent();
 		},
 		/*显示混合*/
 		showSynchysis:function(){
-			//debugger;
-			this.queryTranslation(function(){
-			 $("#translateContent").html('');
-			},function(json){
-			 $("#newsDetailContent").html($("#srcContent").html());
-			 $("#translateContent").html(json);
-			 $('#drag').show();
-			});
+			//终止上一次
+			translate.stopTranslate();
+			$("#translateContent").html('');
+			$("#translateTitle").html('');
+			this.showSrcContent();
+			$('#drag').show();
+			this.queryTranslation(function(json){
+				$("#translateTitle").append(json);
+			 });
+			this.queryTranslation(function(json){
+				json ="<p>"+json+"</p>";
+				$("#translateContent").append(json);
+			 });
+			
 		},
 		//翻译
-		queryTranslation:function(begin,callBack){
+		queryTranslation:function(callBack){
 			var text =$("#srcContent").html();
-			begin();
 			//目标语言
 			var tgtl ="zh";
 			var srcLanguage = $("#srcLanguage").val();
@@ -91,16 +127,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			param.srcl=srcLanguage;
         	param.text = text;
         	param.tgtl = tgtl;
-        	ajaxController.ajax({
-				type: "post",
-				processing: true,
-				message: " ",
-				url: _base+"/common/translate",
-				data: param,
-				success: function (json) {
-					callBack(json);
-				}
-			});
+        	translate.execTranslate(param,callBack);
 		},
 		/*查询分享收藏数*/
 		_queryCollOrShareCount:function(){
@@ -134,11 +161,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		_init:function(){
 			this._initAnimation();
 			this._bindEvent();
-			//this._queryCollOrShareCount();
-			//this._collectionHandle(3);
-			/*$("#gotsina").on("click",function(){
-				alert("aa");
-			});*/
+			this.showSrcContent();
 		}
 		
 	});

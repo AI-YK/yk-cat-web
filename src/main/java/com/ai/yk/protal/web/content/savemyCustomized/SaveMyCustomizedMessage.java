@@ -21,6 +21,16 @@ public class SaveMyCustomizedMessage implements Serializable{
 	private List<String> cityList;
 	
 	private String srcId;
+	/**业务code**/
+	private String busCode;
+	
+	public String getBusCode() {
+		return busCode;
+	}
+
+	public void setBusCode(String busCode) {
+		this.busCode = busCode;
+	}
 
 	public Integer getCreateId() {
 		return createId;
