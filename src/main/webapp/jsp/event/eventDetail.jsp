@@ -102,7 +102,7 @@
 						<p class="right"><i class="icon iconfont" id="deag-close">&#xe618;</i></p>
 					</div>
 					<div class="drag-list">
-						<div class="drag-list-bt">${eventDetails.enTitle}</div>
+						<div class="drag-list-bt" id="translateTitle">${eventDetails.enTitle}</div>
 					<div class="drag-list-word" id="translateContent">
 					</div>
 					</div>
@@ -141,6 +141,9 @@
 	<!--底部-->
 	<input id="srcLanguage" type="hidden" value="zh"/>
 	<input id="srcId" type="hidden" value="${eventDetail.srcId}"/>
+	<div id="srcTitle" style="display: none;">
+	  ${eventDetail.srcTitle}
+	</div>
 	<div id="srcContent" style="display: none;">
 	  ${eventDetail.srcSummary}
 	</div>
