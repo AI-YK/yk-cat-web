@@ -1,5 +1,7 @@
 package com.ai.yk.protal.web.service.eventdata;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.StringUtil;
@@ -17,14 +19,20 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 @Service
 public class EventDataService {
+	private static final Logger LOG = LoggerFactory
+			.getLogger(EventDataService.class);
 	/**
 	 * 查询事件列表
 	 */
 	public YJResponse<EventListResponse> queryEventDataList(YJRequest<EventListMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_QUERYEVENTDATALIST);
-		String result =HttpClientUtil.getYJBaseResponse(url,req);
-		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<EventListResponse>>(){});
+		try {
+			String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_QUERYEVENTDATALIST);
+			String result =HttpClientUtil.getYJBaseResponse(url,req);
+			if(!StringUtil.isBlank(result)){
+			 return JSON.parseObject(result, new TypeReference<YJResponse<EventListResponse>>(){});
+			}
+		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 		}
 		return null;
 	}
@@ -32,10 +40,14 @@ public class EventDataService {
 	 * 查询事件详情
 	 */
 	public YJResponse<EventVo> queryEventDataEntityForSrcId(YJRequest<EventDetailsMessage> req) {
-		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID);
-		String result =HttpClientUtil.getYJBaseResponse(url,req);
-		if(!StringUtil.isBlank(result)){
-			return JSON.parseObject(result, new TypeReference<YJResponse<EventVo>>(){});
+		try {
+			String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_QUERYEVENTDATAENTITYFORSRCID);
+			String result =HttpClientUtil.getYJBaseResponse(url,req);
+			if(!StringUtil.isBlank(result)){
+				return JSON.parseObject(result, new TypeReference<YJResponse<EventVo>>(){});
+			}
+		} catch (Exception e) {
+			LOG.error(e.getMessage(),e);
 		}
 		return null;
 	}
