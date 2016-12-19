@@ -4,6 +4,7 @@
 <head>
 <script type="text/javascript"></script>
 <script src="js/layer/layer.js"></script>
+<%@ include file="/inc/inc.jsp"%>
 </head>
 <body>
 <!--新的头部--> 
@@ -96,80 +97,198 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	position:absolute;
 	width: 100%; 
 } 
+
+.heard-breadcrumb{width:100%;float:left;height:36px;background:#212532;min-width:1200px;}
+.left1{    display: inline-block;
+    line-height: 36px;
+    position: relative;
+    float: left;
+    margin-left: 20px;
+    }
+.left1 p{
+	display: inline-block;
+    margin-left: 24px;
+}
+.left1 p a{
+	color: #505a80;
+    font-size: 12px;
+    padding-right: 18px;
+}    
+.right1{
+	display: inline-block;
+    line-height: 36px;
+    position: relative;
+	float: right;
+	margin-right: -40px;
+}
+.right1 p{
+	    margin-left: 8px;
+	    display: inline-block;
+	    
+}
+.right1 p a{
+	color: #505a80;
+    font-size: 12px;
+    
+}
+.user-show{
+	width: 120px;
+    height: 100px;
+    background: #fff;
+    position: absolute;
+    top: 36px;
+    right: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    z-index: 1003;
+}
+.user-show span{
+	position: absolute;
+    top: -20px;
+    left: 45px;
+}
+.user-show span i{
+	color: #fff;
+    font-size: 24px;
+}
+.user-show ul a{
+	width: 100%;
+    float: left;
+    color: #666;
+    text-align: center;
+    font-size: 12px;
+}
+.user-show ul a:hover{
+	background-color: blur;
+}
+.user-show ul a li{
+	width: 100%;
+    height: 33px;
+    line-height: 30px;
+    float: left;
+    text-align: center;
+}
+.erw-show{
+	width: 120px;
+    height: 120px;
+    background: #fff;
+    position: absolute;
+    top: 36px;
+    right: -30px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    z-index: 1003;
+}
+.erw-show span{
+	    position: absolute;
+    top: -20px;
+    left: 45px;
+}
+.erw-show span i{
+	    color: #fff;
+    font-size: 24px;
+}
+.erw-show p{
+	margin: 10px;
+}
+.rightt{
+	padding-right:50px;
+	float: right;
+}
+.menu_list1 li{
+	    margin-left: 14px;
+    display: inline-block;
+    float: left;
+    margin-top: 15px;
+}
+.menu_list1 li .current{
+	    border-bottom: 3px solid #3382ee;
+    padding-bottom: 30px;
+    color: #3382ee;
+}
+
+.menu_list1 li a{
+	    font-size: 16px;
+    color: #767fa2;
+    padding: 0 8px;
+}
+.search{
+	    width: 230px;
+    height: 36px;
+    border: 1px solid #3382ee;
+    background: #212532;
+    border-radius: 20px;
+    line-height: 34px;
+    margin-top: 35px;
+}
 </style>
-<div class="header_box">
+
+<div class="heard-breadcrumb">
+	<div class="heardmain" style="width: 1200px;">
+		<ul>
+			<li class="left1">
+				<p>
+					<a id="login" href="javascript:void(0);">登录</a>|
+				</p>
+				<p>
+					<a id="regist" href="javascript:void(0);">注册</a>
+				</p>
+			</li>
+			<li class="right1">
+					<p class="posi">
+						<a href="#">译见<i class="icon iconfont">&#xe659;</i>
+						</a>|
+					</p>
+					<div class="user-show" id="user-show" style="display: none;">
+						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<ul>
+							<a href="#" class="ahov1"><li><i class="icon iconfont">&#xe63b;</i>我的译见</li></a>
+							<a href="#" class="ahov2"><li><i class="icon iconfont">&#xe63b;</i>数据管理</li></a>
+							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe63d;</i>退出登录</li></a>
+						</ul>
+					</div>
+					<p class="iphone">
+						<a href="#">
+						<span><i class="icon iconfont">&#xe613;</i></span>
+
+						<span>手机版</span>
+						</a>
+					</p>
+					<div class="erw-show" id="erw-show" style="display: none;">
+						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<p><img src="${uedroot}/images/erwnew.jpg"></p>
+					</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="header_box" style="height: 90px; padding-top: 20px; background-color:#2e344b;">
 	<div class="left">
-		<a title="返回首页" href="http://www.yeesight.com"><i class="ico_logo"></i></a>
+		<!-- <a title="返回首页" href="http://www.yeesight.com"><i class="ico_logo"></i></a> -->
 	</div>
 	<div class="center">
-		<span class="title"><h1>
+		<!-- <span class="title"><h1 style="margin-top: 0px; color: white;">
 		
-		热点发现</h1>
+		公共安全</h1>
         	
-        </span>
-		<!-- <ul class="header_top_list">
-			<li class="on"><a href="analysisMap/dataIndex">地图</a></li>
-			<li><a href="javascript:;">列表</a></li>
-		</ul> -->
-		
+        </span> -->
+		<img src="${uedroot}/images/logo.png" />
 	</div>
-	
-	
-	
-	<div class="right" style="display:none;">
-		<span class="search_box">
-			   <input type="text" class="search_txt" name="keyword" placeholder="">
-			   <a title="点击搜索" class="btn_search" href="javascript:;"><i class="ico_search"></i></a>
-		</span>
-		<ul class="menu_list">
+	<div class="rightt">
+		<ul class="menu_list1">
 			<li>
-				<a class="btn_menu" title="菜单"><i class="ico_menu1"></i></a>
-				<div class="m_list" style="">
-					<b class="m_list_up"><i></i></b>
-					<div class="m_list_bg">
-					<dl>
-					 	<dt><i class="ico_lan2"></i>通用大数据产品</dt>
-					 	<dd><a href="http://buzz.yeesight.com/analysisMap/dataIndex">专题分析</a></dd>
-					 	<dd><a href="javascript:;" class="m_list_bg_no">产品分析</a></dd>
-					 	<dd><a href="javascript:;" class="m_list_bg_no">企业分析</a></dd>
-					 	<dt><i class="ico_lan1"></i>行业大数据产品</dt>
-					 	
-					 	<dd class="on"><a href="http://news.yeesight.com">全球热点</a></dd>
-					 	<dd><a href="javascript:;" class="m_list_bg_no">汽车分析</a></dd>
-					 	<dd><a href="javascript:;" class="m_list_bg_no">出版分析</a></dd>
-					 	<dd><a href="javascript:;" class="m_list_bg_no">旅游分析</a></dd>
-					 	<dd><a href="javascript:;" class="m_list_bg_no">医疗分析</a></dd>
-					</dl>
-					</div>
-				</div>
+				<a href="${_base}/home/index">首页</a>
 			</li>
 			<li>
-				
-				<a href="javascript:loginClick();" class="btn_menu" title="用户登录"><i class="ico_menu2"></i></a>
-				
-				
+				<a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a>
 			</li>
 			<li>
-				<a class="btn_menu" title="扫描二维码" onclick="ewm();" style="cursor: pointer;"><i class="ico_menu3"></i></a>
+				<a class="current" href="${_base}/newsbmap/news_heat_n.jsp">热点发现</a>	
 			</li>
-			<li>
-					
-				 <div class="wrap">
-		   			 <div class="langue">
-		   			   <!--  <div id="select_div">
-							<span id="select_lan">中文</span><img src="images/xla.png"style="padding-left:10px;" >
-						</div>
-						<div class="lantab">
-							<div class="langsel" data-val="zh_CN" data-text="中文">中文<img src="images/xla.png"style="padding-left:10px;"></div>
-							<div class="langsel" data-val="en_US" data-text="EN" style="border-top:1px solid #253545;text-align: left;padding-left:13px;width:37px;">EN</div>
-						</div> -->
-					</div> 
-				</div>
-				
-				
-				
-				
-				
+			<li><a href="${_base}/search/public">舆情动态</a></li>
+			<li class="search">
+				<input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
 			</li>
 		</ul>
 	</div>
@@ -332,6 +451,33 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 		$('#jumpUrlId').val(href);
 		$('#loginJumpFormId').submit();
 	}
+	
+	$(function () {
+	    var st = 100;
+	    $('.heardmain ul .right1 .posi').mouseenter(function () {
+			$('#user-show').show(1);
+	    })
+			$("#user-show").click(function () {
+	                $(this).hide(1);
+	           });	
+			$('.heardmain').mouseleave(function () {
+	        $('#user-show').hide(1);
+	         $('#erw-show').hide(1);
+	    });	
+	 });
+	$(function () {
+	    var st = 100;
+	    $('.heardmain ul .iphone').mouseenter(function () {
+			$('#erw-show').show(1);
+	    })
+			$("#erw-show").click(function () {
+	                $(this).hide(1);
+	           });	
+			$('.heardmain').mouseleave(function () {
+	        $('#erw-show').hide(1);
+	        $('#user-show').hide(1);
+	    });	
+	 });
 </script>
 </body>
 </html>
