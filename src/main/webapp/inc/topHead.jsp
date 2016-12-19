@@ -1,7 +1,11 @@
+<%@page import="com.ai.yk.protal.web.utils.SessionUtil"%>
 <%@page import="java.util.Locale"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/inc/incJs.jsp"%>
+<%
+  SessionUtil.initUrlConfig();
+%>
 <!--面包屑－导航--> 
 <div class="heard-breadcrumb">
 	<div class="breadcrumb-main">

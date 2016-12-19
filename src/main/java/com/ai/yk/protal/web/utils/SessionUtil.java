@@ -18,9 +18,6 @@ import com.google.gson.Gson;
 
 public final class SessionUtil {
 	private SessionUtil(){}
-	static{
-		initUrlConfig();
-	}
 	public static void initUrlConfig(){
 		 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		 HttpSession session = request.getSession();
