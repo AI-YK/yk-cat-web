@@ -54,18 +54,11 @@ public final class HttpClientUtil {
      * @param data
      * @return
      */
-    public static String sendPostRequest(String url, String data){
-    	try {
-			return sendPostRequest(url,data,false);
-		} catch (Exception e) {
-			LOGGER.error(e.getMessage(),e);
-		}
-    	return null;
-    }
-	public static String sendPostRequest(String url, String data,boolean isHttps)
+    public static String sendPostRequest(String url, String data)
 			throws Exception {
 		CloseableHttpClient httpclient = null;
-		if(isHttps){
+		if(url.startsWith("https")){
+			//https 请求
 			httpclient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory()).build();
 		}else{
 			/*try {
