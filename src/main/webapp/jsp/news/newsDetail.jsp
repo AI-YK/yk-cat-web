@@ -38,7 +38,7 @@
 		<div class="level-left-conter">
 			<div class="news-detail">
 				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${newsDetails.srcTitle}</div>
-				<div class="news-detail-information">
+				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
 						<%-- <li class="zhuanz">
 						<span>${newsDetails.srcSource}</span>

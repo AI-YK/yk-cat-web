@@ -38,7 +38,7 @@
 		<div class="level-left-conter">
 			<div class="news-detail">
 				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</div>
-				<div class="news-detail-information">
+				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
 						<%-- <li class="zhuanz">
 						<span>${eventDetail.srcSource}</span>
@@ -49,7 +49,7 @@
 						</li>
 						<li>中文</li>
 						<li>${eventDetail.zhCountry}&nbsp;&nbsp;<img height="20px" width="30px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
-						<li class="zhuanz">转载量：<span>${eventDetail.heatValue}</span></li>
+						<li class="zhuanz">热度：<span>${eventDetail.heatValue}</span></li>
 						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
