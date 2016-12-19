@@ -20,8 +20,10 @@ public final class SessionUtil {
 	private SessionUtil(){}
 	public static void initUrlConfig(){
 		 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
-		 HttpSession session = request.getSession();
-		 session.setAttribute(Constants.YEESIGHT_URL_KEY,ConfigUtil.config);
+		 if(request!=null){
+			 HttpSession session = request.getSession();
+			 session.setAttribute(Constants.YEESIGHT_URL_KEY,ConfigUtil.config); 
+		 }
 	}
 	public static SSOClientUser getLoginUser() {
 	    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();

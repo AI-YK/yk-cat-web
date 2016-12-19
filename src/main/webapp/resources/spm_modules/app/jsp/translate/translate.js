@@ -4,6 +4,7 @@ define("app/jsp/translate/translate", function(require, exports, module) {
 	Dialog = require("optDialog/src/dialog"), 
 	AjaxController = require('opt-ajax/1.0.0/index');
 	var ajaxController = new AjaxController();
+	var currentAjax  = null;
 	var translatePage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -27,7 +28,7 @@ define("app/jsp/translate/translate", function(require, exports, module) {
 			}else{
 				return;
 			}
-			ajaxController.ajax({
+			currentAjax = $.ajax({
 				type: "post",
 				processing: false,
 				message: " ",
@@ -40,6 +41,11 @@ define("app/jsp/translate/translate", function(require, exports, module) {
 					_this.sendTranslate(dataArray, param, callBack);
 				}
 			});
+		},
+		stopTranslate:function(){
+			if(currentAjax) {
+				currentAjax.abort();
+			}  
 		}
  });
  module.exports = translatePage;
