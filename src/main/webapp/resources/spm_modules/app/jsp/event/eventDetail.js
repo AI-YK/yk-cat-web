@@ -56,6 +56,18 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			$("#share-show li").css("font-size","12px");
 		});
 		},
+		/*处理原文格式*/
+		showSrcContent:function(){
+			var srcContent = $("#srcContent").html();
+			if(srcContent){
+				srcContent= srcContent.replace("<BR/>","<br>").split("<br>");
+				var html = [];
+				for(var i=0;i<srcContent.length;i++){
+					html.push("<li>"+srcContent[i]+"</li>");
+				}
+				$("#eventDetailContent").html(html.join(""));
+			}
+		},
 		/*显示译文*/
 		showTranslation:function(){
 			$("#eventDetailContent").html('');
@@ -66,13 +78,13 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		},
 		/*显示原文*/
 		showOriginal:function(){
-			var text =$("#srcContent").html();
-			$("#eventDetailContent").html(text);
+			this.showSrcContent();
 		},
 		/*显示混合*/
 		showSynchysis:function(){
 			$("#translateContent").html('');
-			$("#eventDetailContent").html($("#srcContent").html());
+			$("#translateTitle").html('');
+			this.showSrcContent();
 			$('#drag').show();
 			this.queryTranslation($("#srcTitle").html(),function(json){
 				$("#translateTitle").append(json);
@@ -131,6 +143,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			this._initAnimation();
 			this._bindEvent();
 			this._initChart();
+			this.showSrcContent();
 		}
 		
 	});

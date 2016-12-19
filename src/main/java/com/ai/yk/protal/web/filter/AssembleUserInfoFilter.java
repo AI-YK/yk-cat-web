@@ -33,7 +33,7 @@ public class AssembleUserInfoFilter implements Filter {
                          FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        if (shouldFilter(req)) {
+        if (false) {
         	HttpSession session = req.getSession();
             SSOClientUser user = (SSOClientUser) session.getAttribute(Constants.USER_SESSION_KEY);
             if (user == null) {

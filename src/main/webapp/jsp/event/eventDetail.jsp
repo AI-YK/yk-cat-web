@@ -73,8 +73,10 @@
 							</div></li> -->
 					</ul>
 				</div>
-				<div class="news-detail-news" id="eventDetailContent">
-				 ${eventDetail.srcSummary}
+				<div class="news-detail-news">
+				 <ul id="eventDetailContent">
+				 
+				 </ul>
 				</div>
 				<!-- <div class="news-detail-share">
 					<ul class="bdsharebuttonbox">
