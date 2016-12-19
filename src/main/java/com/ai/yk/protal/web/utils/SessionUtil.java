@@ -18,8 +18,7 @@ import com.google.gson.Gson;
 
 public final class SessionUtil {
 	private SessionUtil(){}
-	public static void initUrlConfig(){
-		 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+	public static void initUrlConfig(HttpServletRequest request){
 		 if(request!=null){
 			 HttpSession session = request.getSession();
 			 if(session.getAttribute(Constants.YEESIGHT_URL_KEY)==null)
