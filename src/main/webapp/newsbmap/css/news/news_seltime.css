@@ -36,7 +36,7 @@ li{list-style-type: none;}
 .xzzhou .xzgj{width:250px;height:40px;/*background:url(../../images/news/seltime_xzgj.png) no-repeat center center;*/float:left;cursor:pointer;/* border-bottom:#143a62 1px solid; */color:#143a62;}
 .xzzhou .xzgj .gj_sz{display:block;width:250px;height:40px;line-height:40px;font-size:16px;text-align:center; }
 .xzzhou .qq_xz{display:inline-block;width:0px;height:0px;border:20px solid #030408;border-left:20px solid #143a62;}
-.xzzhou .xzcs{width:250px;height:40px;float:right;/* border-bottom:#143a62 1px solid; */color:#143a62;}
+.xzzhou .xzcs{width:248px;height:40px;float:right;/* border-bottom:#143a62 1px solid; */color:#143a62;}
 .xzzhou .xzcs .cs_sz{display:block;width:250px;height:40px;line-height:40px;font-size:16px;text-align:center;}
 .xzzhou .xz_nr{position:absolute;top:40px;left:0px;width: 540px;height:160px;border-top:#143a62 1px solid;}
 .xzzhou .xz_nr .guojia_xz{list-style-type: none;padding: 18px;overflow: auto;width: 504px;height: 134px;}

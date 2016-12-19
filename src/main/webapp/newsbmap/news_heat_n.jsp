@@ -395,8 +395,9 @@
 			<script src="js/jquery.dotdotdot.min.js"></script>
 
 			<script src="js/data.js"></script>
-            <script src="js/news_heat_n_l.js"></script>
-            <script src="js/news_heat_n.js"></script>
+			<script src="js/map_heat.js"></script>
+           <!--  <script src="js/news_heat_n_l.js"></script>
+            <script src="js/news_heat_n.js"></script> -->
             
 	</body>
 

@@ -80,10 +80,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
 								return 0;
 							case 1:
 								return "低";
+//								return "热 ";
 							case 2:
 								return "中";
+//								return "热度或转载量中";
 							case 3:
-								return "高"
+								return "高";
+//								return "热度或转载量高";
 							}
 						}
 					},
