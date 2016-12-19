@@ -6,6 +6,8 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 	var ajaxController = new AjaxController();
 	var Charts = require("app/jsp/home/charts");
 	var charts = new Charts();
+	var translatePage = require("app/jsp/translate/translate");
+	var translate = new translatePage();
 	var eventDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -56,10 +58,10 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		},
 		/*显示译文*/
 		showTranslation:function(){
-			this.queryTranslation(function(){
-				 $("#eventDetailContent").html('');
-				},function(json){
-				 $("#eventDetailContent").html(json);
+			$("#eventDetailContent").html('');
+			this.queryTranslation($("#srcContent").html(),function(json){
+				json ="<li>"+json+"</li>";
+				$("#eventDetailContent").append(json);
 				});
 		},
 		/*显示原文*/
@@ -69,19 +71,20 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		},
 		/*显示混合*/
 		showSynchysis:function(){
-			//debugger;
-			this.queryTranslation(function(){
-			 $("#translateContent").html('');
-			},function(json){
-			 $("#eventDetailContent").html($("#srcContent").html());
-			 $("#translateContent").html(json);
-			 $('#drag').show();
-			});
+			$("#translateContent").html('');
+			$("#eventDetailContent").html($("#srcContent").html());
+			$('#drag').show();
+			this.queryTranslation($("#srcTitle").html(),function(json){
+				$("#translateTitle").append(json);
+			 });
+			this.queryTranslation($("#srcContent").html(),function(json){
+				json ="<p>"+json+"</p>";
+				$("#translateContent").append(json);
+			 });
 		},
 		//翻译
-		queryTranslation:function(begin,callBack){
-			var text =$("#srcContent").html();
-			begin();
+		queryTranslation:function(text,callBack){
+			//text ="我是中国人<BR/>你是那个国家的?<BR/>全国高校思想政治工作会议12月7日至8日在北京召开。";
 			//目标语言
 			var tgtl ="zh";
 			var srcLanguage = $("#srcLanguage").val();
@@ -93,16 +96,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			param.srcl=srcLanguage;
         	param.text = text;
         	param.tgtl = tgtl;
-        	ajaxController.ajax({
-				type: "post",
-				processing: true,
-				message: " ",
-				url: _base+"/common/translate",
-				data: param,
-				success: function (json) {
-					callBack(json);
-				}
-			});
+        	translate.execTranslate(param,callBack);
 		},
 		/*图表*/
 		_initChart:function(){

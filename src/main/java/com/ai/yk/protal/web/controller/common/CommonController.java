@@ -40,7 +40,6 @@ import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOr
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsReponse;
 import com.ai.yk.protal.web.content.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsResults;
 import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedMessage;
-import com.ai.yk.protal.web.content.savemyCustomized.SaveMyCustomizedResponse;
 import com.ai.yk.protal.web.content.translate.TranslateMessage;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.common.CommonService;
@@ -649,14 +648,15 @@ public class CommonController {
 	@RequestMapping("/translate")
 	@ResponseBody
 	public String translate(TranslateMessage req) {
-		String[] text = req.getText().split("<br />");
+		/*String[] text = req.getText().split("<br />");
 		StringBuilder sbd = new StringBuilder();
 		for(int i=0;i<text.length;i++){
 			req.setText(text[i]);
-			sbd.append(getTranslateResult(req));
+			sbd.append();
 			sbd.append("<br />");
 		}
-		return sbd.toString();
+		*/
+		return getTranslateResult(req);
 	}
 	@RequestMapping("/queryEventModel")
 	@ResponseBody

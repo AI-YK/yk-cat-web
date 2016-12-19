@@ -40,15 +40,15 @@
 				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</div>
 				<div class="news-detail-information">
 					<ul>
-						<li>
-						${eventDetail.srcSource}
+						<li class="zhuanz">
+						<span>${eventDetail.srcSource}</span>
 						</li>
 						<li>
 						<fmt:parseDate value="${eventDetail.createTimeView}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
 						<li></li>
-						<li>${eventDetail.zhCountry}<img height="14px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
+						<li>${eventDetail.zhCountry}&nbsp;&nbsp;<img height="20px" widht="30px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
 						<li class="zhuanz">转载量：<span>${eventDetail.heatValue}</span></li>
 						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
@@ -102,7 +102,7 @@
 						<p class="right"><i class="icon iconfont" id="deag-close">&#xe618;</i></p>
 					</div>
 					<div class="drag-list">
-						<div class="drag-list-bt">${eventDetails.enTitle}</div>
+						<div class="drag-list-bt" id="translateTitle">${eventDetails.enTitle}</div>
 					<div class="drag-list-word" id="translateContent">
 					</div>
 					</div>
@@ -141,6 +141,9 @@
 	<!--底部-->
 	<input id="srcLanguage" type="hidden" value="zh"/>
 	<input id="srcId" type="hidden" value="${eventDetail.srcId}"/>
+	<div id="srcTitle" style="display: none;">
+	  ${eventDetail.srcTitle}
+	</div>
 	<div id="srcContent" style="display: none;">
 	  ${eventDetail.srcSummary}
 	</div>
@@ -158,8 +161,13 @@
     })();
 	function initialize() {  
 		var map = new BMap.Map("baiduContainer");          // 创建地图实例  
+		
 		var point = new BMap.Point("${eventDetail.longitude}"*1, "${eventDetail.latitude}"*1);  // 创建点坐标  
 		map.centerAndZoom(point, 22);                 // 初始化地图，设置中心点坐标和地图级别  
+		map.enableScrollWheelZoom(true); 
+		
+		var marker = new BMap.Marker(point); // 创建点
+		map.addOverlay(marker);    //增加点
 	} 
 
 	function loadScript() {
