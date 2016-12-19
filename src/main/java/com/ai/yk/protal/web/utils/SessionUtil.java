@@ -22,6 +22,7 @@ public final class SessionUtil {
 		 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		 if(request!=null){
 			 HttpSession session = request.getSession();
+			 if(session.getAttribute(Constants.YEESIGHT_URL_KEY)==null)
 			 session.setAttribute(Constants.YEESIGHT_URL_KEY,ConfigUtil.config); 
 		 }
 	}
