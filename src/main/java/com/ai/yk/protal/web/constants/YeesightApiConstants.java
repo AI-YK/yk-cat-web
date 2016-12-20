@@ -46,7 +46,7 @@ public class YeesightApiConstants {
 	public final static String API_YEESIGHTFORNEWS_ADDMYCUSTOMIZED = "/api/yeesightForNews/addMyCustomized";
 	// 修改个人指定接口URL
 	public final static String API_YEESIGHTFORNEWS_UPDATEMYCUSTOMIZED = "/api/yeesightForNews/updateMyCustomized";
-	// 查询新闻详情
+	// 查询新闻/资讯详情
 	public final static String API_INFODETAIL_QUERYINFORMATION = "/api/infoDetail/queryInformation";
 	// 查询社交详情
 	public final static String API_INFODETAIL_SOCIALDETAIL = "/api/infoDetail/socialDetail";
