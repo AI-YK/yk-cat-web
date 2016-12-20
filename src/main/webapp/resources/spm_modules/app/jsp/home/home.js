@@ -61,11 +61,11 @@ define('app/jsp/home/home', function (require, exports, module) {
                  $(this).addClass("current");
                  var index=$('.list-left ul li').index(this);
                  if(_this.chartGroups[index]){
-                	 _this.chartGroup = _this.chartGroups[index]
-                	 if($("#mtab1").is(':hidden')){
-                		 homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);  
+                	 _this.chartGroup = _this.chartGroups[index];
+                	 if($("#chuanbo").hasClass('current')){
+                		 homeChart._initSpreadStateChart("chart_event",_this.chartGroup.timeTrend);  
                 	 }else{
-                		 homeChart._initSpreadStateChart("chart_left",_this.chartGroups[index].spreadTrend);
+                		 homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
                 	 }
                  }
                
@@ -78,14 +78,15 @@ define('app/jsp/home/home', function (require, exports, module) {
                 $(this).addClass("current");
                 var index = $('#merge ul li a').index(this);
                 if(index==0){
-                    $('#mtab1').show();
-                 	$('#mtab2').hide();
-                 	homeChart._initSpreadStateChart("chart_left",_this.chartGroup.spreadTrend);
+                 	if(_this.chartGroup){
+                 		homeChart._initSpreadStateChart("chart_event",_this.chartGroup.spreadTrend);
+                 	}
+                 	
                 }
                 if(index==1){
-                     $('#mtab2').show();
-                 	 $('#mtab1').hide();
-                 	 homeChart._initTimeTrendChart("chart_right",_this.chartGroup.timeTrend);  
+                 	if(_this.chartGroup){
+                 	  homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
+                 	}
                 }
             });
             
@@ -238,9 +239,14 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
 					_this.chartGroups = data.groups;
+
 					if(_this.chartGroups[0]){
-						homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
-						homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
+						 _this.chartGroup = _this.chartGroups[0];
+						 if($("#chuanbo").hasClass('current')){
+	                		 homeChart._initSpreadStateChart("chart_event",_this.chartGroups[0].timeTrend);  
+	                	 }else{
+	                		 homeChart._initTimeTrendChart("chart_event",_this.chartGroups[0].spreadTrend);
+	                	 }
 					}
 					
 				}

@@ -15,16 +15,13 @@
                 <div id="chart-date">
 				    <div class="merge" id="merge">
 						 <ul>
-							  <li><a  class="current">传播态势</a></li>
+							  <li><a  id="chuanbo" class="current">传播态势</a></li>
 							  <li><a>事件态势</a></li>
 						 </ul>
 					</div>
-					<div id="mtab1">
-						  <div id="chart_left" class="merge-list"></div>
+					<div>
+						  <div id="chart_event" class="merge-list"></div>
 					</div>
-					 <div id="mtab2" style="display:none;">
-						  <div id="chart_right" class="merge-list"></div>
-					 </div>
 						
 				</div>			    
 			</div>
