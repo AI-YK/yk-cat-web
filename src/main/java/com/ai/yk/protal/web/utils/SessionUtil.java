@@ -84,6 +84,7 @@ public final class SessionUtil {
 			
 			AreaVo province = new AreaVo();
 			province.setCode("as_100000_340000");
+			province.setNameZh("安徽省");
 			province.setId(701);
 			
 			InterestVo interest = new InterestVo();
