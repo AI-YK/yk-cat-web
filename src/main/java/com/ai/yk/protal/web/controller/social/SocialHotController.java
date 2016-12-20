@@ -17,6 +17,7 @@ import com.ai.yk.protal.web.service.social.SocialService;
 /**
  * 社交热点
  */
+@RequestMapping("social")
 public class SocialHotController extends BaseController {
 	private static final Logger LOG = LoggerFactory
 			.getLogger(SocialHotController.class);
