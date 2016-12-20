@@ -30,7 +30,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         //属性，使用时由类的构造函数传入
         attrs: {
             clickId:"",
-            chartGroups:{}
+            chartGroups:[],
+            chartGroup:{}
         },
 
         //事件代理
@@ -60,21 +61,33 @@ define('app/jsp/home/home', function (require, exports, module) {
                  $(this).addClass("current");
                  var index=$('.list-left ul li').index(this);
                  if(_this.chartGroups[index]){
-                	  homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);
+                	 _this.chartGroup = _this.chartGroups[index]
+                	 if($("#mtab1").is(':hidden')){
+                		 homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);  
+                	 }else{
+                		 homeChart._initSpreadStateChart("chart_left",_this.chartGroups[index].spreadTrend);
+                	 }
                  }
-                 $("#chart-date"+index).show();
+               
 			});
             
-            $(document).on("mouseenter",".list-left ul li",function(){
-           	 $(".list-left ul li").each(function () {
+            $("#merge ul li a").click(function () {
+                $("#merge ul li a").each(function () {
                     $(this).removeClass("current");
                 });
-           	    var index=$('.list-left ul li').index(this);
-             	if(_this.chartGroups[index]){
-				   homeChart._initSpreadStateChart("chart_left",_this.chartGroups[index].spreadTrend);
-			    }
                 $(this).addClass("current");
-			});
+                var index = $('#merge ul li a').index(this);
+                if(index==0){
+                    $('#mtab1').show();
+                 	$('#mtab2').hide();
+                 	homeChart._initSpreadStateChart("chart_left",_this.chartGroup.spreadTrend);
+                }
+                if(index==1){
+                     $('#mtab2').show();
+                 	 $('#mtab1').hide();
+                 	 homeChart._initTimeTrendChart("chart_right",_this.chartGroup.timeTrend);  
+                }
+            });
             
            $(".trend").on("click",".locSentimentCount ul li a",function(){
             	$(".locSentimentCount ul li a").each(function () {
