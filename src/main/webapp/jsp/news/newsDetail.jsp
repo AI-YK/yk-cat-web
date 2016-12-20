@@ -182,6 +182,9 @@
 	<div id="srcContent" style="display: none;">
 	 ${newsDetails.srcContent}
 	</div>
+	<div id="srcTitle" style="display: none;">
+	 ${newsDetails.srcTitle}
+	</div>
 	<div id="zhContent" style="display: none;">
 	 ${newsDetails.zhContent}
 	</div>

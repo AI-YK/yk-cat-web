@@ -85,7 +85,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			//终止上一次
 			translate.stopTranslate();
 			$("#newsDetailContent").html('');
-			this.queryTranslation(function(json){
+			this.queryTranslation($("#srcContent").html(),function(json){
 				json ="<li>"+json+"</li>";
 				$("#newsDetailContent").append(json);
 				});
@@ -104,18 +104,17 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			$("#translateTitle").html('');
 			this.showSrcContent();
 			$('#drag').show();
-			this.queryTranslation(function(json){
+			this.queryTranslation($("#srcTitle").html(),function(json){
 				$("#translateTitle").append(json);
 			 });
-			this.queryTranslation(function(json){
+			this.queryTranslation($("#srcContent").html(),function(json){
 				json ="<p>"+json+"</p>";
 				$("#translateContent").append(json);
 			 });
 			
 		},
 		//翻译
-		queryTranslation:function(callBack){
-			var text =$("#srcContent").html();
+		queryTranslation:function(text,callBack){
 			//目标语言
 			var tgtl ="zh";
 			var srcLanguage = $("#srcLanguage").val();
