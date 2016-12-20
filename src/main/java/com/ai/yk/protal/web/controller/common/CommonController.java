@@ -96,7 +96,7 @@ public class CommonController {
 	@RequestMapping("/getChProvince")
 	@ResponseBody
 	public ResponseData<List<QueryAreaListVo>> getChProvince(
-			@RequestParam(value = "parentCode", defaultValue = "as_100000") String parentCode,
+			@RequestParam(value = "parentCode", defaultValue = YeesightApiConstants.API_CHINA_CODE) String parentCode,
 			@RequestParam(value = "classify", defaultValue = "province") String classify
 			){
 		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
@@ -115,7 +115,7 @@ public class CommonController {
 	@RequestMapping("/getProvince")
 	@ResponseBody
 	public ResponseData<Map<String, List<QueryAreaListVo>>> getProvice(
-			@RequestParam(value = "parentCode", defaultValue = "as_100000") String parentCode,
+			@RequestParam(value = "parentCode", defaultValue = YeesightApiConstants.API_CHINA_CODE) String parentCode,
 			@RequestParam(value = "classify", defaultValue = "province") String classify) {
 		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
 		queryAreaListMessage.setParentCode(parentCode);
