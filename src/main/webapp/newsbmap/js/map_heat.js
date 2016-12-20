@@ -391,11 +391,12 @@ function trinkFunc(){
 			    //$(".echart_tip").remove();
 			    if(ympd=='0'){//全球热点
 			    	//隐藏国家选择
-			    	get_event_point_data();
+//			    	get_event_point_data();
+			    	smilEventData();
 			    }else{
 			    	getBMapData();
 			    }
-			    get_event_point_data_zixun();//资讯
+			 //   get_event_point_data_zixun();//资讯
 			//	get_event_point_data_new();//右侧新闻数据
 				return false;
 	});
@@ -817,7 +818,7 @@ function smilEventData(){
 //		 	'countrychinaname':country_class,
 		 	'countryCode':countryCode,
 //		 	'classify':classify,
-		 	'type':type,
+//		 	'type':type,
 		 	'provinceCode':provinceCode,//省份code
 		 	'cityCode':cityCode,//城市code
 //		 	'mediaType':'news',//新闻热点
@@ -987,7 +988,8 @@ function echart1(){
 				        {
 				            name: 'zy_world',
 				            type: 'map',
-				            mapType: 'world',
+//				            mapType: 'world',
+				            mapType: 'china',
 				            roam: false,
 				            hoverable: false,//控制是否显示国家
 				            mapLocation:{
@@ -1219,7 +1221,8 @@ function echart1(){
 				        {
 				            name: 'zy_hotpoint',
 				            type: 'map',
-				            mapType: 'world',
+//				            mapType: 'world',
+				            mapType: 'china',
 				            itemStyle:{
 				            	normal:{label:{show:false}},
 				            	emphasis:{label:{show:true}}
@@ -1539,7 +1542,8 @@ function addNewsElem(news){
 	var left,top;
 	if(ympd=='0'){//全球热点
 		var arr = [news.geoLong,news.geoLat];
-		var xypoint = myChart.chart.map.getPosByGeo("world",arr); //坐标
+//		var xypoint = myChart.chart.map.getPosByGeo("world",arr); //坐标
+		var xypoint = myChart.chart.map.getPosByGeo("china",arr); //坐标
 		left = xypoint[0];
 		top=xypoint[1];
 	}else{
@@ -1784,8 +1788,127 @@ function shouqiFunc(){
     $('.xiala').attr('src','images/news/xiala.png');
     $('.nav_left').removeClass('top');
 }
+/**
+ * 城市点击事件
+ * @param mc
+ * @param jd
+ * @param wd
+ * @param gj
+ * @param cs
+ * @param start_datetime
+ * @param end_datetime
+ * @param classify
+ */
+function selectCity1(jd, wd, gj, cs, start_datetime, end_datetime, classify) {
+   /* if ('国家' == gj) {
+        gj = "";
+    }
+    var ajax_url = "";
+    var ajax_data;
+    if (pd == '1') {
+        ajax_url = 'news/searchCountryInteface';//搜索国家
+        ajax_data = {
+            'countrychinaname': gj
+        };
+    } else {
+        var ajax_url = 'news/searchCityInteface';//搜索城市
+        ajax_data = {
+            'countrychinaname': gj,
+            'city': cs
+        };
+    }
+    if ('全球' == gj) {
+        gj = "";
+        stopNewsShown();
+        $("#echates").show();
+        $("#echart_bmap").hide();
+        $('.dialogLabel').remove();
+        $('.dialogTitle').remove();
+        // $("#kuang").attr("src","news/bmap?mc='"+gj+"'&jd=&wd="+"&bs="+bs+"&"+"gj='"+gj+"'&"+"cs='"+cs+"'")
+        window.location.href = "news/newsHeatNew";
+    } else {
 
+        $.ajax({
+            type: 'post',
+            url: ajax_url,
+            data: ajax_data,
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                if (data.data.length == 0) {
+                    layer.alert("该地区不存在热点事件");
+                    return false;
+                } else {
+                    $.each(data.data, function (i, o) {
+                        if (i == 0) {
+                            if (isData == '1') {//存在
+                                if ($(".ssk").val() == '') {
+                                    if ($('.xz_bottom_left .xz_chengshi').text() != "城市") {
+                                        $('.nav_left .guojia').html(gj + $('.dian').html() + cs);
+                                    } else {
+                                        $('.nav_left .guojia').html(gj);
+                                    }
+                                } else {
+                                    $('.xz_bottom_left .xz_chengshi').text($(".ssk").val());
+                                    gj = $('.xz_bottom_left .xz_guojia').text();
+                                    cs = $(".ssk").val();
+                                    $(".dian").show();
+                                    $(".xz_chengshi").show();
+                                    if ($('.xz_bottom_left .xz_guojia').text() != "国家") {
+                                        $('.nav_left .guojia').html(gj + $('.dian').html() + mc);
+                                    } else {
+                                        $('.nav_left .guojia').html($(".ssk").val());
+                                    }
+                                }
+                                $('.xzzhou').hide();
+                                $('.xiala').attr('src', 'images/news/xiala.png');
+                                $('.nav_left').removeClass('top');
+                                ympd = "1";//控制页面是否在新闻大数据页面      还是在百度地图页面
+                                stopNewsShown();
 
+                                lang = o.geo_long;//经度
+                                lat = o.geo_lat;//维度
+                                //$(".echart_tip").remove();//清空所有提示框
+                                getBMapData();
+                                get_event_point_data_zixun();//资讯
+                                get_event_point_data_new();//右侧新闻数据
+                            }
+                        }
+                    })
+                }
+            }
+        });
+    }*/
+	if ($(".ssk").val() == '') {
+        if ($('.xz_bottom_left .xz_chengshi').text() != "城市") {
+            $('.nav_left .guojia').html(gj + $('.dian').html() + cs);
+        } else {
+            $('.nav_left .guojia').html(gj);
+        }
+    } else {
+        $('.xz_bottom_left .xz_chengshi').text($(".ssk").val());
+        gj = $('.xz_bottom_left .xz_guojia').text();
+        cs = $(".ssk").val();
+        $(".dian").show();
+        $(".xz_chengshi").show();
+        if ($('.xz_bottom_left .xz_guojia').text() != "国家") {
+            $('.nav_left .guojia').html(gj + $('.dian').html() + mc);
+        } else {
+            $('.nav_left .guojia').html($(".ssk").val());
+        }
+    }
+	$('.xzzhou').hide();
+    $('.xiala').attr('src', 'images/news/xiala.png');
+    $('.nav_left').removeClass('top');
+//    ympd = "1";//控制页面是否在新闻大数据页面      还是在百度地图页面
+    stopNewsShown();
+
+    lang = jd;//经度
+    lat = wd;//维度
+    //$(".echart_tip").remove();//清空所有提示框
+    getBMapData();
+    smilEventData();
+}
 
 
 
