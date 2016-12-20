@@ -2,7 +2,7 @@
 var myChart;
 
 var fg = "1";//默认所有分类
-var fg_1 = "1";//默认为选中时间
+var fg_1 = "1";//默认为选中时间 
 var start_datetime = '';//开始时间
 var end_datetime = '';//结束时间
 var event_code = '';//事件分类表
@@ -343,6 +343,8 @@ $(function () {
         $(".ssk").val("");
         jd = $(this).next().html();
         wd = $(this).next().next().html();
+        var csCode = $(this).attr("arr");
+        alert(csCode);
         //收起全球
         $('.xzzhou').hide();
         $('.xiala').attr('src', 'images/news/xiala.png');

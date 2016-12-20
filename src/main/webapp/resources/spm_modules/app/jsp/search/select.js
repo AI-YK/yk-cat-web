@@ -2,6 +2,7 @@ define('app/jsp/search/select', function (require, exports, module) {
     'use strict';
     var $=require('jquery');
 	require("echarts/echarts.min");
+	require("select2/select2.min");
 	var  Base = require('arale-base/1.2.0/base');
     var   AjaxController = require('opt-ajax/1.0.0/index');
     
@@ -34,6 +35,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 					if(options!=""){
 						for(var j=0;j<selectIds.length;j++){
 							$("#"+selectIds[j]).html(options);
+							$("#"+selectIds[j]).select2();
 						}
 					}
 					
