@@ -54,7 +54,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			//解决样式冲突
 			$("#typesetting li").css("font-size","12px");
 			$("#share-show li").css("font-size","12px");
-			 var $xiding = $("#xuanf1");
+			 /*var $xiding = $("#xuanf1");
 			    $(window).on("scroll",function(){
 			        var $this = $(this);
 			        var st = $this.scrollTop();
@@ -67,7 +67,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 				       $xiding.stop(true,true).show();
 				       $('#xuanf1').removeClass("additional");
 			        }
-			    });
+			    });*/
 		});
 		},
 		/*处理原文格式*/
