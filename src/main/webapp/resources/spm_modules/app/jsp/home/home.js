@@ -536,6 +536,7 @@ define('app/jsp/home/home', function (require, exports, module) {
       			  dataType:"json",
       			  data:param,
       			  success:function(rs){
+      				$('#index-city').hide();
       				_this._initEventData();
       				_this._loadPubTrend('locSentimentCount', '0');
       	        	_this._loadPubTrend('mediaCoverage', '0');
