@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.ResponseHead;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -259,7 +260,7 @@ public class CommonController {
 	@ResponseBody
 	public ResponseData<List<QueryAreaListVo>> getCity(
 			/** 上级编码 **/
-			@RequestParam(value = "parentCode", defaultValue = "as_100000") String parentCode,
+			@RequestParam(value = "parentCode", defaultValue = YeesightApiConstants.API_CHINA_CODE) String parentCode,
 			/** 所属分类（continent：大洲 country：国家 province：省份 city:城市 是否必填：Y **/
 			@RequestParam(value = "classify", defaultValue = "city") String classify) {
 		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
