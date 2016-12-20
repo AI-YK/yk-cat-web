@@ -86,7 +86,7 @@
         });
     })();
     function goEventTestDetail(){
-    	var url ="${_base}/event/deatil/123412";
+    	var url ="${_base}/event/detail/123412";
     	window.open (url, '_blank' ) ;
     }
 </script>
