@@ -11,6 +11,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.ai.yk.protal.web.constants.Constants;
+import com.ai.yk.protal.web.content.area.AreaVo;
+import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
@@ -28,6 +30,12 @@ public final class SessionUtil {
 	public static SSOClientUser getLoginUser() {
 	    HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 	    SSOClientUser loginUser = (SSOClientUser) request.getSession().getAttribute(Constants.USER_SESSION_KEY);
+	    if(loginUser==null){
+	    	loginUser = new SSOClientUser();
+	    	loginUser.setUserId("1");
+	    	loginUser.setUserName("Houg");
+	    	loginUser.setNickName("译见");
+        }
 	    return loginUser;
 	}
 	
@@ -44,6 +52,62 @@ public final class SessionUtil {
 	public static MyCustomizedVo getUserConfig(){
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		MyCustomizedVo config = (MyCustomizedVo) request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
+		
+		/**
+		 * var configInterestList = '[
+		 * {"businessId":"1057","id":453,"pid":215,"zhInterest":"自然灾害"},
+		 * {"businessId":"1394","id":454,"pid":215,"zhInterest":"公共卫生事件"}]';
+    var provinceCodee='as_100000_340000';
+    var cityLists='[
+    {"code":"as_100000_340000_340800","id":703,"level":2,"nameEn":"AN QING SHI","nameZh":"安庆市","pid":702,"type":0},
+    {"code":"as_100000_340000_340300","id":705,"level":2,"nameEn":"BANG BU SHI","nameZh":"蚌埠市","pid":704,"type":0}]';
+		 */
+		if(config==null || config.equals("")){
+			config = new MyCustomizedVo();
+			AreaVo city = new AreaVo();
+			city.setId(703);
+			city.setLevel(2);
+			city.setNameZh("安庆市");
+			city.setCode("as_100000_340000_340800");
+			city.setPid(701);
+			city.setBusCode("");
+			city.setType(0);
+			
+			AreaVo city2 = new AreaVo();
+			city2.setId(705);
+			city2.setLevel(2);
+			city2.setNameZh("蚌埠市");
+			city2.setCode("as_100000_340000_340300");
+			city2.setPid(704);
+			city2.setBusCode("");
+			city2.setType(0);
+			
+			AreaVo province = new AreaVo();
+			province.setCode("as_100000_340000");
+			province.setId(701);
+			
+			InterestVo interest = new InterestVo();
+			interest.setId(453);
+			interest.setBusinessId("1057");
+			interest.setPid(215);
+			interest.setZhInterest("自然灾害");
+			
+			InterestVo interest2 = new InterestVo();
+			interest2.setId(454);
+			interest2.setBusinessId("1394");
+			interest2.setPid(215);
+			interest2.setZhInterest("公共卫生事件");
+			
+			List<InterestVo> interestList = new ArrayList<InterestVo>();
+			interestList.add(interest);
+			interestList.add(interest2);
+			List<AreaVo> cityList = new ArrayList<AreaVo>();
+			cityList.add(city);
+			cityList.add(city2);
+			config.setProvince(province);
+			config.setCity(cityList);
+			config.setInterestList(interestList);
+		}
 		return config;
 	}
 	
