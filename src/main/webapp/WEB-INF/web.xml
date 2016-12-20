@@ -48,7 +48,7 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
-	<filter>
+	<!-- <filter>
 		<filter-name>assembleUserInfoFilter</filter-name>
 		<filter-class>com.ai.yk.protal.web.filter.AssembleUserInfoFilter</filter-class>
 		<init-param>
@@ -59,7 +59,7 @@
 	<filter-mapping>
 		<filter-name>assembleUserInfoFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping>
+	</filter-mapping> -->
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>
