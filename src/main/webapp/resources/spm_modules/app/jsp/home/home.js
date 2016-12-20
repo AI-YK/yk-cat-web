@@ -70,9 +70,16 @@ define('app/jsp/home/home', function (require, exports, module) {
                  }
                
 			});
+            //左侧突发事件点击操作
             $(document).on("click",".list-left ul li",function(){
            	    var srcId = $(this).attr("srcId");
-	           	var url =_base+"/event/deatil/"+srcId;
+	           	var url =_base+"/event/detail/"+srcId;
+	        	window.open (url, '_blank' ) ;
+            });
+            //新闻媒体预警点击操作
+            $(document).on("click","#newsDiv ul",function(){
+           	    var uuid = $(this).attr("uuid");
+	           	var url =_base+"/news/detail/"+uuid;
 	        	window.open (url, '_blank' ) ;
             });
             $("#merge ul li a").click(function () {
