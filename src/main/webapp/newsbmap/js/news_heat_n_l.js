@@ -12,9 +12,12 @@ function get_event_point_data_new(){
 		'beginDate':start_datetime,
 	 	'endDate':end_datetime,
 //	 	'countrychinaname':country_class,
-	 	'countryCode':country_class,
+	 	'countryCode':countryCode,
+//	 	'countryCode':country_class,
 	 //	'classify':classify,
-	 	'mediaType':'social',//社交
+	 	'provinceCode':provinceCode,
+	 	'cityCode':cityCode,
+	 	'mediaType':'news',//社交
 	 	'pageNo':1,
 	 	'pageSize':5,
 	 	'gj':gj,
@@ -29,7 +32,7 @@ function get_event_point_data_new(){
 	 var cnum=1;
 	 $.post(ajax_url,ajax_data,function(data){
 //	 	    var result=JSON.parse(data);
-		 	var result = eval(data.data.resultSocialList);
+		 	var result = eval(data.data.resultList);
 	 	    $('#newsVal li:not([class])').remove();
 	 	    var html='';
 	 	    $.each(result,function(i,o){
@@ -139,8 +142,104 @@ function get_event_point_data_new(){
 	 		  $('#newsVal .more_box').show();
 	 	   }
 	 	   $('#newsVal .more_box').before(html);
+	 	   
+	 	   smilData(result.length);
 	 });
 	 
+}
+
+function smilData(preCount){
+//	var ajax_url='news/getNewsHeatPointListInteface';//小框
+//	var ajax_url=path + '/getNewsHeatPointListInteface';//小框
+//	var ajax_url= path + '/newsbmap/json/NewsHeatPointListInteface.json';//小框
+	var ajax_url= path + '/bmap/getTopicListIntefaceData';//小框
+	//alert(ajax_url);
+	var count=300;
+	if(fg=='1' && '1'==fg_1){
+		count=300;
+	}
+	if(fg=='0' && '0'==fg_1){
+		count=300;
+	}
+	if(fg=='1' && '0'==fg_1){
+		count=300;
+	}
+	vresult =count-preCount;
+	var ajax_data={
+		 	'beginDate':start_datetime,
+		 	'endDate':end_datetime,
+//		 	'countrychinaname':country_class,
+		 	'countryCode':countryCode,//国家code
+//		 	'classify':classify,
+		 	'provinceCode':provinceCode,//省份code
+		 	'cityCode':cityCode,//城市code
+		 	'mediaType':'news',//新闻热点
+		 	'categoryId' : categoryId,//舆情分类
+		 	'pageNo':1,
+		 	'pageSize':vresult,
+		 	'fg':fg,
+		 	'gj':gj,
+		 	'cs':cs
+		 };
+	 		//热点 地图数据
+			$.post(ajax_url,ajax_data,function(data){
+//	 	    var result=JSON.parse(data);
+			var result = eval(data.data.resultList);
+	 	    $('.div0 .ul1').empty();
+	 	    $.each(result,function(i,o){
+	 	    	 if(o.titleZh && o.titleZh!='' && o.latitude && o.latitude!='' && o.longitude && o.longitude!=''){
+	 	    	    p_map_geo[o.titleZh]=[];
+	 	    	    p_map_geo[o.titleZh].push(o.longitude);
+	 	    	    p_map_geo[o.titleZh].push(o.latitude);
+
+	 	    	    var url = "";
+	    		   /* if(o.uuid!=null && o.globaleventId!=null && o.id!="" && o.globaleventId!=""){
+		 	    	    url = 'news/detail/info?globaleventid='+o.globaleventId;
+	    		    }*/
+	 	    	    if(o.uuid !=null && o.uuid !=""){
+	 	    	    	url = path + '/news/detail/'+o.uuid;
+	 	    	    }
+	 	    	    var data_list={
+	 		 	    	 	 'name': valid(o.titleZh),
+	 		 	    	     'value':8, //o.avgtone_num<30?o.avgtone_num:14,//颜色显示
+	 		 	    	 	 'geoLat': o.latitude,
+	 		 	    	 	 'geoLong': o.longitude,
+	 		 	    	 	 'eventchinaname': valid(o.titleZh),
+//	 		 	    	 	 'eventcode': o.eventcode,
+//	 		 	    	 	 'globaleventid':o.globaleventId,
+	 		 	    	 	 'globaleventid':o.uuid,
+	 		 	    	 	 'sourceurl':valid(o.url),
+	 		 	    	 	 'countryengname': valid(o.titleZh),
+//	 		 	    	 	 'avgtone_num':valid(o.avgtoneNum),
+	 		 	    	 	 'newsdateview':valid(o.pubdate),
+//	 		 	    	 	 'heatnum':valid(fmoney(10,2)),
+	 		 	    	 	 'lat':o.latitude,
+	 		 	    	 	 'lng':o.longitude,
+//	 		 	    	 	 'source':valid(o.source),
+	 		 	    	 	 'chineseTopic':valid(o.titleZh),
+//	 		 	    	 	 'chineseKeywords':valid(o.chineseKeyWords),
+	 		 	    	 	 'topicId':o.categoryId,
+	 		 	    	 	 'countrychinaname':valid(o.countryNameZh),//countrychinaname中文国家
+	 		 	    	 	 'id':o.uuid,
+	 		 	    	 	 'url':url,
+	 		 	    	 	 'type':"0",
+	 		 	    	 	 'city':o.districtNameZh,//中文城市
+	 		 	    	 	 'cityEnglish':o.districtNameEn,//英文城市
+	 		 	    	 	 'topicChinese':valid(o.titleZh),//中文主题
+	 		 	    	 	 'topicEnglish':valid(o.titleEn),//英文主题
+//	 		 	    	 	 'classifyChinese':valid(o.classify),//中文分类
+//	 		 	    	 	 'classifyEnglish':valid(o.classifyEnglish),//英文分类
+	 		 	    	 	 'countryNameEn':valid(o.countryNameEn),//英文国家
+	 		 	    	 	 'summaryChinese':valid(o.abstractZh)//中文摘要
+	 		 	     }
+	 	    	   //console.log("data_list-----小框----",data_list);
+	 		 	     p_map_point.push(data_list);
+	 	    	     p_map_pointNews.push(data_list);
+	 	    	 }
+
+	 	    });
+	 	    echart1();
+	 	});
 }
 
 function promptwaring(){

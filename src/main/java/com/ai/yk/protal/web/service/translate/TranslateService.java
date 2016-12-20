@@ -18,7 +18,7 @@ public class TranslateService {
 		try {
 			return HttpClientUtil.sendPostRequest(
 					YeesightApiConstants.yeesightTranslateportUrl,
-					JSON.toJSONString(req), true);
+					JSON.toJSONString(req));
 		} catch (Exception e) {
 			LOGGER.error(e.getMessage(),e);
 		}

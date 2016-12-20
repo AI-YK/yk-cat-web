@@ -541,7 +541,7 @@ function selectCity(mc, jd, wd, gj, cs, start_datetime, end_datetime, classify) 
                                 $('.xzzhou').hide();
                                 $('.xiala').attr('src', 'images/news/xiala.png');
                                 $('.nav_left').removeClass('top');
-                                ympd = "1";//控制页面是否在新闻大数据页面      还是在百度地图页面
+//                                ympd = "1";//控制页面是否在新闻大数据页面      还是在百度地图页面
                                 stopNewsShown();
 
                                 lang = o.geo_long;//经度

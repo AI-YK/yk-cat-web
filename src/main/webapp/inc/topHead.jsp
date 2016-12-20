@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="/inc/incJs.jsp"%>
 <%
-  SessionUtil.initUrlConfig();
+  SessionUtil.initUrlConfig(request);
 %>
 <!--面包屑－导航--> 
 <div class="heard-breadcrumb">

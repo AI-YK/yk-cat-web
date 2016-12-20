@@ -63,12 +63,12 @@
 	<li onclick="goEventTestDetail();" class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" >{{:zhTitle}}</li>
 	<li class="list">
 		<p>
-			<span><a href="#">{{:zhSource}}</a></span><span>{{:dayTime}}</span>
+			<!--<span><a href="#">{{:zhSource}}</a></span>--><span>{{:dayTime}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
             <span>{{:zhCountry}}<img style="height:14px;" src="${uedroot}/images/country/{{:enCountry}}@2x.png" /></span> 
-            <span>转载：{{:heatValue}}</span>
+            <span>热度：{{:heatValue}}</span>
 		</p>
 	</li>
 	<li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;" >
@@ -86,7 +86,8 @@
         });
     })();
     function goEventTestDetail(){
-    	location.href="${_base}/event/deatil/123412";
+    	var url ="${_base}/event/deatil/123412";
+    	window.open (url, '_blank' ) ;
     }
 </script>
 </html>

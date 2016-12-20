@@ -49,7 +49,7 @@ public class RelatedInformationResults {
 	/**主键id      是否必填：Y**/
 	private String uuid;
 	/**媒体类型名            是否必填：Y**/
-	private Integer mediaTname;
+	private String mediaTname;
 	/**标签                     是否必填：Y**/
 	private String tags;
 	
@@ -207,10 +207,10 @@ public class RelatedInformationResults {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-	public Integer getMediaTname() {
+	public String getMediaTname() {
 		return mediaTname;
 	}
-	public void setMediaTname(Integer mediaTname) {
+	public void setMediaTname(String mediaTname) {
 		this.mediaTname = mediaTname;
 	}
 	public String getTags() {
@@ -340,62 +340,4 @@ public class RelatedInformationResults {
 		this.countryNameZh = countryNameZh;
 	}
 	
-	public RelatedInformationResults(Long pubTime, Date updated, Date created, Date pubdate, String countryId,
-			String mediaId, String countryName, String languageType, String keywordEn, String titleEn,
-			String abstractEn, String languageTname, String mediaName, String[] keywordsZh, Integer mediaType,
-			String titleSrc, String url, String titleZh, String abstractZh, String languageCode, Integer docLength,
-			String uuid, Integer mediaTname, String tags, String isHome, String districtNameZh, String transFromM,
-			String mediaNameEn, String similarityId, String[] keywordsEn, String isPicture, String districtNameEn,
-			String mediaNameSrc, Integer transfer, Integer mediaLevel, Integer categoryId, Integer sentimentId,
-			String mediaNameZh, String websiteId, String isOriginal, String countryNameEn, Integer pv,
-			Integer isSensitive, String countryNameZh) {
-		super();
-		this.pubTime = pubTime;
-		this.updated = updated;
-		this.created = created;
-		this.pubdate = pubdate;
-		this.countryId = countryId;
-		this.mediaId = mediaId;
-		this.countryName = countryName;
-		this.languageType = languageType;
-		this.keywordEn = keywordEn;
-		this.titleEn = titleEn;
-		this.abstractEn = abstractEn;
-		this.languageTname = languageTname;
-		this.mediaName = mediaName;
-		this.keywordsZh = keywordsZh;
-		this.mediaType = mediaType;
-		this.titleSrc = titleSrc;
-		this.url = url;
-		this.titleZh = titleZh;
-		this.abstractZh = abstractZh;
-		this.languageCode = languageCode;
-		this.docLength = docLength;
-		this.uuid = uuid;
-		this.mediaTname = mediaTname;
-		this.tags = tags;
-		this.isHome = isHome;
-		this.districtNameZh = districtNameZh;
-		this.transFromM = transFromM;
-		this.mediaNameEn = mediaNameEn;
-		this.similarityId = similarityId;
-		this.keywordsEn = keywordsEn;
-		this.isPicture = isPicture;
-		this.districtNameEn = districtNameEn;
-		this.mediaNameSrc = mediaNameSrc;
-		this.transfer = transfer;
-		this.mediaLevel = mediaLevel;
-		this.categoryId = categoryId;
-		this.sentimentId = sentimentId;
-		this.mediaNameZh = mediaNameZh;
-		this.websiteId = websiteId;
-		this.isOriginal = isOriginal;
-		this.countryNameEn = countryNameEn;
-		this.pv = pv;
-		this.isSensitive = isSensitive;
-		this.countryNameZh = countryNameZh;
-	}
-	public RelatedInformationResults() {
-		super();
-	}
 }

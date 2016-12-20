@@ -241,14 +241,18 @@
 			}
 		});
 	});
+	//实例化中国城市
 	function initCity(city){
 //		 var ajax_url='news/searchCityInteface';
-		 var ajax_url=path + '/newsbmap/json/searchCityInteface.json';
+//		 var ajax_url=path + '/newsbmap/json/searchCityInteface.json';
+		 var ajax_url=path + '/common/getCity';
 		 var ajax_data={
-		 	'countrychinaname':city,
-		 	'region':''
+//		 	'countrychinaname':city,
+//		 	'region':''
+			'parentCode':'as_100000',
+			'classify':'city'
 		 };
-		 
+//		 alert(ajax_url);
 		 $.ajax({
 				type:'post',
 			    url: ajax_url,
@@ -260,9 +264,9 @@
 				 	    var html='<dd><a href="javascript:;;" class="shousuo">'+$("#ns1").val()+'</a><i class="cs_jd"></i><i class="cs_wd"></i></dd>';
 				 	    
 				 	    $.each(data.data,function(i,o){
-				 	    	html+='<dd><a href="javascript:" class="chengshi_a">'+(($("#language").val()=="en")?(o.nameEn) :( o.region)) +'</a><i class="cs_jd">'+o.geoLong+'</i><i class="cs_wd">'+o.geoLat+'</i></dd>';
+				 	    	html+='<dd><a href="javascript:" class="chengshi_a">'+(($("#language").val()=="en")?(o.nameEn) :( o.name)) +'</a><i class="cs_jd">'+o.geoLong+'</i><i class="cs_wd">'+o.geoLat+'</i></dd>';
 				 	    });
-				 	    alert(html);
+//				 	    alert(html);
 				 	    $('#city').html(html);
 				 	    $(".content").mCustomScrollbar({
 							autoHideScrollbar:true,
