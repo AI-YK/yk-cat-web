@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@page import="com.ai.yk.protal.web.utils.SessionUtil"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -222,19 +223,25 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     margin-top: 35px;
 }
 </style>
-
+<%
+  SessionUtil.initUrlConfig(request);
+%>
 <div class="heard-breadcrumb">
 	<div class="heardmain" style="width: 1200px;">
 		<ul>
-			<li class="left1">
-				<p>
-					<a id="login" href="javascript:void(0);">登录</a>|
-				</p>
-				<p>
-					<a id="regist" href="javascript:void(0);">注册</a>
-				</p>
-			</li>
-			<li class="right1">
+		    <c:choose>
+		       <c:when test="user!=null">
+		           <li class="left1">
+						<p>
+							<a id="login" href="javascript:void(0);">登录</a>|
+						</p>
+						<p>
+							<a id="regist" href="javascript:void(0);">注册</a>
+						</p>
+			       </li>
+		       </c:when>
+		       <c:otherwise>
+		           <li class="right1">
 					<p class="posi">
 						<a href="#">译见<i class="icon iconfont">&#xe659;</i>
 						</a>|
@@ -242,9 +249,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 					<div class="user-show" id="user-show" style="display: none;">
 						<span><i class="icon iconfont">&#xe65a;</i></span>
 						<ul>
-							<a href="#" class="ahov1"><li><i class="icon iconfont">&#xe63b;</i>我的译见</li></a>
-							<a href="#" class="ahov2"><li><i class="icon iconfont">&#xe63b;</i>数据管理</li></a>
-							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe63d;</i>退出登录</li></a>
+							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
+							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
+							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
 						</ul>
 					</div>
 					<p class="iphone">
@@ -258,7 +265,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 						<span><i class="icon iconfont">&#xe65a;</i></span>
 						<p><img src="${uedroot}/images/erwnew.jpg"></p>
 					</div>
-			</li>
+		          </li>
+		       </c:otherwise>
+		    </c:choose>
+			
 		</ul>
 	</div>
 </div>
