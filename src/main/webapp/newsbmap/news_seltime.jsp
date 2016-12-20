@@ -45,7 +45,7 @@
 			<div class="nav2topl">
 			
 				<div class="nav_left" style="cursor:pointer">
-					<span class="s1"></span><span style="background-color: transparent;color: #41566e;"></span><span class="guojia">全球<!-- 全球 --></span><img src="images/news/xiala.png" class="xiala" >
+					<span class="s1"></span><span style="background-color: transparent;color: #41566e;"></span><span class="guojia">全国<!-- 全球 --></span><img src="images/news/xiala.png" class="xiala" >
 				</div>
 				<ul class="xzzhou">
 					<li class="sanjiao"></li>
