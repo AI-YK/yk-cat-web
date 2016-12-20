@@ -271,7 +271,7 @@
 	}
 	window.onload = loadScript;
 	function goTest(){
-		var url = '${_base}/news/detail/6814788649583688B9DDF41BDBC0420';
+		var url = '${_base}/news/detail/491482147686549663E5C1A43E9293D';
 		window.open (url, '_blank' ) ;
 	}
 </script>

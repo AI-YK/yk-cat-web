@@ -47,7 +47,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 				},
 				xAxis : [ {
 					axisLabel : {
-						margin:12,
+						margin:10,
 						textStyle : {
 							color : '#697398',
 							fontSize:13
@@ -368,7 +368,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 			};
 			chart.setOption(option, true);
         },
-        // 时间态势
+        // 事件态势
         _initTimeTrendChart:function(container,data,configParam){
         	if(!configParam){
         		configParam ={};
@@ -379,18 +379,11 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		times[i] = data[i].time.substring(5,10);
         		counts[i] = data[i].count;
         	}
-        	var interval = 1;
-        	var max = 8;
-        	var g = parseInt(times.length/max);
-        	if(times.length>max){
-        		interval  = g + times.length%max;
-        	}
         	
         	var option = {
-        		   /* tooltip : {
-        		        trigger: 'axis'
-        		    },*/
+        			
         		    calculable : true,
+        		    backgroundColor:'#212532',
         		    grid : {
     					x : 5,
     					y : 15,
@@ -414,16 +407,17 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						lineStyle : { color : '#314a5a', width:2 }
         					},
         					axisLabel : {
-        						margin:12,
+        						margin:10,
         						textStyle : {
         							color : '#697398',
         							fontSize : 13
         						},
-        						interval:function(index,value){
-        							if(index>0&&index+1<times.length&&index%interval==0)
-        							  return true;
-        							else
-        								return false;	
+        						formatter: function (value, index) {
+        						    if(0==index||times.length-1==index){
+        						    	return "";
+        						    }else{
+        						    	return value;
+        						    }
         						}
         					},
         					splitLine:{

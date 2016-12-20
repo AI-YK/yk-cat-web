@@ -29,9 +29,9 @@
 					<div class="user-show" id="user-show">
 						<span><i class="icon iconfont">&#xe65a;</i></span>
 						<ul>
-							<a href="#" class="ahov1"><li><i class="icon iconfont">&#xe63b;</i>我的译见</li></a>
-							<a href="#" class="ahov2"><li><i class="icon iconfont">&#xe63b;</i>数据管理</li></a>
-							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe63d;</i>退出登录</li></a>
+							<a href="#" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
+							<a href="#" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
+							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
 						</ul>
 					</div>
 					</c:if>
