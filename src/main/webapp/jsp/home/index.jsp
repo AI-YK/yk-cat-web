@@ -192,7 +192,7 @@
 <script type="text/javascript">
     var configInterestList = '${configInterestList}';
     var provinceCodee='${provindeCode}';
-    var cityList='${citylist}';
+    var cityLists='${citylist}';
     var pager;
     (function () {
         seajs.use('app/jsp/home/home', function (homePage) {

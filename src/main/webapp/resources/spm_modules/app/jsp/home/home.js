@@ -30,7 +30,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         //属性，使用时由类的构造函数传入
         attrs: {
             clickId:"",
-            chartGroups:{}
+            chartGroups:[],
+            chartGroup:{}
         },
 
         //事件代理
@@ -60,21 +61,34 @@ define('app/jsp/home/home', function (require, exports, module) {
                  $(this).addClass("current");
                  var index=$('.list-left ul li').index(this);
                  if(_this.chartGroups[index]){
-                	  homeChart._initTimeTrendChart("chart_right",_this.chartGroups[index].timeTrend);
+                	 _this.chartGroup = _this.chartGroups[index];
+                	 if($("#chuanbo").hasClass('current')){
+                		 homeChart._initSpreadStateChart("chart_event",_this.chartGroup.timeTrend);  
+                	 }else{
+                		 homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
+                	 }
                  }
-                 $("#chart-date"+index).show();
+               
 			});
             
-            $(document).on("mouseenter",".list-left ul li",function(){
-           	 $(".list-left ul li").each(function () {
+            $("#merge ul li a").click(function () {
+                $("#merge ul li a").each(function () {
                     $(this).removeClass("current");
                 });
-           	    var index=$('.list-left ul li').index(this);
-             	if(_this.chartGroups[index]){
-				   homeChart._initSpreadStateChart("chart_left",_this.chartGroups[index].spreadTrend);
-			    }
                 $(this).addClass("current");
-			});
+                var index = $('#merge ul li a').index(this);
+                if(index==0){
+                 	if(_this.chartGroup){
+                 		homeChart._initSpreadStateChart("chart_event",_this.chartGroup.spreadTrend);
+                 	}
+                 	
+                }
+                if(index==1){
+                 	if(_this.chartGroup){
+                 	  homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
+                 	}
+                }
+            });
             
            $(".trend").on("click",".locSentimentCount ul li a",function(){
             	$(".locSentimentCount ul li a").each(function () {
@@ -211,7 +225,18 @@ define('app/jsp/home/home', function (require, exports, module) {
         _initEventData:function(){
         	var _this = this;
         	var url = "/emergency/getEmergencyIndexList";
+        	var provinceCode=provinceCodee;
+        	var cityList=eval("("+cityLists+")");
+        	var cityCodeList="";
+        	for(var i=0;i<cityList.length;i++){
+        		cityCodeList=cityCodeList+","+cityList[i].code;
+        	}
+        	if(cityCodeList!=""){
+        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+        	}
         	var param = {};
+        	param.provinceCode=provinceCode;
+        	param.cityCode=cityCodeList;
         	param.pageSize=7;
         	ajaxController.ajax({
 				type: "post",
@@ -225,9 +250,14 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
 					_this.chartGroups = data.groups;
+
 					if(_this.chartGroups[0]){
-						homeChart._initSpreadStateChart("chart_left",_this.chartGroups[0].spreadTrend);
-						homeChart._initTimeTrendChart("chart_right",_this.chartGroups[0].timeTrend);
+						 _this.chartGroup = _this.chartGroups[0];
+						 if($("#chuanbo").hasClass('current')){
+	                		 homeChart._initSpreadStateChart("chart_event",_this.chartGroups[0].timeTrend);  
+	                	 }else{
+	                		 homeChart._initTimeTrendChart("chart_event",_this.chartGroups[0].spreadTrend);
+	                	 }
 					}
 					
 				}
@@ -235,11 +265,19 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _loadPubTrend:function(modelNo,timeType){
         	var url = "/trend/pubTrend";
+        	var cityList=eval("("+cityLists+")");
+        	var cityCodeList="";
+        	for(var i=0;i<cityList.length;i++){
+        		cityCodeList=cityCodeList+","+cityList[i].code;
+        	}
+        	if(cityCodeList!=""){
+        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+        	}
         	var param = {};
         	param.modelNo = modelNo;
         	param.timeType = timeType;
         	param.categoryId = '';
-        	param.idList = '';
+        	param.idList = cityCodeList;
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
@@ -286,13 +324,22 @@ define('app/jsp/home/home', function (require, exports, module) {
         /**媒体类型 新闻热点：news，社交热点：social **/
         _getHotInfoList:function(mediaType,mediaId){ 
         	var url = "/news/getHotInfoList";
+        	var provinceCode=provinceCodee;
+        	var cityList=eval("("+cityLists+")");
+        	var cityCodeList="";
+        	for(var i=0;i<cityList.length;i++){
+        		cityCodeList=cityCodeList+","+cityList[i].code;
+        	}
+        	if(cityCodeList!=""){
+        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+        	}
         	var param = {};
         	param.mediaType = mediaType;
         	if(mediaId){
         		param.mediaId = mediaId;
         	}
-        	param.provincecityCode = "";
-        	param.cityCode = "";
+        	param.provincecityCode = provinceCode;
+        	param.cityCode = cityCodeList;
         	param.publicAffairsType = "";
         	param.fieldName="transfer"
             param.order = "desc";
@@ -324,10 +371,19 @@ define('app/jsp/home/home', function (require, exports, module) {
         /**媒体类型 新闻热点：news，社交热点：social **/
         _getNegativeList:function(mediaType){ 
         	var url = "/negative/getNegativeList";
+        	var provinceCode=provinceCodee;
+        	var cityList=eval("("+cityLists+")");
+        	var cityCodeList="";
+        	for(var i=0;i<cityList.length;i++){
+        		cityCodeList=cityCodeList+","+cityList[i].code;
+        	}
+        	if(cityCodeList!=""){
+        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+        	}
         	var param = {};
         	param.mediaType = mediaType;
-        	param.provincecityCode = "";
-        	param.cityCode = "";
+        	param.provincecityCode = provinceCode;
+        	param.cityCode = cityCodeList;
         	param.publicAffairsType = "";
         	param.fieldName="pubdate"
             param.order = "desc";
@@ -411,7 +467,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var cityHtml = $("#cityTempl").render(list);
 					$("#cityList").html(cityHtml);
 					if(cityList!=""){
-						var citys = eval('('+cityList+")");
+						var citys = eval('('+cityLists+")");
 						for(var i=0;i<citys.length;i++){
 							var id = citys[i].code;
 							$("#city_"+id).attr("checked","checked");
@@ -446,6 +502,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
         },
         _saveProvinceAndCity:function(){
+        	var _this = this;
         	var provinceCode = "";
             var province = $(".choice-list .current");
         	  if(province){
@@ -479,7 +536,14 @@ define('app/jsp/home/home', function (require, exports, module) {
       			  dataType:"json",
       			  data:param,
       			  success:function(rs){
-      				  location.href = _base + '/home/index';
+      				_this._initEventData();
+      				_this._loadPubTrend('locSentimentCount', '0');
+      	        	_this._loadPubTrend('mediaCoverage', '0');
+      	        	_this._getHotInfoList("news",null);
+      	        	_this._getHotInfoList("social",null);
+      	        	_this._getNegativeList("news");
+      	        	_this._getNegativeList("social");
+      				 /* location.href = _base + '/home/index';*/
       			  }
       		  });
         },

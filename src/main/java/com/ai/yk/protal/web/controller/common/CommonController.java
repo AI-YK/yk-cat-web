@@ -438,7 +438,7 @@ public class CommonController {
 	 */
 	@RequestMapping("/saveConf")
 	@ResponseBody
-	public ResponseData<String> saveMyCustomized(
+	public ResponseData<MyCustomizedVo> saveMyCustomized(
 			@RequestParam(value = "sourceSystem", defaultValue = "") String sourceSystem,
 			@RequestParam(value = "provinceCode", defaultValue = "") String provinceCode,
 			@RequestParam(value = "interestStr", defaultValue = "") String interestStr,
@@ -449,7 +449,7 @@ public class CommonController {
 		SSOClientUser clientUser = SessionUtil.getLoginUser();
 		if (clientUser == null) {
 			log.error("请重新登录");
-			return new ResponseData<String>(
+			return new ResponseData<MyCustomizedVo>(
 					ResponseData.AJAX_STATUS_FAILURE, "请重新登录", null);
 		}
 		SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
@@ -490,13 +490,13 @@ public class CommonController {
 				.saveMyCustomized(req);
 		if (res == null || res.getHead() == null) {
 			log.error("系统异常，请联系管理员");
-			return new ResponseData<String>(
+			return new ResponseData<MyCustomizedVo>(
 					ResponseData.AJAX_STATUS_FAILURE, "系统异常，请联系管理员", null);
 
 		}
 		if ("false".equals(res.getHead().getResult())) {
 			log.error(res.getHead().getMessage());
-			return new ResponseData<String>(
+			return new ResponseData<MyCustomizedVo>(
 					ResponseData.AJAX_STATUS_FAILURE, res.getHead()
 							.getMessage(), null);
 		}
@@ -516,9 +516,9 @@ public class CommonController {
 			SessionUtil.setUserConfig(mock());
 		}
 		System.out.println(resp.getData().getCity());
-		return new ResponseData<String>(
+		return new ResponseData<MyCustomizedVo>(
 				ResponseData.AJAX_STATUS_SUCCESS, "保存配置信息成功",
-				saveMyCustomizedResponse);
+				resp.getData());
 
 	}
 
