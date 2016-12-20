@@ -19,7 +19,7 @@
 .breadcrumb-main ul li .user-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;}
 .breadcrumb-main ul li .user-show  span{position:absolute;top:-20px;left:45px;}
 .breadcrumb-main ul li .user-show  span i{color:#fff;font-size:24px}
-/**二维码**/
+/**二维码 **/
 .breadcrumb-main ul li .erw-show{width:120px;height:120px;background:#fff;position:absolute;top:36px;right:-30px;border:1px solid #ddd;display: none;border-radius:8px;z-index:99;}
 .breadcrumb-main ul li .erw-show span{position:absolute;top:-20px;left:45px;}
 .breadcrumb-main ul li .erw-show span i{color:#fff;font-size:24px}
