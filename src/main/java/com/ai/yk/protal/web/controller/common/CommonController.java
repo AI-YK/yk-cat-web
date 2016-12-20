@@ -85,6 +85,28 @@ public class CommonController {
 	TranslateService translateService;
 	@Autowired
 	private  EventDataService eventDataService;
+	
+	/**
+	 * 获得中国省份
+	 * @param parentCode
+	 * @param classify
+	 * @return
+	 */
+	@RequestMapping("/getChProvince")
+	@ResponseBody
+	public ResponseData<List<QueryAreaListVo>> getChProvince(
+			@RequestParam(value = "parentCode", defaultValue = "as_100000") String parentCode,
+			@RequestParam(value = "classify", defaultValue = "province") String classify
+			){
+		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
+		queryAreaListMessage.setParentCode(parentCode);
+		queryAreaListMessage.setClassify(classify);
+		YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
+		req.setMessage(queryAreaListMessage);
+		YJResponse<List<QueryAreaListVo>> res = queryAreaListService
+				.QueryAreaList(req);
+		return new ResponseData<List<QueryAreaListVo>>(ResponseData.AJAX_STATUS_SUCCESS,"查询不到省",res.getData());
+	}
 	/**
 	 * 获得省列表
 	 * 

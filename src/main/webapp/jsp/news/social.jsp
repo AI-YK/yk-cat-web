@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,13 +8,90 @@
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>社交热点</title>
 <%@ include file="/inc/inc.jsp"%>
+<%@ include file="/inc/incJs.jsp"%>
+<%@page import="java.util.Locale"%>
+<%@page import="com.ai.yk.protal.web.utils.SessionUtil"%>
+<%
+  SessionUtil.initUrlConfig(request);
+%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
-
+<link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<!--面包屑导航-->
 	<c:set var="noSearch" value="true"/>
-	<%@ include file="/inc/topHead.jsp"%>
+	<!--面包屑－导航--> 
+<div class="heard-breadcrumb">
+	<div class="breadcrumb-main">
+		<ul>
+			<c:if test="${!isLogin}">
+			<li class="left">
+				<p>
+					<a id="login" href="javascript:void(0);">登录</a>|
+				</p>
+				<p>
+					<a id="regist" href="javascript:void(0);">注册</a>
+				</p>
+			</li>
+			</c:if>
+			<li class="right">
+					<c:if test="${isLogin}">
+					<p class="posi">
+						<a href="#">${user.nickName}<i class="icon iconfont">&#xe659;</i>
+						</a>|
+					</p>
+					<div class="user-show" id="user-show">
+						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<ul>
+							<a href="${yeesightUrls.accountUrl}" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
+							<a href="${yeesightUrls.dataUrl}" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
+							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
+						</ul>
+					</div>
+					</c:if>
+					<p class="iphone">
+						<a href="#">
+						<span><i class="icon iconfont">&#xe613;</i></span>
+
+						<span>手机版</span>
+						</a>
+					</p>
+					<div class="erw-show" id="erw-show">
+						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<p><img src="${uedroot}/images/erwnew.jpg"></p>
+					</div>
+						<!--<p><a href="#">EN</a>|</p>
+
+					<p><a href="#">中文</a></p>-->
+			</li>
+		</ul>
+	</div>
+</div>
+<!--主导航-->
+<div class="yeesight-nav">
+	<div class="nav-main">
+		<div class="yeesight-logo">
+			<img src="${uedroot}/images/logo.png" />
+		</div>
+		<div class="mainbav right">
+		        <input id="current" type="hidden" value="${current}"/>
+				<ul id="menu">
+					<li><a href="${_base}/home/index">首页</a></li>
+					<li><a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a></li>
+					<li><a class="current" href="${_base}/newsbmap/news_heat_n.jsp">热点发现</a></li>
+					<li><a href="${_base}/search/public">舆情动态</a></li>
+					<c:if test="${!noSearch}">
+					 <li class="search">
+					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
+					 </li>
+					</c:if>
+				</ul>
+		</div>
+	</div>
+</div>
+<form id="loginJumpFormId" method="post" style="visibility: hidden;">
+      <input type="hidden" name="url" id="loginSuccessUrl">
+</form>
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
@@ -56,8 +134,8 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId1" class="select select-mini"  style="width: 85px">
-										<option>全部</option>
+									<select id="orgnizationId1"  style="width: 85px">
+										<!-- <option>全部</option> -->
 									</select>
 								</p>
 							</li>
@@ -141,8 +219,8 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId2" class="select select-mini">
-										<option>全部</option>
+									<select id="orgnizationId2" style="width: 82px">
+										<!-- <option>全部</option> -->
 									</select>
 								</p>
 							</li>
