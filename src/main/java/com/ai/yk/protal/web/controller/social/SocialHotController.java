@@ -9,8 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.queryInformation.QueryInformationMessage;
-import com.ai.yk.protal.web.content.queryInformation.QueryInformationResponse;
 import com.ai.yk.protal.web.content.socialdetail.SocialDetailMessage;
 import com.ai.yk.protal.web.content.socialdetail.SocialDetailResponse;
 import com.ai.yk.protal.web.controller.BaseController;
