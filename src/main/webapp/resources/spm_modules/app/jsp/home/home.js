@@ -70,7 +70,11 @@ define('app/jsp/home/home', function (require, exports, module) {
                  }
                
 			});
-            
+            $(document).on("click",".list-left ul li",function(){
+           	    var srcId = $(this).attr("srcId");
+	           	var url =_base+"/event/deatil/"+srcId;
+	        	window.open (url, '_blank' ) ;
+            });
             $("#merge ul li a").click(function () {
                 $("#merge ul li a").each(function () {
                     $(this).removeClass("current");
