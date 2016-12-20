@@ -111,7 +111,7 @@
 			<!-- / 拖拽结束-->
 			<div class="levle-right-news">
 				<div class="levle-right-title">相关资讯</div>
-				<div class="sentiment-list-conter-news">
+				<div class="sentiment-detail-list-conter-news">
 						<ul>
 							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
 							<li class="date">50分钟前</li>
