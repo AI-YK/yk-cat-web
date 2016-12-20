@@ -645,7 +645,7 @@ public class CommonController {
 				"查询数据字典中的所有记录成功", results);
 	}
 
-	@RequestMapping("/translate")
+	@RequestMapping(value="/translate",produces="text/html;charset=UTF-8;")
 	@ResponseBody
 	public String translate(TranslateMessage req) {
 		/*String[] text = req.getText().split("<br />");
