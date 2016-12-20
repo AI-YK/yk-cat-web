@@ -1,6 +1,8 @@
 package com.ai.yk.protal.web.content.relatedInformation;
 public class RelatedInformationMessage{
-	
+/**
+ * 相关资讯列表入参	
+ */
 	/**原标题   是否必须：Y**/
 	private String srcTitle;
 

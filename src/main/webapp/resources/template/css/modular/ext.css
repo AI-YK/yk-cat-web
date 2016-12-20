@@ -50,3 +50,17 @@ input[type="checkbox"][disabled]:checked {
 .eventSpan{
 	margin-left:19px;
 }
+
+.sentiment-detail-list-conter-news{width:100%;float:left;}
+.sentiment-detail-list-conter-news ul{width:100%;float:left;border-bottom:1px dashed #dcddde;padding-bottom:6px;}
+.sentiment-detail-list-conter-news ul li{float:left;font-size:14px;line-height:25px;margin-top:12px;margin-right:6px;}
+.sentiment-detail-list-conter-news ul li a{font-size:14px;color:#333}
+.sentiment-detail-list-conter-news .bordernone{border-bottom:none;}
+.sentiment-detail-list-conter-news ul .i-color{color:#999}
+.sentiment-detail-list-conter-news ul .date{float:right;color:#999}
+.sentiment-detail-list-conter-news ul .block{width:16px;height:16px;text-align:center;line-height:16px;color:#fff;border-radius:3px;margin:15px 6px 0 0;font-size:12px;}
+.sentiment-detail-list-conter-news ul .blue{background:#b2d1e8;}
+.sentiment-detail-list-conter-news ul .orange{background:#f3820b}
+.sentiment-detail-list-conter-news ul .yellow{background:#fce630}
+.sentiment-detail-list-conter-news ul .red{background:#cd2009}
+.sentiment-detail-list-conter-news ul .ash{background:#666}

@@ -40,15 +40,17 @@
 				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</div>
 				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
-						<li>${eventDetail.zhCountry}.${eventDetail.zhCity}</li>
-						<li style="margin-left: 30px;">
+						<%-- <li class="zhuanz">
+						<span>${eventDetail.srcSource}</span>
+						</li> --%>
+						<li>
 						<fmt:parseDate value="${eventDetail.createTimeView}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
-						<!--<li>中文</li>
+						<li>中文</li>
 						<li>${eventDetail.zhCountry}&nbsp;&nbsp;<img height="20px" width="30px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
 						<li class="zhuanz">热度：<span>${eventDetail.heatValue}</span></li>
-						 <li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
+						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul>
@@ -56,7 +58,7 @@
 									<a id="showOriginal" href="javascrpt:;" class="ahov2"><li>原文排版</li></a>
 									<a id="showSynchysis" href="javascrpt:;" class="ahov3"><li>原译混排</li></a>
 								</ul>
-							</div></li> -->
+							</div></li>
 						<!--<li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
 						 <li class="x-red"><a href="#"><i class="icon iconfont">&#xe666;</i><span id="collCount">0</span></a></li>
 						<li class="share" id="share1"><a href="#"><i
@@ -72,7 +74,7 @@
 					</ul>
 				</div>
 				<div class="news-detail-news">
-				 <ul id="eventDetailContent" style="text-indent:2em">
+				 <ul id="eventDetailContent">
 				 
 				 </ul>
 				</div>
@@ -92,100 +94,6 @@
 						</li>
 					</ul>
 				</div> -->
-				<div class="level-news" style="margin-top:100px;">
-						<div class="level-news-title"><p>共有相关数据</p> <p class="blue">3,572,560</p></div>
-						<div class="level-news-list">
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-							
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-						</div>
-						<div class="biu-paging">
-							<ul>
-								<li><a href="#"><</a></li>
-								<li><a href="#">1</a></li>
-								<li class="active"><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">></a></li>
-							</ul>
-						</div>
-					</div>
 			</div>
 		</div>
 		<div class="levle-right">
@@ -270,10 +178,7 @@
 		        document.body.appendChild(script);
 	}
 	window.onload = loadScript;
-	function goTest(){
-		var url = '${_base}/news/detail/491482147686549663E5C1A43E9293D';
-		window.open (url, '_blank' ) ;
-	}
+	
 </script>
 </body>
 </html>

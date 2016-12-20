@@ -46,7 +46,7 @@ public class YeesightApiConstants {
 	public final static String API_YEESIGHTFORNEWS_ADDMYCUSTOMIZED = "/api/yeesightForNews/addMyCustomized";
 	// 修改个人指定接口URL
 	public final static String API_YEESIGHTFORNEWS_UPDATEMYCUSTOMIZED = "/api/yeesightForNews/updateMyCustomized";
-	// 查询新闻详情
+	// 查询新闻/资讯详情
 	public final static String API_INFODETAIL_QUERYINFORMATION = "/api/infoDetail/queryInformation";
 	// 查询社交详情
 	public final static String API_INFODETAIL_SOCIALDETAIL = "/api/infoDetail/socialDetail";
@@ -78,6 +78,8 @@ public class YeesightApiConstants {
 	public final static String API_MYCOLLECTION_DELETEMYCOLLECTION = "/api/myCollection/deleteMyCollection";
 	//添加收藏
 	public final static String API_MYCOLLECTION_COLLECTIONMYINFORMATION = "/api/myInformation/collectionMyInformation";
+	//相关资讯列表
+	public final static String API_RELATED_RELATEDINFORMATION= "/api/related/relatedInformation";
 	// 拼接头部信息url
 	public static String getApiUrl(String url) {
 		return new StringBuilder(remoteBaseUrl).append(url).toString();

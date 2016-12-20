@@ -7,6 +7,7 @@ import java.io.Serializable;
 public class QueryInformationMessage implements Serializable{
 		
 	private static final long serialVersionUID = -7564101976157362994L;
+	/**资讯ID**/
 	private String informationId;
 
 	public String getInformationId() {

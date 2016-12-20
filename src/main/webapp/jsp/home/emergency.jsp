@@ -12,27 +12,18 @@
 				<ul id="eventList"></ul>
 			</div>
 			<div class="list-right">
-				<div>
-					<!--图表1-->
-					<div class="chart1">
-						<div class="chart1-title">传播态势</div>
-						<div class="chart1-conter"></div>
-						<!--图表嵌套区域-->
-						<%--  <img src="${uedroot}/images/chbo.png" class="chart1-main" /> --%>	
-						<div id="chart_left" class="chart1-main"></div>
-						<!--/图表嵌套结束-->
+                <div id="chart-date">
+				    <div class="merge" id="merge">
+						 <ul>
+							  <li><a  id="chuanbo" class="current">传播态势</a></li>
+							  <li><a>事件态势</a></li>
+						 </ul>
 					</div>
-					<!--/图表1结束-->
-					<!--图表2-->
-					<div class="chart1 ml-20">
-						<div class="chart1-title">事件态势</div>
-						<div class="chart1-conter"></div>
-						<!--图表嵌套区域-->
-						<div id="chart_right" class="chart1-main"></div>
-						<!--/图表嵌套结束-->
+					<div>
+						  <div id="chart_event" class="merge-list"></div>
 					</div>
-					<!--/图表2结束-->
-				</div>
+						
+				</div>			    
 			</div>
 		</div>
 	</div>

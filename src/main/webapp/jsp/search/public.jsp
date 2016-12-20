@@ -15,7 +15,7 @@
 </title>
 
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
-
+<link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <c:if test="${model==null||model==''}">
@@ -63,11 +63,11 @@
 						<ul>
 							<li>
 								<p>地区</p>
-								<p>
-									<select id="orgnizationId1" class="select select-mini" style="width: 85px">
-										<option>全部</option>
-									</select>
-								</p>
+										<p>
+											<select id="orgnizationId1" style="width: 90px">
+												<option>全部</option>
+											</select>
+										</p>
 							</li>
 							<li>
 								<p>影响力</p>
@@ -154,7 +154,7 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId2" class="select select-mini"  style="width: 85px">
+									<select id="orgnizationId2" style="width: 90px">
 										<option>全部</option>
 									</select>
 								</p>

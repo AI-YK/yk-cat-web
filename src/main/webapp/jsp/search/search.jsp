@@ -8,7 +8,7 @@
 <title>搜索结果</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
-
+<link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
 	<!--面包屑导航-->
@@ -42,7 +42,7 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId1" class="select select-mini"  style="width: 85px">
+									<select id="orgnizationId1" style="width: 90px">
 										<option>全部</option>
 									</select>
 								</p>
@@ -127,7 +127,7 @@
 							<li>
 								<p>地区</p>
 								<p>
-									<select id="orgnizationId2" class="select select-mini">
+									<select id="orgnizationId2" style="width: 90px">
 										<option>全部</option>
 									</select>
 								</p>

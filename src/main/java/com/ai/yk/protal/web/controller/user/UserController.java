@@ -72,7 +72,7 @@ public class UserController {
 	@RequestMapping("/logout")
 	public String logOut(Model model){
 		SessionUtil.clearSession();
-		return "redirect:/user/index";
+		return "redirect:/home/index";
 	}
    
 }
