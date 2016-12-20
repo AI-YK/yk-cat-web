@@ -82,6 +82,12 @@ define('app/jsp/home/home', function (require, exports, module) {
 	           	var url =_base+"/news/detail/"+uuid;
 	        	window.open (url, '_blank' ) ;
             });
+            //新闻媒体预警点击操作
+            $(document).on("click","#news-div ul",function(){
+           	    var uuid = $(this).attr("uuid");
+	           	var url =_base+"/news/detail/"+uuid;
+	        	window.open (url, '_blank' ) ;
+            });
             $("#merge ul li a").click(function () {
                 $("#merge ul li a").each(function () {
                     $(this).removeClass("current");
