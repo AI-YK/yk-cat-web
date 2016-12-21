@@ -22,9 +22,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	var edata2 = {};
     		edata2.media = [ '网易', '新华网', '搜狐网', 'BBC', 'CNN' ];
     		edata2.time = [ '10-08', '10-09', '10-10', '10-11' ];
-    		edata2.data = [ [ 52.0, 94.9, 94.9 ], [ 86.0, 18.9, 94.9 ],
-    				[ 112.0, 14.9, 94.9 ], [ 32.0, 154.9, 94.9 ],
-    				[ 32.0, 154.9, 94.9 ], [ 32.0, 154.9, 94.9 ] ];
+    		edata2.data = [ [ 800, 1000, 1500 ], [ 1000, 1200, 1400 ],
+    				[ 900, 1300, 1600 ], [ 1200, 1500, 1000 ],
+    				[ 1500, 1200, 1300 ], [ 1000, 1500, 1700 ] ];
         	var chart = echarts.init(document.getElementById(container));
         	var series = [];
         
@@ -36,7 +36,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 					trigger : 'axis'
 				},
 				 grid : {
- 					x : 25,
+ 					x : 40,
  					y : 15,
  					x2 : 0,
  					y2 : 25
@@ -67,7 +67,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 				} ],
 				yAxis : [ {
 					type : 'value',
-					splitNumber : 3,
+					//splitNumber : 3,
 					axisLabel : {
 						margin : 10,
 						textStyle : {
@@ -75,18 +75,23 @@ define('app/jsp/home/charts', function (require, exports, module) {
 							fontSize:13
 						},
 						formatter : function(value, index) {
-							switch (index) {
+							/*switch (index) {
 							case 0:
 								return 0;
 							case 1:
-								return "低";
+								return "1K";
 //								return "热 ";
 							case 2:
-								return "中";
+								return "1.5K";
 //								return "热度或转载量中";
 							case 3:
-								return "高";
+								return "2K";
 //								return "热度或转载量高";
+							}*/
+							if(value>1000){
+								return value/1000+"K";
+							}else{
+							    return value;	
 							}
 						}
 					},

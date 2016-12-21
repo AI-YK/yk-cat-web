@@ -18,9 +18,14 @@
 <link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <c:if test="${model==null||model==''}">
-       <c:set var="current" value="3"/>
-    </c:if>
+    <c:choose>
+       <c:when test="${'news'==model||'social'==model}">
+           <c:set var="current" value="2"/>
+       </c:when>
+       <c:otherwise>
+           <c:set var="current" value="3"/>
+       </c:otherwise>
+    </c:choose>
 	<!--面包屑导航-->
 	<%@ include file="/inc/topHead.jsp"%>
 	<!--子导航-->
