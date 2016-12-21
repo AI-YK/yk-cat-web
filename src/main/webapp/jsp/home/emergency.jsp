@@ -7,12 +7,12 @@
            <li class="right" style="font-size:33px;float:right;"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:33px;color:white;">&#xe65b;</i></a></li>
 			</ul>
 		</div>
-		<div class="banner-list" id="chartGroup" style="display: none;">
+		<div class="banner-list">
 			<div class="list-left">
 				<ul id="eventList"></ul>
 			</div>
-			<div class="list-right">
-                <div id="chart-date">
+			<div class="list-right" id="chart-date" style="display: none;">
+                <div>
 				    <div class="merge" id="merge">
 						 <ul>
 							  <li><a  id="chuanbo" class="current">传播态势</a></li>
@@ -31,7 +31,7 @@
 <!-- 图表结束-->
 <script id="emergencyTempl" type="text/x-jsrender">
   {{for eventList}}
-     <li srcId="{{:srcId}}" class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
+     <li id="{{:srcId}}" class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
 		 <p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
 	     <p>
 			<span>{{:zhCountry}}.{{:zhCity}}</span> <span class="eventSpan">{{:dayTime}}</span>
