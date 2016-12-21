@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.ResponseHead;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -85,6 +86,28 @@ public class CommonController {
 	TranslateService translateService;
 	@Autowired
 	private  EventDataService eventDataService;
+	
+	/**
+	 * 获得中国省份
+	 * @param parentCode
+	 * @param classify
+	 * @return
+	 */
+	@RequestMapping("/getChProvince")
+	@ResponseBody
+	public ResponseData<List<QueryAreaListVo>> getChProvince(
+			@RequestParam(value = "parentCode", defaultValue = YeesightApiConstants.API_CHINA_CODE) String parentCode,
+			@RequestParam(value = "classify", defaultValue = "province") String classify
+			){
+		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
+		queryAreaListMessage.setParentCode(parentCode);
+		queryAreaListMessage.setClassify(classify);
+		YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
+		req.setMessage(queryAreaListMessage);
+		YJResponse<List<QueryAreaListVo>> res = queryAreaListService
+				.QueryAreaList(req);
+		return new ResponseData<List<QueryAreaListVo>>(ResponseData.AJAX_STATUS_SUCCESS,"查询不到省",res.getData());
+	}
 	/**
 	 * 获得省列表
 	 * 
@@ -92,7 +115,7 @@ public class CommonController {
 	@RequestMapping("/getProvince")
 	@ResponseBody
 	public ResponseData<Map<String, List<QueryAreaListVo>>> getProvice(
-			@RequestParam(value = "parentCode", defaultValue = "as_100000") String parentCode,
+			@RequestParam(value = "parentCode", defaultValue = YeesightApiConstants.API_CHINA_CODE) String parentCode,
 			@RequestParam(value = "classify", defaultValue = "province") String classify) {
 		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
 		queryAreaListMessage.setParentCode(parentCode);
@@ -237,7 +260,7 @@ public class CommonController {
 	@ResponseBody
 	public ResponseData<List<QueryAreaListVo>> getCity(
 			/** 上级编码 **/
-			@RequestParam(value = "parentCode", defaultValue = "as_100000") String parentCode,
+			@RequestParam(value = "parentCode", defaultValue = YeesightApiConstants.API_CHINA_CODE) String parentCode,
 			/** 所属分类（continent：大洲 country：国家 province：省份 city:城市 是否必填：Y **/
 			@RequestParam(value = "classify", defaultValue = "city") String classify) {
 		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
@@ -645,7 +668,7 @@ public class CommonController {
 				"查询数据字典中的所有记录成功", results);
 	}
 
-	@RequestMapping("/translate")
+	@RequestMapping(value="/translate",produces="text/html;charset=UTF-8;")
 	@ResponseBody
 	public String translate(TranslateMessage req) {
 		/*String[] text = req.getText().split("<br />");

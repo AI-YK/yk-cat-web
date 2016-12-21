@@ -1,4 +1,4 @@
-define("app/jsp/news/newsDetail", function(require, exports, module) {
+define("app/jsp/social/socialDetail", function(require, exports, module) {
 	var $ = require('jquery'), 
 	Widget = require('arale-widget/1.2.0/widget'), 
 	Dialog = require("optDialog/src/dialog"), 
@@ -6,14 +6,14 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 	var ajaxController = new AjaxController();
 	var translatePage = require("app/jsp/translate/translate");
 	var translate = new translatePage();
-	var newsDetailPage = Widget.extend({
+	var socialDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
 			 
 		},
 		/* 重写父类 */
 		setup : function() {
-			newsDetailPage.superclass.setup.call(this);
+			socialDetailPage.superclass.setup.call(this);
 			this._init();
 		},
 		/* 初始化动画 */
@@ -164,5 +164,5 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		}
 		
 	});
-	module.exports = newsDetailPage;
+	module.exports = socialDetailPage;
 });

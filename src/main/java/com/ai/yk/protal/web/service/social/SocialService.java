@@ -17,7 +17,7 @@ public class SocialService {
 	/**
 	 * 查询社交详情
 	 */
-	public YJResponse<SocialDetailResponse> queryNewsDetail(YJRequest<SocialDetailMessage> req) {
+	public YJResponse<SocialDetailResponse> querySocialDetail(YJRequest<SocialDetailMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_INFODETAIL_SOCIALDETAIL);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){

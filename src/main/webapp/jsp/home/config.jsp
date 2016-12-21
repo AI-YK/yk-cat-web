@@ -92,7 +92,7 @@
        <div class="choice-list" >
 		  <ul>
              {{for list}}
-			    <li><a href="#"   {{if #getIndex()==0}}class="current"{{/if}}>{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+			    <li><a href="#"   {{if #getIndex()==0}}class="current"{{/if}}>{{:name}}</a><input type="hidden" value="{{:busCode}}"/></li>
              {{/for}}
 		  </ul>
        </div>
@@ -102,7 +102,7 @@
        <div class="choice-list" >
 		  <ul>
              {{for list}}
-			    <li><a href="#">{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+			    <li><a href="#">{{:name}}</a><input type="hidden" value="{{:busCode}}"/></li>
              {{/for}}
 		  </ul>
        </div>

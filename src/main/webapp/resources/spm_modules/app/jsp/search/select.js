@@ -15,8 +15,9 @@ define('app/jsp/search/select', function (require, exports, module) {
         },
         initOrgSelect:function(selectIds){
         
-        	var url = _base +"/common/getQueryAreaOrEconomicOrganizations";
+        	var url = _base +"/common/getChProvince";
         	var param={};
+        	debugger;
         	param.language="zh";
         	param.type="3";
         	ajaxController.ajax({
@@ -29,7 +30,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 					var data = rs.data;
 					var options = "<option value=''>全部</option>";
 					for(var i=0;i<data.length;i++){
-						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
+						options = options + "<option value='" + data[i].code + "'>"+data[i].name+"</option>";
 					}
 					
 					if(options!=""){

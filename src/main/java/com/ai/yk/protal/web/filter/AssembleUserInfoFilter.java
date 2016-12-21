@@ -59,7 +59,7 @@ public class AssembleUserInfoFilter implements Filter {
             String uri = req.getRequestURI().toLowerCase();
             for (String suffix : ignor_suffix) {
                 if (uri.endsWith(suffix)||(suffix.endsWith("*")&&uri.indexOf(suffix)>-1)) {
-                    return false;
+                    return false; 
                 }
             }
         }

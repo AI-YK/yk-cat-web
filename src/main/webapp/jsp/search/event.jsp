@@ -60,7 +60,7 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul>
-	<li onclick="goEventTestDetail();" class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" >{{:zhTitle}}</li>
+	<li onclick="goEventDetail('{{:srcId}}');" class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" >{{:zhTitle}}</li>
 	<li class="list">
 		<p>
 			<!--<span><a href="#">{{:zhSource}}</a></span>--><span>{{:dayTime}}</span>
@@ -85,8 +85,8 @@
             pager.render();
         });
     })();
-    function goEventTestDetail(){
-    	var url ="${_base}/event/deatil/123412";
+    function goEventDetail(srcId){
+    	var url ="${_base}/event/detail/"+srcId;
     	window.open (url, '_blank' ) ;
     }
 </script>

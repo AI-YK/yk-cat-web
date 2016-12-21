@@ -26,7 +26,7 @@ public class EventController extends BaseController {
 	private static final String EVENT_DETAILS_VIEW ="/event/eventDetail";
 	@Autowired
 	private EventDataService eventService;
-	@RequestMapping("deatil/{srcId}")
+	@RequestMapping("detail/{srcId}")
 	public ModelAndView eventDeatil(YJRequest<EventDetailsMessage> req,@PathVariable String srcId) {
 		LOG.info("---------事件详情-【"+srcId+"】-----------");
 		EventDetailsMessage msg = new EventDetailsMessage();

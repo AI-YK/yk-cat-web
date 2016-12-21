@@ -49,7 +49,7 @@
 <!--/热点新闻-->
 <script id="newsHotTempl" type="text/x-jsrender">
  {{if #getIndex()<11}}
-  <ul>
+  <ul uuid="{{:uuid}}">
 		<li>
 			<p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 				<a href="javascript:void(0);">{{:titleZh}}</a>

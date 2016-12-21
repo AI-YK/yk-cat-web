@@ -6,8 +6,7 @@ public class QueryAreaListVo {
 	
 	/**编码 			是否必填：Y**/
 	private String code;
-	/**数据源id		 是否必填：Y**/
-	private Integer busCod;
+	
 	/**英文名称		 是否必填：Y**/
 	private String nameEn;
 	/**名称			 是否必填：Y**/
@@ -26,6 +25,8 @@ public class QueryAreaListVo {
 	private String updateTime;
 	/**首字母**/
 	private String nameEnFirst;
+	/****/
+	private String busCode;
 	public String getId() {
 		return id;
 	}
@@ -37,12 +38,6 @@ public class QueryAreaListVo {
 	}
 	public void setCode(String code) {
 		this.code = code;
-	}
-	public Integer getBusCod() {
-		return busCod;
-	}
-	public void setBusCod(Integer busCod) {
-		this.busCod = busCod;
 	}
 	public String getNameEn() {
 		return nameEn;
@@ -98,13 +93,17 @@ public class QueryAreaListVo {
 	public void setNameEnFirst(String nameEnFirst) {
 		this.nameEnFirst = nameEnFirst;
 	}
-	public QueryAreaListVo(String id, String code, Integer busCod, String nameEn, String name, String classify,
-			String parentCode, String geoLat, String geoLong, String createTime, String updateTime,
-			String nameEnFirst) {
+	public String getBusCode() {
+		return busCode;
+	}
+	public void setBusCode(String busCode) {
+		this.busCode = busCode;
+	}
+	public QueryAreaListVo(String id, String code, String nameEn, String name, String classify, String parentCode,
+			String geoLat, String geoLong, String createTime, String updateTime, String nameEnFirst, String busCode) {
 		super();
 		this.id = id;
 		this.code = code;
-		this.busCod = busCod;
 		this.nameEn = nameEn;
 		this.name = name;
 		this.classify = classify;
@@ -114,8 +113,12 @@ public class QueryAreaListVo {
 		this.createTime = createTime;
 		this.updateTime = updateTime;
 		this.nameEnFirst = nameEnFirst;
+		this.busCode = busCode;
 	}
 	public QueryAreaListVo() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
+	
+	
 }

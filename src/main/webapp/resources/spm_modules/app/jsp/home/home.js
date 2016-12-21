@@ -602,7 +602,6 @@ define('app/jsp/home/home', function (require, exports, module) {
      			  dataType:"json",
      			  data:param,
      			  success:function(rs){
-     				  /* location.href = _base + '/home/index'; */
      				 $("#border1Id").html("通用数据");
      			  }
      		  });

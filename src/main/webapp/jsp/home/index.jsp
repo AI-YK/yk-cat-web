@@ -200,7 +200,7 @@
             pager.render();
 
         });
-    })(); 
+    })();
     
 
 </script>
