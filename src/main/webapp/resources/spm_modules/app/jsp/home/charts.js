@@ -497,19 +497,21 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	var cities = [];
         	var positiveCnts = [];
         	var negativeCnts = [];
-        	for(var i=0;i<data.length;i++){
+        	var len = data.length;
+        	if(len>10){
+        		len = 10;
+        	}
+        	for(var i=0;i<len;i++){
         		cities[i] = data[i].cityNameZh;
         		positiveCnts[i] = data[i].positiveCnt;
         		negativeCnts[i] = data[i].negativeCnt;
         	}
         	var option = {
-        		    tooltip : {
-        		        trigger: 'axis',
-        				axisPointer: false,
-        				show :false
-        		    },
+        			tooltip : {
+    					trigger : 'item'
+    				},
         		    grid : {
-    					x : 32,
+    					x : 40,
     					y : 30,
     					x2 : 15,
     					y2 : 22
