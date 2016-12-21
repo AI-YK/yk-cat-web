@@ -23,7 +23,13 @@ define(function(require, exports, module) {
 	sourceMap.put("weibo", "微博");
 	sourceMap.put("twitter", "twitter");
 	sourceMap.put("facebook", "facebook");
-	
+	exports.convertSource = function(source){
+		var source = sourceMap.get(source);
+		if(source)
+			return source
+		else
+		   return '';
+	};
 	/**
 	 * 获取订单后厂状态名称
 	 */
