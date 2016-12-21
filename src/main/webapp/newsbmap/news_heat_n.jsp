@@ -159,7 +159,7 @@
  
 		    <!--echarts开始-->
 		   
-			<div class="container" style="top: 160px;">
+			<div class="container" style="top: 110px; height: 550px;">  
 				
 				<div id="echates"></div>
 				

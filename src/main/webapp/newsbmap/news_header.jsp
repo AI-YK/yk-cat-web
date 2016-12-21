@@ -26,7 +26,8 @@
 
 	.header_box .left{float: left;height: 50px; line-height: 50px; padding: 0 20px;}
 	.header_box .left a{ display: block;}
-	.header_box .center{float: left;height: 50px; line-height: 50px; position: relative;}
+	/* .header_box .center{float: left;height: 50px; line-height: 50px; position: relative;} */
+	.center{width: 330px; height: 51px; float: left; margin-top: 12px; margin-left: 50px;}
 	.header_box .center .title{height: 30px; line-height: 30px; overflow: hidden; display: inline-block; margin: 10px 0; padding-left:10px;border-left: 1px solid #253242;}
 	.header_box .center .title h1{line-height: 30px;  color: #1a7cc9; font-size: 24px; font-family: "microsoft yahei"; font-weight:lighter;display: inline-block;}
 	.header_box .center .header_top_list{height:50px; display: inline-block; overflow: hidden; position: relative; margin-left: 25px;}
@@ -133,12 +134,12 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     
 }
 .user-show{
-	width: 120px;
+        width: 120px;
     height: 100px;
     background: #fff;
     position: absolute;
-    top: 36px;
-    right: 40px;
+    top: 56px;
+    right: 5px;
     border: 1px solid #ddd;
     border-radius: 8px;
     z-index: 1003;
@@ -157,9 +158,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     float: left;
     color: #666;
     text-align: center;
+    font-size: 12px;
 }
 .user-show ul a i{
-	    font-size: 18px;
+	        font-size: 18px;
     margin-right: 4px;
 }
 .user-show ul a li{
@@ -169,10 +171,11 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     float: left;
     text-align: center;
     font-size: 14px;
+    margin: 0px;
 }
-.heardmain ul li .user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
-.heardmain ul li .user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
-.heardmain ul li .user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
+.user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
+.user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
+.user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
 .erw-show{
 	width: 120px;
     height: 120px;
@@ -208,7 +211,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 }
 .menu_list1 li .current{
 	    border-bottom: 3px solid #3382ee;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     color: #3382ee;
 }
 
@@ -231,63 +234,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 <%
   SessionUtil.initUrlConfig(request);
 %>
-<div class="heard-breadcrumb">
-	<div class="heardmain" style="width: 1200px;">
-		<ul>
-		    <c:choose>
-		       <c:when test="user!=null">
-		           <li class="left1">
-						<p>
-							<a id="login" href="javascript:void(0);">登录</a>|
-						</p>
-						<p>
-							<a id="regist" href="javascript:void(0);">注册</a>
-						</p>
-			       </li>
-		       </c:when>
-		       <c:otherwise>
-		           <li class="right1">
-					<p class="posi">
-						<a href="#">译见<i class="icon iconfont">&#xe659;</i>
-						</a>|
-					</p>
-					<div class="user-show" id="user-show" style="display: none;">
-						<span><i class="icon iconfont">&#xe65a;</i></span>
-						<ul>
-							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
-							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
-							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
-						</ul>
-					</div>
-					<p class="iphone">
-						<a href="#">
-						<span><i class="icon iconfont">&#xe613;</i></span>
 
-						<span>手机版</span>
-						</a>
-					</p>
-					<div class="erw-show" id="erw-show" style="display: none;">
-						<span><i class="icon iconfont">&#xe65a;</i></span>
-						<p><img src="${uedroot}/images/erwnew.jpg"></p>
-					</div>
-		          </li>
-		       </c:otherwise>
-		    </c:choose>
-			
-		</ul>
-	</div>
-</div>
-
-<div class="header_box" style="height: 90px; padding-top: 20px; background-color:#2e344b;">
-	<div class="left">
-		<!-- <a title="返回首页" href="http://www.yeesight.com"><i class="ico_logo"></i></a> -->
-	</div>
+<div class="header_box" style="height: 60px; background-color:#2e344b;">
+	
 	<div class="center">
-		<!-- <span class="title"><h1 style="margin-top: 0px; color: white;">
-		
-		公共安全</h1>
-        	
-        </span> -->
 		<img src="${uedroot}/images/logo.png" />
 	</div>
 	<div class="rightt">
@@ -302,9 +252,20 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 				<a class="current" href="${_base}/newsbmap/news_heat_n.jsp">热点发现</a>	
 			</li>
 			<li><a href="${_base}/search/public">舆情动态</a></li>
-			<li class="search">
-				<input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
-			</li>
+					<c:if test="${!noSearch}">
+					 <li class="search">
+					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
+					 </li>
+					</c:if>
+					<li class="iphone-show"><img src="${uedroot}/images/iphone.png" /></li>
+					<div class="user-show" id="user-show" style="display: none;">
+						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<ul>
+							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
+							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
+							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
+						</ul>
+					</div>
 		</ul>
 	</div>
 	<div class="clear"></div>
@@ -482,14 +443,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	 });
 	$(function () {
 	    var st = 100;
-	    $('.heardmain ul .iphone').mouseenter(function () {
-			$('#erw-show').show(1);
+	    $('.iphone-show').mouseenter(function () {
+			$('#user-show').show(1);
 	    })
-			$("#erw-show").click(function () {
-	                $(this).hide(1);
-	           });	
-			$('.heardmain').mouseleave(function () {
-	        $('#erw-show').hide(1);
+			$('.header_box').mouseleave(function () {
 	        $('#user-show').hide(1);
 	    });	
 	 }); 
