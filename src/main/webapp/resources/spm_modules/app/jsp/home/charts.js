@@ -638,10 +638,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         			animation:false,
         			color:colors,
         			grid : {
-    					x : 50,
-    					y : 30,
+    					x : 40,
+    					y : 50,
     					x2 : 30,
-    					y2 : 30
+    					y2 : 50
     				},
         		    series : [
         		        {
@@ -664,7 +664,6 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		                         formatter: function(param){
         		                        	cache.push(param);
         		                        	return param.name+"\n"+param.percent+"%";
-        		                        	//return '<span style="color:#80c823;">15.34%</span>';
         		                         }
         		                     },
         		                     labelLine : {
@@ -690,7 +689,12 @@ define('app/jsp/home/charts', function (require, exports, module) {
         			lis = lis + li;
         		}
         		$("#"+ul).html(lis);
-        	    // console.log(JSON.stringify(cache));
+
+        		chart.on('mouseover', function (params) {
+        			if(params.componentType=="series"&&params.seriesType=="pie"){
+        				//console.log(cache[params.seriesIndex].name);
+        			}
+        		});
         }
         
     });
