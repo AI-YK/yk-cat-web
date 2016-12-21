@@ -40,10 +40,9 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>地区</p>
+								<p>省份</p>
 								<p>
 									<select id="orgnizationId1" style="width: 90px">
-										<option>全部</option>
 									</select>
 								</p>
 							</li>
@@ -99,6 +98,9 @@
 									</select>
 								</p>
 							</li>
+							<li>
+								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn1" value="搜索">
+							</li>
 						</ul>
 					</div>
 					<div class="level-news" >
@@ -125,10 +127,9 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>地区</p>
+								<p>省份</p>
 								<p>
 									<select id="orgnizationId2" style="width: 90px">
-										<option>全部</option>
 									</select>
 								</p>
 							</li>
@@ -158,14 +159,14 @@
 									<input id="timeId2" readonly type="text" class="select select-small calendar">
 								</p>
 							</li>
-							<li>
-								<p>媒体</p>
-								<p>
-									<input  type="text" class="int-text select-mini">
-								</p>
-							</li>
 						</ul>
 						<ul>
+							<li>
+									<p>媒体</p>
+									<p>
+										<input  type="text" class="int-text select-mini">
+									</p>
+							</li>
 							<li>
 								<p>情感</p>
 								<p>
@@ -177,7 +178,9 @@
 									</select>
 								</p>
 							</li>
-							
+							<li>
+								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn2" value="搜索">
+							</li>
 						</ul>
 					</div>
 					<div class="level-news" >
