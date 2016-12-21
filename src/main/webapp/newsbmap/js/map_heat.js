@@ -197,7 +197,7 @@ $(function(){
 	
 	//get_event_point_data_zixun();//资讯
 //	get_event_point_data_new();//右侧新闻数据
-	smilNewsData();
+//	smilNewsData();
 	smilEventData();
 	//全球选择鼠标离开隐藏
 	$(document).on('mouseleave','.xzzhou',function(){
@@ -856,7 +856,7 @@ function smilEventData(){
 	 	    	    var data_list={
 	 		 	    	 	 'name': valid(o.zhTitle),
 	 		 	    	   //  'value':o.avgtoneNum, //o.avgtone_num<30?o.avgtone_num:14,
-	 		 	    	 	 'value':6,
+	 		 	    	 	 'value':o.heatValue<20?o.heatValue:14,
 	 		 	    	 	 'geoLat': o.latitude,
 	 		 	    	 	 'geoLong': o.longitude,
 	 		 	    	 	 'eventchinaname': valid(o.zhTitle),

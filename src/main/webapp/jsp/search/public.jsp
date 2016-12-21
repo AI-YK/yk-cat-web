@@ -62,10 +62,10 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>地区</p>
+								<p>省份</p>
 										<p>
 											<select id="orgnizationId1" style="width: 90px">
-												<option>全部</option>
+												<!-- <option>全部</option> -->
 											</select>
 										</p>
 							</li>
@@ -123,8 +123,11 @@
 								</p>
 								<p>
 					              <input id="keyword1" type="text" class="int-text int-large radius">
-					              <a href="#"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
+					             <!--  <a href="#"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a> -->
 				                </p>
+							</li>
+							<li>
+								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn1" value="搜索">
 							</li>
 						</ul>
 					</div>
@@ -152,10 +155,10 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>地区</p>
+								<p>省份</p>
 								<p>
 									<select id="orgnizationId2" style="width: 90px">
-										<option>全部</option>
+										<!-- <option>全部</option> -->
 									</select>
 								</p>
 							</li>
@@ -215,10 +218,12 @@
 								</p>
 								<p>
 					              <input id="keyword2" type="text" class="int-text int-large radius">
-					              <a href="#"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a>
+					              <!-- <a href="#"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a> -->
 				                </p>
 							</li>
-							
+							<li>
+								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn2" value="搜索">
+							</li>
 						</ul>
 					</div>
 					<div class="level-news" >

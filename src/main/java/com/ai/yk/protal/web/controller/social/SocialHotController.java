@@ -3,6 +3,7 @@ package com.ai.yk.protal.web.controller.social;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +18,7 @@ import com.ai.yk.protal.web.service.social.SocialService;
 /**
  * 社交热点
  */
+@Controller
 @RequestMapping("social")
 public class SocialHotController extends BaseController {
 	private static final Logger LOG = LoggerFactory
@@ -27,12 +29,12 @@ public class SocialHotController extends BaseController {
 	@Autowired
 	private SocialService socialService;
 	/**
-	 * 新闻详情
+	 *社交详情
 	 * 
 	 * @return
 	 */
 	@RequestMapping("/detail/{informationId}")
-	public ModelAndView newsDetails(YJRequest<SocialDetailMessage> req,
+	public ModelAndView socialDetails(YJRequest<SocialDetailMessage> req,
 			@PathVariable String informationId) {
 		LOG.info("---------社交详情-【"+informationId+"】-----------");
 		SocialDetailMessage message = new SocialDetailMessage();
