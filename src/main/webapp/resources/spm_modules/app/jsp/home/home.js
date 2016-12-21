@@ -60,7 +60,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
             //左侧突发事件点击操作
             $(document).on("click",".list-left ul li",function(){
-           	    var srcId = $(this).attr("srcId");
+           	    var srcId = $(this).attr("id");
 	           	var url =_base+"/event/detail/"+srcId;
 	        	window.open (url, '_blank' ) ;
             });
