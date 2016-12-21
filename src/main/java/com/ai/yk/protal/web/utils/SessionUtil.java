@@ -62,7 +62,7 @@ public final class SessionUtil {
     {"code":"as_100000_340000_340800","id":703,"level":2,"nameEn":"AN QING SHI","nameZh":"安庆市","pid":702,"type":0},
     {"code":"as_100000_340000_340300","id":705,"level":2,"nameEn":"BANG BU SHI","nameZh":"蚌埠市","pid":704,"type":0}]';
 		 */
-		if(config==null || config.equals("")){
+		if(config==null || config.equals("")||(config.getCity()==null && config.getProvince()==null)){
 			config = new MyCustomizedVo();
 			AreaVo city = new AreaVo();
 			city.setId(703);
