@@ -8,10 +8,15 @@
 </head>
 <body style="background: url('${pageContext.request.contextPath}/resources/template/images/login-bg.jpg') no-repeat;">
 <form id="loginJumpFormId" action="${loginUrl}" method="post" style="visibility: hidden;">
-    <input type="hidden" name="url" value="${url}">
+    <input id="loginSuccessUrl" type="hidden" name="url"  value="${redirect}" />
 </form>	
 </body>
 <script type="text/javascript">
-   $('#loginJumpFormId').submit();
+    var _base = '${pageContext.request.contextPath}';
+    var curr =  window.location.href;
+	var end = curr.indexOf(_base);
+	var href = curr.substring(0,end) + _base+"/user/success";
+	$("#loginSuccessUrl").val(href); */
+	$('#loginJumpFormId').submit();
 </script>
 </html>

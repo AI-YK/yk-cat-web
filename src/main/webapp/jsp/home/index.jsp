@@ -111,8 +111,19 @@
 						<div class="special-show" id="special-tow" <c:if test="${!hasTopic}">style="display: none;"</c:if>>
 							<span><i class="icon iconfont">&#xe65a;</i></span>
 							<ul>
-								<c:forEach items="${topics}" var="topic">
-									<a href="javascript:void(0);" class="ahov"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
+								<c:forEach items="${topics}" var="topic" varStatus="tstatus">
+								   <c:choose>
+								      <c:when test="${tstatus.first}">
+								        <a href="javascript:void(0);" class="ahov1"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
+								      </c:when>
+								      <c:when test="${tstatus.last}">
+								        <a href="javascript:void(0);" class="ahov3"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
+								      </c:when>
+								      <c:otherwise>
+								          <a href="javascript:void(0);" class="ahov2"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
+								      </c:otherwise>
+								   </c:choose>
+									
 								</c:forEach>
 							</ul>
 						</div>

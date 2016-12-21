@@ -63,7 +63,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         	        $('#user-show').hide(1);
         	 });	
         		
-        	 $(".ahov3").click(function(){
+        	 $("#user-show ul .ahov3").click(function(){
         		_this._logOut();
         	 });
         	

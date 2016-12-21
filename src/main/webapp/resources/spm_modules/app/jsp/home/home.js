@@ -174,14 +174,14 @@ define('app/jsp/home/home', function (require, exports, module) {
     	      });
         	  
         		
-        		$(".ahov1").click(function(){
+        		$("#special-one ul .ahov1").click(function(){
         			$("#in-border2").hide();
         			$(".left-list").show();
         			$(".inbtn").show();
         			var abovalue=$("#ahov1Id").text();
         			$("#border1Id").text(abovalue);
         		});
-        		$(".ahov2").click(function(){
+        		$("#special-one ul .ahov2").click(function(){
         			$("#in-border2").show();
         			$(".left-list").hide();
         			$(".inbtn").hide();
@@ -189,7 +189,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         			$("#border1Id").text(abovalue);
         		});	
         		
-        		$(".ahov").click(function(){
+        		$("#special-tow ul a").click(function(){
         			var text =$(this).text();
         			$("#border2Id").text(text);
         		});
