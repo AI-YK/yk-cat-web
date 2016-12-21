@@ -1,6 +1,7 @@
 package com.ai.yk.protal.web.content.getInformationList;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class GetInformationListVo implements Serializable {
 	private static final long serialVersionUID = -929422860703922559L;
@@ -10,7 +11,7 @@ public class GetInformationListVo implements Serializable {
 	/**国家名称英文   是否必填：Y**/
 	private String countryNameEn;
 	/**英文关键词   是否必填：Y**/
-	private String keywordsEn;
+	private List<String> keywordsEn;
 	/**英文标题   是否必填：Y**/
 	private String titleEn;
 	/**英文摘要   是否必填：Y**/
@@ -24,7 +25,7 @@ public class GetInformationListVo implements Serializable {
 	/**媒体名（中文）   是否必填：Y**/
 	private String mediaNameZh;
 	/**中文关键词   是否必填：Y**/
-	private String keywordsZh;
+	private List<String> keywordsZh;
 	/**媒体类型   是否必填：Y**/
 	private Integer mediaType;
 	/**源标题   是否必填：Y**/
@@ -62,7 +63,7 @@ public class GetInformationListVo implements Serializable {
 	/**情感标识ID   是否必填：Y**/
 	private Integer sentimentId;
 	/**标签   是否必填：Y**/
-	private String tags;
+	private List<String> tags;
 	public String getCountryNameZh() {
 		return countryNameZh;
 	}
@@ -75,10 +76,10 @@ public class GetInformationListVo implements Serializable {
 	public void setCountryNameEn(String countryNameEn) {
 		this.countryNameEn = countryNameEn;
 	}
-	public String getKeywordsEn() {
+	public List<String> getKeywordsEn() {
 		return keywordsEn;
 	}
-	public void setKeywordsEn(String keywordsEn) {
+	public void setKeywordsEn(List<String> keywordsEn) {
 		this.keywordsEn = keywordsEn;
 	}
 	public String getTitleEn() {
@@ -117,10 +118,10 @@ public class GetInformationListVo implements Serializable {
 	public void setMediaNameZh(String mediaNameZh) {
 		this.mediaNameZh = mediaNameZh;
 	}
-	public String getKeywordsZh() {
+	public List<String> getKeywordsZh() {
 		return keywordsZh;
 	}
-	public void setKeywordsZh(String keywordsZh) {
+	public void setKeywordsZh(List<String> keywordsZh) {
 		this.keywordsZh = keywordsZh;
 	}
 	public Integer getMediaType() {
@@ -231,10 +232,10 @@ public class GetInformationListVo implements Serializable {
 	public void setSentimentId(Integer sentimentId) {
 		this.sentimentId = sentimentId;
 	}
-	public String getTags() {
+	public List<String> getTags() {
 		return tags;
 	}
-	public void setTags(String tags) {
+	public void setTags(List<String> tags) {
 		this.tags = tags;
 	}
 }
