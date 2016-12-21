@@ -41,16 +41,15 @@ define('app/jsp/top/header', function (require, exports, module) {
         _bindEvent:function(){
         	var _this = this;
         	//昵称
-        	 $('.breadcrumb-main ul .right .posi').mouseenter(function () {
-        			$('#user-show').show(1);
-        	 });
-            $("#user-show").click(function () {
-        	        $(this).hide(1);
-        	 });	
-        	 $('.breadcrumb-main').mouseleave(function () {
-        	        $('#user-show').hide(1);
-        	        $('#erw-show').hide(1);
-        	 });	
+        	$('.mainbav ul .iphone-show').mouseenter(function () {
+        		$("#user-show").show(1);
+    	    });
+    		$("#user-show").click(function () {
+    	     $(this).hide(1);
+    	    });	
+    		$('.mainbav').mouseleave(function () {
+    	        $('#user-show').hide(1);
+    	    });
         	 
         	 //二维码
         	 $('.breadcrumb-main ul .iphone').mouseenter(function () {

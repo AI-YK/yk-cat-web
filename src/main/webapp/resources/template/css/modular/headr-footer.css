@@ -9,16 +9,17 @@
 .breadcrumb-main ul .right p a{padding-right:8px;}
 .breadcrumb-main ul .right p{margin-left:8px;}
 /**昵称**/
-.breadcrumb-main ul li .user-show{width:120px;height:100px;background:#fff;position:absolute;top:36px;right:50px;border:1px solid #ddd;display:none;border-radius:8px;z-index:999;}
-.breadcrumb-main ul li .user-show ul{}
-.breadcrumb-main ul li .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
-.breadcrumb-main ul li .user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
-.breadcrumb-main ul li .user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
-.breadcrumb-main ul li .user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
-.breadcrumb-main ul li .user-show ul a i{font-size:18px;margin-right:4px;}
-.breadcrumb-main ul li .user-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;}
-.breadcrumb-main ul li .user-show  span{position:absolute;top:-20px;left:45px;}
-.breadcrumb-main ul li .user-show  span i{color:#fff;font-size:24px}
+.mainbav ul .user-show{width:120px;height:100px;background:#fff;position:absolute;top:56px;right:-46px;border:1px solid #ddd;display:none;border-radius:8px;z-index:999;}
+.mainbav ul .user-show ul{}
+.mainbav ul .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.mainbav ul .user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
+.mainbav ul .user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
+.mainbav ul .user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
+.mainbav ul .user-show ul .ahov3 i{padding-top:2px;display: inline-block;}
+.mainbav ul .user-show ul a i{font-size:18px;margin-right:4px;}
+.mainbav ul .user-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;margin:0;}
+.mainbav ul .user-show  span{position:absolute;top:-16px;left:45px;}
+.mainbav ul .user-show  span i{color:#fff;font-size:24px}
 /**二维码**/
 .breadcrumb-main ul li .erw-show{width:120px;height:120px;background:#fff;position:absolute;top:36px;right:-30px;border:1px solid #ddd;display: none;border-radius:8px;z-index:99;}
 .breadcrumb-main ul li .erw-show span{position:absolute;top:-20px;left:45px;}
@@ -26,40 +27,41 @@
 .breadcrumb-main ul li .erw-show p{margin:10px;}
 /**主导航**/
 .nav-main{width:1200px;margin:0 auto;}
-.yeesight-nav{width:100%;background:#2e344b;height:90px;float:left;min-width:1200px;}
-.yeesight-logo{width:330px;height:51px;float:left;margin-top:26px;}
+.yeesight-nav{width:100%;background:#2e344b;height:60px;float:left;min-width:1200px;}
+.yeesight-logo{width:330px;height:51px;float:left;margin-top:12px;}
 .mainbav{}
-.mainbav ul{}
-.mainbav ul li{margin-left:14px;display:inline-block;float:left;margin-top:40px;}
+.mainbav ul{position:relative;}
+.mainbav ul li{margin-left:14px;display:inline-block;float:left;margin-top:20px;}
 .mainbav ul li a{font-size:16px;color:#767fa2;padding:0 8px;}
-.mainbav ul li .current{border-bottom:3px solid #3382ee;padding-bottom:27px;color:#3382ee}
-.mainbav ul .search{width:230px;height:36px;border:1px solid #3382ee;background:#212532;border-radius:20px;line-height:34px;margin-top:35px}
-.mainbav ul .search a{color:#3382ee;padding:0 12px 0 0;float:right;}
+.mainbav ul li .current{border-bottom:3px solid #3382ee;padding-bottom:17px;color:#3382ee}
+.mainbav ul .search{width:230px;height:30px;background:#212532;border-radius:20px;line-height:20px;margin-top:18px}
+.mainbav ul .search a{color:#3382ee;padding:4px 12px 0 0;float:right;}
+.mainbav ul .iphone-show{margin-top:16px;float:left}
 /**子导航**/
-.subnav{width:100%;float:left;height:55px;background:#1b2031;min-width:1200px;border-bottom:1px solid #454d6b}
+.subnav{width:100%;float:left;height:40px;background:#1b2031;min-width:1200px;border-bottom:1px solid #454d6b}
 .subnav-main{width:1200px;margin:0 auto;}
-.left-list ul{display:inline-block;margin:20px 0 0 10px;position:relative;}
+.left-list ul{display:inline-block;margin:10px 0 0 10px;position:relative;}
 .left-list ul li{float:left}
-.left-list p{float:left;margin-top:20px;color:#697398}
+.left-list p{float:left;margin-top:10px;color:#697398}
 .left-list ul li a{font-size:14px;color:#697398}
 .left-list ul li a i{margin-left:8px;color:#697398}
 .left-list{float:left}
-.right-list{float:right;margin-top:15px;}
+.right-list{float:right;margin-top:7px;}
 .right-list ul{width:100%;}
 .right-list ul li{display:inline-block;margin-left:10px;position:relative;}
-.right-list ul .inbtn a{width:80px;height:28px;background:#2e344b;float:left;border-radius:5px;text-align: center;line-height:28px;color:#7c85a8}
+.right-list ul .inbtn a{width:80px;height:26px;background:#2e344b;float:left;border-radius:5px;text-align: center;line-height:26px;color:#7c85a8}
 .right-list ul .inbtn a:hover{background:#3382ee;color:#fff}
-.right-list ul .in-border{width:120px;height:28px;float:left;border:1px solid #7c85a8;text-align: center;line-height:28px;border-radius:5px;}
+.right-list ul .in-border{width:120px;height:26px;float:left;border:1px solid #7c85a8;text-align: center;line-height:26px;border-radius:5px;}
 .right-list ul .in-border a{width:100%;float:left;color:#7c85a8}
 .right-list ul .in-border a i{float:right;padding-right:6px;}
-.right-list ul li .special-show{width:120px;height:100px;background:#fff;position:absolute;top:36px;right:0px;border:1px solid #ddd;border-radius:8px;display:none;z-index:99;}
+.right-list ul li .special-show{width:120px;height:100px;background:#fff;position:absolute;top:33px;right:0px;border:1px solid #ddd;border-radius:8px;display:none;z-index:99;}
 .right-list ul li .special-show ul{}
 .right-list ul li .special-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
 .right-list ul li .special-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
 .right-list ul li .special-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
 .right-list ul li .special-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
 .right-list ul li .special-show ul a li{width:100%;height:33px;line-height:33px;float:left;text-align: center;margin:0;}
-.right-list ul li .special-show  span{position:absolute;top:-17px;left:45px;}
+.right-list ul li .special-show  span{position:absolute;top:-16px;left:45px;}
 .right-list ul li .special-show  span i{color:#DDD;font-size:24px}
 
 /**底部**/

@@ -13,7 +13,7 @@ public class PublicaffairsTest {
 		PublicaffairsService service = new PublicaffairsService();
 		YJRequest<PublicAffairsMessage> req = new YJRequest<PublicAffairsMessage>();
 		PublicAffairsMessage message = new PublicAffairsMessage();
-		message.setModelNo("locSentimentCount");
+		message.setModelNo("mediaCoverage");
 		req.setMessage(message);
 		System.out.println("param:"+JSON.toJSONString(req));
 		YJResponse<PublicAffairsResponse> res = service
