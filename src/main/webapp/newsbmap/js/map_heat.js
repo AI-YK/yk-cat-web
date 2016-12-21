@@ -57,7 +57,7 @@ $(function(){
 	trinkFunc();
 	//初始化
 	//$('.echarts_name').html('<h1>全球热点事件<font color="#1d78d2">分布图</font></h1>')
-	$('.container').css({'height':$('body').height()-137});
+	$('.container').css({'height':$('body').height()-110});
 	$('.news_list .news_list_bg,.news_list .list_box').css({'height':$('body').height()-93});
 	$('.news_list .div_list').css({'height':$('body').height()-223});
 
@@ -85,7 +85,7 @@ $(function(){
 		 }
 	});  */  //宽高变换
     $(window).resize(function(){
-         $('.container').css({'height':$('body').height()-137});
+         $('.container').css({'height':$('body').height()-110});
          $('.news_list .news_list_bg,.news_list .list_box').css({'height':$('body').height()-93});
          $('.news_list .div_list').css({'height':$('body').height()-223});
          //右侧热点咨询点滚动条
