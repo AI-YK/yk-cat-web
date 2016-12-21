@@ -80,7 +80,7 @@ public final class SessionUtil {
 			city2.setCode("as_100000_340000_340300");
 			city2.setPid(704);
 			city2.setType(0);
-			city.setBusCode("340300");
+			city2.setBusCode("340300");
 			
 			AreaVo province = new AreaVo();
 			province.setCode("as_100000_340000");
