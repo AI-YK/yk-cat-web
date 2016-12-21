@@ -8,9 +8,9 @@ import java.io.Serializable;
 public class IocSentimentVo implements Serializable {
 	private static final long serialVersionUID = -6002675065589055412L;
 	/**
-	 * cityId
+	 * locationId 
 	 */
-	private Integer cityId;
+	private Integer locationId;
 	/**
 	 * cityNameZh
 	 */
@@ -23,36 +23,30 @@ public class IocSentimentVo implements Serializable {
 	 * 负面
 	 */
 	private Integer negativeCnt;
-
-	public Integer getCityId() {
-		return cityId;
+	public Integer getLocationId() {
+		return locationId;
 	}
-
-	public void setCityId(Integer cityId) {
-		this.cityId = cityId;
+	public void setLocationId(Integer locationId) {
+		this.locationId = locationId;
 	}
-
 	public String getCityNameZh() {
 		return cityNameZh;
 	}
-
 	public void setCityNameZh(String cityNameZh) {
 		this.cityNameZh = cityNameZh;
 	}
-
 	public Integer getPositiveCnt() {
 		return positiveCnt;
 	}
-
 	public void setPositiveCnt(Integer positiveCnt) {
 		this.positiveCnt = positiveCnt;
 	}
-
 	public Integer getNegativeCnt() {
 		return negativeCnt;
 	}
-
 	public void setNegativeCnt(Integer negativeCnt) {
 		this.negativeCnt = negativeCnt;
 	}
+
+	
 }
