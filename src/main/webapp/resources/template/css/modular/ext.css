@@ -80,3 +80,10 @@ input[type="checkbox"][disabled]:checked {
 .sentiment-detail-list-conter-news ul .yellow{background:#fce630}
 .sentiment-detail-list-conter-news ul .red{background:#cd2009}
 .sentiment-detail-list-conter-news ul .ash{background:#666}
+.ico_user {
+    background: url(../../images/menu2.png) no-repeat;
+    width: 34px;
+    height: 34px;
+    display: inline-block;
+    overflow: hidden;
+}

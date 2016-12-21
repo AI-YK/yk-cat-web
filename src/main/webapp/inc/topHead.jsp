@@ -24,7 +24,9 @@
 					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
 					</c:if>
-					<li class="iphone-show"><img src="${uedroot}/images/iphone.png" /></li>
+					<li class="iphone-show">
+					 <i class="ico_user"></i>
+					</li>
 					<div class="user-show" id="user-show">
 						<span><i class="icon iconfont">&#xe65a;</i></span>
 						<ul>
