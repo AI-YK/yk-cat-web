@@ -34,8 +34,10 @@ public class QueryAreaListService {
 		QueryAreaListService service = new QueryAreaListService();
 		YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
 		QueryAreaListMessage message = new QueryAreaListMessage();
-		message.setClassify("province");
-		message.setParentCode("100000");
+		/*message.setClassify("province");
+		message.setParentCode("100000");*/
+		message.setParentCode("340000");
+		message.setClassify("city");
 		req.setMessage(message);
 		System.out.println(JSON.toJSON(req));
 		YJResponse<List<QueryAreaListVo>> res = service.QueryAreaList(req);

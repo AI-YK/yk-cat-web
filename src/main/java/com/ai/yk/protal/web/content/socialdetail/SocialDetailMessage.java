@@ -5,25 +5,15 @@ import java.io.Serializable;
 public class SocialDetailMessage implements Serializable{
 	
 	private static final long serialVersionUID = -6360190606915084713L;
-	/**资讯id   是否必填：Y**/
-	private String informationId;
-
-	public String getInformationId() {
-		return informationId;
+	/****/
+	private String id;
+	public String getId() {
+		return id;
 	}
-
-	public void setInformationId(String informationId) {
-		this.informationId = informationId;
+	public void setId(String id) {
+		this.id = id;
 	}
-
-	public SocialDetailMessage(String informationId) {
-		super();
-		this.informationId = informationId;
-	}
-
-	public SocialDetailMessage() {
-		super();
-	}
+	
 }
 		
 		

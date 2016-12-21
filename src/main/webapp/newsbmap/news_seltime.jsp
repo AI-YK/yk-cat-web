@@ -332,6 +332,9 @@
 					    </p>
 					</li>
 				</ul>
+				<div style="position: absolute; top:5px; right: -1030px;">
+					<a title="列表模式" href="${_base }/jsp/news/social.jsp"><img src="${_base }/newsbmap/images/btn1.png"></a>
+				</div>
 			</div>
 
 			 <ul class="nav2topr" id="type">

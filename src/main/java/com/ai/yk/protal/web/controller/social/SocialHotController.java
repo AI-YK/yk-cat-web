@@ -38,7 +38,7 @@ public class SocialHotController extends BaseController {
 			@PathVariable String informationId) {
 		LOG.info("---------社交详情-【"+informationId+"】-----------");
 		SocialDetailMessage message = new SocialDetailMessage();
-		message.setInformationId(informationId);
+		message.setId(informationId);
 		req.setMessage(message);
 		YJResponse<SocialDetailResponse> res = socialService.querySocialDetail(req);
 		
