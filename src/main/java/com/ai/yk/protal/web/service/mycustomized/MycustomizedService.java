@@ -78,7 +78,7 @@ public class MycustomizedService {
 			for(String cid :message.getCityList()){
 				Map<String,Object> c = new HashMap<>();
 				c.put("provinceCode",message.getProvinceCode());
-				c.put("code", cid);
+				c.put("busCode", cid);
 				
 				cityList.add(c);
 			}
