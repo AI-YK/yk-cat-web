@@ -70,7 +70,6 @@ public final class SessionUtil {
 			city.setNameZh("安庆市");
 			city.setCode("as_100000_340000_340800");
 			city.setPid(701);
-			city.setBusCode("");
 			city.setType(0);
 			city.setBusCode("340800");
 			
@@ -80,7 +79,6 @@ public final class SessionUtil {
 			city2.setNameZh("蚌埠市");
 			city2.setCode("as_100000_340000_340300");
 			city2.setPid(704);
-			city2.setBusCode("");
 			city2.setType(0);
 			city.setBusCode("340300");
 			
