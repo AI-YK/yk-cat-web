@@ -152,25 +152,27 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var _this = this;
         	  
         	 // 专题
-        	  $('.right-list ul #in-border1').mouseenter(function () {
+        	 $('.right-list ul #in-border1').mouseover(function () {
         			$('#special-one').show(1);
-        	  })
+        	  });
         	  $("#special-one").click(function () {
         	                $(this).hide(1);
         	  });	
-        	  $('.right-list ul #in-border1').mouseleave(function () {
+        	  $('#special-one').mouseleave(function () {
         	        $('#special-one').hide(1);
-        	  });	
-        	  
-        	  $('.right-list ul #in-border2').mouseenter(function () {
+        	  });
+        	 
+        	  $('.right-list ul #in-border2').mouseover(function () {
         			$('#special-tow').show(1);
         	    })
         		$("#special-tow").click(function () {
         	          $(this).hide(1);
-        	     });	
-        		$('.right-list ul #in-border2').mouseleave(function () {
-        	        $('#special-tow').hide(1);
-        	    });	
+        	     });
+        	  
+        	  $("#special-tow").mouseleave(function () {
+    	          $(this).hide(1);
+    	      });
+        	  
         		
         		$(".ahov1").click(function(){
         			$("#in-border2").hide();

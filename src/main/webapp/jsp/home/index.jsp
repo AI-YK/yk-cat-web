@@ -42,14 +42,16 @@
 			<div class="left-list" <c:if test="${!isLogin}">style="display: none;"</c:if> >
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
-					<li>
-						<a href="#" id="choice-city">${config.province.nameZh }.
-						<c:if test="${fn:length(config.city)>1 }"> 多城市</c:if>
-						<c:if test="${fn:length(config.city)==1}">
-						<c:forEach items="${config.city }" var="city">
-							${city.nameZh }
-						</c:forEach>
-						</c:if>
+				    <li>
+				    <a href="#" id="choice-city">
+				    <c:choose>
+				       <c:when test="${config!=null&&config.province!=null}">
+				         ${config.province.nameZh}.${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
+				       </c:when>
+				       <c:otherwise>
+				                           请选择省市
+				       </c:otherwise>
+				    </c:choose>
 						<i class="icon iconfont">&#xe659;</i></a>
 					</li>
 					<div class="index-city" id="index-city">
