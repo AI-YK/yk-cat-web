@@ -28,15 +28,17 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value=''>全部</option>";
+					var options = "<option value='-1'>全部</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].code + "'>"+data[i].name+"</option>";
 					}
 					
 					if(options!=""){
+						var sid=null;
 						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).html(options);
-							$("#"+selectIds[j]).select2();
+							sid ="#"+selectIds[j];
+							$(sid).html(options);
+							$(sid).select2({"val":"-1"});
 						}
 					}
 					
