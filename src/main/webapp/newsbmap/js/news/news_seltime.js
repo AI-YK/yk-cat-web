@@ -249,7 +249,7 @@
 		 var ajax_data={
 //		 	'countrychinaname':city,
 //		 	'region':''
-			'parentCode':'as_100000',
+			'parentCode':'100000',
 			'classify':'city'
 		 };
 //		 alert(ajax_url);
@@ -264,7 +264,7 @@
 				 	    var html='<dd><a href="javascript:;;" class="shousuo">'+$("#ns1").val()+'</a><i class="cs_jd"></i><i class="cs_wd"></i></dd>';
 				 	    
 				 	    $.each(data.data,function(i,o){
-				 	    	html+='<dd><a href="javascript:" class="chengshi_a" arr='+o.code+'>'+(($("#language").val()=="en")?(o.nameEn) :( o.name)) +'</a><i class="cs_jd">'+o.geoLong+'</i><i class="cs_wd">'+o.geoLat+'</i></dd>';
+				 	    	html+='<dd><a href="javascript:" class="chengshi_a" arr='+o.busCode+'>'+(($("#language").val()=="en")?(o.nameEn) :( o.name)) +'</a><i class="cs_jd">'+o.geoLong+'</i><i class="cs_wd">'+o.geoLat+'</i></dd>';
 				 	    });
 //				 	    alert(html);
 				 	    $('#city').html(html);

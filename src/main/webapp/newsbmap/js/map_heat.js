@@ -756,7 +756,7 @@ function smilNewsData(){
 	 	    	    }
 	 	    	    var data_list={
 	 		 	    	 	 'name': valid(o.titleZh),
-	 		 	    	     'value':6, //o.avgtone_num<30?o.avgtone_num:14,//颜色显示
+	 		 	    	     'value':4, //o.avgtone_num<30?o.avgtone_num:14,//颜色显示
 	 		 	    	 	 'geoLat': o.latitude,
 	 		 	    	 	 'geoLong': o.longitude,
 	 		 	    	 	 'eventchinaname': valid(o.titleZh),
@@ -856,7 +856,7 @@ function smilEventData(){
 	 	    	    var data_list={
 	 		 	    	 	 'name': valid(o.zhTitle),
 	 		 	    	   //  'value':o.avgtoneNum, //o.avgtone_num<30?o.avgtone_num:14,
-	 		 	    	 	 'value':6,
+	 		 	    	 	 'value':5,
 	 		 	    	 	 'geoLat': o.latitude,
 	 		 	    	 	 'geoLong': o.longitude,
 	 		 	    	 	 'eventchinaname': valid(o.zhTitle),
