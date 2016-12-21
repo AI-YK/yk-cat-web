@@ -60,7 +60,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
             //左侧突发事件点击操作
             $(document).on("click",".list-left ul li",function(){
-           	    var srcId = $(this).attr("srcId");
+           	    var srcId = $(this).attr("id");
 	           	var url =_base+"/event/detail/"+srcId;
 	        	window.open (url, '_blank' ) ;
             });
@@ -233,7 +233,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var cityList=eval("("+cityLists+")");
         	var cityCodeList="";
         	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].code;
+        		cityCodeList=cityCodeList+","+cityList[i].busCode;
         	}
         	if(cityCodeList!=""){
         		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -303,7 +303,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var cityList=eval("("+cityLists+")");
         	var cityCodeList="";
         	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].code;
+        		cityCodeList=cityCodeList+","+cityList[i].busCode;
         	}
         	if(cityCodeList!=""){
         		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -362,7 +362,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var cityList=eval("("+cityLists+")");
         	var cityCodeList="";
         	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].code;
+        		cityCodeList=cityCodeList+","+cityList[i].busCode;
         	}
         	if(cityCodeList!=""){
         		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -409,7 +409,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var cityList=eval("("+cityLists+")");
         	var cityCodeList="";
         	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].code;
+        		cityCodeList=cityCodeList+","+cityList[i].busCode;
         	}
         	if(cityCodeList!=""){
         		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
