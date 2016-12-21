@@ -487,7 +487,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	        $('#erw-show').hide(1);
 	        $('#user-show').hide(1);
 	    });	
-	 });
+	 }); 
 </script>
 </body>
 </html>

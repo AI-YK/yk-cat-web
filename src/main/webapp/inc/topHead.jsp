@@ -29,8 +29,8 @@
 					<div class="user-show" id="user-show">
 						<span><i class="icon iconfont">&#xe65a;</i></span>
 						<ul>
-							<a href="${yeesightUrls.accountUrl}" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
-							<a href="${yeesightUrls.dataUrl}" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
+							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
+							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
 							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
 						</ul>
 					</div>

@@ -44,7 +44,7 @@ public class UserController {
     	}
     	if(clientUser==null){
     		clientUser = new SSOClientUser();
-    		clientUser.setUserId("1");
+    		clientUser.setUserId("2");
     		clientUser.setUserName("Houg");
     		clientUser.setNickName("译见");
     		SessionUtil.setLoginUser(clientUser);

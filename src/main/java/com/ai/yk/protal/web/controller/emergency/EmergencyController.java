@@ -119,18 +119,27 @@ public class EmergencyController{
 	    	YJResponse<EventListResponse> resp = eventDataService.queryEventDataList(req);
 	    	List<EventVo> eventList = resp.getData().getResults();
 	    	homeEventVo.setEventList(eventList);
-	    	List<EventModelResponse> chartGroup = new ArrayList<EventModelResponse>();
-	    	for(EventVo event:eventList){
-	    		YJRequest<EventModelMessage> modelReq = new YJRequest<EventModelMessage>();
-	    		EventModelMessage mesge = new EventModelMessage();
-	    		mesge.setEventId(String.valueOf(event.getSrcId()));
-	    		modelReq.setMessage(mesge);
-	    		YJResponse<EventModelResponse> modelResp =eventDataService.queryEventModel(modelReq);
-	    		chartGroup.add(modelResp.getData());
-	    	}
-	    	homeEventVo.setGroups(chartGroup);
-	    	//homeEventVo = mock();
 	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",homeEventVo);
+	    }
+	    
+	    @RequestMapping("/getEventModel")
+	    @ResponseBody
+	    public ResponseData<EventModelResponse> getEventModel(String srcId){
+	    	YJRequest<EventModelMessage> modelReq = new YJRequest<EventModelMessage>();
+    		EventModelMessage mesge = new EventModelMessage();
+    		mesge.setEventId(srcId);
+    		modelReq.setMessage(mesge);
+    		YJResponse<EventModelResponse> resp =eventDataService.queryEventModel(modelReq);
+    		if(resp==null||resp.getHead()==null){
+				  log.error("系统异常，请联系管理员");
+				  return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_FAILURE,"系统异常，请联系管理员",null);
+			 
+			}
+			if("false".equals(resp.getHead().getResult())){
+				  log.error(resp.getHead().getMessage());
+				  return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_FAILURE,resp.getHead().getMessage(),null);
+			}
+    		return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_SUCCESS,resp.getHead().getMessage(),resp.getData());
 	    }
 	    
 	    private HomeEventVo mock(){

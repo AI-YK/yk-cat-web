@@ -8,7 +8,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var HomeChart = require("app/jsp/home/charts");
 	require("jsviews/jsrender.min");
-    //实例化AJAX控制处理对象
+    // 实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
     
     var showErrorDialog = function(error){
@@ -25,33 +25,28 @@ define('app/jsp/home/home', function (require, exports, module) {
     }
     
     var homeChart = new HomeChart();
-
+    var chartGroupMap = {};
     var homePage = Widget.extend({
-        //属性，使用时由类的构造函数传入
+        // 属性，使用时由类的构造函数传入
         attrs: {
-            clickId:"",
-            chartGroups:[],
             chartGroup:{}
         },
 
-        //事件代理
+        // 事件代理
         events: {
            "click #saveId":"_saveProvinceAndCity",
            "click #saveDicId":"_saveDic"
         },
 
-        //重写父类
+        // 重写父类
         setup: function () {
         	var _this = this;
             homePage.superclass.setup.call(this);
-            
-        	//初始化国际化
-		/*	$.i18n.properties({//加载资浏览器语言对应的资源文件
-				name: ["home"], //资源文件名称，可以是数组
-				path: _i18n_res, //资源文件路径
-				mode: 'both',
-				language: currentLan,
-			});*/
+        	// 初始化国际化
+		/*
+		 * $.i18n.properties({//加载资浏览器语言对应的资源文件 name: ["home"], //资源文件名称，可以是数组
+		 * path: _i18n_res, //资源文件路径 mode: 'both', language: currentLan, });
+		 */
             $(document).on("mouseenter",".list-left ul li",function(){
             	 $(".list-left ul li").each(function () {
                      $(this).removeClass("current");
@@ -59,18 +54,28 @@ define('app/jsp/home/home', function (require, exports, module) {
                      $("#chart-date"+index).hide();
                  });
                  $(this).addClass("current");
-                 var index=$('.list-left ul li').index(this);
-                 if(_this.chartGroups[index]){
-                	 _this.chartGroup = _this.chartGroups[index];
-                	 if($("#chuanbo").hasClass('current')){
-                		 homeChart._initSpreadStateChart("chart_event",_this.chartGroup.timeTrend);  
-                	 }else{
-                		 homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
-                	 }
-                 }
+                 var srcId = $(this).attr("id");
+                 _this._getEventModel(srcId);
                
 			});
-            
+            //左侧突发事件点击操作
+            $(document).on("click",".list-left ul li",function(){
+           	    var srcId = $(this).attr("srcId");
+	           	var url =_base+"/event/detail/"+srcId;
+	        	window.open (url, '_blank' ) ;
+            });
+            //新闻媒体预警点击操作
+            $(document).on("click","#newsDiv ul",function(){
+           	    var uuid = $(this).attr("uuid");
+	           	var url =_base+"/news/detail/"+uuid;
+	        	window.open (url, '_blank' ) ;
+            });
+            //新闻媒体预警点击操作
+            $(document).on("click","#news-div ul",function(){
+           	    var uuid = $(this).attr("uuid");
+	           	var url =_base+"/news/detail/"+uuid;
+	        	window.open (url, '_blank' ) ;
+            });
             $("#merge ul li a").click(function () {
                 $("#merge ul li a").each(function () {
                     $(this).removeClass("current");
@@ -81,7 +86,6 @@ define('app/jsp/home/home', function (require, exports, module) {
                  	if(_this.chartGroup){
                  		homeChart._initSpreadStateChart("chart_event",_this.chartGroup.spreadTrend);
                  	}
-                 	
                 }
                 if(index==1){
                  	if(_this.chartGroup){
@@ -147,7 +151,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         _bindEvent:function(){
         	var _this = this;
         	  
-        	 //专题
+        	 // 专题
         	  $('.right-list ul #in-border1').mouseenter(function () {
         			$('#special-one').show(1);
         	  })
@@ -249,19 +253,46 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var emergencyHtml = $("#emergencyTempl").render(data);
 					$("#eventList").html(emergencyHtml);
 					$("#chartGroup").show();
-					_this.chartGroups = data.groups;
-
-					if(_this.chartGroups[0]){
-						 _this.chartGroup = _this.chartGroups[0];
-						 if($("#chuanbo").hasClass('current')){
-	                		 homeChart._initSpreadStateChart("chart_event",_this.chartGroups[0].timeTrend);  
-	                	 }else{
-	                		 homeChart._initTimeTrendChart("chart_event",_this.chartGroups[0].spreadTrend);
-	                	 }
-					}
+					var event = data.eventList[0];
+                    if(event){
+                    	_this._getEventModel(event.srcId);
+                    }
 					
 				}
 			});
+        },
+        _getEventModel:function(srcId){
+        	var _this = this;
+        	var chartGroup = chartGroupMap[srcId];
+        	if(chartGroup){
+        		_this._initEventChart(chartGroup);
+        		return;
+        	}
+        	
+        	var url = "/emergency/getEventModel";
+        	var param = {};
+        	param.srcId = srcId;
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var data = rs.data;
+					chartGroupMap[srcId] = data;
+					_this._initEventChart(data);
+					
+				}
+			});
+        },
+        _initEventChart:function(chartGroup){
+        	 _this.chartGroup = chartGroup;
+        	 if($("#chuanbo").hasClass('current')){
+           		 homeChart._initSpreadStateChart("chart_event",chartGroup.timeTrend);  
+           	 }else{
+           		 homeChart._initTimeTrendChart("chart_event",chartGroup.spreadTrend);
+           	 }
         },
         _loadPubTrend:function(modelNo,timeType){
         	var url = "/trend/pubTrend";
@@ -295,9 +326,8 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
         },
         /**
-    	 * 新闻热点 TJSJY 
-    	 * 社交热点 SJLY 
-    	 */
+		 * 新闻热点 TJSJY 社交热点 SJLY
+		 */
         _getDics:function(type){ 
         	var url = "/common/getDic";
         	var param = {};
@@ -321,7 +351,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 				}
 			});
         },
-        /**媒体类型 新闻热点：news，社交热点：social **/
+        /** 媒体类型 新闻热点：news，社交热点：social * */
         _getHotInfoList:function(mediaType,mediaId){ 
         	var url = "/news/getHotInfoList";
         	var provinceCode=provinceCodee;
@@ -368,7 +398,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 				}
 			});
         },
-        /**媒体类型 新闻热点：news，社交热点：social **/
+        /** 媒体类型 新闻热点：news，社交热点：social * */
         _getNegativeList:function(mediaType){ 
         	var url = "/negative/getNegativeList";
         	var provinceCode=provinceCodee;
@@ -435,7 +465,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					}
 					provinceInfo.letters = letters;
 					provinceInfo.provinces = provinces;
-					//alert(JSON.stringify(provinceInfo));
+					// alert(JSON.stringify(provinceInfo));
 					var provinceHtml = $("#provinceTempl").render(provinceInfo);
 					$(".choice-left").html(provinceHtml);
 					$("#pro_"+provinceCodee).addClass("current");
@@ -544,7 +574,7 @@ define('app/jsp/home/home', function (require, exports, module) {
       	        	_this._getHotInfoList("social",null);
       	        	_this._getNegativeList("news");
       	        	_this._getNegativeList("social");
-      				 /* location.href = _base + '/home/index';*/
+      				 /* location.href = _base + '/home/index'; */
       			  }
       		  });
         },
@@ -572,7 +602,7 @@ define('app/jsp/home/home', function (require, exports, module) {
      			  dataType:"json",
      			  data:param,
      			  success:function(rs){
-     				  /*location.href = _base + '/home/index';*/
+     				  /* location.href = _base + '/home/index'; */
      				 $("#border1Id").html("通用数据");
      			  }
      		  });

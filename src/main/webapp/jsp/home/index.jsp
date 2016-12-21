@@ -156,7 +156,7 @@
        <div class="choice-list" >
 		  <ul>
              {{for list}}
-			    <li><a href="#" id="pro_{{:code}}" >{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+			    <li><a href="#" id="pro_{{:code}}" >{{:name}}</a><input type="hidden" value="{{:busCode}}"/></li>
              {{/for}}
 		  </ul>
        </div>
@@ -166,7 +166,7 @@
        <div class="choice-list" >
 		  <ul>
              {{for list}}
-			    <li><a href="#" id="pro_{{:code}}">{{:name}}</a><input type="hidden" value="{{:code}}"/></li>
+			    <li><a href="#" id="pro_{{:code}}">{{:name}}</a><input type="hidden" value="{{:busCode}}"/></li>
              {{/for}}
 		  </ul>
        </div>
@@ -177,7 +177,7 @@
 <script id="cityTempl" type="text/x-jsrender">
    <li>
 	  <p>
-		 <input id="city_{{:code}}" type="checkbox" class="checkbox-fie city"  value="{{:code}}" />
+		 <input id="city_{{:code}}" type="checkbox" class="checkbox-fie city"  value="{{:busCode}}" />
 	  </p>
 	  <p>{{:name}}</p>
    </li>
@@ -200,7 +200,7 @@
             pager.render();
 
         });
-    })();
+    })(); 
     
 
 </script>

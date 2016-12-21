@@ -33,7 +33,7 @@ public class AssembleUserInfoFilter implements Filter {
                          FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
-        if (false) {
+        if (shouldFilter(req)) {
         	HttpSession session = req.getSession();
             SSOClientUser user = (SSOClientUser) session.getAttribute(Constants.USER_SESSION_KEY);
             if (user == null) {
@@ -58,7 +58,7 @@ public class AssembleUserInfoFilter implements Filter {
        if (ignor_suffix != null && ignor_suffix.length > 0) {
             String uri = req.getRequestURI().toLowerCase();
             for (String suffix : ignor_suffix) {
-                if (uri.endsWith(suffix)) {
+                if (uri.endsWith(suffix)||(suffix.endsWith("*")&&uri.indexOf(suffix)>-1)) {
                     return false;
                 }
             }
