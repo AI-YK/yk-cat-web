@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.paas.ipaas.i18n.ResWebBundle;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
@@ -43,9 +44,16 @@ public class IndexController {
     	MyCustomizedVo config = SessionUtil.getUserConfig();
     	if(config!=null){
     		model.addAttribute("config", config);
-    		model.addAttribute("configInterestList", JSON.toJSONString(config.getInterestList()));
-        	model.addAttribute("provindeCode", config.getProvince().getCode());
-        	model.addAttribute("citylist", JSON.toJSONString(config.getCity()));
+    		if(!CollectionUtil.isEmpty(config.getInterestList())){
+    			model.addAttribute("configInterestList", JSON.toJSONString(config.getInterestList()));
+    		}
+    		if(config.getProvince()!=null){
+    			model.addAttribute("provindeCode", config.getProvince().getCode());
+    		}
+    		if(config.getCity()!=null){
+    			model.addAttribute("citylist", JSON.toJSONString(config.getCity()));
+    		}
+        	
     	}
     	List<MyTopicsVo> topics = SessionUtil.getTopics();
     	if(topics==null||topics.size()==0){

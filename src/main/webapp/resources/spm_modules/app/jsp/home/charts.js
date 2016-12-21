@@ -497,7 +497,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	var cities = [];
         	var positiveCnts = [];
         	var negativeCnts = [];
-        	for(var i=0;i<data.length;i++){
+        	for(var i=0;i<10;i++){
         		cities[i] = data[i].cityNameZh;
         		positiveCnts[i] = data[i].positiveCnt;
         		negativeCnts[i] = data[i].negativeCnt;
