@@ -229,18 +229,21 @@ define('app/jsp/home/home', function (require, exports, module) {
         _initEventData:function(){
         	var _this = this;
         	var url = "/emergency/getEmergencyIndexList";
-        	var provinceCode=provinceCodee;
-        	var cityList=eval("("+cityLists+")");
-        	var cityCodeList="";
-        	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].busCode;
-        	}
-        	if(cityCodeList!=""){
-        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
-        	}
         	var param = {};
-        	param.provinceCode=provinceCode;
-        	param.cityCode=cityCodeList;
+        	if(provinceCodee!=''){
+        		param.provinceCode=provinceCodee;
+        	}
+        	if(cityLists!=''){
+        		var cityList=eval("("+cityLists+")");
+            	var cityCodeList="";
+            	for(var i=0;i<cityList.length;i++){
+            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            	}
+            	if(cityCodeList!=""){
+            		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+            	}
+            	param.cityCode=cityCodeList;
+        	}
         	param.pageSize=7;
         	ajaxController.ajax({
 				type: "post",
@@ -300,19 +303,21 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _loadPubTrend:function(modelNo,timeType){
         	var url = "/trend/pubTrend";
-        	var cityList=eval("("+cityLists+")");
-        	var cityCodeList="";
-        	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].busCode;
-        	}
-        	if(cityCodeList!=""){
-        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
-        	}
         	var param = {};
+        	if(cityLists!=''){
+        		var cityList=eval("("+cityLists+")");
+            	var cityCodeList="";
+            	for(var i=0;i<cityList.length;i++){
+            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            	}
+            	if(cityCodeList!=""){
+            		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+            	}
+            	param.idList=cityCodeList;
+        	}
         	param.modelNo = modelNo;
         	param.timeType = timeType;
         	param.categoryId = '';
-        	param.idList = cityCodeList;
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
@@ -358,22 +363,26 @@ define('app/jsp/home/home', function (require, exports, module) {
         /** 媒体类型 新闻热点：news，社交热点：social * */
         _getHotInfoList:function(mediaType,mediaId){ 
         	var url = "/news/getHotInfoList";
-        	var provinceCode=provinceCodee;
-        	var cityList=eval("("+cityLists+")");
-        	var cityCodeList="";
-        	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].busCode;
-        	}
-        	if(cityCodeList!=""){
-        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
-        	}
         	var param = {};
+        	if(provinceCodee!=''){
+        		param.provinceCode=provinceCodee;
+        	}
+        	if(cityLists!=''){
+        		var cityList=eval("("+cityLists+")");
+            	var cityCodeList="";
+            	for(var i=0;i<cityList.length;i++){
+            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            	}
+            	if(cityCodeList!=""){
+            		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+            	}
+            	param.cityCode=cityCodeList;
+        	}
+        	
         	param.mediaType = mediaType;
         	if(mediaId){
         		param.mediaId = mediaId;
         	}
-        	param.provincecityCode = provinceCode;
-        	param.cityCode = cityCodeList;
         	param.publicAffairsType = "";
         	param.fieldName="transfer"
             param.order = "desc";
@@ -405,19 +414,23 @@ define('app/jsp/home/home', function (require, exports, module) {
         /** 媒体类型 新闻热点：news，社交热点：social * */
         _getNegativeList:function(mediaType){ 
         	var url = "/negative/getNegativeList";
-        	var provinceCode=provinceCodee;
-        	var cityList=eval("("+cityLists+")");
-        	var cityCodeList="";
-        	for(var i=0;i<cityList.length;i++){
-        		cityCodeList=cityCodeList+","+cityList[i].busCode;
-        	}
-        	if(cityCodeList!=""){
-        		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
-        	}
         	var param = {};
+        	if(provinceCodee!=''){
+        		param.provinceCode=provinceCodee;
+        	}
+        	if(cityLists!=''){
+        		var cityList=eval("("+cityLists+")");
+            	var cityCodeList="";
+            	for(var i=0;i<cityList.length;i++){
+            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            	}
+            	if(cityCodeList!=""){
+            		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+            	}
+            	param.cityCode=cityCodeList;
+        	}
+        	
         	param.mediaType = mediaType;
-        	param.provincecityCode = provinceCode;
-        	param.cityCode = cityCodeList;
         	param.publicAffairsType = "";
         	param.fieldName="pubdate"
             param.order = "desc";
