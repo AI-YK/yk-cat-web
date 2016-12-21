@@ -80,6 +80,8 @@ public class YeesightApiConstants {
 	public final static String API_MYCOLLECTION_COLLECTIONMYINFORMATION = "/api/myInformation/collectionMyInformation";
 	//相关资讯列表
 	public final static String API_RELATED_RELATEDINFORMATION= "/api/related/relatedInformation";
+	//事件内新闻列表
+	public final static String API_EVENTDATA_GETINFORMATION= "/api/eventData/getInformationList";
 	// 拼接头部信息url
 	public static String getApiUrl(String url) {
 		return new StringBuilder(remoteBaseUrl).append(url).toString();
