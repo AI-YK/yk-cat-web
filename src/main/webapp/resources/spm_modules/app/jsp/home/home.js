@@ -252,7 +252,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var data = rs.data;
 					var emergencyHtml = $("#emergencyTempl").render(data);
 					$("#eventList").html(emergencyHtml);
-					$("#chartGroup").show();
+					$("#chart-date").show();
 					var event = data.eventList[0];
                     if(event){
                     	_this._getEventModel(event.srcId);
@@ -262,7 +262,11 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
         },
         _getEventModel:function(srcId){
+        	
         	var _this = this;
+        	if(!srcId){
+        		return;
+        	}
         	var chartGroup = chartGroupMap[srcId];
         	if(chartGroup){
         		_this._initEventChart(chartGroup);
@@ -287,11 +291,11 @@ define('app/jsp/home/home', function (require, exports, module) {
 			});
         },
         _initEventChart:function(chartGroup){
-        	 _this.chartGroup = chartGroup;
+        	 this.chartGroup = chartGroup;
         	 if($("#chuanbo").hasClass('current')){
-           		 homeChart._initSpreadStateChart("chart_event",chartGroup.timeTrend);  
+           		 homeChart._initSpreadStateChart("chart_event",this.chartGroup.spreadTrend);  
            	 }else{
-           		 homeChart._initTimeTrendChart("chart_event",chartGroup.spreadTrend);
+           		 homeChart._initTimeTrendChart("chart_event",this.chartGroup.timeTrend);
            	 }
         },
         _loadPubTrend:function(modelNo,timeType){
