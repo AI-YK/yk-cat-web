@@ -113,7 +113,7 @@
 <script id="cityTempl" type="text/x-jsrender">
    <li>
 	  <p>
-		 <input type="checkbox" class="checkbox-fie city"  value="{{:code}}" />
+		 <input type="checkbox" class="checkbox-fie city"  value="{{:busCode}}" />
 	  </p>
 	  <p>{{:name}}</p>
    </li>

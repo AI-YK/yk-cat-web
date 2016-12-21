@@ -157,10 +157,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     float: left;
     color: #666;
     text-align: center;
-    font-size: 12px;
 }
-.user-show ul a:hover{
-	background-color: blur;
+.user-show ul a i{
+	    font-size: 18px;
+    margin-right: 4px;
 }
 .user-show ul a li{
 	width: 100%;
@@ -168,7 +168,11 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     line-height: 30px;
     float: left;
     text-align: center;
+    font-size: 14px;
 }
+.heardmain ul li .user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
+.heardmain ul li .user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
+.heardmain ul li .user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
 .erw-show{
 	width: 120px;
     height: 120px;
@@ -222,6 +226,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     line-height: 34px;
     margin-top: 35px;
 }
+
 </style>
 <%
   SessionUtil.initUrlConfig(request);
