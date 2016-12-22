@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,7 +19,7 @@ import com.ai.yk.protal.web.service.search.SearchService;
 
 
 @Controller
-@RequestMapping("/bmap")
+@RequestMapping("/newsbmap")
 public class MapController {
 	
 	private static final Logger log = LoggerFactory.getLogger(MapController.class);
@@ -27,6 +28,19 @@ public class MapController {
 	EventDataService eventDataService;
 	@Autowired
 	SearchService searchService;
+	
+	
+	/**
+	 * 跳转热点发现页面
+	 */
+	@RequestMapping("/toHeat")
+	public String toBmap(Model model){
+		System.out.println("请求到了！============");
+		String str = "/hot/toHeat";
+		System.out.println(str);
+		return str;
+//		return "/webapp/newsbmap/news_heat_n.jsp";
+	}
 	 /**
      * 获得分类数据 
      */
