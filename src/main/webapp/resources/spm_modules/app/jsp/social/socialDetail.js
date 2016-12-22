@@ -7,6 +7,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 	var translatePage = require("app/jsp/translate/translate");
 	var translate = new translatePage();
 	var yiConfig = require("app/util/jsviews-yi");
+	require("jsviews/jsrender.min");
 	var socialDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -139,6 +140,33 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			});
 			$("#showSynchysis").off("click").on("click",function(){
 				_this.showSynchysis();
+			});
+			$(document).on("click","#relatedInformation ul",function(){
+				var _this = $(this);
+            	var uuid = _this.attr("uuid");
+            	var url =_base+"/news/detail/"+uuid;
+            	var keyword = _this.attr("keyword");
+ 	           	if(keyword){
+ 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+ 	           	}
+ 	        	window.open (url, '_blank' ) ;
+   			});
+		},
+		queryRelatedInformation:function(){
+			var keyword = $("#keyword").val();
+			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>抱歉没有查询到相关数据</li></div>';
+			
+			if(!keyword){
+				$("#relatedInformation").html(html);
+				return;
+			}
+			var param ={};
+			param.srcTitle = keyword;
+			$.post(_base+"/news/queryRelatedInformation",param,function(json){
+				if(json&&json.length>0){
+					 html = $("#relatedInformationTempl").render(json);
+				}
+				$("#relatedInformation").html(html);
 			});
 		},
 		_init:function(){
