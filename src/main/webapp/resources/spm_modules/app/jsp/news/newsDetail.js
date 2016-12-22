@@ -171,15 +171,19 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		},
 		queryRelatedInformation:function(){
 			var keyword = $("#keyword").val();
+			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>抱歉没有查询到相关数据</li></div>';
+			
 			if(!keyword){
+				$("#relatedInformation").html(html);
 				return;
 			}
 			var param ={};
 			param.srcTitle = keyword;
 			$.post(_base+"/news/queryRelatedInformation",param,function(json){
-				var relatedInformationTempl = $("#relatedInformationTempl").render(json);
-				$("#relatedInformation").html(relatedInformationTempl);
-				
+				if(json&&json.length>0){
+					 html = $("#relatedInformationTempl").render(json);
+				}
+				$("#relatedInformation").html(html);
 			});
 		},
 		_init:function(){
