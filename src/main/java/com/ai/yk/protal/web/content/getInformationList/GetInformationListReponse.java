@@ -1,6 +1,7 @@
 package com.ai.yk.protal.web.content.getInformationList;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 事件内新闻列表接口出参
@@ -13,17 +14,18 @@ public class GetInformationListReponse implements Serializable {
 	
 	/**记录数   是否必填：Y**/
 	private Integer resultCount;
-	private GetInformationListVo resultList;
+	private List<GetInformationListVo> resultList;
 	public Integer getResultCount() {
 		return resultCount;
 	}
 	public void setResultCount(Integer resultCount) {
 		this.resultCount = resultCount;
 	}
-	public GetInformationListVo getResultList() {
+	public List<GetInformationListVo> getResultList() {
 		return resultList;
 	}
-	public void setResultList(GetInformationListVo resultList) {
+	public void setResultList(List<GetInformationListVo> resultList) {
 		this.resultList = resultList;
 	}
+	
 }

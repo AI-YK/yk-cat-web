@@ -93,96 +93,14 @@
 					</ul>
 				</div> -->
 				<div class="level-news" style="margin-top:100px;">
-						<div class="level-news-title"><p>共有相关数据</p> <p class="blue">3,572,560</p></div>
-						<div class="level-news-list">
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
+						<div class="level-news-title"><p>共有相关数据</p> <p class="blue">0</p></div>
+						<div class="level-news-list" id="news-list">
 							
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
-							<ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">中国网络强国之路还很长，高度重视创新水平</li>
-								<li class="list">
-									<p>
-										<span><a href="#">新浪网</a></span>
-										<span>2016-04-12   11:30</span>
-									</p>
-									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
-									</p>
-								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
-							</ul>
 						</div>
+						<div id="news-message"></div>
 						<div class="biu-paging">
-							<ul>
-								<li><a href="#"><</a></li>
-								<li><a href="#">1</a></li>
-								<li class="active"><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#">4</a></li>
-								<li><a href="#">5</a></li>
-								<li><a href="#">6</a></li>
-								<li><a href="#">7</a></li>
-								<li><a href="#">></a></li>
+							<ul id="news-paging">
+								
 							</ul>
 						</div>
 					</div>
@@ -244,6 +162,23 @@
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>
+    <script id="levelNewsTempl" type="text/x-jsrender">
+ <ul>
+								<li class="title" style="cursor: pointer;" onclick="goTest();">{{:titleSrc}}</li>
+								<li class="list">
+									<p>
+										<span><a href="#">新浪网</a></span>
+										<span>{{:pubdate}}</span>
+									</p>
+									<p class="right">
+										<span>中文</span>
+										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
+										<span>转载：6890</span>
+									</p>
+								</li>
+								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
+	</ul>
+</script>
 	<script type="text/javascript">
     var pager;
     (function () {
