@@ -43,7 +43,7 @@ public class GetInformationListVo implements Serializable {
 	/**主键id   是否必填：Y**/
 	private String uuid;
 	/**媒体类型名   是否必填：Y**/
-	private Integer mediaTname;
+	private String mediaTname;
 	/**是否是首页   是否必填：Y**/
 	private Integer isHome;
 	/**转自于什么媒体   是否必填：Y**/
@@ -172,10 +172,10 @@ public class GetInformationListVo implements Serializable {
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
 	}
-	public Integer getMediaTname() {
+	public String getMediaTname() {
 		return mediaTname;
 	}
-	public void setMediaTname(Integer mediaTname) {
+	public void setMediaTname(String mediaTname) {
 		this.mediaTname = mediaTname;
 	}
 	public Integer getIsHome() {
