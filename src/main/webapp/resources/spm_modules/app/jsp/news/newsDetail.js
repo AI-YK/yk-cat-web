@@ -159,9 +159,10 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 				_this.showSynchysis();
 			});
 			$(document).on("click","#relatedInformation ul",function(){
-            	var uuid = $(this).attr("uuid");
+				var _this = $(this);
+            	var uuid = _this.attr("uuid");
             	var url =_base+"/news/detail/"+uuid;
-            	var keyword = $("#keyword").val();
+            	var keyword = _this.attr("keyword");
  	           	if(keyword){
  	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
  	           	}

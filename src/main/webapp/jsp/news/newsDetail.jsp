@@ -161,7 +161,7 @@
     <script src="${uedroot}/scripts/modular/drag.js"></script>
     <script id="relatedInformationTempl" type="text/x-jsrender">
 {{if #getIndex()<10}}
-         <ul uuid="{{:uuid}}">
+         <ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
 			<li title="{{:titleSrc}}" style="width:270px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleSrc}}</a></li>
 			<li class="date">{{:~getCustomTime(pubdate)}}</li>
 		</ul>
