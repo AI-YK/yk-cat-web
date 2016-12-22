@@ -3,6 +3,7 @@ define('app/jsp/search/select', function (require, exports, module) {
     var $=require('jquery');
 	require("echarts/echarts.min");
 	require("select2/select2.min");
+	require("jquery-autocomplete/jquery.autocomplete.min");
 	var  Base = require('arale-base/1.2.0/base');
     var   AjaxController = require('opt-ajax/1.0.0/index');
     
@@ -97,6 +98,18 @@ define('app/jsp/search/select', function (require, exports, module) {
 					
 				}
         	    
+        	});
+        },
+        autocompleteDic:function(input,type){
+        	var url = _base + "/common/getDic?type="+type;
+        	$('#'+input).autocomplete({
+        	    serviceUrl: url,
+        	    onSelect: function (suggestion) {
+        	        
+        	    },
+        	    formatResult: function (suggestion, currentValue) {
+        	    	
+        	    }
         	});
         }
         
