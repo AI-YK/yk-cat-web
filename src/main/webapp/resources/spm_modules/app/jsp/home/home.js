@@ -98,7 +98,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 	        	window.open (url, '_blank' ) ;
             });
           //社交热点
-            $(document).on("click","#news-div ul",function(){
+            $(document).on("click","#social-div ul",function(){
             	var _this = $(this);
             	var myid = _this.attr("myid");
            	    var keyword = _this.attr("keyword");
