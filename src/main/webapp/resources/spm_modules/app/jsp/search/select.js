@@ -17,7 +17,6 @@ define('app/jsp/search/select', function (require, exports, module) {
         
         	var url = _base +"/common/getChProvince";
         	var param={};
-        	debugger;
         	param.language="zh";
         	param.type="3";
         	ajaxController.ajax({
