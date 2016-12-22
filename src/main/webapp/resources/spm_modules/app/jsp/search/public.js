@@ -89,6 +89,18 @@ define('app/jsp/search/public',function(require, exports, module) {
 					$("#searchBtn2").click(function(){
 						_this._search("social");
 					});
+					
+					$(document).on("click","#news-list ul",function(){
+						var _this = $(this);
+		            	var uuid = _this.attr("uuid");
+		            	var url =_base+"/news/detail/"+uuid;
+		            	var keyword = _this.attr("keyword");
+		 	           	if(keyword){
+		 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+		 	           	}
+		 	        	window.open (url, '_blank' ) ;
+					});
+					
 				},
 				_loadChartData:function(){
 					var param = {};
