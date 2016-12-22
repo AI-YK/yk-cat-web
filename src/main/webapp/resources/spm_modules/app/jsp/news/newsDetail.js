@@ -6,6 +6,8 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 	var ajaxController = new AjaxController();
 	var translatePage = require("app/jsp/translate/translate");
 	var translate = new translatePage();
+	require("jsviews/jsrender.min");
+	require("app/util/jsviews-yi");
 	var newsDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -156,11 +158,35 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			$("#showSynchysis").off("click").on("click",function(){
 				_this.showSynchysis();
 			});
+			$(document).on("click","#relatedInformation ul",function(){
+				var _this = $(this);
+            	var uuid = _this.attr("uuid");
+            	var url =_base+"/news/detail/"+uuid;
+            	var keyword = _this.attr("keyword");
+ 	           	if(keyword){
+ 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+ 	           	}
+ 	        	window.open (url, '_blank' ) ;
+   			});
+		},
+		queryRelatedInformation:function(){
+			var keyword = $("#keyword").val();
+			if(!keyword){
+				return;
+			}
+			var param ={};
+			param.srcTitle = keyword;
+			$.post(_base+"/news/queryRelatedInformation",param,function(json){
+				var relatedInformationTempl = $("#relatedInformationTempl").render(json);
+				$("#relatedInformation").html(relatedInformationTempl);
+				
+			});
 		},
 		_init:function(){
 			this._initAnimation();
 			this._bindEvent();
 			this.showSrcContent();
+			this.queryRelatedInformation();
 		}
 		
 	});

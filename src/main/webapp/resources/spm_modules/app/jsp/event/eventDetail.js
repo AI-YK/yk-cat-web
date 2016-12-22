@@ -8,6 +8,10 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 	var charts = new Charts();
 	var translatePage = require("app/jsp/translate/translate");
 	var translate = new translatePage();
+	require("app/util/jsviews-yi");
+	require("bootstrap-paginator/bootstrap-paginator.min");
+	require("opt-paging/aiopt.pagination");
+	require("twbs-pagination/jquery.twbsPagination.min");
 	var eventDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -51,10 +55,10 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 					        $('.news-detail-information ul #share1 .shareicon').css("color","#ddd");
 				});		
 			 }); 
-			//解决样式冲突
+				 /*解决样式冲突
 			$("#typesetting li").css("font-size","12px");
 			$("#share-show li").css("font-size","12px");
-			 /*var $xiding = $("#xuanf1");
+			var $xiding = $("#xuanf1");
 			    $(window).on("scroll",function(){
 			        var $this = $(this);
 			        var st = $this.scrollTop();
@@ -158,11 +162,39 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 				_this.showSynchysis();
 			});
 		},
+		queryEventInformation:function(){
+			var srcId = $("#srcId").val();
+			if(!srcId){
+				return;
+			}
+			$("#news-paging").runnerPagination({
+				url : _base+"/event/queryEventInformation",
+				method : "POST",
+				dataType : "json",
+				messageId : 'news-message',
+				renderId : 'news-list',
+				data : {"srcId":srcId,"mediaType":"news"},
+				pageSize : 5,
+				visiblePages : 7,
+				first : false,
+				last : false,
+				message : "正在为您查询数据..",
+				callback:function(data){
+					$("#news-num").html(data.count);
+				},
+				render : function(data) {
+					var listHtml = $("#levelNewsTempl").render(data);
+					$("#news-list").html(listHtml);
+				}
+			});
+		}
+		,
 		_init:function(){
 			this._initAnimation();
 			this._bindEvent();
 			this._initChart();
 			this.showSrcContent();
+			this.queryEventInformation();
 		}
 		
 	});
