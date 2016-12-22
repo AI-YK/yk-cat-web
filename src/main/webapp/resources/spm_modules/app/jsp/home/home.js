@@ -401,9 +401,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         	param.language = 'zh';
         	param.pageNo='1';
         	if(mediaType=='news'){
-        		param.pageSize='6';
+        		param.pageSize='11';
         	}else if(mediaType =='social'){
-        		param.pageSize='4';
+        		param.pageSize='7';
         	}
         	ajaxController.ajax({
 				type: "post",
