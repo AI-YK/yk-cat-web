@@ -258,11 +258,11 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
-<ul>
-	<li class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
+<ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}>
+	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
-			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="javascript:void(0);">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>

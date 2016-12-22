@@ -29,7 +29,7 @@
 				<p>
 					<a href="${_base}">首页</a>>
 				</p>
-				<p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${socialDetail.name}</p>
+				<p style="width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${socialDetail.name}</p>
 			</div>
 		</div>
 	</div>
@@ -165,7 +165,7 @@
      <script id="relatedInformationTempl" type="text/x-jsrender">
 {{if #getIndex()<10}}
          <ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
-			<li title="{{:titleSrc}}" style="width:270px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleSrc}}</a></li>
+			<li title="{{:titleSrc}}" style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleSrc}}</a></li>
 			<li class="date">{{:~getCustomTime(pubdate)}}</li>
 		</ul>
 {{/if}}
