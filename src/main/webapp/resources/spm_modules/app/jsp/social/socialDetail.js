@@ -6,6 +6,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 	var ajaxController = new AjaxController();
 	var translatePage = require("app/jsp/translate/translate");
 	var translate = new translatePage();
+	var yiConfig = require("app/util/jsviews-yi");
 	var socialDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -128,23 +129,6 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
         	param.tgtl = tgtl;
         	translate.execTranslate(param,callBack);
 		},
-		/*查询分享收藏数*/
-		_queryCollOrShareCount:function(){
-			/*$.get(_base+"/news/collOrShareCount",{'id':newsDetailsId},function(json){
-				if(json.shareCount!=""){
-					$("#collCount").html(json.shareCount);
-				}
-			});*/
-		},
-		/*收藏操作*/
-		_collectionHandle:function(type){
-			/*$.get(_base+"/news/collectionHandle",{'id':newsDetailsId,"type":type},function(json){
-				if(3==type){
-				//查询是否收藏
-					console.log(JSON.stringify(json));
-				}
-			});*/
-		},
 		_bindEvent:function(){
 			var _this = this;
 			$("#showTranslation").on("click",function(){
@@ -158,6 +142,11 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			});
 		},
 		_init:function(){
+			var sourceType = $("#sourceType");
+			var source = sourceType.html();
+			source=yiConfig.convertSource(source);
+			//转换来源
+			sourceType.html(source);
 			this._initAnimation();
 			this._bindEvent();
 			this.showSrcContent();

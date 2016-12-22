@@ -21,7 +21,7 @@ public class GetInformationListService {
 	/**
 	 * 事件内新闻列表
 	 */
-	public YJResponse<GetInformationListReponse> getDataSourceList(YJRequest<GetInformationListMessage> req) {
+	public YJResponse<GetInformationListReponse> getGetInformationList(YJRequest<GetInformationListMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_EVENTDATA_GETINFORMATION);
 		String result =HttpClientUtil.getYJBaseResponse(url,req);
 		if(!StringUtil.isBlank(result)){

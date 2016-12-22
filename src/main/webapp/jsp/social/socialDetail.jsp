@@ -29,7 +29,7 @@
 				<p>
 					<a href="${_base}">首页</a>>
 				</p>
-				<p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${socialDetail.srcTitle}</p>
+				<p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${socialDetail.name}</p>
 			</div>
 		</div>
 	</div>
@@ -37,19 +37,27 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${socialDetail.srcTitle}</div>
 				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
+					    <li>
+					    <div class="social-user">
+					     <c:if test="${socialDetail.userAvatar!=null}">
+					       <img src="${socialDetail.userAvatar}">
+					     </c:if>
+					     <c:if test="${socialDetail.userAvatar==null}">
+					       <img src="${uedroot}/images/user.jpg">
+					     </c:if>
+					    </div>
+					    </li>
+					    <li>${socialDetail.name}</li>
 						 <li class="zhuanz">
-						<span>${socialDetail.srcSource}</span>
+						 <span id="sourceType">${socialDetail.sourceType}</span>
 						</li>
 						<li>
-						<fmt:parseDate value="${socialDetail.pubdate}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
+						<fmt:parseDate value="${socialDetail.timeStr}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
 						<%-- <li>${socialDetail.languageTName}</li> --%>
-						<li>${socialDetail.countryNameSrc}&nbsp;&nbsp;<img  height="20px" width="30px" src="${uedroot}/images/country/${socialDetail.countryNameEn}@2x.png" /></li>
-						<li class="zhuanz">转载量：<span>${socialDetail.view}</span></li>
 						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
@@ -102,7 +110,7 @@
 						<p class="right"><i class="icon iconfont" id="deag-close">&#xe618;</i></p>
 					</div>
 					<div class="drag-list">
-						<div class="drag-list-bt" id="translateTitle">${socialDetail.enTitle}</div>
+						<div class="drag-list-bt" id="translateTitle"></div>
 					<div class="drag-list-word" id="translateContent">
 					</div>
 					</div>
@@ -178,19 +186,14 @@
 	</div>
 	<!--底部-->
 	<input id="detailsId" type="hidden" value="${socialDetail.id}"/>
-	<input id="srcLanguage" type="hidden" value="${socialDetail.srcLanguage }"/>
+	<input id="srcLanguage" type="hidden" value="${socialDetail.languageCode }"/>
 	<div id="srcContent" style="display: none;">
-	 ${socialDetail.srcContent}
+	 ${socialDetail.text}
 	</div>
 	<div id="srcTitle" style="display: none;">
-	 ${socialDetail.srcTitle}
+	 ${socialDetail.name}
 	</div>
-	<div id="zhContent" style="display: none;">
-	 ${socialDetail.zhContent}
-	</div>
-	<div id="enContent" style="display: none;">
-	 ${socialDetail.enContent}
-	</div>
+	
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>

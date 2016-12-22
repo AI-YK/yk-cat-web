@@ -333,7 +333,7 @@
 					</li>
 				</ul>
 				<div style="position: absolute; top:5px; right: -1030px;">
-					<a title="列表模式" href="${_base }/jsp/news/social.jsp"><img src="${_base }/newsbmap/images/btn1.png"></a>
+					<a title="列表模式" href="${_base }/jsp/news/social.jsp"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
 				</div>
 			</div>
 
