@@ -136,10 +136,10 @@ public final class SessionUtil {
 		Enumeration<?>   enumeration    =   request.getSession().getAttributeNames();   
 		while( enumeration.hasMoreElements())   {   
 		    String sessionName=(String)enumeration.nextElement();   
-		    log.error("sessionName:"+sessionName);  
+		    log.info("sessionName:"+sessionName);  
 		    Object obj = request.getSession().getAttribute(sessionName);
 		    Gson gson = new Gson();
-		    log.error("sessionValue="+gson.toJson(obj));  
+		    log.info("sessionValue="+gson.toJson(obj));  
 		}   
 	}
 	
