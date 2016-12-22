@@ -65,7 +65,7 @@
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId1" type="text" readonly class="select select-small calendar"/>
+									<input id="timeId1" type="text" readonly="readonly" class="select select-small calendar"/>
 								</p>
 							</li>
 						</ul>
