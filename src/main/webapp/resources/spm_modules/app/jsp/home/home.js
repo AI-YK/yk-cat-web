@@ -66,14 +66,24 @@ define('app/jsp/home/home', function (require, exports, module) {
             });
             //新闻媒体预警点击操作
             $(document).on("click","#newsDiv ul",function(){
-           	    var uuid = $(this).attr("uuid");
+            	var _this = $(this);
+           	    var uuid = _this.attr("uuid");
+	           	var keyword = _this.attr("keyword");
 	           	var url =_base+"/news/detail/"+uuid;
+	           	if(keyword){
+	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+	           	}
 	        	window.open (url, '_blank' ) ;
             });
-            //新闻媒体预警点击操作
+            //新闻热点
             $(document).on("click","#news-div ul",function(){
-           	    var uuid = $(this).attr("uuid");
-	           	var url =_base+"/news/detail/"+uuid;
+            	var _this = $(this);
+           	    var uuid = _this.attr("uuid");
+           	    var keyword = _this.attr("keyword");
+           	    var url =_base+"/news/detail/"+uuid;
+        	    if(keyword){
+	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+	           	}
 	        	window.open (url, '_blank' ) ;
             });
             $("#merge ul li a").click(function () {
@@ -471,29 +481,43 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var letters = [];
 					var provinces = []
 					var i = 0;
+					var letterId = "";
 					for (var key in map){
 						letters[i] = {'letter':key};
 						provinces[i] = {'list':map[key]};
 						var pro=map[key];
-						for(var j=0;j<pro.length;j++){
-							if(provinceCodee==pro[j].code){
-								$("#letter_1").addClass("current");
+						if(letterId == ""){
+							for(var j=0;j<pro.length;j++){
+								if(provinceCodee==pro[j].busCode){
+									letterId = "letter_"+key;
+								}
 							}
 						}
 						i = i + 1;
 					}
 					provinceInfo.letters = letters;
 					provinceInfo.provinces = provinces;
-					// alert(JSON.stringify(provinceInfo));
 					var provinceHtml = $("#provinceTempl").render(provinceInfo);
 					$(".choice-left").html(provinceHtml);
+					$(".choice-left-title ul li a").each(function () {
+						var index=$('.choice-left-title ul li a').index(this)+1;
+						var id = $(this).attr("id");
+						if(id==letterId){
+							 $(this).addClass("current");
+							 $("#citi-tab"+index).show();
+						}else{
+							$(this).removeClass("current");
+		                    $("#citi-tab"+index).hide();
+						}
+	                    
+	                });
 					$("#pro_"+provinceCodee).addClass("current");
 					_this._getCity(null);
 				}
 			});
         },
         _getCity:function(parent){
-            if(!parent || parent==undefined){
+            if(!parent || parent==undefined||parent=='' || parent==null){
             	var curr = $(".choice-list .current");
             	if(curr){
             		 var next = curr.next();
@@ -585,6 +609,23 @@ define('app/jsp/home/home', function (require, exports, module) {
       			  dataType:"json",
       			  data:param,
       			  success:function(rs){
+      				  /*var proName=$(".choice-list .current").text();
+      				  var cityName="";
+      				  var ss=0;
+      				  $(".city").each(function(){
+      					  if(this.checked){
+      						  ss+=1;
+      						  if(cityName==""){
+      							  cityName=$(this).next().val();
+      						  }
+      					  }
+      				  });
+      				  if(ss==1){
+      					  $("#choice-city").html(proName+","+cityName);
+      				  }else{
+      					$("#choice-city").html(proName+","+cityName+"等");
+      				  }*/
+      				location.href = _base + '/home/index';
       				$('#index-city').hide();
       				_this._initEventData();
       				_this._loadPubTrend('locSentimentCount', '0');
@@ -621,7 +662,7 @@ define('app/jsp/home/home', function (require, exports, module) {
      			  dataType:"json",
      			  data:param,
      			  success:function(rs){
-     				 $("#border1Id").html("通用数据");
+     				  location.href=_base+"/home/index";
      			  }
      		  });
         }
