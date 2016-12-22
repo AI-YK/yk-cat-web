@@ -6,6 +6,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +27,8 @@ import com.ai.yk.protal.web.service.publicaffairs.PublicaffairsService;
 @Controller
 @RequestMapping("/trend")
 public class PublicOpinionTrendController {
+	
+	private static final Logger log = LoggerFactory.getLogger(PublicOpinionTrendController.class);
 	/**
 	 * 舆情走势和媒体覆盖
 	 */
@@ -90,6 +94,29 @@ public class PublicOpinionTrendController {
 		
 		return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询舆情趋势或媒体覆盖",publicAffairsResponse);
 	}
+	
+	
+	@RequestMapping("/queryMediaCoverageTrend")
+	@ResponseBody
+	public ResponseData<PublicAffairsResponse> queryMediaCoverageTrend(PublicAffairsMessage message){
+		if(message==null){
+			return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_FAILURE,"参数不能为空",null);
+		}
+		YJRequest<PublicAffairsMessage> req = new YJRequest<PublicAffairsMessage>();
+		req.setMessage(message);
+		YJResponse<PublicAffairsResponse> resp = publicaffairsService.queryMediaCoverageList(req);
+		if(resp==null||resp.getHead()==null){
+			  log.error("系统异常，请联系管理员");
+			  return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_FAILURE,"系统异常，请联系管理员",null);
+		 
+		}
+		if("false".equals(resp.getHead().getResult())){
+			  log.error(resp.getHead().getMessage());
+			  return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_FAILURE,resp.getHead().getMessage(),null);
+		}
+		return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询舆情趋势或媒体覆盖",resp.getData());
+	}
+	
 	/**
 	 * 日期处理方法
 	 */

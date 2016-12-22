@@ -1,5 +1,5 @@
 define('app/jsp/search/event',function(require, exports, module) {
-			'use strict';
+			//'use strict';
 			require("jsviews/jsrender.min");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");

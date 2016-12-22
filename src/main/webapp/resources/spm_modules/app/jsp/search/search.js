@@ -1,7 +1,7 @@
 define(
 		'app/jsp/search/search',
 		function(require, exports, module) {
-			'use strict';
+			//'use strict';
 			require("jsviews/jsrender.min");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");
@@ -43,8 +43,7 @@ define(
 					selectUtil.initLanguageSelect(['languageId1']);
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
-					searchChart._initTimeTrendChart('timeChart',null);
-					searchChart._initMediaChart('mediaChart',null);
+					_this._loadChartData();
 
 				},
 				_bindEvent : function() {
@@ -68,7 +67,7 @@ define(
 					//日期控件
 					$(document).on("click",".calendar",function(){
 						var timeId = $(this).attr('id');
-						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy-MM-dd'});
+						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy.MM.dd'});
 					});
 					
 					$("#searchBtn").click(function(){
@@ -81,6 +80,10 @@ define(
 					$("#searchBtn2").click(function(){
 						_this.search("social");
 					});
+				},
+				_loadChartData:function(){
+					var param = {};
+					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};

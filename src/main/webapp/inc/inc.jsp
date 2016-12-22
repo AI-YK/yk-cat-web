@@ -21,4 +21,5 @@
 <link href="${uedroot}/css/modular/headr-footer.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/ext.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/prompt.css" rel="stylesheet" type="text/css"/>
+<link rel="shortcut icon" href="${uedroot}/images/favicon.ico" />
 

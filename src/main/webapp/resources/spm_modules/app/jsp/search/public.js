@@ -1,5 +1,5 @@
 define('app/jsp/search/public',function(require, exports, module) {
-			'use strict';
+			//'use strict';
 			require("jsviews/jsrender.min");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");
@@ -56,8 +56,7 @@ define('app/jsp/search/public',function(require, exports, module) {
     					_this._search("social");
                     }
 					
-					searchChart._initTimeTrendChart('timeChart',null);
-					searchChart._initMediaChart('mediaChart',null);
+					_this._loadChartData();
 
 				},
 				_bindEvent : function() {
@@ -90,6 +89,22 @@ define('app/jsp/search/public',function(require, exports, module) {
 					$("#searchBtn2").click(function(){
 						_this._search("social");
 					});
+					
+					$(document).on("click","#news-list ul",function(){
+						var _this = $(this);
+		            	var uuid = _this.attr("uuid");
+		            	var url =_base+"/news/detail/"+uuid;
+		            	var keyword = _this.attr("keyword");
+		 	           	if(keyword){
+		 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+		 	           	}
+		 	        	window.open (url, '_blank' ) ;
+					});
+					
+				},
+				_loadChartData:function(){
+					var param = {};
+					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};

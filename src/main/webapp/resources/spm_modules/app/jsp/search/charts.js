@@ -3,6 +3,9 @@ define('app/jsp/search/charts', function(require, exports, module) {
 	var $ = require('jquery');
 	require("echarts/echarts.min");
 	var Base = require('arale-base/1.2.0/base');
+	var AjaxController = require('opt-ajax/1.0.0/index');
+	var ajaxController = new AjaxController();
+
 
 	var SearchChart = Base.extend({
 		// 重写父类
@@ -12,8 +15,14 @@ define('app/jsp/search/charts', function(require, exports, module) {
 
 		// 时间态势
 		_initTimeTrendChart : function(container, data) {
-			var categorys = [ '12-10', '12-11', '12-12', '12-13', '12-14' ];
-			var values = [ 5000, 2500, 9000, 7500, 6500 ];
+			//var categorys = [ '12-10', '12-11', '12-12', '12-13', '12-14' ];
+			//var values = [ 5000, 2500, 9000, 7500, 6500 ];
+			var categorys = [];
+			var values = [];
+			for(var i=0;i<data.length;i++){
+				categorys[i] = data[i].date;
+				values[i] = data[i].count;
+			}
 			var option = {
 				calculable : true,
 				backgroundColor : '#f2f2f2',
@@ -54,6 +63,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 						}
 					},
 					axisLabel : {
+						interval:'auto',
 						textStyle : {
 							color : '#666666',
 							fontSize : 12,
@@ -108,9 +118,22 @@ define('app/jsp/search/charts', function(require, exports, module) {
 		},
 		_initMediaChart : function(container, data) {
 			var _this = this;
-			var categorys = [ '华龙网', '人民网', '新华网', '四川新闻网', '中国兰州网' ];
-			var values = [ 7893, 11040, 140, 4940, 4240 ];
-			
+			//var categorys = [ '华龙网', '人民网', '新华网', '四川新闻网', '中国兰州网' ];
+			//var values = [ 7893, 11040, 140, 4940, 4240 ];
+			var categorys = [];
+			var values = [];
+			var len = data.length;
+			if(len>8){
+				len = 8;
+			}
+			for(var i=0;i<len;i++){
+				var mediaName = data[i].mediaName;
+				if(mediaName.length>5){
+					mediaName = mediaName.substring(0,5);
+				}
+				categorys[i] = mediaName;
+				values[i] = data[i].count;
+			}
 			var xData = [];
 			var option = {
 				calculable : true,
@@ -223,7 +246,6 @@ define('app/jsp/search/charts', function(require, exports, module) {
 				} ]
 			};
 			
-			//$("#"+container).hide();
 			var chart = echarts.init(document.getElementById(container));
 			chart.setOption(option);
 			var diff = 0
@@ -256,7 +278,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 				data : categorys
 			});
 			chart.clear();
-			//$("#"+container).show();
+			
 			chart.setOption(option);
 		},
 		formatNum : function(strNum) {
@@ -273,7 +295,24 @@ define('app/jsp/search/charts', function(require, exports, module) {
 				b = b.replace(re, "$1,$2$3");
 			}
 			return a + "" + b + "" + c;
-		}
+		},
+		_queryMediaCoverageTrend:function(param){
+			var _this = this;
+        	var url = "/trend/queryMediaCoverageTrend";
+        	param.modelNo = "listMedia,listNST";
+        	ajaxController.ajax({
+				type: "post",
+				processing: false,
+				message: "保存数据中，请等待...",
+				url: _base + url,
+				data: param,
+				success: function (rs) {
+					var data = rs.data;
+					_this._initTimeTrendChart('timeChart',data.listNST);
+					_this._initMediaChart('mediaChart',data.listMedia);
+				}
+			});
+        }
 
 	});
 

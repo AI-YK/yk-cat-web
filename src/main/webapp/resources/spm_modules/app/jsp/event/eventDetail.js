@@ -138,17 +138,18 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			var param ={};
 			param.models="timeTrend";
 			param.eventId=$("#srcId").val();
+			param.beginDate=$("#beginTime").val();
+			param.endDate=$("#endTime").val();
+			var configParam ={};
+			configParam.backgroundColor='#f2f2f2';
 			$.get(_base+"/common/queryEventModel",param,function(json){
 				if(json.data&&json.data.timeTrend){
-					var configParam ={};
-					configParam.backgroundColor='#f2f2f2';
 					charts._initTimeTrendChart("timeTrend",json.data.timeTrend,configParam);
-					var data = [];
-					
-					charts._initSpreadStateChart("spreadState",data,configParam);
 				}
 			});
+			var data = [];
 			
+			charts._initSpreadStateChart("spreadState",data,configParam);
 		},
 		_bindEvent:function(){
 			var _this = this;
@@ -161,6 +162,16 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			$("#showSynchysis").off("click").on("click",function(){
 				_this.showSynchysis();
 			});
+			$(document).on("click","#news-list ul li",function(){
+				var _this = $(this).parent();
+            	var uuid = _this.attr("uuid");
+            	var url =_base+"/news/detail/"+uuid;
+            	var keyword = _this.attr("keyword");
+ 	           	if(keyword){
+ 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+ 	           	}
+ 	        	window.open (url, '_blank' ) ;
+   			});
 		},
 		queryEventInformation:function(){
 			var srcId = $("#srcId").val();

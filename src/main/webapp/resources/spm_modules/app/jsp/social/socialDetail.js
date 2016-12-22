@@ -178,6 +178,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			this._initAnimation();
 			this._bindEvent();
 			this.showSrcContent();
+			this.queryRelatedInformation();
 		}
 		
 	});
