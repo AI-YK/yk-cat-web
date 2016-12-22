@@ -43,8 +43,7 @@ define(
 					selectUtil.initLanguageSelect(['languageId1']);
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
-					searchChart._initTimeTrendChart('timeChart',null);
-					searchChart._initMediaChart('mediaChart',null);
+					_this._loadChartData();
 
 				},
 				_bindEvent : function() {
@@ -81,6 +80,10 @@ define(
 					$("#searchBtn2").click(function(){
 						_this.search("social");
 					});
+				},
+				_loadChartData:function(){
+					var param = {};
+					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};

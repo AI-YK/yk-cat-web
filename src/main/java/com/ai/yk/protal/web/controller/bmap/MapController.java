@@ -38,6 +38,7 @@ public class MapController {
 	SearchService searchService;
 	@Autowired
 	private MytopicsService mytopicsSercice;
+
 	
 	
 		/**
@@ -101,6 +102,7 @@ public class MapController {
 			searchPublicSafetyResponse = res.getData();
 			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询新闻热点和社交热点",searchPublicSafetyResponse);
 	    }
+<<<<<<< HEAD
     
     @RequestMapping("/queryMyTopicsList")
     @ResponseBody
@@ -123,5 +125,5 @@ public class MapController {
     	return new ResponseData<List<MyTopicsVo>>(ResponseData.AJAX_STATUS_SUCCESS,"查询专题列表成功",yjr.getData().getResults());
     }
     
-    
+
 }

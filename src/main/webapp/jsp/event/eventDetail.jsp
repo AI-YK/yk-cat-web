@@ -29,7 +29,7 @@
 				<p>
 					<a href="${_base}">首页</a>>
 				</p>
-				<p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</p>
+				<p style="width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</p>
 			</div>
 		</div>
 	</div>
@@ -37,7 +37,7 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</div>
+				<div class="news-detail-title" style="width:85%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</div>
 				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
 						<li>${eventDetail.zhCountry}.${eventDetail.zhCity}</li>
@@ -152,7 +152,9 @@
 	</div>
 	<!--底部-->
 	<input id="srcLanguage" type="hidden" value="zh"/>
-	<input id="srcId" type="hidden" value="${eventDetail.srcId}"/>
+	<input id="beginTime" type="hidden" value="${begin} 00:00:00"/>
+	<input id="endTime" type="hidden" value="${end} 23:59:59"/>
+	 <input id="srcId" type="hidden" value="${eventDetail.srcId}"/>
 	<div id="srcTitle" style="display: none;">
 	  ${eventDetail.srcTitle}
 	</div>
