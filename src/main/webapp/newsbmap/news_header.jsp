@@ -27,7 +27,7 @@
 	.header_box .left{float: left;height: 50px; line-height: 50px; padding: 0 20px;}
 	.header_box .left a{ display: block;}
 	/* .header_box .center{float: left;height: 50px; line-height: 50px; position: relative;} */
-	.center{width: 330px; height: 51px; float: left; margin-top: 12px; margin-left: 50px;}
+	.center{width: 330px; height: 51px; float: left; margin-top: 12px; margin-left: 74px;}
 	.header_box .center .title{height: 30px; line-height: 30px; overflow: hidden; display: inline-block; margin: 10px 0; padding-left:10px;border-left: 1px solid #253242;}
 	.header_box .center .title h1{line-height: 30px;  color: #1a7cc9; font-size: 24px; font-family: "microsoft yahei"; font-weight:lighter;display: inline-block;}
 	.header_box .center .header_top_list{height:50px; display: inline-block; overflow: hidden; position: relative; margin-left: 25px;}
@@ -200,18 +200,18 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	margin: 10px;
 }
 .rightt{
-	padding-right:50px;
+	padding-right:92px;
 	float: right;
 }
 .menu_list1 li{
 	    margin-left: 14px;
     display: inline-block;
     float: left;
-    margin-top: 15px;
+    margin-top: 18px;
 }
 .menu_list1 li .current{
 	    border-bottom: 3px solid #3382ee;
-    padding-bottom: 20px;
+    padding-bottom: 17px;
     color: #3382ee;
 }
 
@@ -222,11 +222,11 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 }
 .search{
 	    width: 230px;
-    height: 36px;
-    border: 1px solid #3382ee;
+    height: 30px;
+   
     background: #212532;
     border-radius: 20px;
-    line-height: 34px;
+    line-height: 30px;
     margin-top: 35px;
 }
 
@@ -254,10 +254,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 			<li><a href="${_base}/search/public">舆情动态</a></li>
 					<c:if test="${!noSearch}">
 					 <li class="search">
-					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
+					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
 					</c:if>
-					<li class="iphone-show"><i class="ico_user"></i></li>
+					<li class="iphone-show" style="margin-top:16px"><i class="ico_user"></i></li>
 					<div class="user-show" id="user-show" style="display: none;">
 						<span><i class="icon iconfont">&#xe65a;</i></span>
 						<ul>
