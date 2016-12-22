@@ -44,6 +44,8 @@ public class GetInformationListMessage implements Serializable{
 	private String mediaNameZh;
 	/**是否高亮  是否必填：N**/
 	private Boolean highlight;
+	/**新闻/社交**/
+	private String mediaType;
 	public String getSrcId() {
 		return srcId;
 	}
@@ -139,5 +141,11 @@ public class GetInformationListMessage implements Serializable{
 	}
 	public void setHighlight(Boolean highlight) {
 		this.highlight = highlight;
+	}
+	public String getMediaType() {
+		return mediaType;
+	}
+	public void setMediaType(String mediaType) {
+		this.mediaType = mediaType;
 	}
 }
