@@ -8,7 +8,7 @@
 </head>
 <body style="background: url('${pageContext.request.contextPath}/resources/template/images/login-bg.jpg') no-repeat;">
 <form id="loginJumpFormId" action="${loginUrl}" method="post" style="visibility: hidden;">
-    <input id="loginSuccessUrl" type="hidden" name="url"  value="${redirect}" />
+    <input id="loginSuccessUrl" type="hidden" name="url"/>
 </form>	
 </body>
 <script type="text/javascript">
@@ -16,7 +16,7 @@
     var curr =  window.location.href;
 	var end = curr.indexOf(_base);
 	var href = curr.substring(0,end) + _base+"/user/success";
-	$("#loginSuccessUrl").val(href); */
+	$("#loginSuccessUrl").val(href);
 	$('#loginJumpFormId').submit();
 </script>
 </html>
