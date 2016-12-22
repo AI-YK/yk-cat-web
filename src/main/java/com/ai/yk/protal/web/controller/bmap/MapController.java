@@ -102,7 +102,6 @@ public class MapController {
 			searchPublicSafetyResponse = res.getData();
 			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询新闻热点和社交热点",searchPublicSafetyResponse);
 	    }
-<<<<<<< HEAD
     
     @RequestMapping("/queryMyTopicsList")
     @ResponseBody
