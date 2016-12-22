@@ -37,7 +37,6 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title" style="width:600px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${socialDetail.name}</div>
 				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
 					    <li>
@@ -50,6 +49,7 @@
 					     </c:if>
 					    </div>
 					    </li>
+					    <li>${socialDetail.name}</li>
 						 <li class="zhuanz">
 						 <span id="sourceType">${socialDetail.sourceType}</span>
 						</li>
