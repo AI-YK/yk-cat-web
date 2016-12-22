@@ -68,12 +68,20 @@ define('app/jsp/home/home', function (require, exports, module) {
             $(document).on("click","#newsDiv ul",function(){
            	    var uuid = $(this).attr("uuid");
 	           	var url =_base+"/news/detail/"+uuid;
+	           	var keyword = $(this).attr("keyword");
+	           	if(keyword){
+	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+	           	}
 	        	window.open (url, '_blank' ) ;
             });
-            //新闻媒体预警点击操作
+            //新闻热点
             $(document).on("click","#news-div ul",function(){
            	    var uuid = $(this).attr("uuid");
-	           	var url =_base+"/news/detail/"+uuid;
+           	    var url =_base+"/news/detail/"+uuid;
+           	    var keyword = $(this).attr("keyword");
+	           	if(keyword){
+	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+	           	}
 	        	window.open (url, '_blank' ) ;
             });
             $("#merge ul li a").click(function () {
