@@ -239,7 +239,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -310,7 +310,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -373,7 +373,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -424,7 +424,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);

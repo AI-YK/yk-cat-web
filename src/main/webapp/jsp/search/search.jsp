@@ -73,13 +73,13 @@
 							<li>
 								<p>媒体</p>
 								<p>
-									<input  type="text" class="int-text select-mini">
+									<input id="medialId1" type="text" class="int-text select-mini">
 								</p>
 							</li>
 							<li>
 								<p>排序</p>
 								<p>
-									<select class="select select-mini">
+									<select id="fileId1" class="select select-mini">
 										<option>全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
@@ -144,7 +144,7 @@
 							<li>
 								<p>排序</p>
 								<p>
-									<select class="select select-mini">
+									<select id="fileId2" class="select select-mini">
 										<option>全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
@@ -164,13 +164,13 @@
 							<li>
 									<p>媒体</p>
 									<p>
-										<input  type="text" class="int-text select-mini">
+										<input id="medialId2"  type="text" class="int-text select-mini">
 									</p>
 							</li>
 							<li>
 								<p>情感</p>
 								<p>
-									<select class="select select-mini">
+									<select id="qingId2" class="select select-mini">
 										<option>全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
