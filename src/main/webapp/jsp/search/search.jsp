@@ -75,6 +75,11 @@
 								<p>
 									<input id="medialId1" type="text" class="int-text select-mini">
 								</p>
+								<ul style="display:block;padding-top: 10px;">
+                                <li class="seach_box" style="width: 205px;height: 70px;line-height: 40px;position: absolute;background: #fff;box-shadow: 1px 1px 5px #000;z-index: 999;padding-left: 20px;padding-top: 10px;">
+                                   <input id="websit_search" type="text" style="border: 1px solid #eee;width: 120px;height: 38px;vertical-align: middle;" name="websit_text" maxlength="50" placeholder="如：新浪"><a style="background: #52acfd;color: #fff;border: 1px solid #eee;padding: 11px 10px;line-height: normal;vertical-align: middle;"href="javascript:;">确定</a>
+                                </li>
+                            </ul>
 							</li>
 							<li>
 								<p>排序</p>
