@@ -38,7 +38,7 @@
 </script>
 <script id="socialTempl" type="text/x-jsrender">
   {{if #getIndex()<9}}
-  <ul>
+  <ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
 	 <li class="block {{:~getRankColor(rpsCnt)}}">{{:~getRankIndex(rpsCnt)}}</li>
 	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
 	 <li style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:textZh}}</a></li>
