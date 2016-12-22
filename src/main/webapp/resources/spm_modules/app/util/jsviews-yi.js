@@ -31,9 +31,14 @@ define(function(require, exports, module) {
 		   return '';
 	};
 	/**
-	 * 获取订单后厂状态名称
+	 * 
 	 */
 	$.views.helpers({
+		"getFirstKeyword": function(keywords){
+			if(keywords&&keywords.length>0)
+				return keywords[0];
+			return '';
+		},
 		"conventSource": function(val){
 			return sourceMap.get(val);
 		},

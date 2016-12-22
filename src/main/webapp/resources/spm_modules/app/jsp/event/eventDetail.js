@@ -163,13 +163,17 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			});
 		},
 		queryEventInformation:function(){
+			var srcId = $("#srcId").val();
+			if(!srcId){
+				return;
+			}
 			$("#news-paging").runnerPagination({
 				url : _base+"/event/queryEventInformation",
 				method : "POST",
 				dataType : "json",
 				messageId : 'news-message',
 				renderId : 'news-list',
-				data : {"srcId":"123412","mediaType":"news"},
+				data : {"srcId":srcId,"mediaType":"news"},
 				pageSize : 5,
 				visiblePages : 7,
 				first : false,

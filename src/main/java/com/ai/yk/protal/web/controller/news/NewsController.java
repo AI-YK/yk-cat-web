@@ -1,5 +1,10 @@
 package com.ai.yk.protal.web.controller.news;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,17 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ai.opt.sdk.util.CollectionUtil;
+import com.ai.opt.sdk.util.StringUtil;
+import com.ai.yk.protal.web.constants.Constants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.collection.CollectionMessage;
 import com.ai.yk.protal.web.content.collection.CollectionResponse;
 import com.ai.yk.protal.web.content.queryInformation.QueryInformationMessage;
 import com.ai.yk.protal.web.content.queryInformation.QueryInformationResponse;
+import com.ai.yk.protal.web.content.relatedInformation.RelatedInformationMessage;
+import com.ai.yk.protal.web.content.relatedInformation.RelatedInformationResponse;
+import com.ai.yk.protal.web.content.relatedInformation.RelatedInformationResults;
 import com.ai.yk.protal.web.content.share.ShareCountVo;
 import com.ai.yk.protal.web.content.share.ShareMessage;
 import com.ai.yk.protal.web.controller.BaseController;
 import com.ai.yk.protal.web.service.collection.CollectionService;
 import com.ai.yk.protal.web.service.information.InformationService;
+import com.ai.yk.protal.web.service.relatedInformation.RelatedInformationService;
 import com.ai.yk.protal.web.service.share.ShareService;
 
 /**
@@ -41,6 +53,8 @@ public class NewsController extends BaseController {
 	private ShareService shareService;
 	@Autowired
 	CollectionService collectionService;
+	@Autowired
+	RelatedInformationService relatedInformationService;
 	/**
 	 * 查询收藏分享数
 	 * 
@@ -104,6 +118,30 @@ public class NewsController extends BaseController {
 		if(res!=null&&res.getData()!=null){
 			view.addObject("newsDetails", res.getData());
 		}
+		String keyword = this.getString("keyword", "");
+		if(!StringUtil.isBlank(keyword)){
+			try {
+				keyword = URLDecoder.decode(keyword ,Constants.DEFAULT_ENCODING);
+			} catch (UnsupportedEncodingException e) {
+				LOG.error(e.getMessage(),e);
+			}
+		}
+		view.addObject("keyword", keyword);
 		return view;
+	}
+	/**
+	 * 相关资讯
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/queryRelatedInformation")
+	public List<RelatedInformationResults> queryRelatedInformation(YJRequest<RelatedInformationMessage> req,RelatedInformationMessage msg){
+		req.setMessage(msg);
+		List<RelatedInformationResults> resultList = new ArrayList<>();
+		YJResponse<RelatedInformationResponse> res = relatedInformationService.getRelatedInformation(req);
+		if(res!=null&&res.getData()!=null&&!CollectionUtil.isEmpty(res.getData().getResultList())){
+			resultList =res.getData().getResultList(); 
+		}
+		return resultList;
 	}
 }

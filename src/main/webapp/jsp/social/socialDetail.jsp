@@ -119,45 +119,9 @@
 			<!-- / 拖拽结束-->
 			<div class="levle-right-news">
 				<div class="levle-right-title">相关资讯</div>
-				<div class="sentiment-detail-list-conter-news">
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
-						<ul>
-							<li><a href="#">昨天，结束了亚锦赛征程的朴泰桓</a></li>
-							<li class="date">50分钟前</li>
-						</ul>
+				<div class="sentiment-detail-list-conter-news" id="relatedInformation">
 						
-					</div>
+				</div>
 			</div>
 			<!-- <div class="levle-right-map" id="baiduContainer">
 		
@@ -185,6 +149,7 @@
 		</div>
 	</div>
 	<!--底部-->
+	<input id="keyword" type="hidden" value="${keyword}"/>
 	<input id="detailsId" type="hidden" value="${socialDetail.id}"/>
 	<input id="srcLanguage" type="hidden" value="${socialDetail.languageCode }"/>
 	<div id="srcContent" style="display: none;">
@@ -197,6 +162,14 @@
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>
+     <script id="relatedInformationTempl" type="text/x-jsrender">
+{{if #getIndex()<10}}
+         <ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+			<li title="{{:titleSrc}}" style="width:270px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleSrc}}</a></li>
+			<li class="date">{{:~getCustomTime(pubdate)}}</li>
+		</ul>
+{{/if}}
+</script>
 	<script type="text/javascript">
     var pager;
     (function () {
