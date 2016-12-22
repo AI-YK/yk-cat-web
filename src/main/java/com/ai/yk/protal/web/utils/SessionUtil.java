@@ -110,7 +110,7 @@ public final class SessionUtil {
 	public static List<MyTopicsVo> getTopics(){
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		List<MyTopicsVo> topics = (ArrayList<MyTopicsVo>) request.getSession().getAttribute(Constants.TOPIC_SESSION_KEY);
-		if(topics==null){
+		/*if(topics==null){
 			List<MyTopicsVo> list = new ArrayList<MyTopicsVo>();
 			MyTopicsVo myTopicsVo = new MyTopicsVo();
 			myTopicsVo.setSrcShortTitle("中国航天");
@@ -122,11 +122,11 @@ public final class SessionUtil {
 			list.add(myTopicsVo2);
 			list.add(myTopicsVo3);
 			topics = list;
-		}
+		}*/
 		return topics;
 	}
 	
-	public static void getTopics(List<MyTopicsVo> topics){
+	public static void setTopics(List<MyTopicsVo> topics){
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		request.getSession().setAttribute(Constants.TOPIC_SESSION_KEY, topics);
 	}
