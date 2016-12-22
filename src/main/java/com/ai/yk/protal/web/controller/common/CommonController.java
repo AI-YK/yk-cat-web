@@ -478,11 +478,11 @@ public class CommonController {
 		SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 		MyCustomizedVo myVo = SessionUtil.getUserConfig();
 		if (StringUtil.isBlank(provinceCode)) {
-			provinceCode = myVo.getProvince().getCode();
+			provinceCode = myVo.getProvince().getBusCode();
 		}
 		if (StringUtil.isBlank(cityStr)) {
 			for (AreaVo vo : myVo.getCity()) {
-				cityList.add(vo.getCode());
+				cityList.add(vo.getBusCode());
 			}
 		} else {
 			String[] cityArr = cityStr.split(",");
