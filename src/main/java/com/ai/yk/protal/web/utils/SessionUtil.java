@@ -7,6 +7,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -19,6 +21,7 @@ import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.google.gson.Gson;
 
 public final class SessionUtil {
+	private static final Logger log = LoggerFactory.getLogger(SessionUtil.class);
 	private SessionUtil(){}
 	public static void initUrlConfig(HttpServletRequest request){
 		 if(request!=null){
@@ -52,16 +55,6 @@ public final class SessionUtil {
 	public static MyCustomizedVo getUserConfig(){
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		MyCustomizedVo config = (MyCustomizedVo) request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
-		
-		/**
-		 * var configInterestList = '[
-		 * {"businessId":"1057","id":453,"pid":215,"zhInterest":"自然灾害"},
-		 * {"businessId":"1394","id":454,"pid":215,"zhInterest":"公共卫生事件"}]';
-    var provinceCodee='as_100000_340000';
-    var cityLists='[
-    {"code":"as_100000_340000_340800","id":703,"level":2,"nameEn":"AN QING SHI","nameZh":"安庆市","pid":702,"type":0},
-    {"code":"as_100000_340000_340300","id":705,"level":2,"nameEn":"BANG BU SHI","nameZh":"蚌埠市","pid":704,"type":0}]';
-		 */
 		if(config==null || config.equals("")||(config.getCity()==null && config.getProvince()==null)){
 			config = new MyCustomizedVo();
 			AreaVo city = new AreaVo();
@@ -143,10 +136,10 @@ public final class SessionUtil {
 		Enumeration<?>   enumeration    =   request.getSession().getAttributeNames();   
 		while( enumeration.hasMoreElements())   {   
 		    String sessionName=(String)enumeration.nextElement();   
-		    System.out.println("\nsession item name="+sessionName);  
+		    log.info("sessionName:"+sessionName);  
 		    Object obj = request.getSession().getAttribute(sessionName);
 		    Gson gson = new Gson();
-		    System.out.println("\nsession item value="+gson.toJson(obj));  
+		    log.info("sessionValue="+gson.toJson(obj));  
 		}   
 	}
 	

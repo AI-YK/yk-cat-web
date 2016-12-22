@@ -93,7 +93,7 @@
 					</ul>
 				</div> -->
 				<div class="level-news" style="margin-top:100px;">
-						<div class="level-news-title"><p>共有相关数据</p> <p class="blue">0</p></div>
+						<div class="level-news-title"><p>共有相关数据</p> <p id="news-num" class="blue">0</p></div>
 						<div class="level-news-list" id="news-list">
 							
 						</div>
@@ -163,20 +163,20 @@
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>
     <script id="levelNewsTempl" type="text/x-jsrender">
- <ul>
-								<li class="title" style="cursor: pointer;" onclick="goTest();">{{:titleSrc}}</li>
+ <ul uuid ="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+								<li  class="title" style="cursor: pointer;">{{:titleSrc}}</li>
 								<li class="list">
 									<p>
-										<span><a href="#">新浪网</a></span>
+										<span><a href="javascript:void(0);">{{:mediaNameSrc}}</a></span>
 										<span>{{:pubdate}}</span>
 									</p>
 									<p class="right">
-										<span>中文</span>
-										<span>中国<img src="${uedroot}/images/cn.jpg" /></span>
-										<span>转载：6890</span>
+										<span>{{:languageTname}}</span>
+										<span>{{:countryNameZh}}<img height="20px" width="30px" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
+										<span>转载：{{:transfer}}</span>
 									</p>
 								</li>
-								<li class="news">从乌镇讲起创新，讲到网络创客 、网络医疗、智慧中国梦旅游，讲到乌镇是一个传统文化电动车和网络运用结合，体现了一个互联网大国在世界互联网发展中的责任和贡献。邬贺铨总结自己参加开幕式的感受。</li>
+								<li title="{{:abstractZh}}" class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:abstractZh}}</li>
 	</ul>
 </script>
 	<script type="text/javascript">
@@ -205,10 +205,6 @@
 		        document.body.appendChild(script);
 	}
 	window.onload = loadScript;
-	function goTest(){
-		var url = '${_base}/news/detail/491482147686549663E5C1A43E9293D';
-		window.open (url, '_blank' ) ;
-	}
 </script>
 </body>
 </html>
