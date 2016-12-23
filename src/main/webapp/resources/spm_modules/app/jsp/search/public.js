@@ -101,9 +101,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 		 	        	window.open (url, '_blank' ) ;
 					});
 
-					selectUtil.autocompleteDic('mediaIn1','mediaId1');
-					selectUtil.autocompleteDic('mediaIn2','mediaId2');
-
 					$(document).on("click","#social-list ul",function(){
 		            	var _this = $(this);
 		           	    var myid = _this.attr("myid");
@@ -114,6 +111,10 @@ define('app/jsp/search/public',function(require, exports, module) {
 			           	}
 			        	window.open (url, '_blank' ) ;
 		            });
+					
+					selectUtil.autocompleteDic('mediaIn1','mediaId1');
+					selectUtil.autocompleteDic('mediaIn2','mediaId2');
+
 				},
 				_loadChartData:function(){
 					var param = {};
@@ -273,6 +274,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 						data: param,
 						success: function (rs) {
 							var data = rs.data;
+							for(var i=0;i<data.length;i++){
+								data[i].detailsUrl = _base + "/event/detail/"+ data[i].srcId;
+							}
 							var topicHtml = $("#topicTempl").render(data);
 							$("#topic-list").html(topicHtml);
 							
