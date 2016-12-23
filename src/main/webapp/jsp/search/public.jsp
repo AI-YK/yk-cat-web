@@ -284,8 +284,8 @@
         <img src="{{:userAvatar}}" />
      {{/if}}
    </div>
-   <ul>
-	 <li class="title">{{:name}}</li>
+   <ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+	 <li class="title" style="cursor:pointer;">{{:name}}</li>
 	 <li class="list">
 		<p>
 			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>
