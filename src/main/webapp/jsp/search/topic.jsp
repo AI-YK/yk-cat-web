@@ -8,7 +8,9 @@
 <script id="topicTempl" type="text/x-jsrender">
    <ul class="bordernone">
 	   <li class="block {{if #index>2}}ash{{else}}orange{{/if}}">{{:#index+1}}</li>
-	   <li style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;"><a href="#" >{{:zhTitle}}</a></li>
+	   <li style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">
+             <a href="#" >{{:zhTitle}}</a>
+       </li>
 	   <li class="date">{{:heatValue}}</li>
    </ul>
 </script>

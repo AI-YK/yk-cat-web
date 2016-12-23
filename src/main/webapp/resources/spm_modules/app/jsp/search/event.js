@@ -51,7 +51,14 @@ define('app/jsp/search/event',function(require, exports, module) {
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
-					
+					var provincecityCode = $("#province").val();
+					if(provincecityCode!=""){
+						param.provinceCode = provincecityCode;
+					}
+					var idList = $("#cities").val();
+					if(idList!=""){
+						param.cityCode = idList;
+					}
 					return param;
 				},
 				search : function() {
@@ -85,6 +92,7 @@ define('app/jsp/search/event',function(require, exports, module) {
 		        	var param = {};
 		        	param.pageSize= 10;
 		        	param.pageNo = 1;
+		        	param.isTimeSort='0'
 		        	ajaxController.ajax({
 						type: "post",
 						processing: false,
