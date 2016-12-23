@@ -37,7 +37,7 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title" style="width:85%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</div>
+				<div class="news-detail-title" >${eventDetail.srcTitle}</div>
 				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
 						<li>${eventDetail.zhCountry}.${eventDetail.zhCity}</li>
@@ -127,7 +127,7 @@
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
 					<p>传播态势</p>
-					<p class="right">选择时间：${begin} 至 ${end}</p>
+					<p class="right">时间：${begin} 至 ${end}</p>
 				</div>
 				<!--图表嵌套区域-->
 				<div class="levle-right-chart-list" id="spreadState">
