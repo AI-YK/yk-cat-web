@@ -72,7 +72,7 @@
                    <img src="{{:userAvatar}}" />
                 {{/if}}
 			</div>
-			<ul>
+			<ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
 				  <li>
 					 <p class="word">
 						<a href="#">{{:name}}</a>

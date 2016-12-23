@@ -152,7 +152,9 @@
 	</div>
 	<!--底部-->
 	<input id="srcLanguage" type="hidden" value="zh"/>
-	<input id="srcId" type="hidden" value="${eventDetail.srcId}"/>
+	<input id="beginTime" type="hidden" value="${begin} 00:00:00"/>
+	<input id="endTime" type="hidden" value="${end} 23:59:59"/>
+	 <input id="srcId" type="hidden" value="${eventDetail.srcId}"/>
 	<div id="srcTitle" style="display: none;">
 	  ${eventDetail.srcTitle}
 	</div>

@@ -64,13 +64,24 @@ define('app/jsp/home/home', function (require, exports, module) {
 	           	var url =_base+"/event/detail/"+srcId;
 	        	window.open (url, '_blank' ) ;
             });
-            //新闻媒体预警点击操作
+            //新闻媒体预警点
             $(document).on("click","#newsDiv ul",function(){
             	var _this = $(this);
            	    var uuid = _this.attr("uuid");
 	           	var keyword = _this.attr("keyword");
 	           	var url =_base+"/news/detail/"+uuid;
 	           	if(keyword){
+	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+	           	}
+	        	window.open (url, '_blank' ) ;
+            });
+          //社交媒体预警
+            $(document).on("click","#socialDiv ul",function(){
+            	var _this = $(this);
+           	    var myid = _this.attr("myid");
+           	    var keyword = _this.attr("keyword");
+           	    var url =_base+"/social/detail/"+myid;
+        	    if(keyword){
 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
 	           	}
 	        	window.open (url, '_blank' ) ;
@@ -86,6 +97,18 @@ define('app/jsp/home/home', function (require, exports, module) {
 	           	}
 	        	window.open (url, '_blank' ) ;
             });
+          //社交热点
+            $(document).on("click","#social-div ul",function(){
+            	var _this = $(this);
+            	var myid = _this.attr("myid");
+           	    var keyword = _this.attr("keyword");
+           	    var url =_base+"/social/detail/"+myid;
+        	    if(keyword){
+	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+	           	}
+	        	window.open (url, '_blank' ) ;
+            });
+            
             $("#merge ul li a").click(function () {
                 $("#merge ul li a").each(function () {
                     $(this).removeClass("current");
@@ -94,12 +117,12 @@ define('app/jsp/home/home', function (require, exports, module) {
                 var index = $('#merge ul li a').index(this);
                 if(index==0){
                  	if(_this.chartGroup){
-                 		homeChart._initSpreadStateChart("chart_event",_this.chartGroup.spreadTrend);
+                 		homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
                  	}
                 }
                 if(index==1){
                  	if(_this.chartGroup){
-                 	  homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
+                 		homeChart._initSpreadStateChart("chart_event",_this.chartGroup.spreadTrend);
                  	}
                 }
             });
@@ -309,7 +332,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	 this.chartGroup = chartGroup;
         	 if($("#chuanbo").hasClass('current')){
            		 homeChart._initSpreadStateChart("chart_event",this.chartGroup.spreadTrend);  
-           	 }else{
+           	 }else if($("#event").hasClass('current')){
            		 homeChart._initTimeTrendChart("chart_event",this.chartGroup.timeTrend);
            	 }
         },
@@ -401,9 +424,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         	param.language = 'zh';
         	param.pageNo='1';
         	if(mediaType=='news'){
-        		param.pageSize='6';
+        		param.pageSize='11';
         	}else if(mediaType =='social'){
-        		param.pageSize='4';
+        		param.pageSize='7';
         	}
         	ajaxController.ajax({
 				type: "post",

@@ -1,4 +1,7 @@
 package com.ai.yk.protal.web.content.searchPublicSafety;
+
+import java.util.List;
+
 /**
  * 社交VO
  * social
@@ -86,6 +89,11 @@ public class SearchPublicSafetySocialVo {
 	private String sourceType;
 	/**标签 		是否必填：Y**/
 	private String tags;
+	/**关键词英文**/
+	private List<String> keywordsEn;
+	/**关键词中文**/
+	private List<String> keywordsZh;
+	
 	public String getProvinceId() {
 		return provinceId;
 	}
@@ -307,5 +315,17 @@ public class SearchPublicSafetySocialVo {
 	}
 	public void setTags(String tags) {
 		this.tags = tags;
+	}
+	public List<String> getKeywordsEn() {
+		return keywordsEn;
+	}
+	public void setKeywordsEn(List<String> keywordsEn) {
+		this.keywordsEn = keywordsEn;
+	}
+	public List<String> getKeywordsZh() {
+		return keywordsZh;
+	}
+	public void setKeywordsZh(List<String> keywordsZh) {
+		this.keywordsZh = keywordsZh;
 	}
 }

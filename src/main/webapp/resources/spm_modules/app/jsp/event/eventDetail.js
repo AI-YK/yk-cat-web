@@ -138,6 +138,8 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			var param ={};
 			param.models="timeTrend";
 			param.eventId=$("#srcId").val();
+			param.beginDate=$("#beginTime").val();
+			param.endDate=$("#endTime").val();
 			var configParam ={};
 			configParam.backgroundColor='#f2f2f2';
 			$.get(_base+"/common/queryEventModel",param,function(json){

@@ -707,7 +707,7 @@ function smilNewsData(){
 //	var ajax_url='news/getNewsHeatPointListInteface';//小框
 //	var ajax_url=path + '/getNewsHeatPointListInteface';//小框
 //	var ajax_url= path + '/newsbmap/json/NewsHeatPointListInteface.json';//小框
-	var ajax_url= path + '/bmap/getTopicListIntefaceData';//小框
+	var ajax_url= path + '/newsbmap/getTopicListIntefaceData';//小框
 //	alert(ajax_url);
 	var count=300;
 	/*if(fg=='1' && '1'==fg_1){

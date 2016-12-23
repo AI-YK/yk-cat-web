@@ -95,6 +95,7 @@ public class CommonController {
 	private  EventDataService eventDataService;
 	
 	@Autowired
+
 	private SearchService searchService;
 	
 	@Autowired
@@ -491,11 +492,11 @@ public class CommonController {
 		SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 		MyCustomizedVo myVo = SessionUtil.getUserConfig();
 		if (StringUtil.isBlank(provinceCode)) {
-			provinceCode = myVo.getProvince().getBusCode();
+			provinceCode = myVo.getProvince().getCode();
 		}
 		if (StringUtil.isBlank(cityStr)) {
 			for (AreaVo vo : myVo.getCity()) {
-				cityList.add(vo.getBusCode());
+				cityList.add(vo.getCode());
 			}
 		} else {
 			String[] cityArr = cityStr.split(",");
@@ -547,7 +548,8 @@ public class CommonController {
 		if (resp != null) {
 			SessionUtil.setUserConfig(resp.getData());
 		} else {
-			SessionUtil.setUserConfig(mock());
+//			SessionUtil.setUserConfig(mock());
+			return new ResponseData<MyCustomizedVo>(ResponseData.AJAX_STATUS_FAILURE,"查询配置信息失败",null);
 		}
 		//将个人专题数据放入session
 		MyTopicsMessage myTopicsMessage=new MyTopicsMessage();

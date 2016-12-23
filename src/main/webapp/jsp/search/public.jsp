@@ -315,7 +315,7 @@
 	   <li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:text}}</li>
 	</ul>
 </div>
-</script>
+</script> 
 <script type="text/javascript">
 	var pager;
 	(function() {

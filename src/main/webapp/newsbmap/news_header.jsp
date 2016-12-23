@@ -249,7 +249,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 				<a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a>
 			</li>
 			<li>
-				<a class="current" href="${_base}/newsbmap/news_heat_n.jsp">热点发现</a>	
+				<a class="current" href="${_base}/newsbmap/toHeat">热点发现</a>	
 			</li>
 			<li><a href="${_base}/search/public">舆情动态</a></li>
 					<c:if test="${!noSearch}">

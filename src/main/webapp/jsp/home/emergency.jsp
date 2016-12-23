@@ -15,8 +15,8 @@
                 <div>
 				    <div class="merge" id="merge">
 						 <ul>
-							  <li><a  id="chuanbo" class="current">传播态势</a></li>
-							  <li><a>事件态势</a></li>
+							  <li><a id="event" class="current">事件态势</a></li>
+							  <li><a  id="chuanbo" >传播态势</a></li>
 						 </ul>
 					</div>
 					<div>
@@ -32,7 +32,7 @@
 <script id="emergencyTempl" type="text/x-jsrender">
   {{for eventList}}
      <li id="{{:srcId}}" class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
-		 <p style="width:300px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
+		 <p style="width:95%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
 	     <p>
 			<span>{{:zhCountry}}.{{:zhCity}}</span> <span class="eventSpan">{{:dayTime}}</span>
 		 </p> 
