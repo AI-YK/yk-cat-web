@@ -45,6 +45,7 @@ define(
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
 					_this._loadChartData();
+					_this._getsocialDic();
 
 				},
 				_bindEvent : function() {
@@ -87,14 +88,36 @@ define(
 						_this.search("social");
 					});
 					
+					$(document).on("click","#news-list ul",function(){
+						var _this = $(this);
+		            	var uuid = _this.attr("uuid");
+		            	var url =_base+"/news/detail/"+uuid;
+		            	var keyword = _this.attr("keyword");
+		 	           	if(keyword){
+		 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+		 	           	}
+		 	        	window.open (url, '_blank' ) ;
+					});
+
+					$(document).on("click","#social-list ul",function(){
+		            	var _this = $(this);
+		           	    var myid = _this.attr("myid");
+		           	    var keyword = _this.attr("keyword");
+		           	    var url =_base+"/social/detail/"+myid;
+		        	    if(keyword){
+			           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+			           	}
+			        	window.open (url, '_blank' ) ;
+		            });
+					
 					selectUtil.autocompleteDic('mediaIn1','mediaId1');
 					selectUtil.autocompleteDic('mediaIn2','mediaId2');
 
 				},
-				_searchNews(){
+				_searchNews:function(){
 					this.search("news");
 				},
-				_searchSocial(){
+				_searchSocial:function(){
 					this.search("social");
 				},
 				_loadChartData:function(){
@@ -196,9 +219,9 @@ define(
 						callback:function(data){
 							//alert(JSON.stringify(data));
 							if ('news' == mediaType) {
-								$("#news-num").html(data.count);
+								$("#news-num").html(_this._fdigit(data.count));
 							}else if ('social' == mediaType) {
-								$("#social-num").html(data.count);
+								$("#social-num").html(_this._fdigit(data.count));
 							}
 						},
 						render : function(data) {
@@ -228,12 +251,40 @@ define(
 						data: param,
 						success: function (rs) {
 							var data = rs.data;
+							for(var i=0;i<data.length;i++){
+								data[i].detailsUrl = _base + "/event/detail/"+ data[i].srcId;
+							}
 							var topicHtml = $("#topicTempl").render(data);
 							$("#topic-list").html(topicHtml);
 							
 						}
 					});
-		        }
+		        },
+		        _getsocialDic:function(){
+		        	var url="/common/getDic";
+		        	var param={};
+		        	ajaxController.ajax({
+		        		type:"post",
+		        		processing:false,
+		        		message:"保存数据中，请等待...",
+		        		url:_base+url,
+		        		data:param,
+		        		success:function(rs){
+		        			var data=rs.data;
+		        			var dic=$("#typeTempl").render({"Dic":data});
+		        			$("#news-type-mainId").html(dic);
+		        		}
+		        	});
+		        },
+		        _fdigit:function (s) {  
+				    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";  
+				    var l = s.split(".")[0].split("").reverse();  
+				    var t = "";  
+				    for (i = 0; i < l.length; i++) {  
+				        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");  
+				    }  
+				    return t.split("").reverse();  
+				}
 			});
 
 			module.exports = searchPage;
