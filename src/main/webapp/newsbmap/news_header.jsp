@@ -460,8 +460,24 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
  		if(_keyword!=''){
  			location.href ="${_base}/search/view?_keyword="+encodeURI(encodeURI(_keyword));
  		}
- 		
  	 });
+	/* $('#_keyword').keyup(function(e){
+		var key = e.which;
+		if(key == 13){
+			if(_keyword!=''){
+				location.href ="${_base}/search/view?_keyword="+encodeURI(encodeURI(_keyword));
+			}
+		}
+	}); */
+	$('#_keyword').keyup(function(e) {
+		debugger;
+		if (e.keyCode == 13) {
+			var k = $.trim($('#_keyword').val());
+			if (k) {
+				window.location.href = '${_base}/search/view?_keyword=' +encodeURI(encodeURI(k));
+			}
+		}
+	});
 </script>
 </body>
 </html>
