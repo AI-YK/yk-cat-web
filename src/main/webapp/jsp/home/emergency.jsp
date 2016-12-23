@@ -15,8 +15,8 @@
                 <div>
 				    <div class="merge" id="merge">
 						 <ul>
-							  <li><a  id="chuanbo" class="current">传播态势</a></li>
-							  <li><a>事件态势</a></li>
+							  <li><a id="event" class="current">事件态势</a></li>
+							  <li><a  id="chuanbo" >传播态势</a></li>
 						 </ul>
 					</div>
 					<div>
