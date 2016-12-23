@@ -113,10 +113,10 @@ define(
 					selectUtil.autocompleteDic('mediaIn2','mediaId2');
 
 				},
-				_searchNews(){
+				_searchNews:function(){
 					this.search("news");
 				},
-				_searchSocial(){
+				_searchSocial:function(){
 					this.search("social");
 				},
 				_loadChartData:function(){
