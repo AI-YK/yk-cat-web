@@ -9,6 +9,8 @@ public final class Constants {
 	public final static String CONFIG_SESSION_KEY = "config";
 	
 	public final static String TOPIC_SESSION_KEY = "topic";
-	//专题url key
+	//
 	public final static String YEESIGHT_URL_KEY = "yeesightUrls";
+	//404
+	public final static String PAGE_404 = "404";
 }

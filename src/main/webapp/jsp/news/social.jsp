@@ -16,6 +16,7 @@
 %>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 <link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="${spmRes }/app/jsp/social/social.js"></script>
 </head>
 <body>
 	<!--面包屑导航-->
@@ -38,8 +39,8 @@
 	</div>
 	<!---->
 	<div class="news-type-big">
-		<div class="news-type-main">
-			<ul>
+		<div id="news-type-mainId" class="news-type-main">
+			<%-- <ul>
 				<li><a href="#" class="current">全部</a></li>
 				<li><a href="#">政治治理</a></li>
 				<li><a href="#">官员腐败</a></li>
@@ -47,7 +48,7 @@
 				<li><a href="#">司法公正</a></li>
 				<li><a href="#">伦理道德</a></li>
 				<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
-			</ul>
+			</ul> --%>
 		</div>
 	</div>
 	<!--二级框架-->
@@ -277,6 +278,15 @@
 	  <li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:text}}</li>
 	</ul>
 </div>
+</script>
+<script id="typeTempl" type="text/x-jsrender">
+<ul>
+	<li><a href="#" class="current">全部</a></li>
+	{{for Dic}}
+	<li><a href="#">{{:dicName }}</a></li>
+	{{/for}}
+	<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+</ul>
 </script>
 <script type="text/javascript">
     var pager;

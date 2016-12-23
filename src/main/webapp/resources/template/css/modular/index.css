@@ -23,7 +23,7 @@
 .merge ul li{float:left;}
 .merge ul li a{width:116px;height:45px;background:#282d40;text-align:center;line-height:45px;float:left;border-radius:10px 10px 0 0;color:#616b91;font-size:16px;cursor:pointer;}
 .merge ul li .current{width:116px;height:45px;background:#454d6b;text-align:center;line-height:45px;float:left;border-radius:10px 10px 0 0;color:#cfd7f4;font-size:16px}
-.merge-list{width:100%;float:left;border:1px solid #454d6b;height:370px;padding:10px;}
+.merge-list{width:100%;float:left;border:1px solid #454d6b;height:370px;padding:35px 20px;}
 /**舆情新闻**/
 .journalism-sentiment{width:100%;float:left;min-width:1200px;padding:20px 0 0 0;}
 .sentiment-main{width:1200px;margin:0 auto;}

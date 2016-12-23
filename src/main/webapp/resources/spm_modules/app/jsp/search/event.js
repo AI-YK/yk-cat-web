@@ -78,7 +78,7 @@ define('app/jsp/search/event',function(require, exports, module) {
 						last : false,
 						message : "正在为您查询数据..",
 						callback:function(data){
-							$("#news-num").html(data.count);
+							$("#news-num").html(_this._fdigit(data.count));
 						},
 						render : function(data) {
 							var listHtml = $("#levelNewsTempl").render(data);
@@ -101,12 +101,24 @@ define('app/jsp/search/event',function(require, exports, module) {
 						data: param,
 						success: function (rs) {
 							var data = rs.data;
+							for(var i=0;i<data.length;i++){
+								data[i].detailsUrl = _base + "/event/detail/"+ data[i].srcId;
+							}
 							var topicHtml = $("#topicTempl").render(data);
 							$("#topic-list").html(topicHtml);
 							
 						}
 					});
-		        }
+		        },
+		        _fdigit:function (s) {  
+				    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";  
+				    var l = s.split(".")[0].split("").reverse();  
+				    var t = "";  
+				    for (i = 0; i < l.length; i++) {  
+				        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");  
+				    }  
+				    return t.split("").reverse();  
+				}  
 			});
 
 			module.exports = eventPage;

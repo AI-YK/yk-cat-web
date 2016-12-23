@@ -101,9 +101,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 		 	        	window.open (url, '_blank' ) ;
 					});
 
-					selectUtil.autocompleteDic('mediaIn1','mediaId1');
-					selectUtil.autocompleteDic('mediaIn2','mediaId2');
-
 					$(document).on("click","#social-list ul",function(){
 		            	var _this = $(this);
 		           	    var myid = _this.attr("myid");
@@ -114,6 +111,10 @@ define('app/jsp/search/public',function(require, exports, module) {
 			           	}
 			        	window.open (url, '_blank' ) ;
 		            });
+					
+					selectUtil.autocompleteDic('mediaIn1','mediaId1');
+					selectUtil.autocompleteDic('mediaIn2','mediaId2');
+
 				},
 				_loadChartData:function(){
 					var param = {};
@@ -229,9 +230,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 						message : "正在为您查询数据..",
 						callback:function(data){
 							if ('news' == mediaType) {
-								$("#news-num").html(data.count);
+								$("#news-num").html(_this._fdigit(data.count));
 							}else if ('social' == mediaType) {
-								$("#social-num").html(data.count);
+								$("#social-num").html(_this._fdigit(data.count));
 							}
 						},
 						render : function(data) {
@@ -273,12 +274,24 @@ define('app/jsp/search/public',function(require, exports, module) {
 						data: param,
 						success: function (rs) {
 							var data = rs.data;
+							for(var i=0;i<data.length;i++){
+								data[i].detailsUrl = _base + "/event/detail/"+ data[i].srcId;
+							}
 							var topicHtml = $("#topicTempl").render(data);
 							$("#topic-list").html(topicHtml);
 							
 						}
 					});
-		        }
+		        },
+		        _fdigit:function (s) {  
+				    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";  
+				    var l = s.split(".")[0].split("").reverse();  
+				    var t = "";  
+				    for (i = 0; i < l.length; i++) {  
+				        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");  
+				    }  
+				    return t.split("").reverse();  
+				}  
 			});
 
 			module.exports = publicPage;

@@ -44,7 +44,7 @@
 .level-bj{background:#ebeef0;}
 /**面包屑**/
 .breadcrumb{width:100%;float:left;}
-.breadcrumb p{float:left;line-height:55px;color:#666;font-size:14px;margin-right:6px;position:relative;}
+.breadcrumb p{float:left;line-height:40px;color:#666;font-size:14px;margin-right:6px;position:relative;}
 .breadcrumb p a{font-size:14px;color:#999}
 .breadcrumb p i{color:#428bef}
 .breadcrumb p .suos{position:absolute;right:10px;top:0;color:#666}
@@ -216,3 +216,9 @@
 .news-type-main ul li a{color:#666;height:29px;padding:0 15px;float:left}
 .news-type-main ul li a:hover{background:#3382ee;color:#fff;height:29px;border-radius:15px;}
 .news-type-main ul li .current{background:#3382ee;color:#fff;height:29px;border-radius:15px;}
+/**404**/
+.error-four{width:100%;height: calc(100% - 60px);background:url(../../images/404.jpg) no-repeat;background-size:100% 100%;min-width:1200px;}
+.error-main{width:330px;position:absolute;left:50%;top:50%;margin-left:-165px;margin-top:-130px;}
+.error-main ul{width:100%;float:left}
+.error-main ul li{text-align:center;margin-bottom:42px;font-size:14px;color:#fff;width:100%;float:left;text-align:center;}
+.error-main ul li p{display: inline-block;margin-right:20px;}

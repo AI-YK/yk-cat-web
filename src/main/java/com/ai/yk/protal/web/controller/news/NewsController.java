@@ -115,9 +115,11 @@ public class NewsController extends BaseController {
 		YJResponse<QueryInformationResponse> res = informationService.queryNewsDetail(req);
 		
 		ModelAndView view = new ModelAndView(NEWS_DETAILS_VIEW);
-		if(res!=null&&res.getData()!=null){
-			view.addObject("newsDetails", res.getData());
+		if(res==null||res.getData()==null||StringUtil.isBlank(res.getData().getSrcTitle())){
+			view.setViewName(Constants.PAGE_404);
+			return view;
 		}
+		view.addObject("newsDetails", res.getData());
 		String keyword = this.getString("keyword", "");
 		if(!StringUtil.isBlank(keyword)){
 			try {

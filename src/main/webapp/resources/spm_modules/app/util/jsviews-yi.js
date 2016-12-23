@@ -23,71 +23,71 @@ define(function(require, exports, module) {
 	sourceMap.put("weibo", "微博");
 	sourceMap.put("twitter", "twitter");
 	sourceMap.put("facebook", "facebook");
-	exports.convertSource = function(source){
+	exports.convertSource = function(source) {
 		var source = sourceMap.get(source);
-		if(source)
+		if (source)
 			return source
 		else
-		   return '';
+			return '';
 	};
 	/**
 	 * 
 	 */
 	$.views.helpers({
-		"getFirstKeyword": function(keywords){
-			if(keywords&&keywords.length>0)
+		"getFirstKeyword" : function(keywords) {
+			if (keywords && keywords.length > 0)
 				return keywords[0];
 			return '';
 		},
-		"conventSource": function(val){
+		"conventSource" : function(val) {
 			return sourceMap.get(val);
 		},
-		
+
 		/* 自定义展示时间 */
 		"getCustomTime" : function(time) {
-			//time ='2016-12-10 14:00:00';
-			//debugger;
+			// time ='2016-12-10 14:00:00';
+			// debugger;
 			try {
 				var date;
-				if(!isNaN(time)){//数字long类型
+				if (!isNaN(time)) {// 数字long类型
 					date = new Date(time);
-				}else{
-					//处理传入时间字符串
+				} else {
+					// 处理传入时间字符串
 					var str = time;
 					str = str.replace(/-/g, "/");
 					date = new Date(str);
 				}
-			
+
 				var now = new Date();
-				//时间差
-				var diffValue = (now.getTime())-(date.getTime());
-				diffValue = diffValue/1000;
+				// 时间差
+				var diffValue = (now.getTime()) - (date.getTime());
+				diffValue = diffValue / 1000;
 				var minute = 1 * 60;
 				var hour = minute * 60;
 				var day = hour * 24;
-				//var halfamonth = day * 15;
-				//var month = day * 30;
-				//var monthC = diffValue / month;
-				//var weekC = diffValue / (7 *day);
+				// var halfamonth = day * 15;
+				// var month = day * 30;
+				// var monthC = diffValue / month;
+				// var weekC = diffValue / (7 *day);
 				var dayC = diffValue / day;
 				var hourC = diffValue / hour;
 				var minC = diffValue / minute;
-				/*if (monthC >= 1) {
-					result = "发表于" + parseInt(monthC) + "个月前";
-				} else if (weekC >= 1) {
-					result = "发表于" + parseInt(weekC) + "周前";
-				} */
-				
-				if (dayC >=1 && dayC < 2) {
-					result = parseInt(dayC)+ "天前";
-				} else if (hourC >= 1 && hourC<24) {
+				/*
+				 * if (monthC >= 1) { result = "发表于" + parseInt(monthC) + "个月前"; }
+				 * else if (weekC >= 1) { result = "发表于" + parseInt(weekC) +
+				 * "周前"; }
+				 */
+
+				if (dayC >= 1 && dayC < 2) {
+					result = parseInt(dayC) + "天前";
+				} else if (hourC >= 1 && hourC < 24) {
 					result = parseInt(hourC) + "小时前";
-				} else if (minC >= 1 && minC<60) {
-					result = parseInt(minC)+ "分钟前";
-				} else if (diffValue>0 && diffValue < 60) {
+				} else if (minC >= 1 && minC < 60) {
+					result = parseInt(minC) + "分钟前";
+				} else if (diffValue > 0 && diffValue < 60) {
 					result = "刚刚";
-				}else{
-					result=date.format("yyyy-MM-dd")
+				} else {
+					result = date.format("yyyy-MM-dd")
 				}
 				return result;
 			} catch (e) {
@@ -120,6 +120,16 @@ define(function(require, exports, module) {
 		},
 		"getSocialIcon" : function(social) {
 			return socialIconMap.get(social);
+		},
+		"fdigit" : function(s) {
+			s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";
+			var l = s.split(".")[0].split("").reverse();
+			var t = "";
+			for (i = 0; i < l.length; i++) {
+				t += l[i]
+						+ ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
+			}
+			return t.split("").reverse();
 		}
 	});
 
