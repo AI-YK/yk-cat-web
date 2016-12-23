@@ -103,7 +103,7 @@ public class SearchController {
 			model.addAttribute("user", clientUser);
 		}
 		MyCustomizedVo config = SessionUtil.getUserConfig();
-    	if(config!=null){
+    	if(config!=null){  
     		initConfig(model, config);
     	}
 		return "/search/event";
