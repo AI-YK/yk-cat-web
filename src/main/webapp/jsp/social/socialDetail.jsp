@@ -41,13 +41,15 @@
 					<ul>
 					    <li>
 					    <div class="social-user">
-					     <c:if test="${socialDetail.userAvatar!=null}">
-					       <img src="${socialDetail.userAvatar}">
-					     </c:if>
-					     <c:if test="${socialDetail.userAvatar==null}">
-					       <img src="${uedroot}/images/user.jpg">
-					     </c:if>
-					    </div>
+					     <c:choose>
+					     <c:when test="${socialDetail.userAvatar!=null && socialDetail.userAvatar!=''}">
+					     <img src="${socialDetail.userAvatar}">
+					     </c:when>
+					     <c:otherwise>
+					     <img src="${uedroot}/images/user.jpg">
+					     </c:otherwise>
+					     </c:choose>
+					     </div>
 					    </li>
 					    <li>${socialDetail.name}</li>
 						 <li class="zhuanz">
