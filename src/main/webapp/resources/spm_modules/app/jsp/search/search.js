@@ -218,9 +218,9 @@ define(
 						callback:function(data){
 							//alert(JSON.stringify(data));
 							if ('news' == mediaType) {
-								$("#news-num").html(data.count);
+								$("#news-num").html(_this._fdigit(data.count));
 							}else if ('social' == mediaType) {
-								$("#social-num").html(data.count);
+								$("#social-num").html(_this._fdigit(data.count));
 							}
 						},
 						render : function(data) {
@@ -258,7 +258,16 @@ define(
 							
 						}
 					});
-		        }
+		        },
+		        _fdigit:function (s) {  
+				    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";  
+				    var l = s.split(".")[0].split("").reverse();  
+				    var t = "";  
+				    for (i = 0; i < l.length; i++) {  
+				        t += l[i] + ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");  
+				    }  
+				    return t.split("").reverse();  
+				}  
 			});
 
 			module.exports = searchPage;
