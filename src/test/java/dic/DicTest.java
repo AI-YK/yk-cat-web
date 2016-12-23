@@ -14,8 +14,8 @@ public class DicTest {
 		m.setType("SJLY");
 		req.setMessage(m);
 		CommonService test = new CommonService();
-		System.out.println(JSON.toJSONString(test
-				.queryDicByTypeAndLanguageForNews(req)));
+		//System.out.println(JSON.toJSONString(test
+				//.queryDicByTypeAndLanguageForNews(req)));
 
 	}
 

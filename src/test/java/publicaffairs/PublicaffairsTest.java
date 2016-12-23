@@ -15,10 +15,10 @@ public class PublicaffairsTest {
 		PublicAffairsMessage message = new PublicAffairsMessage();
 		message.setModelNo("mediaCoverage");
 		req.setMessage(message);
-		System.out.println("param:"+JSON.toJSONString(req));
+		//System.out.println("param:"+JSON.toJSONString(req));
 		YJResponse<PublicAffairsResponse> res = service
 				.queryMediaCoverageList(req);
-		System.out.println("返回:"+JSON.toJSONString(res));
+		//System.out.println("返回:"+JSON.toJSONString(res));
 	}
 
 	public static void main(String[] args) {

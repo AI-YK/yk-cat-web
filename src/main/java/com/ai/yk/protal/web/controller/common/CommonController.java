@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,9 @@ import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
 import com.ai.yk.protal.web.content.event.chars.EventModelMessage;
 import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
+import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
+import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListReponse;
+import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceVo;
 import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
@@ -53,6 +58,7 @@ import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsService;
 import com.ai.yk.protal.web.service.queryInfoLanguage.QueryInfoLanguageService;
 import com.ai.yk.protal.web.service.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsService;
+import com.ai.yk.protal.web.service.search.SearchService;
 import com.ai.yk.protal.web.service.translate.TranslateService;
 import com.ai.yk.protal.web.utils.SessionUtil;
 import com.alibaba.fastjson.JSON;
@@ -89,6 +95,10 @@ public class CommonController {
 	TranslateService translateService;
 	@Autowired
 	private  EventDataService eventDataService;
+	
+	@Autowired
+
+	private SearchService searchService;
 	
 	@Autowired
 	private MytopicsService mytopicsSercice;
@@ -472,10 +482,10 @@ public class CommonController {
 			@RequestParam(value = "provinceCode", defaultValue = "") String provinceCode,
 			@RequestParam(value = "interestStr", defaultValue = "") String interestStr,
 			@RequestParam(value = "cityStr", defaultValue = "") String cityStr,
-			@RequestParam(value = "srcID", defaultValue = "") String srcID) {
+			@RequestParam(value = "srcID", defaultValue = "") String srcID,HttpServletRequest request) {
 		List<String> cityList = new ArrayList<String>();
 		List<String> interestList = new ArrayList<String>();
-		SSOClientUser clientUser = SessionUtil.getLoginUser();
+		SSOClientUser clientUser = SessionUtil.getLoginUser(request);
 		if (clientUser == null) {
 			log.error("请重新登录");
 			return new ResponseData<MyCustomizedVo>(
@@ -484,11 +494,11 @@ public class CommonController {
 		SaveMyCustomizedMessage saveMyCustomizedMessage = new SaveMyCustomizedMessage();
 		MyCustomizedVo myVo = SessionUtil.getUserConfig();
 		if (StringUtil.isBlank(provinceCode)) {
-			provinceCode = myVo.getProvince().getBusCode();
+			provinceCode = myVo.getProvince().getCode();
 		}
 		if (StringUtil.isBlank(cityStr)) {
 			for (AreaVo vo : myVo.getCity()) {
-				cityList.add(vo.getBusCode());
+				cityList.add(vo.getCode());
 			}
 		} else {
 			String[] cityArr = cityStr.split(",");
@@ -529,8 +539,6 @@ public class CommonController {
 					ResponseData.AJAX_STATUS_FAILURE, res.getHead()
 							.getMessage(), null);
 		}
-		String saveMyCustomizedResponse = res.getData();
-
 		// 获取保存的配置信息
 		YJRequest<MyCustomizedListMessage> customizedListMessageReq = new YJRequest<MyCustomizedListMessage>();
 		MyCustomizedListMessage customizedListMessage = new MyCustomizedListMessage();
@@ -542,7 +550,8 @@ public class CommonController {
 		if (resp != null) {
 			SessionUtil.setUserConfig(resp.getData());
 		} else {
-			SessionUtil.setUserConfig(mock());
+//			SessionUtil.setUserConfig(mock());
+			return new ResponseData<MyCustomizedVo>(ResponseData.AJAX_STATUS_FAILURE,"查询配置信息失败",null);
 		}
 		//将个人专题数据放入session
 		MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
@@ -736,5 +745,27 @@ public class CommonController {
 			result = "";
 		}
 		return result;
+	}
+	
+	@RequestMapping("/getDataSourceList")
+	@ResponseBody
+	public ResponseData<List<GetDataSourceVo>> getDataSourceList(String q,String limit){
+		YJRequest<GetDataSourceListMessage> req = new YJRequest<GetDataSourceListMessage>();
+		GetDataSourceListMessage message = new GetDataSourceListMessage();
+		message.setKeyword(q);
+		message.setPageNo("1");
+		message.setPageSize(limit);
+		req.setMessage(message);
+		YJResponse<GetDataSourceListReponse> res = searchService.getDataSourceList(req);
+		if (res == null || res.getHead() == null) {
+			log.error("系统异常，请联系管理员");
+			return new ResponseData<List<GetDataSourceVo>>(ResponseData.AJAX_STATUS_FAILURE, "系统异常，请联系管理员", null);
+		}
+		if ("false".equals(res.getHead().getResult())) {
+			log.error(res.getHead().getMessage());
+			return new ResponseData<List<GetDataSourceVo>>(ResponseData.AJAX_STATUS_FAILURE, res.getHead().getMessage(), null);
+		}
+		return new ResponseData<List<GetDataSourceVo>>(ResponseData.AJAX_STATUS_SUCCESS, "查询成功", res.getData().getResultList());
+		
 	}
 }

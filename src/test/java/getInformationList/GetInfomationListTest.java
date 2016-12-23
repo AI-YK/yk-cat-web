@@ -16,8 +16,8 @@ public static void main(String[] args) throws Exception {
 		message.setMediaType("news");
 		message.setSrcId("123412");
 		req.setMessage(message);
-		System.out.println(JSON.toJSON(req));
+		//System.out.println(JSON.toJSON(req));
 		YJResponse<GetInformationListReponse> res = service.getGetInformationList(req);
-		System.out.println(JSON.toJSONString(res));
+		//System.out.println(JSON.toJSONString(res));
 	}
 }

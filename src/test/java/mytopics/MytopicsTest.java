@@ -15,9 +15,9 @@ public class MytopicsTest {
 		message.setPageNo(1);
 		message.setPageSize(10);
 		req.setMessage(message);
-		System.out.println("参数: " + JSON.toJSONString(req));
+		//System.out.println("参数: " + JSON.toJSONString(req));
 		MytopicsService service = new MytopicsService();
 		YJResponse<MyTopicsResponse> res = service.queryMyTopicsList(req);
-		System.out.println("返回: " + JSON.toJSONString(res));
+		//System.out.println("返回: " + JSON.toJSONString(res));
 	}
 }
