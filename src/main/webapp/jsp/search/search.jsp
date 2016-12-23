@@ -42,30 +42,30 @@
 							<li>
 								<p>省份</p>
 								<p>
-									<select id="orgnizationId1" style="width: 90px">
+									<select id="orgnizationId1" class="searchNews" style="width: 90px">
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>语言</p>
 								<p>
-									<select id="languageId1" class="select select-mini" style="width: 100px">
-										<option>全部</option>
+									<select id="languageId1" class="select select-mini searchNews" style="width: 100px">
+										
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId1" class="select select-mini" style="width: 100px">
-										<option>时间</option>
+									<select id="dicId1" class="select select-mini searchNews" style="width: 100px">
+										
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId1" type="text" readonly="readonly" class="select select-small calendar"/>
+									<input id="timeId1" type="text" readonly="readonly" class="select select-small calendar searchNews"/>
 								</p>
 							</li>
 						</ul>
@@ -73,19 +73,15 @@
 							<li>
 								<p>媒体</p>
 								<p>
-									<input id="medialId1" type="text" class="int-text select-mini">
+									<input id="mediaIn1" type="text" class="int-text select-small searchNews">
+									<input id="mediaId1" type="hidden">
 								</p>
-								<ul style="display:block;padding-top: 10px;">
-                                <li class="seach_box" style="width: 205px;height: 70px;line-height: 40px;position: absolute;background: #fff;box-shadow: 1px 1px 5px #000;z-index: 999;padding-left: 20px;padding-top: 10px;">
-                                   <input id="websit_search" type="text" style="border: 1px solid #eee;width: 120px;height: 38px;vertical-align: middle;" name="websit_text" maxlength="50" placeholder="如：新浪"><a style="background: #52acfd;color: #fff;border: 1px solid #eee;padding: 11px 10px;line-height: normal;vertical-align: middle;"href="javascript:;">确定</a>
-                                </li>
-                            </ul>
 							</li>
 							<li>
 								<p>排序</p>
 								<p>
-									<select id="fileId1" class="select select-mini">
-										<option>全部</option>
+									<select id="fileId1" class="select select-mini searchNews">
+										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -96,16 +92,17 @@
 							<li>
 								<p>译文</p>
 								<p>
-									<select class="select select-small">
+									<select class="select select-small searchNews">
+									    <option value="">全部显示</option>
 										<option>仅显示译文</option>
 										<option>仅显示原文</option>
 										<option>显示译文和原文</option>
 									</select>
 								</p>
 							</li>
-							<li>
+							<!-- <li>
 								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn1" value="搜索">
-							</li>
+							</li> -->
 						</ul>
 					</div>
 					<div class="level-news" >
@@ -134,23 +131,23 @@
 							<li>
 								<p>省份</p>
 								<p>
-									<select id="orgnizationId2" style="width: 90px">
+									<select id="orgnizationId2" class="searchSocial" style="width: 90px">
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId2" class="select select-mini">
-										<option>全部</option>
+									<select id="dicId2" class="select select-mini searchSocial">
+								
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>排序</p>
 								<p>
-									<select id="fileId2" class="select select-mini">
-										<option>全部</option>
+									<select id="fileId2" class="select select-mini searchSocial">
+										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -161,7 +158,7 @@
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId2" readonly type="text" class="select select-small calendar">
+									<input id="timeId2" readonly type="text" class="select select-small calendar searchSocial">
 								</p>
 							</li>
 						</ul>
@@ -169,23 +166,24 @@
 							<li>
 									<p>媒体</p>
 									<p>
-										<input id="medialId2"  type="text" class="int-text select-mini">
+										<input id="mediaIn2" type="text" class="int-text select-small searchSocial">
+									    <input id="mediaId2" type="hidden">
 									</p>
 							</li>
 							<li>
 								<p>情感</p>
 								<p>
-									<select id="qingId2" class="select select-mini">
-										<option>全部</option>
+									<select id="qingId2" class="select select-mini searchSocial">
+										<option value="">全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
 										<option value="-1">负面</option>
 									</select>
 								</p>
 							</li>
-							<li>
+							<!-- <li>
 								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn2" value="搜索">
-							</li>
+							</li> -->
 						</ul>
 					</div>
 					<div class="level-news" >

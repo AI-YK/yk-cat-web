@@ -27,7 +27,8 @@ define(
 				},
 				// 事件代理
 				events : {
-					
+					"change .searchNews":"_searchNews",
+					"change .searchSocial":"_searchSocial"
 				},
 
 				// 重写父类
@@ -67,19 +68,34 @@ define(
 					//日期控件
 					$(document).on("click",".calendar",function(){
 						var timeId = $(this).attr('id');
-						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy.MM.dd'});
+						WdatePicker({
+							el:timeId,
+							readOnly:true,
+							dateFmt:'yyyy.MM.dd',
+							onpicked:function(p){
+								if(timeId=="timeId1"){
+									_this._searchNews();
+								}else if(timeId=="timeId2"){
+									_this._searchSocial();
+								}
+							}
+						});
 					});
 					
 					$("#searchBtn").click(function(){
 						_this.search("news");
 						_this.search("social");
 					});
-					$("#searchBtn1").click(function(){
-						_this.search("news");
-					});
-					$("#searchBtn2").click(function(){
-						_this.search("social");
-					});
+					
+					selectUtil.autocompleteDic('mediaIn1','mediaId1');
+					selectUtil.autocompleteDic('mediaIn2','mediaId2');
+
+				},
+				_searchNews(){
+					this.search("news");
+				},
+				_searchSocial(){
+					this.search("social");
 				},
 				_loadChartData:function(){
 					var param = {};
@@ -96,41 +112,48 @@ define(
 						if($("#orgnizationId1").val()!="-1" && $("#orgnizationId1").val()!=null){
 							param.provincecityCode= $("#orgnizationId1").val();
 						}
-						if($("#languageId1").val()!="全部"){
+						if($("#languageId1").val()!=""){
 							param.languageCode= $("#languageId1").val();
 						}
-						if($("#dicId1").val()!="时间"){
+						if($("#dicId1").val()!=""){
 							param.dicValue= $("#dicId1").val();
 						}
-						if($("#timeId1").val()!=""){
-							param.beginTime= $("#timeId1").val();
+						var timeStr = $("#timeId1").val();
+						if(timeStr!=""){
+							timeStr = timeStr.replace(/\./g,"-");
+							param.beginTime= timeStr + " 00:00:00";
+							param.endTime= timeStr + " 23:59:59";
 						}
-						if($("#medialId1").val()!=""){
-							param.mediaLevel=$("#medialId1").val();
+						if($("#mediaId1").val()!=""){
+							param.mediaId=$("#mediaId1").val();
 						}
-						if($("#fileId1").val()!="全部"){
+						if($("#fileId1").val()!=""){
 							param.fieldName= $("#fileId1").val();
 						}
 					}else if ('social' == mediaType) {
 						if($("#orgnizationId2").val()!="-1" && $("#orgnizationId2").val()!=null){
 							param.provincecityCode= $("#orgnizationId2").val();
 						}
-						if($("#dicId2").val()!="全部"){
+						if($("#dicId2").val()!=""){
 							param.dicValue= $("#dicId2").val();
 						}
-						if($("#timeId2").val()!=""){
-							param.beginTime= $("#timeId2").val();
+						var timeStr = $("#timeId2").val();
+						if(timeStr!=""){
+							timeStr = timeStr.replace(/\./g,"-");
+							param.beginTime= timeStr + " 00:00:00";
+							param.endTime= timeStr + " 23:59:59";
 						}
-						if($("#fileId2").val()!="全部"){
+						if($("#fileId2").val()!=""){
 							param.fieldName= $("#fileId2").val();
 						}
 						if($("#medialId2").val()!=""){
 							param.mediaLevel= $("#medialId2").val();
 						}
-						if($("#qingId2").val()!="全部"){
+						if($("#qingId2").val()!=""){
 							param.sentimentId= $("#qingId2").val();
 						}
 					}
+					param.order = "desc";
 					return param;
 				},
 				/** 媒体类型news/social* */

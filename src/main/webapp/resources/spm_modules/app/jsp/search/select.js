@@ -3,7 +3,8 @@ define('app/jsp/search/select', function (require, exports, module) {
     var $=require('jquery');
 	require("echarts/echarts.min");
 	require("select2/select2.min");
-	require("jquery-autocomplete/jquery.autocomplete.min");
+	require("jquery-autocomplete/jquery.autocomplete");
+	require("jquery-autocomplete/jquery.autocomplete.css");
 	var  Base = require('arale-base/1.2.0/base');
     var   AjaxController = require('opt-ajax/1.0.0/index');
     
@@ -100,17 +101,37 @@ define('app/jsp/search/select', function (require, exports, module) {
         	    
         	});
         },
-        autocompleteDic:function(input,type){
-        	var url = _base + "/common/getDic?type="+type;
-        	$('#'+input).autocomplete({
-        	    serviceUrl: url,
-        	    onSelect: function (suggestion) {
-        	        
-        	    },
-        	    formatResult: function (suggestion, currentValue) {
-        	    	
+        autocompleteDic:function(input,store){
+        	var url = _base + "/common/getDataSourceList";
+        	$('#'+input).focus().autocomplete(url,{
+        		dataType: "json", 
+        		max:30,
+        		minChars:1,
+        		mustMatch:true,
+        		matchSubset:false,
+        		matchCase:true,
+        	    parse: function(result) {  
+                    var rows = $.map(result.data, function(row) {  
+                        return {  
+                            data: row,  
+                            value: row.mediaId,  
+                            result: row.mediaNameZh  
+                        }  
+                    });  
+                    //alert(JSON.stringify(rows));
+                    return rows;
+                },  
+        		formatItem: function(row, i,max) {
+        			return row.mediaNameZh; 
         	    }
+        	}).result(function(event, item) {
+        		if(item){
+        			$('#'+store).val(item.mediaId);
+        		}else{
+        			$('#'+store).val("");
+        		}
         	});
+        	
         }
         
     });
