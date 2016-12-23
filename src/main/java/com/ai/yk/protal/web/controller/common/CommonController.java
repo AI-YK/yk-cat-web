@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -480,10 +482,10 @@ public class CommonController {
 			@RequestParam(value = "provinceCode", defaultValue = "") String provinceCode,
 			@RequestParam(value = "interestStr", defaultValue = "") String interestStr,
 			@RequestParam(value = "cityStr", defaultValue = "") String cityStr,
-			@RequestParam(value = "srcID", defaultValue = "") String srcID) {
+			@RequestParam(value = "srcID", defaultValue = "") String srcID,HttpServletRequest request) {
 		List<String> cityList = new ArrayList<String>();
 		List<String> interestList = new ArrayList<String>();
-		SSOClientUser clientUser = SessionUtil.getLoginUser();
+		SSOClientUser clientUser = SessionUtil.getLoginUser(request);
 		if (clientUser == null) {
 			log.error("请重新登录");
 			return new ResponseData<MyCustomizedVo>(
