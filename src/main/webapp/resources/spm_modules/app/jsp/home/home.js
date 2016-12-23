@@ -401,7 +401,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var url = "/news/getHotInfoList";
         	var param = {};
         	if(provinceCodee!=''){
-        		param.provinceCode=provinceCodee;
+        		//param.provinceCode=provinceCodee;
         	}
         	if(cityLists!=''){
         		var cityList=eval("("+cityLists+")");
@@ -412,12 +412,12 @@ define('app/jsp/home/home', function (require, exports, module) {
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
             	}
-            	param.cityCode=cityCodeList;
+            	//param.cityCode=cityCodeList;
         	}
         	
         	param.mediaType = mediaType;
         	if(mediaId){
-        		param.mediaId = mediaId;
+        		param.mediaList = mediaId;
         	}
         	param.publicAffairsType = "";
         	param.fieldName="transfer"
