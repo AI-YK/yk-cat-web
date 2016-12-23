@@ -103,7 +103,16 @@ define('app/jsp/search/public',function(require, exports, module) {
 					
 					selectUtil.autocompleteDic('mediaIn1','mediaId1');
 					selectUtil.autocompleteDic('mediaIn2','mediaId2');
-					
+					$(document).on("click","#social-list ul",function(){
+		            	var _this = $(this);
+		           	    var myid = _this.attr("myid");
+		           	    var keyword = _this.attr("keyword");
+		           	    var url =_base+"/social/detail/"+myid;
+		        	    if(keyword){
+			           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+			           	}
+			        	window.open (url, '_blank' ) ;
+		            });
 				},
 				_loadChartData:function(){
 					var param = {};
