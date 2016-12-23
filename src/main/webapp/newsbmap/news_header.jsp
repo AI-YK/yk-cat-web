@@ -252,11 +252,11 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 				<a class="current" href="${_base}/newsbmap/toHeat">热点发现</a>	
 			</li>
 			<li><a href="${_base}/search/public">舆情动态</a></li>
-					<c:if test="${!noSearch}">
+					<%-- <c:if test="${!noSearch}"> --%>
 					 <li class="search">
 					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
-					</c:if>
+					<%-- </c:if> --%>
 					<li class="iphone-show" style="margin-top:16px"><i class="ico_user"></i></li>
 					<div class="user-show" id="user-show" style="display: none;">
 						<span><i class="icon iconfont">&#xe65a;</i></span>

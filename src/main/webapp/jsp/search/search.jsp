@@ -15,7 +15,7 @@
 	<c:set var="noSearch" value="true"/>
 	<%@ include file="/inc/topHead.jsp"%>
 	<!--子导航-->
-	<div class="subnav">
+	<%-- <div class="subnav">
 		<div class="subnav-main">
 			<div class="breadcrumb">
 				<p>
@@ -24,7 +24,7 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	<!--二级框架-->
 	<div class="level-wrapper">
 		<div class="level-left-conter">
