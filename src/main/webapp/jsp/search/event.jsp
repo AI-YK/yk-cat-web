@@ -67,7 +67,14 @@
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
-            <span>{{:zhCountry}}.{{:zhCitry}}</span> 
+            
+			{{if zhCountry && zhCity}}
+			 	<span>{{:zhCountry}}.{{:zhCity}}</span>
+			{{else zhCountry }}
+				<span>{{:zhCounty}}</span>
+			{{else}}
+				<span>{{:zhCity}}</span>
+			{{/if}}
            	<!-- <img style="height:14px;" src="${uedroot}/images/country/{{:enCountry}}@2x.png" /> <span>热度：{{:heatValue}}</span>-->
 		</p>
 	</li>
