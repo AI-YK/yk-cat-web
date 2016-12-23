@@ -213,7 +213,7 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
-<ul>
+<ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
 	<li class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
@@ -239,7 +239,7 @@
         <img src="{{:userAvatar}}" />
      {{/if}}
    </div>
-   <ul>
+   <ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
 	 <li class="title">{{:name}}</li>
 	 <li class="list">
 		<p>

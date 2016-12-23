@@ -101,6 +101,9 @@ define('app/jsp/search/event',function(require, exports, module) {
 						data: param,
 						success: function (rs) {
 							var data = rs.data;
+							for(var i=0;i<data.length;i++){
+								data[i].detailsUrl = _base + "/event/detail/"+ data[i].srcId;
+							}
 							var topicHtml = $("#topicTempl").render(data);
 							$("#topic-list").html(topicHtml);
 							

@@ -87,6 +87,28 @@ define(
 						_this.search("social");
 					});
 					
+					$(document).on("click","#news-list ul",function(){
+						var _this = $(this);
+		            	var uuid = _this.attr("uuid");
+		            	var url =_base+"/news/detail/"+uuid;
+		            	var keyword = _this.attr("keyword");
+		 	           	if(keyword){
+		 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+		 	           	}
+		 	        	window.open (url, '_blank' ) ;
+					});
+
+					$(document).on("click","#social-list ul",function(){
+		            	var _this = $(this);
+		           	    var myid = _this.attr("myid");
+		           	    var keyword = _this.attr("keyword");
+		           	    var url =_base+"/social/detail/"+myid;
+		        	    if(keyword){
+			           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
+			           	}
+			        	window.open (url, '_blank' ) ;
+		            });
+					
 					selectUtil.autocompleteDic('mediaIn1','mediaId1');
 					selectUtil.autocompleteDic('mediaIn2','mediaId2');
 
@@ -228,6 +250,9 @@ define(
 						data: param,
 						success: function (rs) {
 							var data = rs.data;
+							for(var i=0;i<data.length;i++){
+								data[i].detailsUrl = _base + "/event/detail/"+ data[i].srcId;
+							}
 							var topicHtml = $("#topicTempl").render(data);
 							$("#topic-list").html(topicHtml);
 							
