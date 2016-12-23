@@ -117,6 +117,6 @@ public class JedisUtils {
 //		String value = "12345";
 //		test.set(key.getBytes(), value.getBytes());
 //		byte[] bs = test.get(key.getBytes());
-//		System.out.println(new String(bs));
+//		//System.out.println(new String(bs));
 //	}
 }

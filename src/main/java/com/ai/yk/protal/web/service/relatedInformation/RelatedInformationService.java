@@ -45,7 +45,7 @@ public class RelatedInformationService {
 		
 		req.setMessage(message);
 		YJResponse<RelatedInformationResponse> res = service.getRelatedInformation(req);
-		System.out.println(JSON.toJSONString(res));
+		//System.out.println(JSON.toJSONString(res));
 		
 	}
 }

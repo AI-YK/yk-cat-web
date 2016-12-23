@@ -19,6 +19,7 @@ import com.ai.yk.protal.web.content.mytopics.MyTopicsResponse;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
+import com.ai.yk.protal.web.controller.BaseController;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.service.search.SearchService;
@@ -28,7 +29,7 @@ import com.esotericsoftware.kryo.factories.PseudoSerializerFactory;
 
 @Controller
 @RequestMapping("/newsbmap")
-public class MapController {
+public class MapController extends BaseController{
 	
 	private static final Logger log = LoggerFactory.getLogger(MapController.class);
 	
@@ -112,7 +113,7 @@ public class MapController {
     	MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
     	myTopicsMessage.setPageNo(pageNo);
     	myTopicsMessage.setPageSize(pageSize);
-    	String userId= SessionUtil.getLoginUser().getUserId();
+    	String userId= SessionUtil.getLoginUser(request).getUserId();
     	myTopicsMessage.setCreateId(Integer.parseInt(userId));
     	YJRequest<MyTopicsMessage> req=new YJRequest<MyTopicsMessage>();
     	req.setMessage(myTopicsMessage);

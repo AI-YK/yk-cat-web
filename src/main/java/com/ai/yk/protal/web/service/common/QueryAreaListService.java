@@ -39,9 +39,9 @@ public class QueryAreaListService {
 		message.setParentCode("340000");
 		message.setClassify("city");
 		req.setMessage(message);
-		System.out.println(JSON.toJSON(req));
+		
 		YJResponse<List<QueryAreaListVo>> res = service.QueryAreaList(req);
-		System.out.println(JSON.toJSONString(res));
+
 	}
 	
 	

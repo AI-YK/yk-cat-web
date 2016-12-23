@@ -74,9 +74,9 @@ public class EventDataService {
 		message.setIsTimeSort(1);
 		
 		req.setMessage(message);
-		System.out.println(JSON.toJSON(req));
+		//System.out.println(JSON.toJSON(req));
 		YJResponse<EventListResponse> res = service.queryEventDataList(req);
-		System.out.println(JSON.toJSONString(res));
+		//System.out.println(JSON.toJSONString(res));
 		
 		
 	}*/

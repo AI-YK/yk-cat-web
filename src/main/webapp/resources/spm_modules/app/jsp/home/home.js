@@ -117,12 +117,12 @@ define('app/jsp/home/home', function (require, exports, module) {
                 var index = $('#merge ul li a').index(this);
                 if(index==0){
                  	if(_this.chartGroup){
-                 		homeChart._initSpreadStateChart("chart_event",_this.chartGroup.spreadTrend);
+                 		homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
                  	}
                 }
                 if(index==1){
                  	if(_this.chartGroup){
-                 	  homeChart._initTimeTrendChart("chart_event",_this.chartGroup.timeTrend);  
+                 		homeChart._initSpreadStateChart("chart_event",_this.chartGroup.spreadTrend);
                  	}
                 }
             });
@@ -332,7 +332,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	 this.chartGroup = chartGroup;
         	 if($("#chuanbo").hasClass('current')){
            		 homeChart._initSpreadStateChart("chart_event",this.chartGroup.spreadTrend);  
-           	 }else{
+           	 }else if($("#event").hasClass('current')){
            		 homeChart._initTimeTrendChart("chart_event",this.chartGroup.timeTrend);
            	 }
         },
