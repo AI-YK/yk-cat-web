@@ -1,5 +1,8 @@
 package com.ai.yk.protal.web.controller.user;
 
+import javax.servlet.http.HttpServletRequest;
+
+import org.mortbay.util.ajax.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,11 +40,13 @@ public class UserController {
     }
     
 	@RequestMapping("/success")
-    public String loginSuccess(Model model,String redirect){
-    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    public String loginSuccess(HttpServletRequest request,Model model,String redirect){
+
+    	SSOClientUser clientUser = SessionUtil.getLoginUser(request);
     	if(StringUtil.isBlank(redirect)){
     		redirect = "/home/index";
     	}
+
     	if(clientUser==null){
     		clientUser = new SSOClientUser();
     		clientUser.setUserId("2");

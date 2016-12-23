@@ -55,7 +55,7 @@ public class ShareService {
 		YJRequest<ShareMessage> req = new YJRequest<ShareMessage>();
 		req.setMessage(message);
 		YJResponse<QueryDicByTypeAndLanguageForNewsReponse> res = service.saveMyCustomized(req);
-		System.out.println(JSON.toJSONString(res));
+		//System.out.println(JSON.toJSONString(res));
 		
 		
 	}*/

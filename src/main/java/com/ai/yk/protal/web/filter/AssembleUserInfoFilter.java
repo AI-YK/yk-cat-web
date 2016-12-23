@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import com.ai.yk.protal.web.constants.Constants;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
+import com.ai.yk.protal.web.utils.SessionUtil;
 
 
 public class AssembleUserInfoFilter implements Filter {
@@ -35,7 +36,7 @@ public class AssembleUserInfoFilter implements Filter {
         HttpServletResponse resp = (HttpServletResponse) response;
         if (shouldFilter(req)) {
         	HttpSession session = req.getSession();
-            SSOClientUser user = (SSOClientUser) session.getAttribute(Constants.USER_SESSION_KEY);
+            SSOClientUser user = SessionUtil.getLoginUser(req);
             if (user == null) {
             	resp.sendRedirect(req.getContextPath()+"/user/login");
             	return;

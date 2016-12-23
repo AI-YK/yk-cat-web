@@ -103,11 +103,11 @@
 							<span><i class="icon iconfont">&#xe65a;</i></span>
 							<ul>
 								<a href="#" class="ahov1"><li id="ahov1Id">通用数据</li></a>
-								<a href="#" class="ahov2"><li id="ahov2Id">专题数据</li></a>
+								<a href="#" class="ahov2" <c:if test="${!hasTopic }">style="display:none;"</c:if> ><li id="ahov2Id">专题数据</li></a>
 							</ul>
 						</div>
 					</li>
-					<li class="in-border" id="in-border2"><a href="#"><label id="border2Id" style="font-size: 12px;">${topics[0].srcShortTitle}</label><i class="icon iconfont">&#xe659;</i></a>
+					<li class="in-border" id="in-border2" <c:if test="${!hasTopic }">style="display:none;"</c:if> ><a href="#"><label id="border2Id" style="font-size: 12px;">${topics[0].srcShortTitle}</label><i class="icon iconfont">&#xe659;</i></a>
 						<div class="special-show" id="special-tow" <c:if test="${!hasTopic}">style="display: none;"</c:if>>
 							<span><i class="icon iconfont">&#xe65a;</i></span>
 							<ul>

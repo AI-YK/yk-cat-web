@@ -15,10 +15,10 @@ public class MycustomizedTest {
 		MyCustomizedListMessage message = new MyCustomizedListMessage();
 		message.setCreateId(1);
 		req.setMessage(message);
-		System.out.println("请求参数:" + JSON.toJSONString(req));
+		//System.out.println("请求参数:" + JSON.toJSONString(req));
 		YJResponse<MyCustomizedListResponse> res = service
 				.queryMyCustomizedList(req);
-		System.out.println(JSON.toJSONString("请求返回:" + JSON.toJSONString(res)));
+		//System.out.println(JSON.toJSONString("请求返回:" + JSON.toJSONString(res)));
 	}
 	public static void testDeatil() {
 		MycustomizedService service = new MycustomizedService();
@@ -26,10 +26,10 @@ public class MycustomizedTest {
 		MyCustomizedListMessage message = new MyCustomizedListMessage();
 		message.setCreateId(1);
 		req.setMessage(message);
-		System.out.println("请求参数:" + JSON.toJSONString(req));
+		//System.out.println("请求参数:" + JSON.toJSONString(req));
 		YJResponse<MyCustomizedVo> res = service
 				.queryMyCustomized(req);
-		System.out.println(JSON.toJSONString("请求返回:" + JSON.toJSONString(res)));
+		//System.out.println(JSON.toJSONString("请求返回:" + JSON.toJSONString(res)));
 	}
 
 	public static void main(String[] args) {

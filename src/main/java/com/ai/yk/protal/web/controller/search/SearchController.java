@@ -13,19 +13,20 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.controller.BaseController;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.utils.SessionUtil;
 
 @Controller
 @RequestMapping("/search")
-public class SearchController {
+public class SearchController extends BaseController{
 
 	/**
 	 * 搜索页
 	 */
 	@RequestMapping("/view")
 	public String searchView(Model model, String _keyword) {
-		SSOClientUser clientUser = SessionUtil.getLoginUser();
+		SSOClientUser clientUser = SessionUtil.getLoginUser(request);
 		if (clientUser == null) {
 			model.addAttribute("isLogin", false);
 		} else {
@@ -49,7 +50,7 @@ public class SearchController {
 	@RequestMapping("/public")
 	public String publicView(Model mod,
 			@RequestParam(value = "model", defaultValue = "") String model) {
-		SSOClientUser clientUser = SessionUtil.getLoginUser();
+		SSOClientUser clientUser = SessionUtil.getLoginUser(request);
 		if (clientUser == null) {
 			mod.addAttribute("isLogin", false);
 		} else {
@@ -95,7 +96,7 @@ public class SearchController {
 	 */
 	@RequestMapping("/event")
 	public String eventView(Model model) {
-		SSOClientUser clientUser = SessionUtil.getLoginUser();
+		SSOClientUser clientUser = SessionUtil.getLoginUser(request);
 		if (clientUser == null) {
 			model.addAttribute("isLogin", false);
 		} else {

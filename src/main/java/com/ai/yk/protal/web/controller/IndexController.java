@@ -21,7 +21,7 @@ import com.alibaba.fastjson.JSON;
  */
 @Controller
 @RequestMapping("/home")
-public class IndexController {
+public class IndexController extends BaseController {
     
     @Autowired
     private ResWebBundle rb;
@@ -34,7 +34,7 @@ public class IndexController {
      */
     @RequestMapping("/index")
     public String indexView(Model model){
-    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	SSOClientUser clientUser = SessionUtil.getLoginUser(request);
     	if(clientUser==null){
     		model.addAttribute("isLogin", false);
     	}else{
@@ -71,7 +71,7 @@ public class IndexController {
      */
     @RequestMapping("/config")
     public String configView(Model model){
-    	SSOClientUser clientUser = SessionUtil.getLoginUser();
+    	SSOClientUser clientUser = SessionUtil.getLoginUser(request);
     	model.addAttribute("user", clientUser);
         return "/home/config";
     }

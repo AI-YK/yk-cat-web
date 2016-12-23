@@ -20,9 +20,9 @@ public class EventServiceTest {
 		message.setPageNo(1);
 		message.setPageSize(10);
 		req.setMessage(message);
-		System.out.println("查询参数：\n" + JSON.toJSON(req));
+		//System.out.println("查询参数：\n" + JSON.toJSON(req));
 		YJResponse<EventListResponse> res = service.queryEventDataList(req);
-		System.out.println("查询返回：\n" + JSON.toJSONString(res));
+		//System.out.println("查询返回：\n" + JSON.toJSONString(res));
 
 	}
 
@@ -33,9 +33,9 @@ public class EventServiceTest {
 		EventDetailsMessage message = new EventDetailsMessage();
 		message.setSrcId("2254");
 		req.setMessage(message);
-		System.out.println("查询参数：\n" + JSON.toJSON(req));
+		//System.out.println("查询参数：\n" + JSON.toJSON(req));
 		YJResponse<EventVo> res = service.queryEventDataEntityForSrcId(req);
-		System.out.println("查询返回：\n" + JSON.toJSONString(res));
+		//System.out.println("查询返回：\n" + JSON.toJSONString(res));
 
 	}
 
@@ -47,9 +47,9 @@ public class EventServiceTest {
 		message.setEventId("2254");
 		message.setModels("spreadTrend");
 		req.setMessage(message);
-		System.out.println("查询参数：\n" + JSON.toJSON(req));
+		//System.out.println("查询参数：\n" + JSON.toJSON(req));
 		YJResponse<EventModelResponse> res = service.queryEventModel(req);
-		System.out.println("查询返回：\n" + JSON.toJSONString(res));
+		//System.out.println("查询返回：\n" + JSON.toJSONString(res));
 
 	}
 

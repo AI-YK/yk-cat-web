@@ -37,7 +37,7 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title" style="width:85%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${newsDetails.srcTitle}</div>
+				<div class="news-detail-title" >${newsDetails.srcTitle}</div>
 				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
 						 <li class="zhuanz">
