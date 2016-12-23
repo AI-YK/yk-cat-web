@@ -47,19 +47,33 @@ define('app/jsp/home/home', function (require, exports, module) {
 		 * $.i18n.properties({//加载资浏览器语言对应的资源文件 name: ["home"], //资源文件名称，可以是数组
 		 * path: _i18n_res, //资源文件路径 mode: 'both', language: currentLan, });
 		 */
-            $(document).on("mouseenter",".list-left ul li",function(){
-            	 $(".list-left ul li").each(function () {
-                     $(this).removeClass("current");
-                     var index=$('.list-left ul li').index(this);
-                     $("#chart-date"+index).hide();
-                 });
-                 $(this).addClass("current");
-                 var srcId = $(this).attr("id");
-                 _this._getEventModel(srcId);
-               
+            
+          $(document).on("mouseenter",".list-left ul li",function(){
+           	 $(".list-left ul li").each(function () {
+                    $(this).removeClass("current");
+                    var index=$('.list-left ul li').index(this);
+                    $("#chart-date"+index).hide();
+                });
+                $(this).addClass("current");
+                var srcId = $(this).attr("id");
+                _this._getEventModel(srcId);
+              
 			});
-            //左侧突发事件点击操作
+            
             $(document).on("click",".list-left ul li",function(){
+              	 $(".list-left ul li").each(function () {
+                       $(this).removeClass("current");
+                       var index=$('.list-left ul li').index(this);
+                       $("#chart-date"+index).hide();
+                   });
+                   $(this).addClass("current");
+                   var srcId = $(this).attr("id");
+                   _this._getEventModel(srcId);
+                 
+   			});
+            
+            //左侧突发事件点击操作
+            $(document).on("click",".list-left ul li .ptitle",function(){
            	    var srcId = $(this).attr("id");
 	           	var url =_base+"/event/detail/"+srcId;
 	        	window.open (url, '_blank' ) ;
