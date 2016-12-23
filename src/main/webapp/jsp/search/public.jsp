@@ -71,19 +71,11 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>省份</p>
-								<p>
-									<select id="orgnizationId1" style="width: 90px">
-										<!-- <option>全部</option> -->
-									</select>
-								</p>
-							</li>
-							<li>
 								<p>影响力</p>
 								<p>
 									<select id="dicId1" class="select select-mini"
 										style="width: 100px">
-										<option>时间</option>
+										
 									</select>
 								</p>
 							</li>
@@ -101,8 +93,6 @@
 									<input id="mediaId1" type="hidden">
 								</p>
 							</li>
-						</ul>
-						<ul>
 							<li>
 								<p>排序</p>
 								<p>
@@ -116,11 +106,14 @@
 									</select>
 								</p>
 							</li>
+						</ul>
+						<ul>
+							
 							<li>
 								<p>情感</p>
 								<p>
 									<select id="sentimentId1" class="select select-mini">
-										<option>全部</option>
+										<option value="">全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
 										<c:choose>
@@ -167,19 +160,11 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>省份</p>
-								<p>
-									<select id="orgnizationId2" style="width: 90px">
-										<!-- <option>全部</option> -->
-									</select>
-								</p>
-							</li>
-							<li>
 								<p>影响力</p>
 								<p>
 									<select id="dicId2" class="select select-mini"
 										style="width: 100px">
-										<option>全部</option>
+										
 									</select>
 								</p>
 							</li>
@@ -197,8 +182,6 @@
 									<input id="mediaId2" type="hidden">
 								</p>
 							</li>
-						</ul>
-						<ul>
 							<li>
 								<p>排序</p>
 								<p>
@@ -212,11 +195,14 @@
 									</select>
 								</p>
 							</li>
+						</ul>
+						<ul>
+							
 							<li>
 								<p>情感</p>
 								<p>
 									<select id="sentimentId2" class="select select-mini">
-										<option>全部</option>
+										<option value="">全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
 										<c:if test="">
@@ -270,7 +256,7 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
-<ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}>
+<ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
 	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>

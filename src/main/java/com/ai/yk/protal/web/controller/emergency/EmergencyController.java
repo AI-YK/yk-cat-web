@@ -252,13 +252,7 @@ public class EmergencyController{
 	     */
 	    @RequestMapping("/getHotTopic")
 	    @ResponseBody
-	    public ResponseData<List<EventVo>> getHotTopic(
-	    		@RequestParam(value="pageSize",defaultValue="") Integer pageSize,
-	    		@RequestParam(value="pageNo",defaultValue="") Integer pageNo
-	    		){
-	    	EventListMessage eventMessage=new EventListMessage();
-	    	eventMessage.setPageSize(pageSize);
-	    	eventMessage.setPageNo(pageNo);
+	    public ResponseData<List<EventVo>> getHotTopic(EventListMessage eventMessage){
 	    	YJRequest<EventListMessage> req=new YJRequest<EventListMessage>();
 	    	req.setMessage(eventMessage);
 	    	YJResponse<EventListResponse> yjr= eventDataService.queryEventDataList(req);

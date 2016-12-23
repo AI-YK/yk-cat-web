@@ -117,30 +117,81 @@ define('app/jsp/search/public',function(require, exports, module) {
 				},
 				_loadChartData:function(){
 					var param = {};
+					var idList = $("#cities").val();
+					if(idList!=""){
+						param.idList = idList;
+					}
+					//领域分类
+					var categoryId = $("#interestes").val();
+					if(categoryId!=""){
+						param.categoryId = categoryId;
+					}
 					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
+
 					var param = {};
 					param.mediaType = mediaType;
-					param.highlight = true;
+					var provincecityCode = $("#province").val();
+					if(provincecityCode!=""){
+						param.provincecityCode = provincecityCode;
+					}
+					var idList = $("#cities").val();
+					if(idList!=""){
+						param.idList = idList;
+					}
+					//领域分类
+					/*var categoryId = $("#interestes").val();
+					if(categoryId!=""){
+						param.categoryId = categoryId;
+					}*/
+					param.highlight = "true";
 					var keyword='';
-					var fieldName='';
 					if ('news' == mediaType) {
-						param.sentimentId = $("#sentimentId1").val();
 						keyword = $("#keyword1").val();
-						fieldName = $("#fieldName1").val();
-						
+						if($("#dicId1").val()!=""){
+							param.dicValue= $("#dicId1").val();
+						}
+						var timeStr = $("#timeId1").val();
+						if(timeStr!=""){
+							timeStr = timeStr.replace(/\./g,"-");
+							param.beginTime= timeStr + " 00:00:00";
+							param.endTime= timeStr + " 23:59:59";
+						}
+						if($("#mediaId1").val()!=""){
+							param.mediaId=$("#mediaId1").val();
+						}
+						if($("#fileId1").val()!=""){
+							param.fieldName= $("#fileId1").val();
+							param.order = 'desc';
+						}
+						if($("#sentimentId1").val()!=""){
+							param.sentimentId= $("#sentimentId1").val();
+						}
 					}else if ('social' == mediaType) {
-						param.sentimentId = $("#sentimentId2").val();
 						keyword = $("#keyword2").val();
-						fieldName = $("#fieldName2").val();
+						if($("#dicId2").val()!=""){
+							param.dicValue= $("#dicId2").val();
+						}
+						var timeStr = $("#timeId2").val();
+						if(timeStr!=""){
+							timeStr = timeStr.replace(/\./g,"-");
+							param.beginTime= timeStr + " 00:00:00";
+							param.endTime= timeStr + " 23:59:59";
+						}
+						if($("#fileId2").val()!=""){
+							param.fieldName= $("#fileId2").val();
+							param.order = 'desc';
+						}
+						if($("#medialId2").val()!=""){
+							param.mediaLevel= $("#medialId2").val();
+						}
+						if($("#sentimentId2").val()!=""){
+							param.sentimentId= $("#sentimentId2").val();
+						}
 					}
 					if(keyword!=''){
 						param.keyword = keyword;
-					}
-					if(fieldName&&fieldName!=''){
-						param.fieldName = fieldName;
-						param.order = 'desc';
 					}
 					return param;
 				},
@@ -201,6 +252,19 @@ define('app/jsp/search/public',function(require, exports, module) {
 		        	var param = {};
 		        	param.pageSize= 10;
 		        	param.pageNo = 1;
+		        	var provincecityCode = $("#province").val();
+					if(provincecityCode!=""){
+						param.provinceCode = provincecityCode;
+					}
+					var idList = $("#cities").val();
+					if(idList!=""){
+						param.cityCode = idList;
+					}
+					//领域分类
+					var categoryId = $("#interestes").val();
+					if(categoryId!=""){
+						param.categoryId = categoryId;
+					}
 		        	ajaxController.ajax({
 						type: "post",
 						processing: false,

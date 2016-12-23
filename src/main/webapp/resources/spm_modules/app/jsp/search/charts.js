@@ -15,8 +15,9 @@ define('app/jsp/search/charts', function(require, exports, module) {
 
 		// 时间态势
 		_initTimeTrendChart : function(container, data) {
-			//var categorys = [ '12-10', '12-11', '12-12', '12-13', '12-14' ];
-			//var values = [ 5000, 2500, 9000, 7500, 6500 ];
+			if(!data){
+				return;
+			}
 			var categorys = [];
 			var values = [];
 			for(var i=0;i<data.length;i++){
@@ -118,8 +119,9 @@ define('app/jsp/search/charts', function(require, exports, module) {
 		},
 		_initMediaChart : function(container, data) {
 			var _this = this;
-			//var categorys = [ '华龙网', '人民网', '新华网', '四川新闻网', '中国兰州网' ];
-			//var values = [ 7893, 11040, 140, 4940, 4240 ];
+			if(!data){
+				return;
+			}
 			var categorys = [];
 			var values = [];
 			var len = data.length;

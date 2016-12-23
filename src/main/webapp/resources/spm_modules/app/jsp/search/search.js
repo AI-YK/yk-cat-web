@@ -99,11 +99,16 @@ define(
 				},
 				_loadChartData:function(){
 					var param = {};
+					var keyword = $("#keyword").val();
+					if(keyword!=''){
+						param.keyword = keyword;
+					}
 					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};
 					param.mediaType = mediaType;
+					param.highlight = "true";
 					var keyword = $("#keyword").val();
 					if(keyword!=''){
 						param.keyword = keyword;
@@ -214,6 +219,7 @@ define(
 		        	var param = {};
 		        	param.pageSize= 10;
 		        	param.pageNo = 1;
+		        	param.isTimeSort='0'
 		        	ajaxController.ajax({
 						type: "post",
 						processing: false,

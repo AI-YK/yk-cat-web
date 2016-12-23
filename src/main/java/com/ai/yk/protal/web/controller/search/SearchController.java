@@ -68,13 +68,13 @@ public class SearchController extends BaseController{
 	private void initConfig(Model mod,MyCustomizedVo config){
 		AreaVo province = config.getProvince();
 		if(province!=null){
-			mod.addAttribute("province", province.getCode());
+			mod.addAttribute("province", province.getBusCode());
 		}
 		List<AreaVo> cities = config.getCity();
 		if(cities!=null&&cities.size()>0){
 			String cityStr = "";
 			for(AreaVo city:cities){
-				cityStr = city + ","+city.getCode();
+				cityStr = cityStr + ","+city.getBusCode();
 			}
 			cityStr = cityStr.substring(1);
 			mod.addAttribute("cities", cityStr);
@@ -83,7 +83,7 @@ public class SearchController extends BaseController{
 		if(interestes!=null&&interestes.size()>0){
 			String interestStr = "";
 			for(InterestVo interest:interestes){
-				interestStr = interest + ","+interest.getBusinessId();
+				interestStr = interestStr + ","+interest.getBusinessId();
 			}
 			interestStr = interestStr.substring(1);
 			mod.addAttribute("interestes", interestStr);
@@ -104,7 +104,7 @@ public class SearchController extends BaseController{
 			model.addAttribute("user", clientUser);
 		}
 		MyCustomizedVo config = SessionUtil.getUserConfig();
-    	if(config!=null){
+    	if(config!=null){  
     		initConfig(model, config);
     	}
 		return "/search/event";
