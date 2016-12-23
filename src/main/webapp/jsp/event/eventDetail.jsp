@@ -139,7 +139,7 @@
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
 					<p>事件走势</p>
-					<p class="right">选择时间：${begin} 至 ${end}</p>
+					<p class="right">时间：${begin} 至 ${end}</p>
 				</div>
 				<!--图表嵌套区域-->
 				<div class="levle-right-chart-list" id="timeTrend">
