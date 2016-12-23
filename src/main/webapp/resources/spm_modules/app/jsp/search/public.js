@@ -56,8 +56,7 @@ define('app/jsp/search/public',function(require, exports, module) {
     					_this._search("social");
                     }
 					
-					searchChart._initTimeTrendChart('timeChart',null);
-					searchChart._initMediaChart('mediaChart',null);
+					_this._loadChartData();
 
 				},
 				_bindEvent : function() {
@@ -102,6 +101,10 @@ define('app/jsp/search/public',function(require, exports, module) {
 		 	        	window.open (url, '_blank' ) ;
 					});
 					
+				},
+				_loadChartData:function(){
+					var param = {};
+					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};

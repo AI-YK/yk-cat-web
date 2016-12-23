@@ -20,7 +20,7 @@ public class PublicAffairsMessage implements Serializable {
 	private String keyword;
 
 	/**
-	 * 模型名称 媒体覆盖出 mediaCoverage 舆情走势 locSentimentCount
+	 * 模型名称 媒体覆盖出 mediaCoverage 舆情走势 locSentimentCount  listMedia,listNST
 	 */
 	private String modelNo;
 	/**

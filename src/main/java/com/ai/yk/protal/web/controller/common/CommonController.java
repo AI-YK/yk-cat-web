@@ -29,6 +29,8 @@ import com.ai.yk.protal.web.content.event.chars.EventModelResponse;
 import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsMessage;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsResponse;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
 import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsMessage;
@@ -47,6 +49,7 @@ import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.service.queryDicByTypeAndLanguageForNews.QueryDicByTypeAndLanguageForNewsService;
 import com.ai.yk.protal.web.service.queryInfoLanguage.QueryInfoLanguageService;
 import com.ai.yk.protal.web.service.queryareaoreconomicorganizations.QueryAreaOrEconomicOrganizationsService;
@@ -86,6 +89,9 @@ public class CommonController {
 	TranslateService translateService;
 	@Autowired
 	private  EventDataService eventDataService;
+	
+	@Autowired
+	private MytopicsService mytopicsSercice;
 	
 	/**
 	 * 获得中国省份
@@ -538,7 +544,17 @@ public class CommonController {
 		} else {
 			SessionUtil.setUserConfig(mock());
 		}
-		System.out.println(resp.getData().getCity());
+		//将个人专题数据放入session
+		MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
+    	myTopicsMessage.setPageNo(1);
+    	myTopicsMessage.setPageSize(10);
+    	myTopicsMessage.setCreateId(Integer.parseInt(userId));
+    	YJRequest<MyTopicsMessage> reqtop=new YJRequest<MyTopicsMessage>();
+    	reqtop.setMessage(myTopicsMessage);
+    	YJResponse<MyTopicsResponse> yjr=mytopicsSercice.queryMyTopicsList(reqtop);
+    	if(yjr!=null && yjr.getData()!=null && yjr.getData().getResults()!=null && yjr.getData().getResults().size()!=0){
+    		SessionUtil.setTopics(yjr.getData().getResults());
+    	}
 		return new ResponseData<MyCustomizedVo>(
 				ResponseData.AJAX_STATUS_SUCCESS, "保存配置信息成功",
 				resp.getData());
