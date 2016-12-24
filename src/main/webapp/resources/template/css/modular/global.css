@@ -451,7 +451,7 @@ pre ol.linenums li {
 .skin-minimal .checkbox-1,.checkbox-2,.checkbox-disabled,.checkbox-disabled-checked{width:16px;height:16px;float:left}
 .checkbox-disabled,.checkbox-disabled-checked{cursor:not-allowed;}
 /************************select************************/
-.select{/* border:1px solid #dcddde; */background:#fff;outline:none;color:#6a6c6f;appearance:none;padding: 0 8px;-moz-appearance:none;-webkit-appearance:none;background:url(../../images/icon-s.jpg) no-repeat scroll right  #fff;}
+.select{/* border:1px solid #dcddde; */background:#fff;outline:none;color:#A9A9A9;appearance:none;padding: 0 8px;-moz-appearance:none;-webkit-appearance:none;background:url(../../images/icon-s.jpg) no-repeat scroll right  #fff;}
 select::-ms-expand { display: none; }
 /**.select:hover{border:1px solid #e6e6e6;}**/
 .select option{ padding-left:30px;}

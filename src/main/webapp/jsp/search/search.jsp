@@ -65,7 +65,7 @@
 							<li>
 								<!-- <p>时间</p> -->
 								<p>
-									<input id="timeId1" type="text" readonly="readonly" class="select select-small calendar searchNews" style="width: 100px"/>
+									<input id="timeId1" placeholder="时间" type="text" readonly="readonly" class="select select-small calendar searchNews" style="width: 100px"/>
 								</p>
 							</li>
 <li>
@@ -159,7 +159,7 @@
 							<li>
 								<!-- <p>时间</p> -->
 								<p>
-									<input id="timeId2" readonly type="text" class="select select-small calendar searchSocial">
+									<input id="timeId2" placeholder="时间" readonly type="text" class="select select-small calendar searchSocial">
 								</p>
 							</li>
 						</ul>
