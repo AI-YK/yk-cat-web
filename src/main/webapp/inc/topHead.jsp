@@ -19,16 +19,11 @@
 					<li><a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a></li>
 					<li><a href="${_base}/newsbmap/toHeat">热点发现</a></li>
 					<li><a href="${_base}/search/public">舆情动态</a></li>
-					<%-- <c:if test="${!noSearch}"> --%>
-					 <li class="search">
-					 <input id="_keyword" value="${_keyword}" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;"><i class="icon iconfont">&#xe658;</i></a>
-					 </li>
-					<%-- </c:if> --%>
 					<li class="iphone-show">
-					 <i class="ico_user"></i>
+					   <img src="${uedroot}/images/user.png" />
 					</li>
-					<div class="user-show" id="user-show">
-						<span><i class="icon iconfont">&#xe65a;</i></span>
+					<div class="user-show" id="user-show" style="right: -45px;">
+						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
 							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
 							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
