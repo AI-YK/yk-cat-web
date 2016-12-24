@@ -48,7 +48,7 @@ public class NewsHotAndSocialHotController {
 			    /**舆情分类类型（多个用逗号隔开）**/
 			    @RequestParam(value="categoryId",defaultValue="") String categoryId,
 			    /**数据源类型微信微博新闻等媒体**/
-			    @RequestParam(value="mediaId",defaultValue="") String mediaId,
+			    @RequestParam(value="mediaList",defaultValue="") String mediaList,
 			    /**媒体级别id**/
 			    @RequestParam(value="mediaLevel",defaultValue="") String mediaLevel,
 			    /**指定排序字段**/
@@ -66,7 +66,7 @@ public class NewsHotAndSocialHotController {
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
 		searchPublicSafetyMessage.setCityCode(cityCode);
 		searchPublicSafetyMessage.setCategoryId(categoryId);
-		searchPublicSafetyMessage.setMediaId(mediaId);
+		searchPublicSafetyMessage.setMediaList(mediaList);
 		searchPublicSafetyMessage.setMediaLevel(mediaLevel);
 		searchPublicSafetyMessage.setFieldName(fieldName);
 		searchPublicSafetyMessage.setOrder(order);
