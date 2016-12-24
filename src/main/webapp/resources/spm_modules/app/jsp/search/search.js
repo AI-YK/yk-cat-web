@@ -46,6 +46,7 @@ define(
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
 					_this._loadChartData();
+					_this._getsocialDic();
 
 				},
 				_bindEvent : function() {
@@ -265,6 +266,22 @@ define(
 							
 						}
 					});
+		        },
+		        _getsocialDic:function(){
+		        	var url="/common/getDic";
+		        	var param={};
+		        	ajaxController.ajax({
+		        		type:"post",
+		        		processing:false,
+		        		message:"保存数据中，请等待...",
+		        		url:_base+url,
+		        		data:param,
+		        		success:function(rs){
+		        			var data=rs.data;
+		        			var dic=$("#typeTempl").render({"Dic":data});
+		        			$("#news-type-mainId").html(dic);
+		        		}
+		        	});
 		        },
 		        _fdigit:function (s) {  
 				    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";  
