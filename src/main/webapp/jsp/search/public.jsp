@@ -80,7 +80,7 @@
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId1" type="text" readonly
+									<input placeholder="时间" id="timeId1" type="text" readonly
 										class="searchNews select select-small calendar" />
 								</p>
 							</li>
@@ -169,7 +169,7 @@
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId2" readonly type="text"
+									<input placeholder="时间" id="timeId2" readonly type="text"
 										class="searchSocial select select-small calendar">
 								</p>
 							</li>
