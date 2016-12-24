@@ -11,6 +11,7 @@ define(
 			require("opt-paging/aiopt.pagination");
 			require("twbs-pagination/jquery.twbsPagination.min");
 			require("my97DatePicker/WdatePicker");
+			var moment = require("moment/2.9.0/moment");
 			var SelectUtil = require("app/jsp/search/select");
 			var SearchChart = require("app/jsp/search/charts");
 			// 实例化AJAX控制处理对象
@@ -125,6 +126,12 @@ define(
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
+					var nowDate = moment().format('YYYY-MM-DD');
+					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
+					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
+					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
+					param.beginTime = nowDate + " 23:59:59";
+					param.endTime = pre7Date + " 00:00:00";
 					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
