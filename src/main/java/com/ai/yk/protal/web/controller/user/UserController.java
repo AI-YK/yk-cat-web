@@ -13,8 +13,11 @@ import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsMessage;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsResponse;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.utils.ConfigUtil;
 import com.ai.yk.protal.web.utils.SessionUtil;
 
@@ -24,6 +27,9 @@ public class UserController {
 	
     @Autowired
 	private MycustomizedService mycustomizedService;
+    
+    @Autowired
+	private MytopicsService mytopicsSercice;
 
 	/**
 	 * 用户登录
@@ -61,10 +67,22 @@ public class UserController {
     	customizedListMessage.setCreateId(Integer.valueOf(clientUser.getUserId()));
     	req.setMessage(customizedListMessage);
     	resp = mycustomizedService.queryMyCustomized(req);
+    	/**专题数据**/
+    	MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
+    	myTopicsMessage.setPageNo(1);
+    	myTopicsMessage.setPageSize(10);
+//    	myTopicsMessage.setCreateId(Integer.parseInt(clientUser.getUserId()));
+    	myTopicsMessage.setCreateId(99499);
+    	YJRequest<MyTopicsMessage> reqtop=new YJRequest<MyTopicsMessage>();
+    	reqtop.setMessage(myTopicsMessage);
+    	YJResponse<MyTopicsResponse> yjr=mytopicsSercice.queryMyTopicsList(reqtop);
     	if(resp==null){
     		 return "redirect:/home/config";
     	}else{
     		 SessionUtil.setUserConfig(resp.getData());
+    		 if(yjr.getData()!=null){
+    			 SessionUtil.setTopics(yjr.getData().getResults());
+    		 }
     		 return "redirect:"+redirect;
     	}
        
