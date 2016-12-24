@@ -11,6 +11,7 @@ define(
 			require("opt-paging/aiopt.pagination");
 			require("twbs-pagination/jquery.twbsPagination.min");
 			require("my97DatePicker/WdatePicker");
+			var moment = require("moment/2.9.0/moment");
 			var SelectUtil = require("app/jsp/search/select");
 			var SearchChart = require("app/jsp/search/charts");
 			// 实例化AJAX控制处理对象
@@ -110,6 +111,15 @@ define(
 			        	window.open (url, '_blank' ) ;
 		            });
 					
+					$(document).on("click","#news-type-mainId ul li a",function(){
+						$("#news-type-mainId ul li a").each(function(){
+							$(this).removeClass("current");
+						});
+						$(this).addClass("current");
+						_this.search("news");
+						_this.search("social");
+					});
+					
 					selectUtil.autocompleteDic('mediaIn1','mediaId1');
 					selectUtil.autocompleteDic('mediaIn2','mediaId2');
 
@@ -126,13 +136,19 @@ define(
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
+					var nowDate = moment().format('YYYY-MM-DD');
+					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
+					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
+					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
+					param.beginTime = nowDate + " 23:59:59";
+					param.endTime = pre7Date + " 00:00:00";
 					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
 					var param = {};
 					param.mediaType = mediaType;
 					param.highlight = "true";
-					var keyword = $("#keyword").val();
+					var keyword = $("#_keyword").val();
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
@@ -181,6 +197,14 @@ define(
 							param.sentimentId= $("#qingId2").val();
 						}
 					}
+					var current = $("#news-type-mainId ul li .current");
+					if(current){
+						var categoryId = current.next().val();
+						if(categoryId!=undefined&&categoryId!="0"){
+							param.categoryId = categoryId;
+						}
+					}
+					
 					param.order = "desc";
 					return param;
 				},
