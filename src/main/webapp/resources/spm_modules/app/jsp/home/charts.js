@@ -138,7 +138,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         			xyAxis.xAxis = edata2.time[j];
         			xyData.push(xyAxis);
         		}
-        		console.log(JSON.stringify(xyData));
+        	//	console.log(JSON.stringify(xyData));
         		nameData.markPoint.data = xyData;
         		nameData.markPoint.itemStyle.normal.color = pointArr[i];
         		nameData.data = edata2.data[i];
