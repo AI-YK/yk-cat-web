@@ -72,12 +72,12 @@ public class SearchController extends BaseController{
 		}
 		List<AreaVo> cities = config.getCity();
 		if(cities!=null&&cities.size()>0){
-			String cityStr = "";
+			StringBuffer cityStr = new StringBuffer();
 			for(AreaVo city:cities){
-				cityStr = cityStr + ","+city.getBusCode();
+				cityStr .append(",").append(city.getCode());
 			}
-			cityStr = cityStr.substring(1);
-			mod.addAttribute("cities", cityStr);
+			
+			mod.addAttribute("cities", cityStr.substring(1));
 		}
 		List<InterestVo> interestes =  config.getInterestList();
 		if(interestes!=null&&interestes.size()>0){

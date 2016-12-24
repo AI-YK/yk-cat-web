@@ -36,7 +36,7 @@ public final class SessionUtil {
 	}
 
 	public static SSOClientUser getLoginUser(HttpServletRequest request) {
-		request.getSession().getAttributeNames();
+		
 		Object obj = request.getSession().getAttribute(Constants.USER_SESSION_KEY);
 		SSOClientUser loginUser = null;
 		//System.out.println("======session obj=========="+obj);
