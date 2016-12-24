@@ -21,6 +21,7 @@ import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetySocialVo;
 import com.ai.yk.protal.web.service.search.SearchService;
+import com.alibaba.fastjson.JSON;
 
 @Controller
 @RequestMapping("/news")
@@ -200,6 +201,7 @@ public class NewsHotAndSocialHotController {
 	@RequestMapping("/getSearchPublicSafety")
 	@ResponseBody
 	public ResponseData<Object> getSearchPublicSafety(SearchPublicSafetyMessage message){
+		System.out.println("=================================================="+message.getKeyword());
 		if(message==null){
 			return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"参数不能为空",null);
 		}

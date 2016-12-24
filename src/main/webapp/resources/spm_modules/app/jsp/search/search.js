@@ -132,7 +132,7 @@ define(
 					var param = {};
 					param.mediaType = mediaType;
 					param.highlight = "true";
-					var keyword = $("#keyword").val();
+					var keyword = $("#_keyword").val();
 					if(keyword!=''){
 						param.keyword = keyword;
 					}
