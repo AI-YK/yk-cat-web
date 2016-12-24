@@ -66,33 +66,32 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>地区</p>
+								<p>省份</p>
 								<p>
-									<select id="orgnizationId1"  style="width: 85px">
-										<!-- <option>全部</option> -->
+									<select id="orgnizationId1" class="searchNews" style="width: 90px">
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>语言</p>
 								<p>
-									<select id="languageId1" class="select select-mini" style="width: 100px">
-										<option>全部</option>
+									<select id="languageId1" class="select select-mini searchNews" style="width: 100px">
+										
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId1" class="select select-mini" style="width: 100px">
-										<option>时间</option>
+									<select id="dicId1" class="select select-mini searchNews" style="width: 100px">
+										
 									</select>
 								</p>
 							</li>
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId1" type="text" readonly class="select select-small calendar"/>
+									<input id="timeId1" type="text" readonly="readonly" class="select select-small calendar searchNews"/>
 								</p>
 							</li>
 						</ul>
@@ -100,14 +99,15 @@
 							<li>
 								<p>媒体</p>
 								<p>
-									<input  type="text" class="int-text select-mini">
+									<input id="mediaIn1" type="text" class="int-text select-small searchNews">
+									<input id="mediaId1" type="hidden">
 								</p>
 							</li>
 							<li>
 								<p>排序</p>
 								<p>
-									<select class="select select-mini">
-										<option>全部</option>
+									<select id="fileId1" class="select select-mini searchNews">
+										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -118,13 +118,17 @@
 							<li>
 								<p>译文</p>
 								<p>
-									<select class="select select-small">
+									<select class="select select-small searchNews">
+									    <option value="">全部显示</option>
 										<option>仅显示译文</option>
 										<option>仅显示原文</option>
 										<option>显示译文和原文</option>
 									</select>
 								</p>
 							</li>
+							<!-- <li>
+								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn1" value="搜索">
+							</li> -->
 						</ul>
 					</div>
 					<div class="level-news" >
@@ -281,9 +285,9 @@
 </script>
 <script id="typeTempl" type="text/x-jsrender">
 <ul>
-	<li><a href="#" class="current">全部</a></li>
+	<li><a href="#" class="current">全部</a><input type="hidden" value="0"/></li>
 	{{for Dic}}
-	<li><a href="#">{{:dicName }}</a></li>
+	<li><a href="#">{{:dicName }}</a><input type="hidden" value="{{:dicValue}}"/></li>
 	{{/for}}
 	<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
 </ul>
