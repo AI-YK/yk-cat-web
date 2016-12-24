@@ -120,9 +120,10 @@ define(
 						_this.search("social");
 					});
 					
-					selectUtil.autocompleteDic('mediaIn1','mediaId1');
-					selectUtil.autocompleteDic('mediaIn2','mediaId2');
-
+					//selectUtil.autocompleteDic('mediaIn1','mediaId1');
+					//selectUtil.autocompleteDic('mediaIn2','mediaId2');
+					selectUtil.queryMediaName($("#mediaIn1"),'mediaId1');
+					selectUtil.queryMediaName($("#mediaIn2"),'mediaId2');
 				},
 				_searchNews:function(){
 					this.search("news");

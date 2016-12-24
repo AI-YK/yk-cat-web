@@ -8,7 +8,7 @@
 <title>搜索结果</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
-<link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
+
 </head>
 <body>
 	<!--面包屑导航-->
@@ -73,7 +73,7 @@
 							<li>
 								<p>媒体</p>
 								<p>
-									<input id="mediaIn1" type="text" class="int-text select-small searchNews">
+									<input id="mediaIn1" type="text" class="searchNews">
 									<input id="mediaId1" type="hidden">
 								</p>
 							</li>
@@ -166,7 +166,7 @@
 							<li>
 									<p>媒体</p>
 									<p>
-										<input id="mediaIn2" type="text" class="int-text select-small searchSocial">
+										<input id="mediaIn2" type="text" class="searchSocial">
 									    <input id="mediaId2" type="hidden">
 									</p>
 							</li>
