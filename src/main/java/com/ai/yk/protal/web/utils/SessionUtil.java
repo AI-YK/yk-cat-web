@@ -41,6 +41,7 @@ public final class SessionUtil {
 		
 		Object obj = request.getSession().getAttribute(
 				Constants.USER_SESSION_KEY);
+
 		SSOClientUser loginUser = null;
 		// System.out.println("======session obj=========="+obj);
 		if (obj != null) {

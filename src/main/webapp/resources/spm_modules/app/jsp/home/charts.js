@@ -20,14 +20,124 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		backgroundColor =configParam.backgroundColor;
         	}
         	var edata2 = {};
-    		edata2.media = [ '网易', '新华网', '搜狐网', 'BBC', 'CNN' ];
-    		edata2.time = [ '10-08', '10-09', '10-10', '10-11' ];
-    		edata2.data = [ [ 800, 1000, 1500 ], [ 1000, 1200, 1400 ],
-    				[ 900, 1300, 1600 ], [ 1200, 1500, 1000 ],
-    				[ 1500, 1200, 1300 ], [ 1000, 1500, 1700 ] ];
+//    		edata2.media = [ '网易', '新华网', '搜狐网', 'BBC', 'CNN' ];
+//    		edata2.time = [ '10-08', '10-09', '10-10', '10-11' ];
+//    		edata2.data = [ [ 800, 1000, 1500 ], [ 1000, 1200, 1400 ],
+//    				[ 900, 1300, 1600 ], [ 1200, 1500, 1000 ],
+//    				[ 1500, 1200, 1300 ], [ 1000, 1500, 1700 ] ];
+        	edata2.time = [];
+        	edata2.media =[];
+        		var index =0;
+            	for (var time in data)
+                {   if(index>4){
+                	   break;
+                    }
+            		edata2.time.push(time);
+            		index = index+1;
+                }
+            	var first = data[edata2.time[0]];
+            	for (var i = 0;i<first.length;i++)
+                {   if(edata2.media.length>4){
+                	   break;
+                    }
+                    if(first[i].nameZh){
+                    	edata2.media.push(first[i].nameZh);
+                    }
+            		
+            	}
+        	
+            	edata2.data =[];
+            	
+            	for(var i=0;i<edata2.media.length;i++){
+            		var media = edata2.media[i];
+            		var mediaData = [];
+            		for(var j=0;j<edata2.time.length;j++){
+            			var tempTime = edata2.time[j];
+            			var tempData = data[tempTime];
+            			for(var k=0;k<tempData.length;k++){
+            				if(media==tempData[k].nameZh){
+            					mediaData.push(tempData[k].level);
+            					break;
+            				}
+            				if(k==tempData.length-1){//没有值set null
+            					mediaData.push(0);
+            					break;
+            				}
+            			}
+            		}
+            		edata2.data.push(mediaData);
+            	}
+    		
         	var chart = echarts.init(document.getElementById(container));
-        	var series = [];
-        
+        	var seriesData = [];
+        	
+        	//点的颜色集合
+        	var pointArr = ['#b72f61','#ee9245','#edde53','#3caf5b','#9e2bbe'];
+        	for(var i=0;i<edata2.media.length;i++){
+        		//markPointd点坐标集合
+            	var xyData = [];
+        		var nameData =  {
+    					name : "",
+    					type : 'bar',
+    					barWidth : 1,
+    					barGap : '17px',
+    					label : {
+    						normal : {
+    							show : true,
+    							color:'#3382ee',
+    							position : 'top',
+    							formatter : function(param) {
+    								var arry = param.seriesName.split('');
+    								var str = '';
+    								if (arry.length > 3) {
+    									for (var i = 0; i < 3; i++) {
+    										str += arry[i] + '\n';
+    									}
+    								} else {
+    									str = arry.join('\n') + '\n'
+    								}
+    								return str;
+    							},
+    							textStyle : {
+    								color : '#55739e'
+    							}
+    						}
+    					},
+    					markPoint : {
+    						symbol : 'circle',
+    						symbolSize : 8,
+    						label : {
+    							normal : {
+    								show : false
+    							}
+    						},
+    						itemStyle : {
+    							normal : {
+    								color : ''
+    							}
+    						},
+    						
+    						data : []
+    					},
+    					data : []
+        	};
+        		nameData.name=edata2.media[i];
+        		for(var j =0;j<edata2.time.length;j++){
+        			//markPoint坐标
+                	var xyAxis = {
+                    		yAxis : 0,
+            				xAxis : 0
+                    	};
+        			xyAxis.yAxis = edata2.data[i][j];
+        			xyAxis.xAxis = edata2.time[j];
+        			xyData.push(xyAxis);
+        		}
+        		console.log(JSON.stringify(xyData));
+        		nameData.markPoint.data = xyData;
+        		nameData.markPoint.itemStyle.normal.color = pointArr[i];
+        		nameData.data = edata2.data[i];
+        		seriesData.push(nameData);
+        	}
 			var option = {
 				color : [ '#174879' ],
 				backgroundColor : backgroundColor,
@@ -67,7 +177,8 @@ define('app/jsp/home/charts', function (require, exports, module) {
 				} ],
 				yAxis : [ {
 					type : 'value',
-					//splitNumber : 3,
+					max : 6,
+//					splitNumber : 1,
 					axisLabel : {
 						margin : 10,
 						textStyle : {
@@ -107,8 +218,11 @@ define('app/jsp/home/charts', function (require, exports, module) {
 							type: 'dashed'
 						}
 					}
+					
 				} ],
-				series : [ {
+				series : seriesData
+				/*series : [ 
+				           {
 					name : edata2.media[0],
 					type : 'bar',
 					barWidth : 1,
@@ -160,7 +274,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
 						} ]
 					},
 					data : edata2.data[0]
-				}, {
+				},
+				
+				
+				{
 					name : edata2.media[1],
 					type : 'bar',
 					barWidth : 1,
@@ -369,7 +486,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 					},
 
 					data : edata2.data[4]
-				}]
+				}]*/
 			};
 			chart.setOption(option, true);
         },

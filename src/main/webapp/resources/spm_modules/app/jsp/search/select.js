@@ -3,6 +3,8 @@ define('app/jsp/search/select', function (require, exports, module) {
     var $=require('jquery');
 	require("echarts/echarts.min");
 	require("select2/select2.min");
+	require("select2/select2.css");
+	require("select2/select2_locale_zh-CN");
 	require("jquery-autocomplete/jquery.autocomplete");
 	require("jquery-autocomplete/jquery.autocomplete.css");
 	var  Base = require('arale-base/1.2.0/base');
@@ -29,7 +31,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value='-1'>全部</option>";
+					var options = "<option value='-1'>省份</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].code + "'>"+data[i].name+"</option>";
 					}
@@ -60,7 +62,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value=''>全部</option>";
+					var options = "<option value=''>语言</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].srcValue + "'>"+data[i].name+"</option>";
 					}
@@ -87,7 +89,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value=''>全部</option>";
+					var options = "<option value=''>影响力</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
 					}
@@ -132,6 +134,50 @@ define('app/jsp/search/select', function (require, exports, module) {
         		}
         	});
         	
+        },
+        queryMediaName:function(ele,storeId){
+        	ele.select2({
+        		minimumInputLength: 1,//至少输入n个字符，才去加载数据  
+        	    allowClear: true,  
+        	    width: "100px",  
+        	    height:"20px", 
+        	    language: "zh-CN",
+        	    placeholder: "媒体",  
+        	    formatSelection : function (item) {
+        	    	$("#"+storeId).val(item.id);
+        	    	return item.text; 
+        	    },  // 选择结果中的显示
+        	    formatResult    : function (item) { return item.text; },  // 搜索列表中的显示
+        	    ajax: {  
+        	        url: _base + "/common/getDataSourceList", 
+        	        type: 'POST',
+        	        dataType: 'json',  
+        	        delay: 250,  
+        	        data: function (term, page) {  
+        	            return {  
+        	                q: term,  
+        	                limit:10
+        	            };  
+        	        },  
+        	        cache: false, 
+        	        results: function (res, page) { 
+        	        	var options = [];  
+        	            if (res.statusCode=="1") {  
+        	                var data = res.data;
+        	                var len =data.length;
+        	                for (var i = 0;i < len; i++) {  
+        	                    var option = {  
+        	                        "id": data[i]["mediaId"],  
+        	                        "text": data[i]["mediaNameZh"]  
+        	                    };  
+        	                    options.push(option);  
+        	                }  
+        	            } 
+        	          return {results:options};
+        	        },  // 构造返回结果
+        	        escapeMarkup : function (m) { return m; }               // 字符转义处理 
+        	    }  
+        	});  
         }
         
     });

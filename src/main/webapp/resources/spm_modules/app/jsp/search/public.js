@@ -27,7 +27,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 				},
 				// 事件代理
 				events : {
-
+					"change .searchNews":"_searchNews",
+					"change .searchSocial":"_searchSocial"
 				},
 
 				// 重写父类
@@ -60,6 +61,12 @@ define('app/jsp/search/public',function(require, exports, module) {
 					_this._loadChartData();
 
 				},
+				_searchNews:function(){
+					this._search("news");
+				},
+				_searchSocial:function(){
+					this._search("social");
+				},
 				_bindEvent : function() {
 					var _this = this;
 					$(".level-left-table ul li a").click(function() {
@@ -81,7 +88,18 @@ define('app/jsp/search/public',function(require, exports, module) {
 					//日期控件
 					$(document).on("click",".calendar",function(){
 						var timeId = $(this).attr('id');
-						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy-MM-dd'});
+						WdatePicker({
+							el:timeId,
+							readOnly:true,
+							dateFmt:'yyyy.MM.dd',
+							onpicked:function(p){
+								if(timeId=="timeId1"){
+									_this._searchNews();
+								}else if(timeId=="timeId2"){
+									_this._searchSocial();
+								}
+							}
+						});
 					});
 					
 					$("#searchBtn1").click(function(){
@@ -113,15 +131,16 @@ define('app/jsp/search/public',function(require, exports, module) {
 			        	window.open (url, '_blank' ) ;
 		            });
 					
-					selectUtil.autocompleteDic('mediaIn1','mediaId1');
-					selectUtil.autocompleteDic('mediaIn2','mediaId2');
-
+					//selectUtil.autocompleteDic('mediaIn1','mediaId1');
+					//selectUtil.autocompleteDic('mediaIn2','mediaId2');
+					selectUtil.queryMediaName($('#mediaIn1'),'mediaId1');
+					selectUtil.queryMediaName($('#mediaIn2'),'mediaId2');
 				},
 				_loadChartData:function(){
 					var param = {};
 					var idList = $("#cities").val();
 					if(idList!=""){
-						param.idList = idList;
+						param.busCode = idList;
 					}
 					//领域分类
 					var categoryId = $("#interestes").val();
@@ -132,8 +151,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
 					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
-					param.beginTime = nowDate + " 23:59:59";
-					param.endTime = pre7Date + " 00:00:00";
+					param.endTime = nowDate + " 23:59:59";
+					param.beginTime = pre7Date + " 00:00:00";
 					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {

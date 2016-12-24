@@ -197,8 +197,8 @@ $(function(){
 	
 	//get_event_point_data_zixun();//资讯
 //	get_event_point_data_new();//右侧新闻数据
-//	smilNewsData();
-	smilEventData();
+	smilNewsData();
+	//smilEventData();
 	//全球选择鼠标离开隐藏
 	$(document).on('mouseleave','.xzzhou',function(){
 		//移除国家城市滚动条
@@ -397,7 +397,7 @@ function trinkFunc(){
 			    if(ympd=='0'){//全球热点
 			    	//隐藏国家选择
 //			    	get_event_point_data();
-			    	smilEventData();
+//			    	smilEventData();
 			    }else{
 			    	getBMapData();
 			    }
@@ -756,7 +756,7 @@ function smilNewsData(){
 	 	    	    }
 	 	    	    var data_list={
 	 		 	    	 	 'name': valid(o.titleZh),
-	 		 	    	     'value':6, //o.avgtone_num<30?o.avgtone_num:14,//颜色显示
+	 		 	    	     'value':o.transfer<30?(o.transfer==0?2:o.transfer):14, //o.avgtone_num<30?o.avgtone_num:14,//颜色显示
 	 		 	    	 	 'geoLat': o.latitude,
 	 		 	    	 	 'geoLong': o.longitude,
 	 		 	    	 	 'eventchinaname': valid(o.titleZh),
@@ -1774,7 +1774,7 @@ function go(t,v){
 	//隐藏国家选择
     guojiaFunc();
     smilNewsData();
-    smilEventData();
+//    smilEventData();
     //$(".echart_tip").remove();
    /* if(ympd=='0'){//全球热点
     	//隐藏国家选择
@@ -1847,7 +1847,7 @@ function selectCity1(mc,jd, wd, gj, cs, start_datetime, end_datetime, classify,c
     lat = wd;//维度
     init();
    
-    smilEventData();
+//    smilEventData();
     smilNewsData();
 }
 

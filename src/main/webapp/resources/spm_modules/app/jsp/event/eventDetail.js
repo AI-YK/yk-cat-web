@@ -136,7 +136,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 		/*图表*/
 		_initChart:function(){
 			var param ={};
-			param.models="timeTrend";
+			param.models="timeTrend,spreadTrend";
 			param.eventId=$("#srcId").val();
 			param.beginDate=$("#beginTime").val();
 			param.endDate=$("#endTime").val();
@@ -146,10 +146,11 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 				if(json.data&&json.data.timeTrend){
 					charts._initTimeTrendChart("timeTrend",json.data.timeTrend,configParam);
 				}
+				if(json.data&&json.data.spreadTrend){
+					charts._initSpreadStateChart("spreadState",json.data.spreadTrend,configParam);
+				}
 			});
-			var data = [];
-			
-			charts._initSpreadStateChart("spreadState",data,configParam);
+
 		},
 		_bindEvent:function(){
 			var _this = this;

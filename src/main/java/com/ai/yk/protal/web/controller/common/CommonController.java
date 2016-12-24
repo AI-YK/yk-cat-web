@@ -554,7 +554,7 @@ public class CommonController {
 			return new ResponseData<MyCustomizedVo>(ResponseData.AJAX_STATUS_FAILURE,"查询配置信息失败",null);
 		}
 		//将个人专题数据放入session
-		MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
+		/*MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
     	myTopicsMessage.setPageNo(1);
     	myTopicsMessage.setPageSize(10);
     	myTopicsMessage.setCreateId(Integer.parseInt(userId));
@@ -563,7 +563,7 @@ public class CommonController {
     	YJResponse<MyTopicsResponse> yjr=mytopicsSercice.queryMyTopicsList(reqtop);
     	if(yjr!=null && yjr.getData()!=null && yjr.getData().getResults()!=null && yjr.getData().getResults().size()!=0){
     		SessionUtil.setTopics(yjr.getData().getResults());
-    	}
+    	}*/
 		return new ResponseData<MyCustomizedVo>(
 				ResponseData.AJAX_STATUS_SUCCESS, "保存配置信息成功",
 				resp.getData());
