@@ -53,8 +53,8 @@ public class NewsHotAndSocialHotController {
 			    @RequestParam(value="mediaLevel",defaultValue="") String mediaLevel,
 			    /**指定排序字段**/
 			    @RequestParam(value="fieldName",defaultValue="") String fieldName,
-			    /**排序字段
-				_score：相关度,pubdate：时间，权重mediaLevel, 转载量transfer
+			    /**新闻的是_score：相关度,pubdate：时间，权重mediaLevel, 转载量transfer
+                *社交的是relevance：相关度,time：时间，影响力force, 传播量transCount
 				**/
 			    @RequestParam(value="order",defaultValue="") String order,
 			    @RequestParam(value="pageNo",defaultValue="") String pageNo,
