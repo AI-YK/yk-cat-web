@@ -201,7 +201,6 @@ public class NewsHotAndSocialHotController {
 	@RequestMapping("/getSearchPublicSafety")
 	@ResponseBody
 	public ResponseData<Object> getSearchPublicSafety(SearchPublicSafetyMessage message){
-		System.out.println("=================================================="+message.getKeyword());
 		if(message==null){
 			return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"参数不能为空",null);
 		}

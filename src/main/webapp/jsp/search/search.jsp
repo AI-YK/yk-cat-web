@@ -80,7 +80,7 @@
 							<li>
 								<p>排序</p>
 								<p>
-									<select id="fileId1" class="select select-mini searchNews">
+									<select id="fileId1" class="select select-mini searchNews" style="width: 100px">
 										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
@@ -146,7 +146,7 @@
 							<li>
 								<p>排序</p>
 								<p>
-									<select id="fileId2" class="select select-mini searchSocial">
+									<select id="fileId2" class="select select-mini searchSocial" style="width: 100px">
 										<option value="">全部</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
