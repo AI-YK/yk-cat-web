@@ -73,7 +73,7 @@
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId1" class="select select-mini"
+									<select id="dicId1" class="searchNews select select-mini"
 										style="width: 100px">
 										
 									</select>
@@ -83,20 +83,20 @@
 								<p>时间</p>
 								<p>
 									<input id="timeId1" type="text" readonly
-										class="select select-small calendar" />
+										class="searchNews select select-small calendar" />
 								</p>
 							</li>
 							<li>
 								<p>媒体</p>
 								<p>
-									<input id="mediaIn1" type="text" class="int-text select-small">
+									<input id="mediaIn1" type="text" class="searchNews">
 									<input id="mediaId1" type="hidden">
 								</p>
 							</li>
 							<li>
 								<p>排序</p>
 								<p>
-									<select id="fieldName1" class="select select-mini"
+									<select id="fieldName1" class="searchNews select select-mini"
 										style="width: 85px">
 										<option value="">全部</option>
 										<option value="score">相关度</option>
@@ -112,7 +112,7 @@
 							<li>
 								<p>情感</p>
 								<p>
-									<select id="sentimentId1" class="select select-mini">
+									<select id="sentimentId1" class="searchNews select select-mini">
 										<option value="">全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
@@ -129,13 +129,13 @@
 								</p>
 								<p>
 									<input id="keyword1" type="text"
-										class="int-text int-large radius">
-									<!--  <a href="#"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a> -->
+										class="searchNews int-text int-large radius">
+									 <a href="javascript:void(0);"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
 								</p>
 							</li>
-							<li><input type="button"
+							<!-- <li><input type="button"
 								class="btn btn-serch radius btn-deepblue" id="searchBtn1"
-								value="搜索"></li>
+								value="搜索"></li> -->
 						</ul>
 					</div>
 					<div class="level-news">
@@ -162,7 +162,7 @@
 							<li>
 								<p>影响力</p>
 								<p>
-									<select id="dicId2" class="select select-mini"
+									<select id="dicId2" class="searchSocial select select-mini"
 										style="width: 100px">
 										
 									</select>
@@ -172,20 +172,20 @@
 								<p>时间</p>
 								<p>
 									<input id="timeId2" readonly type="text"
-										class="select select-small calendar">
+										class="searchSocial select select-small calendar">
 								</p>
 							</li>
 							<li>
 								<p>媒体</p>
 								<p>
-									<input id="mediaIn2" type="text" class="int-text select-small">
+									<input id="mediaIn2" type="text" class="searchSocial">
 									<input id="mediaId2" type="hidden">
 								</p>
 							</li>
 							<li>
 								<p>排序</p>
 								<p>
-									<select id="fieldName2" class="select select-mini"
+									<select id="fieldName2" class="searchSocial select select-mini"
 										style="width: 85px">
 										<option value="">全部</option>
 										<option value="score">相关度</option>
@@ -201,7 +201,7 @@
 							<li>
 								<p>情感</p>
 								<p>
-									<select id="sentimentId2" class="select select-mini">
+									<select id="sentimentId2" class="searchSocial select select-mini">
 										<option value="">全部</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
@@ -220,13 +220,13 @@
 								</p>
 								<p>
 									<input id="keyword2" type="text"
-										class="int-text int-large radius">
-									<!-- <a href="#"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a> -->
+										class="searchSocial int-text int-large radius">
+									<a href="javascript:void(0);"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a>
 								</p>
 							</li>
-							<li><input type="button"
+							<!-- <li><input type="button"
 								class="btn btn-serch radius btn-deepblue" id="searchBtn2"
-								value="搜索"></li>
+								value="搜索"></li> -->
 						</ul>
 					</div>
 					<div class="level-news">

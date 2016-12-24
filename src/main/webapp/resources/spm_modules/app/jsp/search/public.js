@@ -27,7 +27,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 				},
 				// 事件代理
 				events : {
-
+					"change .searchNews":"_searchNews",
+					"change .searchSocial":"_searchSocial"
 				},
 
 				// 重写父类
@@ -60,6 +61,12 @@ define('app/jsp/search/public',function(require, exports, module) {
 					_this._loadChartData();
 
 				},
+				_searchNews:function(){
+					this._search("news");
+				},
+				_searchSocial:function(){
+					this._search("social");
+				},
 				_bindEvent : function() {
 					var _this = this;
 					$(".level-left-table ul li a").click(function() {
@@ -81,7 +88,18 @@ define('app/jsp/search/public',function(require, exports, module) {
 					//日期控件
 					$(document).on("click",".calendar",function(){
 						var timeId = $(this).attr('id');
-						WdatePicker({el:timeId,readOnly:true,dateFmt:'yyyy-MM-dd'});
+						WdatePicker({
+							el:timeId,
+							readOnly:true,
+							dateFmt:'yyyy.MM.dd',
+							onpicked:function(p){
+								if(timeId=="timeId1"){
+									_this._searchNews();
+								}else if(timeId=="timeId2"){
+									_this._searchSocial();
+								}
+							}
+						});
 					});
 					
 					$("#searchBtn1").click(function(){
@@ -113,9 +131,10 @@ define('app/jsp/search/public',function(require, exports, module) {
 			        	window.open (url, '_blank' ) ;
 		            });
 					
-					selectUtil.autocompleteDic('mediaIn1','mediaId1');
-					selectUtil.autocompleteDic('mediaIn2','mediaId2');
-
+					//selectUtil.autocompleteDic('mediaIn1','mediaId1');
+					//selectUtil.autocompleteDic('mediaIn2','mediaId2');
+					selectUtil.queryMediaName($('#mediaIn1'),'mediaId1');
+					selectUtil.queryMediaName($('#mediaIn2'),'mediaId2');
 				},
 				_loadChartData:function(){
 					var param = {};
