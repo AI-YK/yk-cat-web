@@ -756,36 +756,6 @@ define('app/jsp/home/charts', function (require, exports, module) {
         _initMediaCoverageChart:function(container,ul,data){
         	var colors = ['#80c823','#0067b4','#eb4d38','#f9983a','#1b84ed','#af67ef'];	
         	var series = [];
-        	data = [
-                    {
-                        "name":"新闻",
-                        "count":646094
-                    },
-                    {
-                        "name":"weixin",
-                        "count":11359
-                    },
-                    {
-                        "name":"weibo",
-                        "count":1773
-                    },
-                    {
-                        "name":"其他",
-                        "count":109
-                    },
-                    {
-                        "name":"大众",
-                        "count":109
-                    },
-                    {
-                        "name":"小众",
-                        "count":109
-                    },
-                    {
-                        "name":"覆盖",
-                        "count":109
-                    }
-                ];
         	var otherCount;
         	if(data.length<=6){
         		for(var i=0;i<data.length;i++){
