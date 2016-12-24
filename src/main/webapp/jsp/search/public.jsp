@@ -14,8 +14,6 @@
 
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet"
 	type="text/css" />
-<link href="${uedroot}/css/modular/select2.css" rel="stylesheet"
-	type="text/css" />
 </head>
 <body>
 	<c:choose>
