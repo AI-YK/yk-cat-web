@@ -31,7 +31,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value='-1'>全部</option>";
+					var options = "<option value='-1'>省份</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].code + "'>"+data[i].name+"</option>";
 					}
@@ -62,7 +62,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value=''>全部</option>";
+					var options = "<option value=''>语言</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].srcValue + "'>"+data[i].name+"</option>";
 					}
@@ -89,7 +89,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value=''>全部</option>";
+					var options = "<option value=''>影响力</option>";
 					for(var i=0;i<data.length;i++){
 						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
 					}
@@ -142,7 +142,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	    width: "150px",  
         	    height:"20px", 
         	    language: "zh-CN",
-        	    placeholder: "请输入",  
+        	    placeholder: "媒体",  
         	    formatSelection : function (item) {
         	    	$("#"+storeId).val(item.id);
         	    	return item.text; 
