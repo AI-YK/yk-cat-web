@@ -140,25 +140,25 @@ public final class SessionUtil {
 		if (topics == null) {
 			List<MyTopicsVo> list = new ArrayList<MyTopicsVo>();
 			MyTopicsVo myTopicsVo = new MyTopicsVo();
-			myTopicsVo.setZhShortTitle("中国航天");
+			myTopicsVo.setSrcShortTitle("中国航天");
 			MyTopicsVo myTopicsVo2 = new MyTopicsVo();
-			myTopicsVo2.setZhShortTitle("时代");
+			myTopicsVo2.setSrcShortTitle("时代");
 			MyTopicsVo myTopicsVo3 = new MyTopicsVo();
-			myTopicsVo3.setZhShortTitle("生活");
+			myTopicsVo3.setSrcShortTitle("生活");
 		
 			MyTopicsVo myTopicsVo4 = new MyTopicsVo();
-			myTopicsVo4.setZhShortTitle("公共安全事件");
+			myTopicsVo4.setSrcShortTitle("公共安全事件");
 			MyTopicsVo myTopicsVo5 = new MyTopicsVo();
-			myTopicsVo5.setZhShortTitle("金融");
+			myTopicsVo5.setSrcShortTitle("金融");
 			MyTopicsVo myTopicsVo6 = new MyTopicsVo();
-			myTopicsVo6.setZhShortTitle("财经");
+			myTopicsVo6.setSrcShortTitle("财经");
 			MyTopicsVo myTopicsVo7 = new MyTopicsVo();
-			myTopicsVo7.setZhShortTitle("理财");
+			myTopicsVo7.setSrcShortTitle("理财");
 			
 			MyTopicsVo myTopicsVo8 = new MyTopicsVo();
-			myTopicsVo8.setZhShortTitle("投资");
+			myTopicsVo8.setSrcShortTitle("投资");
 			MyTopicsVo myTopicsVo9 = new MyTopicsVo();
-			myTopicsVo9.setZhShortTitle("企业");
+			myTopicsVo9.setSrcShortTitle("企业");
 			list.add(myTopicsVo);
 			list.add(myTopicsVo2);
 			list.add(myTopicsVo3);

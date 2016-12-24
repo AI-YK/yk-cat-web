@@ -8,7 +8,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var HomeChart = require("app/jsp/home/charts");
 	require("jsviews/jsrender.min");
-	//var cookie = require("cookie"); 
+	require("cookie"); 
     // 实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
     
@@ -231,6 +231,14 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$('#index-city').hide();
             });
             
+            //选择专题
+            $(document).on("click",".topic",function(){
+             	  $(".topic").each(function () {
+                      $(this).removeClass("current");
+                  });
+                  $(this).addClass("current");
+  			});
+            
             //修改领域分类
             $('#modify-btn').click(function(){
             	$('#eject-mask').fadeIn(100);
@@ -268,8 +276,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _load:function(){
         	
-        	/*var dataType = $.cookie('_data_type');
-        	if(dataType==undefined||dataType=='0'){
+        	var dataType = $.cookie('_data_type');
+        	/*if(dataType==undefined||dataType=='0'){
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
@@ -450,14 +458,17 @@ define('app/jsp/home/home', function (require, exports, module) {
         		param.mediaList = mediaId;
         	}
         	param.publicAffairsType = "";
-        	param.fieldName="transfer"
-            param.order = "desc";
+        	
         	param.language = 'zh';
         	param.pageNo='1';
         	if(mediaType=='news'){
         		param.pageSize='11';
+        		param.fieldName="transfer"
+                param.order = "desc";
         	}else if(mediaType =='social'){
         		param.pageSize='7';
+        		param.fieldName="transCount"
+                param.order = "desc";
         	}
         	ajaxController.ajax({
 				type: "post",
