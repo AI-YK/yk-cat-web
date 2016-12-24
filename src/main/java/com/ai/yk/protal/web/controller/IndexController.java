@@ -54,7 +54,7 @@ public class IndexController extends BaseController {
     			model.addAttribute("citylist", JSON.toJSONString(config.getCity()));
     		}
         	
-    	}
+    	} 
     	List<MyTopicsVo> topics = SessionUtil.getTopics();
     	if(topics==null||topics.size()==0){
     		model.addAttribute("hasTopic", false);

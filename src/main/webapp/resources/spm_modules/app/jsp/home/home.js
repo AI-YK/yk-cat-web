@@ -379,7 +379,7 @@ define('app/jsp/home/home', function (require, exports, module) {
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
             	}
-            	param.idList=cityCodeList;
+            	param.busCode=cityCodeList;
         	}
         	param.modelNo = modelNo;
         	param.timeType = timeType;
