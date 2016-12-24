@@ -6,9 +6,9 @@ define('app/jsp/home/home', function (require, exports, module) {
     var Dialog = require("optDialog/src/dialog");
     require("app/util/jsviews-yi");
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
-	var cookie = require("cookie");
 	var HomeChart = require("app/jsp/home/charts");
 	require("jsviews/jsrender.min");
+	//var cookie = require("cookie");
     // 实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
     
@@ -213,13 +213,13 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
-        	    $.cookie('_data_type','0');
+        	    //$.cookie('_data_type','0');
         	});
         	$("#data-show ul .ahov3").click(function(){
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        		$.cookie('_data_type','1');
+        		//$.cookie('_data_type','1');
         	});	
         		
         	//选择城市
@@ -268,7 +268,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _load:function(){
         	
-        	var dataType = $.cookie('_data_type');
+        	/*var dataType = $.cookie('_data_type');
         	if(dataType==undefined||dataType=='0'){
         		$("#topicDiv").hide();
         		$(".right-list").hide();
@@ -277,7 +277,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        	}
+        	}*/
         	
         	this._initEventData();
         	this._loadPubTrend('locSentimentCount', '0');
