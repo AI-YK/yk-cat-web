@@ -21,6 +21,7 @@ import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetySocialVo;
 import com.ai.yk.protal.web.service.search.SearchService;
+import com.alibaba.fastjson.JSON;
 
 @Controller
 @RequestMapping("/news")
