@@ -39,7 +39,7 @@
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div id="commDiv" class="left-list" style="display: none;">
+			<div id="commDiv" class="left-list">
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
 				    <li>
@@ -108,7 +108,7 @@
 				    <li><a>专题数据：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
-					       <li class="inbtn" ><a href="javascript:void(0);">${topic.zhShortTitle}</a></li>
+					       <li class="inbtn" ><a href="javascript:void(0);">${topic.srcShortTitle}</a></li>
 					   </c:if>
 					</c:forEach>
 				</ul> 
@@ -124,7 +124,7 @@
 							    <li>
 								    <c:forEach items="${topics}" var="topic" varStatus="t">
 						               <c:if test="${t.index>=7}">
-										    <p><a>${topic.zhShortTitle}</a></p>
+										    <p><a>${topic.srcShortTitle}</a></p>
 						               </c:if>
 						            </c:forEach>
 					            </li>
