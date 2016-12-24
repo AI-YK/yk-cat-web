@@ -126,3 +126,131 @@ $('#city-one ul li a').click(function(){
    }
   }); 
 });
+//我的订单 table
+$(function(){
+$(".eject-choice-left-title ul li a").click(function () {
+                $(".eject-choice-left-title ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('.eject-choice-left-title ul li a').click(function(){
+  var index=$('.eject-choice-left-title ul li a').index(this);
+     if(index==0){
+     $('#eject-citi-tab1').show();
+  	 $('#eject-citi-tab2').hide();
+  	 $('#eject-citi-tab3').hide();
+  	 $('#eject-citi-tab4').hide();
+   }
+   if(index==1){
+     $('#eject-citi-tab2').show();
+  	 $('#eject-citi-tab1').hide();
+  	 $('#eject-citi-tab3').hide();
+  	 $('#eject-citi-tab4').hide();
+   }
+   if(index==2){
+     $('#eject-citi-tab3').show();
+  	 $('#eject-citi-tab2').hide();
+  	 $('#eject-citi-tab1').hide();
+  	 $('#eject-citi-tab4').hide();
+   }
+   if(index==3){
+     $('#eject-citi-tab4').show();
+  	 $('#eject-citi-tab2').hide();
+  	 $('#eject-citi-tab3').hide();
+  	 $('#eject-citi-tab1').hide();
+   }
+  }); 
+});
+//第一个
+$(function(){
+$("#city-tow ul li a").click(function () {
+                $("#city-tow ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#city-tow ul li a').click(function(){
+  var index=$('#city-tow ul li a').index(this);
+     if(index==0){
+     $('#eject-province1').show();
+  	 $('#eject-province2').hide();
+  	 $('#eject-province3').hide();
+  	 $('#eject-province4').hide();
+  	 $('#eject-province5').hide();
+  	 $('#eject-province6').hide();
+  	 $('#eject-province7').hide();
+  	 $('#eject-province8').hide();
+   }
+   if(index==1){
+     $('#eject-province2').show();
+  	 $('#eject-province1').hide();
+  	 $('#eject-province3').hide();
+  	 $('#eject-province4').hide();
+  	 $('#eject-province5').hide();
+  	 $('#eject-province6').hide();
+  	 $('#eject-province7').hide();
+  	 $('#eject-province8').hide();
+   }
+   if(index==2){
+     $('#eject-province3').show();
+  	 $('#eject-province2').hide();
+  	 $('#eject-province1').hide();
+  	 $('#eject-province4').hide();
+  	 $('#eject-province5').hide();
+  	 $('#eject-province6').hide();
+  	 $('#eject-province7').hide();
+  	 $('#eject-province8').hide();
+   }
+   if(index==3){
+     $('#eject-province4').show();
+  	 $('#eject-province3').hide();
+  	 $('#eject-province2').hide();
+  	 $('#eject-province1').hide();
+  	 $('#eject-province5').hide();
+  	 $('#eject-province6').hide();
+  	 $('#eject-province7').hide();
+  	 $('#eject-province8').hide();
+   }
+   if(index==4){
+     $('#eject-province5').show();
+  	 $('#eject-province3').hide();
+  	 $('#eject-province2').hide();
+  	 $('#eject-province1').hide();
+  	 $('#eject-province4').hide();
+  	 $('#eject-province6').hide();
+  	 $('#eject-province7').hide();
+  	 $('#eject-province8').hide();
+   }
+   if(index==5){
+     $('#eject-province6').show();
+  	 $('#eject-province3').hide();
+  	 $('#eject-province2').hide();
+  	 $('#eject-province1').hide();
+  	 $('#eject-province4').hide();
+  	 $('#eject-province5').hide();
+  	 $('#eject-province7').hide();
+  	 $('#eject-province8').hide();
+   }
+    if(index==6){
+     $('#eject-province7').show();
+  	 $('#eject-province3').hide();
+  	 $('#eject-province2').hide();
+  	 $('#eject-province1').hide();
+  	 $('#eject-province4').hide();
+  	 $('#eject-province5').hide();
+  	 $('#eject-province6').hide();
+  	 $('#eject-province8').hide();
+   }
+    if(index==7){
+     $('#eject-province8').show();
+  	 $('#eject-province3').hide();
+  	 $('#eject-province2').hide();
+  	 $('#eject-province1').hide();
+  	 $('#eject-province4').hide();
+  	 $('#eject-province5').hide();
+  	 $('#eject-province6').hide();
+  	 $('#eject-province7').hide();
+   }
+  }); 
+});

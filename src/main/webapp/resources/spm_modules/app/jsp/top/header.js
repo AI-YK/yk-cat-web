@@ -17,8 +17,7 @@ define('app/jsp/top/header', function (require, exports, module) {
 
         //事件代理
         events: {
-            "click #login":"_login",
-            "click #regist":"_regist"
+            
         },
 
         //重写父类
@@ -50,18 +49,6 @@ define('app/jsp/top/header', function (require, exports, module) {
     		$('.mainbav').mouseleave(function () {
     	        $('#user-show').hide(1);
     	    });
-        	 
-        	 //二维码
-        	 $('.breadcrumb-main ul .iphone').mouseenter(function () {
-        			$('#erw-show').show(1);
-        	 })
-        	 $("#erw-show").click(function () {
-        	         $(this).hide(1);
-        	  });	
-        	  $('.breadcrumb-main').mouseleave(function () {
-        	        $('#erw-show').hide(1);
-        	        $('#user-show').hide(1);
-        	 });	
         		
         	 $("#user-show ul .ahov3").click(function(){
         		_this._logOut();
@@ -96,8 +83,6 @@ define('app/jsp/top/header', function (require, exports, module) {
         	});
         },
         _login:function(){
-        	//http://192.168.59.17:8066/sso/login
-        	//http://buzz.yeesight.com/login
         	$("#loginJumpFormId").attr("action","http://192.168.59.17:8066/sso/login");
         	var curr =  window.location.href;
         	var end = curr.indexOf(_base);

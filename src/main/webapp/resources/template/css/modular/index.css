@@ -109,14 +109,14 @@
 .choice-city{width:100%;float:left;height:266px;background:#fff;border-radius:10px;padding:10px 20px;}
 .choice-title{width:100%;float:left;}
 .choice-title ul{float:left;margin:0;}
-.choice-title ul li{float:left;line-height:35px;font-size:14px;}
+.choice-title ul li{float:left;line-height:35px;font-size:14px;margin-right:0px;}
 .choice-int{width:200px;height:35px;line-height:35px;background:none;border:none;font-size:14px;color:#727894;padding-left:20px;}
 .choice-title ul .word{color:#3382ee}
 .choice-main{width:100%;float:left;border:1px solid #ddd;height:202px;margin-top:5px;}
 .choice-left{width:372px;border-right:1px solid #ddd;height:200px;float:left}
 .choice-left-title{width:100%;float:left;height:41px;border-bottom:1px solid #ddd;}
 .choice-left-title ul{width:100%;float:left;margin:0;}
-.choice-left-title ul li{float:left;line-height:41px;margin-left:10px;}
+.choice-left-title ul li{float:left;line-height:41px;margin-left:8px;}
 .choice-left-title ul li a{color:#626c9a;padding:0 6px;font-size:14px}
 .choice-left-title ul li .current{border-bottom:2px solid #3382ee;padding-bottom:12px;color:#3382ee}
 .choice-list{width:100%;float:left;padding:20px;}
@@ -151,3 +151,45 @@
 .eject-small-list ul li a:hover{background:#0e85de;color:#fff}
 .eject-small-list ul li .current{background:#0e85de;color:#fff}
 .btn-bottom{position:absolute;bottom:20px;}
+/**设置弹出**/
+.eject-medium{width:685px;height:482px; background:#3d4568;padding:20px;border:1px solid #6c78a6;position:fixed;top:50%;left:50%;display:none;margin-top:-342px;margin-left:-241px;z-index:999;border-radius:5px;padding-bottom:10px;}
+.eject-medium-title{width:100%;float:left}
+.eject-medium-title p{float:left;font-size:18px;color:#dcdfe9}
+.eject-medium-title .right{float:right}
+.eject-medium-title .right i{font-size:30px;color:#6c78a6;float:left;margin-top:-10px;cursor: pointer;}
+.field-title{width:100%;height:48px;background:#262c44;margin-top:15px;float:left;border-radius:10px;padding:0 20px;}
+.field-title ul li{float:left;line-height:48px;}
+.field-title ul li p{float:left;font-size:14px;color:#fff;margin-left:15px;}
+.field-title ul .blue{color:#3382ee}
+
+.eject-choice-city{width:100%;float:left;height:266px;background:#262c44;border-radius:10px;margin-top:15px;padding:10px 20px;}
+.eject-choice-title{width:100%;float:left;}
+.eject-choice-title ul{float:left;}
+.eject-choice-title ul li{float:left;line-height:35px;font-size:14px;}
+.eject-choice-int{width:200px;height:35px;line-height:35px;background:none;border:none;font-size:14px;color:#727894;padding-left:20px;}
+.eject-choice-title ul .word{color:#3382ee}
+.eject-choice-main{width:100%;float:left;border:1px solid #2f3652;height:200px;margin-top:5px;}
+.eject-choice-left{width:372px;border-right:1px solid #2f3652;height:200px;float:left}
+.eject-choice-left-title{width:100%;float:left;height:41px;border-bottom:1px solid #2f3652;}
+.eject-choice-left-title ul{width:100%;float:left}
+.eject-choice-left-title ul li{float:left;line-height:41px;margin-left:20px;}
+.eject-choice-left-title ul li a{color:#626c9a;padding:0 6px;}
+.eject-choice-left-title ul li .current{border-bottom:2px solid #fff;padding-bottom:12px;color:#fff}
+.eject-choice-list{width:100%;float:left;padding:20px;}
+.eject-choice-list ul{width:100%;float:left}
+.eject-choice-list ul li{float:left;margin-right:20px;margin-bottom:8px;}
+.eject-choice-list ul li a{color:#7681b5;font-size:14px;height:24px;padding:0 14px;text-align: center;float:left;line-height:24px;}
+.eject-choice-list ul li .current{background:#3382ee;color:#fff;border-radius:20px;}
+.eject-choice-right{width:228px;float:left;height:200px;overflow-y:auto;}
+.eject-choice-right ul{width:100%;float:left;}
+.eject-choice-right ul li{width:100%;float:left;height:41px;border-bottom:1px solid #2f3652;padding:12px 20px;}
+.eject-choice-right ul li p{float:left;margin-right:10px;color:#7681b5}
+/**滚动条**/
+.eject-choice-right::-webkit-scrollbar {width: 14px;height: 14px;}  
+.eject-choice-right::-webkit-scrollbar-track,  
+.eject-choice-right::-webkit-scrollbar-thumb {  border-radius: 999px;  border: 5px solid transparent;  }  
+.eject-choice-right::-webkit-scrollbar-track {  box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
+.eject-choice-right::-webkit-scrollbar-thumb {  min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
+.eject-choice-right::-webkit-scrollbar-corner {  background: transparent;  }  
+/**滚动条结束**/
+.eject-medium-btn{width:100%;float:left;text-align:center;margin-top:24px;}
