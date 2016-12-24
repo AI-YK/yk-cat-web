@@ -41,8 +41,8 @@
 						<ul>
 							<li>
 								<!-- <p>省份</p> -->
-								<p>
-									<select id="orgnizationId1" class="searchNews" style="width: 80px">
+								<p style="display: none;">
+									<select id="orgnizationId1" class="searchNews" style="width: 80px;">
 									</select>
 								</p>
 							</li>
@@ -95,7 +95,7 @@
 					
 							<li>
 							<!-- 	<p>媒体</p> -->
-								<p>
+								<p style="display: none;">
 									<input id="mediaIn1" type="text" class="searchNews" style="width: 80px">
 									<input id="mediaId1" type="hidden">
 								</p>
@@ -131,7 +131,7 @@
 						<ul>
 							<li>
 							<!-- <!-- 	<p>省份</p> --> 
-								<p>
+								<p style="display: none;">
 									<select id="orgnizationId2" class="searchSocial" style="width: 90px">
 									</select>
 								</p>
@@ -162,25 +162,35 @@
 									<input id="timeId2" placeholder="时间" readonly type="text" class="select select-small calendar searchSocial">
 								</p>
 							</li>
-						</ul>
-						<ul>
 							<li>
-									<!-- <p>媒体</p> -->
-									<p>
-										<input id="mediaIn2" type="text" class="searchSocial">
-									    <input id="mediaId2" type="hidden">
-									</p>
-							</li>
-							<li>
-								<!-- <p>情感</p> -->
-								<p>
+							<p>
 									<select id="qingId2" class="select select-mini searchSocial">
 										<option value="">情感</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
 										<option value="-1">负面</option>
 									</select>
-								</p>
+								</p> 
+							</li>
+						</ul>
+						<ul>
+							<li>
+									<!-- <p>媒体</p> -->
+									<p style="display: none;">
+										<input id="mediaIn2" type="text" class="searchSocial">
+									    <input id="mediaId2" type="hidden">
+									</p>
+							</li>
+							<li>
+								<!-- <p>情感</p> -->
+								<!-- <p>
+									<select id="qingId2" class="select select-mini searchSocial">
+										<option value="">情感</option>
+										<option value="1">正面</option>
+										<option value="0">中性</option>
+										<option value="-1">负面</option>
+									</select>
+								</p> -->
 							</li>
 							<!-- <li>
 								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn2" value="搜索">
