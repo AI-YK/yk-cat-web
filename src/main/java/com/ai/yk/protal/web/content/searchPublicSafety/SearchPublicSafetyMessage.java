@@ -17,6 +17,8 @@ public class SearchPublicSafetyMessage implements Serializable {
 		private String categoryId;
 		/**城市列表（多个用逗号隔开）**/
 		private String idList;
+		
+		private String busCode;
 		/**城市列表（数据源分布,海外传notChina）**/
 		private String countryName;
 		/**情感ID(1正面，0：中性 -1负面)**/
@@ -60,6 +62,12 @@ public class SearchPublicSafetyMessage implements Serializable {
 		
 		
 		
+		public String getBusCode() {
+			return busCode;
+		}
+		public void setBusCode(String busCode) {
+			this.busCode = busCode;
+		}
 		public String getCountryCode() {
 			return countryCode;
 		}
