@@ -273,7 +273,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -344,7 +344,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -407,7 +407,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -458,7 +458,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		var cityList=eval("("+cityLists+")");
             	var cityCodeList="";
             	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].busCode;
+            		cityCodeList=cityCodeList+","+cityList[i].code;
             	}
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
@@ -512,7 +512,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var pro=map[key];
 						if(letterId == ""){
 							for(var j=0;j<pro.length;j++){
-								if(provinceCodee==pro[j].busCode){
+								if(provinceCodee==pro[j].code){
 									letterId = "letter_"+key;
 								}
 							}
@@ -566,7 +566,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					if(cityList!=""){
 						var citys = eval('('+cityLists+")");
 						for(var i=0;i<citys.length;i++){
-							var id = citys[i].busCode;
+							var id = citys[i].code;
 							$("#city_"+id).attr("checked","checked");
 						}
 					}
