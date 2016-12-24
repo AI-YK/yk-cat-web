@@ -77,6 +77,9 @@ public class NewsHotAndSocialHotController {
 		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
 		res = searchService.getSearchPublicSafety(req);
 		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
+		if(res==null){
+			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_FAILURE,"查询不到新闻热点和社交热点",null);
+		}
 		searchPublicSafetyResponse = res.getData();
 		
 		/*SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();

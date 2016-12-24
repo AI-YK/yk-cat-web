@@ -27,6 +27,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
 //    				[ 1500, 1200, 1300 ], [ 1000, 1500, 1700 ] ];
         	edata2.time = [];
         	edata2.media =[];
+        		if(data==null || data=="" || data == undefined){
+        			return;
+        		}
         		var index =0;
             	for (var time in data)
                 {   if(index>4){
@@ -35,6 +38,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
             		edata2.time.push(time);
             		index = index+1;
                 }
+            	if(edata2.time.length < 1){
+            		return;
+            	}
             	var first = data[edata2.time[0]];
             	for (var i = 0;i<first.length;i++)
                 {   if(edata2.media.length>4){
@@ -132,7 +138,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         			xyAxis.xAxis = edata2.time[j];
         			xyData.push(xyAxis);
         		}
-        		console.log(JSON.stringify(xyData));
+        	//	console.log(JSON.stringify(xyData));
         		nameData.markPoint.data = xyData;
         		nameData.markPoint.itemStyle.normal.color = pointArr[i];
         		nameData.data = edata2.data[i];
@@ -498,7 +504,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	var times = [];
         	var counts = [];
         	for(var i=0;i<data.length;i++){
-        		times[i] = data[i].time.substring(5,10);
+        		times[i] = data[i].time.substring(0,data[i].time.length);
         		counts[i] = data[i].count;
         	}
         	
@@ -746,11 +752,32 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		var chart = echarts.init(document.getElementById(container));
         		chart.setOption(option);
         },
+        //媒体覆盖
         _initMediaCoverageChart:function(container,ul,data){
         	var colors = ['#80c823','#0067b4','#eb4d38','#f9983a','#1b84ed','#af67ef'];	
         	var series = [];
-        	for(var i=0;i<data.length;i++){
-        		series.push({'name':data[i].name,'value':data[i].count});
+        	var otherCount;
+        	if(data.length<=6){
+        		for(var i=0;i<data.length;i++){
+        			series.push({'name':data[i].name,'value':data[i].count});
+        		}
+        	}else{
+        		var otherIndex;
+        		for(var i = 0;i<data.length;i++){
+        			if(data[i].name =="其他"){
+        				otherIndex = i;
+        				otherCount= data[i].count;
+        			}
+        		}
+        		data.splice(otherIndex,1);
+        		for(var i=0;i<data.length;i++){
+        			if(i<5){
+        				series.push({'name':data[i].name,'value':data[i].count});
+        			}else{
+        				otherCount += data[i].count;
+        			}
+        		}
+        		series.push({'name':"其他",'value':otherCount});
         	}
         	if(data.length%colors.length==1){
         		colors.push(colors[1]);
