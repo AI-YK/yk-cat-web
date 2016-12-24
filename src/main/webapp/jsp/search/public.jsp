@@ -69,10 +69,9 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>影响力</p>
+								<!-- <p>影响力</p> -->
 								<p>
-									<select id="dicId1" class="searchNews select select-mini"
-										style="width: 100px">
+									<select id="dicId1" class="searchNews select select-mini" style="width: 100px">
 										
 									</select>
 								</p>
@@ -85,18 +84,17 @@
 								</p>
 							</li>
 							<li>
-								<p>媒体</p>
+								<!-- <p>媒体</p>
 								<p>
 									<input id="mediaIn1" type="text" class="searchNews">
 									<input id="mediaId1" type="hidden">
-								</p>
+								</p> -->
 							</li>
 							<li>
-								<p>排序</p>
+								<!-- <p>排序</p> -->
 								<p>
-									<select id="fieldName1" class="searchNews select select-mini"
-										style="width: 85px">
-										<option value="">全部</option>
+									<select id="fieldName1" class="searchNews select select-mini" style="width: 85px">
+										<option value="">排序</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -104,8 +102,35 @@
 									</select>
 								</p>
 							</li>
+							<li>
+								<!-- <p>情感</p> -->
+								<p>
+									<select id="sentimentId1" class="searchNews select select-mini">
+										<option value="">情感</option>
+										<option value="1">正面</option>
+										<option value="0">中性</option>
+										<c:choose>
+											<c:when test="${'negative'==model}">
+												<option value="-1" selected="selected">负面</option>
+											</c:when>
+											<c:otherwise>
+												<option value="-1">负面</option>
+											</c:otherwise>
+										</c:choose>
+
+									</select>
+								</p>
+								<!-- <p>
+									<input id="keyword1" type="text"
+										class="searchNews int-text int-large radius">
+									 <a href="javascript:void(0);"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
+								</p>
+ -->							</li>
+							<!-- <li><input type="button"
+								class="btn btn-serch radius btn-deepblue" id="searchBtn1"
+								value="搜索"></li> -->
 						</ul>
-						<ul>
+						<%-- <ul>
 							
 							<li>
 								<p>情感</p>
@@ -125,16 +150,16 @@
 
 									</select>
 								</p>
-								<p>
+								<!-- <p>
 									<input id="keyword1" type="text"
 										class="searchNews int-text int-large radius">
 									 <a href="javascript:void(0);"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
 								</p>
-							</li>
+ -->							</li>
 							<!-- <li><input type="button"
 								class="btn btn-serch radius btn-deepblue" id="searchBtn1"
 								value="搜索"></li> -->
-						</ul>
+						</ul> --%>
 					</div>
 					<div class="level-news">
 						<div class="level-news-title">
@@ -158,10 +183,9 @@
 					<div class="list-form">
 						<ul>
 							<li>
-								<p>影响力</p>
+								<!-- <p>影响力</p> -->
 								<p>
-									<select id="dicId2" class="searchSocial select select-mini"
-										style="width: 100px">
+									<select id="dicId2" class="searchSocial select select-mini"	style="width: 100px">
 										
 									</select>
 								</p>
@@ -169,23 +193,22 @@
 							<li>
 								<p>时间</p>
 								<p>
-									<input id="timeId2" readonly type="text"
-										class="searchSocial select select-small calendar">
+									<input id="timeId2" readonly type="text" class="searchSocial select select-small calendar">
 								</p>
 							</li>
-							<li>
+							<!-- <li>
 								<p>媒体</p>
 								<p>
 									<input id="mediaIn2" type="text" class="searchSocial">
 									<input id="mediaId2" type="hidden">
 								</p>
-							</li>
+							</li> -->
 							<li>
-								<p>排序</p>
+								<!-- <p>排序</p> -->
 								<p>
 									<select id="fieldName2" class="searchSocial select select-mini"
 										style="width: 85px">
-										<option value="">全部</option>
+										<option value="">排序</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -193,8 +216,34 @@
 									</select>
 								</p>
 							</li>
+							<li>
+								<!-- <p>情感</p> -->
+								<p>
+									<select id="sentimentId2" class="searchSocial select select-mini">
+										<option value="">情感</option>
+										<option value="1">正面</option>
+										<option value="0">中性</option>
+										<c:if test="">
+										</c:if>
+										<c:choose>
+											<c:when test="${'negative'==model}">
+												<option value="-1" selected="selected">负面</option>
+											</c:when>
+											<c:otherwise>
+												<option value="-1">负面</option>
+											</c:otherwise>
+										</c:choose>
+
+									</select>
+								</p>
+								<!-- <p>
+									<input id="keyword2" type="text"
+										class="searchSocial int-text int-large radius">
+									<a href="javascript:void(0);"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a>
+								</p> -->
+							</li>
 						</ul>
-						<ul>
+						<%-- <ul>
 							
 							<li>
 								<p>情感</p>
@@ -225,7 +274,7 @@
 							<!-- <li><input type="button"
 								class="btn btn-serch radius btn-deepblue" id="searchBtn2"
 								value="搜索"></li> -->
-						</ul>
+						</ul> --%>
 					</div>
 					<div class="level-news">
 						<div class="level-news-title">

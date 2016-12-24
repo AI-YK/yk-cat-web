@@ -35,11 +35,11 @@
   </div>
 <!--/弹出结束-->
 	<!--面包屑导航-->
-	<%@ include file="/inc/topHead.jsp"%>
+	<%@ include file="/inc/indexHead.jsp"%>
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div class="left-list" <c:if test="${!isLogin}">style="display: none;"</c:if> >
+			<div id="commDiv" class="left-list">
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
 				    <li>
@@ -60,7 +60,7 @@
 						<div class="choice-title">
 							<ul>
 								<li class="word">城市地区：</li>
-								<li><input type="text" class="choice-int" value="请选择省市区"><span id="tishiId" style="color: red; font-size:12px;"></span></li>
+								<li><input type="text" class="choice-int" value="请选择省市区" readonly="readonly"><span id="tishiId" style="color: red; font-size:12px;"></span></li>
 							</ul>
 						</div>
 						<div class="choice-main">
@@ -94,47 +94,46 @@
 							</ul>
 						</div>
 					</div>
-				</ul>
-			</div>
-			<div class="right-list" <c:if test="${!isLogin}">style="display: none;"</c:if>>
-				<ul>
-					<li class="in-border" id="in-border1"><a href="#"><label id="border1Id" style="font-size: 12px;">${hasTopic?'专题数据':'通用数据'}</label><i class="icon iconfont">&#xe659;</i></a>
-						<div class="special-show" id="special-one">
-							<span><i class="icon iconfont">&#xe65a;</i></span>
-							<ul>
-								<a href="#" class="ahov1"><li id="ahov1Id">通用数据</li></a>
-								<a href="#" class="ahov2" <c:if test="${!hasTopic }">style="display:none;"</c:if> ><li id="ahov2Id">专题数据</li></a>
-							</ul>
-						</div>
-					</li>
-					<li class="in-border" id="in-border2" <c:if test="${!hasTopic }">style="display:none;"</c:if> ><a href="#"><label id="border2Id" style="font-size: 12px;">${topics[0].srcShortTitle}</label><i class="icon iconfont">&#xe659;</i></a>
-						<div class="special-show" id="special-tow" <c:if test="${!hasTopic}">style="display: none;"</c:if>>
-							<span><i class="icon iconfont">&#xe65a;</i></span>
-							<ul>
-								<c:forEach items="${topics}" var="topic" varStatus="tstatus">
-								   <c:choose>
-								      <c:when test="${tstatus.first}">
-								        <a href="javascript:void(0);" class="ahov1"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
-								      </c:when>
-								      <c:when test="${tstatus.last}">
-								        <a href="javascript:void(0);" class="ahov3"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
-								      </c:when>
-								      <c:otherwise>
-								          <a href="javascript:void(0);" class="ahov2"><li id="${topic.id}">${topic.srcShortTitle }</li></a>
-								      </c:otherwise>
-								   </c:choose>
-									
-								</c:forEach>
-							</ul>
-						</div>
-					</li>
 					<c:forEach items="${config.interestList}" var="interestVo">
-						<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
+						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="inbtn" <c:if test="${hasTopic}">style="display: none;"</c:if> ><a href="javascript:void(0);" id="modify-btn">修改</a></li>
-					
+					<li class="inbtn"><a href="javascript:void(0);" id="modify-btn">修改</a></li>
 				</ul>
+				
+				
 			</div>
+			<!-- 专题数据 -->
+			<div id="topicDiv" class="left-list" style="display: none;">
+			   <ul>
+				    <li><a>专题数据：</a></li>
+					<c:forEach items="${topics}" var="topic" varStatus="t">
+					   <c:if test="${t.index<7}">
+					       <li class="inbtn" ><a href="javascript:void(0);">${topic.srcShortTitle}</a></li>
+					   </c:if>
+					</c:forEach>
+				</ul> 
+			</div>
+			
+			<div class="right-list" style="display: none;">
+			    <c:if test="${fn:length(topics)>7 }">
+				<ul>
+					<li class="more" id="more"><a href="#">更多<i class="icon iconfont">&#xe659;</i></a>
+						<div class="more-show" id="more-show">
+							<span><img src="${uedroot}/images/xf-sj.png"></span>
+							<ul>
+							    <li>
+								    <c:forEach items="${topics}" var="topic" varStatus="t">
+						               <c:if test="${t.index>=7}">
+										    <p><a>${topic.srcShortTitle}</a></p>
+						               </c:if>
+						            </c:forEach>
+					            </li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				</c:if>
+			</div> 
 		</div>
 	</div>
 	
@@ -146,7 +145,6 @@
 	<!--底部-->
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
-<script type="text/javascript" src="${uedroot}/scripts/modular/index.js"></script>
 <script id="provinceTempl" type="text/x-jsrender">
   <!--左侧tab-->
   <div class="choice-left-title">

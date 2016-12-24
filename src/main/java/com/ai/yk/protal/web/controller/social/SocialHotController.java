@@ -48,9 +48,11 @@ public class SocialHotController extends BaseController {
 		YJResponse<SocialDetailResponse> res = socialService.querySocialDetail(req);
 		
 		ModelAndView view = new ModelAndView(SOCIAL_DETAILS_VIEW);
-		if(res!=null&&res.getData()!=null&&res.getData().getWeibo()!=null){
-			view.addObject("socialDetail", res.getData().getWeibo());
+		if(res==null||res.getData()==null||res.getData().getWeibo()==null || StringUtil.isBlank(res.getData().getWeibo().getName())){
+			view.setViewName(Constants.PAGE_404);
+			return view;
 		}
+		view.addObject("socialDetail", res.getData().getWeibo());
 		String keyword = this.getString("keyword", "");
 		if(!StringUtil.isBlank(keyword)){
 			try {

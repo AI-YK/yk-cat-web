@@ -22,7 +22,8 @@ import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 
 public final class SessionUtil {
-	private static final Logger log = LoggerFactory.getLogger(SessionUtil.class);
+	private static final Logger log = LoggerFactory
+			.getLogger(SessionUtil.class);
 
 	private SessionUtil() {
 	}
@@ -31,48 +32,54 @@ public final class SessionUtil {
 		if (request != null) {
 			HttpSession session = request.getSession();
 			if (session.getAttribute(Constants.YEESIGHT_URL_KEY) == null)
-				session.setAttribute(Constants.YEESIGHT_URL_KEY, ConfigUtil.config);
+				session.setAttribute(Constants.YEESIGHT_URL_KEY,
+						ConfigUtil.config);
 		}
 	}
 
 	public static SSOClientUser getLoginUser(HttpServletRequest request) {
 		
-		Object obj = request.getSession().getAttribute(Constants.USER_SESSION_KEY);
+		Object obj = request.getSession().getAttribute(
+				Constants.USER_SESSION_KEY);
+
 		SSOClientUser loginUser = null;
-		//System.out.println("======session obj=========="+obj);
+		// System.out.println("======session obj=========="+obj);
 		if (obj != null) {
 			String str = JSON.toJSONString(obj);
-			//System.out.println("-------login STR --------" + str);
+			// System.out.println("-------login STR --------" + str);
 			loginUser = JSON.parseObject(str, SSOClientUser.class);
-			//System.out.println("-------SSOClientUser--------" + JSON.toJSONString(loginUser));
+			// System.out.println("-------SSOClientUser--------" +
+			// JSON.toJSONString(loginUser));
 		}
 
-	/*	if (loginUser == null) {
-			loginUser = new SSOClientUser();
-			loginUser.setUserId("1");
-			loginUser.setUserName("Houg");
-			loginUser.setNickName("译见");
-		}*/
+		/*
+		 * if (loginUser == null) { loginUser = new SSOClientUser();
+		 * loginUser.setUserId("1"); loginUser.setUserName("Houg");
+		 * loginUser.setNickName("译见"); }
+		 */
 		return loginUser;
 	}
 
 	public static void setLoginUser(SSOClientUser clientUser) {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-				.getRequest();
-		request.getSession().setAttribute(Constants.USER_SESSION_KEY, clientUser);
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
+		request.getSession().setAttribute(Constants.USER_SESSION_KEY,
+				clientUser);
 	}
 
 	public static void setUserConfig(MyCustomizedVo config) {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-				.getRequest();
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
 		request.getSession().setAttribute(Constants.CONFIG_SESSION_KEY, config);
 	}
 
 	public static MyCustomizedVo getUserConfig() {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-				.getRequest();
-		MyCustomizedVo config = (MyCustomizedVo) request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
-		if (config == null || config.equals("") || (config.getCity() == null && config.getProvince() == null)) {
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
+		MyCustomizedVo config = (MyCustomizedVo) request.getSession()
+				.getAttribute(Constants.CONFIG_SESSION_KEY);
+		if (config == null || config.equals("")
+				|| (config.getCity() == null && config.getProvince() == null)) {
 			config = new MyCustomizedVo();
 			AreaVo city = new AreaVo();
 			city.setId(703);
@@ -125,31 +132,66 @@ public final class SessionUtil {
 
 	@SuppressWarnings("unchecked")
 	public static List<MyTopicsVo> getTopics() {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-				.getRequest();
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
 		List<MyTopicsVo> topics = (ArrayList<MyTopicsVo>) request.getSession()
 				.getAttribute(Constants.TOPIC_SESSION_KEY);
-		/*
-		 * if(topics==null){ List<MyTopicsVo> list = new
-		 * ArrayList<MyTopicsVo>(); MyTopicsVo myTopicsVo = new MyTopicsVo();
-		 * myTopicsVo.setSrcShortTitle("中国航天"); MyTopicsVo myTopicsVo2 = new
-		 * MyTopicsVo(); myTopicsVo2.setSrcShortTitle("时代"); MyTopicsVo
-		 * myTopicsVo3 = new MyTopicsVo(); myTopicsVo3.setSrcShortTitle("生活");
-		 * list.add(myTopicsVo); list.add(myTopicsVo2); list.add(myTopicsVo3);
-		 * topics = list; }
-		 */
+
+		if (topics == null) {
+			List<MyTopicsVo> list = new ArrayList<MyTopicsVo>();
+			MyTopicsVo myTopicsVo = new MyTopicsVo();
+			myTopicsVo.setZhShortTitle("中国航天");
+			MyTopicsVo myTopicsVo2 = new MyTopicsVo();
+			myTopicsVo2.setZhShortTitle("时代");
+			MyTopicsVo myTopicsVo3 = new MyTopicsVo();
+			myTopicsVo3.setZhShortTitle("生活");
+		
+			MyTopicsVo myTopicsVo4 = new MyTopicsVo();
+			myTopicsVo4.setZhShortTitle("公共安全事件");
+			MyTopicsVo myTopicsVo5 = new MyTopicsVo();
+			myTopicsVo5.setZhShortTitle("金融");
+			MyTopicsVo myTopicsVo6 = new MyTopicsVo();
+			myTopicsVo6.setZhShortTitle("财经");
+			MyTopicsVo myTopicsVo7 = new MyTopicsVo();
+			myTopicsVo7.setZhShortTitle("理财");
+			
+			MyTopicsVo myTopicsVo8 = new MyTopicsVo();
+			myTopicsVo8.setZhShortTitle("投资");
+			MyTopicsVo myTopicsVo9 = new MyTopicsVo();
+			myTopicsVo9.setZhShortTitle("企业");
+			list.add(myTopicsVo);
+			list.add(myTopicsVo2);
+			list.add(myTopicsVo3);
+			list.add(myTopicsVo4);
+			list.add(myTopicsVo5);
+			list.add(myTopicsVo6);
+			list.add(myTopicsVo7);
+			list.add(myTopicsVo8);
+			list.add(myTopicsVo9);
+			list.add(myTopicsVo);
+			list.add(myTopicsVo2);
+			list.add(myTopicsVo3);
+			list.add(myTopicsVo4);
+			list.add(myTopicsVo5);
+			list.add(myTopicsVo6);
+			list.add(myTopicsVo7);
+			list.add(myTopicsVo8);
+			list.add(myTopicsVo9);
+			topics = list;
+		}
+
 		return topics;
 	}
 
 	public static void setTopics(List<MyTopicsVo> topics) {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-				.getRequest();
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
 		request.getSession().setAttribute(Constants.TOPIC_SESSION_KEY, topics);
 	}
 
 	public static void print() {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-				.getRequest();
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
 		Enumeration<?> enumeration = request.getSession().getAttributeNames();
 		request.getSession().getAttribute("userId");
 		while (enumeration.hasMoreElements()) {
@@ -162,8 +204,8 @@ public final class SessionUtil {
 	}
 
 	public static void clearSession() {
-		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
-				.getRequest();
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
+				.getRequestAttributes()).getRequest();
 		request.getSession().invalidate();
 	}
 }

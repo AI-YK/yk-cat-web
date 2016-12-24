@@ -15,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.DateUtil;
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.constants.Constants;
 import com.ai.yk.protal.web.content.ResponseHead;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
@@ -47,10 +49,11 @@ public class EventController extends BaseController {
 		req.setMessage(msg);
 		YJResponse<EventVo> res=eventService.queryEventDataEntityForSrcId(req);
 		ModelAndView view = new ModelAndView(EVENT_DETAILS_VIEW);
-		if(res!=null&&res.getData()!=null){
-			view.addObject("eventDetail", res.getData());
+		if(res==null||res.getData()==null||StringUtil.isBlank(res.getData().getSrcTitle())){
+			view.setViewName(Constants.PAGE_404);
+			return view;
 		}
-		
+		view.addObject("eventDetail", res.getData());
 		String end = DateUtil.getDateString(DateUtil.DATE_FORMAT);
 		String begin =  DateUtil.getDateString(DateUtil.getOffsetDaysDate(new Date(),-3),DateUtil.DATE_FORMAT);
 		view.addObject("begin", begin);

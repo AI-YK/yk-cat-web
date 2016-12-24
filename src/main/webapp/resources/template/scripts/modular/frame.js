@@ -22,17 +22,30 @@ $('.level-left-table ul li a').click(function(){
 //昵称
 $(function () {
     var st = 100;
-    $('.breadcrumb-main ul .right .posi').mouseenter(function () {
+    $('.mainbav ul .iphone-show').mouseenter(function () {
 		$('#user-show').show(1);
     })
 		$("#user-show").click(function () {
                 $(this).hide(1);
            });	
-		$('.breadcrumb-main').mouseleave(function () {
+		$('.mainbav').mouseleave(function () {
         $('#user-show').hide(1);
-         $('#erw-show').hide(1);
     });	
  }); 
+//数据
+$(function () {
+    var st = 100;
+    $('.mainbav  #shuj').mouseenter(function () {
+		$('#data-show').show(1);
+		$('#user-show').hide(1);
+    })
+		$("#data-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.mainbav').mouseleave(function () {
+        $('#data-show').hide(1);
+    });	
+ });  
 //二维
 $(function () {
     var st = 100;
@@ -81,3 +94,17 @@ $(function () {
         $('.news-detail-information ul #share1 .shareicon').css("color","#ddd");
     });	
  });  
+ 
+
+//二维
+$(function () {
+    var st = 100;
+    $('.user-show ul #typesetting-1').click(function () {
+		$('#drag').show(1);
+    })
+		$("#deag-close").click(function () {
+                $('#drag').hide(1);
+          });	
+ }); 
+ 
+

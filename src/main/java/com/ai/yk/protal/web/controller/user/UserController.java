@@ -2,7 +2,6 @@ package com.ai.yk.protal.web.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.mortbay.util.ajax.JSON;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,7 +69,7 @@ public class UserController {
     	/**专题数据**/
     	MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
     	myTopicsMessage.setPageNo(1);
-    	myTopicsMessage.setPageSize(10);
+    	myTopicsMessage.setPageSize(99999);
 //    	myTopicsMessage.setCreateId(Integer.parseInt(clientUser.getUserId()));
     	myTopicsMessage.setCreateId(99499);
     	YJRequest<MyTopicsMessage> reqtop=new YJRequest<MyTopicsMessage>();

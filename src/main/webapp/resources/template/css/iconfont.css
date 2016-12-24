@@ -45,6 +45,8 @@
 
 .icon-ok:before { content: "\e617"; }
 
+.icon-fuxuankuangxuanzhong:before { content: "\e68b"; }
+
 .icon-dingdan:before { content: "\e60f"; }
 
 .icon-tianjia:before { content: "\e633"; }
@@ -236,6 +238,8 @@
 .icon-shanchu1:before { content: "\e656"; }
 
 .icon-sousuolansousuo:before { content: "\e658"; }
+
+.icon-daohang:before { content: "\e66a"; }
 
 .icon-tuichu-copy:before { content: "\e663"; }
 

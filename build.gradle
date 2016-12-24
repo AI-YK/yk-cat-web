@@ -63,8 +63,8 @@ dependencies {
     compile 'org.apache.commons:commons-compress:1.9'
     compile 'joda-time:joda-time:2.9.4'
 	
-	optUedTemplate 'com.ai.opt.uniframe:yc-ued-template:1.0-SNAPSHOT'
-	jsCommonLibs 'com.ai.opt.uniframe:yc-jscommon-libs:1.0-SNAPSHOT'
+	//optUedTemplate 'com.ai.opt.uniframe:yc-ued-template:1.0-SNAPSHOT'
+	//jsCommonLibs 'com.ai.opt.uniframe:yc-jscommon-libs:1.0-SNAPSHOT'
 	
     compile ("org.apache.hadoop:hadoop-common:2.7.1") {
         exclude group: 'com.sun.jersey', module: 'jersey-core'

@@ -139,7 +139,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	ele.select2({
         		minimumInputLength: 1,//至少输入n个字符，才去加载数据  
         	    allowClear: true,  
-        	    width: "150px",  
+        	    width: "100px",  
         	    height:"20px", 
         	    language: "zh-CN",
         	    placeholder: "媒体",  

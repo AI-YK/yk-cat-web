@@ -1,3 +1,4 @@
+
 //banner table
 $(function(){
 $(".list-left ul li").mouseenter(function () {
@@ -13,24 +14,63 @@ $('.list-left ul li').mouseenter(function(){
   	 $('#chart-date2').hide();
   	 $('#chart-date3').hide();
   	 $('#chart-date4').hide();
+  	 $('#chart-date5').hide();
+  	 $('#chart-date6').hide();
+  	 $('#chart-date7').hide();
    }
    if(index==1){
    $('#chart-date2').show();
    $('#chart-date1').hide();
    $('#chart-date3').hide();
    $('#chart-date4').hide();
+   $('#chart-date5').hide();
+   $('#chart-date6').hide();
+   $('#chart-date7').hide();
    }
    if(index==2){
    $('#chart-date3').show();
    $('#chart-date1').hide();
    $('#chart-date2').hide();
    $('#chart-date4').hide();
+   $('#chart-date5').hide();
+   $('#chart-date6').hide();
+   $('#chart-date7').hide();
    }
    if(index==3){
    $('#chart-date4').show();
    $('#chart-date3').hide();
    $('#chart-date2').hide();
    $('#chart-date1').hide();
+    $('#chart-date5').hide();
+   $('#chart-date6').hide();
+   $('#chart-date7').hide();
+   }
+    if(index==4){
+   $('#chart-date5').show();
+   $('#chart-date3').hide();
+   $('#chart-date2').hide();
+   $('#chart-date1').hide();
+   $('#chart-date4').hide();
+   $('#chart-date6').hide();
+   $('#chart-date7').hide();
+   }
+   if(index==5){
+   $('#chart-date6').show();
+   $('#chart-date3').hide();
+   $('#chart-date2').hide();
+   $('#chart-date1').hide();
+   $('#chart-date4').hide();
+   $('#chart-date5').hide();
+   $('#chart-date7').hide();
+   }
+   if(index==6){
+   $('#chart-date7').show();
+   $('#chart-date3').hide();
+   $('#chart-date2').hide();
+   $('#chart-date1').hide();
+   $('#chart-date4').hide();
+   $('#chart-date5').hide();
+   $('#chart-date6').hide();
    }
   }); 
 });
@@ -238,28 +278,194 @@ $('#trend1 ul li a').click(function(){
   }); 
 });
 
-//选择城市
+
+//昵称
 $(function () {
     var st = 100;
-    $('.left-list ul li #choice-city').click(function () {
-		$('#index-city').toggle();
+    $('.mainbav ul .iphone-show').mouseenter(function () {
+		$('#user-show').show(1);
+		$('#data-show').hide(1);
     })
-    $('#btn-close').click(function () {
-		$('#index-city').hide();
-    })	
-   }); 
+		$("#user-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.mainbav').mouseleave(function () {
+        $('#user-show').hide(1);
+    });	
+ }); 
 
-jQuery(document).ready(function($) {
-	$('#modify-btn').click(function(){
-	$('#eject-mask').fadeIn(100);
-	$('#classification').slideDown(100);
-	})
-	$('#i-close').click(function(){
-	$('#eject-mask').fadeOut(200);
-	$('#classification').slideUp(200);
-	})
-	$('#eject-btn-close').click(function(){
-	$('#eject-mask').fadeOut(200);
-	$('#classification').slideUp(200);
-	})
-})
+ 
+//二维
+$(function () {
+    var st = 100;
+    $('.breadcrumb-main ul .iphone').mouseenter(function () {
+		$('#erw-show').show(1);
+    })
+		$("#erw-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.breadcrumb-main').mouseleave(function () {
+        $('#erw-show').hide(1);
+        $('#user-show').hide(1);
+    });	
+ }); 
+//专题
+$(function () {
+    var st = 100;
+    $('.right-list ul #in-border1').mouseenter(function () {
+		$('#special-one').show(1);
+    })
+		$("#special-one").click(function () {
+                $(this).hide(1);
+           });	
+		$('.right-list ul #in-border1').mouseleave(function () {
+        $('#special-one').hide(1);
+    });	
+ });  
+ //专题
+$(function () {
+    var st = 100;
+    $('.right-list ul #in-border2').mouseenter(function () {
+		$('#special-tow').show(1);
+    })
+		$("#special-tow").click(function () {
+                $(this).hide(1);
+           });	
+		$('.right-list ul #in-border2').mouseleave(function () {
+        $('#special-tow').hide(1);
+    });	
+ }); 
+
+$(function(){
+$("#merge ul li a").click(function () {
+                $("#merge ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#merge ul li a').click(function(){
+  var index=$('#merge ul li a').index(this);
+     if(index==0){
+     $('#mtab1').show();
+  	 $('#mtab2').hide();
+   }
+   if(index==1){
+     $('#mtab2').show();
+  	 $('#mtab1').hide();
+   }
+ }); 
+});
+$(function(){
+$("#merge1 ul li a").click(function () {
+                $("#merge1 ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#merge1 ul li a').click(function(){
+  var index=$('#merge1 ul li a').index(this);
+     if(index==0){
+     $('#mtab3').show();
+  	 $('#mtab4').hide();
+   }
+   if(index==1){
+     $('#mtab4').show();
+  	 $('#mtab3').hide();
+   }
+ }); 
+});
+$(function(){
+$("#merge2 ul li a").click(function () {
+                $("#merge2 ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#merge2 ul li a').click(function(){
+  var index=$('#merge2 ul li a').index(this);
+     if(index==0){
+     $('#mtab5').show();
+  	 $('#mtab6').hide();
+   }
+   if(index==1){
+     $('#mtab6').show();
+  	 $('#mtab5').hide();
+   }
+ }); 
+});
+$(function(){
+$("#merge3 ul li a").click(function () {
+                $("#merge3 ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#merge3 ul li a').click(function(){
+  var index=$('#merge3 ul li a').index(this);
+     if(index==0){
+     $('#mtab7').show();
+  	 $('#mtab8').hide();
+   }
+   if(index==1){
+     $('#mtab8').show();
+  	 $('#mtab7').hide();
+   }
+ }); 
+});
+$(function(){
+$("#merge4 ul li a").click(function () {
+                $("#merge4 ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#merge4 ul li a').click(function(){
+  var index=$('#merge4 ul li a').index(this);
+     if(index==0){
+     $('#mtab9').show();
+  	 $('#mtab10').hide();
+   }
+   if(index==1){
+     $('#mtab10').show();
+  	 $('#mtab9').hide();
+   }
+ }); 
+});
+$(function(){
+$("#merge5 ul li a").click(function () {
+                $("#merge5 ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#merge5 ul li a').click(function(){
+  var index=$('#merge5 ul li a').index(this);
+     if(index==0){
+     $('#mtab11').show();
+  	 $('#mtab12').hide();
+   }
+   if(index==1){
+     $('#mtab12').show();
+  	 $('#mtab11').hide();
+   }
+ }); 
+});
+$(function(){
+$("#merge6 ul li a").click(function () {
+                $("#merge6 ul li a").each(function () {
+                    $(this).removeClass("current");
+                });
+                $(this).addClass("current");
+            });
+$('#merge6 ul li a').click(function(){
+  var index=$('#merge6 ul li a').index(this);
+     if(index==0){
+     $('#mtab13').show();
+  	 $('#mtab14').hide();
+   }
+   if(index==1){
+     $('#mtab14').show();
+  	 $('#mtab13').hide();
+   }
+ }); 
+});

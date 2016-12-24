@@ -8,6 +8,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var HomeChart = require("app/jsp/home/charts");
 	require("jsviews/jsrender.min");
+	//var cookie = require("cookie"); 
     // 实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
     
@@ -43,10 +44,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         	var _this = this;
             homePage.superclass.setup.call(this);
         	// 初始化国际化
-		/*
-		 * $.i18n.properties({//加载资浏览器语言对应的资源文件 name: ["home"], //资源文件名称，可以是数组
-		 * path: _i18n_res, //资源文件路径 mode: 'both', language: currentLan, });
-		 */
+            
+            
+            
             $(document).on("click",".list-left ul li",function(){
               	 $(".list-left ul li").each(function () {
                        $(this).removeClass("current");
@@ -184,49 +184,66 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _bindEvent:function(){
         	var _this = this;
-        	  
-        	 // 专题
-        	 $('.right-list ul #in-border1').mouseover(function () {
-        			$('#special-one').show(1);
-        	  });
-        	  $("#special-one").click(function () {
-        	                $(this).hide(1);
-        	  });	
-        	  $('#special-one').mouseleave(function () {
-        	        $('#special-one').hide(1);
-        	  });
-        	 
-        	  $('.right-list ul #in-border2').mouseover(function () {
-        			$('#special-tow').show(1);
-        	    })
-        		$("#special-tow").click(function () {
-        	          $(this).hide(1);
-        	     });
-        	  
-        	  $("#special-tow").mouseleave(function () {
-    	          $(this).hide(1);
-    	      });
-        	  
+        	//数据 
+            $('.mainbav  #shuj').mouseenter(function () {
+        		$('#data-show').show(1);
+        		$('#user-show').hide(1);
+            })
+        	$("#data-show").click(function () {
+                        $(this).hide(1);
+            });	
+        	$('.mainbav').mouseleave(function () {
+                $('#data-show').hide(1);
+            });	
+        	
+        	 //更多
+        	$('.right-list  #more').click(function () {
+        		$('#more-show').show(1);
+            })
+        	$("#more-show").click(function () {
+                $(this).hide(1);
+            });	
+        	$('.right-list').mouseleave(function () {
+                $('#more-show').hide(1);
+            });	
+        	
+        	
+        	//通用数据  定制数据	
+        	$("#data-show ul .ahov1").click(function(){
+        		$("#topicDiv").hide();
+        		$(".right-list").hide();
+        		$("#commDiv").show();
+        	    //$.cookie('_data_type','0');
+        	});
+        	$("#data-show ul .ahov3").click(function(){
+        		$("#commDiv").hide();
+        		$("#topicDiv").show();
+        		$(".right-list").show();
+        		//$.cookie('_data_type','1');
+        	});	
         		
-        		$("#special-one ul .ahov1").click(function(){
-        			$("#in-border2").hide();
-        			$(".left-list").show();
-        			$(".inbtn").show();
-        			var abovalue=$("#ahov1Id").text();
-        			$("#border1Id").text(abovalue);
-        		});
-        		$("#special-one ul .ahov2").click(function(){
-        			$("#in-border2").show();
-        			$(".left-list").hide();
-        			$(".inbtn").hide();
-        			var abovalue=$("#ahov2Id").text();
-        			$("#border1Id").text(abovalue);
-        		});	
-        		
-        		$("#special-tow ul a").click(function(){
-        			var text =$(this).text();
-        			$("#border2Id").text(text);
-        		});
+        	//选择城市
+        	$('.left-list ul li #choice-city').click(function () {
+        		$('#index-city').toggle();
+            });
+        	
+            $('#btn-close').click(function () {
+        		$('#index-city').hide();
+            });
+            
+            //修改领域分类
+            $('#modify-btn').click(function(){
+            	$('#eject-mask').fadeIn(100);
+            	$('#classification').slideDown(100);
+             })
+             $('#i-close').click(function(){
+            	$('#eject-mask').fadeOut(200);
+            	$('#classification').slideUp(200);
+             });
+             $('#eject-btn-close').click(function(){
+            	$('#eject-mask').fadeOut(200);
+                $('#classification').slideUp(200);
+             });
         		
         		$(document).on("click",".choice-left-title ul li a",function(){
                 	$(".choice-left-title ul li a").each(function () {
@@ -250,6 +267,18 @@ define('app/jsp/home/home', function (require, exports, module) {
         		
         },
         _load:function(){
+        	
+        	/*var dataType = $.cookie('_data_type');
+        	if(dataType==undefined||dataType=='0'){
+        		$("#topicDiv").hide();
+        		$(".right-list").hide();
+        		$("#commDiv").show();
+        	}else if(dataType=='1'){
+        		$("#commDiv").hide();
+        		$("#topicDiv").show();
+        		$(".right-list").show();
+        	}*/
+        	
         	this._initEventData();
         	this._loadPubTrend('locSentimentCount', '0');
         	this._loadPubTrend('mediaCoverage', '0');
@@ -280,6 +309,7 @@ define('app/jsp/home/home', function (require, exports, module) {
             	}
             	param.cityCode=cityCodeList;
         	}
+        	
         	param.pageSize=7;
         	ajaxController.ajax({
 				type: "post",

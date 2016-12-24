@@ -19,15 +19,24 @@
 					<li><a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a></li>
 					<li><a href="${_base}/newsbmap/toHeat">热点发现</a></li>
 					<li><a href="${_base}/search/public">舆情动态</a></li>
-					<li class="iphone-show">
-					   <img src="${uedroot}/images/user.png" />
+					<li class="search">
+					    <input type="text" id="_keyword" value="${_keyword}" class="search-medium" placeholder="搜索"><a id="_searchBtn" href="#"><i class="icon iconfont">&#xe658;</i></a>
 					</li>
-					<div class="user-show" id="user-show" style="right: -45px;">
+					<li class="iphone-show"><img src="${uedroot}/images/user.png" /></li>
+					<div class="user-show" id="user-show">
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
 							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
-							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
-							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
+							<a href="${yeesightUrls.dataUrl}" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
+							<a href="javascript:void(0);" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
+						</ul>
+					</div>
+					<li class="s-dh" id="shuj"><i class="icon iconfont">&#xe66a;</i></li>
+					<div class="data-show" id="data-show">
+						<span><img src="${uedroot}/images/xf-sj.png"></span>
+						<ul>
+							<a href="javascript:void(0);" class="ahov1" id="currency-btn"><li>通用数据</li></a>
+							<a href="javascript:void(0);" class="ahov3"><li>定制数据</li></a>
 						</ul>
 					</div>
 				</ul>
