@@ -512,7 +512,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var pro=map[key];
 						if(letterId == ""){
 							for(var j=0;j<pro.length;j++){
-								if(provinceCodee==pro[j].code){
+								if(provinceCodee==pro[j].busCode){
 									letterId = "letter_"+key;
 								}
 							}
