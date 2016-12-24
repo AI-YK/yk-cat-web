@@ -54,6 +54,9 @@ public class NegativeController {
 		YJRequest<SearchPublicSafetyMessage> req=new YJRequest<SearchPublicSafetyMessage>();
 		req.setMessage(searchPublicSafetyMessage);
 		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getSearchPublicSafety(req);
+		if(yjr==null){
+			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_FAILURE,"查询负面舆情失败！", null);
+		}
 		SearchPublicSafetyResponse searchPublicSafetyResponse=yjr.getData();
 		
 		//SearchPublicSafetyResponse searchPublicSafetyResponse=get();

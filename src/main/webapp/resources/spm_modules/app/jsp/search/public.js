@@ -140,7 +140,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 					var param = {};
 					var idList = $("#cities").val();
 					if(idList!=""){
-						param.idList = idList;
+						param.busCode = idList;
 					}
 					//领域分类
 					var categoryId = $("#interestes").val();
@@ -151,8 +151,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
 					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
-					param.beginTime = nowDate + " 23:59:59";
-					param.endTime = pre7Date + " 00:00:00";
+					param.endTime = nowDate + " 23:59:59";
+					param.beginTime = pre7Date + " 00:00:00";
 					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
