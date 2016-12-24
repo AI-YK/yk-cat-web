@@ -61,6 +61,16 @@ public class PublicAffairsMessage implements Serializable {
 	 * 结束时间
 	 */
 	private String endTime;
+	
+	private String busCode;
+
+	public String getBusCode() {
+		return busCode;
+	}
+
+	public void setBusCode(String busCode) {
+		this.busCode = busCode;
+	}
 
 	public String getMediaType() {
 		return mediaType;
