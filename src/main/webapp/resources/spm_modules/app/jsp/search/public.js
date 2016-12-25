@@ -97,6 +97,14 @@ define('app/jsp/search/public',function(require, exports, module) {
 								}else if(timeId=="timeId2"){
 									_this._searchSocial();
 								}
+								return true;
+							},
+							oncleared:function(p){
+								if(timeId=="timeId1"){
+									_this._searchNews();
+								}else if(timeId=="timeId2"){
+									_this._searchSocial();
+								}
 							}
 						});
 					});
