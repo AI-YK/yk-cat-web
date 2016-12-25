@@ -41,7 +41,13 @@
   <ul myid="{{:myId}}">
 	 <li class="block {{:~getRankColor(rpsCnt)}}">{{:~getRankIndex(rpsCnt)}}</li>
 	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
-	 <li style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:textZh}}</a></li>
+	 <li style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">
+          {{if title!=null&&title!=""}}
+                {{:title}} 
+          {{else}}
+                {{:textZh}}
+          {{/if}}  
+     </a></li>
 	 <li class="date">{{:~getCustomTime(updateTime)}}</li>
   </ul>
   {{/if}}
