@@ -303,7 +303,7 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
-<ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+<ul uuid="{{:uuid}}">
 	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
@@ -329,7 +329,7 @@
         <img src="{{:userAvatar}}" />
      {{/if}}
    </div>
-   <ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+   <ul myid="{{:myId}}">
 	 <li class="title" style="cursor:pointer;">{{:name}}</li>
 	 <li class="list">
 		<p>

@@ -29,7 +29,7 @@
 <!--/负面舆情结束-->
 <script id="newsTempl" type="text/x-jsrender">
   {{if #getIndex()<9}}
-  <ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+  <ul uuid="{{:uuid}}">
 	 <li class="block {{:~getRankColor(transfer)}}">{{:~getRankIndex(transfer)}}</li>
 	 <li style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleZh}}</a></li>
 	 <li class="date">{{:~getCustomTime(pubdate)}}</li>
@@ -38,7 +38,7 @@
 </script>
 <script id="socialTempl" type="text/x-jsrender">
   {{if #getIndex()<9}}
-  <ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+  <ul myid="{{:myId}}">
 	 <li class="block {{:~getRankColor(rpsCnt)}}">{{:~getRankIndex(rpsCnt)}}</li>
 	 <li class="icon iconfont i-color">{{:~getSocialIcon(sourceType)}}</li>
 	 <li style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:textZh}}</a></li>
