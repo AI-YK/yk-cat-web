@@ -276,7 +276,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _load:function(){
         	
-        	var dataType = $.cookie('_data_type');
+        	//var dataType = $.cookie('_data_type');
         	/*if(dataType==undefined||dataType=='0'){
         		$("#topicDiv").hide();
         		$(".right-list").hide();
