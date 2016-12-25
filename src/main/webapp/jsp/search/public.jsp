@@ -312,7 +312,9 @@
 		<p class="right">
 			<span>{{:languageTname}}</span>
             <span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span> 
-            <span>转载：{{:transfer}}</span>
+            {{if transfer>0}}
+               <span>转载：{{:transfer}}</span>
+            {{/if}}
 		</p>
 	</li>
 	<li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">

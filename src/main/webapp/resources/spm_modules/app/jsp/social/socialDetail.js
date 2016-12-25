@@ -160,6 +160,15 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 				$("#relatedInformation").html(html);
 				return;
 			}
+			var temp = keyword.split(",");
+			var tempArray =[];
+			for(var i=0;i<temp.length;i++){
+				if(i>2){
+					break;
+				}
+				tempArray.push(temp[i]);
+			}
+			keyword = tempArray.join(",");
 			var param ={};
 			param.srcTitle = keyword;
 			$.post(_base+"/news/queryRelatedInformation",param,function(json){

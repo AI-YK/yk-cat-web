@@ -630,9 +630,11 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		len = 10;
         	}
         	for(var i=0;i<len;i++){
-        		cities[i] = data[i].cityNameZh;
-        		positiveCnts[i] = data[i].positiveCnt;
-        		negativeCnts[i] = data[i].negativeCnt;
+        		if(data[i].cityNameZh!='其他'){
+        			cities[i] = data[i].cityNameZh;
+            		positiveCnts[i] = data[i].positiveCnt;
+            		negativeCnts[i] = data[i].negativeCnt;
+        		}
         	}
         	var option = {
         			tooltip : {
