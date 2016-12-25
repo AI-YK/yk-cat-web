@@ -46,7 +46,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 					_this._bindEvent();
 					
 					_this._loadTopics();
-					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
 					if(this.model=='news'){
@@ -165,7 +164,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 					}
 					var idList = $("#cities").val();
 					if(idList!=""){
-						param.idList = idList;
+						param.cityCode = idList;
 					}
 					//领域分类
 					var categoryId = $("#interestes").val();
@@ -176,8 +175,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 					var keyword='';
 					if ('news' == mediaType) {
 						keyword = $("#keyword1").val();
-						if($("#dicId1").val()!=""){
-							param.dicValue= $("#dicId1").val();
+						var dicId1 = $("#dicId1").val();
+						if(dicId1&&dicId1!=""){
+							param.dicValue= dicId1;
 						}
 						var timeStr = $("#timeId1").val();
 						if(timeStr!=""){
@@ -188,8 +188,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if($("#mediaId1").val()!=""){
 							param.mediaId=$("#mediaId1").val();
 						}
-						if($("#fileId1").val()!=""){
-							param.fieldName= $("#fileId1").val();
+						var fileId1 = $("#fileId1").val();
+						if(fileId1&&fileId1!=""){
+							param.fieldName= fileId1;
 							param.order = 'desc';
 						}
 						if($("#sentimentId1").val()!=""){
@@ -197,8 +198,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 						}
 					}else if ('social' == mediaType) {
 						keyword = $("#keyword2").val();
-						if($("#dicId2").val()!=""){
-							param.dicValue= $("#dicId2").val();
+						var dicId2 = $("#dicId2").val()
+						if(dicId2&&dicId2!=""){
+							param.dicValue= dicId2;
 						}
 						var timeStr = $("#timeId2").val();
 						if(timeStr!=""){
@@ -206,8 +208,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
 						}
-						if($("#fileId2").val()!=""){
-							param.fieldName= $("#fileId2").val();
+						var fileId2 = $("#fileId2").val();
+						if(fileId2&&fileId2!=""){
+							param.fieldName= fileId2;
 							param.order = 'desc';
 						}
 						if($("#medialId2").val()!=""){

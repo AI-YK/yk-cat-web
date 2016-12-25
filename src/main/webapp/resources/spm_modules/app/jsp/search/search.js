@@ -174,6 +174,7 @@ define(
 						}
 						if($("#fileId1").val()!=""){
 							param.fieldName= $("#fileId1").val();
+							param.order = "desc";
 						}
 					}else if ('social' == mediaType) {
 						if($("#orgnizationId2").val()!="-1" && $("#orgnizationId2").val()!=null){
@@ -190,6 +191,7 @@ define(
 						}
 						if($("#fileId2").val()!=""){
 							param.fieldName= $("#fileId2").val();
+							param.order = "desc";
 						}
 						if($("#medialId2").val()!=""){
 							param.mediaLevel= $("#medialId2").val();
@@ -206,7 +208,7 @@ define(
 						}
 					}
 					
-					param.order = "desc";
+					
 					return param;
 				},
 				/** 媒体类型news/social* */
