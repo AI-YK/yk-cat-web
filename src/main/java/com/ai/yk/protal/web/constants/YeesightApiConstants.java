@@ -86,6 +86,8 @@ public class YeesightApiConstants {
 	public final static String API_MYTOPICS_GETRESULTBYCONDITIONV2= "/api/myTopics/getResultByConditionV2";
 	//专题按照模型分析
     public final static String API_THEMATICANALYSIS_GETANALYSIS= "/api/thematicAnalysis/getAnalysis";
+    //专题属性分析
+    public final static String API_THEMATICANALYSIS_GETSUMMARY= "/api/thematicAnalysis/getSummary";
 	// 拼接头部信息url
 	public static String getApiUrl(String url) {
 		return new StringBuilder(remoteBaseUrl).append(url).toString();
