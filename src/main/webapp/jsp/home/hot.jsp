@@ -78,7 +78,13 @@
 						<a href="#">{{:name}}</a>
 					 </p>
 					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-						<a href="javascript:void(0);">{{:textZh}}</a>
+						<a href="javascript:void(0);">
+                             {{if title!=null&&title!=""}}
+                                 {{:title}} 
+                             {{else}}
+                                  {{:textZh}}
+                             {{/if}}  
+                        </a>
 					 </p>
 					 <p>
 						<span>{{:updateTimeStr}}</span> <span>{{:~conventSource(sourceType)}}</span>
