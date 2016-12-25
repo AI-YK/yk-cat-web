@@ -88,7 +88,9 @@
 						<span>{{:updateTimeStr}}</span> <span>{{:~conventSource(sourceType)}}</span>
 					 </p>
 				  </li>
-				  <li class="right">{{:rpsCnt}}</li>
+				  <li class="right">
+                        {{if rpsCnt>0}}{{:rpsCnt}}{{/if}}  
+                  </li>
 			</ul>
 </div>
 {{/if}}

@@ -52,11 +52,13 @@ public final class SessionUtil {
 			// JSON.toJSONString(loginUser));
 		}
 
-		/*
-		 * if (loginUser == null) { loginUser = new SSOClientUser();
-		 * loginUser.setUserId("1"); loginUser.setUserName("Houg");
-		 * loginUser.setNickName("译见"); }
-		 */
+		
+		 if (loginUser == null) { 
+			 loginUser = new SSOClientUser();
+		     loginUser.setUserId("1"); loginUser.setUserName("Houg");
+		     loginUser.setNickName("译见"); 
+		     }
+		 
 		return loginUser;
 	}
 
