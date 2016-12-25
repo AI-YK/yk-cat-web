@@ -45,7 +45,6 @@ public class ThematicAnalysisService {
 	public String getSummary(YJRequest<ThematicAnalysisMessage> req) {
 		String url = YeesightApiConstants
 				.getApiUrl(YeesightApiConstants.API_THEMATICANALYSIS_GETSUMMARY);
-		System.out.println(JSON.toJSONString(req));
 		String result = HttpClientUtil.getYJBaseResponse(url, req);
 		return result;
 	}
