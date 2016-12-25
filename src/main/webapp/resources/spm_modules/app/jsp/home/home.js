@@ -571,7 +571,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					$(".choice-left-title ul li a").each(function () {
 						var index=$('.choice-left-title ul li a').index(this)+1;
 						var id = $(this).attr("id");
-						if(id==letterId){
+						if(letterId==''&&index==1||id==letterId){
 							 $(this).addClass("current");
 							 $("#citi-tab"+index).show();
 						}else{
