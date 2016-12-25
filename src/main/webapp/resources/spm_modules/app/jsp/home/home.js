@@ -69,44 +69,44 @@ define('app/jsp/home/home', function (require, exports, module) {
             $(document).on("click","#newsDiv ul",function(){
             	var _this = $(this);
            	    var uuid = _this.attr("uuid");
-	           	var keyword = _this.attr("keyword");
 	           	var url =_base+"/news/detail/"+uuid;
+	           	/*var keyword = _this.attr("keyword");
 	           	if(keyword){
 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}
+	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
           //社交媒体预警
             $(document).on("click","#socialDiv ul",function(){
             	var _this = $(this);
            	    var myid = _this.attr("myid");
-           	    var keyword = _this.attr("keyword");
            	    var url =_base+"/social/detail/"+myid;
+           	    /*var keyword = _this.attr("keyword");
         	    if(keyword){
 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}
+	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
             //新闻热点
             $(document).on("click","#news-div ul",function(){
             	var _this = $(this);
            	    var uuid = _this.attr("uuid");
-           	    var keyword = _this.attr("keyword");
            	    var url =_base+"/news/detail/"+uuid;
-        	    if(keyword){
+           	   /* var keyword = _this.attr("keyword");
+           	    if(keyword){
 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}
+	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
           //社交热点
             $(document).on("click","#social-div ul",function(){
             	var _this = $(this);
             	var myid = _this.attr("myid");
-           	    var keyword = _this.attr("keyword");
-           	    var url =_base+"/social/detail/"+myid;
-        	    if(keyword){
+            	var url =_base+"/social/detail/"+myid;
+           	   /* var keyword = _this.attr("keyword");
+           	    if(keyword){
 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}
+	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
             
