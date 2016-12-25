@@ -1,8 +1,5 @@
 package com.ai.yk.protal.web.controller.social;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,7 +50,7 @@ public class SocialHotController extends BaseController {
 			return view;
 		}
 		view.addObject("socialDetail", res.getData().getWeibo());
-		String keyword = this.getString("keyword", "");
+		/*String keyword = this.getString("keyword", "");
 		if(!StringUtil.isBlank(keyword)){
 			try {
 				keyword = URLDecoder.decode(keyword ,Constants.DEFAULT_ENCODING);
@@ -61,7 +58,7 @@ public class SocialHotController extends BaseController {
 				LOG.error(e.getMessage(),e);
 			}
 		}
-		view.addObject("keyword", keyword);
+		view.addObject("keyword", keyword);*/
 		return view;
 	}
 }

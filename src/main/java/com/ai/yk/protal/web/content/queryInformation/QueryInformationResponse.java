@@ -121,6 +121,9 @@ public class QueryInformationResponse implements Serializable {
 	 * 语言 en zh
 	 */
 	private String srcLanguage;
+	private String srcKeyword;
+	private String zhKeyword;
+	private String enKeyword;
 	public String getId() {
 		return id;
 	}
@@ -344,5 +347,31 @@ public class QueryInformationResponse implements Serializable {
 	public void setSrcLanguage(String srcLanguage) {
 		this.srcLanguage = srcLanguage;
 	}
+
+	public String getSrcKeyword() {
+		return srcKeyword;
+	}
+
+	public void setSrcKeyword(String srcKeyword) {
+		this.srcKeyword = srcKeyword;
+	}
+
+	public String getZhKeyword() {
+		return zhKeyword;
+	}
+
+	public void setZhKeyword(String zhKeyword) {
+		this.zhKeyword = zhKeyword;
+	}
+
+	public String getEnKeyword() {
+		return enKeyword;
+	}
+
+	public void setEnKeyword(String enKeyword) {
+		this.enKeyword = enKeyword;
+	}
+
+	
 
 }

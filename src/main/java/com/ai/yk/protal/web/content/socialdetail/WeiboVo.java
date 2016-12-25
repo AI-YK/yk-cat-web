@@ -38,6 +38,10 @@ public class WeiboVo implements Serializable {
     private String name;
     private String userType;
     private String time;
+    /**
+	 * 关键字
+	 */
+	private String keywords;
 	public String getCountry() {
 		return country;
 	}
@@ -241,6 +245,12 @@ public class WeiboVo implements Serializable {
 	}
 	public void setTime(String time) {
 		this.time = time;
+	}
+	public String getKeywords() {
+		return keywords;
+	}
+	public void setKeywords(String keywords) {
+		this.keywords = keywords;
 	}
     
 }
