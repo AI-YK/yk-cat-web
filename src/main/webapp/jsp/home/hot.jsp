@@ -49,7 +49,7 @@
 <!--/热点新闻-->
 <script id="newsHotTempl" type="text/x-jsrender">
  {{if #getIndex()<11}}
-  <ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+  <ul uuid="{{:uuid}}" >
 		<li>
 			<p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 				<a href="javascript:void(0);">{{:titleZh}}</a>
@@ -72,7 +72,7 @@
                    <img src="{{:userAvatar}}" />
                 {{/if}}
 			</div>
-			<ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+			<ul myid="{{:myId}}">
 				  <li>
 					 <p class="word">
 						<a href="#">{{:name}}</a>

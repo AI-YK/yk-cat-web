@@ -141,7 +141,7 @@
 		</div>
 	</div>
 	<!--底部-->
-	<input id="keyword" type="hidden" value="${keyword}"/>
+	<input id="keyword" type="hidden" value="${newsDetails.zhKeyword}"/>
 	<input id="detailsId" type="hidden" value="${newsDetails.id}"/>
 	<input id="srcLanguage" type="hidden" value="${newsDetails.srcLanguage }"/>
 	<div id="srcContent" style="display: none;">

@@ -1,7 +1,5 @@
 package com.ai.yk.protal.web.controller.news;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,7 +118,7 @@ public class NewsController extends BaseController {
 			return view;
 		}
 		view.addObject("newsDetails", res.getData());
-		String keyword = this.getString("keyword", "");
+		/*String keyword = this.getString("keyword", "");
 		if(!StringUtil.isBlank(keyword)){
 			try {
 				keyword = URLDecoder.decode(keyword ,Constants.DEFAULT_ENCODING);
@@ -128,7 +126,7 @@ public class NewsController extends BaseController {
 				LOG.error(e.getMessage(),e);
 			}
 		}
-		view.addObject("keyword", keyword);
+		view.addObject("keyword", keyword);*/
 		return view;
 	}
 	/**

@@ -151,7 +151,7 @@
 		</div>
 	</div>
 	<!--底部-->
-	<input id="keyword" type="hidden" value="${keyword}"/>
+	<input id="keyword" type="hidden" value="${socialDetail.keywords}"/>
 	<input id="detailsId" type="hidden" value="${socialDetail.id}"/>
 	<input id="srcLanguage" type="hidden" value="${socialDetail.languageCode }"/>
 	<div id="srcContent" style="display: none;">
