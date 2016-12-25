@@ -4,8 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ai.yk.protal.web.content.YJRequest;
+import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.thematicAnalysis.ThematicAnalysisMessage;
+import com.ai.yk.protal.web.content.thematicAnalysis.ThematicAnalysisResponse;
 import com.ai.yk.protal.web.service.thematicAnalysis.ThematicAnalysisService;
+import com.alibaba.fastjson.JSON;
 
 public class ThematicAnalysis {
 
@@ -19,7 +22,8 @@ public class ThematicAnalysis {
 		modelNo.add("Gender");
 		message.setModelNo(modelNo);
 		req.setMessage(message);
-		service.getAnalysis(req);
+		YJResponse<ThematicAnalysisResponse> res = service.getAnalysis(req);
+		System.out.println(JSON.toJSONString(res));
 	}
 
 }
