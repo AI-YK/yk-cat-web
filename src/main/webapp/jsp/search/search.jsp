@@ -149,10 +149,10 @@
 								<p>
 									<select id="fileId2" class="select select-mini searchSocial" style="width: 100px">
 										<option value="">排序</option>
-										<option value="score">相关度</option>
-										<option value="pubdate">时间</option>
-										<option value="mediaLevel">权重</option>
-										<option value="transfer">转载量</option>
+										<option value="relevance">相关度</option>
+										<option value="time">时间</option>
+										<option value="force">权重</option>
+										<option value="transCount">转载量</option>
 									</select>
 								</p>
 							</li>
