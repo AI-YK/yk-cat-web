@@ -323,11 +323,7 @@
 <script id="levelSocialTempl" type="text/x-jsrender">
 <div class="hot-list">
    <div class="portrait">
-     {{if userAvatar==null}}
-        <img src="${uedroot}/images/user.jpg" />
-     {{else}}
-        <img src="{{:userAvatar}}" />
-     {{/if}}
+     <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
    </div>
    <ul myid="{{:myId}}">
 	 <li class="title" style="cursor:pointer;">{{:name}}</li>

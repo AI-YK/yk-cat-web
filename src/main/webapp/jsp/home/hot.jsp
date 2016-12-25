@@ -58,7 +58,9 @@
 				<span>{{:pubdate}}</span> <span class="blue">{{:mediaNameZh}}</span>
 			</p>
 		</li>
-		<li class="right">{{:transfer}}</li>
+		<li class="right">
+           {{if transfer>0}}{{:transfer}}{{/if}}  
+        </li>
 	</ul>
   {{/if}}
 </script>
@@ -66,11 +68,7 @@
  {{if #getIndex()<7}}
  <div class="socialhot-list">
 			<div class="social-user">
-                {{if userAvatar==null}}
-				  <img src="${uedroot}/images/user.jpg" />
-                {{else}}
-                   <img src="{{:userAvatar}}" />
-                {{/if}}
+                <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
 			</div>
 			<ul myid="{{:myId}}">
 				  <li>
