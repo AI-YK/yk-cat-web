@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class ThematicAnalysisMessage implements Serializable {
 	private static final long serialVersionUID = 6932014212504508969L;
-	/**if opType = 1 srcId  else  id
-	 * 专题id( 1.推送专题定制专题传（id） 2.订阅专题传(srcId) )
+	/**
+	 * if opType = 1 srcId else id 专题id( 1.推送专题定制专题传（id） 2.订阅专题传(srcId) )
 	 */
 	private String infoId;
 	/**
@@ -25,9 +25,13 @@ public class ThematicAnalysisMessage implements Serializable {
 	 */
 	private String endDate;
 	/**
-	 * 国家名称
+	 * 国家名称 【不传】
 	 */
 	private String countryName;
+	/**
+	 * 1：运营推送2：源数据来源 【不传】
+	 */
+	private String source = "1";
 
 	public String getInfoId() {
 		return infoId;
@@ -68,5 +72,13 @@ public class ThematicAnalysisMessage implements Serializable {
 	public void setModelNo(List<String> modelNo) {
 		this.modelNo = modelNo;
 	}
-	
+
+	public String getSource() {
+		return source;
+	}
+
+	public void setSource(String source) {
+		this.source = source;
+	}
+
 }
