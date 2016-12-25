@@ -80,6 +80,13 @@ define(
 								}else if(timeId=="timeId2"){
 									_this._searchSocial();
 								}
+							},
+							oncleared:function(p){
+								if(timeId=="timeId1"){
+									_this._searchNews();
+								}else if(timeId=="timeId2"){
+									_this._searchSocial();
+								}
 							}
 						});
 					});
