@@ -13,6 +13,7 @@ import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
 import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListReponse;
+import com.ai.yk.protal.web.content.searchPublicSafety.SearchMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetySocialVo;
@@ -47,7 +48,11 @@ public class SearchService {
 	 */
 	public YJResponse<SearchPublicSafetyResponse> getSearchPublicSafety(YJRequest<SearchPublicSafetyMessage> req) {
 		String url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_YEESIGHTFORPUBLICAFFAIRS_SEARCHPUBLICSAFETY);
-		String result =HttpClientUtil.getYJBaseResponse(url,req);
+		if(req.getMessage() instanceof SearchMessage){
+			url = YeesightApiConstants.getApiUrl(YeesightApiConstants.API_MYTOPICS_GETRESULTBYCONDITIONV2);
+		}
+			String  result =HttpClientUtil.getYJBaseResponse(url,req);	
+		
 		if(!StringUtil.isBlank(result)){
 			if("news".equals(req.getMessage().getMediaType())){
 				return JSON.parseObject(result, new TypeReference<YJResponse<SearchPublicSafetyResponse>>(){});
@@ -73,20 +78,13 @@ public class SearchService {
 		SearchService service = new SearchService();
 		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
 		SearchPublicSafetyMessage message = new SearchPublicSafetyMessage();
-		message.setMediaType("social");
-		message.setProvincecityCode("吉林");
-		message.setCityCode("长春");
-		message.setCategoryId("公共卫生");
-		message.setMediaLevel("1");
-		message.setSentimentId("1");
-		message.setOrder("desc");
-		message.setFieldName("pubdate");
+		message.setMediaType("news");
 		
 		
 		req.setMessage(message);
-		//System.out.println(JSON.toJSON(req));
+		System.out.println(JSON.toJSON(req));
 		YJResponse<SearchPublicSafetyResponse> res = service.getSearchPublicSafety(req);
-		//System.out.println(JSON.toJSONString(res));
+		System.out.println(JSON.toJSONString(res));
 		
 		
 		/*String str ="{'data':{'resultCount':10,'resultList':[{'mediaNameSrc':'中国结婚论坛-彩妆造型','mediaId':'10021','mediaNameZh':'中国结婚论坛-彩妆造型','mediaNameEn':'中国结婚论坛-彩妆造型','url':'chinajiehun.com'}]},'head':{'result':'true','message':'ok'}}";
