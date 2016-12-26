@@ -29,14 +29,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	edata2.media =[];
         	if(data==null || data=="" || data == undefined){
         			data=[];
-        		}
-        		var index =0;
+        	}
         		var timeKey =[];
             	for (var time in data)
                 {   
             		timeKey.push(time);
             	}
-            	//时间反转获取后5个
+            	//时间反转截取5个
             	timeKey = timeKey.reverse();
             	if(timeKey.length>5)
             	 timeKey = timeKey.slice(0,5);
@@ -48,7 +47,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
             	}
             	var first = data[edata2.time[0]];
             	for (var i = 0;i<first.length;i++)
-                {   if(edata2.media.length>4){
+                {   if(edata2.media.length>5){
                 	   break;
                     }
                     if(first[i].nameZh){
@@ -70,7 +69,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
             					mediaData.push(tempData[k].level);
             					break;
             				}
-            				if(k==tempData.length-1){//没有值set null
+            				if(k==tempData.length-1){//没有值set 0
             					mediaData.push(0);
             					break;
             				}
