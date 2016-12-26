@@ -498,6 +498,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         },
         // 事件态势
         _initTimeTrendChart:function(container,data,configParam){
+        	if(!data){
+        		return;
+        	}
         	if(!configParam){
         		configParam ={};
         	}
@@ -621,7 +624,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		 
         },
         _initIocSentimentChart:function(container,data){
-        
+        	if(!data){
+        		return;
+        	}
         	var cities = [];
         	var positiveCnts = [];
         	var negativeCnts = [];
@@ -756,6 +761,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         },
         //媒体覆盖
         _initMediaCoverageChart:function(container,ul,data){
+        	if(!data){
+        		return;
+        	}
         	var colors = ['#80c823','#0067b4','#eb4d38','#f9983a','#1b84ed','#af67ef'];	
         	var series = [];
         	var otherCount;
