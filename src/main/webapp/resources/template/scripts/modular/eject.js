@@ -27,8 +27,8 @@ jQuery(document).ready(function($) {
 	$('#eject-mask').fadeOut(200);
 	$('#currency').slideUp(200);
 	})
-	$('#medium-btn-close').click(function(){
+	/*$('#medium-btn-close').click(function(){
 	$('#eject-mask').fadeOut(200);
 	$('#currency').slideUp(200);
-	})
+	})*/
 })

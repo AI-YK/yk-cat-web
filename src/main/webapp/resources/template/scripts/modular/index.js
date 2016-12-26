@@ -293,8 +293,33 @@ $(function () {
         $('#user-show').hide(1);
     });	
  }); 
-
- 
+//数据
+$(function () {
+    var st = 100;
+    $('.mainbav  #shuj').mouseenter(function () {
+		$('#data-show').show(1);
+		$('#user-show').hide(1);
+    })
+		$("#data-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.mainbav').mouseleave(function () {
+        $('#data-show').hide(1);
+    });	
+ }); 
+ //更多
+$(function () {
+    var st = 100;
+    $('.right-list  #more').mouseenter(function () {
+		$('#more-show').show(1);
+    })
+		$("#more-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.right-list').mouseleave(function () {
+        $('#more-show').hide(1);
+    });	
+ }); 
 //二维
 $(function () {
     var st = 100;
@@ -335,7 +360,17 @@ $(function () {
         $('#special-tow').hide(1);
     });	
  }); 
-
+//选择城市
+$(function () {
+    var st = 100;
+    $('.left-list ul li #choice-city').click(function () {
+		$('#index-city').toggle();
+    })
+    $('#btn-close').click(function () {
+		$('#index-city').hide();
+    })	
+   }); 
+   
 $(function(){
 $("#merge ul li a").click(function () {
                 $("#merge ul li a").each(function () {
