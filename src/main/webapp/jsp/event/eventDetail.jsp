@@ -165,7 +165,7 @@
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>
     <script id="levelNewsTempl" type="text/x-jsrender">
- <ul uuid ="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+ <ul uuid ="{{:uuid}}">
 								<li  class="title" style="cursor: pointer;">{{:titleSrc}}</li>
 								<li class="list">
 									<p>
