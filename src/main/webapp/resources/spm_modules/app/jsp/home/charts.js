@@ -27,17 +27,22 @@ define('app/jsp/home/charts', function (require, exports, module) {
 //    				[ 1500, 1200, 1300 ], [ 1000, 1500, 1700 ] ];
         	edata2.time = [];
         	edata2.media =[];
-        		if(data==null || data=="" || data == undefined){
+        	if(data==null || data=="" || data == undefined){
         			data=[];
         		}
         		var index =0;
+        		var timeKey =[];
             	for (var time in data)
-                {   if(index>4){
-                	   break;
-                    }
-            		edata2.time.push(time);
-            		index = index+1;
-                }
+                {   
+            		timeKey.push(time);
+            	}
+            	//时间反转获取后5个
+            	timeKey = timeKey.reverse();
+            	if(timeKey.length>5)
+            	 timeKey = timeKey.slice(0,5);
+            	
+            	edata2.time=timeKey;
+        		
             	if(edata2.time.length < 1){
             		return;
             	}
@@ -510,7 +515,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		times[i] = data[i].time.substring(0,data[i].time.length);
         		counts[i] = data[i].count;
         	}
-        	
+        	//结果反转截取10个
+        	times = times.reverse();
+        	counts = counts.reverse();
+        	if(times.length>10){
+        		times = times.slice(0,10);
+        		counts = counts.slice(0,10);
+        	}
         	var option = {
         			
         		    calculable : true,
