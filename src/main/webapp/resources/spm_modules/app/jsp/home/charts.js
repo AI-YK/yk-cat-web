@@ -502,7 +502,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		configParam ={};
         	}
         	if(!data){
-             	data = [];
+             	data = [];  
             }
         	var times = [];
         	var counts = [];
