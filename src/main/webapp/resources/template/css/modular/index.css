@@ -6,7 +6,7 @@
 .list-left{width:325px;float:left;}
 .list-left ul{width:100%;float:left}
 .list-left ul li,.list-left ul li p{width:100%;float:left}
-.list-left ul li{height:66px;border:1px solid #454d6b;border-right:1px solid #6c78a6;padding:10px;color:#7883ac;font-size:16px;line-height:25px;cursor:pointer;}
+.list-left ul li{height:66px;border:1px solid #454d6b;border-right:1px solid #6c78a6;padding:10px;color:#7883ac;font-size:16px;line-height:25px;}
 /*.list-left ul li:hover{border:1px solid #39adf6;border-right:none;}*/
 .list-left ul .bot-none{border-bottom:none;}
 .list-left ul .current{border-top:1px solid #6c78a6;border-left:1px solid #6c78a6;border-right:none;border-bottom:1px solid #6c78a6;color:#3382ee;background:#2e344b;padding-top:-1px;}

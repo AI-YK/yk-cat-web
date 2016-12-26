@@ -21,12 +21,14 @@
 <body>
 	<!--面包屑导航-->
 	<c:set var="noSearch" value="true"/>
+	<c:set var="current" value="2"/>
 	<%@ include file="/inc/topHead.jsp"%>
 
 <form id="loginJumpFormId" method="post" style="visibility: hidden;">
       <input type="hidden" name="url" id="loginSuccessUrl">
 </form>
-	<!--子导航-->
+<!--子导航-->
+<!-- 	
 	<div class="subnav">
 		<div class="subnav-main">
 			<div class="breadcrumb" style="padding-top: 5px;">
@@ -36,7 +38,7 @@
 				<p>热点发现</p>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!---->
 	<div class="news-type-big">
 		<div id="news-type-mainId" class="news-type-main">
