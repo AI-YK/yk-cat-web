@@ -36,7 +36,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         // 事件代理
         events: {
            "click #saveId":"_saveProvinceAndCity",
-           "click #saveDicId":"_saveDic"
+           "click #saveDicId":"_saveDic",
+           "click #medium-btn-close":"_saveAll"
         },
 
         // 重写父类
@@ -213,23 +214,23 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
-        	    //$.cookie('_data_type','0');
+        	    $.cookie('_data_type','0');
         	});
         	$("#data-show ul .ahov3").click(function(){
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        		//$.cookie('_data_type','1');
+        		$.cookie('_data_type','1');
         	});	
         		
         	//选择城市
-        	$('.left-list ul li #choice-city').click(function () {
+        	/*$('.left-list ul li #choice-city').click(function () {
         		$('#index-city').toggle();
             });
         	
             $('#btn-close').click(function () {
         		$('#index-city').hide();
-            });
+            });*/
             
             //选择专题
             $(document).on("click",".topic",function(){
@@ -253,19 +254,19 @@ define('app/jsp/home/home', function (require, exports, module) {
                 $('#classification').slideUp(200);
              });
         		
-        		$(document).on("click",".choice-left-title ul li a",function(){
-                	$(".choice-left-title ul li a").each(function () {
+        		$(document).on("click",".eject-choice-left-title ul li a",function(){
+                	$(".eject-choice-left-title ul li a").each(function () {
                         $(this).removeClass("current");
-                        var index=$('.choice-left-title ul li a').index(this)+1;
-                        $("#citi-tab"+index).hide();
+                        var index=$('.eject-choice-left-title ul li a').index(this)+1;
+                        $("#eject-citi-tab"+index).hide();
                     });
                     $(this).addClass("current");
-                    var index=$('.choice-left-title ul li a').index(this)+1;
-                    $("#citi-tab"+index).show();
+                    var index=$('.eject-choice-left-title ul li a').index(this)+1;
+                    $("#eject-citi-tab"+index).show();
     			});
                 
-                $(document).on("click",".choice-list ul li a",function(){
-                	$(".choice-list ul li a").each(function () {
+                $(document).on("click",".eject-choice-list ul li a",function(){
+                	$(".eject-choice-list ul li a").each(function () {
                         $(this).removeClass("current");
                     });
                     $(this).addClass("current");
@@ -276,8 +277,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _load:function(){
         	
-        	//var dataType = $.cookie('_data_type');
-        	/*if(dataType==undefined||dataType=='0'){
+        	var dataType = $.cookie('_data_type');
+        	if(dataType==undefined||dataType=='0'){
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
@@ -285,7 +286,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        	}*/
+        	}
         	
         	this._initEventData();
         	this._loadPubTrend('locSentimentCount', '0');
@@ -568,8 +569,8 @@ define('app/jsp/home/home', function (require, exports, module) {
 					provinceInfo.provinces = provinces;
 					var provinceHtml = $("#provinceTempl").render(provinceInfo);
 					$(".choice-left").html(provinceHtml);
-					$(".choice-left-title ul li a").each(function () {
-						var index=$('.choice-left-title ul li a').index(this)+1;
+					$(".eject-choice-left-title ul li a").each(function () {
+						var index=$('.eject-choice-left-title ul li a').index(this)+1;
 						var id = $(this).attr("id");
 						if(letterId==''&&index==1||id==letterId){
 							 $(this).addClass("current");
@@ -587,7 +588,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _getCity:function(parent){
             if(!parent || parent==undefined||parent=='' || parent==null){
-            	var curr = $(".choice-list .current");
+            	var curr = $(".eject-choice-list .current");
             	if(curr){
             		 var next = curr.next();
                      parent = next.val();
@@ -636,7 +637,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var interestList = eval('('+configInterestList+")");
 						for(var i=0;i<interestList.length;i++){
 							var id = interestList[i].businessId;
-							$("#dic_"+id).addClass("current");
+							$("#dic_"+id).attr("checked",true);
 						}
 					}
 					
@@ -646,7 +647,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         _saveProvinceAndCity:function(){
         	var _this = this;
         	var provinceCode = "";
-            var province = $(".choice-list .current");
+            var province = $(".eject-choice-list .current");
         	  if(province){
         		  var next = province.next();
         		  provinceCode = next.val();
@@ -734,6 +735,58 @@ define('app/jsp/home/home', function (require, exports, module) {
      				  location.href=_base+"/home/index";
      			  }
      		  });
+        },
+        _saveAll:function(){
+        	var _this = this;
+        	var provinceCode = "";
+            var province = $(".eject-choice-list .current");
+        	  if(province){
+        		  var next = province.next();
+        		  provinceCode = next.val();
+        	  }else{
+        		$("#tishiId").text("请选择省份");
+        		return;
+        	  }
+     		  var cityStr="";
+     		  $(".city").each(function(){
+     			  if(this.checked){
+     				  cityStr=cityStr+","+$(this).val();
+     			  }
+     		  });
+     		  if(cityStr==""){
+     			$("#tishiId").text("至少选择一个城市");
+     			return;
+     		  }else{
+     			  cityStr=cityStr.substring(1,cityStr.length);
+     		  }
+     		 var interestStr = "";
+     		 $(".check-dic").each(function(){
+           	  if(this.checked){
+           		  interestStr = interestStr + ","+$(this).val();
+           	  }
+             });
+             if(interestStr ==""){
+           	  $("#tishiId").text("领域分类至少选择一个");
+           	  return;
+             }else{
+           	  interestStr = interestStr.substring(1,interestStr.length);
+             }
+             var url="/common/saveConf";
+             var param={};
+      		param.interestStr=interestStr;
+      		param.provinceCode=provinceCode;
+      		param.cityStr=cityStr;
+      		ajaxController.ajax({
+   			  type:"POST",
+   			  processing: false,
+   			  message: "保存数据中，请等待...",
+   			  url: _base + url,
+   			  dataType:"json",
+   			  data:param,
+   			  success:function(rs){
+   				  location.href=_base+"/home/index";
+   			  }
+   		  });
         }
         
     });
