@@ -26,6 +26,7 @@ public class ThematicAnalysisService {
 		String url = YeesightApiConstants
 				.getApiUrl(YeesightApiConstants.API_THEMATICANALYSIS_GETANALYSIS);
 		String result = HttpClientUtil.getYJBaseResponse(url, req);
+		System.err.println(result);
 		YJResponse<ThematicAnalysisResponse> res = null;
 		if (!StringUtil.isBlank(result)) {
 			res = JSON.parseObject(result,

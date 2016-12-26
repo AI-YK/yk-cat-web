@@ -25,10 +25,13 @@ public class PublicAffairsMessage implements Serializable {
 	/**公共
 	 * <p>媒体覆盖出 mediaCoverage</p>
 	 * <p>舆情走势 locSentimentCount</p>
-	 * <p>listMedia,listNST</p>
+	 * <p>时间趋势listNST</p>
+	 * <p>媒体统计listMedia</p>
 	 * 专题
 	 * <p>媒体覆盖出 ListNCSD</p>
 	 * <p>舆情走势 Gender</p>
+	 * <p>时间趋势ListNST</p>
+	 * <p>媒体统计ListNMSD</p>
 	 */
 	private String modelNo;
 	/**

@@ -2,7 +2,7 @@ package com.ai.yk.protal.web.content.thematicAnalysis;
 
 import java.io.Serializable;
 
-public class ListNCSDVo implements Serializable {
+public class NCSDVo implements Serializable {
 	private static final long serialVersionUID = 8745590011579153481L;
 	/**
 	 * 负面

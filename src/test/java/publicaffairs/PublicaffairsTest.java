@@ -22,7 +22,7 @@ public class PublicaffairsTest {
 	public void testMediaCoverage() {
 		YJRequest<PublicAffairsMessage> req = new YJRequest<PublicAffairsMessage>();
 		PublicAffairsMessage message = new PublicAffairsMessage();
-		message.setModelNo("ListNCSD,Gender");
+		message.setModelNo("listNST,listMedia");
 		message.setInfoId("5cf4f1c273fb6d24592ea34f42b1fd75");
 		req.setMessage(message);
 		System.err.println("param:" + JSON.toJSONString(req));
