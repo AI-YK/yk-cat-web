@@ -547,6 +547,11 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						    if(0==index||times.length-1==index){
         						    	return "";
         						    }else{
+        						    	var len = value.length;
+        						    	//yyyy-MM-dd HH:mm
+        						    	if(len>10){
+        						    		return value.substring(9,len);
+        						    	}
         						    	return value;
         						    }
         						}

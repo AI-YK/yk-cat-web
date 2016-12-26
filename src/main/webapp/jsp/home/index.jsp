@@ -194,6 +194,7 @@
 </script>
 <script type="text/javascript">
     var configInterestList = '${configInterestList}';
+    var interestes = '${interestes}';
     var provinceCodee='${provindeCode}';
     var cityLists='${citylist}';
     var hasTopic = ${hasTopic};

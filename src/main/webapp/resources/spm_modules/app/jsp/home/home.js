@@ -403,9 +403,29 @@ define('app/jsp/home/home', function (require, exports, module) {
             	}
             	param.busCode=cityCodeList;
         	}
+        	
+        	var dataType = $.cookie(_data_type);
+        	if(dataType==undefined||dataType=='0'){
+            	if(cityLists!=''){
+            		var cityList=eval("("+cityLists+")");
+                	var cityCodeList="";
+                	for(var i=0;i<cityList.length;i++){
+                		cityCodeList=cityCodeList+","+cityList[i].code;
+                	}
+                	if(cityCodeList!=""){
+                		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+                	}
+                	param.busCode=cityCodeList;
+            	}
+            	param.categoryId = interestes;
+        	}else if(dataType=='1'){  
+        		var topicId = this._getTopicId();
+        		if(topicId){
+        			param.infoId = topicId;
+        		}
+        	}
         	param.modelNo = modelNo;
         	param.timeType = timeType;
-        	param.categoryId = '';
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
@@ -469,6 +489,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	}
                 	param.cityCode=cityCodeList;
             	}
+            	param.categoryId = interestes;
         	}else if(dataType=='1'){
         		param.isTopic = 1;
         		var topicId = this._getTopicId();
@@ -530,6 +551,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	}
                 	param.cityCode=cityCodeList;
             	}
+            	param.categoryId = interestes;
         	}else if(dataType=='1'){  
         		param.isTopic = 1;
         		var topicId = this._getTopicId();

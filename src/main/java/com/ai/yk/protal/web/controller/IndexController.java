@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.paas.ipaas.i18n.ResWebBundle;
+import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
@@ -35,11 +36,33 @@ public class IndexController extends BaseController {
     @RequestMapping("/index")
     public String indexView(Model model){
     	
+    	initConfig(model);
+    	List<MyTopicsVo> topics = SessionUtil.getTopics();
+    	if(topics==null||topics.size()==0){
+    		model.addAttribute("hasTopic", false);
+    	}else{
+    		model.addAttribute("hasTopic", true);
+    		model.addAttribute("topics", topics);
+    	}
+    	
+        return "/home/index";
+    }
+    
+    private void initConfig(Model model){
     	MyCustomizedVo config = SessionUtil.getUserConfig();
     	if(config!=null){
     		model.addAttribute("config", config);
     		if(!CollectionUtil.isEmpty(config.getInterestList())){
     			model.addAttribute("configInterestList", JSON.toJSONString(config.getInterestList()));
+    			List<InterestVo> interestes =  config.getInterestList();
+    			if(interestes!=null&&interestes.size()>0){
+    				String interestStr = "";
+    				for(InterestVo interest:interestes){
+    					interestStr = interestStr + ","+interest.getBusinessId();
+    				}
+    				interestStr = interestStr.substring(1);
+    				model.addAttribute("interestes", interestStr);
+    			}
     		}
     		if(config.getProvince()!=null){
     			if(config.getProvince().getBusCode()!=null && !"".equals(config.getProvince().getBusCode())){
@@ -53,15 +76,6 @@ public class IndexController extends BaseController {
     		}
         	
     	} 
-    	List<MyTopicsVo> topics = SessionUtil.getTopics();
-    	if(topics==null||topics.size()==0){
-    		model.addAttribute("hasTopic", false);
-    	}else{
-    		model.addAttribute("hasTopic", true);
-    		model.addAttribute("topics", topics);
-    	}
-    	
-        return "/home/index";
     }
     
     /**

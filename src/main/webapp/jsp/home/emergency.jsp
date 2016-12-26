@@ -20,7 +20,7 @@
 						 </ul>
 					</div>
 					<div>
-						  <div id="chart_event" class="merge-list"></div>
+						  <div id="chart_event" class="merge-list" style="padding: 10px"></div>
 					</div>
 						
 				</div>			    
