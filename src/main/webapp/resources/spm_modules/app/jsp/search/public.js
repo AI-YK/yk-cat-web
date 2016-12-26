@@ -1,6 +1,6 @@
 define('app/jsp/search/public',function(require, exports, module) {
 			//'use strict';
-			require("jsviews/jsrender.min");
+			require("jsviews/jsrender");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");
 			require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
