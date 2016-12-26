@@ -9,7 +9,6 @@
 <title>首页</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
-<%-- <script type="text/javascript" src="${uedroot}/scripts/modular/eject.js"></script> --%>
 </head>
 
 <body class="index-bj">
@@ -22,11 +21,6 @@
 			</div>
 			<div class="field-title">
 				<ul id="dicUl">
-					<li class="blue">领域分类：</li>
-					<!-- <li>
-						<p><input type="checkbox" class="checkbox-fie"/></p>
-						<p>政治治理</p>
-					</li> -->
 					
 				</ul>
 			</div>
@@ -63,28 +57,7 @@
 		<div class="mask" id="eject-mask"></div>
   </div>
 <!--/弹出结束-->
-<!--弹出-->
-   <div class="eject-big">
-		<div class="eject-small" id="classification">
-			<div class="eject-small-title">选择领域分类<i  class="icon iconfont" id="i-close">&#xe618;</i><span id="tishiDicId" style="color: red; font-size:12px;"></span></div>
-			<div class="eject-small-list">
-				<!-- <ul id="dicUl">
-					
-				</ul> -->
-			</div>
-			<div class="index-city-btn btn-bottom">
-				<ul>
-					<li>
-						<input type="button" class="btn btn-120 radius btn-deepblue" id="saveDicId" value="提 交"/>
-						<input type="button" class="btn btn-120 radius btn-ash" id="eject-btn-close" value="取 消"/>
-					</li>
-				</ul>
-		 	</div>
-		</div>
-		
-		<div class="mask" id="eject-mask"></div>
-  </div> 
-<!--/弹出结束-->
+
 	<!--面包屑导航-->
 	<%@ include file="/inc/indexHead.jsp"%>
 	<!--子导航-->
@@ -105,46 +78,6 @@
 				    </c:choose>
 						<i class="icon iconfont"></i></a> 
 					</li>
-					<div class="index-city" id="index-city">
-						<div class="city-sj"><img src="${uedroot}/images/city-sj.jpg" /></div>
-						<div class="choice-city">
-						<div class="choice-title">
-							<ul>
-								<li class="word">城市地区：</li>
-								<li><input type="text" class="choice-int" value="请选择省市区" readonly="readonly"><span id="tishiId" style="color: red; font-size:12px;"></span></li>
-							</ul>
-						</div>
-						<div class="choice-main">
-							<!--左侧-->
-							<!-- <div class="choice-left">
-								
-							</div> -->
-							<!--/左侧结束-->
-							<!--ABCDEFG 第一个-->
-							<div id="one">
-								<!--tab1-->
-								<div id="province1">
-								<div class="choice-right">
-									<!-- <ul id="cityList">
-										
-									</ul> -->
-								</div>
-							</div>
-								
-							</div>
-							<!--/ ABCDEFG 第一个结束-->
-						</div>
-						
-					</div>
-						<div class="index-city-btn">
-							<ul>
-								<li>
-									<input type="button" class="btn btn-120 radius btn-deepblue" id="saveId" value="提 交"/>
-									<input type="button" class="btn btn-120 radius btn-ash" id="btn-close" value="取 消"/>
-								</li>
-							</ul>
-						</div>
-					</div>
 					<c:forEach items="${config.interestList}" var="interestVo">
 						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
 					</c:forEach>
@@ -161,7 +94,7 @@
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
 					       <li class="inbtn" >
-					         <a id="${id}" ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
+					         <a id="${topic.id}" ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
 					       </li>
 					   </c:if>
 					</c:forEach>
@@ -179,7 +112,7 @@
 							    <li>
 								    <c:forEach items="${topics}" var="topic" varStatus="t">
 						               <c:if test="${t.index>=7}">
-										    <p><a id="${id}" class="topic">${topic.srcShortTitle}</a></p>
+										    <p><a id="${topic.id}" class="topic">${topic.srcShortTitle}</a></p>
 						               </c:if>
 						            </c:forEach>
 					            </li>

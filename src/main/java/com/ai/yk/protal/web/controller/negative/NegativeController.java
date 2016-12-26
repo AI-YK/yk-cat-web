@@ -29,6 +29,9 @@ public class NegativeController {
 	@RequestMapping("/getNegativeList")
 	@ResponseBody
 	public ResponseData<SearchPublicSafetyResponse> getNegativeList(
+			@RequestParam(value="isTopic") int isTopic,
+		 	/**专题ID **/
+			@RequestParam(required=false) String id,
 			@RequestParam(value="mediaType",defaultValue="") String mediaType,
 			@RequestParam(value="sentimentId",defaultValue="-1") String sentimentId,
 			@RequestParam(value="provincecityCode",defaultValue="") String provincecityCode,

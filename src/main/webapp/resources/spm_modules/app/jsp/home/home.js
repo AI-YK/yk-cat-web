@@ -215,22 +215,16 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$(".right-list").hide();
         		$("#commDiv").show();
         	    $.cookie(_data_type,'0');
+        	    _this._refresh();
         	});
         	$("#data-show ul .ahov3").click(function(){
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
         		$.cookie(_data_type,'1');
+        		_this._refresh();
         	});	
-        		
-        	//选择城市
-        	/*$('.left-list ul li #choice-city').click(function () {
-        		$('#index-city').toggle();
-            });
         	
-            $('#btn-close').click(function () {
-        		$('#index-city').hide();
-            });*/
             
             //选择专题
             $(document).on("click",".topic",function(){
@@ -243,11 +237,6 @@ define('app/jsp/home/home', function (require, exports, module) {
                   $.cookie(_topic_id,id);
   			});
             
-            //修改领域分类
-            /*$('#modify-btn').click(function(){
-            	$('#eject-mask').fadeIn(100);
-            	$('#classification').slideDown(100);
-             })*/
              $('#i-close').click(function(){
             	$('#eject-mask').fadeOut(200);
             	$('#classification').slideUp(200);
@@ -314,6 +303,19 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._getNegativeList("social");
         	this._getProvince();
         	this._getDomains();
+        },
+        _refresh:function(){
+        	
+        	var newsTab = $("#news-tab ul li current");
+            var newsId = newsTab.next().attr("value");
+            _this._getHotInfoList("news",newsId);
+            
+            var mediaTab = $("#social-tab ul li current");
+            var mediaId = mediaTab.next().attr("value");
+        	this._getHotInfoList("social",mediaId);
+        	
+        	this._getNegativeList("news");
+        	this._getNegativeList("social");
         },
         _initEventData:function(){
         	var _this = this;
@@ -472,7 +474,7 @@ define('app/jsp/home/home', function (require, exports, module) {
             	}
         	}else if(dataType=='1'){
         		param.isTopic = 1;
-        		var topicId = $(".topic .current").attr("id");
+        		var topicId = $(".topic.current").attr("id");
         		if(topicId){
         			param.id = topicId;
         		}
@@ -531,7 +533,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	}
                 	param.cityCode=cityCodeList;
             	}
-        	}else if(dataType=='1'){
+        	}else if(dataType=='1'){  
         		param.isTopic = 1;
         		var topicId = $(".topic .current").attr("id");
         		if(topicId){
@@ -709,22 +711,6 @@ define('app/jsp/home/home', function (require, exports, module) {
       			  dataType:"json",
       			  data:param,
       			  success:function(rs){
-      				  /*var proName=$(".choice-list .current").text();
-      				  var cityName="";
-      				  var ss=0;
-      				  $(".city").each(function(){
-      					  if(this.checked){
-      						  ss+=1;
-      						  if(cityName==""){
-      							  cityName=$(this).next().val();
-      						  }
-      					  }
-      				  });
-      				  if(ss==1){
-      					  $("#choice-city").html(proName+","+cityName);
-      				  }else{
-      					$("#choice-city").html(proName+","+cityName+"等");
-      				  }*/
       				location.href = _base + '/home/index';
       				$('#index-city').hide();
       				_this._initEventData();

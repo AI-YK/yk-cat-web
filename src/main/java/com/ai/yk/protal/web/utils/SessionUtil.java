@@ -138,24 +138,33 @@ public final class SessionUtil {
 		if (topics == null) {
 			List<MyTopicsVo> list = new ArrayList<MyTopicsVo>();
 			MyTopicsVo myTopicsVo = new MyTopicsVo();
+			myTopicsVo.setId("5cf4f1c273fb6d24592ea34f42b1fd75");
 			myTopicsVo.setSrcShortTitle("中国航天");
 			MyTopicsVo myTopicsVo2 = new MyTopicsVo();
+			myTopicsVo2.setId("5cf4f1c273fb6d24592ea34f42b1fd75");
 			myTopicsVo2.setSrcShortTitle("时代");
 			MyTopicsVo myTopicsVo3 = new MyTopicsVo();
+			myTopicsVo3.setId("5cf4f1c273fb6d24592ea34f42b1fd75");
 			myTopicsVo3.setSrcShortTitle("生活");
 		
 			MyTopicsVo myTopicsVo4 = new MyTopicsVo();
+			myTopicsVo4.setId("4");
 			myTopicsVo4.setSrcShortTitle("公共安全事件");
 			MyTopicsVo myTopicsVo5 = new MyTopicsVo();
+			myTopicsVo5.setId("5");
 			myTopicsVo5.setSrcShortTitle("金融");
 			MyTopicsVo myTopicsVo6 = new MyTopicsVo();
+			myTopicsVo6.setId("6");
 			myTopicsVo6.setSrcShortTitle("财经");
 			MyTopicsVo myTopicsVo7 = new MyTopicsVo();
+			myTopicsVo7.setId("7");
 			myTopicsVo7.setSrcShortTitle("理财");
 			
 			MyTopicsVo myTopicsVo8 = new MyTopicsVo();
+			myTopicsVo8.setId("8");
 			myTopicsVo8.setSrcShortTitle("投资");
 			MyTopicsVo myTopicsVo9 = new MyTopicsVo();
+			myTopicsVo9.setId("9");
 			myTopicsVo9.setSrcShortTitle("企业");
 			list.add(myTopicsVo);
 			list.add(myTopicsVo2);
