@@ -13,6 +13,9 @@
 				<div class="hot-news-main-tab" id="news-tab">
 					<ul id="news-media">
 					</ul>
+					<ul id="topic-news-media" style="display: none;">
+					   <li><a href="javascript:void(0);" class="current">全部</a></li>
+					</ul> 
 				</div>
 				<div>
 					<div class="hot-news-main-list" id="news-div">
