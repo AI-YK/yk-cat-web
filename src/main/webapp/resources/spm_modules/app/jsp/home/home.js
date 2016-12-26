@@ -309,7 +309,6 @@ define('app/jsp/home/home', function (require, exports, module) {
         	
         	var newsTab = $("#news-tab ul li .current");
             var newsId = newsTab.next().attr("value");
-            alert(newsId);
             this._getHotInfoList("news",newsId);
             
             var mediaTab = $("#social-tab ul li .current");
