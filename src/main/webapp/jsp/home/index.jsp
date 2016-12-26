@@ -9,17 +9,68 @@
 <title>首页</title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
+<%-- <script type="text/javascript" src="${uedroot}/scripts/modular/eject.js"></script> --%>
 </head>
 
 <body class="index-bj">
-<!--弹出-->
+<!--设置基本信息弹出-->
   <div class="eject-big">
+		<div class="eject-medium" id="currency" style="top:60%; left: 40%;">
+			<div class="eject-medium-title">
+				<p>设置基本信息<span id="tishiId" style="color: red; font-size:12px;"></span></p>
+				<p class="right"><i class="icon iconfont" id="currency-close">&#xe618;</i></p>
+			</div>
+			<div class="field-title">
+				<ul id="dicUl">
+					<li class="blue">领域分类：</li>
+					<!-- <li>
+						<p><input type="checkbox" class="checkbox-fie"/></p>
+						<p>政治治理</p>
+					</li> -->
+					
+				</ul>
+			</div>
+			<div class="eject-choice-city">
+				<div class="eject-choice-title">
+					<ul>
+						<li class="word">城市地区：</li>
+						<li><input type="text"  class="choice-int" value="请选择省市区"></li>
+					</ul>
+				</div>
+				<div class="eject-choice-main">
+					<!--左侧-->
+					<div class="choice-left">
+						
+					</div>
+					<!--/左侧结束-->
+					<!--ABCDEFG 第一个-->
+					<div id="one">
+						<!--tab1-->
+						<div id="eject-province1">
+								<div class="eject-choice-right">
+									<ul id="cityList">
+										
+									</ul> 
+								</div>
+						</div>
+					</div>
+					<!--/ ABCDEFG 第一个结束-->
+				</div>
+				
+			</div>
+			<div class="eject-medium-btn"><input type="button" class="btn btn-xxxlarge btn-blue radius" id="medium-btn-close" value="完成"></div>
+		</div>
+		<div class="mask" id="eject-mask"></div>
+  </div>
+<!--/弹出结束-->
+<!--弹出-->
+   <div class="eject-big">
 		<div class="eject-small" id="classification">
 			<div class="eject-small-title">选择领域分类<i  class="icon iconfont" id="i-close">&#xe618;</i><span id="tishiDicId" style="color: red; font-size:12px;"></span></div>
 			<div class="eject-small-list">
-				<ul id="dicUl">
+				<!-- <ul id="dicUl">
 					
-				</ul>
+				</ul> -->
 			</div>
 			<div class="index-city-btn btn-bottom">
 				<ul>
@@ -32,7 +83,7 @@
 		</div>
 		
 		<div class="mask" id="eject-mask"></div>
-  </div>
+  </div> 
 <!--/弹出结束-->
 	<!--面包屑导航-->
 	<%@ include file="/inc/indexHead.jsp"%>
@@ -52,7 +103,7 @@
 				                           请选择省市
 				       </c:otherwise>
 				    </c:choose>
-						<i class="icon iconfont">&#xe659;</i></a>
+						<i class="icon iconfont"></i></a> 
 					</li>
 					<div class="index-city" id="index-city">
 						<div class="city-sj"><img src="${uedroot}/images/city-sj.jpg" /></div>
@@ -65,18 +116,18 @@
 						</div>
 						<div class="choice-main">
 							<!--左侧-->
-							<div class="choice-left">
+							<!-- <div class="choice-left">
 								
-							</div>
+							</div> -->
 							<!--/左侧结束-->
 							<!--ABCDEFG 第一个-->
 							<div id="one">
 								<!--tab1-->
 								<div id="province1">
 								<div class="choice-right">
-									<ul id="cityList">
+									<!-- <ul id="cityList">
 										
-									</ul>
+									</ul> -->
 								</div>
 							</div>
 								
@@ -152,7 +203,7 @@
 </body>
 <script id="provinceTempl" type="text/x-jsrender">
   <!--左侧tab-->
-  <div class="choice-left-title">
+  <div class="eject-choice-left-title">
 	  <ul>
          {{for letters}}
 		    <li><a href="#" id="letter_{{:letter}}" {{if #index==0}}class="current"{{/if}}>
@@ -168,8 +219,8 @@
   {{for provinces}}
      <!--/左侧tab结束-->
      {{if #index==0}}
-     <div id="citi-tab{{:#getIndex()+1}}">
-       <div class="choice-list" >
+     <div id="eject-citi-tab{{:#getIndex()+1}}">
+       <div class="eject-choice-list" >
 		  <ul>
              {{for list}}
 			    <li><a href="#" id="pro_{{:busCode}}" >{{:name}}</a><input type="hidden" value="{{:busCode}}"/></li>
@@ -178,8 +229,8 @@
        </div>
      </div>
     {{else}}
-      <div id="citi-tab{{:#getIndex()+1}}" style="display:none;">
-       <div class="choice-list" >
+      <div id="eject-citi-tab{{:#getIndex()+1}}" style="display:none;">
+       <div class="eject-choice-list" >
 		  <ul>
              {{for list}}
 			    <li><a href="#" id="pro_{{:busCode}}">{{:name}}</a><input type="hidden" value="{{:busCode}}"/></li>
@@ -199,9 +250,12 @@
    </li>
 </script>
 <script id="dicTempl" type="text/x-jsrender">
+	<li class="blue">领域分类：</li>
    {{for dics}}
    <li>
-		<a id="dic_{{:dicValue}}" href="#" class="dic">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/>
+		<!-- <a id="dic_{{:dicValue}}" href="#" class="dic">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/> -->
+		<p><input id="dic_{{:dicValue}}" type="checkbox" class="checkbox-fie check-dic" value="{{:dicValue}}"/></p>
+		<p>{{:dicName}}</p>
    </li>
    {{/for}}
 </script>

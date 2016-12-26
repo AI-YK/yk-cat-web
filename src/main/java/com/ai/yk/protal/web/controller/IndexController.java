@@ -42,7 +42,11 @@ public class IndexController extends BaseController {
     			model.addAttribute("configInterestList", JSON.toJSONString(config.getInterestList()));
     		}
     		if(config.getProvince()!=null){
-    			model.addAttribute("provindeCode", config.getProvince().getBusCode());
+    			if(config.getProvince().getBusCode()!=null && !"".equals(config.getProvince().getBusCode())){
+    				model.addAttribute("provindeCode", config.getProvince().getBusCode());
+    			}else{
+    				model.addAttribute("provindeCode", config.getProvince().getCode());
+    			}
     		}
     		if(config.getCity()!=null){
     			model.addAttribute("citylist", JSON.toJSONString(config.getCity()));
