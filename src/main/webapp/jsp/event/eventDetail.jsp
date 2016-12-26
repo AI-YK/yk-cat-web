@@ -174,7 +174,7 @@
 									</p>
 									<p class="right">
 										<span>{{:languageTname}}</span>
-										<span>{{:countryNameZh}}<img height="20px" width="30px" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
+										<span>{{:countryNameZh}}<img class="eventcountry" height="20px" width="30px" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
 										<span>转载：{{:transfer}}</span>
 									</p>
 								</li>
