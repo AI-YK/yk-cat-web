@@ -812,7 +812,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		        {
         		           name: '媒体覆盖',
         		           type: 'pie',
-        		           roseType : 'radius',
+        		           //roseType : 'radius',
         		           data:series,
         		            itemStyle: {
         		            	normal : {
