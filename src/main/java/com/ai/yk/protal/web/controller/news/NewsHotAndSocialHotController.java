@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.ai.opt.base.vo.PageInfo;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
-import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
@@ -71,10 +70,7 @@ public class NewsHotAndSocialHotController {
 		searchPublicSafetyMessage.setOrder(order);
 		searchPublicSafetyMessage.setPageNo(pageNo);
 		searchPublicSafetyMessage.setPageSize(pageSize);
-		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
-		req.setMessage(searchPublicSafetyMessage);
-		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
-		res = searchService.getSearchPublicSafety(req);
+		YJResponse<SearchPublicSafetyResponse> res = searchService.getSearchPublicSafety(searchPublicSafetyMessage);
 		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
 		if(res==null){
 			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_FAILURE,"查询不到新闻热点和社交热点",null);
@@ -209,10 +205,7 @@ public class NewsHotAndSocialHotController {
 		if(StringUtil.isBlank(message.getPageNo())||StringUtil.isBlank(message.getPageSize())){
 			return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"分页参数不能为空",null);
 		}
-		YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
-		req.setMessage(message);
-		YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
-		res = searchService.getSearchPublicSafety(req);
+		YJResponse<SearchPublicSafetyResponse> res = searchService.getSearchPublicSafety(message);
 		if(res==null||res.getHead()==null){
 			  log.error("系统异常，请联系管理员");
 			  return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"系统异常，请联系管理员",null);

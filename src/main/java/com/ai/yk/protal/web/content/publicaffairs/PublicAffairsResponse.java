@@ -7,7 +7,7 @@ public class PublicAffairsResponse implements Serializable {
 
 	private static final long serialVersionUID = 4036989748748561977L;
     private List<MediaCoverageVo> mediaCoverage;
-    private List<IocSentimentVo> locSentimentCount;
+    private List<LocSentimentVo> locSentimentCount;
     private List<ListMediaVo> listMedia;
     private List<ListNSTVo> listNST;
 	public List<MediaCoverageVo> getMediaCoverage() {
@@ -16,10 +16,10 @@ public class PublicAffairsResponse implements Serializable {
 	public void setMediaCoverage(List<MediaCoverageVo> mediaCoverage) {
 		this.mediaCoverage = mediaCoverage;
 	}
-	public List<IocSentimentVo> getLocSentimentCount() {
+	public List<LocSentimentVo> getLocSentimentCount() {
 		return locSentimentCount;
 	}
-	public void setLocSentimentCount(List<IocSentimentVo> locSentimentCount) {
+	public void setLocSentimentCount(List<LocSentimentVo> locSentimentCount) {
 		this.locSentimentCount = locSentimentCount;
 	}
 	public List<ListMediaVo> getListMedia() {

@@ -118,7 +118,7 @@
 				.echart_tip_arrow{  position: absolute;  top: 0;  left: 0;  width: 0;  height: 0;  }
 				.echart_tip_arrow>.echart_tip_head{
 					width: 30px;height: 30px;border-radius: 100%;border: 2px solid #1f78d6;
-					position: absolute;top: -17px;left: -17px;}
+					position: absolute;top: -15px;left: -15.5px;}
 				.echart_tip_arrow>.echart_tip_line{height: 64px;left: 0;top: -80px;border-left: 1px solid #1f78d6;position: absolute;}
 		
 		
