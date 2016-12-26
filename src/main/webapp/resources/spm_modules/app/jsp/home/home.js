@@ -71,10 +71,6 @@ define('app/jsp/home/home', function (require, exports, module) {
             	var _this = $(this);
            	    var uuid = _this.attr("uuid");
 	           	var url =_base+"/news/detail/"+uuid;
-	           	/*var keyword = _this.attr("keyword");
-	           	if(keyword){
-	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
           //社交媒体预警
@@ -82,10 +78,6 @@ define('app/jsp/home/home', function (require, exports, module) {
             	var _this = $(this);
            	    var myid = _this.attr("myid");
            	    var url =_base+"/social/detail/"+myid;
-           	    /*var keyword = _this.attr("keyword");
-        	    if(keyword){
-	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
             //新闻热点
@@ -93,10 +85,6 @@ define('app/jsp/home/home', function (require, exports, module) {
             	var _this = $(this);
            	    var uuid = _this.attr("uuid");
            	    var url =_base+"/news/detail/"+uuid;
-           	   /* var keyword = _this.attr("keyword");
-           	    if(keyword){
-	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
           //社交热点
@@ -104,10 +92,6 @@ define('app/jsp/home/home', function (require, exports, module) {
             	var _this = $(this);
             	var myid = _this.attr("myid");
             	var url =_base+"/social/detail/"+myid;
-           	   /* var keyword = _this.attr("keyword");
-           	    if(keyword){
-	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-	           	}*/
 	        	window.open (url, '_blank' ) ;
             });
             
@@ -232,9 +216,9 @@ define('app/jsp/home/home', function (require, exports, module) {
                       $(this).removeClass("current");
                   });
                   $(this).addClass("current");
-                  var id = $(this).attr("id");
-                  //存储选择的专题ID到cookie
-                  $.cookie(_topic_id,id);
+                  var topicId =_this._getTopicId();
+          		  //存储选择的专题ID到cookie
+                  $.cookie(_topic_id,topicId);
                   _this._refresh();
   			});
             
@@ -276,6 +260,15 @@ define('app/jsp/home/home', function (require, exports, module) {
     			});
         		
         },
+        _getTopicId:function(){
+        	var opType = $(".topic.current").attr("opType");
+        	var id = $(".topic.current").attr("id");
+        	var srcId = $(".topic.current").attr("srcId");
+        	if (opType==1)
+        		return srcId 
+        	else 
+        	  return id;	
+        },
         _load:function(){
         	
         	//初始化 通用还是专题
@@ -291,6 +284,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
+        		var topicId =this._getTopicId();
+        		//存储选择的专题ID到cookie
+                $.cookie(_topic_id,topicId);
         	}
         	
         	this._initEventData();
@@ -475,7 +471,7 @@ define('app/jsp/home/home', function (require, exports, module) {
             	}
         	}else if(dataType=='1'){
         		param.isTopic = 1;
-        		var topicId = $(".topic.current").attr("id");
+        		var topicId = this._getTopicId();
         		if(topicId){
         			param.id = topicId;
         		}
@@ -536,7 +532,7 @@ define('app/jsp/home/home', function (require, exports, module) {
             	}
         	}else if(dataType=='1'){  
         		param.isTopic = 1;
-        		var topicId = $(".topic.current").attr("id");
+        		var topicId = this._getTopicId();
         		if(topicId){
         			param.id = topicId;
         		}

@@ -94,7 +94,7 @@
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
 					       <li class="inbtn" >
-					         <a id="${topic.id}" ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
+					         <a id="${topic.id}" opType="${topic.opType}" srcId="${topic.srcId}"  ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
 					       </li>
 					   </c:if>
 					</c:forEach>
@@ -112,7 +112,7 @@
 							    <li>
 								    <c:forEach items="${topics}" var="topic" varStatus="t">
 						               <c:if test="${t.index>=7}">
-										    <p><a id="${topic.id}" class="topic">${topic.srcShortTitle}</a></p>
+										    <p><a id="${topic.id}"  opType="${topic.opType}" srcId="${topic.srcId}"  class="topic">${topic.srcShortTitle}</a></p>
 						               </c:if>
 						            </c:forEach>
 					            </li>
