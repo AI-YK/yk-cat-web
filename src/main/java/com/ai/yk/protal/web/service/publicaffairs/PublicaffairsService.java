@@ -14,7 +14,7 @@ import com.ai.yk.protal.web.constants.YeesightApiConstants;
 import com.ai.yk.protal.web.content.ResponseHead;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.publicaffairs.IocSentimentVo;
+import com.ai.yk.protal.web.content.publicaffairs.LocSentimentVo;
 import com.ai.yk.protal.web.content.publicaffairs.MediaCoverageVo;
 import com.ai.yk.protal.web.content.publicaffairs.PublicAffairsMessage;
 import com.ai.yk.protal.web.content.publicaffairs.PublicAffairsResponse;
@@ -116,9 +116,9 @@ public class PublicaffairsService {
 		if (CollectionUtil.isEmpty(ListNCSD)) {
 			return;
 		}
-		List<IocSentimentVo> locSentimentCount = new ArrayList<>();
+		List<LocSentimentVo> locSentimentCount = new ArrayList<>();
 		for (ListNCSDVo v : ListNCSD) {
-			IocSentimentVo vo = new IocSentimentVo();
+			LocSentimentVo vo = new LocSentimentVo();
 			vo.setCityNameZh(v.getCountryName());
 			vo.setNegativeCnt(v.getCountNegative());
 			vo.setPositiveCnt(v.getCountPositive());
