@@ -28,7 +28,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	edata2.time = [];
         	edata2.media =[];
         		if(data==null || data=="" || data == undefined){
-        			return;
+        			data=[];
         		}
         		var index =0;
             	for (var time in data)
@@ -501,6 +501,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	if(!configParam){
         		configParam ={};
         	}
+        	if(!data){
+             	data = [];
+            }
         	var times = [];
         	var counts = [];
         	for(var i=0;i<data.length;i++){
@@ -621,20 +624,23 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		 
         },
         _initIocSentimentChart:function(container,data){
-        
+            if(!data){
+            	data = [];
+            }
         	var cities = [];
         	var positiveCnts = [];
         	var negativeCnts = [];
+        	var temp = $.grep(data,function(element,index){
+        		return element.cityNameZh!='其他';
+        	});
         	var len = data.length;
         	if(len>10){
         		len = 10;
         	}
         	for(var i=0;i<len;i++){
-        		if(data[i].cityNameZh!='其他'){
-        			cities[i] = data[i].cityNameZh;
-            		positiveCnts[i] = data[i].positiveCnt;
-            		negativeCnts[i] = data[i].negativeCnt;
-        		}
+        		cities[i] = data[i].cityNameZh;
+        		positiveCnts[i] = data[i].positiveCnt;
+        		negativeCnts[i] = data[i].negativeCnt;
         	}
         	var option = {
         			tooltip : {
@@ -756,6 +762,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         },
         //媒体覆盖
         _initMediaCoverageChart:function(container,ul,data){
+            if(!data){
+             	data = [];
+            }
         	var colors = ['#80c823','#0067b4','#eb4d38','#f9983a','#1b84ed','#af67ef'];	
         	var series = [];
         	var otherCount;
