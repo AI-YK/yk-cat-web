@@ -72,7 +72,7 @@ define('app/jsp/search/event',function(require, exports, module) {
 						messageId : 'news-message',
 						renderId : 'news-list',
 						data : param,
-						pageSize : 8,
+						pageSize : 10,
 						visiblePages : 7,
 						first : false,
 						last : false,
