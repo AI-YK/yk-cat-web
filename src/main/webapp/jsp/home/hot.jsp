@@ -49,7 +49,7 @@
 <!--/热点新闻-->
 <script id="newsHotTempl" type="text/x-jsrender">
  {{if #getIndex()<11}}
-  <ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+  <ul uuid="{{:uuid}}" >
 		<li>
 			<p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 				<a href="javascript:void(0);">{{:titleZh}}</a>
@@ -58,7 +58,9 @@
 				<span>{{:pubdate}}</span> <span class="blue">{{:mediaNameZh}}</span>
 			</p>
 		</li>
-		<li class="right">{{:transfer}}</li>
+		<li class="right">
+           {{if transfer>0}}{{:transfer}}{{/if}}  
+        </li>
 	</ul>
   {{/if}}
 </script>
@@ -66,25 +68,29 @@
  {{if #getIndex()<7}}
  <div class="socialhot-list">
 			<div class="social-user">
-                {{if userAvatar==null}}
-				  <img src="${uedroot}/images/user.jpg" />
-                {{else}}
-                   <img src="{{:userAvatar}}" />
-                {{/if}}
+                <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
 			</div>
-			<ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+			<ul myid="{{:myId}}">
 				  <li>
 					 <p class="word">
 						<a href="#">{{:name}}</a>
 					 </p>
 					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
-						<a href="javascript:void(0);">{{:textZh}}</a>
+						<a href="javascript:void(0);">
+                             {{if title!=null&&title!=""}}
+                                 {{:title}} 
+                             {{else}}
+                                  {{:textZh}}
+                             {{/if}}  
+                        </a>
 					 </p>
 					 <p>
 						<span>{{:updateTimeStr}}</span> <span>{{:~conventSource(sourceType)}}</span>
 					 </p>
 				  </li>
-				  <li class="right">{{:rpsCnt}}</li>
+				  <li class="right">
+                        {{if rpsCnt>0}}{{:rpsCnt}}{{/if}}  
+                  </li>
 			</ul>
 </div>
 {{/if}}

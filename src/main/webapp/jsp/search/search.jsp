@@ -149,10 +149,10 @@
 								<p>
 									<select id="fileId2" class="select select-mini searchSocial" style="width: 100px">
 										<option value="">排序</option>
-										<option value="score">相关度</option>
-										<option value="pubdate">时间</option>
-										<option value="mediaLevel">权重</option>
-										<option value="transfer">转载量</option>
+										<option value="relevance">相关度</option>
+										<option value="time">时间</option>
+										<option value="force">权重</option>
+										<option value="transCount">转载量</option>
 									</select>
 								</p>
 							</li>
@@ -224,7 +224,7 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
-<ul uuid="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+<ul uuid="{{:uuid}}">
 	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
@@ -233,7 +233,9 @@
 		<p class="right">
 			<span>{{:languageTname}}</span>
             <span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span> 
-            <span>转载：{{:transfer}}</span>
+            {{if transfer>0}}
+               <span>转载：{{:transfer}}</span>
+            {{/if}}
 		</p>
 	</li>
 	<li class="news" style="cursor:pointer;-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">
@@ -244,13 +246,9 @@
 <script id="levelSocialTempl" type="text/x-jsrender">
 <div class="hot-list">
    <div class="portrait">
-     {{if userAvatar==null}}
-        <img src="${uedroot}/images/user.jpg" />
-     {{else}}
-        <img src="{{:userAvatar}}" />
-     {{/if}}
+      <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
    </div>
-   <ul myid="{{:myId}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+   <ul myid="{{:myId}}">
 	 <li class="title" style="cursor:pointer;">{{:name}}</li>
 	 <li class="list">
 		<p>

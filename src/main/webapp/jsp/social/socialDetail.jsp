@@ -41,15 +41,8 @@
 					<ul>
 					    <li>
 					    <div class="social-user">
-					     <c:choose>
-					     <c:when test="${socialDetail.userAvatar!=null && socialDetail.userAvatar!=''}">
-					     <img src="${socialDetail.userAvatar}">
-					     </c:when>
-					     <c:otherwise>
-					     <img src="${uedroot}/images/user.jpg">
-					     </c:otherwise>
-					     </c:choose>
-					     </div>
+					     <img src="${socialDetail.userAvatar}" onerror="javascript:this.src='${uedroot}/images/user.jpg'" />
+                       </div>
 					    </li>
 					    <li>${socialDetail.name}</li>
 						 <li class="zhuanz">
@@ -151,7 +144,7 @@
 		</div>
 	</div>
 	<!--底部-->
-	<input id="keyword" type="hidden" value="${keyword}"/>
+	<input id="keyword" type="hidden" value="${socialDetail.keywords}"/>
 	<input id="detailsId" type="hidden" value="${socialDetail.id}"/>
 	<input id="srcLanguage" type="hidden" value="${socialDetail.languageCode }"/>
 	<div id="srcContent" style="display: none;">

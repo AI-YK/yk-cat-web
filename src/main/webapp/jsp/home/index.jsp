@@ -97,7 +97,7 @@
 					<c:forEach items="${config.interestList}" var="interestVo">
 						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="inbtn"><a href="javascript:void(0);" id="modify-btn">修改</a></li>
+					<li class="inbtn current"><a class="current" href="javascript:void(0);" id="modify-btn">修改</a></li>
 				</ul>
 				
 				
@@ -108,7 +108,9 @@
 				    <li><a>专题数据：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
-					       <li class="inbtn" ><a href="javascript:void(0);">${topic.srcShortTitle}</a></li>
+					       <li class="inbtn" >
+					         <a id="${id}" ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
+					       </li>
 					   </c:if>
 					</c:forEach>
 				</ul> 
@@ -124,7 +126,7 @@
 							    <li>
 								    <c:forEach items="${topics}" var="topic" varStatus="t">
 						               <c:if test="${t.index>=7}">
-										    <p><a>${topic.srcShortTitle}</a></p>
+										    <p><a id="${id}" class="topic">${topic.srcShortTitle}</a></p>
 						               </c:if>
 						            </c:forEach>
 					            </li>
