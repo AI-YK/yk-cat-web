@@ -39,7 +39,7 @@
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div id="commDiv" class="left-list">
+			<div id="commDiv" class="left-list" style="display: none;">
 				<p><i class="icon iconfont">&#xe657;</i></p>
 				<ul>
 				    <li>
@@ -103,6 +103,7 @@
 				
 			</div>
 			<!-- 专题数据 -->
+			<c:if test="${hasTopic}">
 			<div id="topicDiv" class="left-list" style="display: none;">
 			   <ul>
 				    <li><a>专题数据：</a></li>
@@ -115,7 +116,8 @@
 					</c:forEach>
 				</ul> 
 			</div>
-			
+			</c:if>
+			<c:if test="${hasTopic}">
 			<div class="right-list" style="display: none;">
 			    <c:if test="${fn:length(topics)>7 }">
 				<ul>
@@ -136,6 +138,7 @@
 				</ul>
 				</c:if>
 			</div> 
+			</c:if>
 		</div>
 	</div>
 	
@@ -206,6 +209,7 @@
     var configInterestList = '${configInterestList}';
     var provinceCodee='${provindeCode}';
     var cityLists='${citylist}';
+    var hasTopic = ${hasTopic};
     var pager;
     (function () {
         seajs.use('app/jsp/home/home', function (homePage) {

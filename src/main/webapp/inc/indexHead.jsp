@@ -36,7 +36,9 @@
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
 							<a href="javascript:void(0);" class="ahov1" id="currency-btn"><li>通用数据</li></a>
-							<a href="javascript:void(0);" class="ahov3"><li>定制数据</li></a>
+							<c:if test="${hasTopic}">
+							   <a href="javascript:void(0);" class="ahov3"><li>定制数据</li></a>
+							</c:if>
 						</ul>
 					</div>
 				</ul>

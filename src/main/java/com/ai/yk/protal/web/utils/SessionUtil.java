@@ -39,25 +39,21 @@ public final class SessionUtil {
 
 	public static SSOClientUser getLoginUser(HttpServletRequest request) {
 		
-		Object obj = request.getSession().getAttribute(
-				Constants.USER_SESSION_KEY);
+		Object obj = request.getSession().getAttribute(Constants.USER_SESSION_KEY);
 
 		SSOClientUser loginUser = null;
-		// System.out.println("======session obj=========="+obj);
 		if (obj != null) {
 			String str = JSON.toJSONString(obj);
-			// System.out.println("-------login STR --------" + str);
 			loginUser = JSON.parseObject(str, SSOClientUser.class);
-			// System.out.println("-------SSOClientUser--------" +
-			// JSON.toJSONString(loginUser));
 		}
 
-		
 		 if (loginUser == null) { 
 			 loginUser = new SSOClientUser();
-		     loginUser.setUserId("1"); loginUser.setUserName("Houg");
+		     loginUser.setUserId("1"); 
+		     loginUser.setUserName("Houg");
 		     loginUser.setNickName("译见"); 
-		     }
+		     request.getSession().setAttribute(Constants.USER_SESSION_KEY,loginUser);
+		 }
 		 
 		return loginUser;
 	}

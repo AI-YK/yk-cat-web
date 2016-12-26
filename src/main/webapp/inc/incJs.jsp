@@ -6,9 +6,11 @@
 <c:set var="_currentLan" value="${pageContext.response.locale}"/>
 <script>
     var _base = "${_base}";
+    var _user_id = "${user.userId}";
+    var _data_type = "data_type" + _user_id;
+    var _topic_id = "topic_id" + _user_id;
     var _i18n_res = "${i18nRes}";
     var _spm_res = "${spmRes}";
-    var ssoLoginUrl="${ssoLoginUrl}";
     var uedroot="${uedroot}";
     var currentLan = "${_currentLan}";
 
@@ -17,44 +19,3 @@
 <script src="${_base}/resources/spm_modules/seajs/2.3.0/dist/sea.js"></script>
 <script src="${_base}/resources/spm_modules/seajs/seajs-css.js"></script>
 <script src="${_base}/resources/spm_modules/app/core/config.js"></script>
-<script>
-    
-  /*   Date.prototype.stdTimezoneOffset = function() {
-        var jan = new Date(this.getFullYear(), 0, 1);
-        var jul = new Date(this.getFullYear(), 6, 1);
-        return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset());
-        };
-
-    //get timezone
-    Date.prototype.dst = function() {
-        return this.getTimezoneOffset() < this.stdTimezoneOffset();
-    }
-    var today = new Date();
-	//send to the back
-	$.post(_base+"/timezone.htm?offset="+today.stdTimezoneOffset()); 
-
-
-    Œ–
-    Date.prototype.format = function(format) {
-        var date = {
-               "M+": this.getMonth() + 1,
-               "d+": this.getDate(),
-               "h+": this.getHours(),
-               "m+": this.getMinutes(),
-               "s+": this.getSeconds(),
-               "q+": Math.floor((this.getMonth() + 3) / 3),
-               "S+": this.getMilliseconds()
-        };
-        if (/(y+)/i.test(format)) {
-               format = format.replace(RegExp.$1, (this.getFullYear() + '').substr(4 - RegExp.$1.length));
-        }
-        for (var k in date) {
-               if (new RegExp("(" + k + ")").test(format)) {
-                      format = format.replace(RegExp.$1, RegExp.$1.length == 1
-                             ? date[k] : ("00" + date[k]).substr(("" + date[k]).length));
-               }
-        }
-        return format;
-    } */
-
-</script>

@@ -35,6 +35,9 @@ public class NewsHotAndSocialHotController {
 	@RequestMapping("/getHotInfoList")
 	@ResponseBody
 	public ResponseData<SearchPublicSafetyResponse> getHotInfoList(
+		 	    @RequestParam(value="isTopic") int isTopic,
+		 	   /**专题ID **/
+			 	@RequestParam(value="id") String id,
 				/**媒体类型 新闻热点：news，社交热点：social **/
 			 	@RequestParam(value="mediaType",defaultValue="") String mediaType,
 			 	/**情感ID(1正面，0：中性 -1负面)**/
@@ -59,6 +62,8 @@ public class NewsHotAndSocialHotController {
 			    @RequestParam(value="pageSize",defaultValue="") String pageSize
 			){
 		SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
+		searchPublicSafetyMessage.setIsTopic(isTopic);
+		searchPublicSafetyMessage.setId(id);
 		searchPublicSafetyMessage.setMediaType(mediaType);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);

@@ -10,9 +10,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.ai.yk.protal.web.constants.Constants;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.utils.SessionUtil;
 
@@ -35,7 +33,6 @@ public class AssembleUserInfoFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         if (shouldFilter(req)) {
-        	HttpSession session = req.getSession();
             SSOClientUser user = SessionUtil.getLoginUser(req);
             if (user == null) {
             	resp.sendRedirect(req.getContextPath()+"/user/login");

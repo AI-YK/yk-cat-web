@@ -34,13 +34,7 @@ public class IndexController extends BaseController {
      */
     @RequestMapping("/index")
     public String indexView(Model model){
-    	SSOClientUser clientUser = SessionUtil.getLoginUser(request);
-    	if(clientUser==null){
-    		model.addAttribute("isLogin", false);
-    	}else{
-    		model.addAttribute("isLogin", true);
-    		model.addAttribute("user", clientUser);
-    	}
+    	
     	MyCustomizedVo config = SessionUtil.getUserConfig();
     	if(config!=null){
     		model.addAttribute("config", config);

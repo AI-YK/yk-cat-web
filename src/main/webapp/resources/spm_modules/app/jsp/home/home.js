@@ -213,13 +213,13 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
-        	    $.cookie('_data_type','0');
+        	    $.cookie(_data_type,'0');
         	});
         	$("#data-show ul .ahov3").click(function(){
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        		$.cookie('_data_type','1');
+        		$.cookie(_data_type,'1');
         	});	
         		
         	//选择城市
@@ -237,6 +237,9 @@ define('app/jsp/home/home', function (require, exports, module) {
                       $(this).removeClass("current");
                   });
                   $(this).addClass("current");
+                  var id = $(this).attr("id");
+                  //存储选择的专题ID到cookie
+                  $.cookie(_topic_id,id);
   			});
             
             //修改领域分类
@@ -276,7 +279,11 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _load:function(){
         	
-        	var dataType = $.cookie('_data_type');
+        	//初始化 通用还是专题
+        	if(!hasTopic){
+        		$.cookie(_data_type,'0');
+        	}
+        	var dataType = $.cookie(_data_type);
         	if(dataType==undefined||dataType=='0'){
         		$("#topicDiv").hide();
         		$(".right-list").hide();
@@ -317,7 +324,6 @@ define('app/jsp/home/home', function (require, exports, module) {
             	}
             	param.cityCode=cityCodeList;
         	}
-        	
         	param.pageSize=7;
         	ajaxController.ajax({
 				type: "post",
@@ -438,27 +444,34 @@ define('app/jsp/home/home', function (require, exports, module) {
         _getHotInfoList:function(mediaType,mediaId){ 
         	var url = "/news/getHotInfoList";
         	var param = {};
-        	if(provinceCodee!=''){
-        		param.provinceCode=provinceCodee;
-        	}
-        	if(cityLists!=''){
-        		var cityList=eval("("+cityLists+")");
-            	var cityCodeList="";
-            	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].code;
+        	var dataType = $.cookie(_data_type);
+        	if(dataType==undefined||dataType=='0'){
+        		param.isTopic = 0;
+        		if(provinceCodee!=''){
+            		param.provinceCode=provinceCodee;
             	}
-            	if(cityCodeList!=""){
-            		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+            	if(cityLists!=''){
+            		var cityList=eval("("+cityLists+")");
+                	var cityCodeList="";
+                	for(var i=0;i<cityList.length;i++){
+                		cityCodeList=cityCodeList+","+cityList[i].code;
+                	}
+                	if(cityCodeList!=""){
+                		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+                	}
+                	param.cityCode=cityCodeList;
             	}
-            	param.cityCode=cityCodeList;
+        	}else if(dataType=='1'){
+        		param.isTopic = 1;
+        		var topicId = $(".topic .current").attr("id");
+        		if(topicId){
+        			param.id = topicId;
+        		}
         	}
-        	
         	param.mediaType = mediaType;
         	if(mediaId){
         		param.mediaList = mediaId;
         	}
-        	
-        	
         	param.language = 'zh';
         	param.pageNo='1';
         	if(mediaType=='news'){
@@ -492,21 +505,30 @@ define('app/jsp/home/home', function (require, exports, module) {
         _getNegativeList:function(mediaType){ 
         	var url = "/negative/getNegativeList";
         	var param = {};
-        	if(provinceCodee!=''){
-        		param.provinceCode=provinceCodee;
-        	}
-        	if(cityLists!=''){
-        		var cityList=eval("("+cityLists+")");
-            	var cityCodeList="";
-            	for(var i=0;i<cityList.length;i++){
-            		cityCodeList=cityCodeList+","+cityList[i].code;
+        	var dataType = $.cookie(_data_type);
+        	if(dataType==undefined||dataType=='0'){
+        		param.isTopic = 0;
+        		if(provinceCodee!=''){
+            		param.provinceCode=provinceCodee;
             	}
-            	if(cityCodeList!=""){
-            		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+            	if(cityLists!=''){
+            		var cityList=eval("("+cityLists+")");
+                	var cityCodeList="";
+                	for(var i=0;i<cityList.length;i++){
+                		cityCodeList=cityCodeList+","+cityList[i].code;
+                	}
+                	if(cityCodeList!=""){
+                		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
+                	}
+                	param.cityCode=cityCodeList;
             	}
-            	param.cityCode=cityCodeList;
+        	}else if(dataType=='1'){
+        		param.isTopic = 1;
+        		var topicId = $(".topic .current").attr("id");
+        		if(topicId){
+        			param.id = topicId;
+        		}
         	}
-        	
         	param.mediaType = mediaType;
         	if("news"==mediaType){
         		param.fieldName="pubdate";
