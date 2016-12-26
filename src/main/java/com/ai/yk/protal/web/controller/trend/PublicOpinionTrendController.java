@@ -18,7 +18,7 @@ import com.ai.opt.sdk.util.DateUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.publicaffairs.IocSentimentVo;
+import com.ai.yk.protal.web.content.publicaffairs.LocSentimentVo;
 import com.ai.yk.protal.web.content.publicaffairs.MediaCoverageVo;
 import com.ai.yk.protal.web.content.publicaffairs.PublicAffairsMessage;
 import com.ai.yk.protal.web.content.publicaffairs.PublicAffairsResponse;
@@ -135,36 +135,36 @@ public class PublicOpinionTrendController {
 	 */
 	public PublicAffairsResponse mockTrendData(){
 		PublicAffairsResponse publicAffairsResponse = new PublicAffairsResponse();
-		IocSentimentVo iocSentimentVo = new IocSentimentVo();
+		LocSentimentVo iocSentimentVo = new LocSentimentVo();
 		iocSentimentVo.setCityNameZh("北京");
 		iocSentimentVo.setPositiveCnt(100);
 		iocSentimentVo.setNegativeCnt(80);
 		
-		IocSentimentVo iocSentimentVo2 = new IocSentimentVo();
+		LocSentimentVo iocSentimentVo2 = new LocSentimentVo();
 		iocSentimentVo2.setCityNameZh("上海");
 		iocSentimentVo2.setPositiveCnt(90);
 		iocSentimentVo2.setNegativeCnt(79);
 		
-		IocSentimentVo iocSentimentVo3 = new IocSentimentVo();
+		LocSentimentVo iocSentimentVo3 = new LocSentimentVo();
 		iocSentimentVo3.setCityNameZh("广州");
 		iocSentimentVo3.setPositiveCnt(110);
 		iocSentimentVo3.setNegativeCnt(80);
 		
-		IocSentimentVo iocSentimentVo4 = new IocSentimentVo();
+		LocSentimentVo iocSentimentVo4 = new LocSentimentVo();
 		
 		iocSentimentVo4.setCityNameZh("深圳");
 		iocSentimentVo4.setPositiveCnt(140);
 		iocSentimentVo4.setNegativeCnt(85);
 		
-		IocSentimentVo iocSentimentVo5 = new IocSentimentVo();
+		LocSentimentVo iocSentimentVo5 = new LocSentimentVo();
 		iocSentimentVo5.setCityNameZh("郑州");
 		iocSentimentVo5.setPositiveCnt(60);
 		iocSentimentVo5.setNegativeCnt(55);
-		IocSentimentVo iocSentimentVo6 = new IocSentimentVo();
+		LocSentimentVo iocSentimentVo6 = new LocSentimentVo();
 		iocSentimentVo6.setCityNameZh("济南");
 		iocSentimentVo6.setPositiveCnt(115);
 		iocSentimentVo6.setNegativeCnt(90);
-		List<IocSentimentVo> locSentimentCount = new ArrayList<IocSentimentVo>();
+		List<LocSentimentVo> locSentimentCount = new ArrayList<LocSentimentVo>();
 		locSentimentCount.add(iocSentimentVo);
 		locSentimentCount.add(iocSentimentVo2);
 		locSentimentCount.add(iocSentimentVo3);

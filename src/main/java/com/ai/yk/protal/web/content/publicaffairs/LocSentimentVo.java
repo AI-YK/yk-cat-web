@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * 舆情走势
  */
-public class IocSentimentVo implements Serializable {
+public class LocSentimentVo implements Serializable {
 	private static final long serialVersionUID = -6002675065589055412L;
 	/**
 	 * locationId 
