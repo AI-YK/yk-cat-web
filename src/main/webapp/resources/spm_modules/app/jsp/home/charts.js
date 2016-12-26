@@ -767,9 +767,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         			if(data[i].name =="其他"){
         				otherIndex = i;
         				otherCount= data[i].count;
+        				data.splice(otherIndex,1);
         			}
         		}
-        		data.splice(otherIndex,1);
         		for(var i=0;i<data.length;i++){
         			if(i<5){
         				series.push({'name':data[i].name,'value':data[i].count});
