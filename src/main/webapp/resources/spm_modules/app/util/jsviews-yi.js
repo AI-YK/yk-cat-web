@@ -130,6 +130,15 @@ define(function(require, exports, module) {
 						+ ((i + 1) % 3 == 0 && (i + 1) != l.length ? "," : "");
 			}
 			return t.split("").reverse();
+		},
+		"getValue" : function(zhCity) {
+			if(zhCity){
+				if(zhCity.length >= 4) {
+					return ;
+				}else{
+					return "."+zhCity;
+				}
+			}
 		}
 	});
 

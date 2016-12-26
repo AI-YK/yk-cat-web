@@ -34,7 +34,11 @@
      <li id="{{:srcId}}" class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
 		 <p class="ptitle" style="width:95%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
 	     <p>
-			<span>{{:zhCountry}}.{{:zhCity}}</span> <span class="eventSpan">{{:dayTime}}</span>
+			<span>中国
+				{{:~getValue(zhCity)}}
+			</span> 
+			
+			<span class="eventSpan">{{:dayTime}}</span>
 		 </p> 
    </li>
   {{/for}}
