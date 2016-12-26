@@ -49,4 +49,7 @@ $(function() {
 	    }});
 	    return false;
 	});
+	$("#deag-close").on("click",function(){
+		$drag.hide();
+	});
 });
