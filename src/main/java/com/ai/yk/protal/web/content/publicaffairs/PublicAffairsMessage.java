@@ -8,7 +8,10 @@ import java.io.Serializable;
 public class PublicAffairsMessage implements Serializable {
 
 	private static final long serialVersionUID = -112918356816128790L;
-
+	/**区分专题
+	 * if opType = 1 srcId else id 专题id( 1.推送专题定制专题传（id） 2.订阅专题传(srcId) )
+	 */
+	private String infoId;
 	/**
 	 * 媒体类型：news/social
 	 */
@@ -19,8 +22,13 @@ public class PublicAffairsMessage implements Serializable {
 	 */
 	private String keyword;
 
-	/**
-	 * 模型名称 媒体覆盖出 mediaCoverage 舆情走势 locSentimentCount  listMedia,listNST
+	/**公共
+	 * <p>媒体覆盖出 mediaCoverage</p>
+	 * <p>舆情走势 locSentimentCount</p>
+	 * <p>listMedia,listNST</p>
+	 * 专题
+	 * <p>媒体覆盖出 ListNCSD</p>
+	 * <p>舆情走势 Gender</p>
 	 */
 	private String modelNo;
 	/**
@@ -166,6 +174,14 @@ public class PublicAffairsMessage implements Serializable {
 
 	public void setEndTime(String endTime) {
 		this.endTime = endTime;
+	}
+
+	public String getInfoId() {
+		return infoId;
+	}
+
+	public void setInfoId(String infoId) {
+		this.infoId = infoId;
 	}
 
 }
