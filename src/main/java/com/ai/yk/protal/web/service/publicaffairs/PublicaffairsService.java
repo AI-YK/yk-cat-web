@@ -48,7 +48,6 @@ public class PublicaffairsService {
 		PublicAffairsMessage msg = req.getMessage();
 		if (!StringUtil.isBlank(msg.getInfoId())) {
 			// 专题模式
-			LOG.info("专题模式查询图表");
 			return queryAnalysis(msg);
 		}
 		String url = YeesightApiConstants
