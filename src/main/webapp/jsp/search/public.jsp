@@ -29,7 +29,7 @@
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
-			<div class="breadcrumb" style="padding-top: 5px;">
+			<div class="breadcrumb" >
 				<p>
 					<i class="icon iconfont">&#xe600;</i>
 				</p>
@@ -348,7 +348,6 @@
 </div>
 </script> 
 <script type="text/javascript">
-    var hasTopic = ${hasTopic};
 	var pager;
 	(function() {
 		seajs.use('app/jsp/search/public', function(publicPage) {

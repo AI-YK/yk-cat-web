@@ -167,10 +167,10 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 				var _this = $(this).parent();
             	var uuid = _this.attr("uuid");
             	var url =_base+"/news/detail/"+uuid;
-            	var keyword = _this.attr("keyword");
+            	/*var keyword = _this.attr("keyword");
  	           	if(keyword){
  	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
- 	           	}
+ 	           	}*/
  	        	window.open (url, '_blank' ) ;
    			});
 		},
@@ -186,7 +186,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 				messageId : 'news-message',
 				renderId : 'news-list',
 				data : {"srcId":srcId,"mediaType":"news"},
-				pageSize : 5,
+				pageSize : 10,
 				visiblePages : 7,
 				first : false,
 				last : false,

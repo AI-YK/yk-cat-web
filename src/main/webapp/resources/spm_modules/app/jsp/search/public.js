@@ -1,6 +1,6 @@
 define('app/jsp/search/public',function(require, exports, module) {
 			//'use strict';
-			require("jsviews/jsrender.min");
+			require("jsviews/jsrender");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");
 			require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
@@ -9,6 +9,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 			require("opt-paging/aiopt.pagination");
 			require("twbs-pagination/jquery.twbsPagination.min");
 			require("my97DatePicker/WdatePicker");
+			require("cookie"); 
 			var moment = require("moment/2.9.0/moment");
 			var SelectUtil = require("app/jsp/search/select");
 			var SearchChart = require("app/jsp/search/charts");
@@ -120,10 +121,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 						var _this = $(this);
 		            	var uuid = _this.attr("uuid");
 		            	var url =_base+"/news/detail/"+uuid;
-		            	/*var keyword = _this.attr("keyword");
-		 	           	if(keyword){
-		 	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-		 	           	}*/
 		 	        	window.open (url, '_blank' ) ;
 					});
 
@@ -131,10 +128,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 		            	var _this = $(this);
 		           	    var myid = _this.attr("myid");
 		           	    var url =_base+"/social/detail/"+myid;
-		           	   /* var keyword = _this.attr("keyword");
-		           	    if(keyword){
-			           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
-			           	}*/
 			        	window.open (url, '_blank' ) ;
 		            });
 					
@@ -145,15 +138,25 @@ define('app/jsp/search/public',function(require, exports, module) {
 				},
 				_loadChartData:function(){
 					var param = {};
-					var idList = $("#cities").val();
-					if(idList!=""){
-						param.busCode = idList;
-					}
-					//领域分类
-					var categoryId = $("#interestes").val();
-					if(categoryId!=""){
-						param.categoryId = categoryId;
-					}
+
+					var dataType = $.cookie(_data_type);
+		        	if(dataType==undefined||dataType=='0'){
+		        		var idList = $("#cities").val();
+						if(idList!=""){
+							param.busCode = idList;
+						}
+						//领域分类
+						var categoryId = $("#interestes").val();
+						if(categoryId!=""){
+							param.categoryId = categoryId;
+						}
+		        	}else if(dataType=='1'){  
+		        		var topicId = $.cookie(_topic_id);
+		        		if(topicId){
+		        			param.infoId = topicId;
+		        		}
+		        	}
+		        	
 					var nowDate = moment().format('YYYY-MM-DD');
 					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
 					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
@@ -165,20 +168,31 @@ define('app/jsp/search/public',function(require, exports, module) {
 				_getSearchParams : function(mediaType) {
 
 					var param = {};
+					var dataType = $.cookie(_data_type);
+		        	if(dataType==undefined||dataType=='0'){
+		        		param.isTopic = 0;
+		        		var provincecityCode = $("#province").val();
+						if(provincecityCode!=""){
+							param.provincecityCode = provincecityCode;
+						}
+						var idList = $("#cities").val();
+						if(idList!=""){
+							param.cityCode = idList;
+						}
+						//领域分类
+						var categoryId = $("#interestes").val();
+						if(categoryId!=""){
+							param.categoryId = categoryId;
+						}
+		        	}else if(dataType=='1'){  
+		        		param.isTopic = 1;
+		        		var topicId = $.cookie(_topic_id);
+		        		if(topicId){
+		        			param.isTopic = topicId;
+		        		}
+		        	}
 					param.mediaType = mediaType;
-					var provincecityCode = $("#province").val();
-					if(provincecityCode!=""){
-						param.provincecityCode = provincecityCode;
-					}
-					var idList = $("#cities").val();
-					if(idList!=""){
-						param.cityCode = idList;
-					}
-					//领域分类
-					var categoryId = $("#interestes").val();
-					if(categoryId!=""){
-						param.categoryId = categoryId;
-					}
+					
 					param.highlight = "true";
 					var keyword='';
 					if ('news' == mediaType) {
@@ -260,7 +274,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 						messageId : messageId,
 						renderId : renderId,
 						data : param,
-						pageSize : 8,
+						pageSize : 10,
 						visiblePages : 7,
 						first : false,
 						last : false,

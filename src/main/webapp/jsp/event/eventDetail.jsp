@@ -165,7 +165,7 @@
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>
     <script id="levelNewsTempl" type="text/x-jsrender">
- <ul uuid ="{{:uuid}}" keyword="{{:~getFirstKeyword(keywordsZh)}}">
+ <ul uuid ="{{:uuid}}">
 								<li  class="title" style="cursor: pointer;">{{:titleSrc}}</li>
 								<li class="list">
 									<p>
@@ -174,7 +174,7 @@
 									</p>
 									<p class="right">
 										<span>{{:languageTname}}</span>
-										<span>{{:countryNameZh}}<img height="20px" width="30px" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
+										<span>{{:countryNameZh}}<img class="eventcountry" height="20px" width="30px" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
 										<span>转载：{{:transfer}}</span>
 									</p>
 								</li>

@@ -1,6 +1,6 @@
 define('app/jsp/search/event',function(require, exports, module) {
 			//'use strict';
-			require("jsviews/jsrender.min");
+			require("jsviews/jsrender");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");
 			require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
@@ -72,7 +72,7 @@ define('app/jsp/search/event',function(require, exports, module) {
 						messageId : 'news-message',
 						renderId : 'news-list',
 						data : param,
-						pageSize : 8,
+						pageSize : 10,
 						visiblePages : 7,
 						first : false,
 						last : false,

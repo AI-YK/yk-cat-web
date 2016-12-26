@@ -6,7 +6,7 @@
 		   <li style="font-size:24px;float:left;">突发事件</li>
            <li class="right" style="font-size:33px;float:right;"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:33px;color:white;">&#xe65b;</i></a></li>
 			</ul>
-		</div>
+		</div> 
 		<div class="banner-list">
 			<div class="list-left">
 				<ul id="eventList"></ul>
@@ -20,7 +20,7 @@
 						 </ul>
 					</div>
 					<div>
-						  <div id="chart_event" class="merge-list"></div>
+						  <div id="chart_event" class="merge-list" style="padding: 10px"></div>
 					</div>
 						
 				</div>			    
@@ -32,7 +32,7 @@
 <script id="emergencyTempl" type="text/x-jsrender">
   {{for eventList}}
      <li id="{{:srcId}}" class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
-		 <p class="ptitle" style="width:95%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{:zhTitle}}</p>
+		 <p class="ptitle" style="width:95%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;cursor:pointer;">{{:zhTitle}}</p>
 	     <p>
 			<span>中国
 				{{:~getValue(zhCity)}}

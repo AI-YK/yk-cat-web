@@ -45,6 +45,7 @@ define('opt-ajax/1.0.0/index', function (require, exports, module) {
 				delete options.error;
 			}
         	var processing = options && options.processing==true?true:false;
+        	var errorDlg = options && options.errorDlg==true?true:false;
         	var message =options.message;
 			var postmode = options.postmode?options.postmode:"request";
         	var settings = {}; $.extend(settings,options); 
@@ -63,7 +64,11 @@ define('opt-ajax/1.0.0/index', function (require, exports, module) {
 					    	callbacks["failure"] && callbacks["failure"].call(_this,transport); 
 					    }
 					});
-					failureDialog.showModal();
+					if(errorDlg){
+						failureDialog.showModal();
+					}else{
+						conlose.log(statusInfo);
+					}
 				} else if(status && status == AjaxController.AJAX_STATUS_LOGIN){
 					//取得当前页面地址
 					var winLocal = window.location.href;
