@@ -827,6 +827,7 @@ define('app/jsp/home/home', function (require, exports, module) {
       		ajaxController.ajax({
    			  type:"POST",
    			  processing: false,
+   			  errorDlg:true,
    			  message: "保存数据中，请等待...",
    			  url: _base + url,
    			  dataType:"json",
