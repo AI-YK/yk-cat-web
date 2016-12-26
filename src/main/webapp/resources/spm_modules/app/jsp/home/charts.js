@@ -633,14 +633,14 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	var temp = $.grep(data,function(element,index){
         		return element.cityNameZh!='其他';
         	});
-        	var len = data.length;
+        	var len = temp.length;
         	if(len>10){
         		len = 10;
         	}
         	for(var i=0;i<len;i++){
-        		cities[i] = data[i].cityNameZh;
-        		positiveCnts[i] = data[i].positiveCnt;
-        		negativeCnts[i] = data[i].negativeCnt;
+        		cities[i] = temp[i].cityNameZh;
+        		positiveCnts[i] = temp[i].positiveCnt;
+        		negativeCnts[i] = temp[i].negativeCnt;
         	}
         	var option = {
         			tooltip : {
