@@ -319,6 +319,12 @@ define('app/jsp/home/home', function (require, exports, module) {
         	
         	this._getNegativeList("news");
         	this._getNegativeList("social");
+        	
+        	var locSentimentTimeType = $(".locSentimentCount ul li .current").attr("id")  
+            this._loadPubTrend('mediaCoverage', locSentimentTimeType);
+        	var mediaCoverageTimeType = $(".mediaCoverage ul li .current").attr("id")  
+            this._loadPubTrend('mediaCoverage', mediaCoverageTimeType);
+            
         },
         _initEventData:function(){
         	var _this = this;

@@ -62,6 +62,7 @@ public class SearchController extends BaseController{
     	if(config!=null){
     		initConfig(mod, config);
     	}
+    	
 		return "/search/public";
 	}
 	

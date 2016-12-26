@@ -42,7 +42,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 				grid : {
 					x : 50,
 					y : 30,
-					x2 : 30,
+					x2 : 35,
 					y2 : 30
 				},
 
