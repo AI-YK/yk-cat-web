@@ -1,5 +1,7 @@
 package com.ai.yk.protal.web.service.thematicAnalysis;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import com.ai.opt.sdk.util.StringUtil;
@@ -15,6 +17,8 @@ import com.alibaba.fastjson.TypeReference;
 
 @Service
 public class ThematicAnalysisService {
+	private static final Logger LOG = LoggerFactory
+			.getLogger(ThematicAnalysisService.class);
 	/**
 	 * 专题按照模型分析
 	 * 
@@ -26,6 +30,7 @@ public class ThematicAnalysisService {
 		String url = YeesightApiConstants
 				.getApiUrl(YeesightApiConstants.API_THEMATICANALYSIS_GETANALYSIS);
 		String result = HttpClientUtil.getYJBaseResponse(url, req);
+		LOG.info("专题模式查询图表返回：\n"+result);
 		YJResponse<ThematicAnalysisResponse> res = null;
 		if (!StringUtil.isBlank(result)) {
 			res = JSON.parseObject(result,

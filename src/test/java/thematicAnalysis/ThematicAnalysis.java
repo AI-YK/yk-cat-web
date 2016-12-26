@@ -18,8 +18,10 @@ public class ThematicAnalysis {
 		ThematicAnalysisMessage message = new ThematicAnalysisMessage();
 		message.setInfoId("5cf4f1c273fb6d24592ea34f42b1fd75");
 		List<String> modelNo = new ArrayList<>();
-		modelNo.add("ListNCSD");
-		modelNo.add("Gender");
+		//modelNo.add("ListNCSD");
+		//modelNo.add("Gender");
+		modelNo.add("ListNST");
+		modelNo.add("ListNMSD");
 		message.setModelNo(modelNo);
 		req.setMessage(message);
 		YJResponse<ThematicAnalysisResponse> res = service.getAnalysis(req);
