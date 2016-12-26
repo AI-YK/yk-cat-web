@@ -260,7 +260,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 						messageId : messageId,
 						renderId : renderId,
 						data : param,
-						pageSize : 8,
+						pageSize : 10,
 						visiblePages : 7,
 						first : false,
 						last : false,

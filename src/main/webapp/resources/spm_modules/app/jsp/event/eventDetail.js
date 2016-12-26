@@ -186,7 +186,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 				messageId : 'news-message',
 				renderId : 'news-list',
 				data : {"srcId":srcId,"mediaType":"news"},
-				pageSize : 5,
+				pageSize : 10,
 				visiblePages : 7,
 				first : false,
 				last : false,

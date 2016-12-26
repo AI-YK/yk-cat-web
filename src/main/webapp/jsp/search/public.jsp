@@ -348,7 +348,7 @@
 </div>
 </script> 
 <script type="text/javascript">
-    var hasTopic = ${hasTopic};
+    //var hasTopic = ${hasTopic};
 	var pager;
 	(function() {
 		seajs.use('app/jsp/search/public', function(publicPage) {
