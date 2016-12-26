@@ -241,10 +241,10 @@ define('app/jsp/home/home', function (require, exports, module) {
   			});
             
             //修改领域分类
-            $('#modify-btn').click(function(){
+            /*$('#modify-btn').click(function(){
             	$('#eject-mask').fadeIn(100);
             	$('#classification').slideDown(100);
-             })
+             })*/
              $('#i-close').click(function(){
             	$('#eject-mask').fadeOut(200);
             	$('#classification').slideUp(200);
@@ -252,6 +252,14 @@ define('app/jsp/home/home', function (require, exports, module) {
              $('#eject-btn-close').click(function(){
             	$('#eject-mask').fadeOut(200);
                 $('#classification').slideUp(200);
+             });
+             $('#modify-btn').click(function(){
+            		$('#eject-mask').fadeIn(100);
+            		$('#currency').slideDown(100);
+             });
+             $('#currency-close').click(function(){
+            		$('#eject-mask').fadeOut(200);
+            		$('#currency').slideUp(200);
              });
         		
         		$(document).on("click",".eject-choice-left-title ul li a",function(){
