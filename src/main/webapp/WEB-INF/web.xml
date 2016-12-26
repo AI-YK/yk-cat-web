@@ -59,7 +59,7 @@
 	<filter-mapping>
 		<filter-name>assembleUserInfoFilter</filter-name>
 		<url-pattern>/*</url-pattern>
-	</filter-mapping> 
+	</filter-mapping>
 
 	<servlet>
 		<servlet-name>springmvc</servlet-name>

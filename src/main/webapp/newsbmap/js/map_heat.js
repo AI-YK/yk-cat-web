@@ -704,6 +704,7 @@ function smilNewsData(){
 	 p_map_geo={};
 	 p_map_point = [];
 	 p_map_pointNews=[];
+	 p_map_pointTop=[];
 //	var ajax_url='news/getNewsHeatPointListInteface';//小框
 //	var ajax_url=path + '/getNewsHeatPointListInteface';//小框
 //	var ajax_url= path + '/newsbmap/json/NewsHeatPointListInteface.json';//小框
@@ -777,7 +778,7 @@ function smilNewsData(){
 	 		 	    	 	 'countrychinaname':valid(o.countryNameZh),//countrychinaname中文国家
 	 		 	    	 	 'id':o.uuid,
 	 		 	    	 	 'url':url,
-	 		 	    	 	 'type':"0",
+	 		 	    	 	 'type':"1",
 	 		 	    	 	 'city':o.districtNameZh,//中文城市
 	 		 	    	 	 'cityEnglish':o.districtNameEn,//英文城市
 	 		 	    	 	 'topicChinese':valid(o.titleZh),//中文主题
@@ -789,7 +790,8 @@ function smilNewsData(){
 	 		 	     }
 	 	    	   //console.log("data_list-----小框----",data_list);
 	 		 	     p_map_point.push(data_list);
-	 	    	     p_map_pointNews.push(data_list);
+//	 	    	     p_map_pointNews.push(data_list);
+	 	    	   p_map_pointTop.push(data_list);
 	 	    	 }
 
 	 	    });

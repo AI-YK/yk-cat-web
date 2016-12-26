@@ -109,5 +109,5 @@ eclipse {
 }
 
 war {
-    baseName 'pa-web'
+    baseName 'ROOT'
 }
