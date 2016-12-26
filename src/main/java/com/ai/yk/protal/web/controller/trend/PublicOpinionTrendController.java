@@ -38,6 +38,10 @@ public class PublicOpinionTrendController {
 	@RequestMapping("/pubTrend")
 	@ResponseBody
 	public ResponseData<PublicAffairsResponse> getPubTrend(
+			/**
+			 * 专题ID
+			 */
+		     @RequestParam(value="infoId",defaultValue="") String infoId,
 				/**
 				 * 城市列表（多个用逗号隔开）
 				 */
