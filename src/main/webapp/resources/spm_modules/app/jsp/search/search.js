@@ -2,7 +2,7 @@ define(
 		'app/jsp/search/search',
 		function(require, exports, module) {
 			//'use strict';
-			require("jsviews/jsrender.min");
+			require("jsviews/jsrender");
 			var $ = require('jquery'), Widget = require('arale-widget/1.2.0/widget'), AjaxController = require('opt-ajax/1.0.0/index');
 			var Dialog = require("optDialog/src/dialog");
 			require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
@@ -245,7 +245,7 @@ define(
 						messageId : messageId,
 						renderId : renderId,
 						data : param,
-						pageSize : 8,
+						pageSize : 10,
 						visiblePages : 7,
 						first : false,
 						last : false,
@@ -305,8 +305,22 @@ define(
 		        		data:param,
 		        		success:function(rs){
 		        			var data=rs.data;
-		        			var dic=$("#typeTempl").render({"Dic":data});
-		        			$("#news-type-mainId").html(dic);
+		        			if(topicss!=""){
+		        				var tops=eval("("+topicss+")");
+		        				var top1={};
+		        				var top2={};
+		        				if(tops.length>7){
+		        					top1=tops.slice(0,7);
+		        					top2=tops.slice(7,tops.length);
+		        				}else{
+		        					top1=tops;
+		        				}
+		        				var top=$("#topTempl").render({"tops":top1});
+		        				$("#news-type-mainId").html(top);
+		        			}else{
+		        				var dic=$("#typeTempl").render({"Dic":data});
+			        			$("#news-type-mainId").html(dic);
+		        			}
 		        		}
 		        	});
 		        },

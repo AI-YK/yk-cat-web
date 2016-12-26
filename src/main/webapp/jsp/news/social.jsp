@@ -6,7 +6,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>社交热点</title>
+<title>热点发现</title>
 <%@ include file="/inc/inc.jsp"%>
 <%@ include file="/inc/incJs.jsp"%>
 <%@page import="java.util.Locale"%>
@@ -17,16 +17,39 @@
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 <link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${spmRes }/app/jsp/social/social.js"></script>
+<style type="text/css">
+
+.moveul{position:absolute; top:108px; left:900px; width: 50px;color: #666; font-size: 12px;}
+.more{line-height:28px;position:relative;height:35px;}
+.more a{color: #666; font-size: 14px;}
+.more .more-show{width:300px;height:216px;background:#23283b;position:absolute;display:none; top:32px;right:-120px;border:1px solid #7c85a8;border-radius:8px;z-index:99;}
+.more .more-show ul{width:100%;float:left;height:216px;overflow-y:auto;padding:10px 20px;}
+.more .more-show ul li{width:100%;float:left;line-height:40px;}
+.more .more-show ul li p{width:45%;float:left;}
+.more .more-show ul li p a{color:#7c85a8;cursor: pointer; line-height: 29px;}
+.more .more-show ul li p a:hover{color: #fff;}
+.more .more-show  span{position:absolute;top:-19px;right:140px;z-index:111;}
+.more .more-show  span i{color:#DDD;font-size:24px}
+.more-show ul::-webkit-scrollbar {width: 14px;  height: 14px;}  
+.more-show ul::-webkit-scrollbar-track,  
+.more-show ul::-webkit-scrollbar-thumb {border-radius: 999px;  border: 5px solid transparent;  }  
+.more-show ul::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
+.more-show ul::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
+.more-show ul::-webkit-scrollbar-corner { background: transparent;  }
+
+</style>
 </head>
 <body>
 	<!--面包屑导航-->
 	<c:set var="noSearch" value="true"/>
+	<c:set var="current" value="2"/>
 	<%@ include file="/inc/topHead.jsp"%>
 
 <form id="loginJumpFormId" method="post" style="visibility: hidden;">
       <input type="hidden" name="url" id="loginSuccessUrl">
 </form>
-	<!--子导航-->
+<!--子导航-->
+<!-- 	
 	<div class="subnav">
 		<div class="subnav-main">
 			<div class="breadcrumb" style="padding-top: 5px;">
@@ -36,7 +59,7 @@
 				<p>热点发现</p>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<!---->
 	<div class="news-type-big">
 		<div id="news-type-mainId" class="news-type-main">
@@ -292,7 +315,34 @@
 	<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
 </ul>
 </script>
+<script id="topTempl" type="text/x-jsrender">
+<ul>
+	{{for tops}}
+	<li><a href="#">{{:srcShortTitle }}</a><input type="hidden" value="{{:id}}"/></li>
+	{{/for}}
+					
+	<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+</ul>
+					<div class="moveul" >
+					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();">更多<i class="icon iconfont">&#xe659;</i></a>
+						<div class="more-show" id="more-show">
+							<span><img src="${uedroot}/images/xf-sj.png"></span>
+							<ul>
+							    <li>
+								    <c:forEach items="${topics}" var="topic" varStatus="t">
+						               <c:if test="${t.index>=7}">
+										    <p><a id="${topic.id}" class="topic" onclick="morehide();">${topic.srcShortTitle}</a></p>
+						               </c:if>
+						            </c:forEach>
+					            </li>
+							</ul>
+						</div>
+					</div>
+					</div>
+</script>
+
 <script type="text/javascript">
+	var topicss='${topicss}';
     var pager;
     (function () {
         seajs.use('app/jsp/search/search', function (searchPage) {
@@ -301,5 +351,23 @@
 
         });
     })();
+    
+    function show(){
+    	$('#more-show').show();
+    }
+    function morehide(){
+    	$('#more-show').hide(1);
+    }
+  //更多
+	$("#more").click(function () {
+		alert("1");
+		$('#more-show').show();
+    });
+	$("#more-show").click(function () {
+        $(this).hide();
+    });	
+	$('.moveul').mouseleave(function () {
+        $('#more-show').hide(1);
+    });
 </script>
 </html>
