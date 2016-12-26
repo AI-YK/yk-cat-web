@@ -24,7 +24,6 @@ import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.service.search.SearchService;
 import com.ai.yk.protal.web.utils.SessionUtil;
-import com.esotericsoftware.kryo.factories.PseudoSerializerFactory;
 
 
 @Controller
@@ -95,10 +94,8 @@ public class MapController extends BaseController{
 			searchPublicSafetyMessage.setOrder(order);
 			searchPublicSafetyMessage.setPageNo(pageNo);
 			searchPublicSafetyMessage.setPageSize(pageSize);
-			YJRequest<SearchPublicSafetyMessage> req = new YJRequest<SearchPublicSafetyMessage>();
-			req.setMessage(searchPublicSafetyMessage);
-			YJResponse<SearchPublicSafetyResponse> res = new YJResponse<SearchPublicSafetyResponse>();
-			res = searchService.getSearchPublicSafety(req);
+			
+			YJResponse<SearchPublicSafetyResponse> res = searchService.getSearchPublicSafety(searchPublicSafetyMessage);
 			SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
 			searchPublicSafetyResponse = res.getData();
 			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询新闻热点和社交热点",searchPublicSafetyResponse);

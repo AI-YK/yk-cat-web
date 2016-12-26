@@ -10,12 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.web.model.ResponseData;
-import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
-import com.ai.yk.protal.web.content.getdatasourcelist.GetDataSourceListMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
-import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
+import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.service.search.SearchService;
 
 /**
@@ -51,9 +49,7 @@ public class NegativeController {
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
 		searchPublicSafetyMessage.setCategoryId(categoryId);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
-		YJRequest<SearchPublicSafetyMessage> req=new YJRequest<SearchPublicSafetyMessage>();
-		req.setMessage(searchPublicSafetyMessage);
-		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getSearchPublicSafety(req);
+		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getSearchPublicSafety(searchPublicSafetyMessage);
 		if(yjr==null){
 			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_FAILURE,"查询负面舆情失败！", null);
 		}

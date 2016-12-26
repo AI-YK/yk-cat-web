@@ -213,13 +213,13 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
-        	    //$.cookie('_data_type','0');
+        	    $.cookie('_data_type','0');
         	});
         	$("#data-show ul .ahov3").click(function(){
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        		//$.cookie('_data_type','1');
+        		$.cookie('_data_type','1');
         	});	
         		
         	//选择城市
@@ -276,8 +276,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         },
         _load:function(){
         	
-        	//var dataType = $.cookie('_data_type');
-        	/*if(dataType==undefined||dataType=='0'){
+        	var dataType = $.cookie('_data_type');
+        	if(dataType==undefined||dataType=='0'){
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
@@ -285,7 +285,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        	}*/
+        	}
         	
         	this._initEventData();
         	this._loadPubTrend('locSentimentCount', '0');
