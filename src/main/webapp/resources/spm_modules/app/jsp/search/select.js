@@ -68,6 +68,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
+					data2.push({"id":'',"text":"语言不限"});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						obj.id=data[i].srcValue;
@@ -106,6 +107,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
+					data2.push({"id":'',"text":"影响力不限"});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						obj.id=data[i].dicValue;
@@ -207,7 +209,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         	debugger;
         	var _this = this;
         	var data = [];
-        	data.push({"id":"relevance","text":"相关度"});
+        	data.push({"id":'',"text":"排序不限"});
+			data.push({"id":"relevance","text":"相关度"});
         	data.push({"id":"time","text":"时间"});
         	data.push({"id":"force","text":"权重"});
         	data.push({"id":"transCount","text":"转载量"});
@@ -224,7 +227,6 @@ define('app/jsp/search/select', function (require, exports, module) {
         },
         /*译文下拉*/
         initTranSelect:function(selectConfig){
-        	debugger;
         	var _this = this;
         	var data = [];
         	data.push({"id":"tran","text":"译文"});
@@ -253,7 +255,6 @@ define('app/jsp/search/select', function (require, exports, module) {
         	html.push('<p> <span id="'+id+'_select_text">'+text+'</span><i class="icon iconfont">&#xe659;</i>');
         	html.push('<div id="'+id+'_data_list" class="select-dropdown-show" style="display:none;">');
         	html.push('<ul>'); 
-        	html.push('<li data-val="" data-text="'+text+'不限">'+text+'不限</li>');
         	if(data){
         		var len = data.length;
         		//class="current"
