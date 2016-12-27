@@ -141,11 +141,11 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 .user-show{
         width: 120px;
     height: 100px;
-    background: #fff;
+    background: #23283b;
     position: absolute;
     top: 56px;
     right: -45px;
-    border: 1px solid #ddd;
+    border: 1px solid #7c85a8;
     border-radius: 8px;
     z-index: 1003;
 }
@@ -178,9 +178,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     font-size: 14px;
     margin: 0px;
 }
-.user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
-.user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
-.user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
+.user-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
+.user-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
+.user-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
 .erw-show{
 	width: 120px;
     height: 120px;
