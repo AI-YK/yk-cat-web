@@ -29,7 +29,7 @@
 				<p id="p_subnav">
 					
 				</p>
-				<p style="width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${eventDetail.srcTitle}</p>
+				<p style="width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${eventDetail.srcTitle}</p>
 			</div>
 		</div>
 	</div>
