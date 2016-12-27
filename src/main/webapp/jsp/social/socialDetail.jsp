@@ -41,8 +41,15 @@
 					<ul>
 					    <li>
 					    <div class="social-user">
-					     <img src="${socialDetail.userAvatar}" onerror="javascript:this.src='${uedroot}/images/user.jpg'" />
-                       </div>
+					    <c:choose>
+					    <c:when test="${socialDetail.userAvatar==''||socialDetail.userAvatar==null}">
+					     <img src="${uedroot}/images/user.jpg" />
+                        </c:when>
+                        <c:otherwise>
+                          <img src="${socialDetail.userAvatar}" onerror="javascript:this.src='${uedroot}/images/user.jpg'" />
+                       </c:otherwise>
+					    </c:choose>
+					   </div>
 					    </li>
 					    <li>${socialDetail.name}</li>
 						 <li class="zhuanz">
