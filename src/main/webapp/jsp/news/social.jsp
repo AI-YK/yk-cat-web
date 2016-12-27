@@ -19,7 +19,7 @@
 <script type="text/javascript" src="${spmRes }/app/jsp/social/social.js"></script>
 <style type="text/css">
 
-.moveul{position:absolute; top:108px; left:900px; width: 50px;color: #666; font-size: 12px;}
+.moveul{position:absolute; top:68px; left:900px; width: 50px;color: #666; font-size: 12px;}
 .more{line-height:28px;position:relative;height:35px;}
 .more a{color: #666; font-size: 14px;}
 .more .more-show{width:300px;height:216px;background:#23283b;position:absolute;display:none; top:32px;right:-120px;border:1px solid #7c85a8;border-radius:8px;z-index:99;}
@@ -36,7 +36,6 @@
 .more-show ul::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
 .more-show ul::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
 .more-show ul::-webkit-scrollbar-corner { background: transparent;  }
-
 </style>
 </head>
 <body>
@@ -88,13 +87,13 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
+							<!-- <li>
 								<p>省份</p>
 								<p>
 									<select id="orgnizationId1" class="searchNews" style="width: 90px">
 									</select>
 								</p>
-							</li>
+							</li> -->
 							<li>
 								<p>语言</p>
 								<p>
@@ -117,15 +116,13 @@
 									<input id="timeId1" type="text" readonly="readonly" class="select select-small calendar searchNews"/>
 								</p>
 							</li>
-						</ul>
-						<ul>
-							<li>
+							<!-- <li>
 								<p>媒体</p>
 								<p>
 									<input id="mediaIn1" type="text" class="int-text select-small searchNews">
 									<input id="mediaId1" type="hidden">
 								</p>
-							</li>
+							</li> -->
 							<li>
 								<p>排序</p>
 								<p>
@@ -177,14 +174,13 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
+							<!-- <li>
 								<p>地区</p>
 								<p>
 									<select id="orgnizationId2" style="width: 82px">
-										<!-- <option>全部</option> -->
 									</select>
 								</p>
-							</li>
+							</li> -->
 							<li>
 								<p>影响力</p>
 								<p>
@@ -211,14 +207,12 @@
 									<input id="timeId2" readonly type="text" class="select select-small calendar">
 								</p>
 							</li>
-							<li>
+							<!-- <li>
 								<p>媒体</p>
 								<p>
 									<input  type="text" class="int-text select-mini">
 								</p>
-							</li>
-						</ul>
-						<ul>
+							</li> -->
 							<li>
 								<p>情感</p>
 								<p>
@@ -331,7 +325,7 @@
 							    <li>
 								    <c:forEach items="${topics}" var="topic" varStatus="t">
 						               <c:if test="${t.index>=7}">
-										    <p><a id="${topic.id}" class="topic" onclick="morehide();">${topic.srcShortTitle}</a></p>
+										    <p><a id="${topic.id}" class="topic" onclick="morehide();">${topic.srcShortTitle}</a><input type="hidden" value="${topic.id}"/></p>
 						               </c:if>
 						            </c:forEach>
 					            </li>
