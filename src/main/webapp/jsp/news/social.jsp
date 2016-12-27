@@ -316,7 +316,7 @@
 	<li><a href="#">{{:srcShortTitle }}</a><input type="hidden" value="{{:id}}"/></li>
 	{{/for}}
 					
-	<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+	<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
 </ul>
 					<div class="moveul" >
 					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();" id="gengduo">更多<i class="icon iconfont">&#xe659;</i></a>
