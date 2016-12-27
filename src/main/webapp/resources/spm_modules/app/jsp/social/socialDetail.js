@@ -146,10 +146,10 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 				var _this = $(this);
             	var uuid = _this.attr("uuid");
             	var url =_base+"/news/detail/"+uuid;
-            	var keyword = _this.attr("keyword");
+            	/*var keyword = _this.attr("keyword");
  	           	if(keyword){
  	           		url = url+"?keyword="+encodeURI(encodeURI(keyword));
- 	           	}
+ 	           	}*/
  	        	window.open (url, '_blank' ) ;
    			});
 		},
