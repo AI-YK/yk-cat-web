@@ -11,20 +11,21 @@
 .list-left ul .bot-none{border-bottom:none;}
 .list-left ul .current{border-top:1px solid #6c78a6;border-left:1px solid #6c78a6;border-right:none;border-bottom:1px solid #6c78a6;color:#3382ee;background:#2e344b;padding-top:-1px;}
 .list-left ul li p span{float:left;color:#495274;font-size:12px;margin-right:20px;}
+.list-left ul li p span i{font-size:12px;}
 .list-right{width:874px;height:462px;border:1px solid #6c78a6;border-left:none;float:left;padding:20px;background:#2e344b;}
-/**表1**/
+/**琛�1**/
 .chart1{width:406px;height:415px;border:1px solid #454d6b;float:left;border-radius:5px 5px 0 0;position:relative;}
 .chart1-title{width:100%;background:#404865;height:50px;border-radius:5px 5px 0 0;font-size:16px;color:#cfd7f4;padding-left:20px;line-height:50px;}
 .chart1-conter{width:100%;background:#212532;height:363px;opacity:0.2;filter:alpha(opacity=20);-moz-opacity:0.2;-khtml-opacity:0.2;}
 .chart1-main{width:100%;height:363px;position:absolute;left:0;top:50px;padding:16px 20px;}
-/**合并tabl**/
+/**鍚堝苟tabl**/
 .merge{width:100%;float:left;}
 .merge ul{width:100%;float:left;}
 .merge ul li{float:left;}
 .merge ul li a{width:116px;height:45px;background:#282d40;text-align:center;line-height:45px;float:left;border-radius:10px 10px 0 0;color:#616b91;font-size:16px;cursor:pointer;}
 .merge ul li .current{width:116px;height:45px;background:#454d6b;text-align:center;line-height:45px;float:left;border-radius:10px 10px 0 0;color:#cfd7f4;font-size:16px}
 .merge-list{width:100%;float:left;border:1px solid #454d6b;height:370px;padding:35px 20px;}
-/**舆情新闻**/
+/**鑸嗘儏鏂伴椈**/
 .journalism-sentiment{width:100%;float:left;min-width:1200px;padding:20px 0 0 0;}
 .sentiment-main{width:1200px;margin:0 auto;}
 .sentiment-title{width:100%;height:58px;background:#2e344b;border-radius:5px 5px  0 0;float:left;border-bottom:1px solid #454d6b}
@@ -36,7 +37,7 @@
 .sentiment-list{width:100%;float:left;height:395px;background:#212532;border:1px solid #454d6b;border-top:none}
 .sentiment-list-conter{width:599px;float:left;}
 .border-right{border-right:1px solid #454d6b;height:395px;}
-/**新闻tab**/
+/**鏂伴椈tab**/
 .sentiment-list-conter-title{width:100%;float:left;height:38px;padding:9px 20px;font-size:14px;background:#383f58;color:#cfd7f4}
 .sentiment-list-conter-news{width:100%;float:left;padding:10px 0 0 0 ;}
 .sentiment-list-conter-news ul{width:100%;float:left;padding:0 20px;}
@@ -52,7 +53,7 @@
 .sentiment-list-conter-news ul .orange{background:#f3820b}
 .sentiment-list-conter-news ul .yellow{background:#fce630}
 .sentiment-list-conter-news ul .red{background:#cd2009}
-/**热点新闻**/
+/**鐑偣鏂伴椈**/
 .hot-news{width:100%;float:left;padding:;min-width:1200px;padding:20px 0 0 0;}
 .hot-news-main{width:1200px;margin:0 auto;}
 .hot-news-main-left{width:587px;float:left;}
@@ -80,7 +81,7 @@
 .socialhot ul .word a{color:#0067b4;font-size:16px;}
 .social-user{width:36px;height:36px;float:left;margin:5px 10px 0 0;}
 .social-user img{width:36px;height:36px;border-radius:50%;float:left}
-/**走势**/
+/**璧板娍**/
 .trend{width:100%;float:left;padding:20px 0;min-width:1200px;}
 .trend-main{width:1200px;margin:0 auto;}
 .trend-conter{width:590px;height:350px;border-radius:5px 5px 0 0;float:left}
@@ -90,7 +91,7 @@
 .trend-conter-title ul li{float:left;margin-left:10px;}
 .trend-conter-title ul li a{width:60px;height:28px;background:#3b4363;text-align:center;line-height:28px;border-radius:5px;color:#fff;font-size:14px;float:left}
 .trend-conter-title ul li .current{background:#0067b4;}
-/**走势图1**/
+/**璧板娍鍥�1**/
 .trend-conter-list{width:100%;float:left;padding:20px;height:295px;border:1px solid #454d6b;border-top:none;}
 .piechart-left{width:350px;float:left;height:263px;}
 .piechart-right{width:160px;float:right}
@@ -139,7 +140,7 @@
 .choice-right::-webkit-scrollbar-track {  box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
 .choice-right::-webkit-scrollbar-thumb {  min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
 .choice-right::-webkit-scrollbar-corner {  background: transparent;  }  
-/**弹出**/
+/**寮瑰嚭**/
 .mask{position:fixed;top:0;left:0;width:100%;height:100%;background:#000;opacity:0.4;filter:alpha(opacity=40);z-index:199;display:none;}
 .eject-small{width:470px;min-height:280px; background:#fff;position:fixed;top:50%;left:50%;margin-top:-140px;margin-left:-235px;z-index:999;border-radius:5px;padding-bottom:10px;display:none;}
 .eject-small-title{width:100%;float:left;height:50px;background:#0067b4;border-radius:5px 5px 0 0;line-height:50px;padding:0 22px;font-size:18px;color:#fff}
@@ -151,7 +152,7 @@
 .eject-small-list ul li a:hover{background:#0e85de;color:#fff}
 .eject-small-list ul li .current{background:#0e85de;color:#fff}
 .btn-bottom{position:absolute;bottom:20px;}
-/**设置弹出**/
+/**璁剧疆寮瑰嚭**/
 .eject-medium{width:685px;height:482px; background:#3d4568;padding:20px;border:1px solid #6c78a6;position:fixed;top:50%;left:50%;display:none;margin-top:-342px;margin-left:-241px;z-index:999;border-radius:5px;padding-bottom:10px;}
 .eject-medium-title{width:100%;float:left}
 .eject-medium-title p{float:left;font-size:18px;color:#dcdfe9}
@@ -184,12 +185,12 @@
 .eject-choice-right ul{width:100%;float:left;}
 .eject-choice-right ul li{width:100%;float:left;height:41px;border-bottom:1px solid #2f3652;padding:12px 20px;}
 .eject-choice-right ul li p{float:left;margin-right:10px;color:#7681b5}
-/**滚动条**/
+/**婊氬姩鏉�**/
 .eject-choice-right::-webkit-scrollbar {width: 14px;height: 14px;}  
 .eject-choice-right::-webkit-scrollbar-track,  
 .eject-choice-right::-webkit-scrollbar-thumb {  border-radius: 999px;  border: 5px solid transparent;  }  
 .eject-choice-right::-webkit-scrollbar-track {  box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
 .eject-choice-right::-webkit-scrollbar-thumb {  min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
 .eject-choice-right::-webkit-scrollbar-corner {  background: transparent;  }  
-/**滚动条结束**/
+/**婊氬姩鏉＄粨鏉�**/
 .eject-medium-btn{width:100%;float:left;text-align:center;margin-top:24px;}
