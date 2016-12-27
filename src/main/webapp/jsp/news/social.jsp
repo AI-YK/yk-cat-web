@@ -307,7 +307,7 @@
 	{{for Dic}}
 	<li><a href="#">{{:dicName }}</a><input type="hidden" value="{{:dicValue}}"/></li>
 	{{/for}}
-	<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+	<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
 </ul>
 </script>
 <script id="topTempl" type="text/x-jsrender">
