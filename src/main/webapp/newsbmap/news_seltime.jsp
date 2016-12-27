@@ -40,8 +40,10 @@
 		    			</div>
 		    		</div>
 		    	</div> --%>
+
 <div class="nav2" style="height: 55px; vertical-align:middle; background-color: #1b2031"> 
 		<!-- 显示领域分类 -->
+
 		<div class="subnav">
 			<div class="subnav-main">
 				<div id="commDiv" class="left-list" style="display: block;">
@@ -65,6 +67,7 @@
 					</ul>
 				</div>
 			</div>
+
 			
 			<a class="menu" title="列表模式" href="${_base}/jsp/news/social.jsp"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
 	  </div>

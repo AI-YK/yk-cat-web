@@ -50,8 +50,14 @@ define('opt-ajax/1.0.0/index', function (require, exports, module) {
 			var postmode = options.postmode?options.postmode:"request";
         	var settings = {}; $.extend(settings,options); 
         	settings["success"] = function(transport){ 
+        		
 				if(processing)processingDialog.close();
 				var status = transport[AjaxController.STATUS_CODE];
+				if(!status){
+					//跳转到登录页面
+					location.href = _base + "/user/login";
+				}
+				
 				var statusInfo = transport[AjaxController.STATUS_INFO];
 				if(status && status == AjaxController.AJAX_STATUS_FAILURE){
 					var failureDialog = Dialog({
@@ -70,13 +76,7 @@ define('opt-ajax/1.0.0/index', function (require, exports, module) {
 						console.log(statusInfo);
 					}
 				} else if(status && status == AjaxController.AJAX_STATUS_LOGIN){
-					//取得当前页面地址
-					var winLocal = window.location.href;
-					var nowUrl = winLocal.substring(0,winLocal.indexOf('?'))
-						+".chk"+window.location.search;
-					var loginUrl = ssoLoginUrl+'?service='+ encodeURIComponent(nowUrl);
-					console.log(loginUrl);
-					window.location = loginUrl;
+					
 				}
 				else{
 					if(postmode=="update")$(target).html(transport);
