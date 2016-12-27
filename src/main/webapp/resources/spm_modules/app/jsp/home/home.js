@@ -62,7 +62,7 @@ define('app/jsp/home/home', function (require, exports, module) {
             
             //左侧突发事件点击操作
             $(document).on("click",".list-left ul li .ptitle",function(){
-           	    var srcId = $(this).parent().attr("id");
+           	    var srcId = $(this).parent().parent().attr("id");
 	           	var url =_base+"/event/detail/"+srcId;
 	        	window.open (url, '_blank' ) ;
             });
