@@ -1,5 +1,6 @@
 package com.ai.yk.protal.web.controller.bmap;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -11,19 +12,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.common.DicListResonse;
+import com.ai.yk.protal.web.content.common.DicMessage;
+import com.ai.yk.protal.web.content.common.DicVo;
+import com.ai.yk.protal.web.content.mycustomized.InterestVo;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsMessage;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsResponse;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.controller.BaseController;
+import com.ai.yk.protal.web.service.common.CommonService;
 import com.ai.yk.protal.web.service.eventdata.EventDataService;
 import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.service.search.SearchService;
 import com.ai.yk.protal.web.utils.SessionUtil;
+import com.alibaba.fastjson.JSON;
 
 
 @Controller
@@ -38,7 +47,8 @@ public class MapController extends BaseController{
 	SearchService searchService;
 	@Autowired
 	private MytopicsService mytopicsSercice;
-
+	@Autowired
+	CommonService commonService;
 	
 	
 		/**
@@ -46,6 +56,49 @@ public class MapController extends BaseController{
 		 */
 		@RequestMapping("/toHeat")
 		public String toBmap(Model model){
+			String language = "zh";
+			String type ="YQFL";
+			DicMessage dicMessage = new DicMessage();
+			dicMessage.setLanguage(language);
+			dicMessage.setType(type);
+			YJRequest<DicMessage> req = new YJRequest<DicMessage>();
+			req.setMessage(dicMessage);
+			YJResponse<DicListResonse> res = commonService
+					.queryDicByTypeAndLanguageForNews(req);
+			List<DicVo> list = new ArrayList<DicVo>();
+			List<DicVo> listVo = new ArrayList<DicVo>();
+			list = res.getData().getResults();
+			DicVo vo = new DicVo();
+			
+			MyCustomizedVo config = SessionUtil.getUserConfig();
+	    	if(config!=null){
+	    		model.addAttribute("config", config);
+	    		if(!CollectionUtil.isEmpty(config.getInterestList())){
+	    			model.addAttribute("configInterestList", JSON.toJSONString(config.getInterestList()));
+	    			List<InterestVo> interestes =  config.getInterestList();
+	    			if(interestes!=null&&interestes.size()>0){
+	    				for(InterestVo interest:interestes){
+	    					for(int i=0;i<list.size();i++){
+	    						vo = list.get(i);
+	    						if(interest.getBusinessId().equals(vo.getDicValue())){
+	    							listVo.add(vo);
+	    						}
+	    					}
+	    				}
+	    			
+	    				
+	    			}
+	    		}
+	    	}
+	    	
+			List<MyTopicsVo> topics = SessionUtil.getTopics();
+			if(topics==null||topics.size()==0){
+	    		model.addAttribute("hasTopic", false);
+	    	}else{
+	    		model.addAttribute("hasTopic", true);
+	    		model.addAttribute("topics", topics);
+	    	}
+			model.addAttribute("listVo", listVo);
 			return "/hot/toHeat";
 		}
 		
@@ -59,8 +112,17 @@ public class MapController extends BaseController{
 	    @RequestMapping("/getTopicListIntefaceData")
 	    @ResponseBody
 		public ResponseData<SearchPublicSafetyResponse> getTopicListIntefaceData(
+					/**
+					 * 是否是专题 0通用数据  1专题
+					 */
+					@RequestParam(value="isTopic",defaultValue="0") int isTopic,
+					/**
+					 * 专题ID
+					 */
+					@RequestParam(value="topicId",defaultValue="") String topicId,
+					
 					/**媒体类型 新闻热点：news，社交热点：social **/
-				 	@RequestParam(value="mediaType",defaultValue="") String mediaType,
+					@RequestParam(value="mediaType",defaultValue="") String mediaType,
 				 	/**情感ID(1正面，0：中性 -1负面)**/
 				    @RequestParam(value="sentimentId",defaultValue="") String sentimentId,
 				    /**省份**/
@@ -83,6 +145,8 @@ public class MapController extends BaseController{
 				    @RequestParam(value="pageSize",defaultValue="") String pageSize
 				){
 			SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
+			searchPublicSafetyMessage.setIsTopic(isTopic);
+			searchPublicSafetyMessage.setId(topicId);
 			searchPublicSafetyMessage.setMediaType(mediaType);
 			searchPublicSafetyMessage.setSentimentId(sentimentId);
 			searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
@@ -97,8 +161,12 @@ public class MapController extends BaseController{
 			
 			YJResponse<SearchPublicSafetyResponse> res = searchService.getSearchPublicSafety(searchPublicSafetyMessage);
 			SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
-			searchPublicSafetyResponse = res.getData();
-			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询新闻热点和社交热点",searchPublicSafetyResponse);
+			if(res==null){
+				return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_FAILURE,"查询不到新闻热点和社交热点",null);
+			}else{
+				searchPublicSafetyResponse = res.getData();
+				return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询新闻热点和社交热点",searchPublicSafetyResponse);
+			}
 	    }
     
     @RequestMapping("/queryMyTopicsList")
