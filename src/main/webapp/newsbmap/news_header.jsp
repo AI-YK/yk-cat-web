@@ -150,13 +150,10 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     z-index: 1003;
 }
 .user-show span{
-	position: absolute;
-    top: -20px;
-    left: 45px;
+	position:absolute;top:-15px;left:52px;
 }
 .user-show span i{
-	color: #fff;
-    font-size: 24px;
+	color:#fff;font-size:24px
 }
 .user-show ul a{
 	width: 100%;
@@ -265,7 +262,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 					<%-- </c:if> --%>
 					<li class="iphone-show" style="margin-top:16px"><i class="ico_user"></i></li>
 					<div class="user-show" id="user-show" style="display: none;">
-						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<span><img src="${_base}/resources/template/images/xf-sj.png"></span>
 						<ul>
 							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
 							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
