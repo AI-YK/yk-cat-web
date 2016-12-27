@@ -3,8 +3,8 @@ define('app/jsp/top/header', function (require, exports, module) {
     var $=require('jquery'),
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
-	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
-	
+       	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
+       	require("cookie"); 
 
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
@@ -25,16 +25,18 @@ define('app/jsp/top/header', function (require, exports, module) {
         	var _this = this; 
         	//初始化菜单选中状态
         	var current = $("#current").val();
+        	var current_menu = $.cookie('current_menu');
         	var $a ;
-        	if(current==''){
-        		$a = $("#menu").find("a").eq(0);
-        	}else{
-        		var index = parseInt(current);
-        		$a = $("#menu").find("a").eq(index);
+        	var index = 0;
+        	if(current!=''){//优先隐藏域
+        		index = parseInt(current);
+        	}else if(current_menu!=undefined && current_menu!=null){
+        		index = current_menu;
         	}
+        	$a = $("#menu").find("a").eq(index);
         	$a.addClass("current");
         	//$a.attr("href","javascript:void(0);");
-        	
+        	$.cookie('current_menu', index,{path:'/'});
             this._bindEvent();
         },
         _bindEvent:function(){
