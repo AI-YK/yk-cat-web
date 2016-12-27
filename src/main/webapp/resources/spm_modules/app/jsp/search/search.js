@@ -55,6 +55,15 @@ define(
 							_this._searchSocial();
 						 }});
 					selectUtil.initDicSelect(dicSelectConfig);
+					 //加载排序下拉
+					var sortSelectConfig = [];
+					sortSelectConfig.push({"id":"fileId1","callback":function(){
+						_this._searchNews();
+					 }});
+					sortSelectConfig.push({"id":"fileId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initSortSelect(sortSelectConfig);
 					_this._loadChartData();
 
 				},
@@ -189,8 +198,8 @@ define(
 						if($("#mediaId1").val()!=""){
 							param.mediaId=$("#mediaId1").val();
 						}
-						if($("#fileId1").val()!=""){
-							param.fieldName= $("#fileId1").val();
+						if($("#fileId1_input").val()!=""){
+							param.fieldName= $("#fileId1_input").val();
 							param.order = "desc";
 						}
 					}else if ('social' == mediaType) {
@@ -206,8 +215,8 @@ define(
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
 						}
-						if($("#fileId2").val()!=""){
-							param.fieldName= $("#fileId2").val();
+						if($("#fileId2_input").val()!=""){
+							param.fieldName= $("#fileId2_input").val();
 							param.order = "desc";
 						}
 						if($("#medialId2").val()!=""){

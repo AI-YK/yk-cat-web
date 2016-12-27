@@ -202,6 +202,26 @@ define('app/jsp/search/select', function (require, exports, module) {
         	    }  
         	});  
         },
+        /*排序下拉*/
+        initSortSelect:function(selectConfig){
+        	debugger;
+        	var _this = this;
+        	var data = [];
+        	data.push({"id":"relevance","text":"相关度"});
+        	data.push({"id":"time","text":"时间"});
+        	data.push({"id":"force","text":"权重"});
+        	data.push({"id":"transCount","text":"转载量"});
+        	var selectConfigData = []; 
+			if($.isArray(selectConfig)){//数组模式
+				selectConfigData =selectConfig; 
+			}else{
+				selectConfigData.push(selectConfig);
+			}
+			for(var j=0;j<selectConfigData.length;j++){
+				var selectObj = selectConfigData[j];
+				_this._commonselect(selectObj.id, '排序', data,selectObj.callback);
+			}
+        },
         /*生成通用下拉列表*/
         _commonselect:function(id,text,data,callback){
         	var html = [];

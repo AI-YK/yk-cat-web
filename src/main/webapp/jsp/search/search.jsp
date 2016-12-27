@@ -59,17 +59,8 @@
 									<input id="timeId1" placeholder="时间" type="text" readonly="readonly" class="select select-small calendar searchNews" style="width: 100px"/>
 								</p>
 							</li>
-<li>
-								<!-- <p>排序</p> -->
-								<p>
-									<select id="fileId1" class="select select-mini searchNews" style="width: 70px">
-										<option value="">排序</option>
-										<option value="score">相关度</option>
-										<option value="pubdate">时间</option>
-										<option value="mediaLevel">权重</option>
-										<option value="transfer">转载量</option>
-									</select>
-								</p>
+                           <li id="fileId1">
+								
 							</li>
 							<li>
 								<!-- <p>译文</p> -->
@@ -130,17 +121,8 @@
 							<li id="dicId2">
 								
 							</li>
-							<li>
-							<!-- 	<p>排序</p> -->
-								<p>
-									<select id="fileId2" class="select select-mini searchSocial" style="width: 100px">
-										<option value="">排序</option>
-										<option value="relevance">相关度</option>
-										<option value="time">时间</option>
-										<option value="force">权重</option>
-										<option value="transCount">转载量</option>
-									</select>
-								</p>
+							<li id="fileId2">
+								
 							</li>
 							<li>
 								<!-- <p>时间</p> -->
