@@ -171,6 +171,18 @@ define('app/jsp/home/charts', function (require, exports, module) {
 						textStyle : {
 							color : '#697398',
 							fontSize:13
+						},
+						formatter: function (value, index) {
+						    if(0==index||times.length-1==index){
+						    	return "";
+						    }else{
+						    	var len = value.length;
+						    	//yyyy-MM-dd HH:mm
+						    	if(len>10){
+						    		return value.substring(11,len);
+						    	}
+						    	return value;
+						    }
 						}
 					},
 					axisLine:{
@@ -565,7 +577,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						    	var len = value.length;
         						    	//yyyy-MM-dd HH:mm
         						    	if(len>10){
-        						    		return value.substring(9,len);
+        						    		return value.substring(11,len);
         						    	}
         						    	return value;
         						    }
