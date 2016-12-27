@@ -3,7 +3,6 @@ define("app/jsp/common/common", function(require, exports, module) {
 	require("cookie"); 
 	/*展示面包屑导航*/
 	exports.showSubnav = function() {
-		debugger;
 		var a = $("#menu li a.current");
 		
 		var html = [];
