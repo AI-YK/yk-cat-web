@@ -9,7 +9,8 @@
 <script src="js/layer/layer.js"></script>
 
 <%@ include file="/inc/inc.jsp"%>
-<script type="text/javascript" src="${_base }/resources/spm_modules/jsviews/jsrender.js"></script>
+<%-- <script type="text/javascript" src="${_base }/resources/spm_modules/jsviews/jsrender.js"></script> --%>
+<script type="text/javascript" src="${_base }/resources/spm_modules/jquery-cookie/1.4.1/jquery.cookie2.js"></script>
 </head>
 <body>
 <!--新的头部--> 
@@ -469,6 +470,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 				window.location.href = '${_base}/search/view?_keyword=' +encodeURI(encodeURI(k));
 			}
 		}
+	});
+	$(function(){
+		$.cookie('current_menu', '2',{path:'/'});
 	});
 </script>
 </body>

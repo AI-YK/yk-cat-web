@@ -57,7 +57,7 @@
 		<div class="mask" id="eject-mask"></div>
   </div>
 <!--/弹出结束-->
-
+    <c:set var="current" value="0"></c:set>
 	<!--面包屑导航-->
 	<%@ include file="/inc/indexHead.jsp"%>
 	<!--子导航-->
