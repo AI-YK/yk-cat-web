@@ -300,7 +300,7 @@ define(
 		        		success:function(rs){
 		        			var data=rs.data;
 		        			var dataType = $.cookie(_data_type);
-		        			alert(dataType);
+		        			//alert(dataType);
 		        			if(dataType=='1'){
 		        				var tops=eval("("+topicss+")");
 		        				var top1={};

@@ -20,7 +20,7 @@
 					<li><a href="${_base}/newsbmap/toHeat">热点发现</a></li>
 					<li><a href="${_base}/search/public">舆情动态</a></li>
 					<li class="search">
-					    <input type="text" id="_keyword" value="${_keyword}" class="search-medium" placeholder="搜索"><a id="_searchBtn" href="#"><i class="icon iconfont">&#xe658;</i></a>
+					 <input type="text" id="_keyword" value="${_keyword}" class="search-medium" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" placeholder="搜索"><a id="_searchBtn" href="javascript:void(0);"><i class="icon iconfont">&#xe658;</i></a>
 					</li>
 					<li class="iphone-show"><img src="${uedroot}/images/user.png" /></li>
 					<div class="user-show" id="user-show" style="right: -45px;">
