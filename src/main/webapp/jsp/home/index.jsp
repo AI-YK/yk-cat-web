@@ -92,7 +92,7 @@
 			   <ul>
 				    <li><a>专题数据：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
-					   <c:if test="${t.index<7}">
+					   <c:if test="${t.index<10}">
 					       <li class="inbtn" >
 					         <a id="${topic.id}" opType="${topic.opType}" srcId="${topic.srcId}"  ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
 					       </li>

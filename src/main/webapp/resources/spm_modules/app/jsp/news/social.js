@@ -1,5 +1,5 @@
 define(
-		'app/jsp/search/search',
+		'app/jsp/news/social',
 		function(require, exports, module) {
 			//'use strict';
 			require("jsviews/jsrender");
@@ -47,6 +47,13 @@ define(
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
 					_this._loadChartData();
+					_this._getsocialDic();
+					$(document).on("click","#gengduo",function(){
+				    		$('#more-show').toggle();
+					});
+					$(document).on("click",".topic",function(){
+						$('#more-show').hide();
+					});
 
 				},
 				_bindEvent : function() {
@@ -60,10 +67,12 @@ define(
 						if (index == 0) {
 							$('#le-tba1').show();
 							$('#le-tba2').hide();
+							$('#ditu').show();
 						}
 						if (index == 1) {
 							$('#le-tba2').show();
 							$('#le-tba1').hide();
+							$('#ditu').hide();
 						}
 					});
 					
@@ -123,7 +132,6 @@ define(
 							$(this).removeClass("current");
 						});
 						$(this).addClass("current");
-						$(this).attr("style","color:#fff;")
 						_this.search("news");
 						_this.search("social");
 					});
@@ -141,12 +149,8 @@ define(
 				},
 				_loadChartData:function(){
 					var param = {};
-					var keyword = $("#keyword").val();
-					if(keyword!=''){
-						param.keyword = keyword;
-					}
 					var nowDate = moment().format('YYYY-MM-DD');
-					var pre7Date = moment().add(-6,'days').format('YYYY-MM-DD');
+					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
 					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					param.beginTime = nowDate + " 23:59:59";
@@ -156,11 +160,6 @@ define(
 				_getSearchParams : function(mediaType) {
 					var param = {};
 					param.mediaType = mediaType;
-					param.highlight = "true";
-					var keyword = $("#_keyword").val();
-					if(keyword!=''){
-						param.keyword = keyword;
-					}
 					if ('news' == mediaType) {
 						if($("#orgnizationId1").val()!="-1" && $("#orgnizationId1").val()!=null){
 							param.provincecityCode= $("#orgnizationId1").val();
@@ -208,6 +207,22 @@ define(
 							param.sentimentId= $("#qingId2").val();
 						}
 					}
+					var dataType = $.cookie(_data_type);
+					var current = $("#news-type-mainId ul li .current");
+					if(current){
+						var categoryId = current.next().val();
+						if(categoryId!=undefined&&categoryId!="0"){
+							if(dataType==undefined || dataType=="0"){
+								param.isTopic="0";
+								param.categoryId = categoryId;
+							}else{
+								param.isTopic="1";
+								param.id=categoryId;
+							}
+							
+						}
+					}
+					
 					
 					return param;
 				},
@@ -286,6 +301,45 @@ define(
 							
 						}
 					});
+		        },
+		        _getsocialDic:function(){
+		        	var url="/common/getDic";
+		        	var param={};
+		        	ajaxController.ajax({
+		        		type:"post",
+		        		processing:false,
+		        		message:"保存数据中，请等待...",
+		        		url:_base+url,
+		        		data:param,
+		        		success:function(rs){
+		        			var data=rs.data;
+		        			var dataType = $.cookie(_data_type);
+		        			if(dataType=='1'){
+		        				var tops=eval("("+topicss+")");
+		        				var top1={};
+		        				var top2={};
+		        				if(tops.length>7){
+		        					top1=tops.slice(0,7);
+		        					top2=tops.slice(7,tops.length);
+		        				}else{
+		        					top1=tops;
+		        				}
+		        				var top=$("#topTempl").render({"tops":top1});
+		        				$("#news-type-mainId").html(top);
+		        				$("#news-type-mainId ul li a").each(function(){
+		        					var v1=$(this).next().val();
+		        					var v2=$.cookie(_topic_id);
+			        				if($(this).next().val()==$.cookie(_topic_id) && v2!=undefined){
+			        					$(this).addClass("current");
+			        				}
+			        			});
+		        			}else if(dataType==undefined||dataType=='0'){
+		        				var dic=$("#typeTempl").render({"Dic":data});
+			        			$("#news-type-mainId").html(dic);
+		        			}
+		        			
+		        		}
+		        	});
 		        },
 		        _fdigit:function (s) {  
 				    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";  
