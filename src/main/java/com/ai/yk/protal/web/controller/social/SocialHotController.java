@@ -1,9 +1,12 @@
 package com.ai.yk.protal.web.controller.social;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,10 +15,13 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.Constants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.content.socialdetail.SocialDetailMessage;
 import com.ai.yk.protal.web.content.socialdetail.SocialDetailResponse;
 import com.ai.yk.protal.web.controller.BaseController;
 import com.ai.yk.protal.web.service.social.SocialService;
+import com.ai.yk.protal.web.utils.SessionUtil;
+import com.alibaba.fastjson.JSON;
 
 /**
  * 社交热点
@@ -60,5 +66,17 @@ public class SocialHotController extends BaseController {
 		}
 		view.addObject("keyword", keyword);*/
 		return view;
+	}
+	@RequestMapping("/toHotView")
+	public String toHotView(Model model){
+		List<MyTopicsVo> topics = SessionUtil.getTopics();
+		if(topics==null||topics.size()==0){
+    		model.addAttribute("hasTopic", false);
+    	}else{
+    		model.addAttribute("hasTopic", true);
+    		model.addAttribute("topics", topics);
+    		model.addAttribute("topicss", JSON.toJSONString(topics));
+    	}
+		return "/news/social";
 	}
 }
