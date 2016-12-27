@@ -245,7 +245,25 @@ define('app/jsp/search/select', function (require, exports, module) {
         	}
         },
         
-        
+        /*情感下拉*/
+        initFeelSelect:function(selectConfig){
+        	debugger;
+        	var _this = this;
+        	var data = [];
+        	data.push({"id":"face","text":"正面"});
+        	data.push({"id":"neutral","text":"中性"});
+        	data.push({"id":"negative","text":"负面"});
+        	var selectConfigData = []; 
+        	if($.isArray(selectConfig)){//数组模式
+        		selectConfigData =selectConfig; 
+        	}else{
+        		selectConfigData.push(selectConfig);
+        	}
+        	for(var j=0;j<selectConfigData.length;j++){
+        		var selectObj = selectConfigData[j];
+        		_this._commonselect(selectObj.id, '情感', data,selectObj.callback);
+        	}
+        },
         
         
         /*生成通用下拉列表*/

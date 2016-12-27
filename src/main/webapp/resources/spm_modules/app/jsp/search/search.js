@@ -68,6 +68,10 @@ define(
 					selectUtil.initTranSelect({"id":"tran","callback":function(){
 						//_this._searchNews();
 					 }});
+					//加载情感下拉
+					selectUtil.initFeelSelect({"id":"qingId2","callback":function(){
+						_this._searchNews();
+					}});
 					
 					_this._loadChartData();
 
@@ -227,8 +231,8 @@ define(
 						if($("#medialId2").val()!=""){
 							param.mediaLevel= $("#medialId2").val();
 						}
-						if($("#qingId2").val()!=""){
-							param.sentimentId= $("#qingId2").val();
+						if($("#qingId2_input").val()!=""){
+							param.sentimentId= $("#qingId2_input").val();
 						}
 					}
 					

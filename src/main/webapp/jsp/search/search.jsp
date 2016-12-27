@@ -133,15 +133,15 @@
 									<input id="timeId2" placeholder="时间" readonly type="text" class="select select-small calendar searchSocial">
 								</p>
 							</li>
-							<li>
-							<p>
+							<li id="qingId2">
+							<!-- <p>
 									<select id="qingId2" class="select select-mini searchSocial">
 										<option value="">情感</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
 										<option value="-1">负面</option>
 									</select>
-								</p> 
+								</p> --> 
 							</li>
 						</ul>
 						<ul>
