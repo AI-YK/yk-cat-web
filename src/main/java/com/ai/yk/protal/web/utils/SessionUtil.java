@@ -67,7 +67,7 @@ public final class SessionUtil {
 		}
 	    if (!real&&loginUser == null) { 
 			 loginUser = new SSOClientUser();
-		     loginUser.setUserId("99499"); 
+		     loginUser.setUserId("99485"); 
 		     loginUser.setUserName("Houg");
 		     loginUser.setNickName("译见"); 
 		     session.setAttribute(Constants.USER_SESSION_KEY,loginUser);
