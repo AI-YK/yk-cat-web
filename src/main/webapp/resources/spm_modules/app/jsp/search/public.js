@@ -188,7 +188,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 		        		param.isTopic = 1;
 		        		var topicId = $.cookie(_topic_id);
 		        		if(topicId){
-		        			param.isTopic = topicId;
+		        			param.id = topicId;
 		        		}
 		        	}
 					param.mediaType = mediaType;

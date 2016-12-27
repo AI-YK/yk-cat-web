@@ -198,7 +198,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
-        	    $.cookie(_data_type,'0');
+        	    $.cookie(_data_type,'0',{path: '/'});
         	    $("#topic-news-media").hide();
         	    $("#news-media").show();
         	    _this._refresh();
@@ -207,7 +207,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#commDiv").hide();
         		$("#topicDiv").show();
         		$(".right-list").show();
-        		$.cookie(_data_type,'1');
+        		$.cookie(_data_type,'1',{path: '/' });
         		$("#news-media").hide();
          	    $("#topic-news-media").show();
         		_this._refresh();
@@ -222,7 +222,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                   $(this).addClass("current");
                   var topicId =_this._getTopicId();
           		  //存储选择的专题ID到cookie
-                  $.cookie(_topic_id,topicId);
+                  $.cookie(_topic_id,topicId , {path: '/' });
                   _this._refresh();
   			});
             
@@ -277,7 +277,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	
         	//初始化 通用还是专题
         	if(!hasTopic){
-        		$.cookie(_data_type,'0');
+        		$.cookie(_data_type,'0' , {path: '/'});
         	}
         	var dataType = $.cookie(_data_type);
         	if(dataType==undefined||dataType=='0'){
@@ -290,7 +290,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$(".right-list").show();
         		var topicId =this._getTopicId();
         		//存储选择的专题ID到cookie
-                $.cookie(_topic_id,topicId);
+                $.cookie(_topic_id,topicId, {path: '/'});
                 $("#news-media").hide();
          	    $("#topic-news-media").show();
         	}
