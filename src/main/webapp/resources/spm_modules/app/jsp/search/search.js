@@ -288,46 +288,6 @@ define(
 						}
 					});
 		        },
-		        _getsocialDic:function(){
-		        	var url="/common/getDic";
-		        	var param={};
-		        	ajaxController.ajax({
-		        		type:"post",
-		        		processing:false,
-		        		message:"保存数据中，请等待...",
-		        		url:_base+url,
-		        		data:param,
-		        		success:function(rs){
-		        			var data=rs.data;
-		        			var dataType = $.cookie(_data_type);
-		        			//alert(dataType);
-		        			if(dataType=='1'){
-		        				var tops=eval("("+topicss+")");
-		        				var top1={};
-		        				var top2={};
-		        				if(tops.length>7){
-		        					top1=tops.slice(0,7);
-		        					top2=tops.slice(7,tops.length);
-		        				}else{
-		        					top1=tops;
-		        				}
-		        				var top=$("#topTempl").render({"tops":top1});
-		        				$("#news-type-mainId").html(top);
-		        				$("#news-type-mainId ul li a").each(function(){
-		        					var v1=$(this).next().val();
-		        					var v2=$.cookie(_topic_id);
-			        				if($(this).next().val()==$.cookie(_topic_id) && v2!=undefined){
-			        					$(this).addClass("current");
-			        				}
-			        			});
-		        			}else if(dataType==undefined||dataType=='0'){
-		        				var dic=$("#typeTempl").render({"Dic":data});
-			        			$("#news-type-mainId").html(dic);
-		        			}
-		        			
-		        		}
-		        	});
-		        },
 		        _fdigit:function (s) {  
 				    s = parseFloat((s + "").replace(/[^\d\.-]/g, "")) + "";  
 				    var l = s.split(".")[0].split("").reverse();  
