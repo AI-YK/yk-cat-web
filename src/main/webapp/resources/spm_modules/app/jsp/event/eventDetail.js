@@ -12,6 +12,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 	require("bootstrap-paginator/bootstrap-paginator.min");
 	require("opt-paging/aiopt.pagination");
 	require("twbs-pagination/jquery.twbsPagination.min");
+	var common = require("app/jsp/common/common");
 	var eventDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -207,6 +208,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			this._initChart();
 			this.showSrcContent();
 			this.queryEventInformation();
+			common.showSubnav();
 		}
 		
 	});

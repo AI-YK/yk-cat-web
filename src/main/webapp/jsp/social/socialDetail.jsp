@@ -26,8 +26,8 @@
 					<i class="icon iconfont">&#xe600;</i>
 				</p>
 				<p>您当前的位置：</p>
-				<p>
-					<a href="${_base}">首页</a>>
+				<p id="p_subnav">
+					
 				</p>
 				<p style="width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">${socialDetail.name}</p>
 			</div>

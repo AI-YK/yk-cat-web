@@ -30,14 +30,16 @@ define('app/jsp/top/header', function (require, exports, module) {
         	var index = 0;
         	if(current!=''){//优先隐藏域
         		index = parseInt(current);
-        	}else if(current_menu!=undefined && current_menu!=null){
-        		index = current_menu;
+        	}else if(current_menu!=undefined && current_menu!=null && current_menu!=''){
+        		index = current_menu*1;
         	}
         	$a = $("#menu").find("a").eq(index);
         	$a.addClass("current");
         	//$a.attr("href","javascript:void(0);");
-        	$.cookie('current_menu', index,{path:'/'});
-            this._bindEvent();
+        	if(index!=1){//专题是其他系统不需要设置
+        		$.cookie('current_menu', index,{path:'/'});
+        	}
+        	this._bindEvent();
         },
         _bindEvent:function(){
         	var _this = this;

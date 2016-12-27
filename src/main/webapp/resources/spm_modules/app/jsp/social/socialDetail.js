@@ -8,6 +8,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 	var translate = new translatePage();
 	var yiConfig = require("app/util/jsviews-yi");
 	require("jsviews/jsrender.min");
+	var common = require("app/jsp/common/common");
 	var socialDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -188,6 +189,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			this._bindEvent();
 			this.showSrcContent();
 			this.queryRelatedInformation();
+			common.showSubnav();
 		}
 		
 	});

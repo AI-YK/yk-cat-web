@@ -8,6 +8,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 	var translate = new translatePage();
 	require("jsviews/jsrender.min");
 	require("app/util/jsviews-yi");
+	var common = require("app/jsp/common/common");
 	var newsDetailPage = Widget.extend({
 		/* 事件代理 */
 		events : {
@@ -200,6 +201,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			this._bindEvent();
 			this.showSrcContent();
 			this.queryRelatedInformation();
+			common.showSubnav();
 		}
 		
 	});
