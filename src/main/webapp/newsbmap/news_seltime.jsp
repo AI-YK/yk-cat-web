@@ -68,9 +68,9 @@
 				</div>
 			</div>
 
-			<div style="position: absolute; top:5px; right: -1030px;">
+			 <div style="float:right;">
 			 <a class="menu" title="列表模式" href="${_base }/social/toHotView"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
-	 		</div>
+	 		 </div>
 	  </div>
 	  
 	<!-- 显示领域分类结束 -->
