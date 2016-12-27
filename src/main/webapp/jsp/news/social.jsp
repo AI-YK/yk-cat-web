@@ -95,7 +95,7 @@
 								</p>
 							</li> -->
 							<li>
-								<p>语言</p>
+								<!-- <p>语言</p> -->
 								<p>
 									<select id="languageId1" class="select select-mini searchNews" style="width: 100px">
 										
@@ -103,7 +103,7 @@
 								</p>
 							</li>
 							<li>
-								<p>影响力</p>
+								<!-- <p>影响力</p> -->
 								<p>
 									<select id="dicId1" class="select select-mini searchNews" style="width: 100px">
 										
@@ -111,9 +111,9 @@
 								</p>
 							</li>
 							<li>
-								<p>时间</p>
+								<!-- <p>时间</p> -->
 								<p>
-									<input id="timeId1" type="text" readonly="readonly" class="select select-small calendar searchNews"/>
+									<input id="timeId1" placeholder="时间" type="text" readonly="readonly" class="select select-small calendar searchNews"/>
 								</p>
 							</li>
 							<!-- <li>
@@ -124,10 +124,10 @@
 								</p>
 							</li> -->
 							<li>
-								<p>排序</p>
+								<!-- <p>排序</p> -->
 								<p>
 									<select id="fileId1" class="select select-mini searchNews">
-										<option value="">全部</option>
+										<option value="">排序</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -136,10 +136,10 @@
 								</p>
 							</li>
 							<li>
-								<p>译文</p>
+								<!-- <p>译文</p> -->
 								<p>
 									<select class="select select-small searchNews">
-									    <option value="">全部显示</option>
+									   <option value="">译文</option>
 										<option>仅显示译文</option>
 										<option>仅显示原文</option>
 										<option>显示译文和原文</option>
@@ -182,7 +182,7 @@
 								</p>
 							</li> -->
 							<li>
-								<p>影响力</p>
+								<!-- <p>影响力</p> -->
 								<p>
 									<select id="dicId2" class="select select-mini">
 										<option>全部</option>
@@ -190,10 +190,10 @@
 								</p>
 							</li>
 							<li>
-								<p>排序</p>
+								<!-- <p>排序</p> -->
 								<p>
 									<select class="select select-mini">
-										<option>全部</option>
+										<option value="">排序</option>
 										<option value="score">相关度</option>
 										<option value="pubdate">时间</option>
 										<option value="mediaLevel">权重</option>
@@ -202,9 +202,9 @@
 								</p>
 							</li>
 							<li>
-								<p>时间</p>
+								<!-- <p>时间</p> -->
 								<p>
-									<input id="timeId2" readonly type="text" class="select select-small calendar">
+									<input id="timeId2" placeholder="时间" readonly type="text" class="select select-small calendar">
 								</p>
 							</li>
 							<!-- <li>
@@ -214,10 +214,10 @@
 								</p>
 							</li> -->
 							<li>
-								<p>情感</p>
+								<!-- <p>情感</p> -->
 								<p>
 									<select class="select select-mini">
-										<option>全部</option>
+										<option>情感</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
 										<option value="-1">负面</option>
