@@ -41,74 +41,39 @@
 		    		</div>
 		    	</div> --%>
 
-<div class="nav2" style="height: 40px; vertical-align:middle; background-color: #1b2031"> 
-		<!-- 显示专题 -->
+<div class="nav2" style="height: 55px; vertical-align:middle; background-color: #1b2031"> 
+		<!-- 显示领域分类 -->
+
 		<div class="subnav">
-		<div class="subnav-main">
-			<div id="commDiv" class="left-list" style="display: block;">
-				<p><i class="icon iconfont">&#xe657;</i></p>
-				<ul>
-				    <li>
-				    <a href="#" id="choice-city">
-				    <c:choose>
-				       <c:when test="${config!=null&&config.province!=null}">
-				         ${config.province.nameZh}.${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
-				       </c:when>
-				       <c:otherwise>
-				                           请选择省市
-				       </c:otherwise>
-				    </c:choose>
-						<i class="icon iconfont"></i></a> 
-					</li>
-					<c:forEach items="${config.interestList}" var="interestVo">
-						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
-					</c:forEach>
-					<li class="inbtn current"><a class="current" href="javascript:void(0);" id="modify-btn">修改</a></li>
-				</ul>
-				
-				
+			<div class="subnav-main">
+				<div id="commDiv" class="left-list" style="display: block;">
+					<p><i class="icon iconfont">&#xe657;</i></p>
+					<ul>
+					    <li>
+					    <a href="#" id="choice-city">
+					    <c:choose>
+					       <c:when test="${config!=null&&config.province!=null}">
+					         ${config.province.nameZh}.${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
+					       </c:when>
+					       <c:otherwise>
+					                           请选择省市
+					       </c:otherwise>
+					    </c:choose>
+							<i class="icon iconfont"></i></a> 
+						</li>
+						 <c:forEach items="${listVo}" var="vo">
+								<li class="inbtn"><a href="javascript:void(0);" class="" onclick="go(this,${vo.dicValue});">${vo.dicName}</a></li>
+						 </c:forEach>
+					</ul>
+				</div>
 			</div>
-			<!-- 专题数据 -->
-			<c:if test="${hasTopic}">
-			<div id="topicDiv" class="left-list" style="display: block;">
-			   <ul>
-				    <li><a>专题数据：</a></li>
-					<c:forEach items="${topics}" var="topic" varStatus="t">
-					   <c:if test="${t.index<7}">
-					       <li class="inbtn" >
-					         <a id="${topic.id}" opType="${topic.opType}" srcId="${topic.srcId}"  ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
-					       </li>
-					   </c:if>
-					</c:forEach>
-				</ul> 
-			</div>
-			</c:if>
-			<c:if test="${hasTopic}">
-			<div class="right-list" style="display: block;">
-			    <c:if test="${fn:length(topics)>7 }">
-				<ul>
-					<li class="more" id="more"><a href="#">更多<i class="icon iconfont">&#xe659;</i></a>
-						<div class="more-show" id="more-show">
-							<span><img src="${uedroot}/images/xf-sj.png"></span>
-							<ul>
-							    <li>
-								    <c:forEach items="${topics}" var="topic" varStatus="t">
-						               <c:if test="${t.index>=7}">
-										    <p><a id="${topic.id}"  opType="${topic.opType}" srcId="${topic.srcId}"  class="topic">${topic.srcShortTitle}</a></p>
-						               </c:if>
-						            </c:forEach>
-					            </li>
-							</ul>
-						</div>
-					</li>
-				</ul>
-				</c:if>
-			</div> 
-			</c:if>
-		</div>
-			<a class="menu" title="列表模式" href="${_base }/social/toHotView"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
-	</div>
-		<!-- 显示专题结束 -->
+
+			
+			<a class="menu" title="列表模式" href="${_base}/jsp/news/social.jsp"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
+	  </div>
+	  
+	<!-- 显示领域分类结束 -->
+		
 		<div class="nav2top" style="padding-top: 5px; display:none;">
 			<div class="nav2topl">
 			

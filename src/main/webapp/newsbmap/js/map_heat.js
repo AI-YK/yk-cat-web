@@ -1753,8 +1753,11 @@ function isOverlap(offset1,offset2){
 //获取分类
 function go(t,v){
 	//classify=v;
+	$("#commDiv a").each(function(index, element) {
+        $(this).removeClass('current');
+    });
+	$(t).addClass("current");
 	categoryId=v;
-//	alert(categoryId);
 	if($(t).hasClass('onnx')){
 	}else{
 		$('.menu').removeClass('onnx');
@@ -1774,7 +1777,7 @@ function go(t,v){
 		fg="0";//选择分类
 	}
 	//隐藏国家选择
-    guojiaFunc();
+ //   guojiaFunc();
     smilNewsData();
 //    smilEventData();
     //$(".echart_tip").remove();
