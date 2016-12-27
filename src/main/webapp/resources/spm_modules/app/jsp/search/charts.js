@@ -69,6 +69,12 @@ define('app/jsp/search/charts', function(require, exports, module) {
 							color : '#666666',
 							fontSize : 12,
 							align : 'center'
+						},
+						formatter:function(value, index){
+							if(value.length>10){
+								return value.substring(0,10);
+							}
+							return value;
 						}
 					}
 				} ],
