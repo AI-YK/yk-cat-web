@@ -32,7 +32,7 @@
 	.header_box .left{float: left;height: 50px; line-height: 50px; padding: 0 20px;}
 	.header_box .left a{ display: block;}
 	/* .header_box .center{float: left;height: 50px; line-height: 50px; position: relative;} */
-	.center{width: 330px; height: 51px; float: left; margin-top: 12px;}
+	.center{width: 330px; height: 51px; float: left; margin-top: 8px;}
 	.header_box .center .title{height: 30px; line-height: 30px; overflow: hidden; display: inline-block; margin: 10px 0; padding-left:10px;border-left: 1px solid #253242;}
 	.header_box .center .title h1{line-height: 30px;  color: #1a7cc9; font-size: 24px; font-family: "microsoft yahei"; font-weight:lighter;display: inline-block;}
 	.header_box .center .header_top_list{height:50px; display: inline-block; overflow: hidden; position: relative; margin-left: 25px;}
@@ -240,8 +240,8 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
   SessionUtil.initUrlConfig(request);
 %>
 
-<div class="header_box" style="height: 60px; background-color:#2e344b;">
-	
+<div class="header_box" style="height: 60px; background-color:#2e344b;width:100%;">
+	<div style="width:1200px;margin:0 auto">
 	<div class="center">
 		<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
 	</div>
@@ -273,7 +273,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 					</div>
 		</ul>
 	</div>
+	
 	<div class="clear"></div>
+</div>
 </div>
 
 <div id="imgId" style="display: none;"><img src="images/head/1469689565.png"><span style="color: white;font-size:24px;"><br>&nbsp;&nbsp;&nbsp;&nbsp;手机扫码,下载客户端</span></div>
