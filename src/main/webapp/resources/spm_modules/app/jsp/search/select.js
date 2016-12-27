@@ -206,7 +206,6 @@ define('app/jsp/search/select', function (require, exports, module) {
         },
         /*排序下拉*/
         initSortSelect:function(selectConfig){
-        	debugger;
         	var _this = this;
         	var data = [];
         	data.push({"id":'',"text":"排序不限"});
@@ -247,7 +246,6 @@ define('app/jsp/search/select', function (require, exports, module) {
         
         /*情感下拉*/
         initFeelSelect:function(selectConfig){
-        	debugger;
         	var _this = this;
         	var data = [];
         	data.push({"id":"face","text":"正面"});
@@ -309,7 +307,43 @@ define('app/jsp/search/select', function (require, exports, module) {
 				 callback();
 				}
 			});
-		}
+		}/*生成时间下来选项*/
+        ,_timeselect:function(id,text,data,callback){
+        	var html = [];
+        	html.push('<input type="hidden" id="'+id+'_begin_input">');
+        	html.push('<input type="hidden" id="'+id+'_end_input">');
+        	html.push('<p><span id="'+id+'_select_text">'+text+'</span><i class="icon iconfont">&#xe659;</i>')
+			html.push('<div id="'+id+'_time_view" class="select-dropdown-show" style="display:none;">'); 
+        	html.push('	<ul>');
+        	html.push('<li data-val="0">时间不限</li>');                                        
+        	html.push('<li data-val="1">一天内</li>');
+        	html.push('<li data-val="2">一周内</li>');
+        	html.push('<li data-val="3">一月内</li>');
+        	html.push('<li class="dal-list">');
+        	html.push('<p>自定义</p>');
+        	html.push('<p>');
+        	html.push('<span>从</span>');
+        	html.push('<span><input id="'+id+'_begin_temp"> type="input" class="int-text date-input"></span>');
+        	html.push('</p>');
+        	html.push('<p>');
+        	html.push('<span>到</span>');
+        	html.push('<span><input id="'+id+'_end_temp" type="input" class="int-text date-input"></span>');
+        	html.push('</p>');
+        	html.push('<p><input type="button" class="btn btn-date" value="确定"></p>');
+        	html.push('</li>');
+        	html.push('</ul>');
+        	html.push('</div>');
+        	html.push('</p>');
+        	var selectObj = $("#"+id);
+			selectObj.html(html.join(""));
+			var selectView = $("#"+id+"_time_view");
+			selectView.mouseenter(function () {
+				selectDataList.show(1);
+		    }).mouseleave(function () {
+		     selectView.hide(1);
+		    });
+			
+        }
         
     });
 

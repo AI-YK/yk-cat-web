@@ -70,7 +70,7 @@ define(
 					 }});
 					//加载情感下拉
 					selectUtil.initFeelSelect({"id":"qingId2","callback":function(){
-						_this._searchNews();
+						_this._searchSocial();
 					}});
 					
 					_this._loadChartData();
