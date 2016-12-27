@@ -673,7 +673,7 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var list = rs.data;
 					var cityHtml = $("#cityTempl").render(list);
 					$("#cityList").html(cityHtml);
-					if(cityList!=""){
+					if(cityLists!=""){
 						var citys = eval('('+cityLists+")");
 						for(var i=0;i<citys.length;i++){
 							var id = citys[i].code;
