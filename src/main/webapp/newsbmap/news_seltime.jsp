@@ -106,7 +106,7 @@
 			</div> 
 			</c:if>
 		</div>
-			<a class="menu" title="列表模式" href="${_base}/jsp/news/social.jsp"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
+			<a class="menu" title="列表模式" href="${_base }/social/toHotView"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
 	</div>
 		<!-- 显示专题结束 -->
 		<div class="nav2top" style="padding-top: 5px; display:none;">

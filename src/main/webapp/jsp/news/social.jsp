@@ -347,18 +347,6 @@
         });
     })();
     
-    function show(){
-    	var o=document.getElementById("more-show").style.display;
-    	if(o=="none"){
-    		$('#more-show').show();
-    	}else{
-    		$('#more-show').show();
-    	}
-    }
-    function morehide(){
-    	$('#more-show').hide();
-    }
-    
 
 </script>
 </html>
