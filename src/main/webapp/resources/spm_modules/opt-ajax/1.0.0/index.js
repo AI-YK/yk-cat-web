@@ -73,7 +73,7 @@ define('opt-ajax/1.0.0/index', function (require, exports, module) {
 					if(errorDlg){
 						failureDialog.showModal();
 					}else{
-						console.log(statusInfo);
+						//console.log(statusInfo);
 					}
 				} else if(status && status == AjaxController.AJAX_STATUS_LOGIN){
 					
