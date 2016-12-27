@@ -55,11 +55,8 @@
 							<li id="dicId1">
 									
 							</li>
-							<li>
-								<!-- <p>时间</p> -->
-								<p>
-									<input id="timeId1" placeholder="时间" type="text" readonly="readonly" class="select select-small calendar searchNews" style="width: 100px"/>
-								</p>
+							<li id="timeId1">
+								
 							</li>
 						   <!-- 排序 -->
                            <li id="fileId1">
@@ -127,11 +124,8 @@
 							<li id="fileId2">
 								
 							</li>
-							<li>
-								<!-- <p>时间</p> -->
-								<p>
-									<input id="timeId2" placeholder="时间" readonly type="text" class="select select-small calendar searchSocial">
-								</p>
+							<li id="timeId2">
+								
 							</li>
 							<li id="qingId2">
 							<!-- <p>

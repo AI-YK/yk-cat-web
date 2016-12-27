@@ -204,6 +204,20 @@ define('app/jsp/search/select', function (require, exports, module) {
         	    }  
         	});  
         },
+        /*时间选择*/
+        initTimeSelect:function(selectConfig){
+        	var _this = this;
+        	var selectConfigData = []; 
+			if($.isArray(selectConfig)){//数组模式
+				selectConfigData =selectConfig; 
+			}else{
+				selectConfigData.push(selectConfig);
+			}
+			for(var j=0;j<selectConfigData.length;j++){
+				var selectObj = selectConfigData[j];
+				_this._timeselect(selectObj.id, '时间',selectObj.callback);
+			}
+        },
         /*排序下拉*/
         initSortSelect:function(selectConfig){
         	var _this = this;
@@ -308,7 +322,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				}
 			});
 		}/*生成时间下来选项*/
-        ,_timeselect:function(id,text,data,callback){
+        ,_timeselect:function(id,text,callback){
         	var html = [];
         	html.push('<input type="hidden" id="'+id+'_begin_input">');
         	html.push('<input type="hidden" id="'+id+'_end_input">');
@@ -322,14 +336,14 @@ define('app/jsp/search/select', function (require, exports, module) {
         	html.push('<li class="dal-list">');
         	html.push('<p>自定义</p>');
         	html.push('<p>');
-        	html.push('<span>从</span>');
-        	html.push('<span><input id="'+id+'_begin_temp"> type="input" class="int-text date-input"></span>');
+        	html.push('<span>从');
+        	html.push('<input id="'+id+'_begin_temp" type="input" class="int-text date-input"/></span>');
         	html.push('</p>');
         	html.push('<p>');
-        	html.push('<span>到</span>');
-        	html.push('<span><input id="'+id+'_end_temp" type="input" class="int-text date-input"></span>');
+        	html.push('<span>到');
+        	html.push('<input id="'+id+'_end_temp" type="input" class="int-text date-input"/></span>');
         	html.push('</p>');
-        	html.push('<p><input type="button" class="btn btn-date" value="确定"></p>');
+        	html.push('<p><input type="button" class="btn btn-date" value="确定"/></p>');
         	html.push('</li>');
         	html.push('</ul>');
         	html.push('</div>');
@@ -337,8 +351,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         	var selectObj = $("#"+id);
 			selectObj.html(html.join(""));
 			var selectView = $("#"+id+"_time_view");
-			selectView.mouseenter(function () {
-				selectDataList.show(1);
+			selectObj.mouseenter(function () {
+				selectView.show(1);
 		    }).mouseleave(function () {
 		     selectView.hide(1);
 		    });

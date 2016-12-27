@@ -72,6 +72,17 @@ define(
 					selectUtil.initFeelSelect({"id":"qingId2","callback":function(){
 						_this._searchSocial();
 					}});
+					//加载时间选择
+					var timeSelectConfig = [];
+					timeSelectConfig.push({"id":"timeId1","callback":function(){
+						_this._searchNews();
+					 }});
+					timeSelectConfig.push({"id":"timeId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initTimeSelect(timeSelectConfig);
+					
+					
 					
 					_this._loadChartData();
 
