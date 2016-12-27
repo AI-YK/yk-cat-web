@@ -11,6 +11,25 @@
 <%@ include file="/inc/inc.jsp"%>
 <%-- <script type="text/javascript" src="${_base }/resources/spm_modules/jsviews/jsrender.js"></script> --%>
 <script type="text/javascript" src="${_base }/resources/spm_modules/jquery-cookie/1.4.1/jquery.cookie2.js"></script>
+<script>
+var _base = "${_base}";
+var _user_id = "${user.userId}";
+var _data_type = "data_type" + _user_id;
+var _topic_id = "topic_id" + _user_id;
+var _i18n_res = "${i18nRes}";
+var _spm_res = "${spmRes}";
+var uedroot="${uedroot}";
+var currentLan = "${_currentLan}";
+
+function toPage(){
+	var dataType = $.cookie(_data_type);
+	if(dataType==undefined||dataType==0){
+		window.location.href=_base + "/newsbmap/toHeat";
+	}else{
+		window.location.href=_base + "/social/toHotView";
+	}
+}
+</script>
 </head>
 <body>
 <!--新的头部--> 
@@ -237,7 +256,6 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 <%
   SessionUtil.initUrlConfig(request);
 %>
-
 <div class="header_box" style="height: 60px; background-color:#2e344b;width:100%;">
 	<div style="width:1200px;margin:0 auto">
 	<div class="center">
@@ -252,7 +270,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 				<a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a>
 			</li>
 			<li>
-				<a class="current" href="${_base}/newsbmap/toHeat">热点发现</a>	
+				<a class="current" href="javascript:void(0);" onclick="toPage();">热点发现</a>	
 			</li>
 			<li><a href="${_base}/search/public">舆情动态</a></li>
 					<%-- <c:if test="${!noSearch}"> --%>
@@ -474,6 +492,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	$(function(){
 		$.cookie('current_menu', '2',{path:'/'});
 	});
+	
 </script>
 </body>
 </html>

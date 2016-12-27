@@ -71,7 +71,15 @@ define('app/jsp/top/header', function (require, exports, module) {
         		    if(ev.keyCode==13) {
                     $("#_searchBtn").click();
                     }
-        		}
+        		};
+            $("#menu").find("li").eq(2).click(function(){
+            	var dataType = $.cookie(_data_type);
+            	if(dataType==undefined||dataType==0){
+            		window.location.href=_base + "/newsbmap/toHeat";
+            	}else{
+            		window.location.href=_base + "/social/toHotView";
+            	}
+            });	
         },
         _logOut:function(){
         	var url="/user/logout"

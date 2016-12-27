@@ -152,7 +152,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 				color : [ '#174879' ],
 				backgroundColor : backgroundColor,
 				tooltip : {
-					show : false,
+					show : true,
 					trigger : 'axis'
 				},
 				 grid : {
@@ -521,8 +521,13 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		times = times.slice(0,10);
         		counts = counts.slice(0,10);
         	}
-        	var option = {
-        			
+        	var option = {  
+        			tooltip : {
+			                trigger: 'axis',
+			                axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+			                    type : 'line'        // 默认为直线，可选为：'line' | 'shadow'
+					                }
+					         },
         		    calculable : true,
         		    backgroundColor:'#212532',
         		    grid : {
@@ -860,7 +865,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		chart.setOption(option);
         		var lis = "";
         		for(var i=0;i<cache.length;i++){
-        			var li = "<li><p>"+cache[i].name+"：</p><p style='color:"+cache[i].color+";'>"+cache[i].percent+"%</p></li>";
+        			var li = "<li><p style='text-align: left;'>"+cache[i].name+"：</p><p style='color:"+cache[i].color+";text-align: right;'>"+cache[i].percent+"%</p></li>";
         			lis = lis + li;
         		}
         		$("#"+ul).html(lis);

@@ -52,11 +52,6 @@ var $echart = $('#echates');
 var $echartTips = $('#echartTips');
 $(function(){
 	domain=$("#buzzYeesight").val();//获取访问的域名地址
-	var dataType = $.cookie(_data_type);
-	if(dataType ==0 || dataType== undefined){
-		window.location.href=path+"/social/toHotView";
-		return;
-	}
 	//时间轴拖拽功能
 	trinkFunc();
 	//初始化
