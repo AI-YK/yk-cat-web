@@ -305,8 +305,22 @@ define(
 		        		data:param,
 		        		success:function(rs){
 		        			var data=rs.data;
-		        			var dic=$("#typeTempl").render({"Dic":data});
-		        			$("#news-type-mainId").html(dic);
+		        			if(topicss!=""){
+		        				var tops=eval("("+topicss+")");
+		        				var top1={};
+		        				var top2={};
+		        				if(tops.length>7){
+		        					top1=tops.slice(0,7);
+		        					top2=tops.slice(7,tops.length);
+		        				}else{
+		        					top1=tops;
+		        				}
+		        				var top=$("#topTempl").render({"tops":top1});
+		        				$("#news-type-mainId").html(top);
+		        			}else{
+		        				var dic=$("#typeTempl").render({"Dic":data});
+			        			$("#news-type-mainId").html(dic);
+		        			}
 		        		}
 		        	});
 		        },
