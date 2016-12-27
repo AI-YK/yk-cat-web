@@ -11,6 +11,7 @@ define(
 			require("opt-paging/aiopt.pagination");
 			require("twbs-pagination/jquery.twbsPagination.min");
 			require("my97DatePicker/WdatePicker");
+			require("cookie"); 
 			var moment = require("moment/2.9.0/moment");
 			var SelectUtil = require("app/jsp/search/select");
 			var SearchChart = require("app/jsp/search/charts");
@@ -123,6 +124,7 @@ define(
 							$(this).removeClass("current");
 						});
 						$(this).addClass("current");
+						$(this).attr("style","color:#fff;")
 						_this.search("news");
 						_this.search("social");
 					});
@@ -207,14 +209,6 @@ define(
 							param.sentimentId= $("#qingId2").val();
 						}
 					}
-					var current = $("#news-type-mainId ul li .current");
-					if(current){
-						var categoryId = current.next().val();
-						if(categoryId!=undefined&&categoryId!="0"){
-							param.categoryId = categoryId;
-						}
-					}
-					
 					
 					return param;
 				},
@@ -305,7 +299,9 @@ define(
 		        		data:param,
 		        		success:function(rs){
 		        			var data=rs.data;
-		        			if(topicss!=""){
+		        			var dataType = $.cookie(_data_type);
+		        			//alert(dataType);
+		        			if(dataType=='1'){
 		        				var tops=eval("("+topicss+")");
 		        				var top1={};
 		        				var top2={};
@@ -317,10 +313,18 @@ define(
 		        				}
 		        				var top=$("#topTempl").render({"tops":top1});
 		        				$("#news-type-mainId").html(top);
-		        			}else{
+		        				$("#news-type-mainId ul li a").each(function(){
+		        					var v1=$(this).next().val();
+		        					var v2=$.cookie(_topic_id);
+			        				if($(this).next().val()==$.cookie(_topic_id) && v2!=undefined){
+			        					$(this).addClass("current");
+			        				}
+			        			});
+		        			}else if(dataType==undefined||dataType=='0'){
 		        				var dic=$("#typeTempl").render({"Dic":data});
 			        			$("#news-type-mainId").html(dic);
 		        			}
+		        			
 		        		}
 		        	});
 		        },

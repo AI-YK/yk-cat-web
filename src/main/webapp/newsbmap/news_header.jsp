@@ -32,7 +32,7 @@
 	.header_box .left{float: left;height: 50px; line-height: 50px; padding: 0 20px;}
 	.header_box .left a{ display: block;}
 	/* .header_box .center{float: left;height: 50px; line-height: 50px; position: relative;} */
-	.center{width: 330px; height: 51px; float: left; margin-top: 12px; margin-left: 74px;}
+	.center{width: 330px; height: 51px; float: left; margin-top: 8px;}
 	.header_box .center .title{height: 30px; line-height: 30px; overflow: hidden; display: inline-block; margin: 10px 0; padding-left:10px;border-left: 1px solid #253242;}
 	.header_box .center .title h1{line-height: 30px;  color: #1a7cc9; font-size: 24px; font-family: "microsoft yahei"; font-weight:lighter;display: inline-block;}
 	.header_box .center .header_top_list{height:50px; display: inline-block; overflow: hidden; position: relative; margin-left: 25px;}
@@ -141,22 +141,19 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 .user-show{
         width: 120px;
     height: 100px;
-    background: #fff;
+    background: #23283b;
     position: absolute;
     top: 56px;
-    right: 5px;
-    border: 1px solid #ddd;
+    right: -45px;
+    border: 1px solid #7c85a8;
     border-radius: 8px;
     z-index: 1003;
 }
 .user-show span{
-	position: absolute;
-    top: -20px;
-    left: 45px;
+	position:absolute;top:-8px;left:52px;
 }
 .user-show span i{
-	color: #fff;
-    font-size: 24px;
+	color:#fff;font-size:24px
 }
 .user-show ul a{
 	width: 100%;
@@ -178,9 +175,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     font-size: 14px;
     margin: 0px;
 }
-.user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
-.user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
-.user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
+.user-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
+.user-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
+.user-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
 .erw-show{
 	width: 120px;
     height: 120px;
@@ -205,8 +202,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	margin: 10px;
 }
 .rightt{
-	padding-right:92px;
+	/* padding-right:92px; */
 	float: right;
+	position:relative;
 }
 .menu_list1 li{
 	    margin-left: 14px;
@@ -240,8 +238,8 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
   SessionUtil.initUrlConfig(request);
 %>
 
-<div class="header_box" style="height: 60px; background-color:#2e344b;">
-	
+<div class="header_box" style="height: 60px; background-color:#2e344b;width:100%;">
+	<div style="width:1200px;margin:0 auto">
 	<div class="center">
 		<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
 	</div>
@@ -264,7 +262,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 					<%-- </c:if> --%>
 					<li class="iphone-show" style="margin-top:16px"><i class="ico_user"></i></li>
 					<div class="user-show" id="user-show" style="display: none;">
-						<span><i class="icon iconfont">&#xe65a;</i></span>
+						<span><img src="${_base}/resources/template/images/xf-sj.png"></span>
 						<ul>
 							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
 							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
@@ -273,7 +271,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 					</div>
 		</ul>
 	</div>
+	
 	<div class="clear"></div>
+</div>
 </div>
 
 <div id="imgId" style="display: none;"><img src="images/head/1469689565.png"><span style="color: white;font-size:24px;"><br>&nbsp;&nbsp;&nbsp;&nbsp;手机扫码,下载客户端</span></div>

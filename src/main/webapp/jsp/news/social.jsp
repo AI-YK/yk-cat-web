@@ -16,7 +16,7 @@
 %>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 <link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="${spmRes }/app/jsp/social/social.js"></script>
+<script type="text/javascript" src="${spmRes }/app/jsp/news/social.js"></script>
 <style type="text/css">
 
 .moveul{position:absolute; top:68px; left:900px; width: 50px;color: #666; font-size: 12px;}
@@ -318,7 +318,7 @@
 	<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
 </ul>
 					<div class="moveul" >
-					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();">更多<i class="icon iconfont">&#xe659;</i></a>
+					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();" id="gengduo">更多<i class="icon iconfont">&#xe659;</i></a>
 						<div class="more-show" id="more-show">
 							<span><img src="${uedroot}/images/xf-sj.png"></span>
 							<ul>
@@ -329,6 +329,7 @@
 						               </c:if>
 						            </c:forEach>
 					            </li>
+								
 							</ul>
 						</div>
 					</div>
@@ -339,29 +340,13 @@
 	var topicss='${topicss}';
     var pager;
     (function () {
-        seajs.use('app/jsp/search/search', function (searchPage) {
+        seajs.use('app/jsp/news/social', function (searchPage) {
             pager = new searchPage({element: document.body});
             pager.render();
 
         });
     })();
     
-    function show(){
-    	$('#more-show').show();
-    }
-    function morehide(){
-    	$('#more-show').hide(1);
-    }
-  //更多
-	$("#more").click(function () {
-		alert("1");
-		$('#more-show').show();
-    });
-	$("#more-show").click(function () {
-        $(this).hide();
-    });	
-	$('.moveul').mouseleave(function () {
-        $('#more-show').hide(1);
-    });
+
 </script>
 </html>
