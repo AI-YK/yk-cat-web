@@ -150,7 +150,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     z-index: 1003;
 }
 .user-show span{
-	position:absolute;top:-15px;left:52px;
+	position:absolute;top:-8px;left:52px;
 }
 .user-show span i{
 	color:#fff;font-size:24px
