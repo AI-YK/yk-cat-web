@@ -43,9 +43,18 @@ define(
 					_this.search("social");
 					_this._loadTopics();
 					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
-					selectUtil.initLanguageSelect(['languageId1']);
-					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
+					selectUtil.initLanguageSelect({"id":"languageId1","callback":function(){
+						_this._searchNews();
+					 }});
+					 var dicSelectConfig = [];
+					 dicSelectConfig.push({"id":"dicId1","callback":function(){
+						_this._searchNews();
+					 }});
+					 dicSelectConfig.push({"id":"dicId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initDicSelect(dicSelectConfig);
 					_this._loadChartData();
 
 				},
@@ -165,11 +174,11 @@ define(
 						if($("#orgnizationId1").val()!="-1" && $("#orgnizationId1").val()!=null){
 							param.provincecityCode= $("#orgnizationId1").val();
 						}
-						if($("#languageId1").val()!=""){
-							param.languageCode= $("#languageId1").val();
+						if($("#languageId1_input").val()!=""){
+							param.languageCode= $("#languageId1_input").val();
 						}
-						if($("#dicId1").val()!=""){
-							param.dicValue= $("#dicId1").val();
+						if($("#dicId1_input").val()!=""){
+							param.dicValue= $("#dicId1_input").val();
 						}
 						var timeStr = $("#timeId1").val();
 						if(timeStr!=""){
@@ -188,8 +197,8 @@ define(
 						if($("#orgnizationId2").val()!="-1" && $("#orgnizationId2").val()!=null){
 							param.provincecityCode= $("#orgnizationId2").val();
 						}
-						if($("#dicId2").val()!=""){
-							param.dicValue= $("#dicId2").val();
+						if($("#dicId2_input").val()!=""){
+							param.dicValue= $("#dicId2_input").val();
 						}
 						var timeStr = $("#timeId2").val();
 						if(timeStr!=""){

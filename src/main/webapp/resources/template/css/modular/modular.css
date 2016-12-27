@@ -58,11 +58,38 @@
 .level-left-table ul li .current{background:#fff;color:#3382ee;border:1px solid #dcddde;border-bottom:1px solid #fff;}
 
 .level-left-list{width:100%;float:left;background:#fff;border:1px solid #dcddde;border-top:none;padding:20px 28px;}
-.list-form{width:100%;float:left;border-bottom:1px solid #dcddde;padding-bottom:5px;}
-.list-form ul{width:100%;float:left;margin-bottom:16px;}
-.list-form ul li{float:left;line-height:32px;margin-right:2px;}
-.list-form ul li p{float:left;margin-right:10px;color:#999;position:relative;}
-.list-form ul li p i{position:absolute;right:10px;top:0;color:#777778}
+.list-form{width:100%;float:left;border-bottom:1px solid #dcddde;}
+.list-form ul{width:100%;float:left;}
+.list-form ul li{float:left;line-height:32px;margin-right:22px;position:relative;height:35px;cursor:pointer;}
+.list-form ul li p{float:left;margin-right:10px;color:#999;cursor:pointer;}
+.list-form ul li p i{color:#777778;float:right}
+.list-form ul li .searchicon{position:absolute;right:10px;top:0;color:#777778;cursor:pointer;}
+.list-form ul #media{height:35px;}
+/**媒体影响力**/
+.select-dropdown-show{width:120px;height:auto;background:#fff;position:absolute;left:-38px;top:32px;z-index:999;
+-moz-box-shadow:1px 1px 4px #a9a9a9;
+-webkit-box-shadow:1px 1px 4px #a9a9a9;
+box-shadow:1px 1px 4px #a9a9a9;}
+.select-dropdown-show ul{width:100%;float:left;margin-bottom:0;}
+.select-dropdown-show ul li{width:100%;text-align:center;height:30px;line-height:30px;font-size:12px;cursor:pointer;color:#666}
+.select-dropdown-show ul li:hover{background:#4daaff;color:#fff;}
+.select-dropdown-show ul .current{width:100%;background:#4daaff;color:#fff}
+.select-dropdown-show ul li a{color:#666;font-size:12px;}
+.select-dropdown-show ul .dal-list{height:auto;border-top:1px solid #eee;padding-left:10px;}
+.select-dropdown-show ul .dal-list:hover{background:none;}
+.select-dropdown-show ul .dal-list p{float:left;}
+.select-dropdown-show ul .dal-list p span{float:left;margin-right:4px;}
+#retrieval-show{width:240px;padding:20px;}
+#retrieval{position:relative;}
+.auto_show{border:1px solid #ddd;border-top:none;padding-left:10px;width:132px;display:block;position:absolute;left:0;top:40px;background:#fff;
+-moz-box-shadow:1px 1px 4px #a9a9a9;
+-webkit-box-shadow:1px 1px 4px #a9a9a9;
+box-shadow:1px 1px 4px #a9a9a9;
+}
+.auto_hidden{width:200px;display:none;}
+.auto_onmouseout{font-weight:normal;}
+
+
 .level-news{width:100%;float:left;margin-top:20px;}
 .level-news-title{width:100%;float:left}
 .level-news-title p{float:left;margin-right:8px;color:#666}
@@ -113,7 +140,7 @@
 .levle-right-chart-list{width:100%;float:left;margin-top:20px;height:285px;}
 /**新闻详情**/
 .levle-right-map{width:100%;float:left;background:#fff;border:1px solid #dcddde;height:318px;padding:4px;}
-.news-detail{width:100%;float:left;background:#fff;border:1px solid #dcddde;min-height:615px;padding:30px;}
+.news-detail{width:100%;float:left;background:#fff;border:1px solid #dcddde;min-height:1200px;padding:30px;}
 .news-detail-title{width:100%;float:left;text-align: center;font-size:#333;font-size:28px;padding:20px;}
 .news-detail-information{width:100%;float:left;height:48px;border:1px solid #dcddde;border-radius:5px;padding:0 20px;}
 

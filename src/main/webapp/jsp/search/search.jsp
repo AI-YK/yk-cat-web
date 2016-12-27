@@ -46,21 +46,12 @@
 									</select>
 								</p>
 							</li>
-							<li>
-								<!-- <p>语言</p> -->
-								<p>
-									<select id="languageId1" class="select select-mini searchNews" style="width: 80px">
-										
-									</select>
-								</p>
+							<li id="languageId1">
+									
 							</li>
 							<li>
-							<!-- 	<p>影响力</p> -->
-								<p>
-									<select id="dicId1" class="select select-mini searchNews" style="width: 80px">
-										
-									</select>
-								</p>
+							<li id="dicId1">
+									
 							</li>
 							<li>
 								<!-- <p>时间</p> -->
@@ -136,13 +127,8 @@
 									</select>
 								</p>
 							</li>
-							<li>
-								<!-- <p>影响力</p> -->
-								<p>
-									<select id="dicId2" class="select select-mini searchSocial">
+							<li id="dicId2">
 								
-									</select>
-								</p>
 							</li>
 							<li>
 							<!-- 	<p>排序</p> -->

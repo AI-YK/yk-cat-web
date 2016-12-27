@@ -49,7 +49,9 @@ define('app/jsp/search/select', function (require, exports, module) {
         	    
         	});
         },
-        initLanguageSelect:function(selectIds){
+        //[{"id":"","callback":function(){执行操作}}]
+        initLanguageSelect:function(selectConfig){
+        	var _this = this;
         	var url = _base +"/common/getQueryInfoLanguage";
         	var param={};
         	param.language="zh";
@@ -62,21 +64,32 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value=''>语言</option>";
+					if(!data){
+						data =[];
+					}
+					var data2 = [];
 					for(var i=0;i<data.length;i++){
-						options = options + "<option value='" + data[i].srcValue + "'>"+data[i].name+"</option>";
+						var obj ={};
+						obj.id=data[i].srcValue;
+						obj.text=data[i].name;
+						data2.push(obj);
 					}
-					if(options!=""){
-						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).html(options);
-						}
+					var selectConfigData = []; 
+					if($.isArray(selectConfig)){//数组模式
+						selectConfigData =selectConfig; 
+					}else{
+						selectConfigData.push(selectConfig);
 					}
+					for(var j=0;j<selectConfigData.length;j++){
+						var selectObj = selectConfigData[j];
+						_this._commonselect(selectObj.id, '语言', data2,selectObj.callback);
+					}
+				  }
 					
-				}
-        	    
-        	});
+				});
         },
-        initDicSelect:function(selectIds){
+        initDicSelect:function(selectConfig){
+        	var _this = this;
         	var url = _base +"/common/getDicByTypeAndLanguage";
         	var param={};
         	param.language="zh";
@@ -89,16 +102,26 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value=''>影响力</option>";
+					if(!data){
+						data =[];
+					}
+					var data2 = [];
 					for(var i=0;i<data.length;i++){
-						options = options + "<option value='" + data[i].dicValue + "'>"+data[i].dicName+"</option>";
+						var obj ={};
+						obj.id=data[i].dicValue;
+						obj.text=data[i].dicName;
+						data2.push(obj);
 					}
-					if(options!=""){
-						for(var j=0;j<selectIds.length;j++){
-							$("#"+selectIds[j]).html(options);
-						}
+					var selectConfigData = []; 
+					if($.isArray(selectConfig)){//数组模式
+						selectConfigData =selectConfig; 
+					}else{
+						selectConfigData.push(selectConfig);
 					}
-					
+					for(var j=0;j<selectConfigData.length;j++){
+						var selectObj = selectConfigData[j];
+						_this._commonselect(selectObj.id, '影响力', data2,selectObj.callback);
+					}
 				}
         	    
         	});
@@ -178,7 +201,52 @@ define('app/jsp/search/select', function (require, exports, module) {
         	        escapeMarkup : function (m) { return m; }               // 字符转义处理 
         	    }  
         	});  
-        }
+        },
+        /*生成通用下拉列表*/
+        _commonselect:function(id,text,data,callback){
+        	var html = [];
+        	html.push('<input type="hidden" id="'+id+'_input">');
+        	html.push('<p> <span id="'+id+'_select_text">'+text+'</span><i class="icon iconfont">&#xe659;</i>');
+        	html.push('<div id="'+id+'_data_list" class="select-dropdown-show" style="display:none;">');
+        	html.push('<ul>'); 
+        	html.push('<li data-val="" data-text="'+text+'不限">'+text+'不限</li>');
+        	if(data){
+        		var len = data.length;
+        		//class="current"
+        		for(var i =0;i<len;i++){
+        			var obj = data[i];
+					html.push('<li data-val="'+obj.id+'" data-text="'+obj.text+'">'+obj.text+'</li>'); 	
+				}
+        	}
+			html.push('</ul>'); 
+			html.push('</div>'); 
+			html.push('</p>'); 
+			var selectObj = $("#"+id);
+			selectObj.html(html.join(""));
+			var selectDataList = $("#"+id+"_data_list");
+			selectObj.mouseenter(function () {
+				selectDataList.show(1);
+		    }).mouseleave(function () {
+			 selectDataList.hide(1);
+		    });
+			selectDataList.click(function () {
+		                $(this).hide(1);
+		           });
+			var selectLi = $("#"+id+"_data_list ul li");
+			selectLi.click(function(){
+				selectLi.removeClass("current");
+				var _this=$(this);
+				_this.addClass("current");
+				var val = _this.attr("data-val");
+				var text = _this.attr("data-text");
+				$("#"+id+"_input").val(val);
+				$("#"+id+"_select_text").html(text);
+				//回调
+				if(callback){
+				 callback();
+				}
+			});
+		}
         
     });
 
