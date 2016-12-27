@@ -222,6 +222,30 @@ define('app/jsp/search/select', function (require, exports, module) {
 				_this._commonselect(selectObj.id, '排序', data,selectObj.callback);
 			}
         },
+        /*译文下拉*/
+        initTranSelect:function(selectConfig){
+        	debugger;
+        	var _this = this;
+        	var data = [];
+        	data.push({"id":"tran","text":"译文"});
+        	data.push({"id":"onlyTran","text":"仅显示译文"});
+        	data.push({"id":"onlyText","text":"仅显示原文"});
+        	data.push({"id":"tranAndText","text":"显示译文和原文"});
+        	var selectConfigData = []; 
+        	if($.isArray(selectConfig)){//数组模式
+        		selectConfigData =selectConfig; 
+        	}else{
+        		selectConfigData.push(selectConfig);
+        	}
+        	for(var j=0;j<selectConfigData.length;j++){
+        		var selectObj = selectConfigData[j];
+        		_this._commonselect(selectObj.id, '译文', data,selectObj.callback);
+        	}
+        },
+        
+        
+        
+        
         /*生成通用下拉列表*/
         _commonselect:function(id,text,data,callback){
         	var html = [];

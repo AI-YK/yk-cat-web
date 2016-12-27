@@ -46,9 +46,11 @@
 									</select>
 								</p>
 							</li>
+							<!-- 语言 -->
 							<li id="languageId1">
 									
 							</li>
+							<!-- 影响力 -->
 							<li>
 							<li id="dicId1">
 									
@@ -59,19 +61,20 @@
 									<input id="timeId1" placeholder="时间" type="text" readonly="readonly" class="select select-small calendar searchNews" style="width: 100px"/>
 								</p>
 							</li>
+						   <!-- 排序 -->
                            <li id="fileId1">
 								
 							</li>
-							<li>
+							<li id="tran">
 								<!-- <p>译文</p> -->
-								<p>
+								<!-- <p>
 									<select class="select select-mini searchNews" style="width: 70px">
 									    <option value="">译文</option>
 										<option>仅显示译文</option>
 										<option>仅显示原文</option>
 										<option>显示译文和原文</option>
 									</select>
-								</p>
+								</p> -->
 							</li>							
 							
 					

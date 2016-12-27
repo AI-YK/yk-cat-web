@@ -64,6 +64,11 @@ define(
 							_this._searchSocial();
 						 }});
 					selectUtil.initSortSelect(sortSelectConfig);
+					//加载译文下拉
+					selectUtil.initTranSelect({"id":"tran","callback":function(){
+						//_this._searchNews();
+					 }});
+					
 					_this._loadChartData();
 
 				},
