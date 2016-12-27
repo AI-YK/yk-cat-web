@@ -40,7 +40,7 @@
 		    			</div>
 		    		</div>
 		    	</div> --%>
-<div class="nav2" style="height: 55px; vertical-align:middle; background-color: #1b2031"> 
+<div class="nav2" style="height: 40px; vertical-align:middle; background-color: #1b2031"> 
 		<div class="nav2top" style="padding-top: 5px;">
 			<div class="nav2topl">
 			
