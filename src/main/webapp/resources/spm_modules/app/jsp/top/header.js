@@ -46,6 +46,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         	//昵称
         	$('.mainbav ul .iphone-show').mouseenter(function () {
         		$("#user-show").show(1);
+        		$("#data-show").hide(1);
     	    });
     		$("#user-show").click(function () {
     	     $(this).hide(1);
