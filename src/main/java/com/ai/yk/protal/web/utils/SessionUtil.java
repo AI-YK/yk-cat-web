@@ -83,7 +83,7 @@ public final class SessionUtil {
 			city.setId(703);
 			city.setLevel(2);
 			city.setNameZh("安庆市");
-			city.setCode("as_100000_340000_340800");
+			city.setCode("340800");
 			city.setPid(701);
 			city.setType(0);
 			city.setBusCode("340800");
@@ -92,13 +92,13 @@ public final class SessionUtil {
 			city2.setId(705);
 			city2.setLevel(2);
 			city2.setNameZh("蚌埠市");
-			city2.setCode("as_100000_340000_340300");
+			city2.setCode("340300");
 			city2.setPid(704);
 			city2.setType(0);
 			city2.setBusCode("340300");
 
 			AreaVo province = new AreaVo();
-			province.setCode("as_100000_340000");
+			province.setCode("340000");
 			province.setNameZh("安徽省");
 			province.setId(701);
 			province.setBusCode("340000");
