@@ -15,6 +15,12 @@
 	request.setAttribute("heatpath", heatpath);
     request.setAttribute("basePath", basePath);
 %>
+<script>
+    var _base = "${_base}";
+    var _user_id = "${user.userId}";
+    var _data_type = "data_type" + _user_id;
+    var _topic_id = "topic_id" + _user_id;
+</script>
 <c:set var="heatpath" value="${pageContext.request.contextPath}/newsbmap"/>
 <script type="text/javascript">var path ="${pageContext.request.contextPath}";</script>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -397,7 +403,7 @@
 			<script src="js/map_heat.js"></script>
            <!--  <script src="js/news_heat_n_l.js"></script>
             <script src="js/news_heat_n.js"></script> -->
-            
+            <script type="text/javascript" src="${_base }/resources/spm_modules/jquery-cookie/1.4.1/jquery.cookie2.js"></script>
 	</body>
 
 </html>

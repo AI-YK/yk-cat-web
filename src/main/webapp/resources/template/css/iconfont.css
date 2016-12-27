@@ -93,6 +93,8 @@
 
 .icon-fuzhilianjie:before { content: "\e620"; }
 
+.icon-shuaxin:before { content: "\e66c"; }
+
 .icon-chenggong:before { content: "\e612"; }
 
 .icon-mail:before { content: "\e62f"; }
@@ -100,6 +102,8 @@
 .icon-yuanjiantou:before { content: "\e65b"; }
 
 .icon-tuandui:before { content: "\e65d"; }
+
+.icon-iconfuzhi:before { content: "\e670"; }
 
 .icon-iconset0196:before { content: "\e65f"; }
 
@@ -143,6 +147,8 @@
 
 .icon-jibiequanxian:before { content: "\e604"; }
 
+.icon-shuaxin1:before { content: "\e66f"; }
+
 .icon-tongzhi:before { content: "\e60a"; }
 
 .icon-shibai2:before { content: "\e62b"; }
@@ -170,6 +176,8 @@
 .icon-jibie:before { content: "\e605"; }
 
 .icon-queren:before { content: "\e60e"; }
+
+.icon-zhuanhuan1:before { content: "\e66d"; }
 
 .icon-shengyin:before { content: "\e636"; }
 
@@ -240,6 +248,10 @@
 .icon-sousuolansousuo:before { content: "\e658"; }
 
 .icon-daohang:before { content: "\e66a"; }
+
+.icon-gengduo:before { content: "\e671"; }
+
+.icon-zhuanhuan2:before { content: "\e66e"; }
 
 .icon-tuichu-copy:before { content: "\e663"; }
 
