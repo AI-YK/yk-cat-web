@@ -98,7 +98,9 @@ define('opt-ajax/1.0.0/index', function (require, exports, module) {
 				    	callbacks["error"] && callbacks["error"].call(_this,transport); 
 				    }
 				});
-				failureDialog.showModal();
+				if(errorDlg){
+				  failureDialog.showModal();
+				}
 			};
 			settings.data=options.data?options.data:{};
 			settings.type=options.type?options.type:"post";
