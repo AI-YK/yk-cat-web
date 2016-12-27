@@ -391,12 +391,13 @@ function trinkFunc(){
 				//$("#echates").show();
 			    //$("#echart_bmap").hide();
 			    guojiaFunc();
-			    
+			    smilNewsData();
 			    //$(".echart_tip").remove();
 			    if(ympd=='0'){//全球热点
 			    	//隐藏国家选择
 //			    	get_event_point_data();
 //			    	smilEventData();
+//			    	smilNewsData();
 			    }else{
 			    	getBMapData();
 			    }
