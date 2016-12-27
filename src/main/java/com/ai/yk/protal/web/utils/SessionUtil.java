@@ -42,6 +42,10 @@ public final class SessionUtil {
 			real = false;
 		}
 	}
+	
+	public static boolean real(){
+		return real;
+	}
 
 	public static void initUrlConfig(HttpServletRequest request) {
 		if (request != null) {
@@ -63,10 +67,10 @@ public final class SessionUtil {
 		}
 	    if (!real&&loginUser == null) { 
 			 loginUser = new SSOClientUser();
-		     loginUser.setUserId("1"); 
+		     loginUser.setUserId("99499"); 
 		     loginUser.setUserName("Houg");
 		     loginUser.setNickName("译见"); 
-		     request.getSession().setAttribute(Constants.USER_SESSION_KEY,loginUser);
+		     session.setAttribute(Constants.USER_SESSION_KEY,loginUser);
 		 }
 		return loginUser;
 	}
