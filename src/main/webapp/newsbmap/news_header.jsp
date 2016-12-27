@@ -144,7 +144,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     background: #fff;
     position: absolute;
     top: 56px;
-    right: 5px;
+    right: -45px;
     border: 1px solid #ddd;
     border-radius: 8px;
     z-index: 1003;
@@ -207,6 +207,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 .rightt{
 	/* padding-right:92px; */
 	float: right;
+	position:relative;
 }
 .menu_list1 li{
 	    margin-left: 14px;
