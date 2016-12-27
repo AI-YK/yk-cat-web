@@ -131,6 +131,12 @@ define('app/jsp/search/public',function(require, exports, module) {
 			        	window.open (url, '_blank' ) ;
 		            });
 					
+					$("#retrieval p").click(function(){
+						$("#retrieval-show").slideToggle(100); 
+					});
+					selectUtil._mediaSelect('retrieval',function(value){
+						alert(value);
+					});
 					//selectUtil.autocompleteDic('mediaIn1','mediaId1');
 					//selectUtil.autocompleteDic('mediaIn2','mediaId2');
 					selectUtil.queryMediaName($('#mediaIn1'),'mediaId1');

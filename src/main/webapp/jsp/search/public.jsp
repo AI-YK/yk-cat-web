@@ -83,12 +83,8 @@
 										class="searchNews select select-small calendar" />
 								</p>
 							</li>
-							<li>
-								<!-- <p>媒体</p>
-								<p>
-									<input id="mediaIn1" type="text" class="searchNews">
-									<input id="mediaId1" type="hidden">
-								</p> -->
+							<li id="retrieval">
+								
 							</li>
 							<li>
 								<!-- <p>排序</p> -->

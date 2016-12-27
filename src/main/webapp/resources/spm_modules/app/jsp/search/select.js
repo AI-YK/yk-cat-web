@@ -357,7 +357,34 @@ define('app/jsp/search/select', function (require, exports, module) {
 		     selectView.hide(1);
 		    });
 			
-        }
+        },
+        //媒体选择框
+        _mediaSelect:function(id,callback){
+			var html = [];
+			html.push('<p id="'+id+'-label">媒体<i class="icon iconfont">&#xe659;</i></p>');
+			html.push('<input id="'+id+'-store" type="hidden" value=""/>');
+			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="display:none;">');
+			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="搜索媒体"  />');
+			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="确定" />');
+			html.push('</div>');
+			$("#"+id).html(html.join(""));
+			$("#"+id+" p").click(function(){
+				$('#'+id+'-show').slideToggle(100); 
+			});
+			this.autocompleteDic(id+'-in',id+'-store');
+			$('#'+id+'-btn').click(function(){
+				$('#'+id+'-show').hide();
+				var name = $('#'+id+'-in').val();
+				if(name==""){
+					$('#'+id+'-label').html('媒体'+'<i class="icon iconfont">&#xe659;</i>');
+					$('#'+id+'-store').val("");
+				}else{
+					$('#'+id+'-label').html(name+'<i class="icon iconfont">&#xe659;</i>');
+				}
+				var value = $('#'+id+'-store').val();
+				callback(value);
+			});
+		}
         
     });
 
