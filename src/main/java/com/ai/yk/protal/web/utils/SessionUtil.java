@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.Constants;
 import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.mycustomized.InterestVo;
@@ -24,51 +25,66 @@ import com.google.gson.Gson;
 public final class SessionUtil {
 	private static final Logger log = LoggerFactory
 			.getLogger(SessionUtil.class);
+	
+	private static final int OUT_TIME = 3600;
+	
+	private static boolean real = false;
 
 	private SessionUtil() {
+		
+	}
+	
+	static{
+		String model = ConfigUtil.getProperty("model");
+		if(StringUtil.isBlank(model)||"0".equals(model)){
+			real = true;
+		}else{
+			real = false;
+		}
 	}
 
 	public static void initUrlConfig(HttpServletRequest request) {
 		if (request != null) {
 			HttpSession session = request.getSession();
+			session.setMaxInactiveInterval(OUT_TIME);
 			if (session.getAttribute(Constants.YEESIGHT_URL_KEY) == null)
-				session.setAttribute(Constants.YEESIGHT_URL_KEY,
-						ConfigUtil.config);
+				session.setAttribute(Constants.YEESIGHT_URL_KEY,ConfigUtil.config);
 		}
 	}
 
 	public static SSOClientUser getLoginUser(HttpServletRequest request) {
-		
-		Object obj = request.getSession().getAttribute(Constants.USER_SESSION_KEY);
-
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(OUT_TIME);
+		Object obj = session.getAttribute(Constants.USER_SESSION_KEY);
 		SSOClientUser loginUser = null;
 		if (obj != null) {
 			String str = JSON.toJSONString(obj);
 			loginUser = JSON.parseObject(str, SSOClientUser.class);
 		}
-
-		 if (loginUser == null) { 
+	    if (!real&&loginUser == null) { 
 			 loginUser = new SSOClientUser();
 		     loginUser.setUserId("1"); 
 		     loginUser.setUserName("Houg");
 		     loginUser.setNickName("译见"); 
 		     request.getSession().setAttribute(Constants.USER_SESSION_KEY,loginUser);
 		 }
-		 
 		return loginUser;
 	}
 
 	public static void setLoginUser(SSOClientUser clientUser) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
-		request.getSession().setAttribute(Constants.USER_SESSION_KEY,
-				clientUser);
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(OUT_TIME);
+		session.setAttribute(Constants.USER_SESSION_KEY,clientUser);
 	}
 
 	public static void setUserConfig(MyCustomizedVo config) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
-		request.getSession().setAttribute(Constants.CONFIG_SESSION_KEY, config);
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(OUT_TIME);
+		session.setAttribute(Constants.CONFIG_SESSION_KEY, config);
 	}
 
 	public static MyCustomizedVo getUserConfig() {
@@ -76,8 +92,7 @@ public final class SessionUtil {
 				.getRequestAttributes()).getRequest();
 		MyCustomizedVo config = (MyCustomizedVo) request.getSession()
 				.getAttribute(Constants.CONFIG_SESSION_KEY);
-		if (config == null || config.equals("")
-				|| (config.getCity() == null && config.getProvince() == null)) {
+		if (!real&&config == null) {
 			config = new MyCustomizedVo();
 			AreaVo city = new AreaVo();
 			city.setId(703);
@@ -135,7 +150,7 @@ public final class SessionUtil {
 		List<MyTopicsVo> topics = (ArrayList<MyTopicsVo>) request.getSession()
 				.getAttribute(Constants.TOPIC_SESSION_KEY);
 
-		if (topics == null) {
+		if (!real&&topics == null) {
 			List<MyTopicsVo> list = new ArrayList<MyTopicsVo>();
 			MyTopicsVo myTopicsVo = new MyTopicsVo();
 			myTopicsVo.setId("5cf4f1c273fb6d24592ea34f42b1fd75");
@@ -193,7 +208,9 @@ public final class SessionUtil {
 	public static void setTopics(List<MyTopicsVo> topics) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
-		request.getSession().setAttribute(Constants.TOPIC_SESSION_KEY, topics);
+		HttpSession session = request.getSession();
+		session.setMaxInactiveInterval(OUT_TIME);
+		session.setAttribute(Constants.TOPIC_SESSION_KEY, topics);
 	}
 
 	public static void print() {
