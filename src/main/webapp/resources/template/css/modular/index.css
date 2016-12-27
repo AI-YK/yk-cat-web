@@ -113,7 +113,7 @@
 .choice-int{width:200px;height:35px;line-height:35px;background:none;border:none;font-size:14px;color:#727894;padding-left:20px;}
 .choice-title ul .word{color:#3382ee}
 .choice-main{width:100%;float:left;border:1px solid #ddd;height:202px;margin-top:5px;}
-.choice-left{width:372px;border-right:1px solid #ddd;height:200px;float:left}
+.choice-left{width:372px;border-right:1px solid #2f3652;height:200px;float:left}
 .choice-left-title{width:100%;float:left;height:41px;border-bottom:1px solid #ddd;}
 .choice-left-title ul{width:100%;float:left;margin:0;}
 .choice-left-title ul li{float:left;line-height:41px;margin-left:8px;}
