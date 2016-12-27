@@ -28,6 +28,7 @@
 .more .more-show ul li p{width:45%;float:left;}
 .more .more-show ul li p a{color:#7c85a8;cursor: pointer; line-height: 29px;}
 .more .more-show ul li p a:hover{color: #fff;}
+.more .more-show ul li p .current{height:29px;background:#3382ee;padding:0 10px;text-align:center;line-height:29px;color:#fff;float:left;border-radius:15px;}
 .more .more-show  span{position:absolute;top:-19px;right:140px;z-index:111;}
 .more .more-show  span i{color:#DDD;font-size:24px}
 .more-show ul::-webkit-scrollbar {width: 14px;  height: 14px;}  
