@@ -47,7 +47,6 @@ define(
 					selectUtil.initDicSelect(['dicId1','dicId2']);
 					
 					_this._loadChartData();
-					_this._getsocialDic();
 
 				},
 				_bindEvent : function() {
@@ -147,7 +146,7 @@ define(
 						param.keyword = keyword;
 					}
 					var nowDate = moment().format('YYYY-MM-DD');
-					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
+					var pre7Date = moment().add(-6,'days').format('YYYY-MM-DD');
 					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					param.beginTime = nowDate + " 23:59:59";
