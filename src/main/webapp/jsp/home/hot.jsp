@@ -36,6 +36,9 @@
 					<ul id="social-media">
 					
 					</ul>
+					<ul id="topic-social-media" style="display: none;">
+					   <li><a href="javascript:void(0);" class="current">全部</a></li>
+					</ul> 
 				</div>
 				<div>
 					<div class="hot-news-main-list socialhot" id="social-div">

@@ -146,8 +146,8 @@ define('app/jsp/home/home', function (require, exports, module) {
                 _this._getHotInfoList("news",mediaId);
    			});
             
-            $(document).on("click","#social-tab ul li a",function(){
-            	$("#social-tab ul li a").each(function () {
+            $(document).on("click","#social-media li a",function(){
+            	$("#social-media li a").each(function () {
                     $(this).removeClass("current");
                 });
                 $(this).addClass("current");
@@ -200,7 +200,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#commDiv").show();
         	    $.cookie(_data_type,'0',{path: '/'});
         	    $("#topic-news-media").hide();
+        	    $("#topic-social-media").hide();
         	    $("#news-media").show();
+        	    $("#social-media").show();
         	    _this._refresh();
         	});
         	$("#data-show ul .ahov3").click(function(){
@@ -209,7 +211,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$(".right-list").show();
         		$.cookie(_data_type,'1',{path: '/' });
         		$("#news-media").hide();
+        		 $("#social-media").hide();
          	    $("#topic-news-media").show();
+       	        $("#topic-social-media").show();
         		_this._refresh();
         	});	
         	
@@ -293,6 +297,8 @@ define('app/jsp/home/home', function (require, exports, module) {
                 $.cookie(_topic_id,topicId, {path: '/'});
                 $("#news-media").hide();
          	    $("#topic-news-media").show();
+         	    $("#social-media").hide();
+        	    $("#topic-social-media").show();
         	}
         	
         	this._initEventData();
