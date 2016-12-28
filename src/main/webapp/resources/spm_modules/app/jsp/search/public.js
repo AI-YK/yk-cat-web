@@ -114,10 +114,10 @@ define('app/jsp/search/public',function(require, exports, module) {
 					//加载情感下拉
 					var qingSelectConfig= [];
 					var defaultId = this.model=='negative'?'-1':'';
-					qingSelectConfig.push({"id":"qingId1",defaultId,"callback":function(){
+					qingSelectConfig.push({"id":"qingId1","defaultId":defaultId,"callback":function(){
 						_this._searchNews();
 					}});
-					qingSelectConfig.push({"id":"qingId2",defaultId,"callback":function(){
+					qingSelectConfig.push({"id":"qingId2","defaultId":defaultId,"callback":function(){
 						_this._searchSocial();
 					}});
 					selectUtil.initFeelSelect(qingSelectConfig);
