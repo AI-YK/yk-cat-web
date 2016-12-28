@@ -244,8 +244,8 @@
 	<%@include file="/inc/indexFoot.jsp"%>
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
-<ul>
-	<li class="title" style="width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
+<ul uuid="{{:uuid}}">
+	<li class="title" style="cursor:pointer;width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
 			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
@@ -270,8 +270,8 @@
         <img src="{{:userAvatar}}" />
      {{/if}}
    </div>
-   <ul>
-	 <li class="title">{{:name}}</li>
+   <ul myid="{{:myId}}">
+	 <li class="title" style="cursor:pointer;">{{:name}}</li>
 	 <li class="list">
 		<p>
 			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>
