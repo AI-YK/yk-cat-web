@@ -223,7 +223,6 @@ public final class SessionUtil {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
 		Enumeration<?> enumeration = request.getSession().getAttributeNames();
-		request.getSession().getAttribute("userId");
 		while (enumeration.hasMoreElements()) {
 			String sessionName = (String) enumeration.nextElement();
 			log.info("sessionName:" + sessionName);

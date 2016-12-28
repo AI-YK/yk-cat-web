@@ -53,7 +53,7 @@
 		<filter-class>com.ai.yk.protal.web.filter.AssembleUserInfoFilter</filter-class>
 		<init-param>
 			<param-name>ignore_suffix</param-name>
-			<param-value>.png,.jpg,.jpeg,.gif,.css,.js,.html,.htm,login,success,common/*</param-value>
+			<param-value>.png,.jpg,.jpeg,.gif,.css,.js,.html,.htm,login,success,common/*,session.jsp</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
