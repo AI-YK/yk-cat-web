@@ -380,12 +380,20 @@ define(
 		        				}
 		        				var top=$("#topTempl").render({"tops":top1});
 		        				$("#news-type-mainId").html(top);
+		        				var v2=$.cookie(_topic_id);
 		        				$("#news-type-mainId ul li a").each(function(){
 		        					var v1=$(this).next().val();
-		        					var v2=$.cookie(_topic_id);
-			        				if($(this).next().val()==$.cookie(_topic_id) && v2!=undefined){
-			        					$(this).addClass("current");
-			        				}
+		        					var opType=$(this).next().next().next().val();
+		        					var srcId=$(this).next().next().val();
+		        					if(opType==1){
+		        						if(srcId==v2 && v2!=undefined){
+		        							$(this).addClass("current");
+		        						}
+		        					}else{
+		        						if(v1==v2 && v2!=undefined){
+		        							$(this).addClass("current");
+		        						}
+		        					}
 			        			});
 		        			}else if(dataType==undefined||dataType=='0'){
 		        				var dic=$("#typeTempl").render({"Dic":data});
