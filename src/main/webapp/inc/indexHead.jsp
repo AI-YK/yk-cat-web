@@ -27,7 +27,7 @@
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
 							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
-							<a href="${yeesightUrls.dataUrl}" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
+							<a href="${yeesightUrls.dataUrl}" target="_bank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
 							<a href="javascript:void(0);" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
 						</ul>
 					</div>
