@@ -483,7 +483,8 @@ define('app/jsp/search/select', function (require, exports, module) {
 			});
 			$('#'+id).click(function(event){
 				event.stopImmediatePropagation();//取消事件冒泡；
-				$('#'+id+'-show').slideToggle(100); 
+				$('.select-dropdown-show').hide();
+				$('#'+id+'-show').show(); 
 				
 			});
 		}
