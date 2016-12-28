@@ -225,12 +225,13 @@ define(
 						if($("#dicId1_input").val()!=""){
 							param.mediaLevel= $("#dicId1_input").val();
 						}
-						var timeStr = $("#timeId1").val();
-						if(timeStr!=""){
-							timeStr = timeStr.replace(/\./g,"-");
-							param.beginTime= timeStr + " 00:00:00";
-							param.endTime= timeStr + " 23:59:59";
+						var begintime=$("#timeId1_begin_input").val();
+						var endtime=$("#timeId1_end_input").val();
+						if(begintime&&endtime){
+							param.beginTime=begintime;
+							param.endTime= endtime;
 						}
+						
 						if($("#retrieval1-store").val()!=""){
 							param.mediaList=$("#retrieval1-store").val();
 						}
@@ -245,11 +246,11 @@ define(
 						if($("#dicId2_input").val()!=""){
 							param.mediaLevel= $("#dicId2_input").val();
 						}
-						var timeStr = $("#timeId2").val();
-						if(timeStr!=""){
-							timeStr = timeStr.replace(/\./g,"-");
-							param.beginTime= timeStr + " 00:00:00";
-							param.endTime= timeStr + " 23:59:59";
+						var begintime=$("#timeId1_begin_input").val();
+						var endtime=$("#timeId1_end_input").val();
+						if(begintime&&endtime){
+							param.beginTime=begintime;
+							param.endTime= endtime;
 						}
 						if($("#fileId2_input").val()!=""){
 							param.fieldName= $("#fileId2_input").val();
