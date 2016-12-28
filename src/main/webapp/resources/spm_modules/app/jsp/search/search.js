@@ -72,7 +72,8 @@ define(
 					sortSelectConfig.push({"id":"fileId2","callback":function(){
 							_this._searchSocial();
 						 }});
-					selectUtil.initSortSelect(sortSelectConfig);
+					selectUtil.initSortSelect(sortSelectConfig[0],"news");
+					selectUtil.initSortSelect(sortSelectConfig[1],"social");
 					//加载译文下拉
 					selectUtil.initTranSelect({"id":"tran","callback":function(){
 						//_this._searchNews();

@@ -237,14 +237,21 @@ define('app/jsp/search/select', function (require, exports, module) {
 			}
         },
         /*排序下拉*/
-        initSortSelect:function(selectConfig){
+        initSortSelect:function(selectConfig,type){
         	var _this = this;
         	var data = [];
         	data.push({"id":'',"text":"排序不限"});
-			data.push({"id":"relevance","text":"相关度"});
-        	data.push({"id":"time","text":"时间"});
-        	data.push({"id":"force","text":"权重"});
-        	data.push({"id":"transCount","text":"转载量"});
+        	if("news"==type){
+        		data.push({"id":"_score","text":"相关度"});
+            	data.push({"id":"pubdate","text":"时间"});
+            	data.push({"id":"mediaLevel","text":"权重"});
+            	data.push({"id":"transfer","text":"转载量"});
+        	}else if("social"==type){
+        		data.push({"id":"relevance","text":"相关度"});
+            	data.push({"id":"time","text":"时间"});
+            	data.push({"id":"force","text":"影响力"});
+            	data.push({"id":"transCount","text":"传播量"});
+        	}
         	var selectConfigData = []; 
 			if($.isArray(selectConfig)){//数组模式
 				selectConfigData =selectConfig; 
@@ -285,9 +292,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         	var _this = this;
         	var data = [];
         	data.push({"id":'',"text":"情感不限"});
-        	data.push({"id":"face","text":"正面"});
-        	data.push({"id":"neutral","text":"中性"});
-        	data.push({"id":"negative","text":"负面"});
+        	data.push({"id":"1","text":"正面"});
+        	data.push({"id":"-1","text":"负面"});
         	var selectConfigData = []; 
         	if($.isArray(selectConfig)){//数组模式
         		selectConfigData =selectConfig; 

@@ -110,7 +110,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 					sortSelectConfig.push({"id":"fileId2","callback":function(){
 							_this._searchSocial();
 						 }});
-					selectUtil.initSortSelect(sortSelectConfig);
+					selectUtil.initSortSelect(sortSelectConfig[0],"news");
+					selectUtil.initSortSelect(sortSelectConfig[1],"social");
 					//加载情感下拉
 					var qingSelectConfig= [];
 					qingSelectConfig.push({"id":"qingId1","callback":function(){
