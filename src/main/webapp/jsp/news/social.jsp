@@ -88,63 +88,49 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
+							<li>
+								<!-- <p>省份</p> -->
+								<p style="display: none;">
+									<select id="orgnizationId1" class="searchNews" style="width: 80px;">
+									</select>
+								</p>
+							</li>
+								<!-- 语言 -->
+							<li id="languageId1">
+									
+							</li>
+							<!-- 影响力 -->
+							<li id="dicId1">
+									
+							</li>
 							<!-- <li>
-								<p>省份</p>
-								<p>
-									<select id="orgnizationId1" class="searchNews" style="width: 90px">
-									</select>
-								</p>
-							</li> -->
-							<li>
-								<!-- <p>语言</p> -->
-								<p>
-									<select id="languageId1" class="select select-mini searchNews" style="width: 100px">
-										
-									</select>
-								</p>
-							</li>
-							<li>
-								<!-- <p>影响力</p> -->
-								<p>
-									<select id="dicId1" class="select select-mini searchNews" style="width: 100px">
-										
-									</select>
-								</p>
-							</li>
-							<li>
-								<!-- <p>时间</p> -->
 								<p>
 									<input id="timeId1" placeholder="时间" type="text" readonly="readonly" class="select select-small calendar searchNews"/>
 								</p>
-							</li>
-							<!-- <li>
-								<p>媒体</p>
-								<p>
-									<input id="mediaIn1" type="text" class="int-text select-small searchNews">
-									<input id="mediaId1" type="hidden">
-								</p>
 							</li> -->
-							<li>
-								<!-- <p>排序</p> -->
-								<p>
-									<select id="fileId1" class="select select-mini searchNews">
-										<option value="">排序</option>
-										<option value="score">相关度</option>
-										<option value="pubdate">时间</option>
-										<option value="mediaLevel">权重</option>
-										<option value="transfer">转载量</option>
-									</select>
-								</p>
+							<li id="timeId1">
+								
 							</li>
-							<li>
+							<!-- 排序 -->
+                           <li id="fileId1">
+								
+							</li>
+							<li id="tran">
 								<!-- <p>译文</p> -->
-								<p>
-									<select class="select select-small searchNews">
-									   <option value="">译文</option>
+								<!-- <p>
+									<select class="select select-mini searchNews" style="width: 70px">
+									    <option value="">译文</option>
 										<option>仅显示译文</option>
 										<option>仅显示原文</option>
 										<option>显示译文和原文</option>
 									</select>
+								</p> -->
+							</li>
+							<li>
+							<!-- 	<p>媒体</p> -->
+								<p style="display: none;">
+									<input id="mediaIn1" type="text" class="searchNews" style="width: 80px">
+									<input id="mediaId1" type="hidden">
 								</p>
 							</li>
 							<!-- <li>
@@ -175,55 +161,51 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<!-- <li>
-								<p>地区</p>
-								<p>
-									<select id="orgnizationId2" style="width: 82px">
-									</select>
-								</p>
-							</li> -->
 							<li>
-								<!-- <p>影响力</p> -->
-								<p>
-									<select id="dicId2" class="select select-mini">
-										<option>全部</option>
+							<!-- <!-- 	<p>省份</p> --> 
+								<p style="display: none;">
+									<select id="orgnizationId2" class="searchSocial" style="width: 90px">
 									</select>
 								</p>
 							</li>
-							<li>
-								<!-- <p>排序</p> -->
-								<p>
-									<select class="select select-mini">
-										<option value="">排序</option>
-										<option value="score">相关度</option>
-										<option value="pubdate">时间</option>
-										<option value="mediaLevel">权重</option>
-										<option value="transfer">转载量</option>
-									</select>
-								</p>
+							<li id="dicId2">
+								
 							</li>
-							<li>
-								<!-- <p>时间</p> -->
-								<p>
-									<input id="timeId2" placeholder="时间" readonly type="text" class="select select-small calendar">
-								</p>
+							<li id="fileId2">
+								
 							</li>
-							<!-- <li>
-								<p>媒体</p>
-								<p>
-									<input  type="text" class="int-text select-mini">
-								</p>
-							</li> -->
-							<li>
-								<!-- <p>情感</p> -->
-								<p>
-									<select class="select select-mini">
-										<option>情感</option>
+							<li id="timeId2">
+								
+							</li>
+							<li id="qingId2">
+							<!-- <p>
+									<select id="qingId2" class="select select-mini searchSocial">
+										<option value="">情感</option>
 										<option value="1">正面</option>
 										<option value="0">中性</option>
 										<option value="-1">负面</option>
 									</select>
-								</p>
+								</p> --> 
+							</li>
+						</ul>
+						<ul>
+							<li>
+									<!-- <p>媒体</p> -->
+									<p style="display: none;">
+										<input id="mediaIn2" type="text" class="searchSocial">
+									    <input id="mediaId2" type="hidden">
+									</p>
+							</li>
+							<li>
+								<!-- <p>情感</p> -->
+								<!-- <p>
+									<select id="qingId2" class="select select-mini searchSocial">
+										<option value="">情感</option>
+										<option value="1">正面</option>
+										<option value="0">中性</option>
+										<option value="-1">负面</option>
+									</select>
+								</p> -->
 							</li>
 							
 						</ul>
