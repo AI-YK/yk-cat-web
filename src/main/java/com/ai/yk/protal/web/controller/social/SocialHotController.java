@@ -15,6 +15,7 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.Constants;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.content.socialdetail.SocialDetailMessage;
 import com.ai.yk.protal.web.content.socialdetail.SocialDetailResponse;
@@ -70,6 +71,7 @@ public class SocialHotController extends BaseController {
 	@RequestMapping("/toHotView")
 	public String toHotView(Model model){
 		List<MyTopicsVo> topics = SessionUtil.getTopics();
+		MyCustomizedVo config = SessionUtil.getUserConfig();
 		if(topics==null||topics.size()==0){
     		model.addAttribute("hasTopic", false);
     	}else{
@@ -77,6 +79,12 @@ public class SocialHotController extends BaseController {
     		model.addAttribute("topics", topics);
     		model.addAttribute("topicss", JSON.toJSONString(topics));
     	}
+		if(config!=null){
+			model.addAttribute("hasIntere", true);
+			model.addAttribute("interestList", config.getInterestList());
+		}else{
+			model.addAttribute("hasIntere", false);
+		}
 		return "/news/social";
 	}
 }

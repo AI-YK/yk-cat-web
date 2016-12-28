@@ -58,16 +58,7 @@
                            <li id="fileId1">
 								
 							</li>
-							<li id="tran">
-								<!-- <p>译文</p> -->
-								<!-- <p>
-									<select class="select select-mini searchNews" style="width: 70px">
-									    <option value="">译文</option>
-										<option>仅显示译文</option>
-										<option>仅显示原文</option>
-										<option>显示译文和原文</option>
-									</select>
-								</p> -->
+							<li id="tran" style="display: none;">
 							</li>							
 							
 					
@@ -195,7 +186,7 @@
             {{/if}}
 		</p>
 	</li>
-	<li class="news" style="cursor:pointer;-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">
+	<li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">
         {{:abstractZh}}
 	</li>
 </ul>
@@ -221,7 +212,7 @@
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>
 	  </li>
-	  <li class="news" style="cursor:pointer;-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:text}}</li>
+	  <li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:text}}</li>
 	</ul>
 </div>
 </script>

@@ -40,7 +40,8 @@ public class NegativeController {
 			@RequestParam(value="mediaId",defaultValue="") String mediaId,
 			@RequestParam(value="mediaLevel",defaultValue="") String mediaLevel,
 			@RequestParam(value="fieldName",defaultValue="") String fieldName,
-			@RequestParam(value="order",defaultValue="") String order
+			@RequestParam(value="order",defaultValue="") String order,
+			@RequestParam(value="idList",defaultValue="") String idList
 			){
 		SearchPublicSafetyMessage searchPublicSafetyMessage=new SearchPublicSafetyMessage();
 		searchPublicSafetyMessage.setCityCode(cityCode);
@@ -52,6 +53,7 @@ public class NegativeController {
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
 		searchPublicSafetyMessage.setCategoryId(categoryId);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
+		searchPublicSafetyMessage.setIdList(idList);
 		YJResponse<SearchPublicSafetyResponse> yjr=searchService.getSearchPublicSafety(searchPublicSafetyMessage);
 		if(yjr==null){
 			return new ResponseData<SearchPublicSafetyResponse>(ResponseData.AJAX_STATUS_FAILURE,"查询负面舆情失败！", null);

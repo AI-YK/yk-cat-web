@@ -59,7 +59,8 @@ public class NewsHotAndSocialHotController {
 				**/
 			    @RequestParam(value="order",defaultValue="") String order,
 			    @RequestParam(value="pageNo",defaultValue="") String pageNo,
-			    @RequestParam(value="pageSize",defaultValue="") String pageSize
+			    @RequestParam(value="pageSize",defaultValue="") String pageSize,
+			    @RequestParam(value="idList",defaultValue="") String idList
 			){
 		SearchPublicSafetyMessage searchPublicSafetyMessage = new SearchPublicSafetyMessage();
 		searchPublicSafetyMessage.setIsTopic(isTopic);
@@ -75,6 +76,7 @@ public class NewsHotAndSocialHotController {
 		searchPublicSafetyMessage.setOrder(order);
 		searchPublicSafetyMessage.setPageNo(pageNo);
 		searchPublicSafetyMessage.setPageSize(pageSize);
+		searchPublicSafetyMessage.setIdList(idList);
 		YJResponse<SearchPublicSafetyResponse> res = searchService.getSearchPublicSafety(searchPublicSafetyMessage);
 		SearchPublicSafetyResponse searchPublicSafetyResponse = new SearchPublicSafetyResponse();
 		if(res==null){

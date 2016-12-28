@@ -89,17 +89,31 @@ define(
 					});
 					
 					_this._loadChartData();
-					_this._getsocialDic();
+					/*_this._getsocialDic();*/
 					$(document).on("click","#gengduo",function(){
 				    		$('#more-show').toggle();
 					});
 					$(document).on("click",".topic",function(){
 						$('#more-show').hide();
 					});
+					/*$(document).on("mouseout",".moveul",function(){
+						$('#more-show').hide();
+					});*/
 
 				},
 				_bindEvent : function() {
 					var _this = this;
+					//数据 
+		            $('.mainbav  #shuj').mouseenter(function () {
+		        		$('#data-show').show(1);
+		        		$('#user-show').hide(1);
+		            })
+		        	$("#data-show").click(function () {
+		                        $(this).hide(1);
+		            });	
+		        	$('.mainbav').mouseleave(function () {
+		                $('#data-show').hide(1);
+		            });	
 					$(".level-left-table ul li a").click(function() {
 						$(".level-left-table ul li a").each(function() {
 							$(this).removeClass("current");
@@ -116,6 +130,14 @@ define(
 							$('#le-tba1').hide();
 							$('#ditu').hide();
 						}
+					});
+					$("#data-show ul .ahov3").click(function(){
+						$("#topcId").show();
+						$("#interId").hide();
+					});
+					$("#data-show ul .ahov1").click(function(){
+						$("#interId").show();
+						$("#topcId").hide();
 					});
 					
 					//日期控件
@@ -270,6 +292,9 @@ define(
 								param.isTopic="0";
 								param.categoryId = categoryId;
 							}else{
+								if(current.next().next().next().val()==1){
+									categoryId=current.next().next().val();
+								}
 								param.isTopic="1";
 								param.id=categoryId;
 							}

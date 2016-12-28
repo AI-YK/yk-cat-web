@@ -45,7 +45,7 @@ public class PublicOpinionTrendController {
 				/**
 				 * 城市列表（多个用逗号隔开）
 				 */
-			  @RequestParam(value="busCode",defaultValue="") String busCode,
+			  @RequestParam(value="idList",defaultValue="") String idList,
 			  	/**
 				 * 模型名称
 				 * 媒体覆盖出 mediaCoverage 
@@ -78,7 +78,7 @@ public class PublicOpinionTrendController {
 		}
 		
 		PublicAffairsMessage message =new PublicAffairsMessage();
-		message.setBusCode(busCode);
+		message.setIdList(idList);
 		message.setModelNo(modelNo);
 		message.setCategoryId(categoryId);
 		message.setBeginTime(beginTime);

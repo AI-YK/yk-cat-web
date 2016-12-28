@@ -26,7 +26,7 @@ var cityCode;
  * 提示渐隐时间
  * @type {number}
  */
-var TIP_SETTIMEOUT_TIME = 10000;
+var TIP_SETTIMEOUT_TIME = 5000;
 
 /**
  * 每次显示的数量，新闻的数量
@@ -1436,9 +1436,9 @@ function stopNewsShown(){
  * 初始化资讯及新闻轮循
  */
 function startNewsShown(){
-	if(timeId==null){
-		timeId = setInterval(showNews,TIP_SETTIMEOUT_TIME);
-	}
+		if(timeId==null){
+			timeId = setInterval(showNews,TIP_SETTIMEOUT_TIME);
+		}
 }
 /***
  * 格式化时间

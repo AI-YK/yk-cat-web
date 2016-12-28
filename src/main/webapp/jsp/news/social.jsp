@@ -25,7 +25,7 @@
 .more .more-show{width:300px;height:216px;background:#23283b;position:absolute;display:none; top:32px;right:-120px;border:1px solid #7c85a8;border-radius:8px;z-index:99;}
 .more .more-show ul{width:100%;float:left;height:216px;overflow-y:auto;padding:10px 20px;}
 .more .more-show ul li{width:100%;float:left;line-height:40px;}
-.more .more-show ul li p{width:45%;float:left;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.more .more-show ul li p{width:45%;float:left;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;margin: 2px 0px;}
 .more .more-show ul li p a{color:#7c85a8;cursor: pointer; line-height: 29px;}
 .more .more-show ul li p a:hover{color: #fff;}
 .more .more-show ul li p .current{height:29px;background:#3382ee;padding:0 10px;text-align:center;line-height:29px;color:#fff;float:left;border-radius:15px;}
@@ -43,7 +43,7 @@
 	<!--面包屑导航-->
 	<c:set var="noSearch" value="true"/>
 	<c:set var="current" value="2"/>
-	<%@ include file="/inc/topHead.jsp"%>
+	<%@ include file="/inc/indexHead.jsp"%>
 
 <form id="loginJumpFormId" method="post" style="visibility: hidden;">
       <input type="hidden" name="url" id="loginSuccessUrl">
@@ -63,15 +63,36 @@
 	<!---->
 	<div class="news-type-big">
 		<div id="news-type-mainId" class="news-type-main">
-			<%-- <ul>
-				<li><a href="#" class="current">全部</a></li>
-				<li><a href="#">政治治理</a></li>
-				<li><a href="#">官员腐败</a></li>
-				<li><a href="#">公共安全</a></li>
-				<li><a href="#">司法公正</a></li>
-				<li><a href="#">伦理道德</a></li>
-				<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
-			</ul> --%>
+				<ul id="topcId">
+					<c:forEach items="${topics }" var="topic" varStatus="t">
+						<c:if test="${t.index<7}">
+						<li><a href="#">${topic.srcShortTitle }</a><input type="hidden" value="${topic.id }"/><input type="hidden" value="${topic.srcId }"/><input type="hidden" value="${topic.opType }"/></li>
+						</c:if>
+					</c:forEach>
+					<div class="moveul" >
+					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();" id="gengduo">更多<i class="icon iconfont">&#xe659;</i></a>
+						<div class="more-show" id="more-show">
+							<span><img src="${uedroot}/images/xf-sj.png"></span>
+							<ul>
+							    <li>
+								    <c:forEach items="${topics}" var="topic" varStatus="t">
+						               <c:if test="${t.index>=7}">
+										    <p><a id="${topic.id}" class="topic" onclick="morehide();">${topic.srcShortTitle}</a><input type="hidden" value="${topic.id}"/></p>
+						               </c:if>
+						            </c:forEach>
+					            </li>
+							</ul>
+						</div>
+					</div>
+					</div>
+				</ul>
+				<ul id="interId" style="display: none;">
+				<li><a href="#" class="current">全部</a><input type="hidden" value="0"/></li>
+				<c:forEach items="${interestList }" var="interest">
+					<li><a href="#">${interest.zhInterest }</a><input type="hidden" value="${interest.businessId }"/></li>
+				</c:forEach>
+				<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+				</ul>
 		</div>
 	</div>
 	<!--二级框架-->
