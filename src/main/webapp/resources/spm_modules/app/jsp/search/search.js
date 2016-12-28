@@ -209,8 +209,8 @@ define(
 						param.keyword = keyword;
 					}
 					if ('news' == mediaType) {
-						if($("#orgnizationId1").val()!="-1" && $("#orgnizationId1").val()!=null){
-							param.provincecityCode= $("#orgnizationId1").val();
+						if($("#orgnizationId1_input").val()!=null){
+							param.provincecityCode= $("#orgnizationId1_input").val();
 						}
 						if($("#languageId1_input").val()!=""){
 							param.languageCode= $("#languageId1_input").val();
@@ -232,8 +232,8 @@ define(
 							param.order = "desc";
 						}
 					}else if ('social' == mediaType) {
-						if($("#orgnizationId2").val()!="-1" && $("#orgnizationId2").val()!=null){
-							param.provincecityCode= $("#orgnizationId2").val();
+						if($("#orgnizationId2_input").val()!=null){
+							param.provincecityCode= $("#orgnizationId2_input").val();
 						}
 						if($("#dicId2_input").val()!=""){
 							param.dicValue= $("#dicId2_input").val();
