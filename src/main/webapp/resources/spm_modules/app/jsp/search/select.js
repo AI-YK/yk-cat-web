@@ -448,14 +448,11 @@ define('app/jsp/search/select', function (require, exports, module) {
 			var html = [];
 			html.push('<p id="'+id+'-label">媒体<i class="icon iconfont">&#xe659;</i></p>');
 			html.push('<input id="'+id+'-store" type="hidden" value=""/>');
-			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="display:none;">');
+			html.push('<div class="select-dropdown-show2" id="'+id+'-show"  style="display:none;">');
 			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="搜索媒体"  />');
 			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="确定" />');
 			html.push('</div>');
 			$("#"+id).html(html.join(""));
-			$("#"+id+" p").click(function(){
-				$('#'+id+'-show').slideToggle(100); 
-			});
 			this.autocompleteDic(id+'-in',id+'-store');
 			$('#'+id+'-btn').click(function(){
 				$('#'+id+'-show').hide();
@@ -468,6 +465,10 @@ define('app/jsp/search/select', function (require, exports, module) {
 				}
 				var value = $('#'+id+'-store').val();
 				callback(value);
+			});
+			$('#'+id+'-label').click(function(event){
+				$('#'+id+'-show').slideToggle(100); 
+				
 			});
 		}
         

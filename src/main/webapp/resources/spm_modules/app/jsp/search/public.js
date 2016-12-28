@@ -120,31 +120,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 						}
 					});
 					
-					//日期控件
-					$(document).on("click",".calendar",function(){
-						var timeId = $(this).attr('id');
-						WdatePicker({
-							el:timeId,
-							readOnly:true,
-							dateFmt:'yyyy.MM.dd',
-							onpicked:function(p){
-								if(timeId=="timeId1"){
-									_this._searchNews();
-								}else if(timeId=="timeId2"){
-									_this._searchSocial();
-								}
-								return true;
-							},
-							oncleared:function(p){
-								if(timeId=="timeId1"){
-									_this._searchNews();
-								}else if(timeId=="timeId2"){
-									_this._searchSocial();
-								}
-							}
-						});
-					});
-					
 					$("#searchBtn1").click(function(){
 						_this._search("news");
 					});
@@ -197,7 +172,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 		        	}
 		        	
 					var nowDate = moment().format('YYYY-MM-DD');
-					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
+					var pre7Date = moment().add(-6,'days').format('YYYY-MM-DD');
 					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					param.endTime = nowDate + " 23:59:59";

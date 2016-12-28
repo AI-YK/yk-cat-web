@@ -57,6 +57,11 @@
     cursor: pointer;
 }
 
+.select-dropdown-show2{width:120px;height:auto;background:#fff;position:absolute;left:-38px;top:32px;z-index:999;
+-moz-box-shadow:1px 1px 4px #a9a9a9;
+-webkit-box-shadow:1px 1px 4px #a9a9a9;
+box-shadow:1px 1px 4px #a9a9a9;}
+
 input[type="checkbox"] {
   -webkit-appearance: none;
   background: url(../../images/unchecked.png) no-repeat;
