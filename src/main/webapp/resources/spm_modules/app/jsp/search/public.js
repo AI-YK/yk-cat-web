@@ -114,10 +114,11 @@ define('app/jsp/search/public',function(require, exports, module) {
 					selectUtil.initSortSelect(sortSelectConfig[1],"social");
 					//加载情感下拉
 					var qingSelectConfig= [];
-					qingSelectConfig.push({"id":"qingId1","callback":function(){
+					var defaultId = this.model=='negative'?'-1':'';
+					qingSelectConfig.push({"id":"qingId1",defaultId,"callback":function(){
 						_this._searchNews();
 					}});
-					qingSelectConfig.push({"id":"qingId2","callback":function(){
+					qingSelectConfig.push({"id":"qingId2",defaultId,"callback":function(){
 						_this._searchSocial();
 					}});
 					selectUtil.initFeelSelect(qingSelectConfig);
