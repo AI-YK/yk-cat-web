@@ -39,10 +39,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
             		timeKey = timeKey.slice(timeKey.length-5,timeKey.length);
             	}
             	edata2.time=timeKey;
-            	if(edata2.time.length < 1){
-            		return;
+            	var first =[];
+            	if(edata2.time.length > 0){
+            		first = data[edata2.time[0]];
             	}
-            	var first = data[edata2.time[0]];
             	for (var i = 0;i<first.length;i++)
                 {   if(edata2.media.length>5){
                 	   break;
