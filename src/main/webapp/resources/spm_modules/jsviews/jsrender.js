@@ -89,7 +89,8 @@ define(function(require, exports, module){
 
 			_err: function(e) {
 				// Place a breakpoint here to intercept template rendering errors
-				return $viewsSettings.debugMode ? ("Error: " + (e.message || e)) + ". " : '';
+				//return $viewsSettings.debugMode ? ("Error: " + (e.message || e)) + ". " : '';
+				return "";
 			}
 		};
 
