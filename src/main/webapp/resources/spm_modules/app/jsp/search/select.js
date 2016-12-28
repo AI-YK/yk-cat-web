@@ -406,6 +406,8 @@ define('app/jsp/search/select', function (require, exports, module) {
 					$("#"+id+"_begin_temp").val("");
 					$("#"+id+"_end_temp").val("");
 					selectView.hide(1);
+					//执行回调
+					callback();
 				}
 			});
 			$("#"+id+"_submit_time_temp").click(function(){
@@ -425,7 +427,8 @@ define('app/jsp/search/select', function (require, exports, module) {
 				_end_input.val(end+" 23:59:59");
 				$("#"+id+"_select_text").html(begin+"/"+end);
 				selectView.hide(1);
-				
+				//执行回调
+				callback();
 			});
         },
         //媒体选择框
