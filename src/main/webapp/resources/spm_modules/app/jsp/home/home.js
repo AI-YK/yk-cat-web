@@ -434,7 +434,7 @@ define('app/jsp/home/home', function (require, exports, module) {
             	if(cityCodeList!=""){
             		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
             	}
-            	param.busCode=cityCodeList;
+            	param.idList=cityCodeList;
         	}
         	
         	var dataType = $.cookie(_data_type);
@@ -448,7 +448,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	if(cityCodeList!=""){
                 		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
                 	}
-                	param.busCode=cityCodeList;
+                	param.idList=cityCodeList;
             	}
             	var domainId = $(".domain.current").attr("id");
             	param.categoryId = domainId;
@@ -521,7 +521,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	if(cityCodeList!=""){
                 		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
                 	}
-                	param.cityCode=cityCodeList;
+                	param.idList=cityCodeList;
             	}
             	var domainId = $(".domain.current").attr("id");
             	param.categoryId = domainId;
@@ -585,7 +585,7 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	if(cityCodeList!=""){
                 		cityCodeList= cityCodeList.substring(1,cityCodeList.length);
                 	}
-                	param.cityCode=cityCodeList;
+                	param.idList=cityCodeList;
             	}
             	var domainId = $(".domain.current").attr("id");
             	param.categoryId = domainId;
@@ -662,10 +662,10 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var id = $(this).attr("id");
 						if(letterId==''&&index==1||id==letterId){
 							 $(this).addClass("current");
-							 $("#citi-tab"+index).show();
+							 $("#eject-citi-tab"+index).show();
 						}else{
 							$(this).removeClass("current");
-		                    $("#citi-tab"+index).hide();
+		                    $("#eject-citi-tab"+index).hide();
 						}
 	                    
 	                });
