@@ -49,9 +49,9 @@ define(
 					 dicSelectConfig.push({"id":"dicId1","callback":function(){
 						_this._searchNews();
 					 }});
-					 dicSelectConfig.push({"id":"dicId2","callback":function(){
+					 /*dicSelectConfig.push({"id":"dicId2","callback":function(){
 							_this._searchSocial();
-						 }});
+						 }});*/
 					selectUtil.initDicSelect(dicSelectConfig);
 					//加载排序下拉
 					var sortSelectConfig = [];
@@ -191,13 +191,13 @@ define(
 						$("#commDiv").show();
 						$("#topicDiv").hide();
 						_this._dataType = 0;
-						_this.load();
+						_this._load();
 					});
 					$("#data-show ul .ahov3").click(function(){
 						$("#topicDiv").show();
 						$("#commDiv").hide();
 						_this._dataType = 1;
-						_this.load();
+						_this._load();
 					});
 					
 					 //选择领域
@@ -334,9 +334,9 @@ define(
 						}
 					}else if ('social' == mediaType) {
 						
-						if($("#dicId2_input").val()!=""){
+						/*if($("#dicId2_input").val()!=""){
 							param.mediaLevel= $("#dicId2_input").val();
-						}
+						}*/
 						var begintime=$("#timeId1_begin_input").val();
 						var endtime=$("#timeId1_end_input").val();
 						if(begintime!="" && endtime!=""){
