@@ -68,7 +68,9 @@ public class MapController extends BaseController{
 					.queryDicByTypeAndLanguageForNews(req);
 			List<DicVo> list = new ArrayList<DicVo>();
 			List<DicVo> listVo = new ArrayList<DicVo>();
-			list = res.getData().getResults();
+			if(res.getData()!=null){
+				list = res.getData().getResults();
+			}
 			DicVo vo = new DicVo();
 			
 			MyCustomizedVo config = SessionUtil.getUserConfig();
