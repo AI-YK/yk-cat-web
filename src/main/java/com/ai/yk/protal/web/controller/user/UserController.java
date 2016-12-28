@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.login.LoginVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsMessage;
@@ -18,7 +20,11 @@ import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
 import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.ai.yk.protal.web.utils.ConfigUtil;
+import com.ai.yk.protal.web.utils.HttpClientUtil;
 import com.ai.yk.protal.web.utils.SessionUtil;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("/user")
@@ -89,6 +95,20 @@ public class UserController {
 	public String logOut(Model model){
 		SessionUtil.clearSession();
 		return "redirect:/home/index";
+	}
+	
+	@RequestMapping("/log")
+	@ResponseBody
+	public String log(LoginVo vo,HttpServletRequest request){
+		Gson gson = new Gson();
+		YJRequest<LoginVo> req = new YJRequest<LoginVo>();
+		req.setMessage(vo);;
+		String body = "req:"+gson.toJson(req);
+		String result = HttpClientUtil.getYJBaseResponse(ConfigUtil.getProperty("loginRestUrl"), req);
+		body =  body +"\n" + "resp:"+result;
+		JSONObject obj = JSON.parseObject(result);
+		request.getSession().setAttribute("user", obj.get("data").toString());
+		return body;
 	}
    
 }
