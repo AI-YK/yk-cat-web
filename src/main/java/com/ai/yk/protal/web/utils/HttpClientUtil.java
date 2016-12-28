@@ -56,7 +56,7 @@ public final class HttpClientUtil {
      */
     public static String sendPostRequest(String url, String data)
 			throws Exception {
-		CloseableHttpClient httpclient = null;
+    	CloseableHttpClient httpclient = null;
 		if(url.startsWith("https")){
 			//https 请求
 			httpclient = HttpClients.custom().setSSLSocketFactory(createSSLConnSocketFactory()).build();
@@ -96,8 +96,13 @@ public final class HttpClientUtil {
 				while ((tempStr = reader.readLine()) != null) {
 					buffer.append(tempStr);
 				}
-
-				return buffer.toString();
+				String result = buffer.toString();
+				LOGGER.info("--------------------------------------------");
+				LOGGER.info("请求url："+url);
+		    	LOGGER.info("请求参数："+data);
+		    	LOGGER.info("请求返回："+result);
+		    	LOGGER.info("--------------------------------------------");
+		    	return result;
 
 			} else if (null != response
 					&& response.getStatusLine().getStatusCode() != 200) {
