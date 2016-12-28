@@ -49,12 +49,11 @@ public class UserController {
 		if(StringUtil.isBlank(redirect)){
     		redirect = "/home/index";
     	}
+		SessionUtil.print();
     	SSOClientUser clientUser = SessionUtil.getLoginUser(request);
     	if(clientUser==null){
     		return "redirect:/user/login";
     	}
-    	SessionUtil.print();
-    	
     	/**专题数据**/
     	MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
     	myTopicsMessage.setPageNo(1);
