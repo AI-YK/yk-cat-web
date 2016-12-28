@@ -172,8 +172,10 @@ define('app/jsp/search/select', function (require, exports, module) {
         	}).result(function(event, item) {
         		if(item){
         			$('#'+store).val(item.mediaId);
+        			$('#'+store).attr("title",item.mediaNameZh);
         		}else{
         			$('#'+store).val("");
+        			$('#'+store).attr("title","");
         		}
         	});
         	
@@ -489,7 +491,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	});
 			var html = [];
 			html.push('<p id="'+id+'-label">媒体<i class="icon iconfont">&#xe659;</i></p>');
-			html.push('<input id="'+id+'-store" type="hidden" value=""/>');
+			html.push('<input id="'+id+'-store" title="" type="hidden" value=""/>');
 			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="width:240px;padding: 20px;display:none;">');
 			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="搜索媒体"  />');
 			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="确定" />');
@@ -499,14 +501,17 @@ define('app/jsp/search/select', function (require, exports, module) {
 			$('#'+id+'-btn').click(function(event){
 				event.stopImmediatePropagation();
 				$('#'+id+'-show').hide();
+				var value = $('#'+id+'-store').val();
+				var title = $('#'+id+'-store').attr("title");
 				var name = $('#'+id+'-in').val();
-				if(name==""){
+				if(name==""||name!=title){
 					$('#'+id+'-label').html('媒体'+'<i class="icon iconfont">&#xe659;</i>');
 					$('#'+id+'-store').val("");
+					$('#'+id+'-in').val("");
 				}else{
 					$('#'+id+'-label').html(name+'<i class="icon iconfont">&#xe659;</i>');
 				}
-				var value = $('#'+id+'-store').val();
+				
 				callback(value);
 			});
 			$('#'+id+'-in').click(function(evnet){
