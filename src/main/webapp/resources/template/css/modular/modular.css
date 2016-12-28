@@ -66,7 +66,7 @@
 .list-form ul li .searchicon{position:absolute;right:10px;top:0;color:#777778;cursor:pointer;}
 .list-form ul #media{height:35px;}
 /**媒体影响力**/
-.select-dropdown-show{width:120px;height:auto;background:#fff;position:absolute;left:-38px;top:32px;z-index:999;
+.select-dropdown-show{width:120px;height:auto;min-height:200px;max-height:365px;overflow-y:auto;background:#fff;position:absolute;left:-38px;top:32px;z-index:999;
 -moz-box-shadow:1px 1px 4px #a9a9a9;
 -webkit-box-shadow:1px 1px 4px #a9a9a9;
 box-shadow:1px 1px 4px #a9a9a9;}
@@ -88,6 +88,16 @@ box-shadow:1px 1px 4px #a9a9a9;
 }
 .auto_hidden{width:200px;display:none;}
 .auto_onmouseout{font-weight:normal;}
+/*#region-show{height:365px;overflow-y:auto;}
+#language-show{height:365px;overflow-y:auto;}*/
+
+/**阴影**/
+.select-dropdown-show::-webkit-scrollbar {width: 14px;height: 14px;}  
+.select-dropdown-show::-webkit-scrollbar-track,  
+.select-dropdown-show::-webkit-scrollbar-thumb {border-radius: 999px;  border: 5px solid transparent;}  
+.select-dropdown-show::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
+.select-dropdown-show::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;}  
+.select-dropdown-show::-webkit-scrollbar-corner {  background: transparent;}  
 
 
 .level-news{width:100%;float:left;margin-top:20px;}

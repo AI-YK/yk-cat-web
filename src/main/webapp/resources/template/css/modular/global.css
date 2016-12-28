@@ -1,4 +1,4 @@
-/*************************鍒濆鍖�************************/
+/*************************初始化*************************/
 *{font-family:"Microsoft Yahei","Hiragino Sans GB","Helvetica Neue",Helvetica,tahoma,arial,Verdana,sans-serif,"WenQuanYi Micro Hei","\5B8B\4F53";-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing:grayscale; box-sizing: border-box; border:0; padding:0; margin:0;}
 body{font-size:14px; color:#333;/* background:#f5f5f6;*/}
 ul{ list-style:none;}
@@ -15,7 +15,7 @@ button{outline:none; cursor:pointer;}
 html,body {height:100%; }
 img{vertical-align:middle}
 
-h1,h2,h3,h4,h5,h6{font-weight:200;line-height:1.1;color:inherit;font-family: "寰蒋闆呴粦";}
+h1,h2,h3,h4,h5,h6{font-weight:200;line-height:1.1;color:inherit;font-family: "微软雅黑";}
 h1 small,h2 small,h3 small,h4 small,h5 small,h6 small,h1 .small,h2 .small,h3 .small,h4 .small,h5 .small,h6 .small{font-weight:normal;line-height:1;color:#999}
 h1,h2,h3{margin-top:10px;margin-bottom:10px}
 h1 small,h2 small,h3 small,h1 .small,h2 .small,h3 .small{font-size:65%}
@@ -27,26 +27,26 @@ h3{font-size:24px}
 h4{font-size:18px}
 h5{font-size:16px}
 h6{font-size:12px}
-/*************************鏂囧瓧鏍峰紡*************************/
-small{font-size:85%}		/**灏忓瀷鏂囨湰**/
-b,strong {font-weight: bold}	/**閲嶈鐨勬枃鏈紝鍔犵矖**/
-em{font-style:italic}		/**琚己璋冪殑鏂囨湰**/
-i{}				/**鏂滀綋**/
-u{}				/**鍔犱笅鍒掔嚎**/
-cite{font-style:normal}		/**寮曠敤**/
-mark{color:#000;background:#ff0}/**绐佸嚭鏄剧ず鏂囨湰**/
-var{}				/**鍙橀噺**/
-kbd{}				/**閿洏鏂囨湰**/
-code{}				/**璁＄畻鏈轰唬鐮佹枃鏈�*/
-dfn{font-style: italic;}	/**涓�釜瀹氫箟椤圭洰**/
-del{font-family:Simsun}		/**鍒犻櫎绾�*/
+/*************************文字样式*************************/
+small{font-size:85%}		/**小型文本**/
+b,strong {font-weight: bold}	/**重要的文本，加粗**/
+em{font-style:italic}		/**被强调的文本**/
+i{}				/**斜体**/
+u{}				/**加下划线**/
+cite{font-style:normal}		/**引用**/
+mark{color:#000;background:#ff0}/**突出显示文本**/
+var{}				/**变量**/
+kbd{}				/**键盘文本**/
+code{}				/**计算机代码文本**/
+dfn{font-style: italic;}	/**一个定义项目**/
+del{font-family:Simsun}		/**删除线**/
 code,kbd,pre,samp {font-family: monospace, serif;font-size: 1em}
-pre{white-space: pre-wrap}	/**棰勬牸寮忓寲鐨勬枃鏈�*/
-.uppercase{text-transform:uppercase} /**鏂囧瓧澶у啓**/
-.lowercase{text-transform:lowercase} /**鏂囧瓧灏忓啓**/
-.capitalize{text-transform:capitalize} /**棣栧瓧姣嶅ぇ鍐�**/
+pre{white-space: pre-wrap}	/**预格式化的文本**/
+.uppercase{text-transform:uppercase} /**文字大写**/
+.lowercase{text-transform:lowercase} /**文字小写**/
+.capitalize{text-transform:capitalize} /**首字母大写***/
 
-/*************************瀛椾綋澶у皬*************************/
+/*************************字体大小*************************/
 .f-12{font-size:12px}
 .f-14{font-size:14px}
 .f-16{font-size:16px}
@@ -61,88 +61,88 @@ h3{margin:20px 0;}
 
 
 
-/*************************杈硅窛*************************/
+/*************************边距*************************/
 .mt-0{margin-top: 0;}
-.mt-2{margin-top:2px}/**璺濅笂2鍍忕礌**/
-.mt-5{margin-top:5px}/**璺濅笂5鍍忕礌**/
-.mt-10{margin-top:10px}/**璺濅笂10鍍忕礌**/
-.mt-15{margin-top:15px}/**璺濅笂15鍍忕礌**/
-.mt-20{margin-top:20px}/**璺濅笂20鍍忕礌**/
-.mt-25{margin-top:25px}/**璺濅笂25鍍忕礌**/
-.mt-30{margin-top:20px}/**璺濅笂30鍍忕礌**/
-.mt-35{margin-top:35px}/**璺濅笂35鍍忕礌**/
-.mt-40{margin-top:40px}/**璺濅笂40鍍忕礌**/
-.mt-50{margin-top:50px}/**璺濅笂50鍍忕礌**/
+.mt-2{margin-top:2px}/**距上2像素**/
+.mt-5{margin-top:5px}/**距上5像素**/
+.mt-10{margin-top:10px}/**距上10像素**/
+.mt-15{margin-top:15px}/**距上15像素**/
+.mt-20{margin-top:20px}/**距上20像素**/
+.mt-25{margin-top:25px}/**距上25像素**/
+.mt-30{margin-top:20px}/**距上30像素**/
+.mt-35{margin-top:35px}/**距上35像素**/
+.mt-40{margin-top:40px}/**距上40像素**/
+.mt-50{margin-top:50px}/**距上50像素**/
 .mt-170{margin-top: 170px;}
  
-.mb-5{margin-bottom:5px}/**璺濅笅5鍍忕礌**/
-.mb-10{margin-bottom:10px}/**璺濅笅10鍍忕礌**/
-.mb-15{margin-bottom:15px}/**璺濅笅15鍍忕礌**/
-.mb-20{margin-bottom:20px}/**璺濅笅20鍍忕礌**/
-.mb-25{margin-bottom:25px}/**璺濅笅25鍍忕礌**/
-.mb-30{margin-bottom:30px}/**璺濅笅30鍍忕礌**/
-.mb-35{margin-bottom:35px}/**璺濅笅35鍍忕礌**/
-.mb-40{margin-bottom:40px}/**璺濅笅40鍍忕礌**/
-.mb-50{margin-bottom:50px}/**璺濅笅50鍍忕礌**/
+.mb-5{margin-bottom:5px}/**距下5像素**/
+.mb-10{margin-bottom:10px}/**距下10像素**/
+.mb-15{margin-bottom:15px}/**距下15像素**/
+.mb-20{margin-bottom:20px}/**距下20像素**/
+.mb-25{margin-bottom:25px}/**距下25像素**/
+.mb-30{margin-bottom:30px}/**距下30像素**/
+.mb-35{margin-bottom:35px}/**距下35像素**/
+.mb-40{margin-bottom:40px}/**距下40像素**/
+.mb-50{margin-bottom:50px}/**距下50像素**/
 
 .ml-0{margin-left:0px}
-.ml-5{margin-left:5px}/**璺濆乏5鍍忕礌**/
-.ml-10{margin-left:10px}/**璺濆乏10鍍忕礌**/
-.ml-15{margin-left:15px}/**璺濆乏15鍍忕礌**/
-.ml-20{margin-left:20px}/**璺濆乏20鍍忕礌**/
-.ml-30{margin-left:30px}/**璺濆乏30鍍忕礌**/
-.ml-50{margin-left:50px}/**璺濆乏50鍍忕礌**/
-.ml-45{margin-left:45px}/**璺濆彸45鍍忕礌**/
-.mr-5{margin-right:5px}/**璺濆彸5鍍忕礌**/
-.mr-10{margin-right:10px}/**璺濆彸10鍍忕礌**/
-.mr-15{margin-right:15px}/**璺濆彸15鍍忕礌**/
-.mr-20{margin-right:20px}/**璺濆彸20鍍忕礌**/
-.mr-30{margin-right:30px}/**璺濆彸30鍍忕礌**/
-.mr-40{margin-right:40px}/**璺濆彸40鍍忕礌**/
+.ml-5{margin-left:5px}/**距左5像素**/
+.ml-10{margin-left:10px}/**距左10像素**/
+.ml-15{margin-left:15px}/**距左15像素**/
+.ml-20{margin-left:20px}/**距左20像素**/
+.ml-30{margin-left:30px}/**距左30像素**/
+.ml-50{margin-left:50px}/**距左50像素**/
+.ml-45{margin-left:45px}/**距右45像素**/
+.mr-5{margin-right:5px}/**距右5像素**/
+.mr-10{margin-right:10px}/**距右10像素**/
+.mr-15{margin-right:15px}/**距右15像素**/
+.mr-20{margin-right:20px}/**距右20像素**/
+.mr-30{margin-right:30px}/**距右30像素**/
+.mr-40{margin-right:40px}/**距右40像素**/
 
-.mr-50{margin-right:50px}/**璺濆彸50鍍忕礌**/
+.mr-50{margin-right:50px}/**距右50像素**/
 
-.mc-5{margin-right:5px}/**璺濈5鍍忕礌**/
-.mc-10{margin-right:10px}/**璺濈10鍍忕礌**/
-.mc-15{margin-right:15px}/**璺濈15鍍忕礌**/
-.mc-20{margin-right:20px}/**璺濈20鍍忕礌**/
-.mc-30{margin-right:30px}/**璺濈30鍍忕礌**/
-.mc-40{margin-right:40px}/**璺濈40鍍忕礌**/
-.mc-50{margin-right:50px}/**璺濈50鍍忕礌**/
+.mc-5{margin-right:5px}/**距离5像素**/
+.mc-10{margin-right:10px}/**距离10像素**/
+.mc-15{margin-right:15px}/**距离15像素**/
+.mc-20{margin-right:20px}/**距离20像素**/
+.mc-30{margin-right:30px}/**距离30像素**/
+.mc-40{margin-right:40px}/**距离40像素**/
+.mc-50{margin-right:50px}/**距离50像素**/
 
-/*************************鍐呭～鍏�************************/
-.pt-5{padding-top:5px}/**涓婂～鍏�鍍忕礌**/
-.pt-10{padding-top:10px}/**涓婂～鍏�0鍍忕礌**/
-.pt-15{padding-top:15px}/**涓婂～鍏�5鍍忕礌**/
-.pt-20{padding-top:20px}/**涓婂～鍏�0鍍忕礌**/
+/*************************内填充*************************/
+.pt-5{padding-top:5px}/**上填充5像素**/
+.pt-10{padding-top:10px}/**上填充10像素**/
+.pt-15{padding-top:15px}/**上填充15像素**/
+.pt-20{padding-top:20px}/**上填充20像素**/
  
-.pb-5{padding-bottom:5px}/**涓嬪～鍏�鍍忕礌**/
-.pb-10{padding-bottom:10px}/**涓嬪～鍏�0鍍忕礌**/
-.pb-15{padding-bottom:15px}/**涓嬪～鍏�5鍍忕礌**/
-.pb-20{padding-bottom:20px}/**涓嬪～鍏�0鍍忕礌**/
+.pb-5{padding-bottom:5px}/**下填充5像素**/
+.pb-10{padding-bottom:10px}/**下填充10像素**/
+.pb-15{padding-bottom:15px}/**下填充15像素**/
+.pb-20{padding-bottom:20px}/**下填充20像素**/
  
-.pl-5{padding-left:5px}/**宸﹀～鍏�鍍忕礌**/
-.pl-10{padding-left:10px}/**宸﹀～鍏�0鍍忕礌**/
-.pl-15{padding-left:15px}/**宸﹀～鍏�5鍍忕礌**/
-.pl-20{padding-left:20px}/**宸﹀～鍏�0鍍忕礌**/
-.pl-40{padding-left:40px}/**宸﹀～鍏�0鍍忕礌**/
+.pl-5{padding-left:5px}/**左填充5像素**/
+.pl-10{padding-left:10px}/**左填充10像素**/
+.pl-15{padding-left:15px}/**左填充15像素**/
+.pl-20{padding-left:20px}/**左填充20像素**/
+.pl-40{padding-left:40px}/**左填充20像素**/
 
-.pr-5{padding-right:5px}/**鍙冲～鍏�鍍忕礌**/
-.pr-10{padding-right:10px}/**鍙冲～鍏�0鍍忕礌**/
-.pr-15{padding-right:15px}/**鍙冲～鍏�5鍍忕礌**/
-.pr-20{padding-right:20px}/**鍙冲～鍏�0鍍忕礌**/
-.pr-25{padding-right:25px}/**鍙冲～鍏�0鍍忕礌**/
-.pr-30{padding-right:30px}/**鍙冲～鍏�0鍍忕礌**/
+.pr-5{padding-right:5px}/**右填充5像素**/
+.pr-10{padding-right:10px}/**右填充10像素**/
+.pr-15{padding-right:15px}/**右填充15像素**/
+.pr-20{padding-right:20px}/**右填充20像素**/
+.pr-25{padding-right:25px}/**右填充20像素**/
+.pr-30{padding-right:30px}/**右填充20像素**/
  
 
-.pd-5{padding:5px}/**濉厖5鍍忕礌**/
-.pd-10{padding:10px}/**濉厖10鍍忕礌**/
-.pd-15{padding:15px}/**濉厖15鍍忕礌**/
-.pd-20{padding:20px}/**濉厖20鍍忕礌**/
+.pd-5{padding:5px}/**填充5像素**/
+.pd-10{padding:10px}/**填充10像素**/
+.pd-15{padding:15px}/**填充15像素**/
+.pd-20{padding:20px}/**填充20像素**/
 
 .mr-0{margin-right:0px;}
 
-/************************浠ｇ爜榛忚创妗嗘灦************************/
+/************************代码黏贴框架************************/
 .pre {
 	display: block;
 	font-family: Monaco, Menlo, Consolas, "Courier New", monospace;
@@ -217,8 +217,8 @@ pre ol.linenums li {
 	line-height: 18px;
 	text-shadow: 0 1px 0 #fff
 }
-/************************浠ｇ爜榛忚创 缁撴潫************************/
-/************************娉ㄦ剰btn************************/
+/************************代码黏贴 结束************************/
+/************************注意btn************************/
 .label-warning, .badge-warning {
 	background-color: #f37b1d
 }
@@ -233,44 +233,44 @@ pre ol.linenums li {
 	background-color: #f37b1d;
 	border-radius:4px;	
 }
-/************************娉ㄦ剰btn************************/
+/************************注意btn************************/
 .bj-color{background:#f5f5f5;border:1px solid #ddd;border-radius:5px;}
 .bj-color p{line-height: 40px;}
 .cenr-border{width:100%;border:1px solid #ddd;border-radius:5px;margin-top:10px; padding:10px;display:inline-block;}
-/************************閫夐」鍗�***********************/
+/************************选项卡************************/
 .taber{ }
 .taber .head{ border-left: 1px solid #E5E5E5; height:30px; }
 .taber .head a{ border: 1px solid #E5E5E5; float:left; display:inline; padding:0px 20px; border-left:none; height:30px; line-height:30px;color:#333 }
 .taber .head a.selected{ border-bottom:none;color:#f00;}
 .taber .body{ clear:both; padding:10px; }
-/************************杈规  鍦嗚************************/
+/************************边框  圆角************************/
 .bk-gray{width:800px;border:solid 1px #ddd}
 .radius2{border-radius:2px;}
 .radius{border-radius:5px;}
 .radius5{border-radius:8px;}
 .radius10{border-radius:30px;}
 .radius20{border-radius:30px;}
-/************************鏂伴椈璇︽儏************************/
+/************************新闻详情************************/
 .content{font-size:14px;line-height:25px;overflow:hidden;text-align:left}
 .content h3{ margin-top:20px;font-size:16px}
 .content p{text-indent:2em;margin-top:20px}
 .content ul{text-indent:2em}
-/************************瀵归綈************************/
-.text-l{text-align:left}/**姘村钩灞呭乏*/
-.text-r{text-align:right}/*姘村钩灞呬腑*/
-.text-c{text-align:center}/*姘村钩灞呭彸*/
+/************************对齐************************/
+.text-l{text-align:left}/**水平居左*/
+.text-r{text-align:right}/*水平居中*/
+.text-c{text-align:center}/*水平居右*/
 
-/************************鍒楄〃************************/
+/************************列表************************/
 .top-list li{height: 20px;line-height: 20px;margin-bottom: 15px;overflow: hidden;padding-left: 30px;position: relative;text-overflow: ellipsis;vertical-align: bottom;white-space: nowrap;}
 .top-list em {background-color: #F8F8F8;border: 1px solid #EBEBEB;color: #333;height: 18px;left: 0;line-height: 18px;position: absolute;text-align: center;top: 0;width: 20px; font-style:normal}
 .top-list .top em{ background-color:#390;border:none;color: #fff;height: 20px;line-height: 20px;width: 22px}
 .top-list .date {color: #999;font-size: 12px;position: absolute;right: 0;top: 0;}
 
-/************************琛ㄦ牸************************/
+/************************表格************************/
 .table{width:100%;float:left;empty-cells:show;background-color:transparent;border-collapse:collapse;border-spacing:0}
 .table tr td{text-align:center;font-weight:400}
 .table tr th{text-align:center;}
-/**甯︽按骞崇嚎**/
+/**带水平线**/
 .table th{font-weight:normal}
 .table th,.table td{height:35px;line-height:20px;font-size:14px;}
 .table td{text-align:left}
@@ -282,35 +282,35 @@ pre ol.linenums li {
 .table .table{background-color:#fff}
 .table a{color:#333;margin-right:6px;}
 .table a:hover{color:#1295f2;}
-/**甯︽í鍚戝垎鍓茬嚎**/
+/**带横向分割线**/
 .table-border{border-top:1px solid #e3e6ed}
 .table-border th,.table-border td{border-bottom:1px solid #e3e6ed}
  
-/**th甯﹁儗鏅�*/
+/**th带背景**/
 .table-bg .bj{background-color:#f6f8fa;height:40px;}
 .table-bg .bj:hover{background-color:#f6f8fa}
 .table-bg thead th{background-color:#f6f8fa}
-/**甯﹀杈规**/
+/**带外边框**/
 .table-bordered{border:1px solid #e3e6ed;border-left:0}
 .table-bordered th,.table-bordered td{border-left:1px solid #e3e6ed}
 .table-border.table-bordered{border-bottom:0}
 
-/**濂囨暟琛岃儗鏅涓烘祬鐏拌壊**/
+/**奇数行背景设为浅灰色**/
 .table-striped tbody > tr:nth-child(odd) > td,.table-striped tbody > tr:nth-child(odd) > th{background-color:#f9f9f9}
 .table-striped-even tbody > tr:nth-child(even) > td,.table-striped tbody > tr:nth-child(even) > th{background-color:#f9f9f9}
-/**绔栫洿鏂瑰悜padding缂╁噺涓�崐**/
+/**竖直方向padding缩减一半**/
 .table-condensed th,.table-condensed td{padding:4px 5px}
-/**榧犳爣鎮仠鏍峰紡**/
+/**鼠标悬停样式**/
 .table-hover tbody tr:hover td,.table-hover tbody tr:hover th{background-color: #f5f5f5}
 
-/**琛ㄦ牸鏂囧瓧瀵归綈鏂瑰紡锛岄粯璁ゆ槸灞呭乏瀵归綈**/
-.table .text-c th,.table .text-c td{text-align:center}/**鏁磋灞呬腑**/
-.table .text-r th,.table .text-r td{text-align:right}/**鏁磋灞呭彸**/
-.table th.text-l,.table td.text-l{text-align:left!important}/**鍗曠嫭鍒楀眳宸�*/
-.table th.text-c,.table td.text-c{text-align:center!important}/**鍗曠嫭鍒楀眳涓�*/
-.table th.text-r,.table td.text-r{text-align:right!important}/**鍗曠嫭鍒楀眳鍙�*/
+/**表格文字对齐方式，默认是居左对齐**/
+.table .text-c th,.table .text-c td{text-align:center}/**整行居中**/
+.table .text-r th,.table .text-r td{text-align:right}/**整行居右**/
+.table th.text-l,.table td.text-l{text-align:left!important}/**单独列居左**/
+.table th.text-c,.table td.text-c{text-align:center!important}/**单独列居中**/
+.table th.text-r,.table td.text-r{text-align:right!important}/**单独列居右**/
 
- /**鑷畾涔塼able鏍峰紡**/
+ /**自定义table样式**/
 .tb-border {border:1px solid #e3e6ed}
 .tb-border th{border-bottom:1px solid #e3e6ed;}
 .tb-border td{height:75px;}
@@ -318,82 +318,82 @@ pre ol.linenums li {
 .table-height60 tr td{height:60px;border-bottom:1px solid #f0f2f5;text-align: left;}
 .table tr .red{color:#fe6b6b}
 .table tr .green{color:#39d5b0}
-/************************鎸夐挳************************/
+/************************按钮************************/
 .btn{cursor:pointer;text-align:center;outline:none;font-size:14px;}
-/*榛樿鈥斺�鐏拌壊 閫氬父鐢ㄤ簬鍙栨秷*/
+/*默认——灰色 通常用于取消*/
 .biu-btn{display:inline-block;cursor:pointer;text-align:center; font-weight:400;white-space:nowrap; outline:none;background:#e6e6e6;color:#6a6c6f}
-/*棰滆壊 鐏拌壊*/
+/*颜色 灰色*/
 .btn-ash{color:#fff;background-color:#999;}
 .btn-ash:hover,
 .btn-ash:focus,
 .btn-ash:active,
 .btn-ash.active{color:#fff;background-color:#999;}
-/*棰滆壊 娣辫摑鑹�/
+/*颜色 深蓝色*/
 .btn-deepblue{color:#fff;background-color:#0067b4;}
 .btn-deepblue:hover,
 .btn-deepblue:focus,
 .btn-deepblue:active,
 .btn-deepblue.active{color:#fff;background-color:#0067b4;}
-/*棰滆壊 钃濊壊*/
+/*颜色 蓝色*/
 .btn-blue{color:#fff;background-color:#3382ee;}
 .btn-blue:hover,
 .btn-blue:focus,
 .btn-blue:active,
 .btn-blue.active{color:#fff;background-color:#3382ee;}
-/*棰滆壊 缁胯壊*/
+/*颜色 绿色*/
 .btn-green{color:#fff;background-color:#39d5b0;}
 .btn-green:hover,
 .btn-green:focus,
 .btn-green:active,
 .btn-green.active{color:#fff;background-color:#4cf2cb;}
-/*棰滆壊 榛勮壊*/
+/*颜色 黄色*/
 .btn-yellow{color:#fff;background-color:#ffb80d;}
 .btn-yellow:hover,
 .btn-yellow:focus,
 .btn-yellow:active,
 .btn-yellow.active{color:#fff;background-color:#fbce61;}
-/*棰滆壊 绾㈣壊*/
+/*颜色 红色*/
 .btn-red{color:#fff;background-color:#fe6b6b;}
 .btn-red:hover,
 .btn-red:focus,
 .btn-red:active,
 .btn-red.active{color:#fff;background-color:#fe6b6b;}
 
-/*绂佺敤鐘舵�*/
+/*禁用状态*/
 .btn.disabled{cursor:not-allowed;background-image:none;opacity:.65;filter:alpha(opacity=65);box-shadow:none; pointer-events:none;}
-/**绌哄績鎸夐挳**/
+/**空心按钮**/
 .btn-primary-hollow{border:1px solid #c7c7c7;background: #fff;}
 .btn-primary-hollow:hover,
 .btn-primary-hollow:focus,
 .btn-primary-hollow:active,
 .btn-primary-hollow.active{color:#333;border-color:#c7c7c7}
-/**杈规鎸夐挳钃濊壊**/
+/**边框按钮蓝色**/
 .border-white{border:2px solid #fff;background:none;color:#fff;font-size:18px;}
 .border-white:hover{border:2px solid #2361ea;background:#2361ea;color:#fff;}
-/**杈规鎸夐挳钃濊壊鏃犺儗鏅�*/
+/**边框按钮蓝色无背景**/
 .card-border-blue{border:2px solid #2361ea;background:none;color:#2965e6;font-size:18px}
 .card-border-blue:hover{background:#2361ea;color:#fff;}
-/**杈规鎸夐挳榛樿**/
+/**边框按钮默认**/
 .border-default{border:1px solid #c7c7c7;background:#fff;}
 .border-default:hover{background:#c7c7c7;}
-/**杈规鎸夐挳钃濊壊**/
+/**边框按钮蓝色**/
 .border-blue{border:1px solid #3382ee;background:#fff;color:#3382ee}
 .border-blue:hover{background:#3382ee;color:#fff;}
-/**缁嗚竟妗嗘寜閽摑鑹�*/
+/**细边框按钮蓝色**/
 .border-blue-small{border:1px solid #2361ea;background:#fff;color:#2361ea;font-size:12px;font-weight:normal;}
 .border-blue-small:hover{background:#2361ea;color:#fff;}
-/**杈规鎸夐挳缁胯壊**/
+/**边框按钮绿色**/
 .border-green{border:2px solid #39d5b0;background:#fff;color:#39d5b0}
 .border-green:hover{border:2px solid #4cf2cb;color:#4cf2cb;}
-/**杈规鎸夐挳榛勮壊**/
+/**边框按钮黄色**/
 .border-yellow{border:1px solid #fad049;background:#fff;}
 .border-yellow:hover{background:#fad049;color:#fff;}
-/**杈规鎸夐挳绾㈣壊**/
+/**边框按钮红色**/
 .border-red{border:1px solid #ed6a5a;background:#fff;}
 .border-red:hover{background:#ed6a5a;color:#fff;}
-/**搴撳瓨鎸夐挳**/
+/**库存按钮**/
 .stock-btn{padding:0 10px;min-width:100px;height:30px; border:1px solid #10a2fb; color:#fff; line-height:30px;outline:none;font-size:14px;}
-/**鎸夐挳灏哄澶у皬**/
+/**按钮尺寸大小**/
 .btn-mini{width:50px;height:25px;}
 .btn-small{width:80px;height:32px;}
 .btn-medium{width:124px;height:44px;}
@@ -402,7 +402,7 @@ pre ol.linenums li {
 .btn-xlarge{width:140px;height:44px;}
 .btn-xxlarge{width:160px;height:44px;}
 .btn-xxxlarge{width:210px;height:45px;font-weight:bold;font-size:18px}
-/**鎸夐挳鑷�搴斿ぇ灏�*/
+/**按钮自适应大小**/
 .btn-auto{padding:0 6px;height:22px;line-height:20px;}
 .btn-auto-25{padding:0 10px;height:24px;line-height:22px;font-size:12px}
 .btn-120{width:120px;height:40px;line-height:40px;font-size:14px}
@@ -425,7 +425,7 @@ pre ol.linenums li {
 .btn-168{width:168px;height:44px;}
 .btn-date{width:50px;height:20px;background:#f6f6f6;border:1px solid #eee;line-height:20px;text-align:center;color:#333;font-size:12px;}
 .ret-btn{width:70px;height:30px;background:#f6f6f6;border:1px solid #ddd;font-size:12px;color:#333}
-/************************琛ㄥ崟************************/
+/************************表单************************/
 .int-text{border:1px solid #dcddde;background:#fff; outline:none;line-height:26px;color:#6a6c6f;font-size:14px;resize:none;}
 .int-text:hover{/*border:1px solid #52dc90;*/}
 .int-mini{width:102px;height:26px;padding:0 20px;line-height:26px;font-size:12px}
@@ -447,10 +447,10 @@ pre ol.linenums li {
 .border-sma:hover{border:1px solid #eee}
 .date-input{width:80px;height:20px;border:1px solid #ddd}
 .ret-input{width:120px;height:30px;border:1px solid #ddd;line-height:30px;padding:0 4px;color:#666}
-/**绂佺敤**/
+/**禁用**/
 .input-disabled{cursor:not-allowed;background:#eee;}
 .input-disabled:hover{border:1px solid #c7c7c7;}
-/**鑷畾涔�*/
+/**自定义**/
 .search-medium{width:190px;height:30px;line-height:30px;background:none;border:none;font-size:14px;color:#cfd5ea;padding-left:20px;}
 /************************checkbox************************/
 .skin-minimal .checkbox-1,.checkbox-2,.checkbox-disabled,.checkbox-disabled-checked{width:16px;height:16px;float:left}
@@ -477,11 +477,11 @@ select::-ms-expand { display: none; }
 /**.select-topmini:hover{border:1px solid #fff;}**/
 .select-250{width:250px;height:44px;padding-left:10px;color:#6a6c6f;font-size:14px}
 .select-300{width:300px;height:44px;padding-left:10px;color:#6a6c6f;font-size:14px}
-/**涓婁紶鎸夐挳**/
+/**上传按钮**/
 .btn-upload{width:auto;position: relative; display:inline-block;height:36px; *display:inline;overflow:hidden;vertical-align:middle;cursor:pointer}
 .btn-upload .int-file{width:370px;position:absolute;left:0;top:0;height:36px;opacity:0;filter: alpha(opacity=0);z-index: 999;font-size: 50px;}
 .btn-upload .int-file1{width:120px;position:absolute;left:90px;top:0;height:36px;opacity:0;filter: alpha(opacity=0);z-index: 999;font-size: 50px;}
-/************************杩涘害鏉�***********************/
+/************************进度条************************/
 .biu-progress{max-width:500px;background-color:#eee;border-radius:4px;}
 .bar-text{width:100%;height:100%;border-radius:4px;text-align:right;padding-right:4px;font-size:12px;color:#fff;}
 .progress-small{height:18px;line-height:18px;}
@@ -495,7 +495,7 @@ select::-ms-expand { display: none; }
 .striped{background-image:linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);background-size:40px 40px;}
 .active{animation:progress-bar-stripes 2s linear infinite;}
 
-/************************鍒嗛〉************************/
+/************************分页************************/
 .biu-paging{margin:0 auto;text-align:right;}
 .biu-paging ul{display:inline-block;vertical-align:middle;margin-top:20px;}
 .biu-paging ul li{display:inline;}
