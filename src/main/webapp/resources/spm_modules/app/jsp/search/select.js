@@ -423,6 +423,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				_begin_input.val(begin+" 00:00:00");
 				var _end_input = $("#"+id+"_end_input");
 				_end_input.val(end+" 23:59:59");
+				$("#"+id+"_select_text").html(begin+"/"+end);
 				selectView.hide(1);
 				
 			});
