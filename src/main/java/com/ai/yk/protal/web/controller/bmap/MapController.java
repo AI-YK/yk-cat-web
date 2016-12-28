@@ -16,6 +16,7 @@ import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.common.DicListResonse;
 import com.ai.yk.protal.web.content.common.DicMessage;
 import com.ai.yk.protal.web.content.common.DicVo;
@@ -90,6 +91,23 @@ public class MapController extends BaseController{
 	    			}
 	    		}
 	    	}
+	    	String provinceCode ="";
+	    	if(config!=null&&config.getProvince()!=null){
+	    		provinceCode = config.getProvince().getCode();
+	    	}
+	    	String cityCodes = "";
+	    	List<AreaVo> listArea = new ArrayList<AreaVo>();
+	    	listArea = config.getCity();
+	    	if(listArea.size()>0){
+	    		for(int i=0;i<listArea.size();i++){
+	    			if(i == 0){
+	    				cityCodes =listArea.get(i).getCode();
+	    			}else{
+	    				cityCodes +=","+listArea.get(i).getCode();
+	    			}
+	    			
+	    		}
+	    	}
 	    	
 			List<MyTopicsVo> topics = SessionUtil.getTopics();
 			if(topics==null||topics.size()==0){
@@ -98,6 +116,8 @@ public class MapController extends BaseController{
 	    		model.addAttribute("hasTopic", true);
 	    		model.addAttribute("topics", topics);
 	    	}
+			model.addAttribute("provinceCode", provinceCode);
+			model.addAttribute("cityCodes", cityCodes);
 			model.addAttribute("listVo", listVo);
 			return "/hot/toHeat";
 		}
@@ -126,7 +146,7 @@ public class MapController extends BaseController{
 				 	/**情感ID(1正面，0：中性 -1负面)**/
 				    @RequestParam(value="sentimentId",defaultValue="") String sentimentId,
 				    /**省份**/
-				    @RequestParam(value="provincecityCode",defaultValue="") String provincecityCode,
+				    @RequestParam(value="provinceCode",defaultValue="") String provinceCode,
 				    /**城市**/
 				    @RequestParam(value="cityCode",defaultValue="") String cityCode,
 				    /**舆情分类类型（多个用逗号隔开）**/
@@ -149,7 +169,7 @@ public class MapController extends BaseController{
 			searchPublicSafetyMessage.setId(topicId);
 			searchPublicSafetyMessage.setMediaType(mediaType);
 			searchPublicSafetyMessage.setSentimentId(sentimentId);
-			searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
+			searchPublicSafetyMessage.setProvincecityCode(provinceCode);
 			searchPublicSafetyMessage.setCityCode(cityCode);
 			searchPublicSafetyMessage.setCategoryId(categoryId);
 			searchPublicSafetyMessage.setMediaId(mediaId);

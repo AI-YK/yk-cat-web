@@ -721,6 +721,8 @@ function smilNewsData(){
 		count=300;
 	}
 	vresult =count-preCount;*/
+	provinceCode = $('#provinceCode').val();
+	cityCode = $('#cityCodes').val();
 	var ajax_data={
 		 	'beginDate':start_datetime,
 		 	'endDate':end_datetime,
