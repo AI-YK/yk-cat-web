@@ -177,7 +177,7 @@ define('app/jsp/home/config', function (require, exports, module) {
    				  if(rs.statusCode=='1'){
    					location.href = _base + '/home/index';
    				  }else{
-   					$("#tishiId").text(statusInfo);  
+   					$("#tishiId").text(rs.statusInfo);  
    				  }
    				  
    			  },
