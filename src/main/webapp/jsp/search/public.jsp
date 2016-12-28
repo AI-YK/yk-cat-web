@@ -25,7 +25,7 @@
 		</c:otherwise>
 	</c:choose>
 	<!--面包屑导航-->
-	<%@ include file="/inc/topHead.jsp"%>
+	<%@ include file="/inc/indexHead.jsp"%>
 	<!--子导航-->
 	<div class="subnav">
 		<div class="subnav-main">
