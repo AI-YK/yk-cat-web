@@ -50,7 +50,7 @@ public class MycustomizedService {
 		try {
 			result = HttpClientUtil.sendPostRequest(url,json);
 		} catch (Exception e) {
-			
+			LOGGER.error(e.getMessage(),e);
 		}
 		if(!StringUtil.isBlank(result)){
 			return JSON.parseObject(result, new TypeReference<YJResponse<String>>(){});
