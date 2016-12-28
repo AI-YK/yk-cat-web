@@ -100,13 +100,21 @@ public final class SessionUtil {
 				.getRequestAttributes()).getRequest();
 		HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(OUT_TIME);
-		session.setAttribute(Constants.CONFIG_SESSION_KEY, config);
+		session.setAttribute(Constants.CONFIG_SESSION_KEY, JSON.toJSONString(config));
 	}
 
 	public static MyCustomizedVo getUserConfig() {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
-		MyCustomizedVo config = (MyCustomizedVo) request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
+		Object obj = request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
+		MyCustomizedVo config = null;
+		if(obj!=null){
+			 if(obj instanceof String){
+				 config = JSON.parseObject(obj.toString(),MyCustomizedVo.class);
+			 }else{
+				 config =(MyCustomizedVo) obj;
+			 }
+		}
 		if(real&&config==null){//session清空重新查询
 			try {
 				MycustomizedService  mycustomizedService =(MycustomizedService) getBean(MycustomizedService.class);
@@ -178,8 +186,16 @@ public final class SessionUtil {
 	public static List<MyTopicsVo> getTopics() {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
-		List<MyTopicsVo> topics = (ArrayList<MyTopicsVo>) request.getSession()
-				.getAttribute(Constants.TOPIC_SESSION_KEY);
+		Object obj = request.getSession().getAttribute(Constants.TOPIC_SESSION_KEY);
+		List<MyTopicsVo> topics = null;
+		if(obj!=null){
+			if(obj instanceof String){
+				topics = JSON.parseArray(obj.toString(), MyTopicsVo.class);
+			}else{
+				topics = (List<MyTopicsVo>) obj;
+			}
+		}
+		
 		if(real&&topics==null){//session清空重新查询
 			try {
 				/**专题数据**/
@@ -258,7 +274,7 @@ public final class SessionUtil {
 				.getRequestAttributes()).getRequest();
 		HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(OUT_TIME);
-		session.setAttribute(Constants.TOPIC_SESSION_KEY, topics);
+		session.setAttribute(Constants.TOPIC_SESSION_KEY, JSON.toJSONString(topics));
 	}
 
 	public static void print() {
