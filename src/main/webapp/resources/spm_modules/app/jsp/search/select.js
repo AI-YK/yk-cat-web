@@ -453,16 +453,20 @@ define('app/jsp/search/select', function (require, exports, module) {
         },
         //媒体选择框
         _mediaSelect:function(id,callback){
+        	$(document).on("click",function(){
+				$('.select-dropdown-show').hide();
+        	});
 			var html = [];
 			html.push('<p id="'+id+'-label">媒体<i class="icon iconfont">&#xe659;</i></p>');
 			html.push('<input id="'+id+'-store" type="hidden" value=""/>');
-			html.push('<div class="select-dropdown-show2" id="'+id+'-show"  style="display:none;">');
+			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="display:none;">');
 			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="搜索媒体"  />');
 			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="确定" />');
 			html.push('</div>');
 			$("#"+id).html(html.join(""));
 			this.autocompleteDic(id+'-in',id+'-store');
-			$('#'+id+'-btn').click(function(){
+			$('#'+id+'-btn').click(function(event){
+				event.stopImmediatePropagation();
 				$('#'+id+'-show').hide();
 				var name = $('#'+id+'-in').val();
 				if(name==""){
@@ -474,7 +478,11 @@ define('app/jsp/search/select', function (require, exports, module) {
 				var value = $('#'+id+'-store').val();
 				callback(value);
 			});
-			$('#'+id+'-label').click(function(event){
+			$('#'+id+'-in').click(function(evnet){
+				event.stopImmediatePropagation();
+			});
+			$('#'+id).click(function(event){
+				event.stopImmediatePropagation();//取消事件冒泡；
 				$('#'+id+'-show').slideToggle(100); 
 				
 			});
