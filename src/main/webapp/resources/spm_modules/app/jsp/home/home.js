@@ -662,10 +662,10 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var id = $(this).attr("id");
 						if(letterId==''&&index==1||id==letterId){
 							 $(this).addClass("current");
-							 $("#citi-tab"+index).show();
+							 $("#eject-citi-tab"+index).show();
 						}else{
 							$(this).removeClass("current");
-		                    $("#citi-tab"+index).hide();
+		                    $("#eject-citi-tab"+index).hide();
 						}
 	                    
 	                });
