@@ -47,36 +47,22 @@
 									
 							</li>
 							<!-- 影响力 -->
-							<li>
 							<li id="dicId1">
 									
 							</li>
 							<li id="timeId1">
 								
 							</li>
-						   <!-- 排序 -->
-                           <li id="fileId1">
-								
-							</li>
-							<li id="tran" style="display: none;">
-							</li>							
-							
-					
-							<li>
-							<!-- 	<p>媒体</p> -->
-								<p style="display: none;">
-									<input id="mediaIn1" type="text" class="searchNews" style="width: 80px">
-									<input id="mediaId1" type="hidden">
-								</p>
-							</li>
 							<!-- 媒体 -->
 							<li id="retrieval1">
 								
 							</li>
 							
-							<!-- <li>
-								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn1" value="搜索">
-							</li> -->
+						   <!-- 排序 -->
+                           <li id="fileId1">
+								
+							</li>
+							
 						</ul>
 					</div>
 					<div class="level-news" >
@@ -114,27 +100,15 @@
 							<li id="timeId2">
 								
 							</li>
+							<li id="retrieval2">
+								
+							</li>
 							<li id="qingId2">
 							
 							</li>
 						
-							<li id="retrieval2">
-								
-							</li>
-							<li>
-								<!-- <p>情感</p> -->
-								<!-- <p>
-									<select id="qingId2" class="select select-mini searchSocial">
-										<option value="">情感</option>
-										<option value="1">正面</option>
-										<option value="0">中性</option>
-										<option value="-1">负面</option>
-									</select>
-								</p> -->
-							</li>
-							<!-- <li>
-								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn2" value="搜索">
-							</li> -->
+							
+							
 						</ul>
 					</div>
 					<div class="level-news" >
