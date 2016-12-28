@@ -43,7 +43,7 @@
 	<!--面包屑导航-->
 	<c:set var="noSearch" value="true"/>
 	<c:set var="current" value="2"/>
-	<%@ include file="/inc/topHead.jsp"%>
+	<%@ include file="/inc/indexHead.jsp"%>
 
 <form id="loginJumpFormId" method="post" style="visibility: hidden;">
       <input type="hidden" name="url" id="loginSuccessUrl">
@@ -63,15 +63,36 @@
 	<!---->
 	<div class="news-type-big">
 		<div id="news-type-mainId" class="news-type-main">
-			<%-- <ul>
-				<li><a href="#" class="current">全部</a></li>
-				<li><a href="#">政治治理</a></li>
-				<li><a href="#">官员腐败</a></li>
-				<li><a href="#">公共安全</a></li>
-				<li><a href="#">司法公正</a></li>
-				<li><a href="#">伦理道德</a></li>
-				<li style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
-			</ul> --%>
+				<ul id="topcId">
+					<c:forEach items="${topics }" var="topic" varStatus="t">
+						<c:if test="${t.index<7}">
+						<li><a href="#">${topic.srcShortTitle }</a><input type="hidden" value="${topic.id }"/><input type="hidden" value="${topic.srcId }"/><input type="hidden" value="${topic.opType }"/></li>
+						</c:if>
+					</c:forEach>
+					<div class="moveul" >
+					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();" id="gengduo">更多<i class="icon iconfont">&#xe659;</i></a>
+						<div class="more-show" id="more-show">
+							<span><img src="${uedroot}/images/xf-sj.png"></span>
+							<ul>
+							    <li>
+								    <c:forEach items="${topics}" var="topic" varStatus="t">
+						               <c:if test="${t.index>=7}">
+										    <p><a id="${topic.id}" class="topic" onclick="morehide();">${topic.srcShortTitle}</a><input type="hidden" value="${topic.id}"/></p>
+						               </c:if>
+						            </c:forEach>
+					            </li>
+							</ul>
+						</div>
+					</div>
+					</div>
+				</ul>
+				<ul id="interId" style="display: none;">
+				<li><a href="#" class="current">全部</a><input type="hidden" value="0"/></li>
+				<c:forEach items="${interestList }" var="interest">
+					<li><a href="#">${interest.zhInterest }</a><input type="hidden" value="${interest.businessId }"/></li>
+				</c:forEach>
+				<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+				</ul>
 		</div>
 	</div>
 	<!--二级框架-->
