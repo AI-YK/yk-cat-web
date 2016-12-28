@@ -68,38 +68,23 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
-								<!-- <p>影响力</p> -->
-								<p>
-									<select id="dicId1" class="searchNews select select-mini" style="width: 100px">
-										
-									</select>
-								</p>
+							<li id="dicId1">
+									
 							</li>
-							<li>
-								<p>时间</p>
-								<p>
-									<input id="timeId1" type="text" readonly
-										class="searchNews select select-small calendar" />
-								</p>
+							<li id="timeId1">
+								
 							</li>
 							<li id="retrieval">
 								
+							</li> 
+							<!-- 排序 -->
+                           <li id="fileId1">
+								
 							</li>
-							<li>
-								<!-- <p>排序</p> -->
-								<p>
-									<select id="fieldName1" class="searchNews select select-mini" style="width: 85px">
-										<option value="">排序</option>
-										<option value="score">相关度</option>
-										<option value="pubdate">时间</option>
-										<option value="mediaLevel">权重</option>
-										<option value="transfer">转载量</option>
-									</select>
-								</p>
+							<li id="qingId1">
+							
 							</li>
-							<li>
-								<!-- <p>情感</p> -->
+							<%-- <li>
 								<p>
 									<select id="sentimentId1" class="searchNews select select-mini">
 										<option value="">情感</option>
@@ -121,41 +106,12 @@
 										class="searchNews int-text int-large radius">
 									 <a href="javascript:void(0);"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
 								</p>
- -->							</li>
+ -->							</li> --%>
 							<!-- <li><input type="button"
 								class="btn btn-serch radius btn-deepblue" id="searchBtn1"
 								value="搜索"></li> -->
 						</ul>
-						<%-- <ul>
-							
-							<li>
-								<p>情感</p>
-								<p>
-									<select id="sentimentId1" class="searchNews select select-mini">
-										<option value="">全部</option>
-										<option value="1">正面</option>
-										<option value="0">中性</option>
-										<c:choose>
-											<c:when test="${'negative'==model}">
-												<option value="-1" selected="selected">负面</option>
-											</c:when>
-											<c:otherwise>
-												<option value="-1">负面</option>
-											</c:otherwise>
-										</c:choose>
-
-									</select>
-								</p>
-								<!-- <p>
-									<input id="keyword1" type="text"
-										class="searchNews int-text int-large radius">
-									 <a href="javascript:void(0);"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
-								</p>
- -->							</li>
-							<!-- <li><input type="button"
-								class="btn btn-serch radius btn-deepblue" id="searchBtn1"
-								value="搜索"></li> -->
-						</ul> --%>
+						
 					</div>
 					<div class="level-news">
 						<div class="level-news-title">
@@ -178,19 +134,11 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
-								<!-- <p>影响力</p> -->
-								<p>
-									<select id="dicId2" class="searchSocial select select-mini"	style="width: 100px">
-										
-									</select>
-								</p>
+							<li id="dicId2">
+								
 							</li>
-							<li>
-								<p>时间</p>
-								<p>
-									<input id="timeId2" readonly type="text" class="searchSocial select select-small calendar">
-								</p>
+							<li id="timeId1">
+								
 							</li>
 							<!-- <li>
 								<p>媒体</p>
@@ -199,20 +147,14 @@
 									<input id="mediaId2" type="hidden">
 								</p>
 							</li> -->
-							<li>
-								<!-- <p>排序</p> -->
-								<p>
-									<select id="fieldName2" class="searchSocial select select-mini"
-										style="width: 85px">
-										<option value="">排序</option>
-										<option value="relevance">相关度</option>
-										<option value="time">时间</option>
-										<option value="force">权重</option>
-										<option value="transCount">转载量</option>
-									</select>
-								</p>
+							<!-- 排序 -->
+                           <li id="fileId2">
+								
 							</li>
-							<li>
+							<li id="qingId2">
+							 
+							</li>
+							<%-- <li>
 								<!-- <p>情感</p> -->
 								<p>
 									<select id="sentimentId2" class="searchSocial select select-mini">
@@ -237,40 +179,9 @@
 										class="searchSocial int-text int-large radius">
 									<a href="javascript:void(0);"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a>
 								</p> -->
-							</li>
+							</li> --%>
 						</ul>
-						<%-- <ul>
-							
-							<li>
-								<p>情感</p>
-								<p>
-									<select id="sentimentId2" class="searchSocial select select-mini">
-										<option value="">全部</option>
-										<option value="1">正面</option>
-										<option value="0">中性</option>
-										<c:if test="">
-										</c:if>
-										<c:choose>
-											<c:when test="${'negative'==model}">
-												<option value="-1" selected="selected">负面</option>
-											</c:when>
-											<c:otherwise>
-												<option value="-1">负面</option>
-											</c:otherwise>
-										</c:choose>
-
-									</select>
-								</p>
-								<p>
-									<input id="keyword2" type="text"
-										class="searchSocial int-text int-large radius">
-									<a href="javascript:void(0);"><i id="searchBtn2" class="icon iconfont suos">&#xe658;</i></a>
-								</p>
-							</li>
-							<!-- <li><input type="button"
-								class="btn btn-serch radius btn-deepblue" id="searchBtn2"
-								value="搜索"></li> -->
-						</ul> --%>
+						
 					</div>
 					<div class="level-news">
 						<div class="level-news-title">

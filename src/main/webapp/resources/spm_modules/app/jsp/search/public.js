@@ -47,7 +47,37 @@ define('app/jsp/search/public',function(require, exports, module) {
 					_this._bindEvent();
 					
 					_this._loadTopics();
-					selectUtil.initDicSelect(['dicId1','dicId2']);
+					/*selectUtil.initDicSelect(['dicId1','dicId2']);*/
+					var dicSelectConfig = [];
+					 dicSelectConfig.push({"id":"dicId1","callback":function(){
+						_this._searchNews();
+					 }});
+					 dicSelectConfig.push({"id":"dicId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initDicSelect(dicSelectConfig);
+					//加载排序下拉
+					var sortSelectConfig = [];
+					sortSelectConfig.push({"id":"fileId1","callback":function(){
+						_this._searchNews();
+					 }});
+					sortSelectConfig.push({"id":"fileId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initSortSelect(sortSelectConfig);
+					//加载情感下拉
+					var qingSelectConfig= [];
+					qingSelectConfig.push({"id":"qingId1","callback":function(){
+						_this._searchNews();
+					}});
+					qingSelectConfig.push({"id":"qingId2","callback":function(){
+						_this._searchSocial();
+					}});
+					selectUtil.initFeelSelect(qingSelectConfig);
+					//加载时间下拉
+					selectUtil.initTimeSelect({"id":"timeId1","callback":function(){
+						_this._searchNews();
+					}});
 					
 					if(this.model=='news'){
 						_this._search("news");
@@ -131,9 +161,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 			        	window.open (url, '_blank' ) ;
 		            });
 					
-					$("#retrieval p").click(function(){
-						$("#retrieval-show").slideToggle(100); 
-					});
+					
 					selectUtil._mediaSelect('retrieval',function(value){
 						alert(value);
 					});
