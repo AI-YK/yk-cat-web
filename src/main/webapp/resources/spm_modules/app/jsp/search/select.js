@@ -7,8 +7,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 	require("select2/select2_locale_zh-CN");
 	require("jquery-autocomplete/jquery.autocomplete");
 	require("jquery-autocomplete/jquery.autocomplete.css");
-	var  Base = require('arale-base/1.2.0/base');
-    var   AjaxController = require('opt-ajax/1.0.0/index');
+	var moment = require("moment/2.9.0/moment");
+	var Base = require('arale-base/1.2.0/base');
+    var AjaxController = require('opt-ajax/1.0.0/index');
     
     var ajaxController = new AjaxController();
     
@@ -299,19 +300,24 @@ define('app/jsp/search/select', function (require, exports, module) {
 			var selectObj = $("#"+id);
 			selectObj.html(html.join(""));
 			var selectDataList = $("#"+id+"_data_list");
-			selectObj.mouseenter(function () {
+			
+			selectObj.click(function(){
+				$(".select-dropdown-show").hide();
+				selectDataList.show();
+			});
+			/*selectObj.mouseenter(function () {
 				selectDataList.show(1);
 		    }).mouseleave(function () {
 			 selectDataList.hide(1);
-		    });
+		    });*/
 			selectDataList.click(function () {
 		                $(this).hide(1);
 		           });
 			var selectLi = $("#"+id+"_data_list ul li");
 			selectLi.click(function(){
-				selectLi.removeClass("current");
+				//selectLi.removeClass("current");
 				var _this=$(this);
-				_this.addClass("current");
+				//_this.addClass("current");
 				var val = _this.attr("data-val");
 				var text = _this.attr("data-text");
 				$("#"+id+"_input").val(val);
@@ -337,13 +343,16 @@ define('app/jsp/search/select', function (require, exports, module) {
         	html.push('<p>自定义</p>');
         	html.push('<p>');
         	html.push('<span>从');
-        	html.push('<input id="'+id+'_begin_temp" type="input" class="int-text date-input"/></span>');
+        	html.push('<input id="'+id+'_begin_temp" ');
+        	var t = "'#F{$dp.$D(\\'"+id+"_end_temp\\')||\\'%y-%M-%d\\'}'";
+        	html.push('  onfocus="WdatePicker({maxDate:'+t+',dateFmt:\'yyyy-MM-dd\',readOnly:true});"');
+        	html.push('type="input" class="int-text date-input"/></span>');
         	html.push('</p>');
         	html.push('<p>');
         	html.push('<span>到');
-        	html.push('<input id="'+id+'_end_temp" type="input" class="int-text date-input"/></span>');
+        	html.push('<input id="'+id+'_end_temp" onfocus="WdatePicker({dateFmt:\'yyyy-MM-dd\',readOnly:true,maxDate:\'%y-%M-%d\'});" type="input" class="int-text date-input"/></span>');
         	html.push('</p>');
-        	html.push('<p><input type="button" class="btn btn-date" value="确定"/></p>');
+        	html.push('<p><input id="'+id+'_submit_time_temp" type="button" class="btn btn-date" value="确定"/></p>');
         	html.push('</li>');
         	html.push('</ul>');
         	html.push('</div>');
@@ -351,12 +360,72 @@ define('app/jsp/search/select', function (require, exports, module) {
         	var selectObj = $("#"+id);
 			selectObj.html(html.join(""));
 			var selectView = $("#"+id+"_time_view");
-			selectObj.mouseenter(function () {
+			/*selectObj.mouseenter(function () {
 				selectView.show(1);
 		    }).mouseleave(function () {
-		     selectView.hide(1);
-		    });
+		      selectView.hide(1);
+		    });*/
+			selectObj.click(function(){
+				$(".select-dropdown-show").hide();
+				selectView.show();
+			});
 			
+			var select_ul_liView = $("#"+id+"_time_view ul li");
+			select_ul_liView.click(function(){
+				var _this = $(this);
+				var data_val =_this.attr("data-val");
+				if(data_val!=undefined&&data_val!=''){
+					var _begin_input = $("#"+id+"_begin_input");
+					var _end_input = $("#"+id+"_end_input");
+					var _begin_input_val = "";
+					var _end_input_val = "";
+					var nowDate = moment().format('YYYY-MM-DD');
+					switch(data_val*1){
+					 case 0://时间不限
+						 _begin_input_val = "";
+					     _end_input_val = "";
+						 break;
+					 case 1://一天内
+						 _begin_input_val = nowDate+" 00:00:00";
+					     _end_input_val = nowDate+" 23:59:59";
+						 break;
+					 case 2://一周内
+						 var pre7Date = moment().add(-6,'days').format('YYYY-MM-DD');
+						 _begin_input_val = pre7Date+" 00:00:00";
+					     _end_input_val = nowDate+" 23:59:59";
+						 break;
+					 case 3://一月内
+						 var pre30Date = moment().add(-29,'days').format('YYYY-MM-DD');
+						 _begin_input_val = pre30Date+" 00:00:00";
+					     _end_input_val = nowDate+" 23:59:59";
+						 break;
+					}
+					$("#"+id+"_select_text").html(_this.html());
+					_begin_input.val(_begin_input_val);
+					_end_input.val(_end_input_val);
+					$("#"+id+"_begin_temp").val("");
+					$("#"+id+"_end_temp").val("");
+					selectView.hide(1);
+				}
+			});
+			$("#"+id+"_submit_time_temp").click(function(){
+				var begin = $("#"+id+"_begin_temp").val();
+				if(!begin){
+					$("#"+id+"_begin_temp").focus();
+					return;
+				}
+				var end = $("#"+id+"_end_temp").val();
+				if(!end){
+					$("#"+id+"_end_temp").focus();
+					return;
+				}
+				var _begin_input = $("#"+id+"_begin_input");
+				_begin_input.val(begin+" 00:00:00");
+				var _end_input = $("#"+id+"_end_input");
+				_end_input.val(end+" 23:59:59");
+				selectView.hide(1);
+				
+			});
         },
         //媒体选择框
         _mediaSelect:function(id,callback){
