@@ -52,7 +52,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 					}
 					for(var j=0;j<selectConfigData.length;j++){
 						var selectObj = selectConfigData[j];
-						_this._commonselect(selectObj.id, '省份', data2,selectObj.callback);
+						selectObj.text='省份';
+						selectObj.data=data2;
+						_this._commonselect(selectObj);
 					}
 					
 				}
@@ -93,7 +95,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 					}
 					for(var j=0;j<selectConfigData.length;j++){
 						var selectObj = selectConfigData[j];
-						_this._commonselect(selectObj.id, '语言', data2,selectObj.callback);
+						selectObj.text='语言';
+						selectObj.data=data2;
+						_this._commonselect(selectObj);
 					}
 				  }
 					
@@ -132,7 +136,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 					}
 					for(var j=0;j<selectConfigData.length;j++){
 						var selectObj = selectConfigData[j];
-						_this._commonselect(selectObj.id, '影响力', data2,selectObj.callback);
+						selectObj.text='影响力';
+						selectObj.data=data2;
+						_this._commonselect(selectObj);
 					}
 				}
         	    
@@ -247,7 +253,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 			}
 			for(var j=0;j<selectConfigData.length;j++){
 				var selectObj = selectConfigData[j];
-				_this._commonselect(selectObj.id, '排序', data,selectObj.callback);
+				selectObj.text='排序';
+				selectObj.data=data;
+				_this._commonselect(selectObj);
 			}
         },
         /*译文下拉*/
@@ -266,7 +274,9 @@ define('app/jsp/search/select', function (require, exports, module) {
         	}
         	for(var j=0;j<selectConfigData.length;j++){
         		var selectObj = selectConfigData[j];
-        		_this._commonselect(selectObj.id, '译文', data,selectObj.callback);
+        		selectObj.text='译文';
+				selectObj.data=data;
+        		_this._commonselect(selectObj);
         	}
         },
         
@@ -286,13 +296,20 @@ define('app/jsp/search/select', function (require, exports, module) {
         	}
         	for(var j=0;j<selectConfigData.length;j++){
         		var selectObj = selectConfigData[j];
-        		_this._commonselect(selectObj.id, '情感', data,selectObj.callback);
+        		selectObj.text='情感';
+				selectObj.data=data;
+        		_this._commonselect(selectObj);
         	}
         },
         
         
         /*生成通用下拉列表*/
-        _commonselect:function(id,text,data,callback){
+        _commonselect:function(config){
+        	var id = config.id;
+        	var text = config.text;
+        	var data =config.data; 
+        	var callback=config.callback;
+        	var defaultId =config.defaultId; 
         	//点击其他影藏
         	$(document).on("click",function(){
 				$('.select-dropdown-show').hide();
@@ -315,6 +332,10 @@ define('app/jsp/search/select', function (require, exports, module) {
 			html.push('</p>'); 
 			var selectObj = $("#"+id);
 			selectObj.html(html.join(""));
+			//设置默认
+			if(defaultId!=''&&defaultId!=undefined){
+				("#"+id+"_input").val(defaultId);
+			}
 			var selectDataList = $("#"+id+"_data_list");
 			
 			selectObj.click(function(event){
