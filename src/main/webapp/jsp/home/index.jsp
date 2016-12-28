@@ -81,7 +81,7 @@
 					<c:forEach items="${config.interestList}" var="interestVo">
 						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="inbtn current"><a href="javascript:void(0);" id="modify-btn">修改</a></li>
+					<li class="current" ><a href="javascript:void(0);" id="modify-btn" style="color:#3382ee">修改</a></li>
 				</ul>
 				
 				
