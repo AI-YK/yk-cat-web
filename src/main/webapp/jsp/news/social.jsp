@@ -256,7 +256,7 @@
 			<span>转载量：{{:transfer}}</span>
 		</p>
 	</li>
-	<li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">
+	<li class="news" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">
         {{:abstractZh}}
 	</li>
 </ul>
@@ -286,7 +286,7 @@
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>
 	  </li>
-	  <li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:text}}</li>
+	  <li class="news" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:text}}</li>
 	</ul>
 </div>
 </script>

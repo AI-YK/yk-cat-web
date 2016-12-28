@@ -78,7 +78,7 @@
            	<!-- <img style="height:14px;" src="${uedroot}/images/country/{{:enCountry}}@2x.png" /> <span>热度：{{:heatValue}}</span>-->
 		</p>
 	</li>
-	<li class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;" >
+	<li class="news" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" >
         {{:zhSummary}}
 	</li>
 </ul>
