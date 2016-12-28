@@ -67,7 +67,7 @@ public class NewsHotAndSocialHotController {
 		searchPublicSafetyMessage.setMediaType(mediaType);
 		searchPublicSafetyMessage.setSentimentId(sentimentId);
 		searchPublicSafetyMessage.setProvincecityCode(provincecityCode);
-		searchPublicSafetyMessage.setCityCode(cityCode);
+		searchPublicSafetyMessage.setIdList(cityCode);
 		searchPublicSafetyMessage.setCategoryId(categoryId);
 		searchPublicSafetyMessage.setMediaList(mediaList);
 		searchPublicSafetyMessage.setMediaLevel(mediaLevel);
