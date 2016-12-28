@@ -91,7 +91,13 @@ define(
 							_this._searchSocial();
 						 }});
 					selectUtil.initTimeSelect(timeSelectConfig);
-					
+					//媒体下拉
+					selectUtil._mediaSelect("retrieval1",function(){
+						_this._searchNews();
+					});
+					selectUtil._mediaSelect("retrieval2",function(){
+						_this._searchSocial();
+					});
 					
 					
 					_this._loadChartData();
@@ -225,8 +231,8 @@ define(
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
 						}
-						if($("#mediaId1").val()!=""){
-							param.mediaId=$("#mediaId1").val();
+						if($("#retrieval1-store").val()!=""){
+							param.mediaId=$("#retrieval1-store").val();
 						}
 						if($("#fileId1_input").val()!=""){
 							param.fieldName= $("#fileId1_input").val();
@@ -249,8 +255,8 @@ define(
 							param.fieldName= $("#fileId2_input").val();
 							param.order = "desc";
 						}
-						if($("#medialId2").val()!=""){
-							param.mediaLevel= $("#medialId2").val();
+						if($("#retrieval2-store").val()!=""){
+							param.mediaLevel= $("#retrieval2-store").val();
 						}
 						if($("#qingId2_input").val()!=""){
 							param.sentimentId= $("#qingId2_input").val();
