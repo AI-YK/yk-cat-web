@@ -336,7 +336,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 							param.endTime=endtime;
 						}
 						if($("#retrieval-store").val()!=""){
-							param.mediaId=$("#retrieval-store").val();
+							param.mediaList=$("#retrieval-store").val();
 						}
 						var fileId1 = $("#fileId1_input").val();
 						if(fileId1&&fileId1!=""){
@@ -350,7 +350,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 						keyword = $("#keyword2").val();
 						var dicId2 = $("#dicId2_input").val()
 						if(dicId2&&dicId2!=""){
-							param.dicValue= dicId2;
+							param.mediaLevel= dicId2;
 						}
 						
 						var begintime=$("#timeId2_begin_input").val();
@@ -364,8 +364,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 							param.fieldName= fileId2;
 							param.order = 'desc';
 						}
-						if($("#medialId2").val()!=""){
-							param.mediaLevel= $("#medialId2").val();
+						if($("#retrieval2-store").val()!=""){
+							param.mediaList= $("#retrieval2-store").val();
 						}
 						if($("#qingId2_input").val()!=""){
 							param.sentimentId= $("#qingId2_input").val();

@@ -253,9 +253,12 @@ box-shadow:1px 1px 4px #a9a9a9;
 .news-type-main ul li a{color:#666;height:29px;padding:0 15px;float:left}
 .news-type-main ul li a:hover{background:#3382ee;color:#fff;height:29px;border-radius:15px;}
 .news-type-main ul li .current{background:#3382ee;color:#fff;height:29px;border-radius:15px;}
+
 /**404**/
 .error-four{width:100%;height: calc(100% - 60px);background:url(../../images/404.jpg) no-repeat;background-size:100% 100%;min-width:1200px;}
-.error-main{width:330px;position:absolute;left:50%;top:50%;margin-left:-165px;margin-top:-130px;}
+.error-main{width:500px;height:500px;background:url(../../images/404-1.png) no-repeat;background-size:100% 100%;position:absolute;left:50%;top:50%;margin-left:-250px;margin-top:-250px;}
 .error-main ul{width:100%;float:left}
-.error-main ul li{text-align:center;margin-bottom:42px;font-size:14px;color:#fff;width:100%;float:left;text-align:center;}
-.error-main ul li p{display: inline-block;margin-right:20px;}
+.error-main ul li{text-align:center;}
+.error-main ul .img{margin-top:180px;}
+.error-main ul .word{font-size:14px;color:#cdcdcd;margin-top:20px;}
+.error-main ul li a{width:140px;height:44px;border:1px solid #cdcdcd;border-radius:20px;text-align: center;line-height:44px;font-size:14px;color:#cdcdcd;display:inline-block;margin-top:80px ;}

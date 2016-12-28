@@ -42,8 +42,8 @@
 							<li id="orgnizationId1">
 								
 							</li>
-							<!-- 语言 -->
-							<li id="languageId1">
+							<!-- 语言
+							<li id="languageId1"> -->
 									
 							</li>
 							<!-- 影响力 -->

@@ -60,9 +60,11 @@ public final class SessionUtil {
 		HttpSession session = request.getSession();
 		session.setMaxInactiveInterval(OUT_TIME);
 		Object obj = session.getAttribute(Constants.USER_SESSION_KEY);
+		log.info("user01:" + obj);
 		SSOClientUser loginUser = null;
 		if (obj != null) {
 			String str = JSON.toJSONString(obj);
+			log.info("user02:" + str);
 			loginUser = JSON.parseObject(str, SSOClientUser.class);
 		}
 	    if (!real&&loginUser == null) { 

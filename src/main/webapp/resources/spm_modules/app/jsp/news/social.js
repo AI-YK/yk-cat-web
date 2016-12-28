@@ -316,7 +316,7 @@ define(
 							param.languageCode= $("#languageId1_input").val();
 						}
 						if($("#dicId1_input").val()!="" && $("#dicId1_input").val()!=undefined){
-							param.dicValue= $("#dicId1_input").val();
+							param.mediaLevel= $("#dicId1_input").val();
 						}
 						
 						var begintime=$("#timeId1_begin_input").val();
@@ -326,7 +326,7 @@ define(
 							param.endTime=endtime;
 						}
 						if($("#retrieval1-store").val()!=""){
-							param.mediaId=$("#retrieval1-store").val();
+							param.mediaList=$("#retrieval1-store").val();
 						}
 						if($("#fileId1_input").val()!=""){
 							param.fieldName= $("#fileId1_input").val();
@@ -335,7 +335,7 @@ define(
 					}else if ('social' == mediaType) {
 						
 						if($("#dicId2_input").val()!=""){
-							param.dicValue= $("#dicId2_input").val();
+							param.mediaLevel= $("#dicId2_input").val();
 						}
 						var begintime=$("#timeId1_begin_input").val();
 						var endtime=$("#timeId1_end_input").val();
@@ -348,7 +348,7 @@ define(
 							param.order = "desc";
 						}
 						if($("#retrieval2-store").val()!=""){
-							param.mediaLevel= $("#retrieval2-store").val();
+							param.mediaList= $("#retrieval2-store").val();
 						}
 						if($("#qingId2_input").val()!=""){
 							param.sentimentId= $("#qingId2_input").val();
