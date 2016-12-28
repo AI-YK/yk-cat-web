@@ -243,9 +243,9 @@ define(
 						if($("#orgnizationId2_input").val()!=null){
 							param.provincecityCode= $("#orgnizationId2_input").val();
 						}
-						if($("#dicId2_input").val()!=""){
+						/*if($("#dicId2_input").val()!=""){
 							param.mediaLevel= $("#dicId2_input").val();
-						}
+						}*/
 						var begintime=$("#timeId1_begin_input").val();
 						var endtime=$("#timeId1_end_input").val();
 						if(begintime&&endtime){
