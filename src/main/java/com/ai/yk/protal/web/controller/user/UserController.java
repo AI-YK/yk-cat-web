@@ -2,6 +2,8 @@ package com.ai.yk.protal.web.controller.user;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,6 +31,8 @@ import com.google.gson.Gson;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+	
+	private static final Logger log = LoggerFactory.getLogger(UserController.class);
 	
     @Autowired
 	private MycustomizedService mycustomizedService;
@@ -104,10 +108,14 @@ public class UserController {
 		YJRequest<LoginVo> req = new YJRequest<LoginVo>();
 		req.setMessage(vo);;
 		String body = "req:"+gson.toJson(req);
+		log.info("req:"+gson.toJson(req));
 		String result = HttpClientUtil.getYJBaseResponse(ConfigUtil.getProperty("loginRestUrl"), req);
 		body =  body +"\n" + "resp:"+result;
+		log.info("resp:"+result);
 		JSONObject obj = JSON.parseObject(result);
-		request.getSession().setAttribute("user", obj.get("data").toString());
+		if(obj!=null&&obj.get("data")!=null){
+			request.getSession().setAttribute("user", obj.get("data"));
+		}
 		return body;
 	}
    
