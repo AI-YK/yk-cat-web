@@ -92,12 +92,12 @@ public class MapController extends BaseController{
 	    		}
 	    	}
 	    	String provinceCode ="";
-	    	if(config!=null&&config.getProvince()!=null){
-	    		provinceCode = config.getProvince().getCode();
-	    	}
 	    	String cityCodes = "";
 	    	List<AreaVo> listArea = new ArrayList<AreaVo>();
-	    	listArea = config.getCity();
+	    	if(config!=null&&config.getProvince()!=null){
+	    		provinceCode = config.getProvince().getCode();
+	    		listArea = config.getCity();
+	    	}
 	    	if(listArea.size()>0){
 	    		for(int i=0;i<listArea.size();i++){
 	    			if(i == 0){
@@ -108,7 +108,6 @@ public class MapController extends BaseController{
 	    			
 	    		}
 	    	}
-	    	
 			List<MyTopicsVo> topics = SessionUtil.getTopics();
 			if(topics==null||topics.size()==0){
 	    		model.addAttribute("hasTopic", false);
@@ -170,7 +169,7 @@ public class MapController extends BaseController{
 			searchPublicSafetyMessage.setMediaType(mediaType);
 			searchPublicSafetyMessage.setSentimentId(sentimentId);
 			searchPublicSafetyMessage.setProvincecityCode(provinceCode);
-			searchPublicSafetyMessage.setCityCode(cityCode);
+			searchPublicSafetyMessage.setIdList(cityCode);
 			searchPublicSafetyMessage.setCategoryId(categoryId);
 			searchPublicSafetyMessage.setMediaId(mediaId);
 			searchPublicSafetyMessage.setMediaLevel(mediaLevel);
