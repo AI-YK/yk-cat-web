@@ -14,6 +14,13 @@
 	margin: 0;
 }
 
+.ac_results ul::-webkit-scrollbar {width: 14px;height: 14px;}  
+.ac_results ul::-webkit-scrollbar-track,  
+.ac_results ul::-webkit-scrollbar-thumb {border-radius: 999px;  border: 5px solid transparent;}  
+.ac_results ul::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
+.ac_results ul::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;}  
+.ac_results ul::-webkit-scrollbar-corner {  background: transparent;}  
+
 .ac_results li {
 	margin: 0px;
 	padding: 2px 5px;

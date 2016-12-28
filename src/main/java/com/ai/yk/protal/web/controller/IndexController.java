@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.paas.ipaas.i18n.ResWebBundle;
-import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
@@ -54,15 +53,6 @@ public class IndexController extends BaseController {
     		model.addAttribute("config", config);
     		if(!CollectionUtil.isEmpty(config.getInterestList())){
     			model.addAttribute("configInterestList", JSON.toJSONString(config.getInterestList()));
-    			List<InterestVo> interestes =  config.getInterestList();
-    			if(interestes!=null&&interestes.size()>0){
-    				String interestStr = "";
-    				for(InterestVo interest:interestes){
-    					interestStr = interestStr + ","+interest.getBusinessId();
-    				}
-    				interestStr = interestStr.substring(1);
-    				model.addAttribute("interestes", interestStr);
-    			}
     		}
     		if(config.getProvince()!=null){
     			if(config.getProvince().getBusCode()!=null && !"".equals(config.getProvince().getBusCode())){

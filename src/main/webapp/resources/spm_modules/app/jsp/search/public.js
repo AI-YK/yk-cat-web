@@ -36,6 +36,17 @@ define('app/jsp/search/public',function(require, exports, module) {
 				setup : function() {
 					var _this = this;
 					publicPage.superclass.setup.call(this);
+					
+
+		        	//通用数据  定制数据	
+		        	$("#data-show ul .ahov1").click(function(){
+		        		$("#commDiv").css("display",'block');
+		        	});
+		        	
+		        	$("#data-show ul .ahov3").click(function(){
+		        		$("#topicDiv").css("display",'block');
+		        	});	
+					
                     this.model = $("#model").val(); 
                     if(this.model=='news'){
                     	$("#le-tba1").show();
@@ -104,6 +115,19 @@ define('app/jsp/search/public',function(require, exports, module) {
 				},
 				_bindEvent : function() {
 					var _this = this;
+					//数据 
+		            $('.mainbav  #shuj').mouseenter(function () {
+		        		$('#data-show').show(1);
+		        		$('#user-show').hide(1);
+		            })
+		        	$("#data-show").click(function () {
+		                        $(this).hide(1);
+		            });	
+		        	$('.mainbav').mouseleave(function () {
+		                $('#data-show').hide(1);
+		            });	
+					
+					
 					$(".level-left-table ul li a").click(function() {
 						$(".level-left-table ul li a").each(function() {
 							$(this).removeClass("current");

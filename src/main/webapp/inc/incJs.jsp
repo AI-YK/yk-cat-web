@@ -7,8 +7,9 @@
 <script>
     var _base = "${_base}";
     var _user_id = "${user.userId}";
-    var _data_type = "data_type" + _user_id;
-    var _topic_id = "topic_id" + _user_id;
+    var _data_type = "data_type_" + _user_id;
+    var _domain_id = "domain_id_" + _user_id;
+    var _topic_id = "topic_id_" + _user_id;
     var _i18n_res = "${i18nRes}";
     var _spm_res = "${spmRes}";
     var uedroot="${uedroot}";
