@@ -42,7 +42,16 @@ define(
 					_this.search("news");
 					_this.search("social");
 					_this._loadTopics();
-					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
+					//加载省份
+					var provinceSelectConfig = [];
+					provinceSelectConfig.push({"id":"orgnizationId1","callback":function(){
+						_this._searchNews();
+					 }});
+					provinceSelectConfig.push({"id":"orgnizationId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					
+					selectUtil.initOrgSelect(provinceSelectConfig);
 					
 					selectUtil.initLanguageSelect({"id":"languageId1","callback":function(){
 						_this._searchNews();
@@ -200,8 +209,8 @@ define(
 						param.keyword = keyword;
 					}
 					if ('news' == mediaType) {
-						if($("#orgnizationId1").val()!="-1" && $("#orgnizationId1").val()!=null){
-							param.provincecityCode= $("#orgnizationId1").val();
+						if($("#orgnizationId1_input").val()!=null){
+							param.provincecityCode= $("#orgnizationId1_input").val();
 						}
 						if($("#languageId1_input").val()!=""){
 							param.languageCode= $("#languageId1_input").val();
@@ -223,8 +232,8 @@ define(
 							param.order = "desc";
 						}
 					}else if ('social' == mediaType) {
-						if($("#orgnizationId2").val()!="-1" && $("#orgnizationId2").val()!=null){
-							param.provincecityCode= $("#orgnizationId2").val();
+						if($("#orgnizationId2_input").val()!=null){
+							param.provincecityCode= $("#orgnizationId2_input").val();
 						}
 						if($("#dicId2_input").val()!=""){
 							param.dicValue= $("#dicId2_input").val();
