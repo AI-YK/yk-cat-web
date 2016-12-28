@@ -253,7 +253,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         initTranSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
-        	data.push({"id":"tran","text":"译文"});
+        	data.push({"id":"tran","text":"译文不限"});
         	data.push({"id":"onlyTran","text":"仅显示译文"});
         	data.push({"id":"onlyText","text":"仅显示原文"});
         	data.push({"id":"tranAndText","text":"显示译文和原文"});
@@ -273,6 +273,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         initFeelSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
+        	data.push({"id":'',"text":"情感不限"});
         	data.push({"id":"face","text":"正面"});
         	data.push({"id":"neutral","text":"中性"});
         	data.push({"id":"negative","text":"负面"});
@@ -459,7 +460,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 			var html = [];
 			html.push('<p id="'+id+'-label">媒体<i class="icon iconfont">&#xe659;</i></p>');
 			html.push('<input id="'+id+'-store" type="hidden" value=""/>');
-			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="display:none;">');
+			html.push('<div class="select-dropdown-show retrieval" id="'+id+'-show"  style="display:none;">');
 			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="搜索媒体"  />');
 			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="确定" />');
 			html.push('</div>');
