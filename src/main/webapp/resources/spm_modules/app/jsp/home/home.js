@@ -314,7 +314,9 @@ define('app/jsp/home/home', function (require, exports, module) {
         	this._getDomains();
         },
         _refresh:function(){
-        	
+        	var topicId =this._getTopicId();
+    		//存储选择的专题ID到cookie
+            $.cookie(_topic_id,topicId, {path: '/'});
         	var newsTab = $("#news-tab ul li .current");
             var newsId = newsTab.next().attr("value");
             this._getHotInfoList("news",newsId);
