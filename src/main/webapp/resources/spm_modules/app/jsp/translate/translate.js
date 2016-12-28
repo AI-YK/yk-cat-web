@@ -16,7 +16,7 @@ define("app/jsp/translate/translate", function(require, exports, module) {
 		},
 		/* 翻译 */
 		execTranslate:function(param,callBack){
-			var dataArray = param.text.replace("<BR/>","<br>").split("<br>");
+			var dataArray = param.text.replace("/<BR//>/g","<br>").split("<br>");
 			this.sendTranslate(dataArray, param, callBack);
 		},
 		/*异步翻译内容*/

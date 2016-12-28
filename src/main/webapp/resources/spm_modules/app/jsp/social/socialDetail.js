@@ -75,7 +75,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 		showSrcContent:function(){
 			var srcContent = $("#srcContent").html();
 			if(srcContent){
-				srcContent= srcContent.replace("<BR/>","<br>").split("<br>");
+				srcContent= srcContent.replace("/<BR//>/g","<br>").split("<br>");
 				var html = [];
 				for(var i=0;i<srcContent.length;i++){
 					html.push("<li>"+srcContent[i]+"</li>");
