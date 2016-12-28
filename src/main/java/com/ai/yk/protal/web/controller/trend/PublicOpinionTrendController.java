@@ -73,8 +73,8 @@ public class PublicOpinionTrendController {
 			endTime = DateUtil.getDateString("yyyy-MM-dd 00:00:00");
 			beginTime = getDateBefore(new Date(), -n);
 		}else if(timeType.equals("2")){
-			beginTime = DateUtil.getDateString("yyyy-MM-dd 00:00:00");
-			endTime = getDateBefore(new Date(), -30);
+			endTime = DateUtil.getDateString("yyyy-MM-dd 00:00:00");
+			beginTime = getDateBefore(new Date(), -30);
 		}
 		
 		PublicAffairsMessage message =new PublicAffairsMessage();
