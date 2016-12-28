@@ -78,10 +78,10 @@
 				    </c:choose>
 						<i class="icon iconfont"></i></a> 
 					</li>
-					<c:forEach items="${config.interestList}" var="interestVo">
-						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
+					<c:forEach items="${config.interestList}" var="interestVo" varStatus="t">
+						<li class="inbtn"><a id="${interestVo.businessId}"  href="javascript:void(0);" ${t.index==0?'class="domain current"':'class="domain"'}>${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="inbtn current"><a href="javascript:void(0);" id="modify-btn">修改</a></li>
+					<li class="current" ><a href="javascript:void(0);" id="modify-btn" style="color:#3382ee">修改</a></li>
 				</ul>
 				
 				
@@ -194,7 +194,6 @@
 </script>
 <script type="text/javascript">
     var configInterestList = '${configInterestList}';
-    var interestes = '${interestes}';
     var provinceCodee='${provindeCode}';
     var cityLists='${citylist}';
     var hasTopic = ${hasTopic};

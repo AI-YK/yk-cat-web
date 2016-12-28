@@ -164,7 +164,7 @@ define("app/jsp/event/eventDetail", function(require, exports, module) {
 			$("#showSynchysis").off("click").on("click",function(){
 				_this.showSynchysis();
 			});
-			$(document).on("click","#news-list ul li",function(){
+			$(document).on("click","#news-list ul li.title",function(){
 				var _this = $(this).parent();
             	var uuid = _this.attr("uuid");
             	var url =_base+"/news/detail/"+uuid;

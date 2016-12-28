@@ -370,7 +370,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         	html.push('</p>');
         	html.push('<p>');
         	html.push('<span>到');
-        	html.push('<input id="'+id+'_end_temp" onfocus="WdatePicker({dateFmt:\'yyyy-MM-dd\',readOnly:true,maxDate:\'%y-%M-%d\'});" type="input" class="int-text date-input"/></span>');
+        	t = "'#F{$dp.$D(\\'"+id+"_begin_temp\\')||\\'%y-%M-%d\\'}'";
+        	html.push('<input id="'+id+'_end_temp" onfocus="WdatePicker({minDate:'+t+',dateFmt:\'yyyy-MM-dd\',readOnly:true,maxDate:\'%y-%M-%d\'});" type="input" class="int-text date-input"/></span>');
         	html.push('</p>');
         	html.push('<p><input id="'+id+'_submit_time_temp" type="button" class="btn btn-date" value="确定"/></p>');
         	html.push('</li>');
@@ -460,7 +461,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 			var html = [];
 			html.push('<p id="'+id+'-label">媒体<i class="icon iconfont">&#xe659;</i></p>');
 			html.push('<input id="'+id+'-store" type="hidden" value=""/>');
-			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="display:none;">');
+			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="width:240px;padding: 20px;display:none;">');
 			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="搜索媒体"  />');
 			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="确定" />');
 			html.push('</div>');

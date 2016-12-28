@@ -217,7 +217,18 @@ define('app/jsp/home/home', function (require, exports, module) {
         		_this._refresh();
         	});	
         	
-            
+        	 //选择专题
+            $(document).on("click",".domain",function(){
+             	  $(".domain").each(function () {
+                      $(this).removeClass("current");
+                  });
+                  $(this).addClass("current");
+                  var domainId = $(this).attr("id");
+          		  //存储选择的专题ID到cookie
+                  $.cookie(_domain_id,domainId , {path: '/' });
+                  _this._refresh();
+  			});
+        	
             //选择专题
             $(document).on("click",".topic",function(){
              	  $(".topic").each(function () {
@@ -288,6 +299,8 @@ define('app/jsp/home/home', function (require, exports, module) {
         		$("#topicDiv").hide();
         		$(".right-list").hide();
         		$("#commDiv").show();
+        		var domainId = $(".domain.current").attr("id");
+        		$.cookie(_domain_id,domainId, {path: '/'});
         	}else if(dataType=='1'){
         		$("#commDiv").hide();
         		$("#topicDiv").show();
@@ -437,7 +450,8 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	}
                 	param.busCode=cityCodeList;
             	}
-            	param.categoryId = interestes;
+            	var domainId = $(".domain.current").attr("id");
+            	param.categoryId = domainId;
         	}else if(dataType=='1'){  
         		var topicId = this._getTopicId();
         		if(topicId){
@@ -509,7 +523,8 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	}
                 	param.cityCode=cityCodeList;
             	}
-            	param.categoryId = interestes;
+            	var domainId = $(".domain.current").attr("id");
+            	param.categoryId = domainId;
             	if(mediaId){
             		param.mediaList = mediaId;
             	}
@@ -572,7 +587,8 @@ define('app/jsp/home/home', function (require, exports, module) {
                 	}
                 	param.cityCode=cityCodeList;
             	}
-            	param.categoryId = interestes;
+            	var domainId = $(".domain.current").attr("id");
+            	param.categoryId = domainId;
         	}else if(dataType=='1'){  
         		param.isTopic = 1;
         		var topicId = this._getTopicId();
