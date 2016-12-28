@@ -288,7 +288,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 						}
 						//领域分类
 						var domainId = this._getDomainIds();
-		            	param.categoryId = domainId;
+						if(domainId!="")
+		            	  param.categoryId = domainId;
 		        	}else if(this._dataType==1){  
 		        		var topicId = this._getTopicId();
 		        		if(topicId){
@@ -317,8 +318,10 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if(idList!=""){
 							param.cityCode = idList;
 						}
+						//领域分类
 						var domainId = this._getDomainIds();
-		            	param.categoryId = domainId;
+						if(domainId!="")
+		            	  param.categoryId = domainId;
 		        	}else if(this._dataType==1){  
 		        		param.isTopic = 1;
 		        		var topicId = this._getTopicId();

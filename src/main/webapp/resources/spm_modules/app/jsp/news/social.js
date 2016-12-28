@@ -116,15 +116,13 @@ define(
 					}
 					//初始化领域
 					var domainId = $.cookie(_domain_id);
-					if(domainId==undefined){
+					if(domainId==undefined||domainId==''){
 						$(".domain").eq(0).addClass("current");
 					}else{
-						$(".domain").each(function(){
-							var id = $(this).attr("id");
-							if(id==domainId){
-								$(this).addClass("current");
-							}
-						});
+						var domains = domainId.split(",");
+						for(var i=0;i<domains.length;i++){
+							$("#"+domains[i]).addClass("current");
+						}
 					}
 					
 					//初始化专题
@@ -202,11 +200,12 @@ define(
 					
 					 //选择领域
 		            $(document).on("click",".domain",function(){
-		             	  $(".domain").each(function () {
-		                      $(this).removeClass("current");
-		                  });
-		                  $(this).addClass("current");
-		                  _this._load();
+		            	if(!$(this).hasClass("current")){
+		             		 $(this).addClass("current");
+		             	}else{
+		             		 $(this).removeClass("current");
+		             	}
+		                _this._load();
 		  			});
 		        	
 		            //选择专题
@@ -277,6 +276,16 @@ define(
 				_searchSocial:function(){
 					this.search("social");
 				},
+				_getDomainIds:function(){
+			        	var domainIds = '';
+			        	$(".domain.current").each(function(){
+			        		domainIds = domainIds + "," + $(this).attr("id");
+			        	});
+			        	if(domainIds!=''){
+			        		domainIds = domainIds.substring(1,domainIds.length);
+			        	}
+			        	return domainIds;
+			     },
 				_getTopicId:function(){
 		        	var opType = $(".topic.current").attr("opType");
 		        	var id = $(".topic.current").attr("id");
@@ -291,8 +300,9 @@ define(
 					
 		        	if(this._dataType==0){
 						//领域分类
-						var domainId = $(".domain.current").attr("id");
-		            	param.categoryId = domainId;
+						var domainId = this._getDomainIds();
+						if(domainId!="")
+		            	  param.categoryId = domainId;
 		        	}else if(this._dataType==1){  
 		        		var topicId = this._getTopicId();
 		        		if(topicId){
@@ -356,9 +366,10 @@ define(
 					}
 				
 		        	if(this._dataType==0){
-						//领域分类
-						var domainId = $(".domain.current").attr("id");
-		            	param.categoryId = domainId;
+		        		//领域分类
+						var domainId = this._getDomainIds();
+						if(domainId!="")
+		            	  param.categoryId = domainId;
 		        	}else if(this._dataType==1){  
 		        		var topicId = this._getTopicId();
 		        		if(topicId){
