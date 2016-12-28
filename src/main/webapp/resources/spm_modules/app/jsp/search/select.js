@@ -273,6 +273,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         initFeelSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
+        	data.push({"id":'',"text":"情感不限"});
         	data.push({"id":"face","text":"正面"});
         	data.push({"id":"neutral","text":"中性"});
         	data.push({"id":"negative","text":"负面"});
