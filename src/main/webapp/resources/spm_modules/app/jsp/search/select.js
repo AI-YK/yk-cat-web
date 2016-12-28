@@ -253,7 +253,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         initTranSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
-        	data.push({"id":"tran","text":"译文"});
+        	data.push({"id":"tran","text":"译文不限"});
         	data.push({"id":"onlyTran","text":"仅显示译文"});
         	data.push({"id":"onlyText","text":"仅显示原文"});
         	data.push({"id":"tranAndText","text":"显示译文和原文"});
