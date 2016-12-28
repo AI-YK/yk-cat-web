@@ -38,6 +38,8 @@
 .more-show ul::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
 .more-show ul::-webkit-scrollbar-corner { background: transparent;  }
 </style>
+<link href="${uedroot}/css/modular/modular.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <body>
 	<!--面包屑导航-->
@@ -61,40 +63,57 @@
 		</div>
 	</div> -->
 	<!---->
-	<div class="news-type-big">
-		<div id="news-type-mainId" class="news-type-main">
-				<ul id="topcId">
+	
+	<div class="subnav" >
+		<div class="subnav-main">
+			<div id="commDiv" class="left-list" style="display: block;">
+				<ul style="width: 1200px;">
+					<li><a>通用数据：</a></li>
+					<c:forEach items="${interestList }" var="interest">
+					<li class="inbtn"><a id="${interest.businessId}"  class="domain" href="#">${interest.zhInterest }</a><input type="hidden" value="${interest.businessId }"/></li>
+					</c:forEach>
+					<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+				</ul>
+			</div>
+			<!-- 专题数据 -->
+			<div id="topicDiv" class="left-list" style="display: none;">
+			<c:if test="${hasTopic}">
+			   <ul style="width: 1200px;">
+				    <li><a>专题数据：</a></li>
 					<c:forEach items="${topics }" var="topic" varStatus="t">
 						<c:if test="${t.index<7}">
-						<li><a href="#">${topic.srcShortTitle }</a><input type="hidden" value="${topic.id }"/><input type="hidden" value="${topic.srcId }"/><input type="hidden" value="${topic.opType }"/></li>
+						<li class="inbtn"><a id="${topic.id}" class="topic" href="#">${topic.srcShortTitle }</a><input type="hidden" value="${topic.id }"/><input type="hidden" value="${topic.srcId }"/><input type="hidden" value="${topic.opType }"/></li>
 						</c:if>
 					</c:forEach>
-					<div class="moveul" >
-					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();" id="gengduo">更多<i class="icon iconfont">&#xe659;</i></a>
+				</ul> 
+			</c:if>
+			</div>
+			<c:if test="${hasTopic}">
+			<div class="right-list" style="display: block;">
+			    <c:if test="${fn:length(topics)>7}">
+				<ul>
+					<li class="more" id="more"><a href="#" onclick="show();" id="gengduo" >更多<i class="icon iconfont">&#xe659;</i></a>
 						<div class="more-show" id="more-show">
 							<span><img src="${uedroot}/images/xf-sj.png"></span>
 							<ul>
-							    <li>
+							    <li class="inbtn">
 								    <c:forEach items="${topics}" var="topic" varStatus="t">
 						               <c:if test="${t.index>=7}">
-										    <p><a id="${topic.id}" class="topic" onclick="morehide();">${topic.srcShortTitle}</a><input type="hidden" value="${topic.id}"/></p>
+										    <p><a id="${topic.id}" onclick="morehide();"  opType="${topic.opType}" srcId="${topic.srcId}"  class="topic">${topic.srcShortTitle}</a></p>
 						               </c:if>
 						            </c:forEach>
 					            </li>
 							</ul>
 						</div>
-					</div>
-					</div>
+					</li>
 				</ul>
-				<ul id="interId" style="display: none;">
-				<li><a href="#" class="current">全部</a><input type="hidden" value="0"/></li>
-				<c:forEach items="${interestList }" var="interest">
-					<li><a href="#">${interest.zhInterest }</a><input type="hidden" value="${interest.businessId }"/></li>
-				</c:forEach>
-				<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
-				</ul>
+				</c:if>
+			</div> 
+			</c:if>
 		</div>
 	</div>
+	
+	
 	<!--二级框架-->
 	<div class="level-wrapper">
 		<div class="level-left-conter">
