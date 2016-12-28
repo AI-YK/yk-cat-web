@@ -1771,7 +1771,7 @@ function go(t,v){
 	}else{
 		$(t).addClass("current");
 	}
-	categoryId= getDomainIds;
+	categoryId= getDomainIds();
 	if($(t).hasClass('onnx')){
 	}else{
 		$('.menu').removeClass('onnx');
