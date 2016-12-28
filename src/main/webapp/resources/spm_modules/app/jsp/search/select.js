@@ -318,7 +318,12 @@ define('app/jsp/search/select', function (require, exports, module) {
         	var text = config.text;
         	var data =config.data; 
         	var callback=config.callback;
-        	var defaultId =config.defaultId; 
+        	var defaultId =config.defaultId;
+        	var defaultText ="";
+        	var hasDefaultId = false;
+        	if(defaultId!=''&&defaultId!=undefined){
+        		hasDefaultId = true;
+			}
         	//点击其他影藏
         	$(document).on("click",function(){
 				$('.select-dropdown-show').hide();
@@ -333,6 +338,11 @@ define('app/jsp/search/select', function (require, exports, module) {
         		//class="current"
         		for(var i =0;i<len;i++){
         			var obj = data[i];
+        			if(hasDefaultId){
+        				if(obj.id==defaultId){
+        					defaultText =obj.text;
+        				}
+        			}
 					html.push('<li data-val="'+obj.id+'" data-text="'+obj.text+'">'+obj.text+'</li>'); 	
 				}
         	}
@@ -342,8 +352,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 			var selectObj = $("#"+id);
 			selectObj.html(html.join(""));
 			//设置默认
-			if(defaultId!=''&&defaultId!=undefined){
-				("#"+id+"_input").val(defaultId);
+			if(hasDefaultId){
+				$("#"+id+"_input").val(defaultId);
+				$("#"+id+"_select_text").html(defaultText);
 			}
 			var selectDataList = $("#"+id+"_data_list");
 			
