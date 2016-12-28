@@ -274,7 +274,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 				_loadChartData:function(){
 					var param = {};
 
-					var dataType = $.cookie(_data_type);
 		        	if(this._dataType==0){
 		        		var idList = $("#cities").val();
 						if(idList!=""){
@@ -301,7 +300,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 				_getSearchParams : function(mediaType) {
 
 					var param = {};
-					var dataType = $.cookie(_data_type);
 		        	if(this._dataType==0){
 		        		param.isTopic = 0;
 		        		var provincecityCode = $("#province").val();
