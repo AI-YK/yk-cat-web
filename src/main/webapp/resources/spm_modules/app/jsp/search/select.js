@@ -293,6 +293,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	var data = [];
         	data.push({"id":'',"text":"情感不限"});
         	data.push({"id":"1","text":"正面"});
+        	data.push({"id":"0","text":"中性"});
         	data.push({"id":"-1","text":"负面"});
         	var selectConfigData = []; 
         	if($.isArray(selectConfig)){//数组模式
