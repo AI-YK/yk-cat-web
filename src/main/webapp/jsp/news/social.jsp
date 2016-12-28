@@ -89,7 +89,7 @@
 			</c:if>
 			</div>
 			<c:if test="${hasTopic}">
-			<div class="right-list" style="display: block;">
+			<div class="right-list" style="display: block;position: absolute;top:60px; right:70px;">
 			    <c:if test="${fn:length(topics)>7}">
 				<ul>
 					<li class="more" id="more"><a href="#" onclick="show();" id="gengduo" >更多<i class="icon iconfont">&#xe659;</i></a>
