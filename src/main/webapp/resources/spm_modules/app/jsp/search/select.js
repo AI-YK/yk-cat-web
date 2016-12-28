@@ -138,6 +138,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         		mustMatch:true,
         		matchSubset:false,
         		matchCase:true,
+        		width:190,
+        		scrollHeight:320,
         	    parse: function(result) {  
                     var rows = $.map(result.data, function(row) {  
                         return {  
