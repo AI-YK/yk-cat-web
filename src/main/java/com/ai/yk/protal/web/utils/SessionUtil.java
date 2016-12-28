@@ -9,16 +9,26 @@ import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.context.ContextLoader;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.constants.Constants;
+import com.ai.yk.protal.web.content.YJRequest;
+import com.ai.yk.protal.web.content.YJResponse;
 import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.mycustomized.InterestVo;
+import com.ai.yk.protal.web.content.mycustomized.MyCustomizedListMessage;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsMessage;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsResponse;
 import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
+import com.ai.yk.protal.web.service.mycustomized.MycustomizedService;
+import com.ai.yk.protal.web.service.mytopics.MytopicsService;
 import com.alibaba.fastjson.JSON;
 import com.google.gson.Gson;
 
@@ -96,8 +106,23 @@ public final class SessionUtil {
 	public static MyCustomizedVo getUserConfig() {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
-		MyCustomizedVo config = (MyCustomizedVo) request.getSession()
-				.getAttribute(Constants.CONFIG_SESSION_KEY);
+		MyCustomizedVo config = (MyCustomizedVo) request.getSession().getAttribute(Constants.CONFIG_SESSION_KEY);
+		if(real&&config==null){//session清空重新查询
+			try {
+				MycustomizedService  mycustomizedService =(MycustomizedService) getBean(MycustomizedService.class);
+				YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
+				MyCustomizedListMessage customizedListMessage = new MyCustomizedListMessage();
+				customizedListMessage.setCreateId(Integer.valueOf(getLoginUser(request).getUserId()));
+				req.setMessage(customizedListMessage);
+				YJResponse<MyCustomizedVo> resp = mycustomizedService.queryMyCustomized(req);
+				if(resp!=null&&resp.getData()!=null){
+					setUserConfig(resp.getData());
+				}
+			} catch (Exception e) {
+				log.error("查询个人定制错误：",e);
+			}
+		}
+		
 		if (!real&&config == null) {
 			config = new MyCustomizedVo();
 			AreaVo city = new AreaVo();
@@ -155,7 +180,24 @@ public final class SessionUtil {
 				.getRequestAttributes()).getRequest();
 		List<MyTopicsVo> topics = (ArrayList<MyTopicsVo>) request.getSession()
 				.getAttribute(Constants.TOPIC_SESSION_KEY);
-
+		if(real&&topics==null){//session清空重新查询
+			try {
+				/**专题数据**/
+				MytopicsService mytopicsSercice = (MytopicsService) getBean(MytopicsService.class);
+				MyTopicsMessage myTopicsMessage=new MyTopicsMessage();
+				myTopicsMessage.setPageNo(1);
+				myTopicsMessage.setPageSize(99999);
+				myTopicsMessage.setCreateId(Integer.parseInt(getLoginUser(request).getUserId()));
+				YJRequest<MyTopicsMessage> reqtop=new YJRequest<MyTopicsMessage>();
+				reqtop.setMessage(myTopicsMessage);
+				YJResponse<MyTopicsResponse> yjr= mytopicsSercice.queryMyTopicsList(reqtop);
+				if(yjr!=null&&yjr.getData()!=null&&!CollectionUtil.isEmpty(yjr.getData().getResults())){
+					SessionUtil.setTopics(yjr.getData().getResults());
+				}
+			} catch (Exception e) {
+				log.error("查询个人专题错误：",e);
+			}
+		}
 		if (!real&&topics == null) {
 			List<MyTopicsVo> list = new ArrayList<MyTopicsVo>();
 			MyTopicsVo myTopicsVo = new MyTopicsVo();
@@ -236,5 +278,9 @@ public final class SessionUtil {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder
 				.getRequestAttributes()).getRequest();
 		request.getSession().invalidate();
+	}
+	public static Object getBean(Class<?> t){
+		 WebApplicationContext web = ContextLoader.getCurrentWebApplicationContext();  
+		 return web.getBean(t);
 	}
 }
