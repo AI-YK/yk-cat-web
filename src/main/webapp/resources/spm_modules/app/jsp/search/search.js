@@ -60,9 +60,9 @@ define(
 					 dicSelectConfig.push({"id":"dicId1","callback":function(){
 						_this._searchNews();
 					 }});
-					 dicSelectConfig.push({"id":"dicId2","callback":function(){
+					 /*dicSelectConfig.push({"id":"dicId2","callback":function(){
 							_this._searchSocial();
-						 }});
+						 }});*/
 					selectUtil.initDicSelect(dicSelectConfig);
 					 //加载排序下拉
 					var sortSelectConfig = [];
