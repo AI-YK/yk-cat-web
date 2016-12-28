@@ -53,9 +53,9 @@ define(
 					
 					selectUtil.initOrgSelect(provinceSelectConfig);
 					
-					selectUtil.initLanguageSelect({"id":"languageId1","callback":function(){
+					/*selectUtil.initLanguageSelect({"id":"languageId1","callback":function(){
 						_this._searchNews();
-					 }});
+					 }});*/
 					 var dicSelectConfig = [];
 					 dicSelectConfig.push({"id":"dicId1","callback":function(){
 						_this._searchNews();
@@ -219,9 +219,9 @@ define(
 						if($("#orgnizationId1_input").val()!=null){
 							param.provincecityCode= $("#orgnizationId1_input").val();
 						}
-						if($("#languageId1_input").val()!=""){
+						/*if($("#languageId1_input").val()!=""){
 							param.languageCode= $("#languageId1_input").val();
-						}
+						}*/
 						if($("#dicId1_input").val()!=""){
 							param.dicValue= $("#dicId1_input").val();
 						}
