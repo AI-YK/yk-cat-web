@@ -137,7 +137,7 @@
 							<li id="dicId2">
 								
 							</li>
-							<li id="timeId1">
+							<li id="timeId2">
 								
 							</li>
 							<!-- <li>

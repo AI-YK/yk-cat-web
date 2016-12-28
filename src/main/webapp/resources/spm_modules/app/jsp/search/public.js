@@ -74,10 +74,15 @@ define('app/jsp/search/public',function(require, exports, module) {
 						_this._searchSocial();
 					}});
 					selectUtil.initFeelSelect(qingSelectConfig);
-					//加载时间下拉
-					selectUtil.initTimeSelect({"id":"timeId1","callback":function(){
+					//加载时间选择
+					var timeSelectConfig = [];
+					timeSelectConfig.push({"id":"timeId1","callback":function(){
 						_this._searchNews();
-					}});
+					 }});
+					timeSelectConfig.push({"id":"timeId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initTimeSelect(timeSelectConfig);
 					
 					if(this.model=='news'){
 						_this._search("news");
@@ -163,7 +168,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 					
 					
 					selectUtil._mediaSelect('retrieval',function(value){
-						alert(value);
+						_this._searchNews();
 					});
 					//selectUtil.autocompleteDic('mediaIn1','mediaId1');
 					//selectUtil.autocompleteDic('mediaIn2','mediaId2');
@@ -231,7 +236,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 					var keyword='';
 					if ('news' == mediaType) {
 						keyword = $("#keyword1").val();
-						var dicId1 = $("#dicId1").val();
+						var dicId1 = $("#dicId1_input").val();
 						if(dicId1&&dicId1!=""){
 							param.dicValue= dicId1;
 						}
@@ -241,20 +246,20 @@ define('app/jsp/search/public',function(require, exports, module) {
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
 						}
-						if($("#mediaId1").val()!=""){
-							param.mediaId=$("#mediaId1").val();
+						if($("#retrieval-store").val()!=""){
+							param.mediaId=$("#retrieval-store").val();
 						}
-						var fileId1 = $("#fileId1").val();
+						var fileId1 = $("#fileId1_input").val();
 						if(fileId1&&fileId1!=""){
 							param.fieldName= fileId1;
 							param.order = 'desc';
 						}
-						if($("#sentimentId1").val()!=""){
-							param.sentimentId= $("#sentimentId1").val();
+						if($("#qingId1_input").val()!=""){
+							param.sentimentId= $("#qingId1_input").val();
 						}
 					}else if ('social' == mediaType) {
 						keyword = $("#keyword2").val();
-						var dicId2 = $("#dicId2").val()
+						var dicId2 = $("#dicId2_input").val()
 						if(dicId2&&dicId2!=""){
 							param.dicValue= dicId2;
 						}
@@ -264,7 +269,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
 						}
-						var fileId2 = $("#fileId2").val();
+						var fileId2 = $("#fileId2_input").val();
 						if(fileId2&&fileId2!=""){
 							param.fieldName= fileId2;
 							param.order = 'desc';
@@ -272,8 +277,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if($("#medialId2").val()!=""){
 							param.mediaLevel= $("#medialId2").val();
 						}
-						if($("#sentimentId2").val()!=""){
-							param.sentimentId= $("#sentimentId2").val();
+						if($("#qingId2_input").val()!=""){
+							param.sentimentId= $("#qingId2_input").val();
 						}
 					}
 					if(keyword!=''){
