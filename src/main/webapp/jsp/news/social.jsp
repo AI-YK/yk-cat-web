@@ -25,7 +25,7 @@
 .more .more-show{width:300px;height:216px;background:#23283b;position:absolute;display:none; top:32px;right:-120px;border:1px solid #7c85a8;border-radius:8px;z-index:99;}
 .more .more-show ul{width:100%;float:left;height:216px;overflow-y:auto;padding:10px 20px;}
 .more .more-show ul li{width:100%;float:left;line-height:40px;}
-.more .more-show ul li p{width:45%;float:left;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;}
+.more .more-show ul li p{width:45%;float:left;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;margin: 2px 0px;}
 .more .more-show ul li p a{color:#7c85a8;cursor: pointer; line-height: 29px;}
 .more .more-show ul li p a:hover{color: #fff;}
 .more .more-show ul li p .current{height:29px;background:#3382ee;padding:0 10px;text-align:center;line-height:29px;color:#fff;float:left;border-radius:15px;}

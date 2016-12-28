@@ -96,6 +96,9 @@ define(
 					$(document).on("click",".topic",function(){
 						$('#more-show').hide();
 					});
+					/*$(document).on("mouseout",".moveul",function(){
+						$('#more-show').hide();
+					});*/
 
 				},
 				_bindEvent : function() {
@@ -270,6 +273,9 @@ define(
 								param.isTopic="0";
 								param.categoryId = categoryId;
 							}else{
+								if(current.next().next().next().val()==1){
+									categoryId=current.next().next().val();
+								}
 								param.isTopic="1";
 								param.id=categoryId;
 							}
