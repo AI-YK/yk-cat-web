@@ -45,7 +45,7 @@
           {{if title!=null&&title!=""}}
                 {{:title}} 
           {{else}}
-                {{:textZh}}
+                {{:~filterCharacter(textZh)}}
           {{/if}}  
      </a></li>
 	 <li class="date">{{:~getCustomTime(updateTime)}}</li>

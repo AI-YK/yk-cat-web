@@ -84,9 +84,9 @@
 					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 						<a href="javascript:void(0);">
                              {{if title!=null&&title!=""}}
-                                 {{:title}} 
+                                 {{:~filterCharacter(title)}} 
                              {{else}}
-                                  {{:textZh}}
+                                  {{:~filterCharacter(textZh)}}
                              {{/if}}  
                         </a>
 					 </p>
