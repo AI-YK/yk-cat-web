@@ -80,6 +80,13 @@ define(
 							_this._searchSocial();
 						 }});
 					selectUtil.initTimeSelect(timeSelectConfig);
+					//媒体下拉
+					selectUtil._mediaSelect("retrieval1",function(){
+						_this._searchNews();
+					});
+					selectUtil._mediaSelect("retrieval2",function(){
+						_this._searchSocial();
+					});
 					
 					_this._loadChartData();
 					_this._getsocialDic();
@@ -199,17 +206,23 @@ define(
 						if($("#orgnizationId1").val()!="-1" && $("#orgnizationId1").val()!=null){
 							param.provincecityCode= $("#orgnizationId1").val();
 						}
-						if($("#languageId1_input").val()!=""){
+						if($("#languageId1_input").val()!="" && $("#languageId1_input").val()!=undefined){
 							param.languageCode= $("#languageId1_input").val();
 						}
-						if($("#dicId1_input").val()!=""){
+						if($("#dicId1_input").val()!="" && $("#dicId1_input").val()!=undefined){
 							param.dicValue= $("#dicId1_input").val();
 						}
-						var timeStr = $("#timeId1").val();
+						/*var timeStr = $("#timeId1").val();
 						if(timeStr!=""){
 							timeStr = timeStr.replace(/\./g,"-");
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
+						}*/
+						var begintime=$("#timeId1_begin_input").val();
+						var endtime=$("#timeId1_end_input").val();
+						if(begintime!="" && endtime!=""){
+							param.beginTime=begintime;
+							param.endTime=endtime;
 						}
 						if($("#mediaId1").val()!=""){
 							param.mediaId=$("#mediaId1").val();
@@ -225,11 +238,17 @@ define(
 						if($("#dicId2_input").val()!=""){
 							param.dicValue= $("#dicId2_input").val();
 						}
-						var timeStr = $("#timeId2").val();
+						/*var timeStr = $("#timeId2").val();
 						if(timeStr!=""){
 							timeStr = timeStr.replace(/\./g,"-");
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
+						}*/
+						var begintime=$("#timeId1_begin_input").val();
+						var endtime=$("#timeId1_end_input").val();
+						if(begintime!="" && endtime!=""){
+							param.beginTime=begintime;
+							param.endTime=endtime;
 						}
 						if($("#fileId2_input").val()!=""){
 							param.fieldName= $("#fileId2_input").val();
