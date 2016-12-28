@@ -109,13 +109,7 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
-								<!-- <p>省份</p> -->
-								<p style="display: none;">
-									<select id="orgnizationId1" class="searchNews" style="width: 80px;">
-									</select>
-								</p>
-							</li>
+							
 								<!-- 语言 -->
 							<li id="languageId1">
 									
@@ -136,17 +130,9 @@
                            <li id="fileId1">
 								
 							</li>
-							<li id="tran">
-								<!-- <p>译文</p> -->
-								<!-- <p>
-									<select class="select select-mini searchNews" style="width: 70px">
-									    <option value="">译文</option>
-										<option>仅显示译文</option>
-										<option>仅显示原文</option>
-										<option>显示译文和原文</option>
-									</select>
-								</p> -->
-							</li>
+							<!-- <li id="tran">
+								
+							</li> -->
 							<!-- <li>
 								<p>媒体</p>
 								<p style="display: none;">
@@ -186,13 +172,7 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
-							<!-- <!-- 	<p>省份</p> --> 
-								<p style="display: none;">
-									<select id="orgnizationId2" class="searchSocial" style="width: 90px">
-									</select>
-								</p>
-							</li>
+							
 							<li id="dicId2">
 								
 							</li>

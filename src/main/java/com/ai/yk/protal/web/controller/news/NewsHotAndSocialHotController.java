@@ -12,13 +12,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ai.opt.base.vo.PageInfo;
+import com.ai.opt.sdk.util.CollectionUtil;
 import com.ai.opt.sdk.util.StringUtil;
 import com.ai.opt.sdk.web.model.ResponseData;
+import com.ai.yk.protal.web.content.YJRequest;
 import com.ai.yk.protal.web.content.YJResponse;
+import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListMessage;
+import com.ai.yk.protal.web.content.queryAreaList.QueryAreaListVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyMessage;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyNewsVo;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetyResponse;
 import com.ai.yk.protal.web.content.searchPublicSafety.SearchPublicSafetySocialVo;
+import com.ai.yk.protal.web.service.common.QueryAreaListService;
 import com.ai.yk.protal.web.service.search.SearchService;
 
 @Controller
@@ -31,6 +36,8 @@ public class NewsHotAndSocialHotController {
  */
 	@Autowired
 	SearchService searchService;
+	@Autowired
+	QueryAreaListService queryAreaListService;
 	
 	@RequestMapping("/getHotInfoList")
 	@ResponseBody
@@ -212,6 +219,7 @@ public class NewsHotAndSocialHotController {
 		if(StringUtil.isBlank(message.getPageNo())||StringUtil.isBlank(message.getPageSize())){
 			return new ResponseData<Object>(ResponseData.AJAX_STATUS_FAILURE,"分页参数不能为空",null);
 		}
+		changeCityStr(message);
 		YJResponse<SearchPublicSafetyResponse> res = searchService.getSearchPublicSafety(message);
 		if(res==null||res.getHead()==null){
 			  log.error("系统异常，请联系管理员");
@@ -239,5 +247,26 @@ public class NewsHotAndSocialHotController {
 			return new ResponseData<Object>(ResponseData.AJAX_STATUS_SUCCESS,"查询成功",resultPageInfo);
 		}
 	}
-	
+	private void changeCityStr(SearchPublicSafetyMessage message){
+		if(StringUtil.isBlank(message.getProvincecityCode())||!StringUtil.isBlank(message.getCityCode())){
+			return;
+		}
+		QueryAreaListMessage queryAreaListMessage = new QueryAreaListMessage();
+		queryAreaListMessage.setParentCode(message.getProvincecityCode());
+		queryAreaListMessage.setClassify("city");
+		YJRequest<QueryAreaListMessage> req = new YJRequest<QueryAreaListMessage>();
+		req.setMessage(queryAreaListMessage);
+		YJResponse<List<QueryAreaListVo>> res = queryAreaListService
+				.QueryAreaList(req);
+		if(res==null||CollectionUtil.isEmpty(res.getData())){
+			return;
+		}
+		StringBuilder sbd = new StringBuilder();
+		for(QueryAreaListVo v:res.getData()){
+			sbd.append(v.getBusCode());
+			sbd.append(",");
+		}
+		sbd.deleteCharAt(sbd.length()-1);
+		message.setIdList(sbd.toString());
+	}
 }
