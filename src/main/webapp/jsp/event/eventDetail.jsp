@@ -178,7 +178,7 @@
 										<span>转载：{{:transfer}}</span>
 									</p>
 								</li>
-								<li title="{{:abstractZh}}" class="news" style="-webkit-line-clamp: 2;-webkit-box-orient: vertical;display: -webkit-box;text-overflow:ellipsis;overflow:hidden;">{{:abstractZh}}</li>
+								<li title="{{:abstractZh}}" class="news" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:abstractZh}}</li>
 	</ul>
 </script>
 	<script type="text/javascript">
