@@ -240,11 +240,17 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if(dicId1&&dicId1!=""){
 							param.dicValue= dicId1;
 						}
-						var timeStr = $("#timeId1").val();
+						/*var timeStr = $("#timeId1").val();
 						if(timeStr!=""){
 							timeStr = timeStr.replace(/\./g,"-");
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
+						}*/
+						var begintime=$("#timeId1_begin_input").val();
+						var endtime=$("#timeId1_end_input").val();
+						if(begintime!="" && endtime!=""){
+							param.beginTime=begintime;
+							param.endTime=endtime;
 						}
 						if($("#retrieval-store").val()!=""){
 							param.mediaId=$("#retrieval-store").val();
@@ -263,11 +269,17 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if(dicId2&&dicId2!=""){
 							param.dicValue= dicId2;
 						}
-						var timeStr = $("#timeId2").val();
+						/*var timeStr = $("#timeId2").val();
 						if(timeStr!=""){
 							timeStr = timeStr.replace(/\./g,"-");
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
+						}*/
+						var begintime=$("#timeId2_begin_input").val();
+						var endtime=$("#timeId2_end_input").val();
+						if(begintime!="" && endtime!=""){
+							param.beginTime=begintime;
+							param.endTime=endtime;
 						}
 						var fileId2 = $("#fileId2_input").val();
 						if(fileId2&&fileId2!=""){
