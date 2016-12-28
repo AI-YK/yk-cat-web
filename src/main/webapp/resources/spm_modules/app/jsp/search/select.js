@@ -2,9 +2,9 @@ define('app/jsp/search/select', function (require, exports, module) {
     'use strict';
     var $=require('jquery');
 	require("echarts/echarts.min");
-	require("select2/select2.min");
-	require("select2/select2.css");
-	require("select2/select2_locale_zh-CN");
+	//require("select2/select2.min");
+	//require("select2/select2.css");
+	//require("select2/select2_locale_zh-CN");
 	require("jquery-autocomplete/jquery.autocomplete");
 	require("jquery-autocomplete/jquery.autocomplete.css");
 	var moment = require("moment/2.9.0/moment");
@@ -18,8 +18,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         setup: function () {
         	SelectUtil.superclass.setup.call(this); 
         },
-        initOrgSelect:function(selectIds){
-        
+        initOrgSelect:function(selectConfig){
+            var _this = this;
         	var url = _base +"/common/getChProvince";
         	var param={};
         	param.language="zh";
@@ -32,18 +32,26 @@ define('app/jsp/search/select', function (require, exports, module) {
 				data: param,
 				success:function(rs){
 					var data = rs.data;
-					var options = "<option value='-1'>省份</option>";
-					for(var i=0;i<data.length;i++){
-						options = options + "<option value='" + data[i].code + "'>"+data[i].name+"</option>";
+					if(!data){
+						data =[];
 					}
-					
-					if(options!=""){
-						var sid=null;
-						for(var j=0;j<selectIds.length;j++){
-							sid ="#"+selectIds[j];
-							$(sid).html(options);
-							$(sid).select2({"val":"-1"});
-						}
+					var data2 = [];
+					data2.push({"id":'',"text":"省份不限"});
+					for(var i=0;i<data.length;i++){
+						var obj ={};
+						obj.id=data[i].code;
+						obj.text=data[i].name;
+						data2.push(obj);
+					}
+					var selectConfigData = []; 
+					if($.isArray(selectConfig)){//数组模式
+						selectConfigData =selectConfig; 
+					}else{
+						selectConfigData.push(selectConfig);
+					}
+					for(var j=0;j<selectConfigData.length;j++){
+						var selectObj = selectConfigData[j];
+						_this._commonselect(selectObj.id, '省份', data2,selectObj.callback);
 					}
 					
 				}
@@ -164,7 +172,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	
         },
         queryMediaName:function(ele,storeId){
-        	ele.select2({
+        	/*ele.select2({
         		minimumInputLength: 1,//至少输入n个字符，才去加载数据  
         	    allowClear: true,  
         	    width: "100px",  
@@ -205,7 +213,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	        },  // 构造返回结果
         	        escapeMarkup : function (m) { return m; }               // 字符转义处理 
         	    }  
-        	});  
+        	}); */ 
         },
         /*时间选择*/
         initTimeSelect:function(selectConfig){
