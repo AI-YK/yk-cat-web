@@ -143,8 +143,8 @@ define(
 						_this.search("social");
 					});
 					
-					$(document).on("click","#news-list ul",function(){
-						var _this = $(this);
+					$(document).on("click","#news-list ul li.title",function(){
+						var _this = $(this).parent();
 		            	var uuid = _this.attr("uuid");
 		            	var url =_base+"/news/detail/"+uuid;
 		            	/*var keyword = _this.attr("keyword");
@@ -154,8 +154,8 @@ define(
 		 	        	window.open (url, '_blank' ) ;
 					});
 
-					$(document).on("click","#social-list ul",function(){
-		            	var _this = $(this);
+					$(document).on("click","#social-list ul li.title",function(){
+		            	var _this = $(this).parent();
 		           	    var myid = _this.attr("myid");
 		           	    var url =_base+"/social/detail/"+myid;
 		           	    /*var keyword = _this.attr("keyword");
