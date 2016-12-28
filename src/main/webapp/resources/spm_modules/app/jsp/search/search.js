@@ -42,7 +42,16 @@ define(
 					_this.search("news");
 					_this.search("social");
 					_this._loadTopics();
-					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
+					//加载省份
+					var provinceSelectConfig = [];
+					provinceSelectConfig.push({"id":"orgnizationId1","callback":function(){
+						_this._searchNews();
+					 }});
+					provinceSelectConfig.push({"id":"orgnizationId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					
+					selectUtil.initOrgSelect(provinceSelectConfig);
 					
 					selectUtil.initLanguageSelect({"id":"languageId1","callback":function(){
 						_this._searchNews();
