@@ -170,7 +170,8 @@ define('app/jsp/home/charts', function (require, exports, module) {
 							fontSize:13
 						},
 						formatter: function (value, index) {
-						    if(0==index||times.length-1==index){
+							var length= edata2.time.length;
+						    if(length>1&&(0==index||length-1==index)){
 						    	return "";
 						    }else{
 						    	var len = value.length;
