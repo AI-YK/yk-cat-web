@@ -1752,14 +1752,26 @@ function isOverlap(offset1,offset2){
 	return !(isXSplit || isYSplit);
 }
 
+function getDomainIds(){
+	var domainIds = '';
+	$(".domain.current").each(function(){
+		domainIds = domainIds + "," + $(this).attr("id");
+	});
+	if(domainIds!=''){
+		domainIds = domainIds.substring(1,domainIds.length);
+	}
+	return domainIds;
+}
+
 //获取分类
 function go(t,v){
 	//classify=v;
-	$("#commDiv a").each(function(index, element) {
-        $(this).removeClass('current');
-    });
-	$(t).addClass("current");
-	categoryId=v;
+	if($(t).hasClass("current")){
+		$(t).removeClass("current");
+	}else{
+		$(t).addClass("current");
+	}
+	categoryId= getDomainIds;
 	if($(t).hasClass('onnx')){
 	}else{
 		$('.menu').removeClass('onnx');

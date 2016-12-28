@@ -64,7 +64,7 @@
 							<i class="icon iconfont"></i></a> 
 						</li>
 						 <c:forEach items="${listVo}" var="vo">
-								<li class="inbtn"><a href="javascript:void(0);" class="" onclick="go(this,${vo.dicValue});">${vo.dicName}</a></li>
+								<li class="inbtn"><a id="${vo.dicValue}" href="javascript:void(0);" class="domain" onclick="go(this,${vo.dicValue});">${vo.dicName}</a></li>
 						 </c:forEach>
 					</ul>
 				</div>
