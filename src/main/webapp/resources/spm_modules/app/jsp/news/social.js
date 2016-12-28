@@ -191,13 +191,13 @@ define(
 						$("#commDiv").show();
 						$("#topicDiv").hide();
 						_this._dataType = 0;
-						_this.load();
+						_this._load();
 					});
 					$("#data-show ul .ahov3").click(function(){
 						$("#topicDiv").show();
 						$("#commDiv").hide();
 						_this._dataType = 1;
-						_this.load();
+						_this._load();
 					});
 					
 					 //选择领域
