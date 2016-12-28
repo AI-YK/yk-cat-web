@@ -217,7 +217,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		_this._refresh();
         	});	
         	
-        	 //选择专题
+        	 //选择领域
             $(document).on("click",".domain",function(){
              	  $(".domain").each(function () {
                       $(this).removeClass("current");

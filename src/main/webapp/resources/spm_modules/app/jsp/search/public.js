@@ -23,7 +23,8 @@ define('app/jsp/search/public',function(require, exports, module) {
 				// 属性，使用时由类的构造函数传入
 				attrs : {
 					clickId : "",
-					model:""
+					model:"",
+					_dataType:0
 						
 				},
 				// 事件代理
@@ -38,14 +39,51 @@ define('app/jsp/search/public',function(require, exports, module) {
 					publicPage.superclass.setup.call(this);
 					
 
-		        	//通用数据  定制数据	
+					//通用数据  定制数据	
 		        	$("#data-show ul .ahov1").click(function(){
-		        		$("#commDiv").css("display",'block');
+		        		$("#topicDiv").hide();
+		        		$(".right-list").hide();
+		        		$("#commDiv").show();
+		        		_this._dataType = 0;
+		        		_this._load();
 		        	});
-		        	
 		        	$("#data-show ul .ahov3").click(function(){
-		        		$("#topicDiv").css("display",'block');
+		        		$("#commDiv").hide();
+		        		$("#topicDiv").show();
+		        		$(".right-list").show();
+		        		_this._dataType = 1;
+		        		_this._load();
 		        	});	
+		        	
+		        	 //选择领域
+		            $(document).on("click",".domain",function(){
+		             	  $(".domain").each(function () {
+		                      $(this).removeClass("current");
+		                  });
+		                  $(this).addClass("current");
+		                  _this._load();
+		  			});
+		        	
+		            //选择专题
+		            $(document).on("click",".topic",function(){
+		             	  $(".topic").each(function () {
+		                      $(this).removeClass("current");
+		                  });
+		                  $(this).addClass("current");
+		                  _this._load();
+		  			});
+		            
+		           //更多
+		        	$('.right-list  #more').click(function () {
+		        		$('#more-show').show(1);
+		            })
+		        	$("#more-show").click(function () {
+		                $(this).hide(1);
+		            });	
+		        	$('.right-list').mouseleave(function () {
+		                $('#more-show').hide(1);
+		            });	
+		        	
 					
                     this.model = $("#model").val(); 
                     if(this.model=='news'){
@@ -55,10 +93,7 @@ define('app/jsp/search/public',function(require, exports, module) {
                     }else{
                     	$("#le-tba1").show();
                     }
-					_this._bindEvent();
 					
-					_this._loadTopics();
-					/*selectUtil.initDicSelect(['dicId1','dicId2']);*/
 					var dicSelectConfig = [];
 					 dicSelectConfig.push({"id":"dicId1","callback":function(){
 						_this._searchNews();
@@ -95,6 +130,62 @@ define('app/jsp/search/public',function(require, exports, module) {
 						 }});
 					selectUtil.initTimeSelect(timeSelectConfig);
 					
+					_this._bindEvent();
+					_this._init();
+
+				},
+				_init:function(){
+					var dataType = $.cookie(_data_type);
+					if(dataType!=undefined&&dataType=='1'){
+						this._dataType = 1;
+						$("#commDiv").hide();
+		        		$("#topicDiv").show();
+		        		$(".right-list").show();
+					}else{
+						this._dataType = 0;
+						$("#topicDiv").hide();
+		        		$(".right-list").hide();
+		        		$("#commDiv").show();
+					}
+					//初始化领域
+					var domainId = $.cookie(_domain_id);
+					
+					if(domainId==undefined){
+						$(".domain").eq(0).addClass("current");
+					}else{
+						$(".domain").each(function(){
+							var id = $(this).attr("id");
+							if(id==domainId){
+								$(this).addClass("current");
+							}
+						});
+					}
+					
+					//初始化专题
+					var topicId = $.cookie(_topic_id);
+					if(topicId==undefined){
+						$(".topic").eq(0).addClass("current");
+					}else{
+						$(".topic").each(function(){
+							var len = $(".topic.current").length;
+							if(len==0){
+								var id = $(this).attr("id");
+								var opType = $(this).attr("opType");
+					        	var id = $(this).attr("id");
+					        	var srcId = $(this).attr("srcId");
+					        	if (opType==1&&srcId==topicId||opType!=1&&id==topicId){
+					        		$(this).addClass("current");
+					        	}	
+							}
+							
+						});
+					}
+					
+					this._load();
+					 
+				},
+				_load:function(){
+					var _this = this;
 					if(this.model=='news'){
 						_this._search("news");
                     }else if(this.model=='social'){
@@ -103,9 +194,8 @@ define('app/jsp/search/public',function(require, exports, module) {
                     	_this._search("news");
     					_this._search("social");
                     }
-					
+					_this._loadTopics();
 					_this._loadChartData();
-
 				},
 				_searchNews:function(){
 					this._search("news");
@@ -169,27 +259,31 @@ define('app/jsp/search/public',function(require, exports, module) {
 					selectUtil._mediaSelect('retrieval',function(value){
 						_this._searchNews();
 					});
-					//selectUtil.autocompleteDic('mediaIn1','mediaId1');
-					//selectUtil.autocompleteDic('mediaIn2','mediaId2');
-					selectUtil.queryMediaName($('#mediaIn1'),'mediaId1');
-					selectUtil.queryMediaName($('#mediaIn2'),'mediaId2');
+					
 				},
+				 _getTopicId:function(){
+			        	var opType = $(".topic.current").attr("opType");
+			        	var id = $(".topic.current").attr("id");
+			        	var srcId = $(".topic.current").attr("srcId");
+			        	if (opType==1)
+			        		return srcId 
+			        	else 
+			        	  return id;	
+			     },
 				_loadChartData:function(){
 					var param = {};
 
 					var dataType = $.cookie(_data_type);
-		        	if(dataType==undefined||dataType=='0'){
+		        	if(this._dataType==0){
 		        		var idList = $("#cities").val();
 						if(idList!=""){
 							param.busCode = idList;
 						}
 						//领域分类
-						var categoryId = $("#interestes").val();
-						if(categoryId!=""){
-							param.categoryId = categoryId;
-						}
-		        	}else if(dataType=='1'){  
-		        		var topicId = $.cookie(_topic_id);
+						var domainId = $(".domain.current").attr("id");
+		            	param.categoryId = domainId;
+		        	}else if(this._dataType==1){  
+		        		var topicId = this._getTopicId();
 		        		if(topicId){
 		        			param.infoId = topicId;
 		        		}
@@ -207,7 +301,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 
 					var param = {};
 					var dataType = $.cookie(_data_type);
-		        	if(dataType==undefined||dataType=='0'){
+		        	if(this._dataType==0){
 		        		param.isTopic = 0;
 		        		var provincecityCode = $("#province").val();
 						if(provincecityCode!=""){
@@ -217,14 +311,11 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if(idList!=""){
 							param.cityCode = idList;
 						}
-						//领域分类
-						var categoryId = $("#interestes").val();
-						if(categoryId!=""){
-							param.categoryId = categoryId;
-						}
-		        	}else if(dataType=='1'){  
+						var domainId = $(".domain.current").attr("id");
+		            	param.categoryId = domainId;
+		        	}else if(this._dataType==1){  
 		        		param.isTopic = 1;
-		        		var topicId = $.cookie(_topic_id);
+		        		var topicId = this._getTopicId();
 		        		if(topicId){
 		        			param.id = topicId;
 		        		}
@@ -239,12 +330,6 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if(dicId1&&dicId1!=""){
 							param.dicValue= dicId1;
 						}
-						/*var timeStr = $("#timeId1").val();
-						if(timeStr!=""){
-							timeStr = timeStr.replace(/\./g,"-");
-							param.beginTime= timeStr + " 00:00:00";
-							param.endTime= timeStr + " 23:59:59";
-						}*/
 						var begintime=$("#timeId1_begin_input").val();
 						var endtime=$("#timeId1_end_input").val();
 						if(begintime!="" && endtime!=""){
@@ -268,12 +353,7 @@ define('app/jsp/search/public',function(require, exports, module) {
 						if(dicId2&&dicId2!=""){
 							param.dicValue= dicId2;
 						}
-						/*var timeStr = $("#timeId2").val();
-						if(timeStr!=""){
-							timeStr = timeStr.replace(/\./g,"-");
-							param.beginTime= timeStr + " 00:00:00";
-							param.endTime= timeStr + " 23:59:59";
-						}*/
+						
 						var begintime=$("#timeId2_begin_input").val();
 						var endtime=$("#timeId2_end_input").val();
 						if(begintime!="" && endtime!=""){

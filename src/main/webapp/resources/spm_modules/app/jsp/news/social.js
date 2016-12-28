@@ -214,11 +214,11 @@ define(
 				_loadChartData:function(){
 					var param = {};
 					var nowDate = moment().format('YYYY-MM-DD');
-					var pre7Date = moment().add('days',-6).format('YYYY-MM-DD');
+					var pre7Date = moment().add(-6,'days').format('YYYY-MM-DD');
 					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
 					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
-					param.beginTime = nowDate + " 23:59:59";
-					param.endTime = pre7Date + " 00:00:00";
+					param.beginTime = pre7Date + " 00:00:00";
+					param.endTime = nowDate + " 23:59:59";
 					searchChart._queryMediaCoverageTrend(param);
 				},
 				_getSearchParams : function(mediaType) {
