@@ -39,7 +39,8 @@ define('app/jsp/search/select', function (require, exports, module) {
 					data2.push({"id":'',"text":"省份不限"});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
-						obj.id=data[i].code;
+						//obj.id=data[i].code;
+						obj.id=data[i].busCode;
 						obj.text=data[i].name;
 						data2.push(obj);
 					}
