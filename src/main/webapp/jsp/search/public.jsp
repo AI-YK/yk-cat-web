@@ -31,24 +31,23 @@
 		<div class="subnav-main">
 			<input value="${config.interestList}" type="hidden" />
 			<input value="${topics}" type="hidden" />
-			<div id="commDiv" class="left-list" style="display: block;">
-				通用数据
+			<div id="commDiv" class="left-list" style="display: none;">
 				<ul>
-					<c:forEach items="${config.interestList}" var="interestVo">
-						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
+				    <li><a>通用数据：</a></li>
+					<c:forEach items="${config.interestList}" var="interestVo" varStatus="t">
+						<li class="inbtn"><a id="${interestVo.businessId}"  class="domain" href="javascript:void(0);" >${interestVo.zhInterest}</a></li>
 					</c:forEach>
 				</ul>
 			</div>
 			<!-- 专题数据 -->
-			<div id="topicDiv" class="left-list" style="display: block;">
-			专题数据
+			<div id="topicDiv" class="left-list" style="display: none;">
 			<c:if test="${hasTopic}">
 			   <ul>
 				    <li><a>专题数据：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
-					   <c:if test="${t.index<10}">
+					   <c:if test="${t.index<7}">
 					       <li class="inbtn" >
-					         <a id="${topic.id}" opType="${topic.opType}" srcId="${topic.srcId}"  ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
+					         <a id="${topic.id}" opType="${topic.opType}" srcId="${topic.srcId}"  class="topic" href="javascript:void(0);">${topic.srcShortTitle}</a>
 					       </li>
 					   </c:if>
 					</c:forEach>
@@ -57,7 +56,7 @@
 			</div>
 			<c:if test="${hasTopic}">
 			<div class="right-list" style="display: none;">
-			    <c:if test="${fn:length(topics)>10}">
+			    <c:if test="${fn:length(topics)>7}">
 				<ul>
 					<li class="more" id="more"><a href="#">更多<i class="icon iconfont">&#xe659;</i></a>
 						<div class="more-show" id="more-show">
@@ -65,7 +64,7 @@
 							<ul>
 							    <li>
 								    <c:forEach items="${topics}" var="topic" varStatus="t">
-						               <c:if test="${t.index>=10}">
+						               <c:if test="${t.index>=7}">
 										    <p><a id="${topic.id}"  opType="${topic.opType}" srcId="${topic.srcId}"  class="topic">${topic.srcShortTitle}</a></p>
 						               </c:if>
 						            </c:forEach>
