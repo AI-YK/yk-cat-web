@@ -36,6 +36,17 @@ define('app/jsp/search/public',function(require, exports, module) {
 				setup : function() {
 					var _this = this;
 					publicPage.superclass.setup.call(this);
+					
+
+		        	//通用数据  定制数据	
+		        	$("#data-show ul .ahov1").click(function(){
+		        		
+		        	});
+		        	
+		        	$("#data-show ul .ahov3").click(function(){
+		        		
+		        	});	
+					
                     this.model = $("#model").val(); 
                     if(this.model=='news'){
                     	$("#le-tba1").show();

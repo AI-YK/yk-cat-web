@@ -71,7 +71,7 @@
 			</div>
 
 			 <div style="float:right;">
-			 <a class="menu" title="列表模式" href="${_base }/social/toHotView"><img src="${_base }/newsbmap/images/tohotsacial.png"></a>
+			 <a class="menu" title="列表模式" href="${_base }/social/toHotView"><img src="${_base }/newsbmap/images/tosocial.png"></a>
 	 		 </div>
 	  </div>
 	  

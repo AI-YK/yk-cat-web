@@ -663,8 +663,8 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		return element.cityNameZh!='其他';
         	});
         	var len = temp.length;
-        	if(len>10){
-        		len = 10;
+        	if(len>5){
+        		len = 5;
         	}
         	for(var i=0;i<len;i++){
         		cities[i] = temp[i].cityNameZh;
