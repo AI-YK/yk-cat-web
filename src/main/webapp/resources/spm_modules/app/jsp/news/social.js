@@ -43,8 +43,43 @@ define(
 					_this.search("social");
 					_this._loadTopics();
 					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
-					selectUtil.initLanguageSelect(['languageId1']);
-					selectUtil.initDicSelect(['dicId1','dicId2']);
+					selectUtil.initLanguageSelect({"id":"languageId1","callback":function(){
+						_this._searchNews();
+					 }});
+					var dicSelectConfig = [];
+					 dicSelectConfig.push({"id":"dicId1","callback":function(){
+						_this._searchNews();
+					 }});
+					 dicSelectConfig.push({"id":"dicId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initDicSelect(dicSelectConfig);
+					//加载排序下拉
+					var sortSelectConfig = [];
+					sortSelectConfig.push({"id":"fileId1","callback":function(){
+						_this._searchNews();
+					 }});
+					sortSelectConfig.push({"id":"fileId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initSortSelect(sortSelectConfig);
+					//加载译文下拉
+					selectUtil.initTranSelect({"id":"tran","callback":function(){
+						//_this._searchNews();
+					 }});
+					//加载情感下拉
+					selectUtil.initFeelSelect({"id":"qingId2","callback":function(){
+						_this._searchSocial();
+					}});
+					//加载时间选择
+					var timeSelectConfig = [];
+					timeSelectConfig.push({"id":"timeId1","callback":function(){
+						_this._searchNews();
+					 }});
+					timeSelectConfig.push({"id":"timeId2","callback":function(){
+							_this._searchSocial();
+						 }});
+					selectUtil.initTimeSelect(timeSelectConfig);
 					
 					_this._loadChartData();
 					_this._getsocialDic();
@@ -164,11 +199,11 @@ define(
 						if($("#orgnizationId1").val()!="-1" && $("#orgnizationId1").val()!=null){
 							param.provincecityCode= $("#orgnizationId1").val();
 						}
-						if($("#languageId1").val()!=""){
-							param.languageCode= $("#languageId1").val();
+						if($("#languageId1_input").val()!=""){
+							param.languageCode= $("#languageId1_input").val();
 						}
-						if($("#dicId1").val()!=""){
-							param.dicValue= $("#dicId1").val();
+						if($("#dicId1_input").val()!=""){
+							param.dicValue= $("#dicId1_input").val();
 						}
 						var timeStr = $("#timeId1").val();
 						if(timeStr!=""){
@@ -179,16 +214,16 @@ define(
 						if($("#mediaId1").val()!=""){
 							param.mediaId=$("#mediaId1").val();
 						}
-						if($("#fileId1").val()!=""){
-							param.fieldName= $("#fileId1").val();
+						if($("#fileId1_input").val()!=""){
+							param.fieldName= $("#fileId1_input").val();
 							param.order = "desc";
 						}
 					}else if ('social' == mediaType) {
 						if($("#orgnizationId2").val()!="-1" && $("#orgnizationId2").val()!=null){
 							param.provincecityCode= $("#orgnizationId2").val();
 						}
-						if($("#dicId2").val()!=""){
-							param.dicValue= $("#dicId2").val();
+						if($("#dicId2_input").val()!=""){
+							param.dicValue= $("#dicId2_input").val();
 						}
 						var timeStr = $("#timeId2").val();
 						if(timeStr!=""){
@@ -196,15 +231,15 @@ define(
 							param.beginTime= timeStr + " 00:00:00";
 							param.endTime= timeStr + " 23:59:59";
 						}
-						if($("#fileId2").val()!=""){
-							param.fieldName= $("#fileId2").val();
+						if($("#fileId2_input").val()!=""){
+							param.fieldName= $("#fileId2_input").val();
 							param.order = "desc";
 						}
 						if($("#medialId2").val()!=""){
 							param.mediaLevel= $("#medialId2").val();
 						}
-						if($("#qingId2").val()!=""){
-							param.sentimentId= $("#qingId2").val();
+						if($("#qingId2_input").val()!=""){
+							param.sentimentId= $("#qingId2_input").val();
 						}
 					}
 					var dataType = $.cookie(_data_type);

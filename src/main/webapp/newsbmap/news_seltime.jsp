@@ -47,6 +47,8 @@
 		<div class="subnav">
 			<div class="subnav-main">
 				<div id="commDiv" class="left-list" style="display: block;">
+					<input id="provinceCode" value="${provinceCode }" type="hidden"/>
+					<input id="cityCodes" value="${cityCodes}" type="hidden"/>
 					<p><i class="icon iconfont">&#xe657;</i></p>
 					<ul>
 					    <li>
