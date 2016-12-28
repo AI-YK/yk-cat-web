@@ -27,7 +27,60 @@
 	<!--面包屑导航-->
 	<%@ include file="/inc/indexHead.jsp"%>
 	<!--子导航-->
-	<div class="subnav">
+	<div class="subnav" >
+		<div class="subnav-main">
+			<input value="${config.interestList}" type="hidden" />
+			<input value="${topics}" type="hidden" />
+			<div id="commDiv" class="left-list" style="display: block;">
+				通用数据
+				<ul>
+					<c:forEach items="${config.interestList}" var="interestVo">
+						<li class="inbtn"><a href="javascript:void(0);">${interestVo.zhInterest }</a></li>
+					</c:forEach>
+				</ul>
+			</div>
+			<!-- 专题数据 -->
+			<div id="topicDiv" class="left-list" style="display: block;">
+			专题数据
+			<c:if test="${hasTopic}">
+			   <ul>
+				    <li><a>专题数据：</a></li>
+					<c:forEach items="${topics}" var="topic" varStatus="t">
+					   <c:if test="${t.index<10}">
+					       <li class="inbtn" >
+					         <a id="${topic.id}" opType="${topic.opType}" srcId="${topic.srcId}"  ${t.index==0?'class="topic current"':'class="topic"'} href="javascript:void(0);">${topic.srcShortTitle}</a>
+					       </li>
+					   </c:if>
+					</c:forEach>
+				</ul> 
+			</c:if>
+			</div>
+			<c:if test="${hasTopic}">
+			<div class="right-list" style="display: none;">
+			    <c:if test="${fn:length(topics)>10}">
+				<ul>
+					<li class="more" id="more"><a href="#">更多<i class="icon iconfont">&#xe659;</i></a>
+						<div class="more-show" id="more-show">
+							<span><img src="${uedroot}/images/xf-sj.png"></span>
+							<ul>
+							    <li>
+								    <c:forEach items="${topics}" var="topic" varStatus="t">
+						               <c:if test="${t.index>=10}">
+										    <p><a id="${topic.id}"  opType="${topic.opType}" srcId="${topic.srcId}"  class="topic">${topic.srcShortTitle}</a></p>
+						               </c:if>
+						            </c:forEach>
+					            </li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				</c:if>
+			</div> 
+			</c:if>
+		</div>
+	</div>
+	
+	<%-- <div class="subnav" style="display:none;">
 		<div class="subnav-main">
 			<div class="breadcrumb" >
 				<p>
@@ -46,7 +99,7 @@
 				</p>
 			</div>
 		</div>
-	</div>
+	</div> --%>
 	<input type="hidden" id="model" value="${model}" />
 	<input type="hidden" id="province" value="${province}" />
 	<input type="hidden" id="cities" value="${cities}" />

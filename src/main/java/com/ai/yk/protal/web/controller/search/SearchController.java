@@ -13,6 +13,7 @@ import com.ai.opt.sdk.util.StringUtil;
 import com.ai.yk.protal.web.content.area.AreaVo;
 import com.ai.yk.protal.web.content.mycustomized.InterestVo;
 import com.ai.yk.protal.web.content.mycustomized.MyCustomizedVo;
+import com.ai.yk.protal.web.content.mytopics.MyTopicsVo;
 import com.ai.yk.protal.web.controller.BaseController;
 import com.ai.yk.protal.web.model.user.SSOClientUser;
 import com.ai.yk.protal.web.utils.SessionUtil;
@@ -62,7 +63,14 @@ public class SearchController extends BaseController{
     	if(config!=null){
     		initConfig(mod, config);
     	}
-    	
+    	mod.addAttribute("config", config);
+    	List<MyTopicsVo> topics = SessionUtil.getTopics();
+    	if(topics==null||topics.size()==0){
+    		mod.addAttribute("hasTopic", false);
+    	}else{
+    		mod.addAttribute("hasTopic", true);
+    		mod.addAttribute("topics", topics);
+    	}
 		return "/search/public";
 	}
 	
