@@ -186,9 +186,9 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li id="dicId2">
+							<!-- <li id="dicId2">
 								
-							</li>
+							</li> -->
 							<li id="timeId2">
 								
 							</li>

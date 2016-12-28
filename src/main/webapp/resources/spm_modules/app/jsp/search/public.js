@@ -98,9 +98,9 @@ define('app/jsp/search/public',function(require, exports, module) {
 					 dicSelectConfig.push({"id":"dicId1","callback":function(){
 						_this._searchNews();
 					 }});
-					 dicSelectConfig.push({"id":"dicId2","callback":function(){
+					 /*dicSelectConfig.push({"id":"dicId2","callback":function(){
 							_this._searchSocial();
-						 }});
+						 }});*/
 					selectUtil.initDicSelect(dicSelectConfig);
 					//加载排序下拉
 					var sortSelectConfig = [];
@@ -349,10 +349,10 @@ define('app/jsp/search/public',function(require, exports, module) {
 						}
 					}else if ('social' == mediaType) {
 						keyword = $("#keyword2").val();
-						var dicId2 = $("#dicId2_input").val()
+						/*var dicId2 = $("#dicId2_input").val()
 						if(dicId2&&dicId2!=""){
 							param.mediaLevel= dicId2;
-						}
+						}*/
 						
 						var begintime=$("#timeId2_begin_input").val();
 						var endtime=$("#timeId2_end_input").val();
