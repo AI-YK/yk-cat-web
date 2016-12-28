@@ -109,13 +109,7 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
-								<!-- <p>省份</p> -->
-								<p style="display: none;">
-									<select id="orgnizationId1" class="searchNews" style="width: 80px;">
-									</select>
-								</p>
-							</li>
+							
 								<!-- 语言 -->
 							<li id="languageId1">
 									
@@ -178,13 +172,7 @@
 				<div class="level-left-list">
 					<div class="list-form">
 						<ul>
-							<li>
-							<!-- <!-- 	<p>省份</p> --> 
-								<p style="display: none;">
-									<select id="orgnizationId2" class="searchSocial" style="width: 90px">
-									</select>
-								</p>
-							</li>
+							
 							<li id="dicId2">
 								
 							</li>

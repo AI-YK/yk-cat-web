@@ -96,25 +96,25 @@ define(function(require, exports, module) {
 			return time;
 		},
 		"getRankColor" : function(transfer) {
-			if (transfer < 100) {
+			if (transfer < 50) {
 				return "blue";
-			} else if (transfer >= 100 && transfer < 1000) {
+			} else if (transfer >= 50 && transfer < 100) {
 				return "yellow";
-			} else if (transfer >= 1000 && transfer < 10000) {
+			} else if (transfer >= 100 && transfer < 200) {
 				return "orange";
-			} else if (transfer >= 10000) {
+			} else if (transfer >= 200) {
 				return "red";
 			}
 			return "";
 		},
 		"getRankIndex" : function(transfer) {
-			if (transfer < 100) {
+			if (transfer < 50) {
 				return "4";
-			} else if (transfer >= 100 && transfer < 1000) {
+			} else if (transfer >= 50 && transfer < 100) {
 				return "3";
-			} else if (transfer >= 1000 && transfer < 10000) {
+			} else if (transfer >= 100 && transfer < 200) {
 				return "2";
-			} else if (transfer >= 10000) {
+			} else if (transfer >= 200) {
 				return "1";
 			}
 		},
@@ -139,6 +139,11 @@ define(function(require, exports, module) {
 					return "."+zhCity;
 				}
 			}
+		},
+		"filterCharacter":function(str){
+			str = str.replace(/<br>/g, "");
+			str = str.replace(/<em>/g, "");
+			return str;
 		}
 	});
 

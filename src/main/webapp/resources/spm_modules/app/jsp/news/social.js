@@ -42,7 +42,7 @@ define(
 					_this.search("news");
 					_this.search("social");
 					_this._loadTopics();
-					selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);
+					/*selectUtil.initOrgSelect(['orgnizationId1','orgnizationId2']);*/
 					selectUtil.initLanguageSelect({"id":"languageId1","callback":function(){
 						_this._searchNews();
 					 }});
