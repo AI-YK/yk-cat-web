@@ -16,7 +16,7 @@
   <div class="eject-big">
 		<div class="eject-medium" id="currency" style="top:60%; left: 40%;">
 			<div class="eject-medium-title">
-				<p>设置基本信息<span id="tishiId" style="color: red; font-size:12px;"></span></p>
+				<p>设置基本信息&nbsp;<span id="tishiId" style="color: red; font-size:12px;"></span></p>
 				<p class="right"><i class="icon iconfont" id="currency-close">&#xe618;</i></p>
 			</div>
 			<div class="field-title">

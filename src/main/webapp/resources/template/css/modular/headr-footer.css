@@ -1,4 +1,4 @@
-/**面包屑导航**/
+/**闈㈠寘灞戝鑸�*/
 .heard-breadcrumb{width:100%;float:left;height:36px;background:#212532;min-width:1200px;}
 .breadcrumb-main{width:1200px;margin:0 auto;}
 .breadcrumb-main ul{width:100%;float:left;}
@@ -8,7 +8,7 @@
 .breadcrumb-main ul li p{display:inline-block;margin-left:18px;}
 .breadcrumb-main ul .right p a{padding-right:8px;}
 .breadcrumb-main ul .right p{margin-left:8px;}
-/**昵称**/
+/**鏄电О**/
 .mainbav ul .user-show{width:120px;height:100px;background:#23283b;position:absolute;top:56px;right:-6px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
 .mainbav ul .user-show ul{}
 .mainbav ul .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
@@ -20,7 +20,7 @@
 .mainbav ul .user-show ul a li{width:100%;height:32px;line-height:30px;float:left;text-align: center;margin:0;}
 .mainbav ul .user-show  span{position:absolute;top:-15px;left:52px;}
 .mainbav ul .user-show  span i{color:#fff;font-size:24px}
-/**数据**/
+/**鏁版嵁**/
 .mainbav ul .data-show{width:120px;height:68px;background:#23283b;position:absolute;top:56px;right:-45px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
 .mainbav ul .data-show ul{}
 .mainbav ul .data-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
@@ -32,12 +32,12 @@
 .mainbav ul .data-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;margin:0;}
 .mainbav ul .data-show  span{position:absolute;top:-15px;left:52px;}
 .mainbav ul .data-show  span i{color:#fff;font-size:24px}
-/**二维码**/
+/**浜岀淮鐮�*/
 .breadcrumb-main ul li .erw-show{width:120px;height:120px;background:#fff;position:absolute;top:36px;right:-30px;border:1px solid #ddd;display: none;border-radius:8px;z-index:99;}
 .breadcrumb-main ul li .erw-show span{position:absolute;top:-20px;left:45px;}
 .breadcrumb-main ul li .erw-show span i{color:#fff;font-size:24px}
 .breadcrumb-main ul li .erw-show p{margin:10px;}
-/**主导航**/
+/**涓诲鑸�*/
 .nav-main{width:1200px;margin:0 auto;}
 .yeesight-nav{width:100%;background:#2e344b;height:60px;float:left;min-width:1200px;}
 .yeesight-logo{width:330px;height:51px;float:left;margin-top:12px;}
@@ -50,7 +50,7 @@
 .mainbav ul .search a{color:#3382ee;padding:4px 12px 0 0;float:right;}
 .mainbav ul .iphone-show{margin-top:16px;float:left}
 .mainbav ul .s-dh i{color:#3382ee;font-size:24px;cursor:pointer;}
-/**子导航**/
+/**瀛愬鑸�*/
 .subnav{width:100%;float:left;height:40px;background:#1b2031;min-width:1200px;border-bottom:1px solid #454d6b}
 .subnav-main{width:1200px;margin:0 auto;}
 .left-list ul{display:inline-block;margin:7px 0 0 10px;position:relative;}
@@ -59,7 +59,7 @@
 .left-list ul li a{font-size:14px;color:#697398}
 .left-list ul li a i{margin-left:8px;color:#697398}
 .left-list ul .word{margin:0px 10px;}
-.left-list ul .inbtn a{width:80px;height:26px;background:#2e344b;float:left;border-radius:5px;text-align: center;line-height:26px;color:#7c85a8}
+.left-list ul .inbtn a{min-width:80px;height:26px;background:#2e344b;float:left;border-radius:5px;text-align: center;line-height:26px;color:#7c85a8;padding-left: 5px;padding-right: 5px;}
 .left-list ul .inbtn a:hover{background:#3382ee;color:#fff}
 .left-list{float:left}
 
@@ -80,7 +80,7 @@
 .right-list ul li .special-show ul a li{width:100%;height:33px;line-height:33px;float:left;text-align: center;margin:0;}
 .right-list ul li .special-show  span{position:absolute;top:-18px;left:50px;}
 .right-list ul li .special-show  span i{color:#DDD;font-size:24px}
-/**更多**/
+/**鏇村**/
 .right-list ul .more{line-height:28px;position:relative;height:35px;}
 .right-list ul .more a{font-size:14px;color:#697398}
 .right-list ul .more .more-show{width:300px;height:216px;background:#23283b;position:absolute;top:32px;right:0px;display:none;border:1px solid #7c85a8;border-radius:8px;z-index:99;}
@@ -98,7 +98,7 @@
 .more-show ul::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
 .more-show ul::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;  }  
 .more-show ul::-webkit-scrollbar-corner { background: transparent;  }
-/**底部**/
+/**搴曢儴**/
 .footer{width:100%;float:left;height:60px;background:#1d1f30;min-width:1200px;border-top:1px solid #454d6b}
 .footer-main{width:1200px;margin:0 auto;}
 .footer-main ul li,.footer ul li a{line-height:60px;font-size:14px;color:#6f7aa9}

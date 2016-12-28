@@ -164,17 +164,25 @@ define('app/jsp/home/config', function (require, exports, module) {
    		  param.provinceCode=provinceCode;
    		  param.interestStr=interestStr;
    		  param.cityStr=cityStr;
-   		  ajaxController.ajax({
+   		  $.ajax({
    			  type:"POST",
-   			  processing: false,
-   			  errorDlg:true,
-   			  message: "保存数据中，请等待...",
    			  url: _base + url,
    			  dataType:"json",
    			  data:param,
    			  success:function(rs){
+   				  if(!rs.statusCode){
+   					location.href = _base + "/user/login";
+   					return;
+   				  }
+   				  if(rs.statusCode=='1'){
+   					location.href = _base + '/home/index';
+   				  }else{
+   					$("#tishiId").text(statusInfo);  
+   				  }
    				  
-   				  location.href = _base + '/home/index';
+   			  },
+   			  error:function(er){
+   				$("#tishiId").text("请求失败，请稍后重试。");
    			  }
    		  });
         }

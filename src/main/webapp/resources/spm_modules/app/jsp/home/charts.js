@@ -20,11 +20,6 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		backgroundColor =configParam.backgroundColor;
         	}
         	var edata2 = {};
-//    		edata2.media = [ '网易', '新华网', '搜狐网', 'BBC', 'CNN' ];
-//    		edata2.time = [ '10-08', '10-09', '10-10', '10-11' ];
-//    		edata2.data = [ [ 800, 1000, 1500 ], [ 1000, 1200, 1400 ],
-//    				[ 900, 1300, 1600 ], [ 1200, 1500, 1000 ],
-//    				[ 1500, 1200, 1300 ], [ 1000, 1500, 1700 ] ];
         	edata2.time = [];
         	edata2.media =[];
         	if(data==null || data=="" || data == undefined){
@@ -35,13 +30,15 @@ define('app/jsp/home/charts', function (require, exports, module) {
                 {   
             		timeKey.push(time);
             	}
-            	//时间反转截取5个
-            	timeKey = timeKey.reverse();
-            	if(timeKey.length>5)
-            	 timeKey = timeKey.slice(0,5);
             	
+            	//时间反转截取5个
+            	timeKey = timeKey.sort(function(t1,t2){
+            		return t1>t2;
+            	});
+            	if(timeKey.length>5){
+            		timeKey = timeKey.slice(timeKey.length-5,timeKey.length);
+            	}
             	edata2.time=timeKey;
-        		
             	if(edata2.time.length < 1){
             		return;
             	}

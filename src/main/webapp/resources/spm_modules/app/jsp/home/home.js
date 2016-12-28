@@ -830,19 +830,28 @@ define('app/jsp/home/home', function (require, exports, module) {
       		param.interestStr=interestStr;
       		param.provinceCode=provinceCode;
       		param.cityStr=cityStr;
-      		ajaxController.ajax({
-   			  type:"POST",
-   			  processing: false,
-   			  errorDlg:true,
-   			  message: "保存数据中，请等待...",
-   			  url: _base + url,
-   			  dataType:"json",
-   			  data:param,
-   			  success:function(rs){
-   				  location.href=_base+"/home/index";
-   			  }
-   		  });
-        }
+      		$.ajax({
+      			  type:"POST",
+      			  url: _base + url,
+      			  dataType:"json",
+      			  data:param,
+      			  success:function(rs){
+      				  if(!rs.statusCode){
+      					location.href = _base + "/user/login";
+      					return;
+      				  }
+      				  if(rs.statusCode=='1'){
+      					location.href = _base + '/home/index';
+      				  }else{
+      					$("#tishiId").text(statusInfo);  
+      				  }
+      				  
+      			  },
+      			  error:function(er){
+      				$("#tishiId").text("请求失败，请稍后重试。");
+      			  }
+      	    });
+       }
         
     });
 
