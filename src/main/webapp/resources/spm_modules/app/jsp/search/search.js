@@ -223,7 +223,7 @@ define(
 							param.languageCode= $("#languageId1_input").val();
 						}*/
 						if($("#dicId1_input").val()!=""){
-							param.dicValue= $("#dicId1_input").val();
+							param.mediaLevel= $("#dicId1_input").val();
 						}
 						var timeStr = $("#timeId1").val();
 						if(timeStr!=""){
@@ -232,7 +232,7 @@ define(
 							param.endTime= timeStr + " 23:59:59";
 						}
 						if($("#retrieval1-store").val()!=""){
-							param.mediaId=$("#retrieval1-store").val();
+							param.mediaList=$("#retrieval1-store").val();
 						}
 						if($("#fileId1_input").val()!=""){
 							param.fieldName= $("#fileId1_input").val();
@@ -243,7 +243,7 @@ define(
 							param.provincecityCode= $("#orgnizationId2_input").val();
 						}
 						if($("#dicId2_input").val()!=""){
-							param.dicValue= $("#dicId2_input").val();
+							param.mediaLevel= $("#dicId2_input").val();
 						}
 						var timeStr = $("#timeId2").val();
 						if(timeStr!=""){
@@ -256,7 +256,7 @@ define(
 							param.order = "desc";
 						}
 						if($("#retrieval2-store").val()!=""){
-							param.mediaLevel= $("#retrieval2-store").val();
+							param.mediaList= $("#retrieval2-store").val();
 						}
 						if($("#qingId2_input").val()!=""){
 							param.sentimentId= $("#qingId2_input").val();
