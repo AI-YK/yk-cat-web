@@ -69,6 +69,10 @@
 									<input id="mediaId1" type="hidden">
 								</p>
 							</li>
+							<!-- 媒体 -->
+							<li id="retrieval1">
+								
+							</li>
 							
 							<!-- <li>
 								<input type="button" class="btn btn-serch radius btn-deepblue" id="searchBtn1" value="搜索">
@@ -111,23 +115,11 @@
 								
 							</li>
 							<li id="qingId2">
-							<!-- <p>
-									<select id="qingId2" class="select select-mini searchSocial">
-										<option value="">情感</option>
-										<option value="1">正面</option>
-										<option value="0">中性</option>
-										<option value="-1">负面</option>
-									</select>
-								</p> --> 
+							
 							</li>
-						</ul>
-						<ul>
-							<li>
-									<!-- <p>媒体</p> -->
-									<p style="display: none;">
-										<input id="mediaIn2" type="text" class="searchSocial">
-									    <input id="mediaId2" type="hidden">
-									</p>
+						
+							<li id="retrieval2">
+								
 							</li>
 							<li>
 								<!-- <p>情感</p> -->

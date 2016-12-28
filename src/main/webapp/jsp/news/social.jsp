@@ -136,17 +136,9 @@
                            <li id="fileId1">
 								
 							</li>
-							<li id="tran">
-								<!-- <p>译文</p> -->
-								<!-- <p>
-									<select class="select select-mini searchNews" style="width: 70px">
-									    <option value="">译文</option>
-										<option>仅显示译文</option>
-										<option>仅显示原文</option>
-										<option>显示译文和原文</option>
-									</select>
-								</p> -->
-							</li>
+							<!-- <li id="tran">
+								
+							</li> -->
 							<!-- <li>
 								<p>媒体</p>
 								<p style="display: none;">

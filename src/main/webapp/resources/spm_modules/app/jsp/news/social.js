@@ -247,8 +247,8 @@ define(
 							param.beginTime=begintime;
 							param.endTime=endtime;
 						}
-						if($("#mediaId1").val()!=""){
-							param.mediaId=$("#mediaId1").val();
+						if($("#retrieval1-store").val()!=""){
+							param.mediaId=$("#retrieval1-store").val();
 						}
 						if($("#fileId1_input").val()!=""){
 							param.fieldName= $("#fileId1_input").val();
@@ -277,8 +277,8 @@ define(
 							param.fieldName= $("#fileId2_input").val();
 							param.order = "desc";
 						}
-						if($("#medialId2").val()!=""){
-							param.mediaLevel= $("#medialId2").val();
+						if($("#retrieval2-store").val()!=""){
+							param.mediaLevel= $("#retrieval2-store").val();
 						}
 						if($("#qingId2_input").val()!=""){
 							param.sentimentId= $("#qingId2_input").val();
