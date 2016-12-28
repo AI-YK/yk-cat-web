@@ -281,6 +281,10 @@ define('app/jsp/search/select', function (require, exports, module) {
         
         /*生成通用下拉列表*/
         _commonselect:function(id,text,data,callback){
+        	//点击其他影藏
+        	$(document).on("click",function(){
+				$('.select-dropdown-show').hide();
+        	});
         	var html = [];
         	html.push('<input type="hidden" id="'+id+'_input">');
         	html.push('<p> <span id="'+id+'_select_text">'+text+'</span><i class="icon iconfont">&#xe659;</i>');
@@ -301,8 +305,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 			selectObj.html(html.join(""));
 			var selectDataList = $("#"+id+"_data_list");
 			
-			selectObj.click(function(){
-				$(".select-dropdown-show").hide();
+			selectObj.click(function(event){
+				event.stopImmediatePropagation();//取消事件冒泡；
+				$('.select-dropdown-show').hide();
 				selectDataList.show();
 			});
 			/*selectObj.mouseenter(function () {
@@ -329,6 +334,10 @@ define('app/jsp/search/select', function (require, exports, module) {
 			});
 		}/*生成时间下来选项*/
         ,_timeselect:function(id,text,callback){
+        	//点击其他影藏
+        	$(document).on("click",function(){
+				$('.select-dropdown-show').hide();
+        	});
         	var html = [];
         	html.push('<input type="hidden" id="'+id+'_begin_input">');
         	html.push('<input type="hidden" id="'+id+'_end_input">');
@@ -365,8 +374,9 @@ define('app/jsp/search/select', function (require, exports, module) {
 		    }).mouseleave(function () {
 		      selectView.hide(1);
 		    });*/
-			selectObj.click(function(){
-				$(".select-dropdown-show").hide();
+			selectObj.click(function(event){
+				event.stopImmediatePropagation();//取消事件冒泡；
+				$('.select-dropdown-show').hide();
 				selectView.show();
 			});
 			
