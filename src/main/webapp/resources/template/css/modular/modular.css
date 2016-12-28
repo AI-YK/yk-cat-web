@@ -6,7 +6,7 @@
 .city-title{width:100%;float:left;font-size:18px;color:#dcdfe9}
 .field-title{width:100%;height:48px;background:#262c44;margin-top:15px;float:left;border-radius:10px;padding:0 20px;}
 .field-title ul li{float:left;line-height:48px;}
-.field-title ul li p{float:left;font-size:14px;color:#fff;margin-left:10px;}
+.field-title ul li p{float:left;font-size:14px;color:#fff;margin-left:20px;}
 .field-title ul .blue{color:#3382ee}
 .checkbox-fie{width:14px;height:14px;}
 .choice-city{width:100%;float:left;height:266px;background:#262c44;border-radius:10px;margin-top:15px;padding:10px 20px;}
@@ -40,15 +40,15 @@
 .choice-right::-webkit-scrollbar-corner {  background: transparent;  }  
 .configure-btn{width:100%;float:left;margin-top:20px;text-align: center;}
 
-/**绐佸彂浜嬩欢**/
+/**突发事件**/
 .level-bj{background:#ebeef0;}
-/**闈㈠寘灞�**/
+/**面包屑**/
 .breadcrumb{width:100%;float:left;}
 .breadcrumb p{float:left;line-height:40px;color:#666;font-size:14px;margin-right:6px;position:relative;}
 .breadcrumb p a{font-size:14px;color:#999}
 .breadcrumb p i{color:#428bef}
 .breadcrumb p .suos{position:absolute;right:10px;top:0;color:#666}
-/**浜岀骇澶栦晶**/
+/**二级外侧**/
 .level-wrapper{width:1200px;margin:0 auto;padding-bottom:20px;position:relative;}
 .level-left-conter{width:740px;float:left;margin-top:20px;padding-bottom:20px;}
 .level-left-table{width:100%;float:left}
@@ -65,8 +65,8 @@
 .list-form ul li p i{color:#777778;float:right}
 .list-form ul li .searchicon{position:absolute;right:10px;top:0;color:#777778;cursor:pointer;}
 .list-form ul #media{height:35px;}
-/**濯掍綋褰卞搷鍔�**/
-.select-dropdown-show{width:120px;height:auto;background:#fff;position:absolute;left:-38px;top:32px;z-index:999;
+/**媒体影响力**/
+.select-dropdown-show{width:120px;height:auto;min-height:200px;max-height:365px;overflow-y:auto;background:#fff;position:absolute;left:-38px;top:32px;z-index:999;
 -moz-box-shadow:1px 1px 4px #a9a9a9;
 -webkit-box-shadow:1px 1px 4px #a9a9a9;
 box-shadow:1px 1px 4px #a9a9a9;}
@@ -88,6 +88,16 @@ box-shadow:1px 1px 4px #a9a9a9;
 }
 .auto_hidden{width:200px;display:none;}
 .auto_onmouseout{font-weight:normal;}
+/*#region-show{height:365px;overflow-y:auto;}
+#language-show{height:365px;overflow-y:auto;}*/
+
+/**阴影**/
+.select-dropdown-show::-webkit-scrollbar {width: 14px;height: 14px;}  
+.select-dropdown-show::-webkit-scrollbar-track,  
+.select-dropdown-show::-webkit-scrollbar-thumb {border-radius: 999px;  border: 5px solid transparent;}  
+.select-dropdown-show::-webkit-scrollbar-track {box-shadow: 1px 1px 5px rgba(0,0,0,.2) inset; }    
+.select-dropdown-show::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;}  
+.select-dropdown-show::-webkit-scrollbar-corner {  background: transparent;}  
 
 
 .level-news{width:100%;float:left;margin-top:20px;}
@@ -116,7 +126,7 @@ box-shadow:1px 1px 4px #a9a9a9;
 .portrait img{border-radius:50%;}
 .user-por ul .list{margin-top:6px;}
 .hot-list{width:100%;float:left;position:relative;}
-/**鍙充晶**/
+/**右侧**/
 .levle-right{width:440px;float:right;margin-top:20px;padding-bottom:20px;}
 .levle-right-news{width:100%;float:left;background:#fff;border:1px solid #dcddde;height:515px;padding:20px;}
 .levle-right-title{width:100%;float:left;border-bottom:1px solid #dcddde;padding-bottom:10px;color:#333;font-size:16px}
@@ -138,7 +148,7 @@ box-shadow:1px 1px 4px #a9a9a9;
 .levle-right-chart-title p{float:left}
 .levle-right-chart-title .right{float:right;font-size:12px;color:#999}
 .levle-right-chart-list{width:100%;float:left;margin-top:20px;height:285px;}
-/**鏂伴椈璇︽儏**/
+/**新闻详情**/
 .levle-right-map{width:100%;float:left;background:#fff;border:1px solid #dcddde;height:318px;padding:4px;}
 .news-detail{width:100%;float:left;background:#fff;border:1px solid #dcddde;min-height:1200px;padding:30px;}
 .news-detail-title{width:100%;float:left;text-align: center;font-size:#333;font-size:28px;padding:20px;}
@@ -161,7 +171,7 @@ box-shadow:1px 1px 4px #a9a9a9;
 .news-detail-information ul .x-ash i:hover{color:#eb4d38}
 .news-detail-information ul .zhuanz span{color:#3382ee}
 .news-detail-information ul .x-red span,.news-detail-information ul .x-ash span{width:24px;height:18px;position:absolute;right:-18px;top:5px;background: url(../../images/dati1.jpg) no-repeat;line-height:16px;color:#fff;font-size:12px;text-align: center;}
-/**鍒囨崲**/
+/**切换**/
 .news-detail-information ul li .user-show{width:120px;height:100px;background:#fff;position:absolute;top:30px;right:-50px;border:1px solid #ddd;border-radius:8px;z-index:999;display: none;}
 .news-detail-information ul li .user-show ul{width:120px;}
 .news-detail-information ul li .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
@@ -174,7 +184,7 @@ box-shadow:1px 1px 4px #a9a9a9;
 .news-detail-information ul li .user-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;}
 .news-detail-information ul li .user-show  span{position:absolute;top:-27px;left:45px;}
 .news-detail-information ul li .user-show  span i{color:#999;font-size:24px}
-/**鍒嗕韩**/
+/**分享**/
 .news-detail-information ul li .share-show{width:140px;height:100px;background:#fff;position:absolute;top:45px;right:-60px;border:1px solid #ddd;display:none;border-radius:8px;z-index:999;}
 .news-detail-information ul li .share-show ul{width:140px;}
 .news-detail-information ul li .share-show ul li{font-size:12px}
@@ -202,7 +212,7 @@ box-shadow:1px 1px 4px #a9a9a9;
 .news-detail-share ul .right .red a{width:48px;height:48px;float:left;background:url(../../images/weix.png) no-repeat;}
 .news-detail-share ul .right .green a{width:48px;height:48px;float:left;background:url(../../images/weibo.png) no-repeat;}
 .news-detail-share ul .right .blue a{width:48px;height:48px;float:left;background:url(../../images/qq.png) no-repeat;}
-/**閲囩紪**/
+/**采编**/
 .editing-big{width:1000px;margin:0 auto;}
 .editing-main{width:100%;float:left;margin:20px 0;background:#fff;border:1px solid #d0cfcf;min-height:780px;}
 .editing-title{width:100%;float:left;height:50px;text-align:center;background:#3382ee;line-height:50px;font-size:16px;color:#fefefe}
@@ -216,7 +226,7 @@ box-shadow:1px 1px 4px #a9a9a9;
 .editing-richtext-main{width:100%;min-height:485px;border:1px solid #d0cfcf}
 .editing-btn{width:100%;float:left;text-align: center;margin-top:20px;}
 .editing-btn .btn{margin-left:20px;}
-/**鏂伴椈璇︽儏鎷栨嫿**/
+/**新闻详情拖拽**/
 #drag{width:440px;min-width:440px;height:1080px; cursor: move;overflow-y:auto; position: absolute; top:155px; right:0px; background:#fff; border: 1px solid #ddd;display: none;}
 #coor{ width:12px; height:12px; overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C; }
 .drag-title{width:100%;float:left;padding:0 20px;}
@@ -235,7 +245,7 @@ box-shadow:1px 1px 4px #a9a9a9;
 .drag-list::-webkit-scrollbar-thumb {min-height: 20px;  background-clip: content-box;  box-shadow: 0 0 0 5px rgba(0,0,0,.2) inset;}  
 .choicdrag-liste-right::-webkit-scrollbar-corner {  background: transparent;}  
 
-/**绀句氦鐑偣鏍囩**/
+/**社交热点标签**/
 .news-type-big{width:100%;height:50px;background:#dcddde;min-width:1200px;float:left}
 .news-type-main{width:1200px;margin:0 auto;}
 .news-type-main ul{width:100%;float:left}
