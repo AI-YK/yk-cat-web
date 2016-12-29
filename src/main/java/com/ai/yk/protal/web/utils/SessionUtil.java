@@ -115,7 +115,7 @@ public final class SessionUtil {
 				 config =(MyCustomizedVo) obj;
 			 }
 		}
-		if(real&&config==null){//session清空重新查询
+		if(true){//session清空重新查询
 			try {
 				MycustomizedService  mycustomizedService =(MycustomizedService) getBean(MycustomizedService.class);
 				YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
@@ -125,6 +125,7 @@ public final class SessionUtil {
 				YJResponse<MyCustomizedVo> resp = mycustomizedService.queryMyCustomized(req);
 				if(resp!=null&&resp.getData()!=null){
 					setUserConfig(resp.getData());
+					return resp.getData();
 				}
 			} catch (Exception e) {
 				log.error("查询个人定制错误：",e);
@@ -208,7 +209,9 @@ public final class SessionUtil {
 				reqtop.setMessage(myTopicsMessage);
 				YJResponse<MyTopicsResponse> yjr= mytopicsSercice.queryMyTopicsList(reqtop);
 				if(yjr!=null&&yjr.getData()!=null&&!CollectionUtil.isEmpty(yjr.getData().getResults())){
-					SessionUtil.setTopics(yjr.getData().getResults());
+					List<MyTopicsVo> topicVos = yjr.getData().getResults();
+					SessionUtil.setTopics(topicVos);
+					return topicVos;
 				}
 			} catch (Exception e) {
 				log.error("查询个人专题错误：",e);
