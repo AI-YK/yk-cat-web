@@ -115,7 +115,7 @@ public final class SessionUtil {
 				 config =(MyCustomizedVo) obj;
 			 }
 		}
-		if(true){//session清空重新查询
+		if(config==null){//session清空重新查询
 			try {
 				MycustomizedService  mycustomizedService =(MycustomizedService) getBean(MycustomizedService.class);
 				YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
@@ -197,7 +197,7 @@ public final class SessionUtil {
 			}
 		}
 		
-		if(real&&topics==null){//session清空重新查询
+		if(topics==null){//session清空重新查询
 			try {
 				/**专题数据**/
 				MytopicsService mytopicsSercice = (MytopicsService) getBean(MytopicsService.class);
