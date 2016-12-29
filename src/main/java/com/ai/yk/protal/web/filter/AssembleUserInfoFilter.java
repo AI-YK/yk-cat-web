@@ -47,7 +47,7 @@ public class AssembleUserInfoFilter implements Filter {
             } 
             log.info("用户已登录。。。。。。。。。。。。。。。");
             MyCustomizedVo customizedVo = SessionUtil.getUserConfig();
-			if(customizedVo==null){
+			if(!req.getRequestURI().endsWith("config")&&customizedVo==null){
 				 log.info("跳转到配置页面。。。。。。。。。。。。。。。");
 				resp.sendRedirect(req.getContextPath()+"/home/config");
 			}
