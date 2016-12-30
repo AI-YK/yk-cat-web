@@ -87,7 +87,9 @@ public class PublicOpinionTrendController {
 		req.setMessage(message);
 		
 		YJResponse<PublicAffairsResponse> res = publicaffairsService.queryMediaCoverageList(req);
-		
+		if(res == null){
+			return new ResponseData<PublicAffairsResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询不到舆情趋势或媒体覆盖",null);
+		}
 		PublicAffairsResponse publicAffairsResponse = res.getData();
 		/*PublicAffairsResponse publicAffairsResponse = new PublicAffairsResponse();
 		if(modelNo.equals("locSentimentCount")){

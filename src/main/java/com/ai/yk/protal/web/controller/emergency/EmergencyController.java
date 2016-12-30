@@ -117,6 +117,9 @@ public class EmergencyController{
 	    	eventListMessage.setCityCode(cityCode);
 	    	req.setMessage(eventListMessage);
 	    	YJResponse<EventListResponse> resp = eventDataService.queryEventDataList(req);
+	    	if(resp ==null){
+	    		return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询不到突发事件",null);
+	    	}
 	    	List<EventVo> eventList = resp.getData().getResults();
 	    	homeEventVo.setEventList(eventList);
 	    	return new ResponseData<HomeEventVo>(ResponseData.AJAX_STATUS_SUCCESS,"查询突发事件成功",homeEventVo);
@@ -194,10 +197,14 @@ public class EmergencyController{
 	    	req.setMessage(eventModelMessage);
 	    	YJResponse<EventModelResponse> res = new YJResponse<EventModelResponse>();
 	    	res = eventDataService.queryEventModel(req);
+	    	if(res==null){
+		    	return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询不到事件态势",null);
+	    	}
 	    	EventModelResponse eventModelResponse = res.getData();
 	    	
 	    	//EventModelResponse eventModelResponse = mockEventState();
 	    	return new ResponseData<EventModelResponse>(ResponseData.AJAX_STATUS_SUCCESS,"查询事件态势",eventModelResponse);
+
 	    }
 	    public EventModelResponse mockEventState(){
 	    	EventModelResponse eventModelResponse = new EventModelResponse();
