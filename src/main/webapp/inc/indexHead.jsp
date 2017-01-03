@@ -9,9 +9,15 @@
 <!--主导航-->
 <div class="yeesight-nav">
 	<div class="nav-main">
-		<div class="yeesight-logo">
+		<%-- <div class="yeesight-logo">
 			<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
-		</div>
+		</div> --%>
+		<div class="yeesight-logo"><img src="${uedroot}/images/logo.png" usemap="#Map"/>
+              <map name="Map">
+                <area shape="rect" coords="0,0,112,40" href="http://www.yeesight.com/" onfocus="blur(this);" >
+                <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
+              </map>
+		  </div>
 		<div class="mainbav right">
 		        <input id="current" type="hidden" value="${current}"/>
 				<ul id="menu">

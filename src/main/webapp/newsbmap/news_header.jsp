@@ -258,9 +258,15 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 %>
 <div class="header_box" style="height: 60px; background-color:#2e344b;width:100%;">
 	<div style="width:1200px;margin:0 auto">
-	<div class="center">
+	<%-- <div class="center">
 		<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
-	</div>
+	</div> --%>
+		<div class="center"><img src="${uedroot}/images/logo.png" usemap="#Map"/>
+              <map name="Map">
+                <area shape="rect" coords="0,0,112,40" href="http://www.yeesight.com/" onfocus="blur(this);" >
+                <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
+              </map>
+		  </div>
 	<div class="rightt">
 		<ul class="menu_list1">
 			<li>
