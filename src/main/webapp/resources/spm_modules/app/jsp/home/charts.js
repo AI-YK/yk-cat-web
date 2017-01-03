@@ -525,12 +525,12 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		counts[i] = data[i].count;
         	}
         	//结果反转截取10个
-        	times = times.reverse();
-        	counts = counts.reverse();
         	if(times.length>10){
         		times = times.slice(0,10);
         		counts = counts.slice(0,10);
         	}
+        	times = times.reverse();
+        	counts = counts.reverse();
         	var option = {  
         			tooltip : {
 			                trigger: 'axis',
