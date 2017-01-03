@@ -588,6 +588,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		    ],
         		    yAxis : [
         		        {
+        		        	show :true,
         		            type : 'value',
         		            //offset:10,
         					axisLine:{
@@ -800,11 +801,17 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	var otherCount;
         	if(data.length<=6){
         		for(var i=0;i<data.length;i++){
+        			if(data[i].name =='weixin'){
+        				data[i].name ='wechat';
+        			}
         			series.push({'name':data[i].name,'value':data[i].count});
         		}
         	}else{
         		var otherIndex;
         		for(var i = 0;i<data.length;i++){
+        			if(data[i].name =='weixin'){
+        				data[i].name ='wechat';
+        			}
         			if(data[i].name =="其他"){
         				otherIndex = i;
         				otherCount= data[i].count;
