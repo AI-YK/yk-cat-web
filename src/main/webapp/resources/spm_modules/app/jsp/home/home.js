@@ -836,7 +836,7 @@ define('app/jsp/home/home', function (require, exports, module) {
      				  cityStr=cityStr+","+$(this).val();
      			  }
      		  });
-     		  if(cityStr==""){
+     		  if(cityStr=="" && (provinceCode!="820000" && provinceCode!="710000" && provinceCode!="810000")){
      			$("#tishiId").text("至少选择一个城市");
      			return;
      		  }else{
