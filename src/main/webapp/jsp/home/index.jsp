@@ -70,7 +70,7 @@
 				    <a href="#" id="choice-city">
 				    <c:choose>
 				       <c:when test="${config!=null&&config.province!=null}">
-				         ${config.province.nameZh}<c:if test="${config.city[0]!=null }">.</c:if>${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
+				         ${config.province.nameZh}.${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
 				       </c:when>
 				       <c:otherwise>
 				                           请选择省市
