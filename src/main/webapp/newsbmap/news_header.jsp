@@ -283,8 +283,8 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 					 <li class="search">
 					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
-					<%-- </c:if> --%>
-					<li class="iphone-show" style="margin-top:16px"><i class="ico_user"></i></li>
+					<%-- </c:if> <i class="ico_user"></i>--%>
+					<li class="iphone-show" style="margin-top:16px"><img alt="" src="${_base}/resources/template/images/user.png"></li>
 					<div class="user-show" id="user-show" style="display: none;">
 						<span><img src="${_base}/resources/template/images/xf-sj.png"></span>
 						<ul>
