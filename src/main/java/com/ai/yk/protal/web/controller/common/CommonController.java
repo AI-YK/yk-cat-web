@@ -494,7 +494,7 @@ public class CommonController {
 		if (StringUtil.isBlank(provinceCode)) {
 			provinceCode = myVo.getProvince().getCode();
 		}
-		if (StringUtil.isBlank(cityStr)) {
+		if (StringUtil.isBlank(cityStr) && !"820000".equals(provinceCode) && !"710000".equals(provinceCode) && !"810000".equals(provinceCode)) {
 			for (AreaVo vo : myVo.getCity()) {
 				cityList.add(vo.getCode());
 			}
