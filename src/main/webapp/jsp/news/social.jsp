@@ -18,6 +18,7 @@
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 <link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${spmRes }/app/jsp/news/social.js"></script>
+<script type="text/javascript" src="${spmRes }/jquery-i18n/1.2.2/jquery.i18n.properties.min.js"></script>
 <style type="text/css">
 
 .moveul{position:absolute; top:68px; left:900px; width: 50px;color: #666; font-size: 12px;}

@@ -277,7 +277,21 @@ $('#trend1 ul li a').click(function(){
    }
   }); 
 });
-
+//语言切换
+$(function () {
+    var st = 100;
+    $('.mainbav ul .language').mouseenter(function () {
+		$('#language-show').show(1);
+		$('#data-show').hide(1);
+		$('#user-show').hide(1);
+    })
+		$("#language-show").click(function () {
+                $(this).hide(1);
+           });	
+		$('.mainbav').mouseleave(function () {
+        $('#language-show').hide(1);
+    });	
+ }); 
 
 //昵称
 $(function () {

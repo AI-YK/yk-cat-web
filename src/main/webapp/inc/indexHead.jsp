@@ -28,6 +28,14 @@
 					<li class="search">
 					    <input onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'"  type="text" id="_keyword" value="${_keyword}" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"/><a id="_searchBtn" href="#"><i class="icon iconfont">&#xe658;</i></a>
 					</li>
+					<li class="language">中文<i class="icon iconfont">&#xe659;</i></li>
+					<div class="language-show" id="language-show">
+						<span><img src="${uedroot}/images/xf-sj.png"></span>
+						<ul>
+							<a href="#" class="ahov1"><li>中文</li></a>
+							<a href="#" class="ahov3"><li>English</li></a>
+						</ul>
+					</div>
 					<li class="iphone-show"><img src="${uedroot}/images/user.png" /></li>
 					<div class="user-show" id="user-show">
 						<span><img src="${uedroot}/images/xf-sj.png"></span>

@@ -5,12 +5,15 @@
 		<ul>
 			<li>
 				<p>
+					
 					<a target="_bank" href="${yeesightUrls.yeesightAboutUrl}"><spring:message code="home.foot.tips.aboutus"/></a>|
 				</p>
 				<p>
+					
 					<a target="_bank" href="${yeesightUrls.yeesightBigDataUrl}"><spring:message code="home.foot.tips.crosslanguagebigdata"/></a>|
 				</p>
 				<p>
+					
 					<a target="_bank" href="${yeesightUrls.yeesightSolutionUrl}"><spring:message code="home.foot.tips.solution"/></a>
 				</p>
 			</li>
