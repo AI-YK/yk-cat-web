@@ -1,11 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>突发事件</title>
+<title><spring:message code="home.nav.content.breakingevent"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 
@@ -18,9 +19,9 @@
 		<div class="subnav-main">
 			<div class="breadcrumb">
 				<p><i class="icon iconfont">&#xe600;</i></p>
-				<p>您当前的位置：</p>
-				<p><a href="${_base}/home/index">首页</a>&gt;</p>
-				<p>突发事件</p>
+				<p><spring:message code="detail.current.location"/>：</p>
+				<p><a href="${_base}/home/index"><spring:message code="home.nav.bar.home"/></a>&gt;</p>
+				<p><spring:message code="home.nav.content.breakingevent"/></p>
 			</div>
 		</div>
 	</div>
@@ -34,7 +35,7 @@
 				<div class="level-left-list">
 					<div class="level-news" >
 						<div class="level-news-title">
-							<p>共有相关数据</p>
+							<p><spring:message code="opiniots.sharerelevantdata"/></p>
 							<p class="blue" id="news-num" >0</p>
 						</div>
 						<div class="level-news-list" id="news-list">

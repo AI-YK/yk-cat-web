@@ -8,8 +8,8 @@
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title><c:choose>
-		<c:when test="${'news'==model}">新闻热点</c:when>
-		<c:when test="${'social'==model}">社交热点</c:when>
+		<c:when test="${'news'==model}"><spring:message code="home.nav.content.newshot"/></c:when>
+		<c:when test="${'social'==model}"><spring:message code="home.nav.content.socialhot"/></c:when>
 		<c:otherwise><spring:message code="home.nav.bar.public"/></c:otherwise>
 	</c:choose></title>
 

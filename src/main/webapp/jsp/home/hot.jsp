@@ -5,7 +5,7 @@
 		<div class="hot-news-main-left">
 			<div class="sentiment-title blue">
 				<ul>
-					<li><spring:message code="home.nav.content.socialhot"/></li>
+					<li><spring:message code="home.nav.content.newshot"/></li>
 					<li class="right"><a target="_blank" href="${_base}/search/public?model=news"><i class="icon iconfont">&#xe65b;</i></a></li>
 				</ul>
 			</div>
