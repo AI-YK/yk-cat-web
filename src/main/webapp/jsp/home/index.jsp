@@ -1,17 +1,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>首页</title>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title><spring:message code="com.page.first.label"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="index-bj">
+
 <!--设置基本信息弹出-->
   <div class="eject-big">
 		<div class="eject-medium" id="currency" style="top:60%; left: 40%;">
@@ -70,7 +72,7 @@
 				    <a href="#" id="choice-city">
 				    <c:choose>
 				       <c:when test="${config!=null&&config.province!=null}">
-				         ${config.province.nameZh}.${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
+				         ${config.province.nameZh}<c:if test="${config.city[0]!=null }">.</c:if>${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
 				       </c:when>
 				       <c:otherwise>
 				                           请选择省市
