@@ -8,6 +8,19 @@
 .breadcrumb-main ul li p{display:inline-block;margin-left:18px;}
 .breadcrumb-main ul .right p a{padding-right:8px;}
 .breadcrumb-main ul .right p{margin-left:8px;}
+/**语言**/
+.mainbav ul .language{float:left;color:#767fa2;line-height:26px;cursor:pointer;font-size:14px;height:40px;}
+.mainbav ul .language-show{width:90px;height:68px;background:#23283b;position:absolute;top:56px;right:65px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
+.mainbav ul .language-show ul{}
+.mainbav ul .language-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.mainbav ul .language-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
+.mainbav ul .language-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
+.mainbav ul .language-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
+.mainbav ul .language-show ul .ahov3 i{padding-top:2px;display: inline-block;}
+.mainbav ul .language-show ul a i{font-size:18px;margin-right:4px;}
+.mainbav ul .language-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: center;margin:0;}
+.mainbav ul .language-show  span{position:absolute;top:-15px;left:38px;}
+.mainbav ul .language-show  span i{color:#fff;font-size:24px}
 /**鏄电О**/
 .mainbav ul .user-show{width:120px;height:100px;background:#23283b;position:absolute;top:56px;right:-6px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
 .mainbav ul .user-show ul{}
