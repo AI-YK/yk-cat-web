@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>热点发现</title>
+<title><spring:message code="home.foot.tips.solution"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <%@ include file="/inc/incJs.jsp"%>
 <%@page import="java.util.Locale"%>
@@ -69,7 +70,7 @@
 		<div class="subnav-main">
 			<div id="commDiv" class="left-list" style="display: block;">
 				<ul style="width: 1200px;">
-					<li><a>通用数据：</a></li>
+					<li><a><spring:message code="home.nav.bar.generaldata"/>：</a></li>
 					<c:forEach items="${interestList }" var="interest">
 					<li class="inbtn"><a id="${interest.businessId}"  class="domain" href="#">${interest.zhInterest }</a><input type="hidden" value="${interest.businessId }"/></li>
 					</c:forEach>
@@ -80,7 +81,7 @@
 			<div id="topicDiv" class="left-list" style="display: none;">
 			<c:if test="${hasTopic}">
 			   <ul style="width: 1200px;">
-				    <li><a>专题数据：</a></li>
+				    <li><a><spring:message code="home.nav.bar.generaldata"/>：</a></li>
 					<c:forEach items="${topics }" var="topic" varStatus="t">
 						<c:if test="${t.index<7}">
 						<li class="inbtn"><a id="${topic.id}" class="topic" href="#">${topic.srcShortTitle }</a><input type="hidden" value="${topic.id }"/><input type="hidden" value="${topic.srcId }"/><input type="hidden" value="${topic.opType }"/></li>
@@ -93,7 +94,7 @@
 			<div class="right-list" style="display: block;position: absolute;top:60px; right:70px;">
 			    <c:if test="${fn:length(topics)>7}">
 				<ul>
-					<li class="more" id="more"><a href="#" onclick="show();" id="gengduo" >更多<i class="icon iconfont">&#xe659;</i></a>
+					<li class="more" id="more"><a href="#" onclick="show();" id="gengduo" ><spring:message code="home.nav.bar.more"/><i class="icon iconfont">&#xe659;</i></a>
 						<div class="more-show" id="more-show">
 							<span><img src="${uedroot}/images/xf-sj.png"></span>
 							<ul>
@@ -120,8 +121,8 @@
 		<div class="level-left-conter">
 			<div class="level-left-table">
 				<ul>
-					<li><a href="#" class="current">媒体数据</a></li>
-					<li><a href="#">社交数据</a></li>
+					<li><a href="#" class="current"><spring:message code="hot.context.mediadata"/></a></li>
+					<li><a href="#"><spring:message code="hot.context.socialdata"/></a></li>
 				</ul>
 			</div>
 			<!--tab1-->
@@ -254,7 +255,7 @@
 		<p class="right">
 			<span>{{:languageTname}}</span>
             <span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span> 
-			<span>转载量：{{:transfer}}</span>
+			<span><spring:message code="hot.context.reprintamount"/>：{{:transfer}}</span>
 		</p>
 	</li>
 	<li class="news" style="width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">
@@ -282,7 +283,7 @@
 				<!--
 				<span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
 				 -->
-				<span>评论：{{:cmtCnt}}</span>
+				<span><spring:message code="hot.context.reprintamount"/>：{{:cmtCnt}}</span>
 				<span>点赞：{{:atdCnt}}</span>
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>
