@@ -4,20 +4,20 @@
 	<div class="sentiment-main">
 		<div class="sentiment-title">
 			<ul>
-				<li>负面舆情</li>
+				<li><spring:message code="home.nav.content.negativeopinions"/></li>
 				<li class="right"><a target="_blank" href="${_base}/search/public?model=negative"><i class="icon iconfont">&#xe65b;</i></a></li>
 			</ul>
 		</div>
 		<div class="sentiment-list">
 			<div class="sentiment-list-conter border-right">
-				<div class="sentiment-list-conter-title">新闻媒体预警</div>
+				<div class="sentiment-list-conter-title"><spring:message code="home.nav.content.newsalerts"/></div>
 				<div class="sentiment-list-conter-news" id="newsDiv">
 					
 				</div>
 
 			</div>
 			<div class="sentiment-list-conter">
-				<div class="sentiment-list-conter-title">社交媒体预警</div>
+				<div class="sentiment-list-conter-title"><spring:message code="home.nav.content.socialalerts"/></div>
 				<div class="sentiment-list-conter-news" id="socialDiv">
 					
 				</div>

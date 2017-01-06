@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
 <div class="levle-right-news">
-	<div class="levle-right-title">热点事件</div>
+	<div class="levle-right-title"><spring:message code="hot.context.hottopics"/></div>
 	<div id="topic-list" class="sentiment-list-conter-news">
 		
 	</div>

@@ -7,7 +7,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title><spring:message code="com.page.first.label"/></title>
+<title><spring:message code="home.nav.bar.home"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 </head>
@@ -72,10 +72,10 @@
 				    <a href="#" id="choice-city">
 				    <c:choose>
 				       <c:when test="${config!=null&&config.province!=null}">
-				         ${config.province.nameZh}<c:if test="${config.city[0]!=null }">.</c:if>${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
+				         ${config.province.nameZh}<c:if test="${config.city[0]!=null }">.</c:if>${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }"><spring:message code="home.nav.bar.etc"/></c:if>
 				       </c:when>
 				       <c:otherwise>
-				                           请选择省市
+				         <spring:message code="hot.context.pm"/>
 				       </c:otherwise>
 				    </c:choose>
 						<i class="icon iconfont"></i></a> 
@@ -83,7 +83,7 @@
 					<c:forEach items="${config.interestList}" var="interestVo" varStatus="t">
 						<li class="inbtn"><a id="${interestVo.businessId}"  href="javascript:void(0);" ${t.index==0?'class="domain current"':'class="domain"'}>${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="current" ><a href="javascript:void(0);" id="modify-btn" style="color:#3382ee">修改</a></li>
+					<li class="current" ><a href="javascript:void(0);" id="modify-btn" style="color:#3382ee"><spring:message code="home.nav.bar.modify"/></a></li>
 				</ul>
 				
 				
@@ -92,7 +92,7 @@
 			<c:if test="${hasTopic}">
 			<div id="topicDiv" class="left-list" style="display: none;">
 			   <ul>
-				    <li><a>专题数据：</a></li>
+				    <li><a><spring:message code="home.nav.bar.specialdata"/>：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
 					       <li class="inbtn" >
@@ -107,7 +107,7 @@
 			<div class="right-list" style="display: none;">
 			    <c:if test="${fn:length(topics)>7}">
 				<ul>
-					<li class="more" id="more"><a href="#">更多<i class="icon iconfont">&#xe659;</i></a>
+					<li class="more" id="more"><a href="#"><spring:message code="home.nav.bar.more"/><i class="icon iconfont">&#xe659;</i></a>
 						<div class="more-show" id="more-show">
 							<span><img src="${uedroot}/images/xf-sj.png"></span>
 							<ul>

@@ -21,29 +21,29 @@
 		<div class="mainbav right">
 		        <input id="current" type="hidden" value="${current}"/>
 				<ul id="menu">
-					<li><a href="${_base}/home/index">首页</a></li>
-					<li><a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a></li>
-					<li><a href="javascript:void(0);">热点发现</a></li>
-					<li><a href="${_base}/search/public">舆情动态</a></li>
+					<li><a href="${_base}/home/index"><spring:message code="home.nav.bar.home"/></a></li>
+					<li><a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}"><spring:message code="home.nav.bar.agentanalysis"/></a></li>
+					<li><a href="javascript:void(0);"><spring:message code="home.nav.bar.hot"/></a></li>
+					<li><a href="${_base}/search/public"><spring:message code="home.nav.bar.public"/></a></li>
 					<li class="search">
-					    <input onfocus="this.placeholder=''" onblur="this.placeholder='搜索'"  type="text" id="_keyword" value="${_keyword}" class="search-medium" placeholder="搜索"/><a id="_searchBtn" href="#"><i class="icon iconfont">&#xe658;</i></a>
+					    <input onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'"  type="text" id="_keyword" value="${_keyword}" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"/><a id="_searchBtn" href="#"><i class="icon iconfont">&#xe658;</i></a>
 					</li>
 					<li class="iphone-show"><img src="${uedroot}/images/user.png" /></li>
 					<div class="user-show" id="user-show">
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
-							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
-							<a href="${yeesightUrls.dataUrl}" target="_bank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
-							<a href="javascript:void(0);" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
+							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i><spring:message code="home.nav.bar.myyeeSight"/></li></a>
+							<a href="${yeesightUrls.dataUrl}" target="_bank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i><spring:message code="home.nav.bar.datamanagement"/></li></a>
+							<a href="javascript:void(0);" class="ahov3"><li><i class="icon iconfont">&#xe663;</i><spring:message code="home.nav.bar.logout"/></li></a>
 						</ul>
 					</div>
 					<li class="s-dh" id="shuj"><i class="icon iconfont">&#xe66a;</i></li>
 					<div class="data-show" id="data-show">
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
-							<a href="javascript:void(0);" class="ahov1" id="currency-btn"><li>通用数据</li></a>
+							<a href="javascript:void(0);" class="ahov1" id="currency-btn"><li><spring:message code="home.nav.bar.generaldata"/></li></a>
 							<c:if test="${hasTopic}">
-							   <a href="javascript:void(0);" class="ahov3"><li>定制数据</li></a>
+							   <a href="javascript:void(0);" class="ahov3"><li><spring:message code="home.nav.bar.customized"/></li></a>
 							</c:if>
 						</ul>
 					</div>
