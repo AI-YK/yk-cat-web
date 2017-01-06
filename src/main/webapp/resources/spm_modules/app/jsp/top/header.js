@@ -80,6 +80,18 @@ define('app/jsp/top/header', function (require, exports, module) {
             		window.location.href=_base + "/social/toHotView";
             	}
             });	
+          //语言切换
+        	$('.mainbav ul .language').mouseenter(function () {
+        		$('#language-show').show(1);
+        		$('#data-show').hide(1);
+        		$('#user-show').hide(1);
+            })
+        		$("#language-show").click(function () {
+                        $(this).hide(1);
+                   });	
+        		$('.mainbav').mouseleave(function () {
+                $('#language-show').hide(1);
+            });
         },
         _logOut:function(){
         	var url="/user/logout"
