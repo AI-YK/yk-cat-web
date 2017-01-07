@@ -79,7 +79,7 @@
 			<ul myid="{{:myId}}">
 				  <li>
 					 <p class="word">
-						<a href="#">{{:name}}</a>
+						<a href="javascript:void(0);">{{:name}}22</a>
 					 </p>
 					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 						<a href="javascript:void(0);">

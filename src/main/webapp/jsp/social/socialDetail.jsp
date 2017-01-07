@@ -61,13 +61,13 @@
 						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
 						</li>
 						<%-- <li>${socialDetail.languageTName}</li> --%>
-						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
+						<li class="yuyan" id="yuyan"><a href="javascript:void(0);"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul>
-									<a id="showTranslation" href="javascrpt:;" class="ahov1"><li><spring:message code="detail.translation.layout"/></li></a>
-									<a id="showOriginal"  href="javascrpt:;" class="ahov2"><li><spring:message code="detail.source.layout"/></li></a>
-									<a id="showSynchysis" href="javascrpt:;" class="ahov3"><li><spring:message code="detail.biling.layout"/></li></a>
+									<a id="showTranslation" href="javascript:void(0);" class="ahov1"><li><spring:message code="detail.translation.layout"/></li></a>
+									<a id="showOriginal"  href="javascript:void(0);" class="ahov2"><li><spring:message code="detail.source.layout"/></li></a>
+									<a id="showSynchysis" href="javascript:void(0);" class="ahov3"><li><spring:message code="detail.biling.layout"/></li></a>
 								</ul>
 							</div></li>
 						<!-- <li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
@@ -77,9 +77,9 @@
 							<div class="share-show" id="share-show">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul >
-									<a href="javascrpt:;" class="ahov1"><li><i class="icon iconfont">&#xe65c;</i>分享到新浪微博</li></a>
-									<a href="javascrpt:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
-									<a href="javascrpt:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
+									<a href="javascript:;" class="ahov1"><li><i class="icon iconfont">&#xe65c;</i>分享到新浪微博</li></a>
+									<a href="javascript:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
+									<a href="javascript:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
 								</ul>
 							</div></li> -->
 					</ul>
@@ -92,13 +92,13 @@
 						<li>分享到：</li>
 						<li id="bottom_share" class="right">
 							<p class="red">
-								<a id="gotsina" data-cmd="tsina" href="javascrpt:;"></a>
+								<a id="gotsina" data-cmd="tsina" href="javascript:;"></a>
 							</p>
 							<p class="green">
-								<a  data-cmd="weixin" href="javascrpt:;"></a>
+								<a  data-cmd="weixin" href="javascript:;"></a>
 							</p>
 							<p class="blue">
-								<a  data-cmd="sqq" href="javascrpt:;"></a>
+								<a  data-cmd="sqq" href="javascript:;"></a>
 							</p>
 						</li>
 					</ul>
