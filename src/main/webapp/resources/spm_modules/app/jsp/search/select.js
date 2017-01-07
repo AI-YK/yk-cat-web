@@ -5,6 +5,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 	//require("select2/select2.min");
 	//require("select2/select2.css");
 	//require("select2/select2_locale_zh-CN");
+	require('jquery/1.9.1/jquery-migrate')
 	require("jquery-autocomplete/jquery.autocomplete");
 	require("jquery-autocomplete/jquery.autocomplete.css");
 	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
@@ -31,6 +32,13 @@ define('app/jsp/search/select', function (require, exports, module) {
             var _this = this;
         	var url = _base +"/common/getChProvince";
         	var param={};
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "map",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
         	param.language="zh";
         	param.type="3";
         	ajaxController.ajax({
@@ -45,7 +53,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
-					data2.push({"id":'',"text":$.i18n.prop('select.province.not.limit')});
+					data2.push({"id":'',"text":"省份不限"});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						//obj.id=data[i].code;
@@ -75,6 +83,13 @@ define('app/jsp/search/select', function (require, exports, module) {
         	var _this = this;
         	var url = _base +"/common/getQueryInfoLanguage";
         	var param={};
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "map",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
         	param.language="zh";
         	param.languageType="0";
         	ajaxController.ajax({
@@ -89,7 +104,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
-					data2.push({"id":'',"text":$.i18n.prop('select.language.not.limit')});
+					data2.push({"id":'',"text":$.i18n.prop('select.language.notlimit')});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						obj.id=data[i].srcValue;
@@ -116,6 +131,13 @@ define('app/jsp/search/select', function (require, exports, module) {
         	var _this = this;
         	var url = _base +"/common/getDicByTypeAndLanguage";
         	var param={};
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "map",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
         	param.language="zh";
         	param.type="SJYYXL";
         	ajaxController.ajax({
@@ -130,7 +152,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
-					data2.push({"id":'',"text":$.i18n.prop('select.influce.not.limit')});
+					data2.push({"id":'',"text":"影响力不限"});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						obj.id=data[i].dicValue;
@@ -155,6 +177,13 @@ define('app/jsp/search/select', function (require, exports, module) {
         },
         autocompleteDic:function(input,store){
         	var url = _base + "/common/getDataSourceList";
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "map",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
         	$('#'+input).focus().autocomplete(url,{
         		dataType: "json", 
         		max:30,
@@ -236,23 +265,39 @@ define('app/jsp/search/select', function (require, exports, module) {
         /*时间选择*/
         initTimeSelect:function(selectConfig){
         	var _this = this;
+        	//初始化国际化 
+			$.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both", 
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
         	var selectConfigData = []; 
 			if($.isArray(selectConfig)){//数组模式
 				selectConfigData =selectConfig; 
 			}else{
 				selectConfigData.push(selectConfig);
 			}
+			var _selecttime = $.i18n.prop('select.time.value');
+			
 			for(var j=0;j<selectConfigData.length;j++){
 				var selectObj = selectConfigData[j];
-				_this._timeselect(selectObj.id, $.i18n.prop('select.time'),selectObj.callback);
+				_this._timeselect(selectObj.id, _selecttime,selectObj.callback);
 			}
         },
         /*排序下拉*/
         initSortSelect:function(selectConfig,type){
         	var _this = this;
         	var data = [];
-      
-        	var  sornolimit=$.i18n.prop('select.sort.not.limit');
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "map",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
+        	var  sornolimit=$.i18n.prop('select.sort.notlimit');
     
         	data.push({"id":'',"text":sornolimit});
         	if("news"==type){
@@ -283,7 +328,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         initTranSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
-        	data.push({"id":"tran","text":$.i18n.prop('select.tran.not.limit')});
+        	data.push({"id":"tran","text":$.i18n.prop('select.tran.notlimit')});
         	data.push({"id":"onlyTran","text":$.i18n.prop('select.tran.onlyTran')});
         	data.push({"id":"onlyText","text":$.i18n.prop('select.tran.onlyText')});
         	data.push({"id":"tranAndText","text":$.i18n.prop('select.tran.tranAndText')});
@@ -305,7 +350,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         initFeelSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
-        	data.push({"id":'',"text":$.i18n.prop('select.feel.not.limit')});
+        	data.push({"id":'',"text":$.i18n.prop('select.feel.notlimit')});
         	data.push({"id":"1","text":$.i18n.prop('select.feel.positive')});
         	data.push({"id":"0","text":$.i18n.prop('select.feel.neutral')});
         	data.push({"id":"-1","text":$.i18n.prop('select.feel.nagative')});
@@ -409,8 +454,8 @@ define('app/jsp/search/select', function (require, exports, module) {
         	html.push('<p><span id="'+id+'_select_text">'+text+'</span><i class="icon iconfont">&#xe659;</i>')
 			html.push('<div id="'+id+'_time_view" class="select-dropdown-show" style="display:none;">'); 
         	html.push('	<ul>');
-        	alert($.i18n.prop('select.time.not.limit'));
-        	var _limit = $.i18n.prop('select.time.not.limit');
+        	
+        	var _limit = $.i18n.prop('select.time.notlimit');
         	html.push('<li data-val="0">'+_limit+'</li>');                                        
         	html.push('<li data-val="1">'+$.i18n.prop('select.time.oneday')+'</li>');
         	html.push('<li data-val="2">'+$.i18n.prop('select.time.oneweek')+'</li>');
