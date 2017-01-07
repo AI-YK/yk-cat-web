@@ -860,6 +860,8 @@ define('app/jsp/home/home', function (require, exports, module) {
      		  });
      		  if(cityStr==""){
      			/*$("#tishiId").text("至少选择一个城市");*/
+     			  alert(_i18n_res);
+     			 alert(currentLan);
      			  alert($.i18n.prop("home.config_error"));
      			$("#tishiId").text($.i18n.prop("home.config_error"));
      			return;
