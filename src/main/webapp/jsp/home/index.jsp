@@ -30,7 +30,7 @@
 				<div class="eject-choice-title">
 					<ul>
 						<li class="word">城市地区：</li>
-						<li><input type="text"  class="choice-int" value="请选择省市区"></li>
+						<li><input type="text"  class="choice-int" value="<spring:message code="hot.context.pm"/>"></li>
 					</ul>
 				</div>
 				<div class="eject-choice-main">

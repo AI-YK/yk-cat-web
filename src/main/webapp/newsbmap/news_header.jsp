@@ -261,7 +261,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	<%-- <div class="center">
 		<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
 	</div> --%>
-		<div class="center"><img src="${uedroot}/images/logo.png" usemap="#Map"/>
+		<div class="center"><img src="${uedroot}/images/user.png" usemap="#Map"/>
               <map name="Map">
                 <area shape="rect" coords="0,0,112,40" href="http://www.yeesight.com/" onfocus="blur(this);" >
                 <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
@@ -281,7 +281,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 			<li><a href="${_base}/search/public"><spring:message code="home.nav.bar.public"/></a></li>
 					<%-- <c:if test="${!noSearch}"> --%>
 					 <li class="search">
-					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
+					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'" type="text" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
 					<%-- </c:if> <i class="ico_user"></i>--%>
 					<li class="iphone-show" style="margin-top:16px"><img alt="" src="${_base}/resources/template/images/user.png"></li>
