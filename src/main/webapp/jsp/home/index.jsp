@@ -18,7 +18,7 @@
   <div class="eject-big">
 		<div class="eject-medium" id="currency" style="top:60%; left: 40%;">
 			<div class="eject-medium-title">
-				<p>设置基本信息&nbsp;<span id="tishiId" style="color: red; font-size:12px;"></span></p>
+				<p><spring:message code="home.nav.config.basic"/>&nbsp;<span id="tishiId" style="color: red; font-size:12px;"></span></p>
 				<p class="right"><i class="icon iconfont" id="currency-close">&#xe618;</i></p>
 			</div>
 			<div class="field-title">
@@ -29,8 +29,8 @@
 			<div class="eject-choice-city">
 				<div class="eject-choice-title">
 					<ul>
-						<li class="word">城市地区：</li>
-						<li><input type="text"  class="choice-int" value="<spring:message code="hot.context.pm"/>"></li>
+						<li class="word"><spring:message code="home.nav.config.area"/>：</li>
+						<li><input type="text"  class="choice-int" value="<spring:message code="home.nav.config.choice"/>"></li>
 					</ul>
 				</div>
 				<div class="eject-choice-main">
@@ -54,7 +54,7 @@
 				</div>
 				
 			</div>
-			<div class="eject-medium-btn"><input type="button" class="btn btn-xxxlarge btn-blue radius" id="medium-btn-close" value="完成"></div>
+			<div class="eject-medium-btn"><input type="button" class="btn btn-xxxlarge btn-blue radius" id="medium-btn-close" value="<spring:message code="home.nav.config.finsh"/>"></div>
 		</div>
 		<div class="mask" id="eject-mask"></div>
   </div>
