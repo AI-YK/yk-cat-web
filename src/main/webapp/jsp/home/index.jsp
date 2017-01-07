@@ -185,7 +185,7 @@
    </li>
 </script>
 <script id="dicTempl" type="text/x-jsrender">
-	<li class="blue">领域分类：</li>
+	<li class="blue"><spring:message code="home.nav.config.dic"/>：</li>
    {{for dics}}
    <li>
 		<!-- <a id="dic_{{:dicValue}}" href="#" class="dic">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/> -->

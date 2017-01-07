@@ -6,6 +6,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <%
 //	String path = request.getContextPath();
@@ -21,7 +22,7 @@
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<%-- <title><fmt:message key="news_heat_n.1"/>全球热点</title> --%><!-- 全球热点 -->
-		<title>热点发现</title>
+		<title><spring:message code="hot.context.hottopics"/></title>
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/public.css" /><!--公共-->
 		<script src="js/jquery-1.10.2.min.js"></script>
