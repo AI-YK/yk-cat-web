@@ -39,7 +39,7 @@
 			</span> 
 			
 			<span class="eventSpan">{{:dayTime}}</span>
-			<span class="ptitle" style="width:30px;text-align:right;cursor:pointer;"><i class="icon iconfont">&#xe671;</i></span>
+			<span class="ptitle" style="width:20px;text-align:right;cursor:pointer;"><i class="icon iconfont">&#xe671;</i></span>
 		 </p> 
    </li>
   {{/for}}
