@@ -101,7 +101,7 @@ eclipse {
 }
 
 war {
-    baseName 'ROOT'
+    baseName 'pa-web'
 }
 task downloadJars(type: Copy) {
   from configurations.runtime
