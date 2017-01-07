@@ -12,9 +12,13 @@
     response.setHeader("Cache-Control", "no-cache");
     response.setDateHeader("Expires", 0);
     response.setHeader("Pragma", "No-cache");
+    String path=application.getRealPath(request.getRequestURI());  
+ 
+    String _realPath = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath()+request.getServletPath().substring(0,request.getServletPath().lastIndexOf("/")+1);   
+    
 %>
 
-
+<c:set var="_realPath" value="${_realPath}"/>
 
 <link href="${uedroot}/css/iconfont.css" rel="stylesheet" type="text/css">
 <link href="${uedroot}/css/modular/global.css" rel="stylesheet" type="text/css"/>
