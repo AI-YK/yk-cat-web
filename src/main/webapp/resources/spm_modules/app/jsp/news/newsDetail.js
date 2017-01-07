@@ -8,6 +8,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 	var translate = new translatePage();
 	require("jsviews/jsrender.min");
 	require("app/util/jsviews-yi");
+	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
 	var common = require("app/jsp/common/common");
 	var newsDetailPage = Widget.extend({
 		/* 事件代理 */
@@ -17,6 +18,14 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		/* 重写父类 */
 		setup : function() {
 			newsDetailPage.superclass.setup.call(this);
+			// 初始化国际化
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: true 
+			 });
 			this._init();
 		},
 		/* 初始化动画 */
@@ -172,7 +181,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		},
 		queryRelatedInformation:function(){
 			var keyword = $("#keyword").val();
-			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>抱歉没有查询到相关数据</li></div>';
+			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>'+$.i18n.prop("newsdetail.sorry.nodata")+'</li></div>';
 			
 			if(!keyword){
 				$("#relatedInformation").html(html);

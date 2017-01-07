@@ -2,6 +2,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 	'use strict';
 	var $ = require('jquery');
 	require("echarts/echarts.min");
+	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	var Base = require('arale-base/1.2.0/base');
 	var AjaxController = require('opt-ajax/1.0.0/index');
 	var ajaxController = new AjaxController();
@@ -11,6 +12,14 @@ define('app/jsp/search/charts', function(require, exports, module) {
 		// 重写父类
 		setup : function() {
 			SearchChart.superclass.setup.call(this);
+			// 初始化国际化
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: true 
+			 });
 		},
 
 		// 时间态势
@@ -106,7 +115,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 					}
 				} ],
 				series : [ {
-					name : '信号量',
+					name : $.i18n.prop('search.charts.signal'),
 					type : 'line',
 					data : values,
 					smooth : true,
@@ -228,7 +237,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
 					}
 				}],
 				series : [ {
-					name:'媒体统计',
+					name:$.i18n.prop('search.charts.event'),
 					type : 'bar',
 					data : values,
 					barMaxWidth : 24,
@@ -311,7 +320,7 @@ define('app/jsp/search/charts', function(require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {

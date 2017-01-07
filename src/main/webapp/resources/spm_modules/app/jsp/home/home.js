@@ -399,7 +399,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -433,7 +433,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -493,7 +493,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -517,7 +517,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -581,7 +581,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -638,7 +638,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -660,7 +660,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -720,7 +720,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -744,7 +744,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -770,8 +770,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		  var next = province.next();
         		  provinceCode = next.val();
         	  }else{
-        		/*$("#tishiId").text("请选择省份 ");$.i18n.prop('pay.pass.null')*/
-        		  $("#tishiId").text($.i18n.prop('home.config_error'));
+        		  $("#tishiId").text($.i18n.prop("home.choice.province"));
         		return;
         	  }
      		  var cityStr="";
@@ -781,8 +780,7 @@ define('app/jsp/home/home', function (require, exports, module) {
      			  }
      		  });
      		  if(cityStr==""){
-     			/*$("#tishiId").text("至少选择一个城市");*/
-     			$("#tishiId").text($.i18n.prop('home.config_error'));
+     			$("#tishiId").text($.i18n.prop("home.one.city"));
      			return;
      		  }else{
      			  cityStr=cityStr.substring(1,cityStr.length);
@@ -794,7 +792,7 @@ define('app/jsp/home/home', function (require, exports, module) {
      		 ajaxController.ajax({
       			  type:"POST",
       			  processing: false,
-      			  message: "保存数据中，请等待...",
+      			  message: $.i18n.prop('detail.find.data')+"..",
       			  url: _base + url,
       			  dataType:"json",
       			  data:param,
@@ -820,7 +818,7 @@ define('app/jsp/home/home', function (require, exports, module) {
           	  }
             });
             if(interestStr ==""){
-          	  $("#tishiDicId").text("领域分类至少选择一个");
+          	  $("#tishiDicId").text($.i18n.prop("home.one.dic"));
           	  return;
             }else{
           	  interestStr = interestStr.substring(1,interestStr.length);
@@ -831,7 +829,7 @@ define('app/jsp/home/home', function (require, exports, module) {
      		ajaxController.ajax({
      			  type:"POST",
      			  processing: false,
-     			  message: "保存数据中，请等待...",
+     			  message: $.i18n.prop('detail.find.data')+"..",
      			  url: _base + url,
      			  dataType:"json",
      			  data:param,
@@ -848,8 +846,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         		  var next = province.next();
         		  provinceCode = next.val();
         	  }else{
-        		/*$("#tishiId").text("请选择省份");*/
-        		$("#tishiId").text($.i18n.prop("home.config_error"));
+        		$("#tishiId").text($.i18n.prop("home.choice.province"));
         		return;
         	  }
      		  var cityStr="";
@@ -859,11 +856,7 @@ define('app/jsp/home/home', function (require, exports, module) {
      			  }
      		  });
      		  if(cityStr==""){
-     			/*$("#tishiId").text("至少选择一个城市");*/
-     			  alert(_i18n_res);
-     			 alert(currentLan);
-     			  alert($.i18n.prop("home.config_error"));
-     			$("#tishiId").text($.i18n.prop("home.config_error"));
+     			$("#tishiId").text($.i18n.prop("home.one.city"));
      			return;
      		  }else{
      			  cityStr=cityStr.substring(1,cityStr.length);
@@ -875,7 +868,7 @@ define('app/jsp/home/home', function (require, exports, module) {
            	  }
              });
              if(interestStr ==""){
-           	  $("#tishiId").text("领域分类至少选择一个");
+           	  $("#tishiId").text($.i18n.prop("home.one.dic"));
            	  return;
              }else{
            	  interestStr = interestStr.substring(1,interestStr.length);
@@ -903,7 +896,7 @@ define('app/jsp/home/home', function (require, exports, module) {
       				  
       			  },
       			  error:function(er){
-      				$("#tishiId").text("请求失败，请稍后重试。");
+      				$("#tishiId").text($.i18n.prop("config.data.fail"));
       			  }
       	    });
        }

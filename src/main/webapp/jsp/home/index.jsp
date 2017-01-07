@@ -72,7 +72,7 @@
 				    <a href="#" id="choice-city">
 				    <c:choose>
 				       <c:when test="${config!=null&&config.province!=null}">
-				         ${config.province.nameZh}<c:if test="${config.city[0]!=null }">.</c:if>${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }"><spring:message code="home.nav.bar.etc"/></c:if>
+				         ${config.province.nameZh}<c:if test="${config.city[0]!=null }">.</c:if>${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
 				       </c:when>
 				       <c:otherwise>
 				         <spring:message code="hot.context.pm"/>

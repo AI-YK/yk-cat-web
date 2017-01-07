@@ -1,13 +1,24 @@
 define('app/jsp/home/charts', function (require, exports, module) {
     'use strict';
     var $=require('jquery');
+	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	require("echarts/echarts.min");
+
+
 	var  Base = require('arale-base/1.2.0/base');
  
     var HomeChart = Base.extend({
         // 重写父类
         setup: function () {
         	HomeChart.superclass.setup.call(this); 
+        	// 初始化国际化
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: true 
+			 });
         },
         // 传播态势
         _initSpreadStateChart:function(container,data,configParam){
@@ -622,7 +633,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		    ],
         		    series : [
         		        {
-        		            name:'事件态势',
+        		            name:$.i18n.prop('charts.event.trend'),
         		            type:'line',
         					symbol:'none',
         					width:0,
@@ -662,8 +673,12 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	var positiveCnts = [];
         	var negativeCnts = [];
         	var temp = $.grep(data,function(element,index){
-        		return element.cityNameZh!='其他';
+        		return element.cityNameZh!="其他";
         	});
+        
+            var positive = $.i18n.prop('charts.positive');
+            var nagative = $.i18n.prop('charts.nagative');
+            
         	var len = temp.length;
         	if(len>5){
         		len = 5;
@@ -685,7 +700,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
     				},
         		    legend: {
         				show: true,
-        		        data:['正面','负面'],
+        		        data:[positive,nagative],
         				textStyle :{
         					color: '#697398',
         					fontSize:13
@@ -762,7 +777,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		    ],
         		    series : [
         		        {
-        		            name:'正面',
+        		            name:$.i18n.prop('charts.positive'),
         		            type:'bar',
         		            clickable: false,
         		            barWidth : 20,// 柱图宽度
@@ -775,7 +790,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         					} 
         					
         				},{
-        		            name:'负面',
+        		            name:$.i18n.prop('charts.nagative'),
         		            type:'bar',
         		            barWidth : 20,// 柱图宽度
         		            barGap:'0.1px',
@@ -825,7 +840,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         				otherCount += data[i].count;
         			}
         		}
-        		series.push({'name':"其他",'value':otherCount});
+        		series.push({'name':$.i18n.prop('charts.other'),'value':otherCount});
         	}
         	if(data.length%colors.length==1){
         		colors.push(colors[1]);
@@ -842,7 +857,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
     				},
         		    series : [
         		        {
-        		           name: '媒体覆盖',
+        		           name: $.i18n.prop('charts.madial.fugai'),
         		           type: 'pie',
         		           //roseType : 'radius',
         		           data:series,

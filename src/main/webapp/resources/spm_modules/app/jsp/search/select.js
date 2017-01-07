@@ -7,6 +7,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 	//require("select2/select2_locale_zh-CN");
 	require("jquery-autocomplete/jquery.autocomplete");
 	require("jquery-autocomplete/jquery.autocomplete.css");
+	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
 	var moment = require("moment/2.9.0/moment");
 	var Base = require('arale-base/1.2.0/base');
     var AjaxController = require('opt-ajax/1.0.0/index');
@@ -17,6 +18,14 @@ define('app/jsp/search/select', function (require, exports, module) {
         //重写父类
         setup: function () {
         	SelectUtil.superclass.setup.call(this); 
+        	// 初始化国际化
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "map",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
         },
         initOrgSelect:function(selectConfig){
             var _this = this;
@@ -27,7 +36,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	ajaxController.ajax({
         		type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: url,
 				data: param,
 				success:function(rs){
@@ -36,7 +45,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
-					data2.push({"id":'',"text":"省份不限"});
+					data2.push({"id":'',"text":$.i18n.prop('select.province.not.limit')});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						//obj.id=data[i].code;
@@ -52,7 +61,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 					}
 					for(var j=0;j<selectConfigData.length;j++){
 						var selectObj = selectConfigData[j];
-						selectObj.text='省份';
+						selectObj.text=$.i18n.prop('select.province');
 						selectObj.data=data2;
 						_this._commonselect(selectObj);
 					}
@@ -71,7 +80,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	ajaxController.ajax({
         		type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: url,
 				data: param,
 				success:function(rs){
@@ -80,7 +89,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
-					data2.push({"id":'',"text":"语言不限"});
+					data2.push({"id":'',"text":$.i18n.prop('select.language.not.limit')});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						obj.id=data[i].srcValue;
@@ -95,7 +104,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 					}
 					for(var j=0;j<selectConfigData.length;j++){
 						var selectObj = selectConfigData[j];
-						selectObj.text='语言';
+						selectObj.text=$.i18n.prop('select.language');
 						selectObj.data=data2;
 						_this._commonselect(selectObj);
 					}
@@ -112,7 +121,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	ajaxController.ajax({
         		type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: url,
 				data: param,
 				success:function(rs){
@@ -121,7 +130,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 						data =[];
 					}
 					var data2 = [];
-					data2.push({"id":'',"text":"影响力不限"});
+					data2.push({"id":'',"text":$.i18n.prop('select.influce.not.limit')});
 					for(var i=0;i<data.length;i++){
 						var obj ={};
 						obj.id=data[i].dicValue;
@@ -136,7 +145,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 					}
 					for(var j=0;j<selectConfigData.length;j++){
 						var selectObj = selectConfigData[j];
-						selectObj.text='影响力';
+						selectObj.text=$.i18n.prop('select.influce');
 						selectObj.data=data2;
 						_this._commonselect(selectObj);
 					}
@@ -235,24 +244,27 @@ define('app/jsp/search/select', function (require, exports, module) {
 			}
 			for(var j=0;j<selectConfigData.length;j++){
 				var selectObj = selectConfigData[j];
-				_this._timeselect(selectObj.id, '时间',selectObj.callback);
+				_this._timeselect(selectObj.id, $.i18n.prop('select.time'),selectObj.callback);
 			}
         },
         /*排序下拉*/
         initSortSelect:function(selectConfig,type){
         	var _this = this;
         	var data = [];
-        	data.push({"id":'',"text":"排序不限"});
+      
+        	var  sornolimit=$.i18n.prop('select.sort.not.limit');
+    
+        	data.push({"id":'',"text":sornolimit});
         	if("news"==type){
-        		data.push({"id":"_score","text":"相关度"});
-            	data.push({"id":"pubdate","text":"时间"});
-            	data.push({"id":"mediaLevel","text":"权重"});
-            	data.push({"id":"transfer","text":"转载量"});
+        		data.push({"id":"_score","text":$.i18n.prop('select.sort.score')});
+            	data.push({"id":"pubdate","text":$.i18n.prop('select.sort.pubdate')});
+            	data.push({"id":"mediaLevel","text":$.i18n.prop('select.sort.mediaLevel')});
+            	data.push({"id":"transfer","text":$.i18n.prop('select.sort.transfer')});
         	}else if("social"==type){
-        		data.push({"id":"relevance","text":"相关度"});
-            	data.push({"id":"time","text":"时间"});
-            	data.push({"id":"force","text":"影响力"});
-            	data.push({"id":"transCount","text":"传播量"});
+        		data.push({"id":"relevance","text":$.i18n.prop('select.sort.score')});
+            	data.push({"id":"time","text":$.i18n.prop('select.sort.pubdate')});
+            	data.push({"id":"force","text":$.i18n.prop('select.sort.influce')});
+            	data.push({"id":"transCount","text":$.i18n.prop('select.sort.transCount')});
         	}
         	var selectConfigData = []; 
 			if($.isArray(selectConfig)){//数组模式
@@ -262,7 +274,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 			}
 			for(var j=0;j<selectConfigData.length;j++){
 				var selectObj = selectConfigData[j];
-				selectObj.text='排序';
+				selectObj.text=$.i18n.prop('select.sort');
 				selectObj.data=data;
 				_this._commonselect(selectObj);
 			}
@@ -271,10 +283,10 @@ define('app/jsp/search/select', function (require, exports, module) {
         initTranSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
-        	data.push({"id":"tran","text":"译文不限"});
-        	data.push({"id":"onlyTran","text":"仅显示译文"});
-        	data.push({"id":"onlyText","text":"仅显示原文"});
-        	data.push({"id":"tranAndText","text":"显示译文和原文"});
+        	data.push({"id":"tran","text":$.i18n.prop('select.tran.not.limit')});
+        	data.push({"id":"onlyTran","text":$.i18n.prop('select.tran.onlyTran')});
+        	data.push({"id":"onlyText","text":$.i18n.prop('select.tran.onlyText')});
+        	data.push({"id":"tranAndText","text":$.i18n.prop('select.tran.tranAndText')});
         	var selectConfigData = []; 
         	if($.isArray(selectConfig)){//数组模式
         		selectConfigData =selectConfig; 
@@ -283,7 +295,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	}
         	for(var j=0;j<selectConfigData.length;j++){
         		var selectObj = selectConfigData[j];
-        		selectObj.text='译文';
+        		selectObj.text=$.i18n.prop('select.tran');
 				selectObj.data=data;
         		_this._commonselect(selectObj);
         	}
@@ -293,10 +305,10 @@ define('app/jsp/search/select', function (require, exports, module) {
         initFeelSelect:function(selectConfig){
         	var _this = this;
         	var data = [];
-        	data.push({"id":'',"text":"情感不限"});
-        	data.push({"id":"1","text":"正面"});
-        	data.push({"id":"0","text":"中性"});
-        	data.push({"id":"-1","text":"负面"});
+        	data.push({"id":'',"text":$.i18n.prop('select.feel.not.limit')});
+        	data.push({"id":"1","text":$.i18n.prop('select.feel.positive')});
+        	data.push({"id":"0","text":$.i18n.prop('select.feel.neutral')});
+        	data.push({"id":"-1","text":$.i18n.prop('select.feel.nagative')});
         	var selectConfigData = []; 
         	if($.isArray(selectConfig)){//数组模式
         		selectConfigData =selectConfig; 
@@ -305,7 +317,7 @@ define('app/jsp/search/select', function (require, exports, module) {
         	}
         	for(var j=0;j<selectConfigData.length;j++){
         		var selectObj = selectConfigData[j];
-        		selectObj.text='情感';
+        		selectObj.text=$.i18n.prop('select.feel');
 				selectObj.data=data;
         		_this._commonselect(selectObj);
         	}
@@ -397,25 +409,27 @@ define('app/jsp/search/select', function (require, exports, module) {
         	html.push('<p><span id="'+id+'_select_text">'+text+'</span><i class="icon iconfont">&#xe659;</i>')
 			html.push('<div id="'+id+'_time_view" class="select-dropdown-show" style="display:none;">'); 
         	html.push('	<ul>');
-        	html.push('<li data-val="0">时间不限</li>');                                        
-        	html.push('<li data-val="1">一天内</li>');
-        	html.push('<li data-val="2">一周内</li>');
-        	html.push('<li data-val="3">一月内</li>');
+        	alert($.i18n.prop('select.time.not.limit'));
+        	var _limit = $.i18n.prop('select.time.not.limit');
+        	html.push('<li data-val="0">'+_limit+'</li>');                                        
+        	html.push('<li data-val="1">'+$.i18n.prop('select.time.oneday')+'</li>');
+        	html.push('<li data-val="2">'+$.i18n.prop('select.time.oneweek')+'</li>');
+        	html.push('<li data-val="3">'+$.i18n.prop('select.time.onemonth')+'</li>');
         	html.push('<li class="dal-list">');
-        	html.push('<p>自定义</p>');
+        	html.push('<p>'+$.i18n.prop('select.time.defined')+'</p>');
         	html.push('<p>');
-        	html.push('<span>从');
+        	html.push('<span>'+$.i18n.prop('select.time.frome'));
         	html.push('<input id="'+id+'_begin_temp" ');
         	var t = "'#F{$dp.$D(\\'"+id+"_end_temp\\')||\\'%y-%M-%d\\'}'";
         	html.push('  onfocus="WdatePicker({maxDate:'+t+',dateFmt:\'yyyy-MM-dd\',readOnly:true});"');
         	html.push('type="input" class="int-text date-input"/></span>');
         	html.push('</p>');
         	html.push('<p>');
-        	html.push('<span>到');
+        	html.push('<span>'+$.i18n.prop('select.time.to'));
         	t = "'#F{$dp.$D(\\'"+id+"_begin_temp\\')}'";
         	html.push('<input id="'+id+'_end_temp" onfocus="WdatePicker({minDate:'+t+',dateFmt:\'yyyy-MM-dd\',readOnly:true,maxDate:\'%y-%M-%d\'});" type="input" class="int-text date-input"/></span>');
         	html.push('</p>');
-        	html.push('<p><input id="'+id+'_submit_time_temp" type="button" class="btn btn-date" value="确定"/></p>');
+        	html.push('<p><input id="'+id+'_submit_time_temp" type="button" class="btn btn-date" value="'+$.i18n.prop('select.time.ok')+'"/></p>');
         	html.push('</li>');
         	html.push('</ul>');
         	html.push('</div>');
@@ -501,11 +515,11 @@ define('app/jsp/search/select', function (require, exports, module) {
 				$('.select-dropdown-show').hide();
         	});
 			var html = [];
-			html.push('<p id="'+id+'-label">媒体<i class="icon iconfont">&#xe659;</i></p>');
+			html.push('<p id="'+id+'-label">'+$.i18n.prop('select.madial')+'<i class="icon iconfont">&#xe659;</i></p>');
 			html.push('<input id="'+id+'-store" title="" type="hidden" value=""/>');
 			html.push('<div class="select-dropdown-show" id="'+id+'-show"  style="width:240px;padding: 20px;display:none;">');
-			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="搜索媒体"  />');
-			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="确定" />');
+			html.push('<input id="'+id+'-in" type="text" class="int-text ret-input"  placeholder="'+$.i18n.prop('select.madial.find')+'"  />');
+			html.push('<input id="'+id+'-btn" type="button" class="btn ret-btn" value="'+$.i18n.prop('select.madial.ok')+'" />');
 			html.push('</div>');
 			$("#"+id).html(html.join(""));
 			this.autocompleteDic(id+'-in',id+'-store');
@@ -516,7 +530,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				var title = $('#'+id+'-store').attr("title");
 				var name = $('#'+id+'-in').val();
 				if(name==""||name!=title){
-					$('#'+id+'-label').html('媒体'+'<i class="icon iconfont">&#xe659;</i>');
+					$('#'+id+'-label').html($.i18n.prop('select.madial')+'<i class="icon iconfont">&#xe659;</i>');
 					$('#'+id+'-store').val("");
 					$('#'+id+'-in').val("");
 				}else{
