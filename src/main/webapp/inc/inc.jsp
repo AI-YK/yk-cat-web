@@ -15,7 +15,12 @@
     String path=application.getRealPath(request.getRequestURI());  
  
     String _realPath = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath()+request.getServletPath().substring(0,request.getServletPath().lastIndexOf("/")+1);   
-    
+    //设置日历控件国际化语言
+    if(Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())){
+        request.setAttribute("my97Lang","zh-cn");
+    }else {
+        request.setAttribute("my97Lang","en");
+    }
 %>
 
 <c:set var="_realPath" value="${_realPath}"/>
