@@ -8,12 +8,12 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
 
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	String language = (String) session.getAttribute("language");
-	String heatpath=path+"/newsbmap";
-	request.setAttribute("heatpath", heatpath);
-    request.setAttribute("basePath", basePath);
+//	String path = request.getContextPath();
+//	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+//	String language = (String) session.getAttribute("language");
+//	String heatpath=path+"/newsbmap";
+//	request.setAttribute("heatpath", heatpath);
+//   request.setAttribute("basePath", basePath);
 %>
 <c:set var="heatpath" value="${pageContext.request.contextPath}/newsbmap"/>
 <script type="text/javascript">var path ="${pageContext.request.contextPath}";</script>
@@ -351,9 +351,9 @@
             	</div>
             	<a class="bottom_btn open" href="javascript:;"><i></i></a><!--close-->
             </div>
-            <input type="text" id="basePath" style="display: none;" value="<%=basePath%>">
+            <input type="text" id="basePath" style="display: none;" value="">
             <!--js取值国际化  -->
-            <input type="hidden" id="language" name="language" value="<%=language%>"/>
+            <input type="hidden" id="language" name="language" value=""/>
             <input type="hidden" id="nhn1" value="<fmt:message key="news_heat_nJS.1"/>">
             <input type="hidden" id="nhn2" value="<fmt:message key="news_heat_nJS.2"/>">
             <input type="hidden" id="nhn3" value="<fmt:message key="news_heat_nJS.3"/>">
