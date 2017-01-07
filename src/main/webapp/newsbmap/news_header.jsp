@@ -261,7 +261,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	<%-- <div class="center">
 		<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
 	</div> --%>
-		<div class="center"><img src="${uedroot}/images/logo.png" usemap="#Map"/>
+		<div class="center"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"_en":""%>.png" usemap="#Map"/>
               <map name="Map">
                 <area shape="rect" coords="0,0,112,40" href="http://www.yeesight.com/" onfocus="blur(this);" >
                 <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
