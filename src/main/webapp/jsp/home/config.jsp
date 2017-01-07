@@ -6,7 +6,7 @@
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>登录后配置信息</title>
-<%@ include file="/inc/inc.jsp"%>
+<%@ include file="../../inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 </head>
 
