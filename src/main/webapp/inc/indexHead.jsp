@@ -32,8 +32,8 @@
 					<div class="language-show" id="language-show">
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
-							<a href="#" class="ahov1"><li>中文</li></a>
-							<a href="#" class="ahov3"><li>EN</li></a>
+							<a href="${_base}?lang=zh_CN" class="ahov1"><li>中文</li></a>
+							<a href="${_base}?lang=en_US" class="ahov3"><li>EN</li></a>
 						</ul>
 					</div>
 					<li class="iphone-show"><img src="${uedroot}/images/user.png" /></li>
