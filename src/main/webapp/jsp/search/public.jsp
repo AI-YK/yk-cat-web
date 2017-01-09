@@ -239,7 +239,7 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul uuid="{{:uuid}}">
-	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
+	<li class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;"><span style="cursor:pointer;">{{:titleZh}}</span></li>
 	<li class="list">
 		<p>
 			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
@@ -263,7 +263,7 @@
      <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
    </div>
    <ul myid="{{:myId}}">
-	 <li class="title" style="cursor:pointer;">{{:name}}</li>
+	 <li class="title"><span style="cursor:pointer;">{{:name}}</span></li>
 	 <li class="list">
 		<p>
 			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>

@@ -181,7 +181,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 		},
 		queryRelatedInformation:function(){
 			var keyword = $("#keyword").val();
-			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>'+$.i18n.prop("newsdetail.sorry.nodata")+'</li></div>';
+			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>'+$.i18n.prop("social.choice.time")+'</li></div>';
 			
 			if(!keyword){
 				$("#relatedInformation").html(html);
