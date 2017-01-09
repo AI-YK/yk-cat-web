@@ -12,7 +12,7 @@
 		<div class="yeesight-logo">
 			<a href="${_base}/home/index"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"_en":""%>.png" /></a>
 		</div>
-		<div class="mainbav right">
+		<div class="mainbav right" style="height:60px;">
 		        <input id="current" type="hidden" value="${current}"/>
 				<ul id="menu">
 					<li><a href="${_base}/home/index"><spring:message code="home.nav.bar.home"/></a></li>
@@ -28,7 +28,7 @@
 						<ul>
 							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i><spring:message code="home.nav.bar.myyeeSight"/></li></a>
 							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i><spring:message code="home.nav.bar.datamanagement"/></li></a>
-							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i><spring:message code="home.nav.bar.logout"/></li></a>
+							<a href="javascript:void(0);" class="ahov3"><li><i class="icon iconfont">&#xe663;</i><spring:message code="home.nav.bar.logout"/></li></a>
 						</ul>
 					</div>
 				</ul>
