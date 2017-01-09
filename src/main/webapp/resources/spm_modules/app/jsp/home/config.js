@@ -23,6 +23,14 @@ define('app/jsp/home/config', function (require, exports, module) {
         setup: function () {
         	var _this = this;
             configPage.superclass.setup.call(this);
+         // 初始化国际化
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: true 
+			 });
             
             $(document).on("click",".choice-left-title ul li a",function(){
             	$(".choice-left-title ul li a").each(function () {
@@ -57,7 +65,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -96,7 +104,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -114,7 +122,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: "保存数据中，请等待...",
+				message: $.i18n.prop('detail.find.data')+"..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -133,7 +141,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	  }
           });
           if(interestStr ==""){
-        	  $("#tishiId").text("领域分类至少选择一个");
+        	  $("#tishiId").text($.i18n.prop("home.one.dic"));
         	  return;
           }else{
         	  interestStr = interestStr.substring(1,interestStr.length);
@@ -144,7 +152,7 @@ define('app/jsp/home/config', function (require, exports, module) {
       		  var next = province.next();
       		  provinceCode = next.val();
       	  }else{
-      		$("#tishiId").text("请选择省份");
+      		$("#tishiId").text($.i18n.prop("home.choice.province"));
       		return;
       	  }
    		  var cityStr="";
@@ -154,7 +162,7 @@ define('app/jsp/home/config', function (require, exports, module) {
    			  }
    		  });
    		  if(cityStr==""){
-   			$("#tishiId").text("至少选择一个城市");
+   			$("#tishiId").text($.i18n.prop("home.one.city"));
    			return;
    		  }else{
    			  cityStr=cityStr.substring(1,cityStr.length);
@@ -182,7 +190,7 @@ define('app/jsp/home/config', function (require, exports, module) {
    				  
    			  },
    			  error:function(er){
-   				$("#tishiId").text("请求失败，请稍后重试。");
+   				$("#tishiId").text($.i18n.prop("home.save.datawait"));
    			  }
    		  });
         }

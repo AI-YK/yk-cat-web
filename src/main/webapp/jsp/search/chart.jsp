@@ -1,7 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <div class="levle-right-chart">
 	 <div class="levle-right-chart-title">
-		<p>时间趋势</p>
+		<p><spring:message code="opiniots.timetrent"/></p>
 		<p class="right" id="tDate"></p>
 	</div> 
 	<!--图表嵌套区域-->
@@ -13,7 +14,7 @@
 </div>
 <div class="levle-right-chart">
 	 <div class="levle-right-chart-title">
-		<p>媒体统计</p>
+		<p><spring:message code="opiniots.mediastatistics"/></p>
 		<p class="right" id="mDate"></p>
 	</div> 
 	<!--图表嵌套区域-->

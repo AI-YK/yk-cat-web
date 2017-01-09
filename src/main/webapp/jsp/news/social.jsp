@@ -1,12 +1,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>热点发现</title>
+<title><spring:message code="home.nav.bar.hot"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <%@ include file="/inc/incJs.jsp"%>
 <%@page import="java.util.Locale"%>
@@ -17,6 +18,7 @@
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 <link href="${uedroot}/css/modular/select2.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="${spmRes }/app/jsp/news/social.js"></script>
+<script type="text/javascript" src="${spmRes }/jquery-i18n/1.2.2/jquery.i18n.properties.min.js"></script>
 <style type="text/css">
 
 .moveul{position:absolute; top:68px; left:900px; width: 50px;color: #666; font-size: 12px;}
@@ -68,18 +70,18 @@
 		<div class="subnav-main">
 			<div id="commDiv" class="left-list" style="display: block;">
 				<ul style="width: 1200px;">
-					<li><a>通用数据：</a></li>
+					<li><a><spring:message code="home.nav.bar.generaldata"/>：</a></li>
 					<c:forEach items="${interestList }" var="interest">
 					<li class="inbtn"><a id="${interest.businessId}"  class="domain" href="#">${interest.zhInterest }</a><input type="hidden" value="${interest.businessId }"/></li>
 					</c:forEach>
-					<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+					<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/toHeat"><img src="${uedroot }/images/map.png"></a></li>
 				</ul>
 			</div>
 			<!-- 专题数据 -->
 			<div id="topicDiv" class="left-list" style="display: none;">
 			<c:if test="${hasTopic}">
 			   <ul style="width: 1200px;">
-				    <li><a>专题数据：</a></li>
+				    <li><a><spring:message code="home.nav.bar.generaldata"/>：</a></li>
 					<c:forEach items="${topics }" var="topic" varStatus="t">
 						<c:if test="${t.index<7}">
 						<li class="inbtn"><a id="${topic.id}" class="topic" href="#">${topic.srcShortTitle }</a><input type="hidden" value="${topic.id }"/><input type="hidden" value="${topic.srcId }"/><input type="hidden" value="${topic.opType }"/></li>
@@ -92,7 +94,7 @@
 			<div class="right-list" style="display: block;position: absolute;top:60px; right:70px;">
 			    <c:if test="${fn:length(topics)>7}">
 				<ul>
-					<li class="more" id="more"><a href="#" onclick="show();" id="gengduo" >更多<i class="icon iconfont">&#xe659;</i></a>
+					<li class="more" id="more"><a href="#" onclick="show();" id="gengduo" ><spring:message code="home.nav.bar.more"/><i class="icon iconfont">&#xe659;</i></a>
 						<div class="more-show" id="more-show">
 							<span><img src="${uedroot}/images/xf-sj.png"></span>
 							<ul>
@@ -119,8 +121,8 @@
 		<div class="level-left-conter">
 			<div class="level-left-table">
 				<ul>
-					<li><a href="#" class="current">媒体数据</a></li>
-					<li><a href="#">社交数据</a></li>
+					<li><a href="#" class="current"><spring:message code="hot.context.mediadata"/></a></li>
+					<li><a href="#"><spring:message code="hot.context.socialdata"/></a></li>
 				</ul>
 			</div>
 			<!--tab1-->
@@ -248,12 +250,12 @@
 	<li class="title" style="cursor:pointer;width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
-			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
             <span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span> 
-			<span>转载量：{{:transfer}}</span>
+			<span><spring:message code="hot.context.reprintamount"/>：{{:transfer}}</span>
 		</p>
 	</li>
 	<li class="news" style="width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">
@@ -281,7 +283,7 @@
 				<!--
 				<span>{{:countryNameZh}}<img style="height:14px;" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
 				 -->
-				<span>评论：{{:cmtCnt}}</span>
+				<span><spring:message code="hot.context.reprintamount"/>：{{:cmtCnt}}</span>
 				<span>点赞：{{:atdCnt}}</span>
 				<span>转载量：{{:rpsCnt}}</span>
 			</p>
@@ -296,7 +298,7 @@
 	{{for Dic}}
 	<li><a href="#">{{:dicName }}</a><input type="hidden" value="{{:dicValue}}"/></li>
 	{{/for}}
-	<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+	<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/toHeat"><img src="${uedroot }/images/map.png"></a></li>
 </ul>
 </script>
 <script id="topTempl" type="text/x-jsrender">
@@ -305,7 +307,7 @@
 	<li><a href="#">{{:srcShortTitle }}</a><input type="hidden" value="{{:id}}"/><input type="hidden" value="{{:srcId}}"/><input type="hidden" value="{{:opType}}"/></li>
 	{{/for}}
 					
-	<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/news_heat_n.jsp"><img src="${uedroot }/images/map.png"></a></li>
+	<li id="ditu" style="float: right;line-height: 26px;"><a style="padding: 0px;" href="${_base}/newsbmap/toHeat"><img src="${uedroot }/images/map.png"></a></li>
 </ul>
 					<div class="moveul" >
 					<div class="more" id="more"><a href="javascript:void(0)" onclick="show();" id="gengduo">更多<i class="icon iconfont">&#xe659;</i></a>

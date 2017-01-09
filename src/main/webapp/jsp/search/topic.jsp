@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <div class="levle-right-news">
-	<div class="levle-right-title">热点资讯</div>
+	<div class="levle-right-title"><spring:message code="opiniots.information"/></div>
 	<div id="topic-list" class="sentiment-list-conter-news">
 		
 	</div>

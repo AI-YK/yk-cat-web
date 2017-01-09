@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>新闻详情</title>
+<title><spring:message code="detail.news.detail"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
@@ -25,11 +26,13 @@
 				<p>
 					<i class="icon iconfont">&#xe600;</i>
 				</p>
-				<p>您当前的位置：</p>
+				<p><spring:message code="detail.current.location"/>：</p>
+				
 				<p id="p_subnav">
 					
 				</p>
-				<p style="width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${newsDetails.srcTitle}</p>
+				
+				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${newsDetails.srcTitle}</p>
 			</div>
 		</div>
 	</div>
@@ -49,14 +52,14 @@
 						</li>
 						<%-- <li>${newsDetails.languageTName}</li> --%>
 						<li>${newsDetails.countryNameSrc}&nbsp;&nbsp;<img  height="20px" width="30px" src="${uedroot}/images/country/${newsDetails.countryNameEn}@2x.png" /></li>
-						<li class="zhuanz">转载量：<span>${newsDetails.view}</span></li>
-						<li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
+						<li class="zhuanz"><spring:message code="detail.reprint"/>：<span>${newsDetails.view}</span></li>
+						<li class="yuyan" id="yuyan"><a href="javascript:void(0);"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul>
-									<a id="showTranslation" href="javascrpt:;" class="ahov1"><li>译文排版</li></a>
-									<a id="showOriginal"  href="javascrpt:;" class="ahov2"><li>原文排版</li></a>
-									<a id="showSynchysis" href="javascrpt:;" class="ahov3"><li>原译混排</li></a>
+									<a id="showTranslation" href="javascript:void(0);" class="ahov1"><li><spring:message code="detail.translation.layout"/></li></a>
+									<a id="showOriginal"  href="javascript:void(0);" class="ahov2"><li><spring:message code="detail.source.layout"/></li></a>
+									<a id="showSynchysis" href="javascript:void(0);" class="ahov3"><li><spring:message code="detail.biling.layout"/></li></a>
 								</ul>
 							</div></li>
 						<!-- <li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
@@ -66,9 +69,9 @@
 							<div class="share-show" id="share-show">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul >
-									<a href="javascrpt:;" class="ahov1"><li><i class="icon iconfont">&#xe65c;</i>分享到新浪微博</li></a>
-									<a href="javascrpt:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
-									<a href="javascrpt:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
+									<a href="javascript:;" class="ahov1"><li><i class="icon iconfont">&#xe65c;</i>分享到新浪微博</li></a>
+									<a href="javascript:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
+									<a href="javascript:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
 								</ul>
 							</div></li> -->
 					</ul>
@@ -81,13 +84,13 @@
 						<li>分享到：</li>
 						<li id="bottom_share" class="right">
 							<p class="red">
-								<a id="gotsina" data-cmd="tsina" href="javascrpt:;"></a>
+								<a id="gotsina" data-cmd="tsina" href="javascript:;"></a>
 							</p>
 							<p class="green">
-								<a  data-cmd="weixin" href="javascrpt:;"></a>
+								<a  data-cmd="weixin" href="javascript:;"></a>
 							</p>
 							<p class="blue">
-								<a  data-cmd="sqq" href="javascrpt:;"></a>
+								<a  data-cmd="sqq" href="javascript:;"></a>
 							</p>
 						</li>
 					</ul>
@@ -110,7 +113,7 @@
 				</div>
 			<!-- / 拖拽结束-->
 			<div class="levle-right-news">
-				<div class="levle-right-title">相关资讯</div>
+				<div class="levle-right-title"><spring:message code="detail.relevant.info"/></div>
 				<div class="sentiment-detail-list-conter-news" id="relatedInformation">
 						
 				</div>
@@ -158,8 +161,9 @@
 	</div>
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
-    <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script>
-    <script id="relatedInformationTempl" type="text/x-jsrender">
+  <%--   <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script> --%>
+  <script src="${_base}/resources/template/scripts/modular/drag.js"></script>
+  <script id="relatedInformationTempl" type="text/x-jsrender">
 {{if #getIndex()<10}}
          <ul uuid="{{:uuid}}">
 			<li title="{{:titleSrc}}" style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleSrc}}</a></li>
@@ -212,12 +216,12 @@
 	}); */
 </script>
 <script type="text/javascript">
- $(function(){
+ /* $(function(){
 	 $("#drag").draggable({ scroll: true});
 	 $("#deag-close").on("click",function(){
 			$("#drag").hide();
 		});
- });
+ }); */
 </script>
 </body>
 </html>

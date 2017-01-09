@@ -5,7 +5,7 @@
 		<div class="hot-news-main-left">
 			<div class="sentiment-title blue">
 				<ul>
-					<li>新闻热点</li>
+					<li><spring:message code="home.nav.content.newshot"/></li>
 					<li class="right"><a target="_blank" href="${_base}/search/public?model=news"><i class="icon iconfont">&#xe65b;</i></a></li>
 				</ul>
 			</div>
@@ -27,7 +27,7 @@
 		<div class="hot-news-main-left ml-20">
 			<div class="sentiment-title blue">
 				<ul>
-					<li>社交热点</li>
+					<li><spring:message code="home.nav.content.socialhot"/></li>
 					<li class="right"><a target="_blank" href="${_base}/search/public?model=social"><i class="icon iconfont">&#xe65b;</i></a></li>
 				</ul>
 			</div>
@@ -79,7 +79,7 @@
 			<ul myid="{{:myId}}">
 				  <li>
 					 <p class="word">
-						<a href="#">{{:name}}</a>
+						<a href="javascript:void(0);">{{:name}}22</a>
 					 </p>
 					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 						<a href="javascript:void(0);">

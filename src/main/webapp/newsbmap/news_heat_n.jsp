@@ -6,14 +6,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt"  prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
-	String language = (String) session.getAttribute("language");
-	String heatpath=path+"/newsbmap";
-	request.setAttribute("heatpath", heatpath);
-    request.setAttribute("basePath", basePath);
+//	String path = request.getContextPath();
+//	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
+//	String language = (String) session.getAttribute("language");
+//	String heatpath=path+"/newsbmap";
+//	request.setAttribute("heatpath", heatpath);
+//   request.setAttribute("basePath", basePath);
 %>
 <c:set var="heatpath" value="${pageContext.request.contextPath}/newsbmap"/>
 <script type="text/javascript">var path ="${pageContext.request.contextPath}";</script>
@@ -21,7 +22,7 @@
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<%-- <title><fmt:message key="news_heat_n.1"/>全球热点</title> --%><!-- 全球热点 -->
-		<title>热点发现</title>
+		<title><spring:message code="hot.context.hottopics"/></title>
 		<link rel="shortcut icon" href="images/favicon.ico" />
 		<link rel="stylesheet" href="css/public.css" /><!--公共-->
 		<script src="js/jquery-1.10.2.min.js"></script>
@@ -351,9 +352,9 @@
             	</div>
             	<a class="bottom_btn open" href="javascript:;"><i></i></a><!--close-->
             </div>
-            <input type="text" id="basePath" style="display: none;" value="<%=basePath%>">
+            <input type="text" id="basePath" style="display: none;" value="">
             <!--js取值国际化  -->
-            <input type="hidden" id="language" name="language" value="<%=language%>"/>
+            <input type="hidden" id="language" name="language" value=""/>
             <input type="hidden" id="nhn1" value="<fmt:message key="news_heat_nJS.1"/>">
             <input type="hidden" id="nhn2" value="<fmt:message key="news_heat_nJS.2"/>">
             <input type="hidden" id="nhn3" value="<fmt:message key="news_heat_nJS.3"/>">

@@ -12,6 +12,7 @@ define(
 			require("twbs-pagination/jquery.twbsPagination.min");
 			require("my97DatePicker/WdatePicker");
 			require("cookie"); 
+			require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
 			var moment = require("moment/2.9.0/moment");
 			var SelectUtil = require("app/jsp/search/select");
 			var SearchChart = require("app/jsp/search/charts");
@@ -37,6 +38,14 @@ define(
 				setup : function() {
 					var _this = this;
 					searchPage.superclass.setup.call(this);
+					// 初始化国际化
+		            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+						 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+						 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+						 mode: "both",
+						 language: currentLan, //当前语言，已在通用页面进行初始化
+						 async: true 
+					 });
 
 					_this._bindEvent();
 					_this.search("news");
@@ -201,8 +210,8 @@ define(
 					}
 					var nowDate = moment().format('YYYY-MM-DD');
 					var pre7Date = moment().add(-6,'days').format('YYYY-MM-DD');
-					$("#tDate").html("选择时间："+pre7Date+" 至 "+nowDate);
-					$("#mDate").html("选择时间："+pre7Date+" 至 "+nowDate);
+					$("#tDate").html($.i18n.prop("social.choice.time")+"："+pre7Date+$.i18n.prop("social.to")+nowDate);
+					$("#mDate").html($.i18n.prop("social.choice.time")+"："+pre7Date+$.i18n.prop("social.to")+nowDate);
 					param.beginTime = pre7Date + " 00:00:00";
 					param.endTime = nowDate + " 23:59:59";
 					searchChart._queryMediaCoverageTrend(param);
@@ -297,7 +306,7 @@ define(
 						visiblePages : 7,
 						first : false,
 						last : false,
-						message : "正在为您查询数据..",
+						message :$.i18n.prop('detail.find.data')+"..",
 						callback:function(data){
 							//alert(JSON.stringify(data));
 							if ('news' == mediaType) {
@@ -328,7 +337,7 @@ define(
 		        	ajaxController.ajax({
 						type: "post",
 						processing: false,
-						message: "保存数据中，请等待...",
+						message: $.i18n.prop('detail.find.data')+"..",
 						url: _base + url,
 						data: param,
 						success: function (rs) {

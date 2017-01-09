@@ -1,22 +1,24 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport"
-	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>首页</title>
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title><spring:message code="home.nav.bar.home"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body class="index-bj">
+
 <!--设置基本信息弹出-->
   <div class="eject-big">
 		<div class="eject-medium" id="currency" style="top:60%; left: 40%;">
 			<div class="eject-medium-title">
-				<p>设置基本信息&nbsp;<span id="tishiId" style="color: red; font-size:12px;"></span></p>
+				<p><spring:message code="home.nav.config.basic"/>&nbsp;<span id="tishiId" style="color: red; font-size:12px;"></span></p>
 				<p class="right"><i class="icon iconfont" id="currency-close">&#xe618;</i></p>
 			</div>
 			<div class="field-title">
@@ -27,8 +29,8 @@
 			<div class="eject-choice-city">
 				<div class="eject-choice-title">
 					<ul>
-						<li class="word">城市地区：</li>
-						<li><input type="text"  class="choice-int" value="请选择省市区"></li>
+						<li class="word"><spring:message code="home.nav.config.area"/>：</li>
+						<li><input type="text"  class="choice-int" value="<spring:message code="home.nav.config.choice"/>"></li>
 					</ul>
 				</div>
 				<div class="eject-choice-main">
@@ -52,7 +54,7 @@
 				</div>
 				
 			</div>
-			<div class="eject-medium-btn"><input type="button" class="btn btn-xxxlarge btn-blue radius" id="medium-btn-close" value="完成"></div>
+			<div class="eject-medium-btn"><input type="button" class="btn btn-xxxlarge btn-blue radius" id="medium-btn-close" value="<spring:message code="home.nav.config.finsh"/>"></div>
 		</div>
 		<div class="mask" id="eject-mask"></div>
   </div>
@@ -70,10 +72,10 @@
 				    <a href="#" id="choice-city">
 				    <c:choose>
 				       <c:when test="${config!=null&&config.province!=null}">
-				         ${config.province.nameZh}.${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
+				         ${config.province.nameZh}<c:if test="${config.city[0]!=null }">.</c:if>${config.city[0].nameZh}<c:if test="${fn:length(config.city)>1 }">等</c:if>
 				       </c:when>
 				       <c:otherwise>
-				                           请选择省市
+				         <spring:message code="hot.context.pm"/>
 				       </c:otherwise>
 				    </c:choose>
 						<i class="icon iconfont"></i></a> 
@@ -81,7 +83,7 @@
 					<c:forEach items="${config.interestList}" var="interestVo" varStatus="t">
 						<li class="inbtn"><a id="${interestVo.businessId}"  href="javascript:void(0);" ${t.index==0?'class="domain current"':'class="domain"'}>${interestVo.zhInterest }</a></li>
 					</c:forEach>
-					<li class="current" ><a href="javascript:void(0);" id="modify-btn" style="color:#3382ee">修改</a></li>
+					<li class="current" ><a href="javascript:void(0);" id="modify-btn" style="color:#3382ee"><spring:message code="home.nav.bar.modify"/></a></li>
 				</ul>
 				
 				
@@ -90,7 +92,7 @@
 			<c:if test="${hasTopic}">
 			<div id="topicDiv" class="left-list" style="display: none;">
 			   <ul>
-				    <li><a>专题数据：</a></li>
+				    <li><a><spring:message code="home.nav.bar.specialdata"/>：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
 					       <li class="inbtn" >
@@ -105,7 +107,7 @@
 			<div class="right-list" style="display: none;">
 			    <c:if test="${fn:length(topics)>7}">
 				<ul>
-					<li class="more" id="more"><a href="#">更多<i class="icon iconfont">&#xe659;</i></a>
+					<li class="more" id="more"><a href="#"><spring:message code="home.nav.bar.more"/><i class="icon iconfont">&#xe659;</i></a>
 						<div class="more-show" id="more-show">
 							<span><img src="${uedroot}/images/xf-sj.png"></span>
 							<ul>
@@ -183,7 +185,7 @@
    </li>
 </script>
 <script id="dicTempl" type="text/x-jsrender">
-	<li class="blue">领域分类：</li>
+	<li class="blue"><spring:message code="home.nav.config.dic"/>：</li>
    {{for dics}}
    <li>
 		<!-- <a id="dic_{{:dicValue}}" href="#" class="dic">{{:dicName}}</a><input type="hidden" value="{{:dicValue}}"/> -->

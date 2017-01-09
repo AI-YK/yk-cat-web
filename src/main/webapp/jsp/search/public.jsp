@@ -3,13 +3,14 @@
 <html>
 <head>
 <%@ include file="/inc/inc.jsp"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title><c:choose>
-		<c:when test="${'news'==model}">新闻热点</c:when>
-		<c:when test="${'social'==model}">社交热点</c:when>
-		<c:otherwise>舆情动态</c:otherwise>
+		<c:when test="${'news'==model}"><spring:message code="home.nav.content.newshot"/></c:when>
+		<c:when test="${'social'==model}"><spring:message code="home.nav.content.socialhot"/></c:when>
+		<c:otherwise><spring:message code="home.nav.bar.public"/></c:otherwise>
 	</c:choose></title>
 
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet"
@@ -33,7 +34,7 @@
 			<input value="${topics}" type="hidden" />
 			<div id="commDiv" class="left-list" style="display: none;">
 				<ul>
-				    <li><a>通用数据：</a></li>
+				    <li><a><spring:message code="opiniots.generaldata"/>：</a></li>
 					<c:forEach items="${config.interestList}" var="interestVo" varStatus="t">
 						<li class="inbtn"><a id="${interestVo.businessId}"  class="domain" href="javascript:void(0);" >${interestVo.zhInterest}</a></li>
 					</c:forEach>
@@ -43,7 +44,7 @@
 			<div id="topicDiv" class="left-list" style="display: none;">
 			<c:if test="${hasTopic}">
 			   <ul>
-				    <li><a>专题数据：</a></li>
+				    <li><a><spring:message code="opiniots.agentdata"/>：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
 					       <li class="inbtn" >
@@ -109,8 +110,8 @@
 			<c:if test="${'news'!=model && 'social'!=model}">
 				<div class="level-left-table">
 					<ul>
-						<li><a href="#" class="current">媒体数据</a></li>
-						<li><a href="#">社交数据</a></li>
+						<li><a href="#" class="current"><spring:message code="opiniots.mediadata"/></a></li>
+						<li><a href="#"><spring:message code="opiniots.socialdata"/></a></li>
 					</ul>
 				</div>
 			</c:if>
@@ -136,38 +137,13 @@
 							<li id="qingId1">
 							
 							</li>
-							<%-- <li>
-								<p>
-									<select id="sentimentId1" class="searchNews select select-mini">
-										<option value="">情感</option>
-										<option value="1">正面</option>
-										<option value="0">中性</option>
-										<c:choose>
-											<c:when test="${'negative'==model}">
-												<option value="-1" selected="selected">负面</option>
-											</c:when>
-											<c:otherwise>
-												<option value="-1">负面</option>
-											</c:otherwise>
-										</c:choose>
-
-									</select>
-								</p>
-								<!-- <p>
-									<input id="keyword1" type="text"
-										class="searchNews int-text int-large radius">
-									 <a href="javascript:void(0);"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
-								</p>
- -->							</li> --%>
-							<!-- <li><input type="button"
-								class="btn btn-serch radius btn-deepblue" id="searchBtn1"
-								value="搜索"></li> -->
+							
 						</ul>
 						
 					</div>
 					<div class="level-news">
 						<div class="level-news-title">
-							<p>共有相关数据</p>
+							<p><spring:message code="opiniots.sharerelevantdata"/></p>
 							<p class="blue" id="news-num">0</p>
 						</div>
 						<div class="level-news-list" id="news-list"></div>
@@ -237,7 +213,7 @@
 					</div>
 					<div class="level-news">
 						<div class="level-news-title">
-							<p>共有相关数据</p>
+							<p><spring:message code="opiniots.sharerelevantdata"/></p>
 							<p class="blue" id="social-num">0</p>
 						</div>
 						<div class="level-news-list  pl-40 user-por" id="social-list">
@@ -266,7 +242,7 @@
 	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
-			<span><a href="javascript:void(0);">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>

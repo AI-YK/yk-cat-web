@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>事件详情</title>
+<title><spring:message code="detail.event.ternd"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css"/>
 <link href="${uedroot}/css/modular/index.css" rel="stylesheet" type="text/css" />
@@ -25,11 +26,11 @@
 				<p>
 					<i class="icon iconfont">&#xe600;</i>
 				</p>
-				<p>您当前的位置：</p>
+				<p><spring:message code="detail.current.location"/>：</p>
 				<p id="p_subnav">
 					
 				</p>
-				<p style="width:80%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${eventDetail.srcTitle}</p>
+				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${eventDetail.srcTitle}</p>
 			</div>
 		</div>
 	</div>
@@ -48,13 +49,13 @@
 						<!--<li>中文</li>
 						<li>${eventDetail.zhCountry}&nbsp;&nbsp;<img height="20px" width="30px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
 						<li class="zhuanz">热度：<span>${eventDetail.heatValue}</span></li>
-						 <li class="yuyan" id="yuyan"><a href="javascrpt:;"></a>
+						 <li class="yuyan" id="yuyan"><a href="javascript:void(0);"></a>
 							<div class="user-show" id="typesetting">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul>
-									<a id="showTranslation" href="javascrpt:;" class="ahov1"><li>译文排版</li></a>
-									<a id="showOriginal" href="javascrpt:;" class="ahov2"><li>原文排版</li></a>
-									<a id="showSynchysis" href="javascrpt:;" class="ahov3"><li>原译混排</li></a>
+									<a id="showTranslation" href="javascript:void(0);" class="ahov1"><li>译文排版</li></a>
+									<a id="showOriginal" href="javascript:void(0);" class="ahov2"><li>原文排版</li></a>
+									<a id="showSynchysis" href="javascript:void(0);" class="ahov3"><li>原译混排</li></a>
 								</ul>
 							</div></li> -->
 						<!--<li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
@@ -64,9 +65,9 @@
 							<div class="share-show" id="share-show">
 								<span><i class="icon iconfont">&#xe65a;</i></span>
 								<ul >
-									<a href="javascrpt:;" class="ahov1"><li><i class="icon iconfont">&#xe65c;</i>分享到新浪微博</li></a>
-									<a href="javascrpt:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
-									<a href="javascrpt:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
+									<a href="javascript:;" class="ahov1"><li><i class="icon iconfont">&#xe65c;</i>分享到新浪微博</li></a>
+									<a href="javascript:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
+									<a href="javascript:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
 								</ul>
 							</div></li> -->
 					</ul>
@@ -81,19 +82,19 @@
 						<li>分享到：</li>
 						<li id="bottom_share" class="right">
 							<p class="red">
-								<a id="gotsina" data-cmd="tsina" href="javascrpt:;"></a>
+								<a id="gotsina" data-cmd="tsina" href="javascript:;"></a>
 							</p>
 							<p class="green">
-								<a  data-cmd="weixin" href="javascrpt:;"></a>
+								<a  data-cmd="weixin" href="javascript:;"></a>
 							</p>
 							<p class="blue">
-								<a  data-cmd="sqq" href="javascrpt:;"></a>
+								<a  data-cmd="sqq" href="javascript:;"></a>
 							</p>
 						</li>
 					</ul>
 				</div> -->
 				<div class="level-news" style="margin-top:100px;">
-						<div class="level-news-title"><p>共有相关数据</p> <p id="news-num" class="blue">0</p></div>
+						<div class="level-news-title"><p><spring:message code="detail.share.data"/></p> <p id="news-num" class="blue">0</p></div>
 						<div class="level-news-list" id="news-list">
 							
 						</div>
@@ -126,8 +127,8 @@
 			</div>
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
-					<p>传播态势</p>
-					<p class="right">时间：${begin} 至 ${end}</p>
+					<p><spring:message code="detail.diss.trend"/></p>
+					<p class="right"><spring:message code="detail.time"/>：${begin} <spring:message code="detail.to"/> ${end}</p>
 				</div>
 				<!--图表嵌套区域-->
 				<div class="levle-right-chart-list" id="spreadState">
@@ -138,8 +139,8 @@
 			</div>
 			<div class="levle-right-chart">
 				<div class="levle-right-chart-title">
-					<p>事件走势</p>
-					<p class="right">时间：${begin} 至 ${end}</p>
+					<p><spring:message code="detail.event.ternd"/></p>
+					<p class="right"><spring:message code="detail.time"/>：${begin} <spring:message code="detail.to"/> ${end}</p>
 				</div>
 				<!--图表嵌套区域-->
 				<div class="levle-right-chart-list" id="timeTrend">
@@ -175,7 +176,7 @@
 									<p class="right">
 										<span>{{:languageTname}}</span>
 										<span>{{:countryNameZh}}<img class="eventcountry" height="20px" width="30px" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
-										<span>转载：{{:transfer}}</span>
+										<span><spring:message code="detail.reprint"/>：{{:transfer}}</span>
 									</p>
 								</li>
 								<li title="{{:abstractZh}}" class="news" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:abstractZh}}</li>

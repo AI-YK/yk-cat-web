@@ -7,6 +7,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 	var translatePage = require("app/jsp/translate/translate");
 	var translate = new translatePage();
 	var yiConfig = require("app/util/jsviews-yi");
+	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
 	require("jsviews/jsrender.min");
 	var common = require("app/jsp/common/common");
 	var socialDetailPage = Widget.extend({
@@ -17,6 +18,14 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 		/* 重写父类 */
 		setup : function() {
 			socialDetailPage.superclass.setup.call(this);
+			// 初始化国际化
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: true 
+			 });
 			this._init();
 		},
 		/* 初始化动画 */
@@ -75,10 +84,10 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 		showSrcContent:function(){
 			var srcContent = $("#srcContent").html();
 			if(srcContent){
-				srcContent= srcContent.replace("/<BR//>/g","<br>").split("<br>");
+				srcContent= srcContent.replace("/<BR/>/g","<br>").split("<br>");
 				var html = [];
 				for(var i=0;i<srcContent.length;i++){
-					html.push("<li>"+srcContent[i]+"</li>");
+					html.push("<span>"+srcContent[i]+"</span>");
 				}
 				$("#newsDetailContent").html(html.join(""));
 			}
@@ -89,7 +98,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			translate.stopTranslate();
 			$("#newsDetailContent").html('');
 			this.queryTranslation($("#srcContent").html(),function(json){
-				json ="<li>"+json+"</li>";
+				json ="<span>"+json+"</span>";
 				$("#newsDetailContent").append(json);
 				});
 		},
@@ -111,7 +120,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 				$("#translateTitle").append(json);
 			 });
 			this.queryTranslation($("#srcContent").html(),function(json){
-				json ="<p>"+json+"</p>";
+				json ="<span>"+json+"</span>";
 				$("#translateContent").append(json);
 			 });
 			
@@ -129,7 +138,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			param.srcl=srcLanguage;
         	param.text = text;
         	param.tgtl = tgtl;
-        	translate.execTranslate(param,callBack);
+        	translate.execTranslateSocial(param,callBack);
 		},
 		_bindEvent:function(){
 			var _this = this;
@@ -155,7 +164,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 		},
 		queryRelatedInformation:function(){
 			var keyword = $("#keyword").val();
-			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>抱歉没有查询到相关数据</li></div>';
+			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>'+$.i18n.prop("newsdetail.sorry.nodata")+'</li></div>';
 			
 			if(!keyword){
 				$("#relatedInformation").html(html);

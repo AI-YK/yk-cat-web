@@ -3,7 +3,7 @@
 	<div class="banner-main">
 		<div class="banner-title">
 		<ul>
-		   <li style="font-size:24px;float:left;">突发事件</li>
+		   <li style="font-size:24px;float:left;"><spring:message code="home.nav.content.event"/></li>
            <li class="right" style="font-size:33px;float:right;"><a target="_blank" href="${_base}/search/event"><i class="icon iconfont"  style="font-size:33px;color:white;">&#xe65b;</i></a></li>
 			</ul>
 		</div> 
@@ -15,8 +15,8 @@
                 <div>
 				    <div class="merge" id="merge">
 						 <ul>
-							  <li><a id="event" class="current">事件态势</a></li>
-							  <li><a  id="chuanbo" >传播态势</a></li>
+							  <li><a id="event" class="current"><spring:message code="home.nav.content.trend"/></a></li>
+							  <li><a  id="chuanbo" ><spring:message code="home.nav.content.dissemination"/></a></li>
 						 </ul>
 					</div>
 					<div>
@@ -39,7 +39,7 @@
 			</span> 
 			
 			<span class="eventSpan">{{:dayTime}}</span>
-			<span class="ptitle" style="width:30px;text-align:right;cursor:pointer;"><i class="icon iconfont">&#xe671;</i></span>
+			<span class="ptitle" style="width:20px;text-align:right;cursor:pointer;"><i class="icon iconfont">&#xe671;</i></span>
 		 </p> 
    </li>
   {{/for}}

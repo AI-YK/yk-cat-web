@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,8 +22,8 @@
 		<div class="error-main">
 			<ul>
 				<li class="img"><img src="${uedroot}/images/404-2.png" style="width:230px;"></li>
-				<li class="word">哎呀，你访问的页面未找到~</li>
-				<li><a href="${_base}/">点击返回首页</a></li>
+				<li class="word"><spring:message code="home.404.aiya"/>~</li>
+				<li><a href="${_base}/"><spring:message code="home.404.back"/></a></li>
 			</ul>
 		</div>
 	</div>

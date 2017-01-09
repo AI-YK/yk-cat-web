@@ -258,33 +258,39 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 %>
 <div class="header_box" style="height: 60px; background-color:#2e344b;width:100%;">
 	<div style="width:1200px;margin:0 auto">
-	<div class="center">
+	<%-- <div class="center">
 		<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
-	</div>
+	</div> --%>
+		<div class="center"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"_en":""%>.png" usemap="#Map"/>
+              <map name="Map">
+                <area shape="rect" coords="0,0,112,40" href="http://www.yeesight.com/" onfocus="blur(this);" >
+                <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
+              </map>
+		  </div>
 	<div class="rightt">
 		<ul class="menu_list1">
 			<li>
-				<a href="${_base}/home/index">首页</a>
+				<a href="${_base}/home/index"><spring:message code="home.nav.bar.home"/></a>
 			</li>
 			<li>
-				<a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}">专题分析</a>
+				<a target="_bank" href="${yeesightUrls.yeesightSubjectAnalysisUrl}"><spring:message code="home.nav.bar.agentanalysis"/></a>
 			</li>
 			<li>
-				<a class="current" href="javascript:void(0);" onclick="toPage();">热点发现</a>	
+				<a class="current" href="javascript:void(0);" onclick="toPage();"><spring:message code="home.nav.bar.hot"/></a>	
 			</li>
-			<li><a href="${_base}/search/public">舆情动态</a></li>
+			<li><a href="${_base}/search/public"><spring:message code="home.nav.bar.public"/></a></li>
 					<%-- <c:if test="${!noSearch}"> --%>
 					 <li class="search">
-					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='搜索'" type="text" class="search-medium" placeholder="搜索"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
+					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'" type="text" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
-					<%-- </c:if> --%>
-					<li class="iphone-show" style="margin-top:16px"><i class="ico_user"></i></li>
+					<%-- </c:if> <i class="ico_user"></i>--%>
+					<li class="iphone-show" style="margin-top:16px"><img alt="" src="${_base}/resources/template/images/user.png"></li>
 					<div class="user-show" id="user-show" style="display: none;">
 						<span><img src="${_base}/resources/template/images/xf-sj.png"></span>
 						<ul>
-							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i>我的译见</li></a>
-							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i>数据管理</li></a>
-							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i>退出登录</li></a>
+							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i><spring:message code="home.nav.bar.myyeeSight"/></li></a>
+							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i><spring:message code="home.nav.bar.datamanagement"/></li></a>
+							<a href="#" class="ahov3"><li><i class="icon iconfont">&#xe663;</i><spring:message code="home.nav.bar.logout"/></li></a>
 						</ul>
 					</div>
 		</ul>
