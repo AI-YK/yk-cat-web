@@ -79,6 +79,11 @@ define("opt-paging/aiopt.pagination", ["jquery","twbs-pagination/jquery.twbsPagi
  	            	if(d && d.result && d.result.length>0){
  	            		_this.hiddenNotResultMessage();
  	            		opt.render && opt.render.call(_this,d.result);
+ 	            		try{
+ 	            			$(document).scrollTo(0,500);
+ 	            		}catch(e){
+ 	            			
+ 	            		}
  	            	}else{
  	            		_this.showNotResultMessage();
  	            	}
