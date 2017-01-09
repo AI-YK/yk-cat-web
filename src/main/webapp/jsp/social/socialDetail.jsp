@@ -164,7 +164,8 @@
 	
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
-     <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script>
+   <%--   <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script> --%>
+   <script src="${_base}/resources/template/scripts/modular/drag.js">
      <script id="relatedInformationTempl" type="text/x-jsrender">
 {{if #getIndex()<10}}
          <ul uuid="{{:uuid}}">
@@ -218,12 +219,12 @@
 	}); */
 </script>
 <script type="text/javascript">
- $(function(){
+ /* $(function(){
 	 $("#drag").draggable({ scroll: true});
 	 $("#deag-close").on("click",function(){
 			$("#drag").hide();
 		});
- });
+ }); */
 </script>
 </body>
 </html>
