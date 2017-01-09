@@ -182,7 +182,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
 						},
 						formatter: function (value, index) {
 							var length= edata2.time.length;
-						    if(length>1&&(0==index||length-1==index)){
+						    /*if(length>1&&(0==index||length-1==index)){
 						    	return "";
 						    }else{
 						    	var len = value.length;
@@ -191,8 +191,15 @@ define('app/jsp/home/charts', function (require, exports, module) {
 						    		return value.substring(11,len);
 						    	}
 						    	return value;
-						    }
+						    }*/
+							if(value.length <= 10){
+								return value;
+							}else{
+								var len = value.length;
+						    		return value.substring(11,len);
+							}
 						}
+							
 					},
 					axisLine:{
   					  lineStyle:{
