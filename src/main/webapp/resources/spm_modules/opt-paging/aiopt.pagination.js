@@ -3,6 +3,7 @@ define("opt-paging/aiopt.pagination", ["jquery","twbs-pagination/jquery.twbsPagi
 	//实例化AJAX控制处理对象
 	 var ajaxController = new AjaxController();
 	require("twbs-pagination/jquery.twbsPagination");
+	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');
 /*!
  * jQuery runner pagination plugin v1.0.0
  * based on jquery.pagController.js  jquery.twbsPagination.js
@@ -138,6 +139,14 @@ define("opt-paging/aiopt.pagination", ["jquery","twbs-pagination/jquery.twbsPagi
          */
         showNotResultMessage:function(){
         	this.$element.removeClass("pagination");
+        	// 初始化国际化
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: true 
+			 });
         	var imageType = this.options.resultImageType;
         	var messageId = this.options.messageId;
         	if(messageId){
@@ -148,7 +157,7 @@ define("opt-paging/aiopt.pagination", ["jquery","twbs-pagination/jquery.twbsPagi
 	//        		this.$element.addClass("query-product-msgimage not-query");
 	//            	this.$element.get(0).innerHTML = "<li class='dialog-icon-notquery-1'></li><li>抱歉没有找到相关商品，更换搜索词试一试吧！</li>";
 	        	}else{
-	        		document.getElementById(messageId).innerHTML = "<li class='dialog-icon-notquery'></li><li>抱歉没有查询到相关数据</li>";
+	        		document.getElementById(messageId).innerHTML = "<li class='dialog-icon-notquery'></li><li>"+$.i18n.prop("newsdetail.sorry.nodata")+"</li>";
 	            	document.getElementById(messageId).className = "not-query pt-20 pb-20";
 	        		
 	//        		this.$element.addClass("not-query pt-20 pb-20");

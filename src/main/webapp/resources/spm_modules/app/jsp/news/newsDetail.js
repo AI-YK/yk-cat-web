@@ -138,7 +138,7 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			param.srcl=srcLanguage;
         	param.text = text;
         	param.tgtl = tgtl;
-        	translate.execTranslate(param,callBack);
+        	translate.execTranslateNews(param,callBack);
 		},
 		/*查询分享收藏数*/
 		_queryCollOrShareCount:function(){

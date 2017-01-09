@@ -84,10 +84,10 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 		showSrcContent:function(){
 			var srcContent = $("#srcContent").html();
 			if(srcContent){
-				srcContent= srcContent.replace("/<BR//>/g","<br>").split("<br>");
+				srcContent= srcContent.replace("/<BR/>/g","<br>").split("<br>");
 				var html = [];
 				for(var i=0;i<srcContent.length;i++){
-					html.push("<li>"+srcContent[i]+"</li>");
+					html.push("<span>"+srcContent[i]+"</span>");
 				}
 				$("#newsDetailContent").html(html.join(""));
 			}
@@ -98,7 +98,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			translate.stopTranslate();
 			$("#newsDetailContent").html('');
 			this.queryTranslation($("#srcContent").html(),function(json){
-				json ="<li>"+json+"</li>";
+				json ="<span>"+json+"</span>";
 				$("#newsDetailContent").append(json);
 				});
 		},
@@ -120,7 +120,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 				$("#translateTitle").append(json);
 			 });
 			this.queryTranslation($("#srcContent").html(),function(json){
-				json ="<p>"+json+"</p>";
+				json ="<span>"+json+"</span>";
 				$("#translateContent").append(json);
 			 });
 			
@@ -138,7 +138,7 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
 			param.srcl=srcLanguage;
         	param.text = text;
         	param.tgtl = tgtl;
-        	translate.execTranslate(param,callBack);
+        	translate.execTranslateSocial(param,callBack);
 		},
 		_bindEvent:function(){
 			var _this = this;

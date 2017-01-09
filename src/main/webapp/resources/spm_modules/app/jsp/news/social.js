@@ -356,8 +356,8 @@ define(
 						/*if($("#dicId2_input").val()!=""){
 							param.mediaLevel= $("#dicId2_input").val();
 						}*/
-						var begintime=$("#timeId1_begin_input").val();
-						var endtime=$("#timeId1_end_input").val();
+						var begintime=$("#timeId2_begin_input").val();
+						var endtime=$("#timeId2_end_input").val();
 						if(begintime!="" && endtime!=""){
 							param.beginTime=begintime;
 							param.endTime=endtime;
