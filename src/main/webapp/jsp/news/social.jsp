@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title><spring:message code="home.foot.tips.solution"/></title>
+<title><spring:message code="home.nav.bar.hot"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <%@ include file="/inc/incJs.jsp"%>
 <%@page import="java.util.Locale"%>
@@ -247,10 +247,10 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul uuid="{{:uuid}}">
-	<li class="title" style="cursor:pointer;width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
+	<li class="title" style="width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;"><span style="cursor:pointer;">{{:titleZh}}</span></li>
 	<li class="list">
 		<p>
-			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
@@ -273,7 +273,7 @@
      {{/if}}
    </div>
    <ul myid="{{:myId}}">
-	 <li class="title" style="cursor:pointer;">{{:name}}</li>
+	 <li class="title"><span style="cursor:pointer;">{{:name}}</span></li>
 	 <li class="list">
 		<p>
 			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>

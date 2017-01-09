@@ -161,8 +161,9 @@
 	</div>
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
-    <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script>
-    <script id="relatedInformationTempl" type="text/x-jsrender">
+  <%--   <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script> --%>
+  <script src="${_base}/resources/template/scripts/modular/drag.js"></script>
+  <script id="relatedInformationTempl" type="text/x-jsrender">
 {{if #getIndex()<10}}
          <ul uuid="{{:uuid}}">
 			<li title="{{:titleSrc}}" style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleSrc}}</a></li>
@@ -215,12 +216,12 @@
 	}); */
 </script>
 <script type="text/javascript">
- $(function(){
+ /* $(function(){
 	 $("#drag").draggable({ scroll: true});
 	 $("#deag-close").on("click",function(){
 			$("#drag").hide();
 		});
- });
+ }); */
 </script>
 </body>
 </html>

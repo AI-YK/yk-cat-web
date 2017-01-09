@@ -69,9 +69,17 @@ public class AssembleUserInfoFilter implements Filter {
        if (ignor_suffix != null && ignor_suffix.length > 0) {
             String uri = req.getRequestURI().toLowerCase();
             for (String suffix : ignor_suffix) {
-                if (uri.endsWith(suffix)||(suffix.endsWith("*")&&uri.indexOf(suffix)>-1)) {
-                    return false; 
-                }
+            	if(suffix.endsWith("*")){
+            		suffix = suffix.substring(0, suffix.length()-2);
+            		if(uri.indexOf(suffix)>-1){
+            			 return false; 
+            		}
+            	}else{
+            		if (uri.endsWith(suffix)) {
+                         return false; 
+                    }
+            	}
+               
             }
         }
         return true;

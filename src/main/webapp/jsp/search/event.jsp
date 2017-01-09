@@ -61,7 +61,7 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul>
-	<li onclick="goEventDetail('{{:srcId}}');" class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" >{{:zhTitle}}</li>
+	<li onclick="goEventDetail('{{:srcId}}');" class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;" ><span style="cursor:pointer;">{{:zhTitle}}</span></li>
 	<li class="list">
 		<p>
 			<!--<span><a href="#">{{:zhSource}}</a></span>--><span>{{:dayTime}}</span>

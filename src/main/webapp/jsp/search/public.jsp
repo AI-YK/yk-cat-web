@@ -137,32 +137,7 @@
 							<li id="qingId1">
 							
 							</li>
-							<%-- <li>
-								<p>
-									<select id="sentimentId1" class="searchNews select select-mini">
-										<option value="">情感</option>
-										<option value="1">正面</option>
-										<option value="0">中性</option>
-										<c:choose>
-											<c:when test="${'negative'==model}">
-												<option value="-1" selected="selected">负面</option>
-											</c:when>
-											<c:otherwise>
-												<option value="-1">负面</option>
-											</c:otherwise>
-										</c:choose>
-
-									</select>
-								</p>
-								<!-- <p>
-									<input id="keyword1" type="text"
-										class="searchNews int-text int-large radius">
-									 <a href="javascript:void(0);"><i id="searchBtn1" class="icon iconfont suos">&#xe658;</i></a>
-								</p>
- -->							</li> --%>
-							<!-- <li><input type="button"
-								class="btn btn-serch radius btn-deepblue" id="searchBtn1"
-								value="搜索"></li> -->
+							
 						</ul>
 						
 					</div>
@@ -264,10 +239,10 @@
 </body>
 <script id="levelNewsTempl" type="text/x-jsrender">
 <ul uuid="{{:uuid}}">
-	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
+	<li class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;"><span style="cursor:pointer;">{{:titleZh}}</span></li>
 	<li class="list">
 		<p>
-			<span><a href="javascript:void(0);">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
@@ -288,7 +263,7 @@
      <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
    </div>
    <ul myid="{{:myId}}">
-	 <li class="title" style="cursor:pointer;">{{:name}}</li>
+	 <li class="title"><span style="cursor:pointer;">{{:name}}</span></li>
 	 <li class="list">
 		<p>
 			<span><i class="icon iconfont">{{:~getSocialIcon(sourceType)}}</i></span>
