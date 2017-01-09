@@ -165,7 +165,7 @@
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
    <%--   <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script> --%>
-   <script src="${_base}/resources/template/scripts/modular/drag.js">
+   <script src="${_base}/resources/template/scripts/modular/drag.js"></script>
      <script id="relatedInformationTempl" type="text/x-jsrender">
 {{if #getIndex()<10}}
          <ul uuid="{{:uuid}}">

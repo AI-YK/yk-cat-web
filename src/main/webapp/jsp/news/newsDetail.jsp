@@ -162,8 +162,8 @@
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
   <%--   <script src="${_base}/resources/spm_modules/jquery-ui/jquery-ui.min.js"></script> --%>
-  <script src="${_base}/resources/template/scripts/modular/drag.js">
-    <script id="relatedInformationTempl" type="text/x-jsrender">
+  <script src="${_base}/resources/template/scripts/modular/drag.js"></script>
+  <script id="relatedInformationTempl" type="text/x-jsrender">
 {{if #getIndex()<10}}
          <ul uuid="{{:uuid}}">
 			<li title="{{:titleSrc}}" style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;"><a href="javascript:void(0);">{{:titleSrc}}</a></li>
