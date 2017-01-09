@@ -15,8 +15,12 @@ define("app/jsp/translate/translate", function(require, exports, module) {
 			translatePage.superclass.setup.call(this);
 		},
 		/* 翻译 */
-		execTranslate:function(param,callBack){
-			var dataArray = param.text.replace("/<BR//>/g","<br>").split("<br>");
+		execTranslateNews:function(param,callBack){
+			var dataArray = param.text.replace("/<BR/>/g","<br>").split("<br>");
+			this.sendTranslate(dataArray, param, callBack);
+		},
+		execTranslateSocial:function(param,callBack){
+			var dataArray = param.text.replace(/。/g,"<br>").split("<br>");
 			this.sendTranslate(dataArray, param, callBack);
 		},
 		/*异步翻译内容*/

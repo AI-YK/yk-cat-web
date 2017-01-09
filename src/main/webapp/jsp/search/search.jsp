@@ -1,12 +1,14 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>搜索结果</title>
+<title><spring:message code="home.nav.search.result"/></title>
 <%@ include file="/inc/inc.jsp"%>
+
 <link href="${uedroot}/css/modular/modular.css" rel="stylesheet" type="text/css" />
 
 </head>
@@ -30,8 +32,8 @@
 		<div class="level-left-conter">
 			<div class="level-left-table">
 				<ul>
-					<li><a href="#" class="current">媒体数据</a></li>
-					<li><a href="#">社交数据</a></li>
+					<li><a href="#" class="current"><spring:message code="opiniots.mediadata"/></a></li>
+					<li><a href="#"><spring:message code="opiniots.socialdata"/></a></li>
 				</ul>
 			</div>
 			<!--tab1-->
@@ -67,7 +69,7 @@
 					</div>
 					<div class="level-news" >
 						<div class="level-news-title">
-							<p>共有相关数据</p>
+							<p><spring:message code="opiniots.sharerelevantdata"/></p>
 							<p class="blue" id="news-num" >0</p>
 						</div>
 						<div class="level-news-list" id="news-list">
@@ -113,7 +115,7 @@
 					</div>
 					<div class="level-news" >
 						<div class="level-news-title">
-							<p>共有相关数据</p>
+							<p><spring:message code="opiniots.sharerelevantdata"/></p>
 							<p class="blue" id="social-num">0</p>
 						</div>
 						<div class="level-news-list  pl-40 user-por" id="social-list">
@@ -142,7 +144,7 @@
 	<li class="title" style="cursor:pointer;width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
-			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>

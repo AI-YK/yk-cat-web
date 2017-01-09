@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title><spring:message code="home.foot.tips.solution"/></title>
+<title><spring:message code="home.nav.bar.hot"/></title>
 <%@ include file="/inc/inc.jsp"%>
 <%@ include file="/inc/incJs.jsp"%>
 <%@page import="java.util.Locale"%>
@@ -250,7 +250,7 @@
 	<li class="title" style="cursor:pointer;width:90%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:titleZh}}</li>
 	<li class="list">
 		<p>
-			<span><a href="#">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
