@@ -95,6 +95,7 @@ define('app/jsp/top/header', function (require, exports, module) {
         },
         _logOut:function(){
         	var url="/user/logout"
+        		console.log(url);
         	var param={};
         	ajaxController.ajax({
         		type:"post",

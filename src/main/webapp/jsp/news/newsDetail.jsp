@@ -27,9 +27,11 @@
 					<i class="icon iconfont">&#xe600;</i>
 				</p>
 				<p><spring:message code="detail.current.location"/>：</p>
+				
 				<p id="p_subnav">
 					
 				</p>
+				
 				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${newsDetails.srcTitle}</p>
 			</div>
 		</div>
