@@ -190,7 +190,7 @@ define('app/jsp/home/config', function (require, exports, module) {
    				  
    			  },
    			  error:function(er){
-   				$("#tishiId").text($.i18n.prop("home.save.data.wait"));
+   				$("#tishiId").text($.i18n.prop("home.save.datawait"));
    			  }
    		  });
         }
