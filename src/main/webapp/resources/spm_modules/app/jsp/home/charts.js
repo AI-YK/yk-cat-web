@@ -538,17 +538,23 @@ define('app/jsp/home/charts', function (require, exports, module) {
             }
         	var times = [];
         	var counts = [];
+        	var num='';
         	for(var i=0;i<data.length;i++){
         		times[i] = data[i].time.substring(0,data[i].time.length);
         		counts[i] = data[i].count;
         	}
         	//结果反转截取10个
-        	if(times.length>10){
+        	/*if(times.length>10){
         		times = times.slice(0,10);
         		counts = counts.slice(0,10);
-        	}
+        	}*/
         	times = times.reverse();
         	counts = counts.reverse();
+        	if(times.length>6){
+        		num = '4';
+        	}else{
+        		num ='auto';
+        	}
         	var option = {  
         			tooltip : {
 			                trigger: 'axis',
@@ -566,7 +572,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
     				},
         		    xAxis : [
         		        {
-        		            type : 'category',
+        		        	type : 'category',
         		            boundaryGap : false,
         		            data : times,
         					axisLine:{
@@ -581,13 +587,14 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						lineStyle : { color : '#314a5a', width:2 }
         					},
         					axisLabel : {
+        						interval : 3,
         						margin:10,
         						textStyle : {
         							color : '#697398',
         							fontSize : 13
         						},
         						formatter: function (value, index) {
-        						    if(0==index||times.length-1==index){
+        						    /*if(0==index||times.length-1==index){
         						    	return "";
         						    }else{
         						    	var len = value.length;
@@ -597,7 +604,14 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						    	}
         						    	return value;
         						    }
+        						}*/
+        							if(value.length <=10){
+        								return value;
+        							}else{
+        								return value.substring(11,value.length);
+        							}
         						}
+        							
         					},
         					splitLine:{
         						show:false
@@ -608,7 +622,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		        {
         		        	show :true,
         		            type : 'value',
-        		            //offset:10,
+//        		            offset:20,
         					axisLine:{
         					  lineStyle:{
         						width:0,
