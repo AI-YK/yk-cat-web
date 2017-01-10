@@ -708,8 +708,39 @@ public class CommonController {
 	}
 	private String getTranslateResult(TranslateMessage req){
 		String result = "";
+			String rtext="";
+			rtext= req.getText();
+			System.out.println(rtext);
+			char[] reqchararray= rtext.toCharArray();
+			String reqstr="";
+			StringBuffer resultstr=new StringBuffer();
+			System.out.println(rtext);
+			if(rtext.length()>30){
+				for(int i=0;i<reqchararray.length;i=i+10){
+					if(i+10<reqchararray.length){
+						reqstr=String.valueOf(reqchararray).substring(i, i+10);
+						req.setText(reqstr.toString());
+						String ss=translateService.translate(req);
+						JSONObject jobj=JSON.parseObject(ss);
+						if(!jobj.containsKey("translation")) continue;
+						JSONArray arr = jobj.getJSONArray("translation");
+						if(CollectionUtil.isEmpty(arr)) continue;
+						jobj=(JSONObject) arr.get(0);
+						arr=jobj.getJSONArray("translated");
+						if(CollectionUtil.isEmpty(arr)) continue;
+						jobj=(JSONObject) arr.get(0);
+						if(jobj.containsKey("text")){
+							resultstr.append(jobj.getString("text"));
+						}
+					}
+				}
+				return resultstr.toString();
+			}else{
+				resultstr.append(translateService.translate(req));
+			}
 		try {
-			result = translateService.translate(req);
+//			result = translateService.translate(req);
+			result=resultstr.toString();
 			JSONObject jsonObject =JSON.parseObject(result);
 			if(!jsonObject.containsKey("translation")){
 				return "";
