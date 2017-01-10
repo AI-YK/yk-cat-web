@@ -98,6 +98,8 @@ define("app/jsp/news/newsDetail", function(require, exports, module) {
 			translate.stopTranslate();
 			$("#newsDetailContent").html('');
 			this.queryTranslation($("#srcContent").html(),function(json){
+				
+				
 				json ="<li>"+json+"</li>";
 				$("#newsDetailContent").append(json);
 				});

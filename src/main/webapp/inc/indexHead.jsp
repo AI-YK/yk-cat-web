@@ -28,12 +28,12 @@
 					<li class="search">
 					    <input onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'"  type="text" id="_keyword" value="${_keyword}" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"/><a id="_searchBtn" href="#"><i class="icon iconfont">&#xe658;</i></a>
 					</li>
-					<li class="language"><c:if test="${_currentLan=='en_US'}">EN</c:if><c:if test="${_currentLan=='zh_CN'}">中文</c:if><i class="icon iconfont">&#xe659;</i></li>
-					<div class="language-show" id="language-show">
+					<li class="language" ><c:if test="${_currentLan=='en_US'}">EN</c:if><c:if test="${_currentLan=='zh_CN'}">中文</c:if><i class="icon iconfont">&#xe659;</i></li>
+					<div class="language-show" id="language-show" >
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
-							<a href="${_realPath}?lang=zh_CN" class="ahov1"><li>中文</li></a>
-							<a href="${_realPath}?lang=en_US" class="ahov3"><li>EN</li></a>
+							<a href="${_realPath}?lang=zh_CN" class="ahov1"><li style="text-align:center;">中文</li></a>
+							<a href="${_realPath}?lang=en_US" class="ahov3"><li style="text-align:center;">EN</li></a>
 						</ul>
 					</div>
 					<li class="iphone-show"><img src="${uedroot}/images/user.png" /></li>

@@ -15,6 +15,7 @@ import javax.net.ssl.SSLSocket;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.http.HttpEntity;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
@@ -69,9 +70,14 @@ public final class HttpClientUtil {
 				httpclient =HttpClients.createDefault();	
 			}*/
 			httpclient =HttpClients.createDefault();	
+
 		}
 		HttpPost httpPost = new HttpPost(new URL(url).toURI());
-
+		RequestConfig requestConfig = RequestConfig.custom()  
+		        .setConnectTimeout(300000).setConnectionRequestTimeout(300000)  
+		        .setSocketTimeout(300000).build();
+		
+		httpPost.setConfig(requestConfig);
 		StringEntity dataEntity = new StringEntity(data,
 				ContentType.APPLICATION_JSON);
 		httpPost.setEntity(dataEntity);

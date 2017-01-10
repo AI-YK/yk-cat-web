@@ -30,7 +30,9 @@
 </div>
 <!-- 图表结束-->
 <script id="emergencyTempl" type="text/x-jsrender">
-  {{for eventList}}
+
+{{if "${_currentLan}" == "zh_CN"}}
+ {{for eventList}}
      <li id="{{:srcId}}" class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
 		 <p style="width:95%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;cursor:pointer;">{{:zhTitle}}</p>
 	     <p>
@@ -43,4 +45,21 @@
 		 </p> 
    </li>
   {{/for}}
+{{/if}}
+{{if "${_currentLan}" == "en_US"}}
+ {{for eventList}}
+     <li id="{{:srcId}}" class="{{if #index+1<size}}bot-none{{/if}}  {{if #index==0}}current{{/if}}">
+		 <p style="width:95%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;cursor:pointer;">{{:enTitle}}</p>
+	     <p>
+			<span style="width:75px;text-align:left;">China
+				{{:~getValue(enCity)}}
+			</span> 
+			
+			<span class="eventSpan">{{:dayTime}}</span>
+			<span class="ptitle" style="width:20px;text-align:right;cursor:pointer;"><i class="icon iconfont">&#xe671;</i></span>
+		 </p> 
+   </li>
+  {{/for}}
+{{/if}}
+ 
 </script>

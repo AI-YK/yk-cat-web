@@ -190,7 +190,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     height: 33px;
     line-height: 30px;
     float: left;
-    text-align: center;
+    text-align: left;
     font-size: 14px;
     margin: 0px;
 }
