@@ -590,8 +590,14 @@ define('app/jsp/home/home', function (require, exports, module) {
 						var newsHotHtml = $("#newsHotTempl").render(data.resultList);
 						$("#news-div").html(newsHotHtml);
 		        	}else if(mediaType=='social'){
-		        		var socialHotHtml = $("#socialHotTempl").render(data.resultSocialList);
-						$("#social-div").html(socialHotHtml);
+		        		if(data.resultSocialList.length==0){
+		        			var socialHotHtml = $("#HotMediaSorry").render("");
+		        			$("#social-div").html(socialHotHtml);
+		        		}else{
+		        			var socialHotHtml = $("#socialHotTempl").render(data.resultSocialList);
+							$("#social-div").html(socialHotHtml);
+		        		}
+		        		
 		        	}
 				}
 			});

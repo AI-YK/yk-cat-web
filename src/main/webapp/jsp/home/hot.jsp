@@ -101,6 +101,11 @@
 </div>
 {{/if}}
 </script>
+<script id="HotMediaSorry" type="text/x-jsrender">
+<div class="socialhot-list">
+			<span style="color:#909cc8;">抱歉，没有查询到数据！</span>
+</div>
+</script>
 <script id="newsMediaTempl" type="text/x-jsrender">
    <li><a href="javascript:void(0);" class="current">全部</a></li>
    {{for dics}}

@@ -24,7 +24,7 @@
 	padding: 3px;
 }
 
-/****��ҳ***/
+/****锟斤拷页***/
 .biu-paging ul .prev a{}
 .biu-paging ul .next a{}
 .biu-paging ul .disabled a{cursor:not-allowed; }
@@ -45,7 +45,7 @@
     line-height: 26px;
     color: #fff;
     padding-left: 5px;
-    padding-right: 8px;
+    padding-right: 5px;
 }
 
 .right-list ul .more .more-show ul li p .current{

@@ -227,11 +227,11 @@ box-shadow:1px 1px 4px #a9a9a9;
 .editing-btn{width:100%;float:left;text-align: center;margin-top:20px;}
 .editing-btn .btn{margin-left:20px;}
 /**鏂伴椈璇︽儏鎷栨嫿**/
-#drag{width:440px;min-width:440px;height:1080px; cursor: move;overflow-y:auto; position: absolute; top:155px; right:0px; background:#fff; border: 1px solid #ddd;display: none;}
-#coor{ width:12px; height:12px; overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C; }
-.drag-title{width:100%;float:left;padding:0 20px;}
+#drag{width:440px;min-width:440px;height:1080px; cursor: move;overflow-y:auto; position: absolute; top:120px; right:0px; background:#fff; border: 1px solid #ddd;display: none;}
+#coor{ width:12px; height:12px; overflow: hidden;float: right; background-color: #09C; }
+.drag-title{width:100%;float:left;padding:0 20px;position:relative;}
 .drag-title p{float:left}
-.drag-title .right{float:right;margin-top:15px;}
+.drag-title .right{position:absolute;right:20px;top:15px;}
 .drag-title .right i{font-size:24px;color:#666666;cursor:pointer;}
 .drag-list{width:100%;float:left;padding:0 20px;}
 .drag-list-bt{width:100%;float:left;margin-top:30px;padding: ;font-size:24px;color:#333;line-height:28px;}
