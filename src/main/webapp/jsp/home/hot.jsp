@@ -103,7 +103,7 @@
 </script>
 <script id="HotMediaSorry" type="text/x-jsrender">
 <div class="socialhot-list">
-			<span style="color:#909cc8;">抱歉，没有查询到数据！</span>
+			<span style="color:#909cc8;"><spring:message code="detail.sorry.info"/></span>
 </div>
 </script>
 <script id="newsMediaTempl" type="text/x-jsrender">
