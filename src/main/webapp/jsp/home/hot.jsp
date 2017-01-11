@@ -103,7 +103,7 @@
 </script>
 <script id="HotMediaSorry" type="text/x-jsrender">
 <div class="socialhot-list">
-			<span style="color:#909cc8;"><spring:message code="detail.sorry.info"/></span>
+			<span style="color:#909cc8;"><spring:message code="detail.sorry.in"/></span>
 </div>
 </script>
 <script id="newsMediaTempl" type="text/x-jsrender">
