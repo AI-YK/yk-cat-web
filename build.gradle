@@ -17,22 +17,19 @@ configurations.all {
     exclude group: "org.slf4j", module: "log4j-over-slf4j"
 }
 
-configurations {
-    optUedTemplate
-    jsCommonLibs
-}
+
 
 repositories {
    maven { url "http://10.1.228.199:18081/nexus/content/groups/public/" }
 }
-//buildscript{
- //   repositories {
- //       maven { url "http://10.1.228.199:18081/nexus/content/groups/public/" }
- //  }
-  //  dependencies {
-  //      classpath group: 'com.ai.runner.plugin', name: 'apijarprocessplugin', version: '1.0'
-  //  }
-//}
+buildscript{
+    repositories {
+       maven { url "http://10.1.228.199:18081/nexus/content/groups/public/" }
+   }
+  dependencies {
+       classpath group:'com.ai.runner.plugin', name: 'apijarprocessplugin', version: '1.0'
+   }
+}
 
 sourceSets {
     main {
@@ -55,31 +52,29 @@ dependencies {
 	//compile "com.ai:ipaas-i18n-spring:0.3.2"  
     //providedCompile "javax.servlet:javax.servlet-api:3.1.0"
     //providedCompile "javax.servlet.jsp:javax.servlet.jsp-api:2.3.1"
-
-   // compile 'org.apache.curator:curator-framework:2.8.0'
+//jsCommonLibs 'com.ai.opt.uniframe:yc-jscommon-libs:1.0-SNAPSHOT'
+    //compile 'org.apache.curator:curator-framework:2.8.0'
     //compile 'org.apache.curator:curator-recipes:2.8.0'
-   // compile "org.apache.zookeeper:zookeeper:3.4.6"
+    //compile "org.apache.zookeeper:zookeeper:3.4.6"
     //compile	'org.apache.commons:commons-email:1.4'
     //compile 'org.apache.commons:commons-compress:1.9'
-   // compile 'joda-time:joda-time:2.9.4'
-	
-	//optUedTemplate 'com.ai.opt.uniframe:yc-ued-template:1.0-SNAPSHOT'
-	//jsCommonLibs 'com.ai.opt.uniframe:yc-jscommon-libs:1.0-SNAPSHOT'
+    //compile 'joda-time:joda-time:2.9.4'
+	//compile 'org.apache.httpcomponents:httpclient:4.5.2'
+    //compile 'com.alibaba:fastjson:1.2.17'
 	
     //compile ("org.apache.hadoop:hadoop-common:2.7.1") {
-     //   exclude group: 'com.sun.jersey', module: 'jersey-core'
-     //   exclude group: 'com.sun.jersey', module: 'jersey-json'
-    //    exclude group: 'com.sun.jersey', module: 'jersey-server'
-   // }
+    //  exclude group: 'com.sun.jersey', module: 'jersey-core'
+     // exclude group: 'com.sun.jersey', module: 'jersey-json'
+     // exclude group: 'com.sun.jersey', module: 'jersey-server'
+   //}
 
-   // compile 'com.ai.opt.sdk:opt-sdk:2.2.1-SNAPSHOT'
+
     //compile 'com.ai.opt.xss.filter:opt-xss-firewall:1.0-SNAPSHOT'
-    //compile 'com.ai.opt.uni.session:opt-uni-session:2.0-SNAPSHOT'
-    //compile 'com.ai.opt.sso.client:opt-sso-client:1.0.2-SNAPSHOT'
-   //testCompile(
-    //        "org.springframework:spring-test:4.1.7.RELEASE",
-    //        "junit:junit:4.12"
-    //)
+
+  //testCompile(
+    //      "org.springframework:spring-test:4.1.7.RELEASE",
+    //      "junit:junit:4.12"
+   //)
 	compile fileTree(dir: 'libs', include: '*.jar')
 }
 
