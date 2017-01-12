@@ -3,7 +3,6 @@ define('app/jsp/home/config', function (require, exports, module) {
     var $=require('jquery'),
         Widget = require('arale-widget/1.2.0/widget'),
         AjaxController = require('opt-ajax/1.0.0/index');
-	require('jquery-i18n/1.2.2/jquery.i18n.properties.min');	
 	require("jsviews/jsrender");
     //实例化AJAX控制处理对象
     var ajaxController = new AjaxController();
@@ -23,15 +22,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         setup: function () {
         	var _this = this;
             configPage.superclass.setup.call(this);
-         // 初始化国际化
-            $.i18n.properties({//加载资浏览器语言对应的资源文件 
-				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
-				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
-				 mode: "both",
-				 language: currentLan, //当前语言，已在通用页面进行初始化
-				 async: true 
-			 });
-            
+         
             $(document).on("click",".choice-left-title ul li a",function(){
             	$(".choice-left-title ul li a").each(function () {
                     $(this).removeClass("current");
@@ -65,7 +56,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: $.i18n.prop('detail.find.data')+"..",
+				message: "正在为您查询数据..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -104,7 +95,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: $.i18n.prop('detail.find.data')+"..",
+				message: "正在为您查询数据..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -122,7 +113,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	ajaxController.ajax({
 				type: "post",
 				processing: false,
-				message: $.i18n.prop('detail.find.data')+"..",
+				message: "正在为您查询数据..",
 				url: _base + url,
 				data: param,
 				success: function (rs) {
@@ -134,6 +125,13 @@ define('app/jsp/home/config', function (require, exports, module) {
 			});
         },
         _saveConfig:function(){
+            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
           var interestStr = "";
           $(".dic").each(function(){
         	  if(this.checked){
@@ -141,7 +139,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	  }
           });
           if(interestStr ==""){
-        	  $("#tishiId").text($.i18n.prop("home.one.dic"));
+        	  $("#tishiId").text("领域分类至少选择一个");
         	  return;
           }else{
         	  interestStr = interestStr.substring(1,interestStr.length);
@@ -152,7 +150,7 @@ define('app/jsp/home/config', function (require, exports, module) {
       		  var next = province.next();
       		  provinceCode = next.val();
       	  }else{
-      		$("#tishiId").text($.i18n.prop("home.choice.province"));
+      		$("#tishiId").text("请选择省份");
       		return;
       	  }
    		  var cityStr="";
@@ -162,7 +160,7 @@ define('app/jsp/home/config', function (require, exports, module) {
    			  }
    		  });
    		  if(cityStr==""){
-   			$("#tishiId").text($.i18n.prop("home.one.city"));
+   			$("#tishiId").text("至少选择一个城市");
    			return;
    		  }else{
    			  cityStr=cityStr.substring(1,cityStr.length);
@@ -190,7 +188,7 @@ define('app/jsp/home/config', function (require, exports, module) {
    				  
    			  },
    			  error:function(er){
-   				$("#tishiId").text($.i18n.prop("home.save.datawait"));
+   				$("#tishiId").text("数据保存中，请等待");
    			  }
    		  });
         }
