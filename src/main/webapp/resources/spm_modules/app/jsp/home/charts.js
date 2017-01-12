@@ -55,7 +55,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
             		first = data[edata2.time[0]];
             	}
             	for (var i = 0;i<first.length;i++)
-                {   if(edata2.media.length>5){
+                {   if(edata2.media.length>4){
                 	   break;
                     }
                     if(first[i].nameZh){
@@ -65,7 +65,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
             	}
         	
             	edata2.data =[];
-            	
+    
             	for(var i=0;i<edata2.media.length;i++){
             		var media = edata2.media[i];
             		var mediaData = [];
