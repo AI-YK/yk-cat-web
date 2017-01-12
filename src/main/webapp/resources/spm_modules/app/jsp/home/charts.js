@@ -550,11 +550,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	}*/
         	times = times.reverse();
         	counts = counts.reverse();
-        	if(times.length>6){
-        		num = '4';
-        	}else{
-        		num ='auto';
-        	}
+        	
         	var option = {  
         			tooltip : {
 			                trigger: 'axis',
@@ -594,7 +590,10 @@ define('app/jsp/home/charts', function (require, exports, module) {
         							fontSize : 13
         						},
         						formatter: function (value, index) {
-        						    /*if(0==index||times.length-1==index){
+        							if(times.length >2){
+        								
+        							
+        						    if(0==index||times.length-1==index){
         						    	return "";
         						    }else{
         						    	var len = value.length;
@@ -604,13 +603,22 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						    	}
         						    	return value;
         						    }
-        						}*/
+        						 }else{
+        							 if(0==index){
+        								 return "";
+        							 }else{
+        								 return value;
+        							 }
+        						 }
+        						}
+        						/*
         							if(value.length <=10){
         								return value;
         							}else{
         								return value.substring(11,value.length);
         							}
-        						}
+        							
+        						}*/
         							
         					},
         					splitLine:{
@@ -630,7 +638,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         					  }
         					},
         					axisLabel : {
-        						margin : -20,
+        						margin : -15,
         						textStyle : {
         							color : '#697398',
         							fontSize : 13,

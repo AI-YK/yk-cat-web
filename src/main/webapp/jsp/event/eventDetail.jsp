@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html;charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -30,7 +31,14 @@
 				<p id="p_subnav">
 					
 				</p>
-				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${eventDetail.srcTitle}</p>
+				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+				<c:if test="${pageContext.response.locale=='zh_CN'}">
+				${eventDetail.zhTitle}
+				</c:if>
+				<c:if test="${pageContext.response.locale=='en_US'}">
+				${eventDetail.enTitle}
+				</c:if>
+				</p>
 			</div>
 		</div>
 	</div>
@@ -38,7 +46,13 @@
 	<div class="level-wrapper">
 		<div class="level-left-conter">
 			<div class="news-detail">
-				<div class="news-detail-title" >${eventDetail.srcTitle}</div>
+			
+				<c:if test="${pageContext.response.locale=='zh_CN'}">
+				<div class="news-detail-title" >
+			
+				
+			
+				${eventDetail.zhTitle}</div>
 				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
 					<ul>
 						<li>${eventDetail.zhCountry}.${eventDetail.zhCity}</li>
@@ -93,6 +107,69 @@
 						</li>
 					</ul>
 				</div> -->
+				</c:if>
+				
+				<c:if test="${pageContext.response.locale=='en_US'}">
+				<div class="news-detail-title" >
+			
+				
+			
+				${eventDetail.enTitle}</div>
+				<div class="news-detail-information" id="xuanf1" style="background: rgb(255, 255, 255);">
+					<ul>
+						<li>${eventDetail.enCountry}.${eventDetail.enCity}</li>
+						<li style="margin-left: 30px;">
+						<fmt:parseDate value="${eventDetail.createTimeView}" pattern="yyyy-MM-dd HH:mm:ss" var="pubdate"/>
+						<fmt:formatDate value="${pubdate}" pattern="yyyy.MM.dd HH:mm" />
+						</li>
+						<!--<li>中文</li>
+						<li>${eventDetail.zhCountry}&nbsp;&nbsp;<img height="20px" width="30px" src="${uedroot}/images/country/${eventDetail.enCountry}@2x.png" /></li>
+						<li class="zhuanz">热度：<span>${eventDetail.heatValue}</span></li>
+						 <li class="yuyan" id="yuyan"><a href="javascript:void(0);"></a>
+							<div class="user-show" id="typesetting">
+								<span><i class="icon iconfont">&#xe65a;</i></span>
+								<ul>
+									<a id="showTranslation" href="javascript:void(0);" class="ahov1"><li>译文排版</li></a>
+									<a id="showOriginal" href="javascript:void(0);" class="ahov2"><li>原文排版</li></a>
+									<a id="showSynchysis" href="javascript:void(0);" class="ahov3"><li>原译混排</li></a>
+								</ul>
+							</div></li> -->
+						<!--<li><a href="#"><i class="icon iconfont">&#xe665;</i></a></li>
+						 <li class="x-red"><a href="#"><i class="icon iconfont">&#xe666;</i><span id="collCount">0</span></a></li>
+						<li class="share" id="share1"><a href="#"><i
+								class="icon iconfont shareicon">&#xe667;</i></a>
+							<div class="share-show" id="share-show">
+								<span><i class="icon iconfont">&#xe65a;</i></span>
+								<ul >
+									<a href="javascript:;" class="ahov1"><li><i class="icon iconfont">&#xe65c;</i>分享到新浪微博</li></a>
+									<a href="javascript:;" class="ahov2"><li><i class="icon iconfont">&#xe65e;</i>分享到腾讯微博</li></a>
+									<a href="javascript:;" class="ahov3"><li><i class="icon iconfont">&#xe65e;</i>分享到微信</li></a>
+								</ul>
+							</div></li> -->
+					</ul>
+				</div>
+				<div class="news-detail-news">
+				 <ul id="eventDetailContent" style="text-indent:2em">
+				 
+				 </ul>
+				</div>
+				<!-- <div class="news-detail-share">
+					<ul class="bdsharebuttonbox">
+						<li>分享到：</li>
+						<li id="bottom_share" class="right">
+							<p class="red">
+								<a id="gotsina" data-cmd="tsina" href="javascript:;"></a>
+							</p>
+							<p class="green">
+								<a  data-cmd="weixin" href="javascript:;"></a>
+							</p>
+							<p class="blue">
+								<a  data-cmd="sqq" href="javascript:;"></a>
+							</p>
+						</li>
+					</ul>
+				</div> -->
+				</c:if>
 				<div class="level-news" style="margin-top:100px;">
 						<div class="level-news-title"><p><spring:message code="detail.share.data"/></p> <p id="news-num" class="blue">0</p></div>
 						<div class="level-news-list" id="news-list">
@@ -159,18 +236,26 @@
 	<div id="srcTitle" style="display: none;">
 	  ${eventDetail.srcTitle}
 	</div>
+	<c:if test="${pageContext.response.locale=='zh_CN'}">
 	<div id="srcContent" style="display: none;">
-	  ${eventDetail.srcSummary}
+	  ${eventDetail.zhSummary}
 	</div>
+	</c:if>
+	<c:if test="${pageContext.response.locale=='en_US'}">
+	<div id="srcContent" style="display: none;">
+	  ${eventDetail.enSummary}
+	</div>
+	</c:if>
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>
     <script id="levelNewsTempl" type="text/x-jsrender">
+{{if "${_currentLan}" == "zh_CN"}}
  <ul uuid ="{{:uuid}}">
-								<li  class="title" style="cursor: pointer;">{{:titleSrc}}</li>
+								<li  class="title" style="cursor: pointer;">{{:titleZh}}</li>
 								<li class="list">
 									<p>
-										<span><a href="javascript:void(0);">{{:mediaNameSrc}}</a></span>
+										<span><a href="javascript:void(0);">{{:mediaNameZh}}</a></span>
 										<span>{{:pubdate}}</span>
 									</p>
 									<p class="right">
@@ -181,6 +266,24 @@
 								</li>
 								<li title="{{:abstractZh}}" class="news" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:abstractZh}}</li>
 	</ul>
+{{/if}}
+{{if "${_currentLan}" == "en_US"}}
+ <ul uuid ="{{:uuid}}">
+								<li  class="title" style="cursor: pointer;">{{:titleEn}}</li>
+								<li class="list">
+									<p>
+										<span><a href="javascript:void(0);">{{:mediaNameEn}}</a></span>
+										<span>{{:pubdate}}</span>
+									</p>
+									<p class="right">
+										<span>{{:languageTname}}</span>
+										<span>{{:countryNameEn}}<img class="eventcountry" height="20px" width="30px" src="${uedroot}/images/country/{{:countryNameEn}}@2x.png" /></span>
+										<span><spring:message code="detail.reprint"/>：{{:transfer}}</span>
+									</p>
+								</li>
+								<li title="{{:abstractEn}}" class="news" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;">{{:abstractEn}}</li>
+	</ul>
+{{/if}}
 </script>
 	<script type="text/javascript">
     var pager;

@@ -25,7 +25,7 @@ define('app/jsp/search/select', function (require, exports, module) {
 				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
 				 mode: "map",
 				 language: currentLan, //当前语言，已在通用页面进行初始化
-				 async: false 
+				 async: true 
 			 });
         },
         initOrgSelect:function(selectConfig){
@@ -61,6 +61,14 @@ define('app/jsp/search/select', function (require, exports, module) {
 						obj.text=data[i].name;
 						data2.push(obj);
 					}
+			       	// 初始化国际化
+		            $.i18n.properties({//加载资浏览器语言对应的资源文件 
+						 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+						 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+						 mode: "map",
+						 language: currentLan, //当前语言，已在通用页面进行初始化
+						 async: true 
+					 });
 					var selectConfigData = []; 
 					if($.isArray(selectConfig)){//数组模式
 						selectConfigData =selectConfig; 

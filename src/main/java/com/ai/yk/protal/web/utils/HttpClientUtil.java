@@ -19,13 +19,13 @@ import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
-import org.apache.http.conn.ssl.SSLContextBuilder;
-import org.apache.http.conn.ssl.TrustStrategy;
 import org.apache.http.conn.ssl.X509HostnameVerifier;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.ssl.SSLContextBuilder;
+import org.apache.http.ssl.TrustStrategy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -34,6 +34,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import com.ai.yk.protal.web.content.YJRequest;
 import com.alibaba.fastjson.JSON;
 
+@SuppressWarnings("deprecation")
 public final class HttpClientUtil {
 	private static final Logger LOGGER = LoggerFactory
 			.getLogger(HttpClientUtil.class);
