@@ -198,8 +198,8 @@ define('app/jsp/search/charts', function(require, exports, module) {
 						},
 						formatter : function(val) {
 							xData.push(val);
-							if (val > 1000) {
-								return val / 1000 + "K";
+							if (val > 10000) {
+								return val / 10000 + "W";
 							} else {
 								return val;
 							}
