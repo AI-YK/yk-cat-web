@@ -710,11 +710,9 @@ public class CommonController {
 		String result = "";
 			String rtext="";
 			rtext= req.getText();
-			System.out.println(rtext);
 			char[] reqchararray= rtext.toCharArray();
 			String reqstr="";
 			StringBuffer resultstr=new StringBuffer();
-			System.out.println(rtext);
 			if(rtext.length()>30){
 				for(int i=0;i<reqchararray.length;i=i+10){
 					if(i+10<reqchararray.length){
