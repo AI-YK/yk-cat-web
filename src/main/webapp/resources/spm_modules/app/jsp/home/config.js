@@ -50,14 +50,7 @@ define('app/jsp/home/config', function (require, exports, module) {
         	this._getDomains();
         },
         _getProvince:function(){
-            $.i18n.properties({//加载资浏览器语言对应的资源文件 
-				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
-				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
-				 mode: "both",
-				 language: currentLan, //当前语言，已在通用页面进行初始化
-				 async: false 
-			 });
-           
+            
         	var _this = this;
         	var url = "/common/getProvince";
         	var param = {};
@@ -88,13 +81,7 @@ define('app/jsp/home/config', function (require, exports, module) {
 			});
         },
         _getCity:function(parent){
-            $.i18n.properties({//加载资浏览器语言对应的资源文件 
-				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
-				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
-				 mode: "both",
-				 language: currentLan, //当前语言，已在通用页面进行初始化
-				 async: false 
-			 });
+           
             if(!parent){
             	var curr = $(".choice-list .current");
             	if(curr){
@@ -122,13 +109,7 @@ define('app/jsp/home/config', function (require, exports, module) {
 			});
         },
         _getDomains:function(){
-            $.i18n.properties({//加载资浏览器语言对应的资源文件 
-				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
-				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
-				 mode: "both",
-				 language: currentLan, //当前语言，已在通用页面进行初始化
-				 async: false 
-			 });
+            
         	var url = "/common/getDic";
         	var param = {};
         	ajaxController.ajax({
@@ -146,13 +127,7 @@ define('app/jsp/home/config', function (require, exports, module) {
 			});
         },
         _saveConfig:function(){
-            $.i18n.properties({//加载资浏览器语言对应的资源文件 
-				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
-				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
-				 mode: "both",
-				 language: currentLan, //当前语言，已在通用页面进行初始化
-				 async: false 
-			 });
+            
           var interestStr = "";
           $(".dic").each(function(){
         	  if(this.checked){
