@@ -194,9 +194,9 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     font-size: 14px;
     margin: 0px;
 }
-.user-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
-.user-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
-.user-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
+.user-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;padding-left:6px;}
+.user-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;padding-left:6px;}
+.user-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;padding-left:6px;}
 .erw-show{
 	width: 120px;
     height: 120px;
@@ -225,6 +225,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 	float: right;
 	position:relative;
 }
+.rightt ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;padding-left:6px;}
 .menu_list1 li{
 	    margin-left: 14px;
     display: inline-block;

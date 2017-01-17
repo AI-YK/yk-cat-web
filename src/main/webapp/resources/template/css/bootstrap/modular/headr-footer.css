@@ -11,7 +11,7 @@
 /**昵称**/
 .breadcrumb-main ul li .user-show{width:120px;height:100px;background:#fff;position:absolute;top:36px;right:50px;border:1px solid #ddd;display:none;border-radius:8px;z-index:999;}
 .breadcrumb-main ul li .user-show ul{}
-.breadcrumb-main ul li .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.breadcrumb-main ul li .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;padding-left:6px;}
 .breadcrumb-main ul li .user-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
 .breadcrumb-main ul li .user-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
 .breadcrumb-main ul li .user-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}
@@ -31,7 +31,7 @@
 .mainbav{}
 .mainbav ul{}
 .mainbav ul li{margin-left:14px;display:inline-block;float:left;margin-top:40px;}
-.mainbav ul li a{font-size:16px;color:#767fa2;padding:0 8px;}
+.mainbav ul li a{font-size:16px;color:#767fa2;padding:0 8px;padding-left:6px;}
 .mainbav ul li .current{border-bottom:3px solid #3382ee;padding-bottom:27px;color:#3382ee}
 .mainbav ul .search{width:230px;height:36px;border:1px solid #3382ee;background:#212532;border-radius:20px;line-height:34px;margin-top:35px}
 .mainbav ul .search a{color:#3382ee;padding:0 12px 0 0;float:right;}
@@ -43,7 +43,7 @@
 .left-list p{float:left;margin-top:20px;}
 .left-list ul li a{font-size:14px;color:#666}
 .left-list ul li a i{margin-left:8px;}
-.left-list{float:left}
+.left-list{float:left;}
 .right-list{float:right;margin-top:15px;}
 .right-list ul{width:100%;}
 .right-list ul li{display:inline-block;margin-left:10px;position:relative;}
@@ -54,7 +54,7 @@
 .right-list ul .in-border a i{float:right;padding-right:6px;}
 .right-list ul li .special-show{width:120px;height:100px;background:#fff;position:absolute;top:36px;right:0px;border:1px solid #ddd;border-radius:8px;display:none;z-index:99;}
 .right-list ul li .special-show ul{}
-.right-list ul li .special-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.right-list ul li .special-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;padding-left:6px;}
 .right-list ul li .special-show ul .ahov1:hover{background:#adcdf8;color:#3382ee;border-radius:8px 8px 0 0 ;}
 .right-list ul li .special-show ul .ahov2:hover{background:#adcdf8;color:#3382ee;}
 .right-list ul li .special-show ul .ahov3:hover{background:#adcdf8;color:#3382ee;border-radius: 0 0 8px 8px;}

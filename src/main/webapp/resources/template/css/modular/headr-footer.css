@@ -24,7 +24,7 @@
 /**鏄电О**/
 .mainbav ul .user-show{width:120px;height:100px;background:#23283b;position:absolute;top:56px;right:-6px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
 .mainbav ul .user-show ul{}
-.mainbav ul .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.mainbav ul .user-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;padding-left:6px;}
 .mainbav ul .user-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
 .mainbav ul .user-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
 .mainbav ul .user-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
@@ -36,7 +36,7 @@
 /**鏁版嵁**/
 .mainbav ul .data-show{width:120px;height:68px;background:#23283b;position:absolute;top:56px;right:-45px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
 .mainbav ul .data-show ul{}
-.mainbav ul .data-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.mainbav ul .data-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;padding-left:6px;}
 .mainbav ul .data-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
 .mainbav ul .data-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
 .mainbav ul .data-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
