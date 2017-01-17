@@ -561,11 +561,12 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		    calculable : true,
         		    backgroundColor:'#212532',
         		    grid : {
-    					x : 5,
+    					x :20,
     					y : 15,
-    					x2 : 0,
+    					x2 : 25,
     					y2 : 25
     				},
+    				
         		    xAxis : [
         		        {
         		        	type : 'category',
@@ -590,7 +591,14 @@ define('app/jsp/home/charts', function (require, exports, module) {
         							fontSize : 13
         						},
         						formatter: function (value, index) {
-        							if(times.length >2){
+        							
+        							var len = value.length;
+    						    	//yyyy-MM-dd HH:mm
+    						    	if(len>10){
+    						    		return value.substring(11,len);
+    						    	}
+    						    	return value;
+        							/*if(times.length >2){
         								
         							
         						    if(0==index||times.length-1==index){
@@ -609,7 +617,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
         							 }else{
         								 return value;
         							 }
-        						 }
+        						 }*/
         						}
         						/*
         							if(value.length <=10){
@@ -638,11 +646,11 @@ define('app/jsp/home/charts', function (require, exports, module) {
         					  }
         					},
         					axisLabel : {
-        						margin : -15,
+        						margin : 10,
         						textStyle : {
         							color : '#697398',
         							fontSize : 13,
-        							align:'right',
+        							align:'left',
         							baseline:'bottom'
         						},
         						formatter:function(val){
