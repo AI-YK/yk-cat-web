@@ -143,11 +143,11 @@
 			var timestamp=new Date().getTime();
 			var datatime1=timestamp-1000*60*60*24*30+1000*60*60*24*cunt;
 			var qrdat=new Date(parseInt(datatime1)).getDate();
-			//alert(qrdat);
+//			alert(qrdat);
 			if(qrdat==1){
 				return '';
 			}else{
-				switch (new Date(parseInt(datatime1)).getMonth()){
+				switch (new Date(parseInt(datatime1)).getMonth()+1){
 				case 1: return '&nbsp;'+'&nbsp;'+'<span style="color:#d0e7ff;">Jan</span>'+'&nbsp;'+'&nbsp;';break;
 		 		case 2: return '&nbsp;'+'&nbsp;'+'<span style="color:#d0e7ff;">Feb</span>'+'&nbsp;'+'&nbsp;';break;
 		 		case 3: return '&nbsp;'+'&nbsp;'+'<span style="color:#d0e7ff;">Mar</span>'+'&nbsp;'+'&nbsp;';break;
@@ -199,6 +199,8 @@
 		};
 		
 		$('.navtbot').append(timehtml);
+		
+		console.log(timehtml);
 		//初始化获得时间
 		begindate=$('.rqxz').parent().attr('data-value');   //开始时间
 		enddate=$('.rqxz').parent().attr('data-value');     //结束时间
