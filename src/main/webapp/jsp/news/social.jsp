@@ -172,7 +172,7 @@
 					</div>
 					<div class="level-news" >
 						<div class="level-news-title">
-							<p>共有相关数据</p>
+							<p><spring:message code="opiniots.sharerelevantdata"/></p>
 							<p class="blue" id="news-num" >0</p>
 						</div>
 						<div class="level-news-list" id="news-list">
@@ -221,7 +221,7 @@
 					</div>
 					<div class="level-news" >
 						<div class="level-news-title">
-							<p>共有相关数据</p>
+							<p><spring:message code="opiniots.sharerelevantdata"/></p>
 							<p class="blue" id="social-num">0</p>
 						</div>
 						<div class="level-news-list  pl-40 user-por" id="social-list">
