@@ -170,7 +170,7 @@
 					</ul>
 				</div> -->
 				</c:if>
-				<div class="level-news" style="margin-top:100px;">
+				<div class="level-news" style="margin-top:10px;">
 						<div class="level-news-title"><p><spring:message code="detail.share.data"/></p> <p id="news-num" class="blue">0</p></div>
 						<div class="level-news-list" id="news-list">
 							
@@ -239,13 +239,16 @@
 	<c:if test="${pageContext.response.locale=='zh_CN'}">
 	<div id="srcContent" style="display: none;">
 	  ${eventDetail.zhSummary}
+	  <p style="color:#999;margin-top:40px;float:left;">本文由译见转码生成，版权及观点归原文著作权人，不代表译见立场。</p>
 	</div>
 	</c:if>
 	<c:if test="${pageContext.response.locale=='en_US'}">
 	<div id="srcContent" style="display: none;">
 	  ${eventDetail.enSummary}
+	  <p style="color:#999;margin-top:40px;float:left;">Copyright of this article reserved by original author, YeeSight keep full text and holds no standpoint.</p>
 	</div>
 	</c:if>
+	
 	<%@include file="/inc/indexFoot.jsp"%>
     <%@include file="/inc/incJs.jsp"%>
     <script src="${uedroot}/scripts/modular/drag.js"></script>

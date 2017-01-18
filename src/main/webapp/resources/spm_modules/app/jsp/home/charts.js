@@ -98,7 +98,7 @@ define('app/jsp/home/charts', function (require, exports, module) {
     					name : "",
     					type : 'bar',
     					barWidth : 1,
-    					barGap : '17px',
+    					barGap : '12px',
     					label : {
     						normal : {
     							show : true,
