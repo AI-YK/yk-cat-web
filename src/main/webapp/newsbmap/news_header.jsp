@@ -282,7 +282,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 			<li><a href="${_base}/search/public"><spring:message code="home.nav.bar.public"/></a></li>
 					<%-- <c:if test="${!noSearch}"> --%>
 					 <li class="search">
-					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'" type="text" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right"><i class="icon iconfont">&#xe658;</i></a>
+					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'" type="text" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right;width:38px;"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
 					<%-- </c:if> <i class="ico_user"></i>--%>
 					<li class="iphone-show" style="margin-top:16px"><img alt="" src="${_base}/resources/template/images/user.png"></li>

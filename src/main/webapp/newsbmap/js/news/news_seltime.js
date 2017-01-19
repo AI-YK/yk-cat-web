@@ -200,7 +200,7 @@
 		
 		$('.navtbot').append(timehtml);
 		
-		console.log(timehtml);
+		//console.log(timehtml);
 		//初始化获得时间
 		begindate=$('.rqxz').parent().attr('data-value');   //开始时间
 		enddate=$('.rqxz').parent().attr('data-value');     //结束时间
