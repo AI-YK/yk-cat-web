@@ -258,7 +258,7 @@
 								<li  class="title" style="cursor: pointer;">{{:titleZh}}</li>
 								<li class="list">
 									<p>
-										<span><a href="javascript:void(0);">{{:mediaNameZh}}</a></span>
+										<span><a href="{{:url}}" target="_blank">{{:mediaNameZh}}</a></span>
 										<span>{{:pubdate}}</span>
 									</p>
 									<p class="right">
@@ -275,7 +275,7 @@
 								<li  class="title" style="cursor: pointer;">{{:titleEn}}</li>
 								<li class="list">
 									<p>
-										<span><a href="javascript:void(0);">{{:mediaNameEn}}</a></span>
+										<span><a href="{{:url}}" target="_blank">{{:mediaNameEn}}</a></span>
 										<span>{{:pubdate}}</span>
 									</p>
 									<p class="right">

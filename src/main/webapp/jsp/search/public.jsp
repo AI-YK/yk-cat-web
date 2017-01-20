@@ -242,7 +242,7 @@
 	<li class="title" style="width:80%;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;"><span style="cursor:pointer;">{{:titleZh}}</span></li>
 	<li class="list">
 		<p>
-			<span><a href="{{:url}}">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
+			<span><a href="{{:url}}" target="_blank">{{:mediaNameZh}}</a></span><span>{{:pubdate}}</span>
 		</p>
 		<p class="right">
 			<span>{{:languageTname}}</span>
