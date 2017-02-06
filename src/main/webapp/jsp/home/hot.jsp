@@ -57,7 +57,7 @@
  {{if #getIndex()<11}}
   <ul uuid="{{:uuid}}" >
 		<li>
-			<p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+			<p style="color:#7883ac;width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 				<a href="javascript:void(0);">{{:titleZh}}</a>
 			</p>
 			<p>
@@ -79,9 +79,9 @@
 			<ul myid="{{:myId}}">
 				  <li>
 					 <p class="word">
-						<a href="javascript:void(0);">{{:name}}22</a>
+						<a href="javascript:void(0);">{{:name}}</a>
 					 </p>
-					 <p style="width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+					 <p style="color:#7883ac;width:340px;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
 						<a href="javascript:void(0);">
                              {{if title!=null&&title!=""}}
                                  {{:~filterCharacter(title)}} 
