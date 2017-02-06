@@ -31,7 +31,7 @@
 				<p id="p_subnav">
 					
 				</p>
-				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">
+				<p style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>
 				<c:if test="${pageContext.response.locale=='zh_CN'}">
 				${eventDetail.zhTitle}
 				</c:if>

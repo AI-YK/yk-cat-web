@@ -32,7 +32,7 @@
 					
 				</p>
 				
-				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${newsDetails.srcTitle}</p>
+				<p style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${newsDetails.srcTitle}</p>
 			</div>
 		</div>
 	</div>

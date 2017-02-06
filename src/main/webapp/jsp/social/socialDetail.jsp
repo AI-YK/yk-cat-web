@@ -30,7 +30,7 @@
 				<p id="p_subnav">
 					
 				</p>
-				<p style="white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${socialDetail.name}</p>
+				<p style="width:70%;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">>${socialDetail.name}</p>
 			</div>
 		</div>
 	</div>
