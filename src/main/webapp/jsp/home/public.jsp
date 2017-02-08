@@ -26,6 +26,11 @@
 		</div>
 	</div>
 </div>
+<script id="MediaSorry" type="text/x-jsrender">
+<div class="socialhot-list">
+			<span style="color:#909cc8;"><spring:message code="detail.sorry.in"/></span>
+</div>
+</script>
 <!--/负面舆情结束-->
 <script id="newsTempl" type="text/x-jsrender">
   {{if #getIndex()<9}}

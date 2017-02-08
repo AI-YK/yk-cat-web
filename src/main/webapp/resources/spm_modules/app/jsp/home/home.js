@@ -587,8 +587,17 @@ define('app/jsp/home/home', function (require, exports, module) {
 				success: function (rs) {
 					var data = rs.data;
 					if(mediaType=='news'){
-						var newsHotHtml = $("#newsHotTempl").render(data.resultList);
-						$("#news-div").html(newsHotHtml);
+						
+						if(data.resultList.length==0){
+		        			var newsHotHtml = $("#HotMediaSorry").render("");
+		        			$("#news-div").html(newsHotHtml);
+		        		}else{
+		        			var newsHotHtml = $("#newsHotTempl").render(data.resultList);
+							$("#news-div").html(newsHotHtml);
+		        		}
+							
+					//	var newsHotHtml = $("#newsHotTempl").render(data.resultList);
+					//	$("#news-div").html(newsHotHtml);
 		        	}else if(mediaType=='social'){
 		        		if(data.resultSocialList.length==0){
 		        			var socialHotHtml = $("#HotMediaSorry").render("");
@@ -650,11 +659,28 @@ define('app/jsp/home/home', function (require, exports, module) {
 				success: function (rs) {
 					var data = rs.data;
 					if(mediaType=='news'){
-						var newsHtml = $("#newsTempl").render(data.resultList);
-						$("#newsDiv").html(newsHtml);
+						
+						if(data.resultList.length==0){
+		        			var newsHtml = $("#MediaSorry").render("");
+		        			$("#newsDiv").html(newsHtml);
+		        		}else{
+		        			var newsHtml = $("#newsTempl").render(data.resultList);
+							$("#newsDiv").html(newsHtml);
+		        		}
+						
+					//var newsHtml = $("#newsTempl").render(data.resultList);
+					//	$("#newsDiv").html(newsHtml);
 		        	}else if(mediaType=='social'){
-		        		var socialHtml = $("#socialTempl").render(data.resultSocialList);
-						$("#socialDiv").html(socialHtml);
+		        		
+		        		if(data.resultSocialList.length==0){
+		        			var socialHtml = $("#MediaSorry").render("");
+		        			$("#socialDiv").html(socialHtml);
+		        		}else{
+		        			var socialHtml = $("#socialTempl").render(data.resultSocialList);
+							$("#socialDiv").html(socialHtml);
+		        		}
+		        	//	var socialHtml = $("#socialTempl").render(data.resultSocialList);
+					//	$("#socialDiv").html(socialHtml);
 		        	}
 				}
 			});
