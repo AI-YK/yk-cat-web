@@ -272,7 +272,7 @@
 {{/if}}
 {{if "${_currentLan}" == "en_US"}}
  <ul uuid ="{{:uuid}}">
-								<li  class="title" style="cursor: pointer;">{{:titleEn}}</li>
+								<li  class="title" style="cursor: pointer;">{{:titleZh}}</li>
 								<li class="list">
 									<p>
 										<span><a href="{{:url}}" target="_blank">{{:mediaNameEn}}</a></span>
