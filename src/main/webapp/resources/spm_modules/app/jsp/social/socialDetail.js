@@ -163,6 +163,13 @@ define("app/jsp/social/socialDetail", function(require, exports, module) {
    			});
 		},
 		queryRelatedInformation:function(){
+			 $.i18n.properties({//加载资浏览器语言对应的资源文件 
+				 name: ["home"], //资源文件名称，可以是数组，对应国际化资源properties文件 
+				 path: _i18n_res, //资源文件路径 ，已在通用页面进行初始化
+				 mode: "both",
+				 language: currentLan, //当前语言，已在通用页面进行初始化
+				 async: false 
+			 });
 			var keyword = $("#keyword").val();
 			var html='<div  class="not-query pt-20 pb-20"><li class="dialog-icon-notquery"></li><li>'+$.i18n.prop("newsdetail.sorry.nodata")+'</li></div>';
 			
