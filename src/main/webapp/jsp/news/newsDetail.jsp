@@ -78,6 +78,16 @@
 				</div>
 				<div class="news-detail-news">
 				 <ul id="newsDetailContent" style="text-indent:2em"></ul>
+				 <ul>
+				 	<li>
+				 	<c:if test="${pageContext.response.locale=='zh_CN'}">
+					  	<p style="color:#999;margin-top:40px;text-align:center;">本文由译见转码生成，版权及观点归原文著作权人，不代表译见立场。</p>
+					 </c:if>
+					 <c:if test="${pageContext.response.locale=='en_US'}">
+					 	<p style="color:#999;margin-top:40px;text-align:center;">Copyright of this article reserved by original author, YeeSight keep full text and holds no standpoint.</p>
+					 </c:if>
+				 	</li>
+				 </ul>
 				</div>
 				<!-- <div class="news-detail-share">
 					<ul class="bdsharebuttonbox">
@@ -149,12 +159,6 @@
 	<input id="srcLanguage" type="hidden" value="${newsDetails.srcLanguage }"/>
 	<div id="srcContent" style="display: none;">
 	 ${newsDetails.srcContent}
-	 <c:if test="${pageContext.response.locale=='zh_CN'}">
-	  	<p style="color:#999;margin-top:40px;float:left;">本文由译见转码生成，版权及观点归原文著作权人，不代表译见立场。</p>
-	 </c:if>
-	 <c:if test="${pageContext.response.locale=='en_US'}">
-	 	<p style="color:#999;margin-top:40px;float:left;">Copyright of this article reserved by original author, YeeSight keep full text and holds no standpoint.</p>
-	 </c:if>
 	</div>
 	<div id="srcTitle" style="display: none;">
 	 ${newsDetails.srcTitle}
