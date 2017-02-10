@@ -71,6 +71,7 @@ public class UserController {
     	YJRequest<MyCustomizedListMessage> req = new YJRequest<MyCustomizedListMessage>();
     	MyCustomizedListMessage customizedListMessage = new MyCustomizedListMessage();
     	customizedListMessage.setCreateId(Integer.valueOf(clientUser.getUserId()));
+    	customizedListMessage.setPageSize("1");
     	req.setMessage(customizedListMessage);
     	YJResponse<MyCustomizedVo> resp = mycustomizedService.queryMyCustomized(req);
     	if(resp==null||resp.getData()==null){

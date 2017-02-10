@@ -10,6 +10,14 @@ public class MyCustomizedListMessage implements Serializable {
 	private Integer createId;
 	// 系统来源
 	private String sourceSystem = YeesightApiConstants.API_SOURCE_SYSTEM;
+	private String pageSize ;
+	
+	public String getPageSize() {
+		return pageSize;
+	}
+	public void setPageSize(String pageSize) {
+		this.pageSize = pageSize;
+	}
 	public Integer getCreateId() {
 		return createId;
 	}
