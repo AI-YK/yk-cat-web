@@ -550,7 +550,6 @@ define('app/jsp/home/charts', function (require, exports, module) {
         	}*/
         	times = times.reverse();
         	counts = counts.reverse();
-        	
         	var option = {  
         			tooltip : {
 			                trigger: 'axis',
@@ -584,7 +583,8 @@ define('app/jsp/home/charts', function (require, exports, module) {
         						lineStyle : { color : '#314a5a', width:2 }
         					},
         					axisLabel : {
-        						interval : 3,
+        						//interval : 3,
+        						interval: 'auto',
         						margin:10,
         						textStyle : {
         							color : '#697398',
