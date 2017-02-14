@@ -9,6 +9,7 @@
 <script src="js/layer/layer.js"></script>
 
 <%@ include file="/inc/inc.jsp"%>
+<%@ include file="/inc/incJs.jsp"%>
 <%-- <script type="text/javascript" src="${_base }/resources/spm_modules/jsviews/jsrender.js"></script> --%>
 <script type="text/javascript" src="${_base }/resources/spm_modules/jquery-cookie/1.4.1/jquery.cookie2.js"></script>
 <script>
@@ -253,7 +254,36 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
     margin-top: 35px;
 }
 
+/**语言**/
+ .language{float:left;color:#767fa2;line-height:26px;cursor:pointer;font-size:14px;height:40px;}
+ .language-show{width:90px;height:68px;background:#23283b;position:absolute;top:56px;right:25px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
+ .language-show ul{}
+ .language-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+ .language-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
+ .language-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
+ .language-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
+ .language-show ul .ahov3 i{padding-top:2px;display: inline-block;}
+ .language-show ul a i{font-size:18px;margin-right:4px;}
+ .language-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: left;margin:0;}
+ .language-show  span{position:absolute;top:-15px;left:38px;}
+ .language-show  span i{color:#fff;font-size:24px}
+
 </style>
+<script type="text/javascript">
+//语言切换
+$(function(){ 
+$('.language').mouseenter(function () {
+	$('#language-show').show();
+})
+	$("#language-show").click(function () {
+            $(this).hide(1);
+       });	
+	$('#language-show').mouseleave(function () {
+    $('#language-show').hide();
+})
+});
+	
+</script>
 <%
   SessionUtil.initUrlConfig(request);
 %>
@@ -284,6 +314,15 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 					 <li class="search">
 					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'" type="text" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right;width:38px;"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
+					 
+					 <li class="language" ><c:if test="${_currentLan=='en_US'}">EN</c:if><c:if test="${_currentLan=='zh_CN'}">中文</c:if><i class="icon iconfont">&#xe659;</i></li>
+					<div class="language-show" id="language-show" >
+						<span><img src="${_base}/resources/template/images/xf-sj.png"></span>
+						<ul>
+							<a href="${_realPath}?lang=zh_CN" class="ahov1"><li style="font-size:14px;text-align:center;">中文</li></a>
+							<a href="${_realPath}?lang=en_US" class="ahov3"><li style="font-size:14px;text-align:center;">EN</li></a>
+						</ul>
+					</div>
 					<%-- </c:if> <i class="ico_user"></i>--%>
 					<li class="iphone-show" style="margin-top:16px"><img alt="" src="${_base}/resources/template/images/user.png"></li>
 					<div class="user-show" id="user-show" style="display: none;">
