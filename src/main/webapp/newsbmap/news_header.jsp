@@ -256,7 +256,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
 
 /**语言**/
  .language{float:left;color:#767fa2;line-height:26px;cursor:pointer;font-size:14px;height:40px;}
- .language-show{width:90px;height:68px;background:#23283b;position:absolute;top:56px;right:25px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
+ .language-show{width:90px;height:68px;background:#23283b;position:absolute;top:58px;right:25px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
  .language-show ul{}
  .language-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
  .language-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
@@ -265,7 +265,7 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
  .language-show ul .ahov3 i{padding-top:2px;display: inline-block;}
  .language-show ul a i{font-size:18px;margin-right:4px;}
  .language-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: left;margin:0;}
- .language-show  span{position:absolute;top:-15px;left:38px;}
+ .language-show  span{position:absolute;top:-8px;left:38px;}
  .language-show  span i{color:#fff;font-size:24px}
 
 </style>
