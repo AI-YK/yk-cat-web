@@ -184,7 +184,7 @@
 .eject-choice-right{width:228px;float:left;height:200px;overflow-y:auto;}
 .eject-choice-right ul{width:100%;float:left;}
 .eject-choice-right ul li{width:100%;float:left;height:41px;border-bottom:1px solid #2f3652;padding:12px 20px;}
-.eject-choice-right ul li p{float:left;margin-right:10px;color:#7681b5}
+.eject-choice-right ul li p{float:left;margin-right:3px;color:#7681b5}
 /**滚动条**/
 .eject-choice-right::-webkit-scrollbar {width: 14px;height: 14px;}  
 .eject-choice-right::-webkit-scrollbar-track,  
