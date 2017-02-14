@@ -560,9 +560,9 @@ define('app/jsp/home/charts', function (require, exports, module) {
         		    calculable : true,
         		    backgroundColor:'#212532',
         		    grid : {
-    					x :20,
+    					x :40,
     					y : 15,
-    					x2 : 25,
+    					x2 : 35,
     					y2 : 25
     				},
     				
