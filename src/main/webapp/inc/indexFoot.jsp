@@ -17,7 +17,7 @@
 					<a target="_bank" href="${yeesightUrls.yeesightSolutionUrl}"><spring:message code="home.foot.tips.solution"/></a>
 				</p>
 			</li>
-			<li class="right">Copyright @2017 www.yeesight.com All rights
+			<li class="right">Copyright ©2017 www.yeesight.com All rights
 				reserved.京ICP备13002826号-9</li>
 		</ul>
 	</div>
