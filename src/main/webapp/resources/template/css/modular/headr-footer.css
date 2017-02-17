@@ -53,7 +53,7 @@
 /**涓诲鑸�*/
 .nav-main{width:1200px;margin:0 auto;}
 .yeesight-nav{width:100%;background:#2e344b;height:60px;float:left;min-width:1200px;}
-.yeesight-logo{width:330px;height:51px;float:left;margin-top:12px;}
+.yeesight-logo{/*width:330px;height:51px;*/float:left;margin-top:12px;}
 .mainbav{}
 .mainbav ul{position:relative;}
 .mainbav ul li{margin-left:14px;display:inline-block;float:left;margin-top:20px;}
