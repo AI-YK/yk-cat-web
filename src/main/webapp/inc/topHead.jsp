@@ -10,7 +10,7 @@
 <div class="yeesight-nav">
 	<div class="nav-main">
 		<div class="yeesight-logo">
-			<a href="${_base}/home/index"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"_en":""%>.png" /></a>
+			<a href="${_base}/home/index"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"-en":"-ch"%>.png" /></a>
 		</div>
 		<div class="mainbav right" style="height:60px;">
 		        <input id="current" type="hidden" value="${current}"/>

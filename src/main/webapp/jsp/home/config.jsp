@@ -14,7 +14,7 @@
 <body class="configure-bj">
 	<div class="configure-main">
 		<div class="configure-title">
-			<img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"_en":""%>.png">
+			<img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"-en":"-ch"%>.png">
 		</div>
 		<div class="configure-city-bj">
 			<div class="city-title">设置基本信息&nbsp;<span id="tishiId" style="color: red; font-size:12px;"></span></div>
