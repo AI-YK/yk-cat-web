@@ -52,7 +52,7 @@ function toPage(){
 	.header_box .left{float: left;height: 50px; line-height: 50px; padding: 0 20px;}
 	.header_box .left a{ display: block;}
 	/* .header_box .center{float: left;height: 50px; line-height: 50px; position: relative;} */
-	.center{width: 330px; height: 51px; float: left; margin-top: 8px;}
+	.center{/*width: 330px;*/ height: 51px; float: left; margin-top: 10px;}
 	.header_box .center .title{height: 30px; line-height: 30px; overflow: hidden; display: inline-block; margin: 10px 0; padding-left:10px;border-left: 1px solid #253242;}
 	.header_box .center .title h1{line-height: 30px;  color: #1a7cc9; font-size: 24px; font-family: "microsoft yahei"; font-weight:lighter;display: inline-block;}
 	.header_box .center .header_top_list{height:50px; display: inline-block; overflow: hidden; position: relative; margin-left: 25px;}
@@ -292,7 +292,7 @@ $('.language').mouseenter(function () {
 	<%-- <div class="center">
 		<a href="${_base}/home/index"><img src="${uedroot}/images/logo.png" /></a>
 	</div> --%>
-		<div class="center"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"_en":""%>.png" usemap="#Map"/>
+		<div class="center"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"-en":"-ch"%>.png" usemap="#Map"/>
               <map name="Map">
                 <area shape="rect" coords="0,0,112,40" href="http://www.yeesight.com/" onfocus="blur(this);" >
                 <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
