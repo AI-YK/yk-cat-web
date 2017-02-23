@@ -251,11 +251,21 @@ define('app/jsp/home/home', function (require, exports, module) {
         	
             //选择专题
             $(document).on("click",".topic",function(){
+            	  var btn = $("#topicul >li:last-child");
+            	  btn.remove();
+            	 
              	  $(".topic").each(function () {
                       $(this).removeClass("current");
                   });
                   $(this).addClass("current");
                   var topicId =_this._getTopicId();
+                  var opType = $(this).attr("opType");
+              	  var id = $(this).attr("id");
+              	  var srcId = $(this).attr("srcId");
+              	  var title = $(this).text();
+              	  var html = "<li class='inbtn' ><a id='"+id+"' opType='"+opType+"' srcId='"+srcId+"'  class='topic current' href='javascript:void(0);'>"+title+"</a></li>";
+              	  
+              	 $("#topicul").append(html);
           		  //存储选择的专题ID到cookie
                   $.cookie(_topic_id,topicId , {path: '/' });
                   _this._refresh();
@@ -586,28 +596,30 @@ define('app/jsp/home/home', function (require, exports, module) {
 				data: param,
 				success: function (rs) {
 					var data = rs.data;
-					if(mediaType=='news'){
-						
-						if(data.resultList.length==0){
-		        			var newsHotHtml = $("#HotMediaSorry").render("");
-		        			$("#news-div").html(newsHotHtml);
-		        		}else{
-		        			var newsHotHtml = $("#newsHotTempl").render(data.resultList);
-							$("#news-div").html(newsHotHtml);
-		        		}
+					if(data !=null && data != undefined){
+						if(mediaType=='news'){
 							
-					//	var newsHotHtml = $("#newsHotTempl").render(data.resultList);
-					//	$("#news-div").html(newsHotHtml);
-		        	}else if(mediaType=='social'){
-		        		if(data.resultSocialList.length==0){
-		        			var socialHotHtml = $("#HotMediaSorry").render("");
-		        			$("#social-div").html(socialHotHtml);
-		        		}else{
-		        			var socialHotHtml = $("#socialHotTempl").render(data.resultSocialList);
-							$("#social-div").html(socialHotHtml);
-		        		}
-		        		
-		        	}
+							if(data.resultList.length==0){
+			        			var newsHotHtml = $("#HotMediaSorry").render("");
+			        			$("#news-div").html(newsHotHtml);
+			        		}else{
+			        			var newsHotHtml = $("#newsHotTempl").render(data.resultList);
+								$("#news-div").html(newsHotHtml);
+			        		}
+								
+						//	var newsHotHtml = $("#newsHotTempl").render(data.resultList);
+						//	$("#news-div").html(newsHotHtml);
+			        	}else if(mediaType=='social'){
+			        		if(data.resultSocialList.length==0){
+			        			var socialHotHtml = $("#HotMediaSorry").render("");
+			        			$("#social-div").html(socialHotHtml);
+			        		}else{
+			        			var socialHotHtml = $("#socialHotTempl").render(data.resultSocialList);
+								$("#social-div").html(socialHotHtml);
+			        		}
+			        		
+			        	}
+					}
 				}
 			});
         },
@@ -759,11 +771,15 @@ define('app/jsp/home/home', function (require, exports, module) {
 					var list = rs.data;
 					var cityHtml = $("#cityTempl").render(list);
 					$("#cityList").html(cityHtml);
-					if(cityLists!=""){
+					var code = $();
+					if(cityLists!="" && parent ==  provinceCodee){
+						 $('.city').each(function(){
+							$(this).attr("checked",false);
+						});
 						var citys = eval('('+cityLists+")");
 						for(var i=0;i<citys.length;i++){
 							var id = citys[i].code;
-							$("#city_"+id).attr("checked","checked");
+							$("#city_"+id).prop("checked",true);
 						}
 					}
 				}

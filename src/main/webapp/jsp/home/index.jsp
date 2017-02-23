@@ -91,7 +91,7 @@
 			<!-- 专题数据 -->
 			<c:if test="${hasTopic}">
 			<div id="topicDiv" class="left-list" style="display: none;">
-			   <ul>
+			   <ul id="topicul">
 				    <li><a><spring:message code="home.nav.bar.specialdata"/>：</a></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
@@ -100,6 +100,8 @@
 					       </li>
 					   </c:if>
 					</c:forEach>
+					<!-- 追加一个专题数据 -->
+					<li class="inbtn"></li>
 				</ul> 
 			</div>
 			</c:if>
@@ -179,7 +181,7 @@
 <script id="cityTempl" type="text/x-jsrender">
    <li>
 	  <p>
-		 <input id="city_{{:busCode}}" type="checkbox" class="checkbox-fie city"  value="{{:busCode}}" /><input type="hidden" value="{{:name}}"/>
+		 <input id="city_{{:busCode}}" checked='checked' type="checkbox" class="checkbox-fie city"  value="{{:busCode}}" /><input type="hidden" value="{{:name}}"/>
 	  </p>
 	  <p>{{:name}}</p>
    </li>
