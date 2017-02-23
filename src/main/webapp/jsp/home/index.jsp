@@ -93,6 +93,8 @@
 			<div id="topicDiv" class="left-list" style="display: none;">
 			   <ul id="topicul">
 				    <li><a><spring:message code="home.nav.bar.specialdata"/>：</a></li>
+				    <!-- 追加一个专题数据 -->
+					<li class="inbtn"></li>
 					<c:forEach items="${topics}" var="topic" varStatus="t">
 					   <c:if test="${t.index<7}">
 					       <li class="inbtn" >
@@ -100,8 +102,7 @@
 					       </li>
 					   </c:if>
 					</c:forEach>
-					<!-- 追加一个专题数据 -->
-					<li class="inbtn"></li>
+					
 				</ul> 
 			</div>
 			</c:if>

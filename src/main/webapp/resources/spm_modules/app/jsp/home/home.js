@@ -251,7 +251,7 @@ define('app/jsp/home/home', function (require, exports, module) {
         	
             //选择专题
             $(document).on("click",".topic",function(){
-            	  var btn = $("#topicul >li:last-child");
+            	  var btn = $("#topicul >li:eq(1)");
             	  btn.remove();
             	 
              	  $(".topic").each(function () {
@@ -265,7 +265,7 @@ define('app/jsp/home/home', function (require, exports, module) {
               	  var title = $(this).text();
               	  var html = "<li class='inbtn' ><a id='"+id+"' opType='"+opType+"' srcId='"+srcId+"'  class='topic current' href='javascript:void(0);'>"+title+"</a></li>";
               	  
-              	 $("#topicul").append(html);
+              	 $("#topicul >li:eq(0)").after(html);
           		  //存储选择的专题ID到cookie
                   $.cookie(_topic_id,topicId , {path: '/' });
                   _this._refresh();
