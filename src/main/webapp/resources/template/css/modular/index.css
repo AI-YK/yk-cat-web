@@ -194,3 +194,19 @@
 .eject-choice-right::-webkit-scrollbar-corner {  background: transparent;  }  
 /**滚动条结束**/
 .eject-medium-btn{width:100%;float:left;text-align:center;margin-top:24px;}
+/**logo下拉**/
+.ind-hid{float:left;height:60px;position:relative;}
+.ind-hid p{width:120px;height:60px;float:left;}
+.ind-hid i{color:#767fa2;font-size:22px;margin:18px 0 0 20px;float:left;cursor:pointer;}
+.ind-show{width:140px;;height:auto;background:#23283b;position:absolute;top:56px;margin-left:-40px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
+.ind-show ul{}
+.ind-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.ind-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
+.ind-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
+.ind-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
+.ind-show ul .ahov3 i{padding-top:2px;display: inline-block;}
+.ind-show ul a i{font-size:18px;margin-right:4px;}
+.ind-show ul a li{width:100%;height:32px;line-height:30px;float:left;text-align:center;padding-left:6px;margin:0;}
+.ind-show  span{position:absolute;top:-15px;left:63px;}
+.ind-show  span i{color:#fff;font-size:24px}
+

@@ -43,6 +43,19 @@ define('app/jsp/top/header', function (require, exports, module) {
         },
         _bindEvent:function(){
         	var _this = this;
+        	/**logo下拉**/
+        	$(function() {
+        	    var st = 100;
+        	    $('.ind-hid .ishow').mouseenter(function () {
+        			$('#ind-show').show(1);
+        	    })
+        			$("#ind-show ul a").click(function () {
+        	                $(this).hide(1);
+        	           });	
+        			$('.ind-hid').mouseleave(function () {
+        	        $('#ind-show').hide(1);
+        	    });	
+        	 });
         	//昵称
         	$('.mainbav ul .iphone-show').mouseenter(function () {
         		$("#user-show").show(1);

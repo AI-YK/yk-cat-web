@@ -14,6 +14,7 @@
 .anchorBL{  
        display:none;  
    } 
+.ind-show  span{position:absolute;top:-8px;left:63px;}   
 </style>
 </head>
 <body>
@@ -43,9 +44,12 @@
 					    <li>
 					    <div class="social-user">
 					    <c:choose>
-					    <c:when test="${socialDetail.userAvatar==''||socialDetail.userAvatar==null}">
+					   <%-- <c:when test="${socialDetail.userAvatar==''||socialDetail.userAvatar==null}">
 					     <img src="${uedroot}/images/user.jpg" />
-                        </c:when>
+                        </c:when> --%>
+                        <c:when test="${(socialDetail.sourceType =='facebook' || socialDetail.sourceType=='twitter') && socialDetail.userId !='' && socialDetail.userId != null}">
+                         <img src="http://image.yeesight.com/avatar/${socialDetail.sourceType}/${socialDetail.userId}.jpg" />
+                        </c:when> 
                         <c:otherwise>
                           <img src="${socialDetail.userAvatar}" onerror="javascript:this.src='${uedroot}/images/user.jpg'" />
                        </c:otherwise>

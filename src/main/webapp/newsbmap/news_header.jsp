@@ -267,7 +267,21 @@ body .logintheme{background:transparent;filter:'alpha(Opacity=0);-moz-opacity:0;
  .language-show ul a li{width:100%;height:33px;line-height:30px;float:left;text-align: left;margin:0;}
  .language-show  span{position:absolute;top:-8px;left:38px;}
  .language-show  span i{color:#fff;font-size:24px}
-
+/**logo下拉**/
+.ind-hid{float:left;height:60px;position:relative;}
+.ind-hid p{width:100px;height:60px;float:left;}
+.ind-hid i{color:#767fa2;font-size:22px;margin:12px 0 0 20px;float:left;cursor:pointer;}
+.ind-show{width:140px;height:auto;background:#23283b;position:absolute;top:56px;left:-40px;border:1px solid #7c85a8;display:none;border-radius:8px;z-index:999;}
+.ind-show ul{}
+.ind-show ul a{width:100%;float:left;color:#666;text-align:center;font-size:12px;}
+.ind-show ul .ahov1:hover{background:#2e344b;color:#cfd7f4;border-radius:8px 8px 0 0 ;}
+.ind-show ul .ahov2:hover{background:#2e344b;color:#cfd7f4;}
+.ind-show ul .ahov3:hover{background:#2e344b;color:#cfd7f4;border-radius: 0 0 8px 8px;}
+.ind-show ul .ahov3 i{padding-top:2px;display: inline-block;}
+.ind-show ul a i{font-size:18px;margin-right:4px;}
+.ind-show ul a li{width:100%;height:32px;line-height:30px;float:left;text-align:center;padding-left:6px;margin:0;}
+.ind-show  span{position:absolute;top:-8px;left:63px;}
+.ind-show  span i{color:#fff;font-size:24px}
 </style>
 <script type="text/javascript">
 //语言切换
@@ -282,6 +296,19 @@ $('.language').mouseenter(function () {
     $('#language-show').hide();
 })
 });
+/**logo下拉**/
+$(function() {
+    var st = 100;
+    $('.ind-hid .ishow').mouseenter(function () {
+        $('#ind-show').show(1);
+    })
+        $("#ind-show ul a").click(function () {
+                $(this).hide(1);
+           });  
+        $('.ind-hid').mouseleave(function () {
+        $('#ind-show').hide(1);
+    }); 
+ });
 	
 </script>
 <%
@@ -298,6 +325,22 @@ $('.language').mouseenter(function () {
                 <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
               </map>
 		  </div>
+		  <div class="ind-hid">
+            <p><i class="icon iconfont ishow">&#xe659;</i></p>
+            <div class="ind-show" id="ind-show">
+                <span><img src="${uedroot}/images/xf-sj.png"></span>
+                <ul>
+                     <h4 style="color:white;text-align:center;"><spring:message code="home.nav.ind.general"/></h4>
+                    <a href="http://buzz.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.bar.agentanalysis"/></li></a>
+                    <a href="http://news.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.globalhot"/></li></a>
+                    <li style="text-align:center;">--------------</li>
+                    <h4 style="color:white;text-align:center;"><spring:message code="home.nav.ind.industry"/></h4>
+                    <a href="http://www.yeesight.com/" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.safety"/></li></a>
+                    <a href="http://media.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.news"/></li></a>
+                    <a href="http://finance.yeesight.com" target="_self" class="ahov3"><li><spring:message code="home.nav.ind.finance"/></li></a>
+                </ul>
+            </div>
+          </div>
 	<div class="rightt">
 		<ul class="menu_list1">
 			<li>
@@ -315,7 +358,7 @@ $('.language').mouseenter(function () {
 					 <input id="_keyword" onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'" type="text" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"><a id="_searchBtn" style="cursor: pointer;color:#3382ee;padding:0 12px 0 0;float: right;width:38px;"><i class="icon iconfont">&#xe658;</i></a>
 					 </li>
 					 
-					 <li class="language" ><c:if test="${_currentLan=='en_US'}">EN</c:if><c:if test="${_currentLan=='zh_CN'}">中文</c:if><i class="icon iconfont">&#xe659;</i></li>
+					 <li class="language" ><c:if test="${_currentLan=='en_US'}">中文</c:if><c:if test="${_currentLan=='zh_CN'}">EN</c:if><i class="icon iconfont">&#xe659;</i></li>
 					<div class="language-show" id="language-show" >
 						<span><img src="${_base}/resources/template/images/xf-sj.png"></span>
 						<ul>

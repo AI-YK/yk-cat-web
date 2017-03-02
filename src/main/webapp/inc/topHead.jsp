@@ -12,6 +12,22 @@
 		<div class="yeesight-logo">
 			<a href="${_base}/home/index"><img src="${uedroot}/images/logo<%= !Locale.SIMPLIFIED_CHINESE.equals(response.getLocale())?"-en":"-ch"%>.png" /></a>
 		</div>
+		 <div class="ind-hid">
+            <p><i class="icon iconfont ishow">&#xe659;</i></p>
+            <div class="ind-show" id="ind-show">
+                <span><img src="${uedroot}/images/xf-sj.png"></span>
+                <ul>
+                    <h4 style="color:white;text-align:center;"><spring:message code="home.nav.ind.general"/></h4>
+                    <a href="http://buzz.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.bar.agentanalysis"/></li></a>
+                    <a href="http://news.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.globalhot"/></li></a>
+                    <li style="text-align:center;">--------------</li>
+                    <h4 style="color:white;text-align:center;"><spring:message code="home.nav.ind.industry"/></h4>
+                    <a href="http://www.yeesight.com/" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.safety"/></li></a>
+                    <a href="http://media.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.news"/></li></a>
+                    <a href="http://finance.yeesight.com" target="_self" class="ahov3"><li><spring:message code="home.nav.ind.finance"/></li></a>
+                </ul>
+            </div>
+          </div>
 		<div class="mainbav right" style="height:60px;">
 		        <input id="current" type="hidden" value="${current}"/>
 				<ul id="menu">

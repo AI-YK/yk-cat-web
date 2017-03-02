@@ -74,7 +74,16 @@
  {{if #getIndex()<7}}
  <div class="socialhot-list">
 			<div class="social-user">
-                <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
+                {{if sourceType == "facebook" || sourceType == "twitter" }}
+                    {{if ~isNum(userId) }}
+                         <img src="http://image.yeesight.com/avatar/{{:sourceType}}/{{:userId}}.jpg" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
+                    {{else}}
+                        <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
+                    {{/if}}
+                {{else}}
+                        <img src="{{:userAvatar}}" onerror="javascript:this.src='${uedroot}/images/user.jpg';"/>
+                {{/if}}
+
 			</div>
 			<ul myid="{{:myId}}">
 				  <li>

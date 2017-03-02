@@ -144,6 +144,14 @@ define(function(require, exports, module) {
 			str = str.replace(/<br>/g, "");
 			str = str.replace(/<em>/g, "");
 			return str;
+		},
+		"isNum" :function(s){
+			var reg = new RegExp("^[0-9]*$");
+			if(s == null || s=="" || s ==" "){
+				return false;
+			}else{
+				return reg.test(s);
+			}
 		}
 	});
 

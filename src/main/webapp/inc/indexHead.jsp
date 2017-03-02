@@ -18,6 +18,22 @@
                 <area shape="rect" coords="115,0,240,40" href="${_base}/home/index" onfocus="blur(this);"  >
               </map>
 		  </div>
+		  <div class="ind-hid">
+            <p><i class="icon iconfont ishow">&#xe659;</i></p>
+            <div class="ind-show" id="ind-show">
+                <span><img src="${uedroot}/images/xf-sj.png"></span>
+                <ul>
+                    <h4 style="color:white;text-align:center;"><spring:message code="home.nav.ind.general"/></h4>
+                    <a href="http://buzz.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.bar.agentanalysis"/></li></a>
+                    <a href="http://news.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.globalhot"/></li></a>
+                    <li style="text-align:center;">--------------</li>
+                    <h4 style="color:white;text-align:center;"><spring:message code="home.nav.ind.industry"/></h4>
+                    <a href="http://www.yeesight.com/" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.safety"/></li></a>
+                    <a href="http://media.yeesight.com" target="_self" class="ahov2"><li><spring:message code="home.nav.ind.news"/></li></a>
+                    <a href="http://finance.yeesight.com" target="_self" class="ahov3"><li><spring:message code="home.nav.ind.finance"/></li></a>
+                </ul>
+            </div>
+          </div>
 		<div class="mainbav right">
 		        <input id="current" type="hidden" value="${current}"/>
 				<ul id="menu">
@@ -28,7 +44,7 @@
 					<li class="search">
 					    <input onfocus="this.placeholder=''" onblur="this.placeholder='<spring:message code="home.nav.bar.search"/>'"  type="text" id="_keyword" value="${_keyword}" class="search-medium" placeholder="<spring:message code="home.nav.bar.search"/>"/><a id="_searchBtn" href="#"><i class="icon iconfont">&#xe658;</i></a>
 					</li>
-					<li class="language" ><c:if test="${_currentLan=='en_US'}">EN</c:if><c:if test="${_currentLan=='zh_CN'}">中文</c:if><i class="icon iconfont">&#xe659;</i></li>
+					<li class="language" ><c:if test="${_currentLan=='en_US'}">中文</c:if><c:if test="${_currentLan=='zh_CN'}">EN</c:if><i class="icon iconfont">&#xe659;</i></li>
 					<div class="language-show" id="language-show" >
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
@@ -41,7 +57,7 @@
 						<span><img src="${uedroot}/images/xf-sj.png"></span>
 						<ul>
 							<a href="${yeesightUrls.accountUrl}" target="_blank" class="ahov1"><li><i class="icon iconfont">&#xe661;</i><spring:message code="home.nav.bar.myyeeSight"/></li></a>
-							<a href="${yeesightUrls.dataUrl}" target="_bank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i><spring:message code="home.nav.bar.datamanagement"/></li></a>
+							<a href="${yeesightUrls.dataUrl}" target="_blank" class="ahov2"><li><i class="icon iconfont">&#xe662;</i><spring:message code="home.nav.bar.datamanagement"/></li></a>
 							<a href="javascript:void(0);" class="ahov3"><li><i class="icon iconfont">&#xe663;</i><spring:message code="home.nav.bar.logout"/></li></a>
 						</ul>
 					</div>

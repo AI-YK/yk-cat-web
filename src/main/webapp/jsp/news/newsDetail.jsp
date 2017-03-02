@@ -14,6 +14,7 @@
 .anchorBL{  
        display:none;  
    } 
+.ind-show  span{position:absolute;top:-8px;left:63px;}   
 </style>
 </head>
 <body>
